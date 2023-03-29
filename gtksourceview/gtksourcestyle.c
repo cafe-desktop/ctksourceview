@@ -604,7 +604,7 @@ ctk_source_style_apply (const CtkSourceStyle *style,
 		{
 			GdkRGBA underline_rgba;
 
-			gdk_rgba_parse (&underline_rgba, style->underline_color);
+			cdk_rgba_parse (&underline_rgba, style->underline_color);
 			g_object_set (tag, "underline-rgba", &underline_rgba, NULL);
 		}
 		else

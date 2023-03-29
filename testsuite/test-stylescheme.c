@@ -162,7 +162,7 @@ test_named_color_alpha (TestFixture   *fixture,
 	res = _ctk_source_style_scheme_get_background_pattern_color (scheme, &color2);
 	g_assert_true (res);
 
-	g_assert_true (gdk_rgba_equal (&color1, &color2));
+	g_assert_true (cdk_rgba_equal (&color1, &color2));
 }
 
 int

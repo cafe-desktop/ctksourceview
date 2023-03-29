@@ -757,8 +757,8 @@ update_info_position (CtkSourceCompletion *completion)
 
 	display = ctk_widget_get_display (CTK_WIDGET (completion->priv->main_window));
 	window = ctk_widget_get_window (CTK_WIDGET (completion->priv->main_window));
-	monitor = gdk_display_get_monitor_at_window (display, window);
-	gdk_monitor_get_geometry (monitor, &geom);
+	monitor = cdk_display_get_monitor_at_window (display, window);
+	cdk_monitor_get_geometry (monitor, &geom);
 
 	/* Determine on which side to place it */
 	if (x + width + info_width >= geom.width)
@@ -2152,7 +2152,7 @@ init_tree_view (CtkSourceCompletion *completion,
 				 column,
 				 0);
 
-	gdk_rgba_free (background_color);
+	cdk_rgba_free (background_color);
 }
 
 static void

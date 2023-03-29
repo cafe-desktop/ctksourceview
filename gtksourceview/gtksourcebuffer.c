@@ -1182,7 +1182,7 @@ queue_bracket_highlighting_update (CtkSourceBuffer *buffer)
 	 * ::update() or ::after-paint() to synchronize this.
 	 */
 	buffer->priv->bracket_highlighting_timeout_id =
-		gdk_threads_add_timeout_full (G_PRIORITY_LOW,
+		cdk_threads_add_timeout_full (G_PRIORITY_LOW,
 					      UPDATE_BRACKET_DELAY,
 					      bracket_highlighting_timeout_cb,
 					      buffer,

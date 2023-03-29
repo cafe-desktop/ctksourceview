@@ -125,13 +125,13 @@ gutter_renderer_pixbuf_draw (CtkSourceGutterRenderer      *renderer,
 		return;
 	}
 
-	width = gdk_pixbuf_get_width (pixbuf);
-	height = gdk_pixbuf_get_height (pixbuf);
+	width = cdk_pixbuf_get_width (pixbuf);
+	height = cdk_pixbuf_get_height (pixbuf);
 
 	/*
 	 * We might have gotten a pixbuf back from the helper that will allow
 	 * us to render for HiDPI. If we detect this, we pretend that we got a
-	 * different size back and then gdk_cairo_surface_create_from_pixbuf()
+	 * different size back and then cdk_cairo_surface_create_from_pixbuf()
 	 * will take care of the rest.
 	 */
 	scale = ctk_widget_get_scale_factor (CTK_WIDGET (view));
@@ -182,7 +182,7 @@ gutter_renderer_pixbuf_draw (CtkSourceGutterRenderer      *renderer,
 			g_assert_not_reached ();
 	}
 
-	surface = gdk_cairo_surface_create_from_pixbuf (pixbuf, scale, NULL);
+	surface = cdk_cairo_surface_create_from_pixbuf (pixbuf, scale, NULL);
 	cairo_set_source_surface (cr, surface, x, y);
 
 	cairo_paint (cr);

@@ -328,7 +328,7 @@ do_redraw (CtkSourceGutter *gutter)
 
 	if (window && !gutter->priv->is_drawing)
 	{
-		gdk_window_invalidate_rect (window, NULL, FALSE);
+		cdk_window_invalidate_rect (window, NULL, FALSE);
 	}
 }
 
@@ -831,7 +831,7 @@ get_clip_rectangle (CtkSourceGutter *gutter,
 
 	ctk_cairo_transform_to_window (cr, CTK_WIDGET (view), window);
 
-	return gdk_cairo_get_clip_rectangle (cr, clip);
+	return cdk_cairo_get_clip_rectangle (cr, clip);
 }
 
 static void
@@ -876,7 +876,7 @@ apply_style (CtkSourceGutter *gutter,
 	                             ctk_style_context_get_state (style_context),
 	                             &fg_color);
 
-	gdk_cairo_set_source_rgba (cr, &fg_color);
+	cdk_cairo_set_source_rgba (cr, &fg_color);
 }
 
 /* Call ctk_source_gutter_renderer_begin() on each renderer. */
@@ -931,7 +931,7 @@ begin_draw (CtkSourceGutter *gutter,
 
 		cairo_save (cr);
 
-		gdk_cairo_rectangle (cr, &background_area);
+		cdk_cairo_rectangle (cr, &background_area);
 		cairo_clip (cr);
 
 		ctk_source_gutter_renderer_begin (renderer->renderer,
@@ -1089,7 +1089,7 @@ draw_cells (CtkSourceGutter *gutter,
 
 			cairo_save (cr);
 
-			gdk_cairo_rectangle (cr, &background_area);
+			cdk_cairo_rectangle (cr, &background_area);
 
 			cairo_clip (cr);
 

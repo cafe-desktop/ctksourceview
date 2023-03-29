@@ -134,19 +134,19 @@ composite_marks (CtkSourceView *view,
 		{
 			if (composite == NULL)
 			{
-				composite = gdk_pixbuf_copy (pixbuf);
-				mark_width = gdk_pixbuf_get_width (composite);
-				mark_height = gdk_pixbuf_get_height (composite);
+				composite = cdk_pixbuf_copy (pixbuf);
+				mark_width = cdk_pixbuf_get_width (composite);
+				mark_height = cdk_pixbuf_get_height (composite);
 			}
 			else
 			{
 				gint pixbuf_w;
 				gint pixbuf_h;
 
-				pixbuf_w = gdk_pixbuf_get_width (pixbuf);
-				pixbuf_h = gdk_pixbuf_get_height (pixbuf);
+				pixbuf_w = cdk_pixbuf_get_width (pixbuf);
+				pixbuf_h = cdk_pixbuf_get_height (pixbuf);
 
-				gdk_pixbuf_composite (pixbuf,
+				cdk_pixbuf_composite (pixbuf,
 				                      composite,
 				                      0, 0,
 				                      mark_width, mark_height,
@@ -286,7 +286,7 @@ set_tooltip_widget_from_marks (CtkSourceView *view,
 			GdkPixbuf *copy;
 
 			/* FIXME why a copy is needed? */
-			copy = gdk_pixbuf_copy (pixbuf);
+			copy = cdk_pixbuf_copy (pixbuf);
 			image = ctk_image_new_from_pixbuf (copy);
 			g_object_unref (copy);
 

@@ -244,8 +244,8 @@ update_scrubber_position (CtkSourceMap *map)
 		window = ctk_text_view_get_window (CTK_TEXT_VIEW (map), CTK_TEXT_WINDOW_WIDGET);
 		if (window != NULL)
 		{
-			gdk_window_invalidate_rect (window, &priv->scrubber_area, FALSE);
-			gdk_window_invalidate_rect (window, &scrubber_area, FALSE);
+			cdk_window_invalidate_rect (window, &priv->scrubber_area, FALSE);
+			cdk_window_invalidate_rect (window, &scrubber_area, FALSE);
 		}
 
 		priv->scrubber_area = scrubber_area;
@@ -356,7 +356,7 @@ ctk_source_map_rebuild_css (CtkSourceMap *map)
 							&color);
 		G_GNUC_END_IGNORE_DEPRECATIONS;
 		ctk_style_context_restore (context);
-		background = gdk_rgba_to_string (&color);
+		background = cdk_rgba_to_string (&color);
 
 		/*
 		 * Make sure we alter the alpha. It is possible this could be
@@ -370,10 +370,10 @@ ctk_source_map_rebuild_css (CtkSourceMap *map)
 	{
 		GdkRGBA color;
 
-		gdk_rgba_parse (&color, background);
+		cdk_rgba_parse (&color, background);
 		color.alpha = 0.75;
 		g_free (background);
-		background = gdk_rgba_to_string (&color);
+		background = cdk_rgba_to_string (&color);
 	}
 
 
@@ -1010,7 +1010,7 @@ ctk_source_map_scroll_event (CtkWidget      *widget,
 		}
 		else
 		{
-			gdk_event_get_scroll_deltas ((GdkEvent *)event, &x, &y);
+			cdk_event_get_scroll_deltas ((GdkEvent *)event, &x, &y);
 
 			if (y > 0)
 			{
@@ -1042,7 +1042,7 @@ set_view_cursor (CtkSourceMap *map)
 	                                   CTK_TEXT_WINDOW_TEXT);
 	if (window != NULL)
 	{
-		gdk_window_set_cursor (window, NULL);
+		cdk_window_set_cursor (window, NULL);
 	}
 }
 

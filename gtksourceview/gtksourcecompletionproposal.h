@@ -27,7 +27,7 @@
 #endif
 
 #include <glib-object.h>
-#include <gdk-pixbuf/gdk-pixbuf.h>
+#include <cdk-pixbuf/cdk-pixbuf.h>
 #include <ctksourceview/ctksourcetypes.h>
 
 G_BEGIN_DECLS

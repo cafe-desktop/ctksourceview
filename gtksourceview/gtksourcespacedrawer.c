@@ -310,7 +310,7 @@ ctk_source_space_drawer_finalize (GObject *object)
 
 	if (drawer->priv->color != NULL)
 	{
-		gdk_rgba_free (drawer->priv->color);
+		cdk_rgba_free (drawer->priv->color);
 	}
 
 	G_OBJECT_CLASS (ctk_source_space_drawer_parent_class)->finalize (object);
@@ -711,7 +711,7 @@ _ctk_source_space_drawer_update_color (CtkSourceSpaceDrawer *drawer,
 
 	if (drawer->priv->color != NULL)
 	{
-		gdk_rgba_free (drawer->priv->color);
+		cdk_rgba_free (drawer->priv->color);
 		drawer->priv->color = NULL;
 	}
 
@@ -737,9 +737,9 @@ _ctk_source_space_drawer_update_color (CtkSourceSpaceDrawer *drawer,
 
 			if (color_set &&
 			    color_str != NULL &&
-			    gdk_rgba_parse (&color, color_str))
+			    cdk_rgba_parse (&color, color_str))
 			{
-				drawer->priv->color = gdk_rgba_copy (&color);
+				drawer->priv->color = cdk_rgba_copy (&color);
 			}
 
 			g_free (color_str);
@@ -759,7 +759,7 @@ _ctk_source_space_drawer_update_color (CtkSourceSpaceDrawer *drawer,
 					     &color);
 		ctk_style_context_restore (context);
 
-		drawer->priv->color = gdk_rgba_copy (&color);
+		drawer->priv->color = cdk_rgba_copy (&color);
 	}
 }
 
@@ -1192,7 +1192,7 @@ _ctk_source_space_drawer_draw (CtkSourceSpaceDrawer *drawer,
 		return;
 	}
 
-	if (!gdk_cairo_get_clip_rectangle (cr, &clip))
+	if (!cdk_cairo_get_clip_rectangle (cr, &clip))
 	{
 		return;
 	}
@@ -1208,7 +1208,7 @@ _ctk_source_space_drawer_draw (CtkSourceSpaceDrawer *drawer,
 	ctk_text_view_get_iter_at_location (text_view, &end, max_x, max_y);
 
 	cairo_save (cr);
-	gdk_cairo_set_source_rgba (cr, drawer->priv->color);
+	cdk_cairo_set_source_rgba (cr, drawer->priv->color);
 	cairo_set_line_width (cr, 0.8);
 	cairo_translate (cr, -0.5, -0.5);
 
