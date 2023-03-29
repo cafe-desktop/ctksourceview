@@ -1,3 +1,3 @@
-if build_ctk_doc
+if build_gtk_doc
   subdir('reference')
 endif

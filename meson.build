@@ -62,7 +62,7 @@ docpath = join_paths(datadir, 'gtk-doc', 'html', package_string)
 install_glade_catalog = get_option('glade_catalog')
 generate_gir = get_option('gir')
 generate_vapi = generate_gir and get_option('vapi')
-build_ctk_doc = get_option('ctk_doc')
+build_gtk_doc = get_option('gtk_doc')
 
 # Dependencies
 cc = meson.get_compiler('c')
@@ -77,7 +77,7 @@ ctk_req = '>= @0@'.format(ctk_req_version)
 libxml_req = '>= 2.6'
 gladeui_req = '>= 3.9'
 introspection_req  = '>= 1.42.0'
-ctk_doc_req = '>= 1.25'
+gtk_doc_req = '>= 1.25'
 fribidi_req = '>= 0.19.7'
 
 glib_dep = dependency('glib-2.0', version: glib_req)
@@ -87,7 +87,7 @@ ctk_dep = dependency('ctk+-3.0', version: ctk_req)
 libxml_dep = dependency('libxml-2.0', version: libxml_req, required: cc.get_id() != 'msvc')
 fribidi_dep = dependency('fribidi', version: fribidi_req)
 
-ctk_quartz_dep = dependency('ctk+-quartz-3.0', version: ctk_doc_req, required: false)
+ctk_quartz_dep = dependency('ctk+-quartz-3.0', version: gtk_doc_req, required: false)
 
 if install_glade_catalog
   gladeui_dep = dependency('gladeui-2.0', version: gladeui_req)
@@ -107,10 +107,10 @@ else
   vapigen_dep = []
 endif
 
-if build_ctk_doc
-  ctk_doc_dep = dependency('gtk-doc', version: ctk_doc_req)
+if build_gtk_doc
+  gtk_doc_dep = dependency('gtk-doc', version: gtk_doc_req)
 else
-  ctk_doc_dep = []
+  gtk_doc_dep = []
 endif
 
 # Look for the libxml2 library manually on Visual Studio if
@@ -294,7 +294,7 @@ summary = [
   '------',
   'CtkSourceView @0@ (@1@)'.format(version, api_version),
   '',
-  '  Documentation: @0@'.format(build_ctk_doc),
+  '  Documentation: @0@'.format(build_gtk_doc),
   '  Glade catalog: @0@'.format(install_glade_catalog),
   '  Install tests: @0@'.format(get_option('install_tests')),
   '  Introspection: @0@'.format(generate_gir),
