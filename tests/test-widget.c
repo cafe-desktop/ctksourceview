@@ -878,7 +878,7 @@ add_source_mark_attributes (CtkSourceView *view)
 
 	attrs = ctk_source_mark_attributes_new ();
 
-	gdk_rgba_parse (&color, "lightgreen");
+	cdk_rgba_parse (&color, "lightgreen");
 	ctk_source_mark_attributes_set_background (attrs, &color);
 
 	ctk_source_mark_attributes_set_icon_name (attrs, "list-add");
@@ -894,7 +894,7 @@ add_source_mark_attributes (CtkSourceView *view)
 
 	attrs = ctk_source_mark_attributes_new ();
 
-	gdk_rgba_parse (&color, "pink");
+	cdk_rgba_parse (&color, "pink");
 	ctk_source_mark_attributes_set_background (attrs, &color);
 
 	ctk_source_mark_attributes_set_icon_name (attrs, "list-remove");

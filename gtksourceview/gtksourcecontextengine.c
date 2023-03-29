@@ -2394,7 +2394,7 @@ install_idle_worker (CtkSourceContextEngine *ce)
 {
 	if (ce->priv->first_update == 0 && ce->priv->incremental_update == 0)
 		ce->priv->incremental_update =
-			gdk_threads_add_idle_full (INCREMENTAL_UPDATE_PRIORITY,
+			cdk_threads_add_idle_full (INCREMENTAL_UPDATE_PRIORITY,
 			                           (GSourceFunc) idle_worker, ce, NULL);
 }
 
@@ -2417,7 +2417,7 @@ install_first_update (CtkSourceContextEngine *ce)
 		}
 
 		ce->priv->first_update =
-			gdk_threads_add_idle_full (FIRST_UPDATE_PRIORITY,
+			cdk_threads_add_idle_full (FIRST_UPDATE_PRIORITY,
 			                           (GSourceFunc) first_update_callback,
 			                           ce, NULL);
 	}

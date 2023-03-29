@@ -30,7 +30,7 @@
 #include <string.h> /* For strlen */
 #include <fribidi.h>
 #include <ctk/ctk.h>
-#include <gdk/gdkkeysyms.h>
+#include <cdk/cdkkeysyms.h>
 #include <pango/pango-tabs.h>
 #include <glib/gi18n-lib.h>
 
@@ -1401,12 +1401,12 @@ ctk_source_view_finalize (GObject *object)
 
 	if (view->priv->right_margin_line_color != NULL)
 	{
-		gdk_rgba_free (view->priv->right_margin_line_color);
+		cdk_rgba_free (view->priv->right_margin_line_color);
 	}
 
 	if (view->priv->right_margin_overlay_color != NULL)
 	{
-		gdk_rgba_free (view->priv->right_margin_overlay_color);
+		cdk_rgba_free (view->priv->right_margin_overlay_color);
 	}
 
 	if (view->priv->mark_categories)
@@ -2341,7 +2341,7 @@ ctk_source_view_ensure_redrawn_rect_is_highlighted (CtkSourceView *view,
 	CtkTextIter iter1, iter2;
 
 	if (view->priv->source_buffer == NULL ||
-	    !gdk_cairo_get_clip_rectangle (cr, &clip))
+	    !cdk_cairo_get_clip_rectangle (cr, &clip))
 	{
 		return;
 	}
@@ -2456,7 +2456,7 @@ ctk_source_view_paint_line_background (CtkTextView    *text_view,
 	cairo_save (cr);
 	cairo_clip_extents (cr, &x1, &y1, &x2, &y2);
 
-	gdk_cairo_set_source_rgba (cr, (GdkRGBA *)color);
+	cdk_cairo_set_source_rgba (cr, (GdkRGBA *)color);
 	cairo_set_line_width (cr, 1);
 	cairo_rectangle (cr, x1 + .5, y + .5, x2 - x1 - 1, height - 1);
 	cairo_stroke_preserve (cr);
@@ -2479,7 +2479,7 @@ ctk_source_view_paint_marks_background (CtkSourceView *view,
 
 	if (view->priv->source_buffer == NULL ||
 	    !_ctk_source_buffer_has_source_marks (view->priv->source_buffer) ||
-	    !gdk_cairo_get_clip_rectangle (cr, &clip))
+	    !cdk_cairo_get_clip_rectangle (cr, &clip))
 	{
 		return;
 	}
@@ -2597,7 +2597,7 @@ ctk_source_view_paint_right_margin (CtkSourceView *view,
 
 	g_return_if_fail (view->priv->right_margin_line_color != NULL);
 
-	if (!gdk_cairo_get_clip_rectangle (cr, &clip))
+	if (!cdk_cairo_get_clip_rectangle (cr, &clip))
 	{
 		return;
 	}
@@ -2620,7 +2620,7 @@ ctk_source_view_paint_right_margin (CtkSourceView *view,
 		cairo_move_to (cr, x + 0.5, clip.y);
 		cairo_line_to (cr, x + 0.5, clip.y + clip.height);
 
-		gdk_cairo_set_source_rgba (cr, view->priv->right_margin_line_color);
+		cdk_cairo_set_source_rgba (cr, view->priv->right_margin_line_color);
 		cairo_stroke (cr);
 	}
 
@@ -2632,7 +2632,7 @@ ctk_source_view_paint_right_margin (CtkSourceView *view,
 				 x + 1, clip.y,
 				 clip.x + clip.width - (x + 1), clip.height);
 
-		gdk_cairo_set_source_rgba (cr, view->priv->right_margin_overlay_color);
+		cdk_cairo_set_source_rgba (cr, view->priv->right_margin_overlay_color);
 		cairo_fill (cr);
 	}
 
@@ -2684,10 +2684,10 @@ ctk_source_view_paint_background_pattern_grid (CtkSourceView *view,
 
 	cairo_save (cr);
 
-	gdk_cairo_get_clip_rectangle (cr, &clip);
+	cdk_cairo_get_clip_rectangle (cr, &clip);
 
 	cairo_set_line_width (cr, 1.0);
-	gdk_cairo_set_source_rgba (cr, &view->priv->background_pattern_color);
+	cdk_cairo_set_source_rgba (cr, &view->priv->background_pattern_color);
 
 	/* Align our drawing position with a multiple of the grid size. */
 	x = realign (clip.x - grid_width, grid_width);
@@ -4702,13 +4702,13 @@ update_right_margin_colors (CtkSourceView *view)
 
 	if (view->priv->right_margin_line_color != NULL)
 	{
-		gdk_rgba_free (view->priv->right_margin_line_color);
+		cdk_rgba_free (view->priv->right_margin_line_color);
 		view->priv->right_margin_line_color = NULL;
 	}
 
 	if (view->priv->right_margin_overlay_color != NULL)
 	{
-		gdk_rgba_free (view->priv->right_margin_overlay_color);
+		cdk_rgba_free (view->priv->right_margin_overlay_color);
 		view->priv->right_margin_overlay_color = NULL;
 	}
 
@@ -4731,9 +4731,9 @@ update_right_margin_colors (CtkSourceView *view)
 
 			if (color_set &&
 			    color_str != NULL &&
-			    gdk_rgba_parse (&color, color_str))
+			    cdk_rgba_parse (&color, color_str))
 			{
-				view->priv->right_margin_line_color = gdk_rgba_copy (&color);
+				view->priv->right_margin_line_color = cdk_rgba_copy (&color);
 				view->priv->right_margin_line_color->alpha =
 					RIGHT_MARGIN_LINE_ALPHA / 255.;
 			}
@@ -4748,9 +4748,9 @@ update_right_margin_colors (CtkSourceView *view)
 
 			if (color_set &&
 			    color_str != NULL &&
-			    gdk_rgba_parse (&color, color_str))
+			    cdk_rgba_parse (&color, color_str))
 			{
-				view->priv->right_margin_overlay_color = gdk_rgba_copy (&color);
+				view->priv->right_margin_overlay_color = cdk_rgba_copy (&color);
 				view->priv->right_margin_overlay_color->alpha =
 					RIGHT_MARGIN_OVERLAY_ALPHA / 255.;
 			}
@@ -4772,7 +4772,7 @@ update_right_margin_colors (CtkSourceView *view)
 					     &color);
 		ctk_style_context_restore (context);
 
-		view->priv->right_margin_line_color = gdk_rgba_copy (&color);
+		view->priv->right_margin_line_color = cdk_rgba_copy (&color);
 		view->priv->right_margin_line_color->alpha =
 			RIGHT_MARGIN_LINE_ALPHA / 255.;
 	}

@@ -389,12 +389,12 @@ static const gchar *
 color_parse (const gchar *color,
              GdkRGBA     *rgba)
 {
-	if ((*color == '#') && gdk_rgba_parse (rgba, color + 1))
+	if ((*color == '#') && cdk_rgba_parse (rgba, color + 1))
 	{
 		return color + 1;
 	}
 
-	if (gdk_rgba_parse (rgba, color))
+	if (cdk_rgba_parse (rgba, color))
 	{
 		return color;
 	}
@@ -408,7 +408,7 @@ color_parse (const gchar *color,
  * @name: color name to find.
  *
  * Returns: color which corresponds to @name in the @scheme.
- * Returned value is actual color string suitable for gdk_rgba_parse().
+ * Returned value is actual color string suitable for cdk_rgba_parse().
  * It may be @name or part of @name so copy it or something, if you need
  * it to stay around.
  *
@@ -548,7 +548,7 @@ ctk_source_style_scheme_get_style_internal (CtkSourceStyleScheme *scheme,
 /*
  * It's a little weird because we have named colors: styles loaded from
  * scheme file can have "#red" or "blue", and we want to give out styles
- * which have nice colors suitable for gdk_color_parse(), so that CtkSourceStyle
+ * which have nice colors suitable for cdk_color_parse(), so that CtkSourceStyle
  * foreground and background properties are the same as CtkTextTag's.
  * Yet we do need to preserve what we got from file in style schemes,
  * since there may be child schemes which may redefine colors or something,
@@ -718,7 +718,7 @@ get_cursors_css_style (CtkSourceStyleScheme *scheme,
 	{
 		gchar *primary_color_str;
 
-		primary_color_str = gdk_rgba_to_string (&primary_color);
+		primary_color_str = cdk_rgba_to_string (&primary_color);
 		g_string_append_printf (css,
 					"\tcaret-color: %s;\n",
 					primary_color_str);
@@ -750,10 +750,10 @@ get_cursors_css_style (CtkSourceStyleScheme *scheme,
 		secondary_color.blue = (primary_color.blue + background_color->blue) * 0.5;
 		secondary_color.alpha = (primary_color.alpha + background_color->alpha) * 0.5;
 
-		gdk_rgba_free (background_color);
+		cdk_rgba_free (background_color);
 	}
 
-	secondary_color_str = gdk_rgba_to_string (&secondary_color);
+	secondary_color_str = cdk_rgba_to_string (&secondary_color);
 	g_string_append_printf (css,
 				"\t-ctk-secondary-caret-color: %s;\n",
 				secondary_color_str);
@@ -898,7 +898,7 @@ get_css_color_style (CtkSourceStyle *style,
 	if (get_color (style, FALSE, &color))
 	{
 		gchar *bg_color;
-		bg_color = gdk_rgba_to_string (&color);
+		bg_color = cdk_rgba_to_string (&color);
 		*bg = g_strdup_printf ("background-color: %s;\n", bg_color);
 		g_free (bg_color);
 	}
@@ -910,7 +910,7 @@ get_css_color_style (CtkSourceStyle *style,
 	if (get_color (style, TRUE, &color))
 	{
 		gchar *text_color;
-		text_color = gdk_rgba_to_string (&color);
+		text_color = cdk_rgba_to_string (&color);
 		*text = g_strdup_printf ("color: %s;\n", text_color);
 		g_free (text_color);
 	}

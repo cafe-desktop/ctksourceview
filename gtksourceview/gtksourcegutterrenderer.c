@@ -482,8 +482,8 @@ renderer_draw_impl (CtkSourceGutterRenderer      *renderer,
 	if (renderer->priv->background_set)
 	{
 		cairo_save (cr);
-		gdk_cairo_rectangle (cr, background_area);
-		gdk_cairo_set_source_rgba (cr, &renderer->priv->background_color);
+		cdk_cairo_rectangle (cr, background_area);
+		cdk_cairo_set_source_rgba (cr, &renderer->priv->background_color);
 		cairo_fill (cr);
 		cairo_restore (cr);
 	}

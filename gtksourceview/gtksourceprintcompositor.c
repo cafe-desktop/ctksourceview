@@ -2232,7 +2232,7 @@ get_iter_attrs (CtkSourcePrintCompositor *compositor,
 			bg = pango_attr_background_new (color->red * 65535,
 							color->green * 65535,
 							color->blue * 65535);
-			gdk_rgba_free (color);
+			cdk_rgba_free (color);
 		}
 
 		if (fg_set)
@@ -2248,7 +2248,7 @@ get_iter_attrs (CtkSourcePrintCompositor *compositor,
 			fg = pango_attr_foreground_new (color->red * 65535,
 							color->green * 65535,
 							color->blue * 65535);
-			gdk_rgba_free (color);
+			cdk_rgba_free (color);
 		}
 
 		if (style_set)

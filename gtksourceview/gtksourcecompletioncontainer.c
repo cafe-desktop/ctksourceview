@@ -58,10 +58,10 @@ get_max_width (CtkSourceCompletionContainer *container)
 		toplevel = ctk_widget_get_toplevel (CTK_WIDGET (container));
 		window = ctk_widget_get_window (toplevel);
 		display = ctk_widget_get_display (toplevel);
-		monitor = gdk_display_get_monitor_at_window (display, window);
-		gdk_monitor_get_geometry (monitor, &geom);
+		monitor = cdk_display_get_monitor_at_window (display, window);
+		cdk_monitor_get_geometry (monitor, &geom);
 
-		gdk_window_get_origin (window, &xorigin, NULL);
+		cdk_window_get_origin (window, &xorigin, NULL);
 
                 /* Just in case xorigin is not the global coordinate limit the max
                  * size to the monitor width.

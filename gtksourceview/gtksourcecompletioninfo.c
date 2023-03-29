@@ -376,13 +376,13 @@ move_to_iter (CtkSourceCompletionInfo *window,
               CtkTextIter             *iter)
 {
 	GdkRectangle position;
-	GdkWindow *gdk_window;
+	GdkWindow *cdk_window;
 	gint x, y;
 	gint line_height;
 
-	gdk_window = ctk_widget_get_window (CTK_WIDGET (window));
+	cdk_window = ctk_widget_get_window (CTK_WIDGET (window));
 
-	if (gdk_window == NULL)
+	if (cdk_window == NULL)
 	{
 		return;
 	}
@@ -398,7 +398,7 @@ move_to_iter (CtkSourceCompletionInfo *window,
 	position.height = line_height;
 	position.width = 0;
 
-	gdk_window_move_to_rect (gdk_window,
+	cdk_window_move_to_rect (cdk_window,
 				 &position,
 				 GDK_GRAVITY_SOUTH_WEST,
 				 GDK_GRAVITY_NORTH_WEST,
