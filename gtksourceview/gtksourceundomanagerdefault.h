@@ -1,6 +1,6 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8 -*- */
 /*
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 1998, 1999 Alex Roberts, Evan Lawrence
  * Copyright (C) 2000, 2001 Chema Celorio, Paolo Maggi
@@ -29,23 +29,23 @@
 G_BEGIN_DECLS
 
 #define CTK_SOURCE_TYPE_UNDO_MANAGER_DEFAULT		(ctk_source_undo_manager_default_get_type ())
-#define CTK_SOURCE_UNDO_MANAGER_DEFAULT(obj)		(G_TYPE_CHECK_INSTANCE_CAST((obj), CTK_SOURCE_TYPE_UNDO_MANAGER_DEFAULT, GtkSourceUndoManagerDefault))
-#define CTK_SOURCE_UNDO_MANAGER_DEFAULT_CLASS(klass)	(G_TYPE_CHECK_CLASS_CAST((klass), CTK_SOURCE_TYPE_UNDO_MANAGER_DEFAULT, GtkSourceUndoManagerDefaultClass))
+#define CTK_SOURCE_UNDO_MANAGER_DEFAULT(obj)		(G_TYPE_CHECK_INSTANCE_CAST((obj), CTK_SOURCE_TYPE_UNDO_MANAGER_DEFAULT, CtkSourceUndoManagerDefault))
+#define CTK_SOURCE_UNDO_MANAGER_DEFAULT_CLASS(klass)	(G_TYPE_CHECK_CLASS_CAST((klass), CTK_SOURCE_TYPE_UNDO_MANAGER_DEFAULT, CtkSourceUndoManagerDefaultClass))
 #define CTK_SOURCE_IS_UNDO_MANAGER_DEFAULT(obj)		(G_TYPE_CHECK_INSTANCE_TYPE ((obj), CTK_SOURCE_TYPE_UNDO_MANAGER_DEFAULT))
 #define CTK_SOURCE_IS_UNDO_MANAGER_DEFAULT_CLASS(klass)	(G_TYPE_CHECK_CLASS_TYPE ((klass), CTK_SOURCE_TYPE_UNDO_MANAGER_DEFAULT))
-#define CTK_SOURCE_UNDO_MANAGER_DEFAULT_GET_CLASS(obj)	(G_TYPE_INSTANCE_GET_CLASS ((obj), CTK_SOURCE_TYPE_UNDO_MANAGER_DEFAULT, GtkSourceUndoManagerDefaultClass))
+#define CTK_SOURCE_UNDO_MANAGER_DEFAULT_GET_CLASS(obj)	(G_TYPE_INSTANCE_GET_CLASS ((obj), CTK_SOURCE_TYPE_UNDO_MANAGER_DEFAULT, CtkSourceUndoManagerDefaultClass))
 
-typedef struct _GtkSourceUndoManagerDefaultClass 	GtkSourceUndoManagerDefaultClass;
-typedef struct _GtkSourceUndoManagerDefaultPrivate 	GtkSourceUndoManagerDefaultPrivate;
+typedef struct _CtkSourceUndoManagerDefaultClass 	CtkSourceUndoManagerDefaultClass;
+typedef struct _CtkSourceUndoManagerDefaultPrivate 	CtkSourceUndoManagerDefaultPrivate;
 
-struct _GtkSourceUndoManagerDefault
+struct _CtkSourceUndoManagerDefault
 {
 	GObject parent;
 
-	GtkSourceUndoManagerDefaultPrivate *priv;
+	CtkSourceUndoManagerDefaultPrivate *priv;
 };
 
-struct _GtkSourceUndoManagerDefaultClass
+struct _CtkSourceUndoManagerDefaultClass
 {
 	GObjectClass parent_class;
 };
@@ -54,7 +54,7 @@ G_GNUC_INTERNAL
 GType ctk_source_undo_manager_default_get_type (void) G_GNUC_CONST;
 
 G_GNUC_INTERNAL
-void ctk_source_undo_manager_default_set_max_undo_levels (GtkSourceUndoManagerDefault *manager,
+void ctk_source_undo_manager_default_set_max_undo_levels (CtkSourceUndoManagerDefault *manager,
                                                           gint                         max_undo_levels);
 
 G_END_DECLS

@@ -14,7 +14,7 @@
 <refnamediv>
 <refname>Style Scheme Definition Reference</refname>
 <refpurpose>
-Reference to the GtkSourceView style scheme definition file format
+Reference to the CtkSourceView style scheme definition file format
 </refpurpose>
 </refnamediv>
 
@@ -115,7 +115,7 @@ See below for their format description.
 
 <para>
 Each <code>style</code> tag describes a single element of style scheme (it corresponds
-to #GtkSourceStyle object). It has the following attributes:
+to #CtkSourceStyle object). It has the following attributes:
 <variablelist>
 <varlistentry>
 <term><code>name</code> (mandatory)</term>
@@ -153,7 +153,7 @@ Background color.
 <term><code>underline</code></term>
 <listitem><para>
 Accepts the values supported by PangoUnderline ("none", "single",
-"double", "low", "error"). GtkSourceView versions &lt;= 3.16 only
+"double", "low", "error"). CtkSourceView versions &lt;= 3.16 only
 supported "true" or "false" and such value are still accepted
 for backward compatibility.
 </para></listitem>
@@ -181,7 +181,7 @@ Scale the matched text block. Possible values are a float number as factor
 </para>
 
 <para>
-The following are names of styles which control GtkSourceView appearance:
+The following are names of styles which control CtkSourceView appearance:
 <variablelist>
 <varlistentry>
 <term><code>text</code></term>
@@ -254,10 +254,10 @@ grid. Only the <code>background</code> attribute is used.</para></listitem>
 <refsect1>
 <title>Default style schemes</title>
 <para>
-The GtkSourceView team prefers to just keep a small number of style schemes
-distributed with the library. To add a new style scheme in GtkSourceView
+The CtkSourceView team prefers to just keep a small number of style schemes
+distributed with the library. To add a new style scheme in CtkSourceView
 itself, the style scheme must be very popular, and ideally a
-GtkSourceView-based application must use it by default.
+CtkSourceView-based application must use it by default.
 </para>
 </refsect1>
 

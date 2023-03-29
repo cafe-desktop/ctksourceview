@@ -3,12 +3,12 @@
  * Copyright (C) 2015 Christian Hergert <christian@hergert.me>
  * Copyright (C) 2015 Ignacio Casal Quinteiro <icq@gnome.org>
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -31,23 +31,23 @@
 G_BEGIN_DECLS
 
 #define CTK_SOURCE_TYPE_MAP            (ctk_source_map_get_type())
-#define CTK_SOURCE_MAP(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_MAP, GtkSourceMap))
-#define CTK_SOURCE_MAP_CONST(obj)      (G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_MAP, GtkSourceMap const))
-#define CTK_SOURCE_MAP_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass),  CTK_SOURCE_TYPE_MAP, GtkSourceMapClass))
+#define CTK_SOURCE_MAP(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_MAP, CtkSourceMap))
+#define CTK_SOURCE_MAP_CONST(obj)      (G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_MAP, CtkSourceMap const))
+#define CTK_SOURCE_MAP_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass),  CTK_SOURCE_TYPE_MAP, CtkSourceMapClass))
 #define CTK_SOURCE_IS_MAP(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CTK_SOURCE_TYPE_MAP))
 #define CTK_SOURCE_IS_MAP_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass),  CTK_SOURCE_TYPE_MAP))
-#define CTK_SOURCE_MAP_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj),  CTK_SOURCE_TYPE_MAP, GtkSourceMapClass))
+#define CTK_SOURCE_MAP_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj),  CTK_SOURCE_TYPE_MAP, CtkSourceMapClass))
 
-typedef struct _GtkSourceMapClass GtkSourceMapClass;
+typedef struct _CtkSourceMapClass CtkSourceMapClass;
 
-struct _GtkSourceMap
+struct _CtkSourceMap
 {
-	GtkSourceView parent_instance;
+	CtkSourceView parent_instance;
 };
 
-struct _GtkSourceMapClass
+struct _CtkSourceMapClass
 {
-	GtkSourceViewClass parent_class;
+	CtkSourceViewClass parent_class;
 
 	gpointer padding[10];
 };
@@ -56,14 +56,14 @@ CTK_SOURCE_AVAILABLE_IN_3_18
 GType			 ctk_source_map_get_type	(void);
 
 CTK_SOURCE_AVAILABLE_IN_3_18
-GtkWidget		*ctk_source_map_new		(void);
+CtkWidget		*ctk_source_map_new		(void);
 
 CTK_SOURCE_AVAILABLE_IN_3_18
-void			 ctk_source_map_set_view	(GtkSourceMap  *map,
-							 GtkSourceView *view);
+void			 ctk_source_map_set_view	(CtkSourceMap  *map,
+							 CtkSourceView *view);
 
 CTK_SOURCE_AVAILABLE_IN_3_18
-GtkSourceView		*ctk_source_map_get_view	(GtkSourceMap  *map);
+CtkSourceView		*ctk_source_map_get_view	(CtkSourceMap  *map);
 
 G_END_DECLS
 

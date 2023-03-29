@@ -1,15 +1,15 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*-
  *
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2010 - Jesse van den Kieboom
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -26,19 +26,19 @@
 #include "ctksourceutils-private.h"
 #include "ctksourceview.h"
 
-struct _GtkSourceGutterRendererLinesPrivate
+struct _CtkSourceGutterRendererLinesPrivate
 {
 	gint num_line_digits;
 	gint prev_line_num;
 	guint cursor_visible : 1;
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceGutterRendererLines, ctk_source_gutter_renderer_lines, CTK_SOURCE_TYPE_GUTTER_RENDERER_TEXT)
+G_DEFINE_TYPE_WITH_PRIVATE (CtkSourceGutterRendererLines, ctk_source_gutter_renderer_lines, CTK_SOURCE_TYPE_GUTTER_RENDERER_TEXT)
 
-static GtkTextBuffer *
-get_buffer (GtkSourceGutterRendererLines *renderer)
+static CtkTextBuffer *
+get_buffer (CtkSourceGutterRendererLines *renderer)
 {
-	GtkTextView *view;
+	CtkTextView *view;
 
 	view = ctk_source_gutter_renderer_get_view (CTK_SOURCE_GUTTER_RENDERER (renderer));
 
@@ -75,11 +75,11 @@ count_num_digits (gint num_lines)
 }
 
 static void
-recalculate_size (GtkSourceGutterRendererLines *renderer)
+recalculate_size (CtkSourceGutterRendererLines *renderer)
 {
 	gint num_lines;
 	gint num_digits = 0;
-	GtkTextBuffer *buffer;
+	CtkTextBuffer *buffer;
 
 	buffer = get_buffer (renderer);
 
@@ -108,18 +108,18 @@ recalculate_size (GtkSourceGutterRendererLines *renderer)
 }
 
 static void
-on_buffer_changed (GtkSourceBuffer              *buffer,
-                   GtkSourceGutterRendererLines *renderer)
+on_buffer_changed (CtkSourceBuffer              *buffer,
+                   CtkSourceGutterRendererLines *renderer)
 {
 	recalculate_size (renderer);
 }
 
 static void
-gutter_renderer_change_buffer (GtkSourceGutterRenderer *renderer,
-                               GtkTextBuffer           *old_buffer)
+gutter_renderer_change_buffer (CtkSourceGutterRenderer *renderer,
+                               CtkTextBuffer           *old_buffer)
 {
-	GtkSourceGutterRendererLines *lines = CTK_SOURCE_GUTTER_RENDERER_LINES (renderer);
-	GtkTextBuffer *buffer;
+	CtkSourceGutterRendererLines *lines = CTK_SOURCE_GUTTER_RENDERER_LINES (renderer);
+	CtkTextBuffer *buffer;
 
 	if (old_buffer != NULL)
 	{
@@ -151,8 +151,8 @@ gutter_renderer_change_buffer (GtkSourceGutterRenderer *renderer,
 }
 
 static void
-on_view_style_updated (GtkTextView                  *view,
-		       GtkSourceGutterRendererLines *renderer)
+on_view_style_updated (CtkTextView                  *view,
+		       CtkSourceGutterRendererLines *renderer)
 {
 	/* Force to recalculate the size. */
 	renderer->priv->num_line_digits = -1;
@@ -160,18 +160,18 @@ on_view_style_updated (GtkTextView                  *view,
 }
 
 static void
-on_view_notify_cursor_visible (GtkTextView                  *view,
+on_view_notify_cursor_visible (CtkTextView                  *view,
                                GParamSpec                   *pspec,
-                               GtkSourceGutterRendererLines *renderer)
+                               CtkSourceGutterRendererLines *renderer)
 {
 	renderer->priv->cursor_visible = ctk_text_view_get_cursor_visible (view);
 }
 
 static void
-gutter_renderer_change_view (GtkSourceGutterRenderer *renderer,
-			     GtkTextView             *old_view)
+gutter_renderer_change_view (CtkSourceGutterRenderer *renderer,
+			     CtkTextView             *old_view)
 {
-	GtkTextView *new_view;
+	CtkTextView *new_view;
 
 	if (old_view != NULL)
 	{
@@ -210,12 +210,12 @@ gutter_renderer_change_view (GtkSourceGutterRenderer *renderer,
 }
 
 static void
-gutter_renderer_query_data (GtkSourceGutterRenderer      *renderer,
-                            GtkTextIter                  *start,
-                            GtkTextIter                  *end,
-                            GtkSourceGutterRendererState  state)
+gutter_renderer_query_data (CtkSourceGutterRenderer      *renderer,
+                            CtkTextIter                  *start,
+                            CtkTextIter                  *end,
+                            CtkSourceGutterRendererState  state)
 {
-	GtkSourceGutterRendererLines *lines = CTK_SOURCE_GUTTER_RENDERER_LINES (renderer);
+	CtkSourceGutterRendererLines *lines = CTK_SOURCE_GUTTER_RENDERER_LINES (renderer);
 	gchar text[24];
 	const gchar *textptr = text;
 	gint line;
@@ -242,11 +242,11 @@ gutter_renderer_query_data (GtkSourceGutterRenderer      *renderer,
 }
 
 static gint
-get_last_visible_line_number (GtkSourceGutterRendererLines *lines)
+get_last_visible_line_number (CtkSourceGutterRendererLines *lines)
 {
-	GtkTextView *view;
+	CtkTextView *view;
 	GdkRectangle visible_rect;
-	GtkTextIter iter;
+	CtkTextIter iter;
 
 	view = ctk_source_gutter_renderer_get_view (CTK_SOURCE_GUTTER_RENDERER (lines));
 
@@ -263,16 +263,16 @@ get_last_visible_line_number (GtkSourceGutterRendererLines *lines)
 }
 
 static void
-gutter_renderer_end (GtkSourceGutterRenderer *renderer)
+gutter_renderer_end (CtkSourceGutterRenderer *renderer)
 {
-	GtkSourceGutterRendererLines *lines = CTK_SOURCE_GUTTER_RENDERER_LINES (renderer);
-	GtkTextBuffer *buffer = get_buffer (lines);
+	CtkSourceGutterRendererLines *lines = CTK_SOURCE_GUTTER_RENDERER_LINES (renderer);
+	CtkTextBuffer *buffer = get_buffer (lines);
 
 	if (buffer != NULL)
 	{
 		gint line_num = get_last_visible_line_number (lines);
 
-		/* When the text is modified in a GtkTextBuffer, GtkTextView tries to
+		/* When the text is modified in a CtkTextBuffer, CtkTextView tries to
 		 * redraw the smallest required region. But the information displayed in
 		 * the gutter may become invalid in a bigger region.
 		 * See https://bugzilla.gnome.org/show_bug.cgi?id=732418 for an example
@@ -295,9 +295,9 @@ gutter_renderer_end (GtkSourceGutterRenderer *renderer)
 		 * the invalidation region, before drawing. So that only one
 		 * draw is needed, and the solution would be more generic (if
 		 * other renderers also need a different invalidation region
-		 * than the GtkTextView). But the GutterRendererClass doesn't
+		 * than the CtkTextView). But the GutterRendererClass doesn't
 		 * have padding for future expansion, so it must wait for
-		 * GtkSourceView 4.
+		 * CtkSourceView 4.
 		 */
 		if (lines->priv->prev_line_num != line_num)
 		{
@@ -313,13 +313,13 @@ gutter_renderer_end (GtkSourceGutterRenderer *renderer)
 }
 
 static void
-extend_selection_to_line (GtkSourceGutterRendererLines *renderer,
-                          GtkTextIter                  *line_start)
+extend_selection_to_line (CtkSourceGutterRendererLines *renderer,
+                          CtkTextIter                  *line_start)
 {
-	GtkTextIter start;
-	GtkTextIter end;
-	GtkTextIter line_end;
-	GtkTextBuffer *buffer;
+	CtkTextIter start;
+	CtkTextIter end;
+	CtkTextIter line_end;
+	CtkTextBuffer *buffer;
 
 	buffer = get_buffer (renderer);
 
@@ -357,11 +357,11 @@ extend_selection_to_line (GtkSourceGutterRendererLines *renderer,
 }
 
 static void
-select_line (GtkSourceGutterRendererLines *renderer,
-             GtkTextIter                  *line_start)
+select_line (CtkSourceGutterRendererLines *renderer,
+             CtkTextIter                  *line_start)
 {
-	GtkTextIter iter;
-	GtkTextBuffer *buffer;
+	CtkTextIter iter;
+	CtkTextBuffer *buffer;
 
 	buffer = get_buffer (renderer);
 
@@ -377,18 +377,18 @@ select_line (GtkSourceGutterRendererLines *renderer,
 }
 
 static void
-gutter_renderer_activate (GtkSourceGutterRenderer *renderer,
-                          GtkTextIter             *iter,
+gutter_renderer_activate (CtkSourceGutterRenderer *renderer,
+                          CtkTextIter             *iter,
                           GdkRectangle            *rect,
                           GdkEvent                *event)
 {
-	GtkSourceGutterRendererLines *lines;
+	CtkSourceGutterRendererLines *lines;
 
 	lines = CTK_SOURCE_GUTTER_RENDERER_LINES (renderer);
 
 	if (event->type == GDK_BUTTON_PRESS && (event->button.button == 1))
 	{
-		GtkTextBuffer *buffer;
+		CtkTextBuffer *buffer;
 
 		buffer = get_buffer (lines);
 
@@ -415,8 +415,8 @@ gutter_renderer_activate (GtkSourceGutterRenderer *renderer,
 }
 
 static gboolean
-gutter_renderer_query_activatable (GtkSourceGutterRenderer *renderer,
-                                   GtkTextIter             *iter,
+gutter_renderer_query_activatable (CtkSourceGutterRenderer *renderer,
+                                   CtkTextIter             *iter,
                                    GdkRectangle            *area,
                                    GdkEvent                *event)
 {
@@ -424,9 +424,9 @@ gutter_renderer_query_activatable (GtkSourceGutterRenderer *renderer,
 }
 
 static void
-ctk_source_gutter_renderer_lines_class_init (GtkSourceGutterRendererLinesClass *klass)
+ctk_source_gutter_renderer_lines_class_init (CtkSourceGutterRendererLinesClass *klass)
 {
-	GtkSourceGutterRendererClass *renderer_class = CTK_SOURCE_GUTTER_RENDERER_CLASS (klass);
+	CtkSourceGutterRendererClass *renderer_class = CTK_SOURCE_GUTTER_RENDERER_CLASS (klass);
 
 	renderer_class->query_data = gutter_renderer_query_data;
 	renderer_class->end = gutter_renderer_end;
@@ -437,12 +437,12 @@ ctk_source_gutter_renderer_lines_class_init (GtkSourceGutterRendererLinesClass *
 }
 
 static void
-ctk_source_gutter_renderer_lines_init (GtkSourceGutterRendererLines *self)
+ctk_source_gutter_renderer_lines_init (CtkSourceGutterRendererLines *self)
 {
 	self->priv = ctk_source_gutter_renderer_lines_get_instance_private (self);
 }
 
-GtkSourceGutterRenderer *
+CtkSourceGutterRenderer *
 ctk_source_gutter_renderer_lines_new (void)
 {
 	return g_object_new (CTK_SOURCE_TYPE_GUTTER_RENDERER_LINES, NULL);

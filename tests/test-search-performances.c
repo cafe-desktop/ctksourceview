@@ -1,14 +1,14 @@
 /*
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2013 - Sébastien Wilmet <swilmet@gnome.org>
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -35,7 +35,7 @@
 #define NB_LINES 100000
 
 static void
-on_notify_search_occurrences_count_cb (GtkSourceSearchContext *search_context,
+on_notify_search_occurrences_count_cb (CtkSourceSearchContext *search_context,
 				       GParamSpec             *spec,
 				       GTimer                 *timer)
 {
@@ -48,14 +48,14 @@ on_notify_search_occurrences_count_cb (GtkSourceSearchContext *search_context,
 int
 main (int argc, char *argv[])
 {
-	GtkSourceBuffer *buffer;
-	GtkSourceSearchContext *search_context;
-	GtkSourceSearchSettings *search_settings;
-	GtkTextIter iter;
-	GtkTextIter match_end;
+	CtkSourceBuffer *buffer;
+	CtkSourceSearchContext *search_context;
+	CtkSourceSearchSettings *search_settings;
+	CtkTextIter iter;
+	CtkTextIter match_end;
 	GTimer *timer;
 	gint i;
-	GtkTextSearchFlags flags;
+	CtkTextSearchFlags flags;
 	gchar *regex_pattern;
 
 	ctk_init (&argc, &argv);

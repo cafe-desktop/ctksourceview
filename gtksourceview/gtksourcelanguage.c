@@ -1,15 +1,15 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*- */
 /*
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2003 - Paolo Maggi <paolo.maggi@polito.it>
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -43,14 +43,14 @@
 /**
  * SECTION:language
  * @Short_description: Represents a syntax highlighted language
- * @Title: GtkSourceLanguage
- * @See_also: #GtkSourceLanguageManager
+ * @Title: CtkSourceLanguage
+ * @See_also: #CtkSourceLanguageManager
  *
- * A #GtkSourceLanguage represents a programming or markup language, affecting
+ * A #CtkSourceLanguage represents a programming or markup language, affecting
  * syntax highlighting and [context classes][context-classes].
  *
- * Use #GtkSourceLanguageManager to obtain a #GtkSourceLanguage instance, and
- * ctk_source_buffer_set_language() to apply it to a #GtkSourceBuffer.
+ * Use #CtkSourceLanguageManager to obtain a #CtkSourceLanguage instance, and
+ * ctk_source_buffer_set_language() to apply it to a #CtkSourceBuffer.
  */
 
 #define DEFAULT_SECTION _("Others")
@@ -63,17 +63,17 @@ enum {
 	PROP_HIDDEN
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceLanguage, ctk_source_language, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (CtkSourceLanguage, ctk_source_language, G_TYPE_OBJECT)
 
-static GtkSourceLanguage *process_language_node (xmlTextReaderPtr	 reader,
+static CtkSourceLanguage *process_language_node (xmlTextReaderPtr	 reader,
 						 const gchar		*filename);
-static gboolean		  force_styles		(GtkSourceLanguage	*language);
+static gboolean		  force_styles		(CtkSourceLanguage	*language);
 
-GtkSourceLanguage *
+CtkSourceLanguage *
 _ctk_source_language_new_from_file (const gchar              *filename,
-				    GtkSourceLanguageManager *lm)
+				    CtkSourceLanguageManager *lm)
 {
-	GtkSourceLanguage *lang = NULL;
+	CtkSourceLanguage *lang = NULL;
 	xmlTextReaderPtr reader = NULL;
 	gint ret;
 	gint fd;
@@ -148,7 +148,7 @@ ctk_source_language_get_property (GObject    *object,
 				  GValue     *value,
 				  GParamSpec *pspec)
 {
-	GtkSourceLanguage *language;
+	CtkSourceLanguage *language;
 
 	g_return_if_fail (CTK_SOURCE_IS_LANGUAGE (object));
 
@@ -181,7 +181,7 @@ ctk_source_language_get_property (GObject    *object,
 static void
 ctk_source_language_dispose (GObject *object)
 {
-	GtkSourceLanguage *lang;
+	CtkSourceLanguage *lang;
 
 	lang = CTK_SOURCE_LANGUAGE (object);
 
@@ -198,7 +198,7 @@ ctk_source_language_dispose (GObject *object)
 static void
 ctk_source_language_finalize (GObject *object)
 {
-	GtkSourceLanguage *lang;
+	CtkSourceLanguage *lang;
 
 	lang = CTK_SOURCE_LANGUAGE (object);
 
@@ -218,7 +218,7 @@ ctk_source_language_finalize (GObject *object)
 }
 
 static void
-ctk_source_language_class_init (GtkSourceLanguageClass *klass)
+ctk_source_language_class_init (CtkSourceLanguageClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
@@ -264,7 +264,7 @@ ctk_source_language_class_init (GtkSourceLanguageClass *klass)
 }
 
 static void
-ctk_source_language_init (GtkSourceLanguage *lang)
+ctk_source_language_init (CtkSourceLanguage *lang)
 {
 	lang->priv = ctk_source_language_get_instance_private (lang);
 
@@ -292,7 +292,7 @@ string_to_bool (const gchar *string)
 
 static void
 process_properties (xmlTextReaderPtr   reader,
-		    GtkSourceLanguage *language)
+		    CtkSourceLanguage *language)
 {
 	xmlNodePtr child;
 	xmlNodePtr node = NULL;
@@ -345,13 +345,13 @@ process_properties (xmlTextReaderPtr   reader,
 	}
 }
 
-static GtkSourceLanguage *
+static CtkSourceLanguage *
 process_language_node (xmlTextReaderPtr reader, const gchar *filename)
 {
 	xmlChar *version;
 	xmlChar *tmp;
 	xmlChar *untranslated_name;
-	GtkSourceLanguage *lang;
+	CtkSourceLanguage *lang;
 
 	lang = g_object_new (CTK_SOURCE_TYPE_LANGUAGE, NULL);
 
@@ -470,7 +470,7 @@ process_language_node (xmlTextReaderPtr reader, const gchar *filename)
 }
 
 gchar *
-_ctk_source_language_translate_string (GtkSourceLanguage *language,
+_ctk_source_language_translate_string (CtkSourceLanguage *language,
 				       const gchar       *string)
 {
 	g_return_val_if_fail (string != NULL, NULL);
@@ -480,7 +480,7 @@ _ctk_source_language_translate_string (GtkSourceLanguage *language,
 
 /**
  * ctk_source_language_get_id:
- * @language: a #GtkSourceLanguage.
+ * @language: a #CtkSourceLanguage.
  *
  * Returns the ID of the language. The ID is not locale-dependent.
  * The returned string is owned by @language and should not be freed
@@ -489,7 +489,7 @@ _ctk_source_language_translate_string (GtkSourceLanguage *language,
  * Returns: the ID of @language.
  **/
 const gchar *
-ctk_source_language_get_id (GtkSourceLanguage *language)
+ctk_source_language_get_id (CtkSourceLanguage *language)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_LANGUAGE (language), NULL);
 	g_return_val_if_fail (language->priv->id != NULL, NULL);
@@ -499,7 +499,7 @@ ctk_source_language_get_id (GtkSourceLanguage *language)
 
 /**
  * ctk_source_language_get_name:
- * @language: a #GtkSourceLanguage.
+ * @language: a #CtkSourceLanguage.
  *
  * Returns the localized name of the language.
  * The returned string is owned by @language and should not be freed
@@ -508,7 +508,7 @@ ctk_source_language_get_id (GtkSourceLanguage *language)
  * Returns: the name of @language.
  **/
 const gchar *
-ctk_source_language_get_name (GtkSourceLanguage *language)
+ctk_source_language_get_name (CtkSourceLanguage *language)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_LANGUAGE (language), NULL);
 	g_return_val_if_fail (language->priv->name != NULL, NULL);
@@ -518,7 +518,7 @@ ctk_source_language_get_name (GtkSourceLanguage *language)
 
 /**
  * ctk_source_language_get_section:
- * @language: a #GtkSourceLanguage.
+ * @language: a #CtkSourceLanguage.
  *
  * Returns the localized section of the language.
  * Each language belong to a section (ex. HTML belogs to the
@@ -529,7 +529,7 @@ ctk_source_language_get_name (GtkSourceLanguage *language)
  * Returns: the section of @language.
  **/
 const gchar *
-ctk_source_language_get_section	(GtkSourceLanguage *language)
+ctk_source_language_get_section	(CtkSourceLanguage *language)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_LANGUAGE (language), NULL);
 	g_return_val_if_fail (language->priv->section != NULL, NULL);
@@ -539,14 +539,14 @@ ctk_source_language_get_section	(GtkSourceLanguage *language)
 
 /**
  * ctk_source_language_get_hidden:
- * @language: a #GtkSourceLanguage
+ * @language: a #CtkSourceLanguage
  *
  * Returns whether the language should be hidden from the user.
  *
  * Returns: %TRUE if the language should be hidden, %FALSE otherwise.
  */
 gboolean
-ctk_source_language_get_hidden (GtkSourceLanguage *language)
+ctk_source_language_get_hidden (CtkSourceLanguage *language)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_LANGUAGE (language), FALSE);
 
@@ -555,7 +555,7 @@ ctk_source_language_get_hidden (GtkSourceLanguage *language)
 
 /**
  * ctk_source_language_get_metadata:
- * @language: a #GtkSourceLanguage.
+ * @language: a #CtkSourceLanguage.
  * @name: metadata property name.
  *
  * Returns: (nullable) (transfer none): value of property @name stored in
@@ -565,7 +565,7 @@ ctk_source_language_get_hidden (GtkSourceLanguage *language)
  * or modified.
  **/
 const gchar *
-ctk_source_language_get_metadata (GtkSourceLanguage *language,
+ctk_source_language_get_metadata (CtkSourceLanguage *language,
 				  const gchar       *name)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_LANGUAGE (language), NULL);
@@ -576,7 +576,7 @@ ctk_source_language_get_metadata (GtkSourceLanguage *language,
 
 /**
  * ctk_source_language_get_mime_types:
- * @language: a #GtkSourceLanguage.
+ * @language: a #CtkSourceLanguage.
  *
  * Returns the mime types associated to this language. This is just
  * an utility wrapper around ctk_source_language_get_metadata() to
@@ -589,7 +589,7 @@ ctk_source_language_get_metadata (GtkSourceLanguage *language,
  * The returned array must be freed with g_strfreev().
  **/
 gchar **
-ctk_source_language_get_mime_types (GtkSourceLanguage *language)
+ctk_source_language_get_mime_types (CtkSourceLanguage *language)
 {
 	const gchar *mimetypes;
 
@@ -604,7 +604,7 @@ ctk_source_language_get_mime_types (GtkSourceLanguage *language)
 
 /**
  * ctk_source_language_get_globs:
- * @language: a #GtkSourceLanguage.
+ * @language: a #CtkSourceLanguage.
  *
  * Returns the globs associated to this language. This is just
  * an utility wrapper around ctk_source_language_get_metadata() to
@@ -616,7 +616,7 @@ ctk_source_language_get_mime_types (GtkSourceLanguage *language)
  * The returned array must be freed with g_strfreev().
  **/
 gchar **
-ctk_source_language_get_globs (GtkSourceLanguage *language)
+ctk_source_language_get_globs (CtkSourceLanguage *language)
 {
 	const gchar *globs;
 
@@ -631,12 +631,12 @@ ctk_source_language_get_globs (GtkSourceLanguage *language)
 
 /**
  * _ctk_source_language_get_language_manager:
- * @language: a #GtkSourceLanguage.
+ * @language: a #CtkSourceLanguage.
  *
- * Returns: (transfer none): the #GtkSourceLanguageManager for @language.
+ * Returns: (transfer none): the #CtkSourceLanguageManager for @language.
  **/
-GtkSourceLanguageManager *
-_ctk_source_language_get_language_manager (GtkSourceLanguage *language)
+CtkSourceLanguageManager *
+_ctk_source_language_get_language_manager (CtkSourceLanguage *language)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_LANGUAGE (language), NULL);
 	g_return_val_if_fail (language->priv->id != NULL, NULL);
@@ -648,7 +648,7 @@ _ctk_source_language_get_language_manager (GtkSourceLanguage *language)
 
 static void
 copy_style_info (const char         *style_id,
-		 GtkSourceStyleInfo *info,
+		 CtkSourceStyleInfo *info,
 		 GHashTable         *dest)
 {
 	g_hash_table_insert (dest, g_strdup (style_id),
@@ -656,7 +656,7 @@ copy_style_info (const char         *style_id,
 }
 
 void
-_ctk_source_language_define_language_styles (GtkSourceLanguage *lang)
+_ctk_source_language_define_language_styles (CtkSourceLanguage *lang)
 {
 	static const gchar *alias[][2] = {
 		{"Base-N Integer", "def:base-n-integer"},
@@ -673,12 +673,12 @@ _ctk_source_language_define_language_styles (GtkSourceLanguage *lang)
 		{NULL, NULL}};
 
 	gint i = 0;
-	GtkSourceLanguageManager *lm;
-	GtkSourceLanguage *def_lang;
+	CtkSourceLanguageManager *lm;
+	CtkSourceLanguage *def_lang;
 
 	while (alias[i][0] != NULL)
 	{
-		GtkSourceStyleInfo *info;
+		CtkSourceStyleInfo *info;
 
 		info = _ctk_source_style_info_new (alias[i][0], alias[i][1]);
 
@@ -705,13 +705,13 @@ _ctk_source_language_define_language_styles (GtkSourceLanguage *lang)
 }
 
 /* returns new reference, which _must_ be unref'ed */
-static GtkSourceContextData *
-ctk_source_language_parse_file (GtkSourceLanguage *language)
+static CtkSourceContextData *
+ctk_source_language_parse_file (CtkSourceLanguage *language)
 {
 	if (language->priv->ctx_data == NULL)
 	{
 		gboolean success = FALSE;
-		GtkSourceContextData *ctx_data;
+		CtkSourceContextData *ctx_data;
 
 		if (language->priv->language_manager == NULL)
 		{
@@ -727,7 +727,7 @@ ctk_source_language_parse_file (GtkSourceLanguage *language)
 				case CTK_SOURCE_LANGUAGE_VERSION_1_0:
 					g_warning ("The language definition format version 1 "
 						   "(for syntax highlighting) is no longer "
-						   "supported by GtkSourceView >= 4.0. "
+						   "supported by CtkSourceView >= 4.0. "
 						   "Please use version 2.");
 					break;
 
@@ -753,11 +753,11 @@ ctk_source_language_parse_file (GtkSourceLanguage *language)
 	return language->priv->ctx_data;
 }
 
-GtkSourceEngine *
-_ctk_source_language_create_engine (GtkSourceLanguage *language)
+CtkSourceEngine *
+_ctk_source_language_create_engine (CtkSourceLanguage *language)
 {
-	GtkSourceContextEngine *ce = NULL;
-	GtkSourceContextData *ctx_data;
+	CtkSourceContextEngine *ce = NULL;
+	CtkSourceContextData *ctx_data;
 
 	ctx_data = ctk_source_language_parse_file (language);
 
@@ -786,7 +786,7 @@ add_style_id (gchar *id, G_GNUC_UNUSED gpointer value, AddStyleIdData *data)
 }
 
 static gchar **
-get_style_ids (GtkSourceLanguage *language)
+get_style_ids (CtkSourceLanguage *language)
 {
 	GPtrArray *ids_array;
 	AddStyleIdData data;
@@ -821,7 +821,7 @@ get_style_ids (GtkSourceLanguage *language)
 }
 
 static gboolean
-force_styles (GtkSourceLanguage *language)
+force_styles (CtkSourceLanguage *language)
 {
 	/* To be sure to have the list of styles we need to parse lang file
 	 * as if we were to create an engine. In the future we can improve
@@ -829,7 +829,7 @@ force_styles (GtkSourceLanguage *language)
 	 */
 	if (!language->priv->styles_loaded && language->priv->ctx_data == NULL)
 	{
-		GtkSourceContextData *ctx_data;
+		CtkSourceContextData *ctx_data;
 
 		ctx_data = ctk_source_language_parse_file (language);
 		if (ctx_data == NULL)
@@ -844,7 +844,7 @@ force_styles (GtkSourceLanguage *language)
 
 /**
  * ctk_source_language_get_style_ids:
- * @language: a #GtkSourceLanguage.
+ * @language: a #CtkSourceLanguage.
  *
  * Returns the ids of the styles defined by this @language.
  *
@@ -854,7 +854,7 @@ force_styles (GtkSourceLanguage *language)
  * The returned array must be freed with g_strfreev().
 */
 gchar **
-ctk_source_language_get_style_ids (GtkSourceLanguage *language)
+ctk_source_language_get_style_ids (CtkSourceLanguage *language)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_LANGUAGE (language), NULL);
 	g_return_val_if_fail (language->priv->id != NULL, NULL);
@@ -865,10 +865,10 @@ ctk_source_language_get_style_ids (GtkSourceLanguage *language)
 	return get_style_ids (language);
 }
 
-static GtkSourceStyleInfo *
-get_style_info (GtkSourceLanguage *language, const char *style_id)
+static CtkSourceStyleInfo *
+get_style_info (CtkSourceLanguage *language, const char *style_id)
 {
-	GtkSourceStyleInfo *info;
+	CtkSourceStyleInfo *info;
 
 	if (!force_styles (language))
 		return NULL;
@@ -882,7 +882,7 @@ get_style_info (GtkSourceLanguage *language, const char *style_id)
 
 /**
  * ctk_source_language_get_style_name:
- * @language: a #GtkSourceLanguage.
+ * @language: a #CtkSourceLanguage.
  * @style_id: a style ID.
  *
  * Returns the name of the style with ID @style_id defined by this @language.
@@ -893,10 +893,10 @@ get_style_info (GtkSourceLanguage *language, const char *style_id)
  * The returned string is owned by the @language and must not be modified.
  */
 const gchar *
-ctk_source_language_get_style_name (GtkSourceLanguage *language,
+ctk_source_language_get_style_name (CtkSourceLanguage *language,
 				    const gchar       *style_id)
 {
-	GtkSourceStyleInfo *info;
+	CtkSourceStyleInfo *info;
 
 	g_return_val_if_fail (CTK_SOURCE_IS_LANGUAGE (language), NULL);
 	g_return_val_if_fail (language->priv->id != NULL, NULL);
@@ -909,7 +909,7 @@ ctk_source_language_get_style_name (GtkSourceLanguage *language,
 
 /**
  * ctk_source_language_get_style_fallback:
- * @language: a #GtkSourceLanguage.
+ * @language: a #CtkSourceLanguage.
  * @style_id: a style ID.
  *
  * Returns the ID of the style to use if the specified @style_id
@@ -923,10 +923,10 @@ ctk_source_language_get_style_name (GtkSourceLanguage *language,
  * Since: 3.4
  */
 const gchar *
-ctk_source_language_get_style_fallback (GtkSourceLanguage *language,
+ctk_source_language_get_style_fallback (CtkSourceLanguage *language,
 					const gchar       *style_id)
 {
-	GtkSourceStyleInfo *info;
+	CtkSourceStyleInfo *info;
 
 	g_return_val_if_fail (CTK_SOURCE_IS_LANGUAGE (language), NULL);
 	g_return_val_if_fail (language->priv->id != NULL, NULL);
@@ -937,12 +937,12 @@ ctk_source_language_get_style_fallback (GtkSourceLanguage *language,
 	return info ? info->map_to : NULL;
 }
 
-/* Utility functions for GtkSourceStyleInfo */
+/* Utility functions for CtkSourceStyleInfo */
 
-GtkSourceStyleInfo *
+CtkSourceStyleInfo *
 _ctk_source_style_info_new (const gchar *name, const gchar *map_to)
 {
-	GtkSourceStyleInfo *info = g_new0 (GtkSourceStyleInfo, 1);
+	CtkSourceStyleInfo *info = g_new0 (CtkSourceStyleInfo, 1);
 
 	info->name = g_strdup (name);
 	info->map_to = g_strdup (map_to);
@@ -950,15 +950,15 @@ _ctk_source_style_info_new (const gchar *name, const gchar *map_to)
 	return info;
 }
 
-GtkSourceStyleInfo *
-_ctk_source_style_info_copy (GtkSourceStyleInfo *info)
+CtkSourceStyleInfo *
+_ctk_source_style_info_copy (CtkSourceStyleInfo *info)
 {
 	g_return_val_if_fail (info != NULL, NULL);
 	return _ctk_source_style_info_new (info->name, info->map_to);
 }
 
 void
-_ctk_source_style_info_free (GtkSourceStyleInfo *info)
+_ctk_source_style_info_free (CtkSourceStyleInfo *info)
 {
 	if (info == NULL)
 		return;

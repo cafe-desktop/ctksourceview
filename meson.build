@@ -292,7 +292,7 @@ subdir('testsuite')
 summary = [
   '',
   '------',
-  'GtkSourceView @0@ (@1@)'.format(version, api_version),
+  'CtkSourceView @0@ (@1@)'.format(version, api_version),
   '',
   '  Documentation: @0@'.format(build_ctk_doc),
   '  Glade catalog: @0@'.format(install_glade_catalog),

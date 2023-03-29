@@ -1,14 +1,14 @@
 /*
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2013 - Sébastien Wilmet <swilmet@gnome.org>
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -22,7 +22,7 @@
 #include "ctksourceview/completion-providers/words/ctksourcecompletionwordslibrary.h"
 
 static void
-library_add_words (GtkSourceCompletionWordsLibrary *library)
+library_add_words (CtkSourceCompletionWordsLibrary *library)
 {
 	ctk_source_completion_words_library_add_word (library, "bb");
 	ctk_source_completion_words_library_add_word (library, "bbc");
@@ -35,8 +35,8 @@ library_add_words (GtkSourceCompletionWordsLibrary *library)
 static void
 test_library_find (void)
 {
-	GtkSourceCompletionWordsLibrary *library = ctk_source_completion_words_library_new ();
-	GtkSourceCompletionWordsProposal *proposal;
+	CtkSourceCompletionWordsLibrary *library = ctk_source_completion_words_library_new ();
+	CtkSourceCompletionWordsProposal *proposal;
 	GSequenceIter *iter;
 	const gchar *word;
 

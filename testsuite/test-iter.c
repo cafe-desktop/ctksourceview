@@ -1,15 +1,15 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*- */
 /*
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2014 - Sébastien Wilmet <swilmet@gnome.org>
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -26,8 +26,8 @@ check_full_word_boundaries (gboolean     forward,
 			    gint         initial_offset,
 			    gint         result_offset)
 {
-	GtkTextBuffer *buffer;
-	GtkTextIter iter;
+	CtkTextBuffer *buffer;
+	CtkTextIter iter;
 
 	buffer = ctk_text_buffer_new (NULL);
 	ctk_text_buffer_set_text (buffer, buffer_text, -1);
@@ -73,8 +73,8 @@ test_backward_full_word_start (void)
 static void
 test_starts_full_word (void)
 {
-	GtkTextBuffer *buffer;
-	GtkTextIter iter;
+	CtkTextBuffer *buffer;
+	CtkTextIter iter;
 
 	buffer = ctk_text_buffer_new (NULL);
 	ctk_text_buffer_set_text (buffer, "foo--- ---bar", -1);
@@ -104,8 +104,8 @@ test_starts_full_word (void)
 static void
 test_ends_full_word (void)
 {
-	GtkTextBuffer *buffer;
-	GtkTextIter iter;
+	CtkTextBuffer *buffer;
+	CtkTextIter iter;
 
 	buffer = ctk_text_buffer_new (NULL);
 	ctk_text_buffer_set_text (buffer, "foo--- ---bar ", -1);
@@ -137,8 +137,8 @@ check_extra_natural_word_boundaries (gboolean     forward,
 				     gint         initial_offset,
 				     gint         result_offset)
 {
-	GtkTextBuffer *buffer;
-	GtkTextIter iter;
+	CtkTextBuffer *buffer;
+	CtkTextIter iter;
 
 	buffer = ctk_text_buffer_new (NULL);
 	ctk_text_buffer_set_text (buffer, buffer_text, -1);
@@ -209,8 +209,8 @@ check_starts_extra_natural_word (const gchar *buffer_text,
 				 gint         offset,
 				 gboolean     starts)
 {
-	GtkTextBuffer *buffer;
-	GtkTextIter iter;
+	CtkTextBuffer *buffer;
+	CtkTextIter iter;
 
 	buffer = ctk_text_buffer_new (NULL);
 	ctk_text_buffer_set_text (buffer, buffer_text, -1);
@@ -242,8 +242,8 @@ check_ends_extra_natural_word (const gchar *buffer_text,
 			       gint         offset,
 			       gboolean     ends)
 {
-	GtkTextBuffer *buffer;
-	GtkTextIter iter;
+	CtkTextBuffer *buffer;
+	CtkTextIter iter;
 
 	buffer = ctk_text_buffer_new (NULL);
 	ctk_text_buffer_set_text (buffer, buffer_text, -1);
@@ -276,8 +276,8 @@ check_word_boundaries (const gchar *buffer_text,
 		       gboolean     ends_word_result,
 		       gboolean     inside_word_result)
 {
-	GtkTextBuffer *buffer;
-	GtkTextIter iter;
+	CtkTextBuffer *buffer;
+	CtkTextIter iter;
 
 	buffer = ctk_text_buffer_new (NULL);
 	ctk_text_buffer_set_text (buffer, buffer_text, -1);
@@ -316,8 +316,8 @@ check_word_boundaries_movement (gboolean     forward,
 				gint         result_offset,
 				gboolean     ret)
 {
-	GtkTextBuffer *buffer;
-	GtkTextIter iter;
+	CtkTextBuffer *buffer;
+	CtkTextIter iter;
 
 	buffer = ctk_text_buffer_new (NULL);
 	ctk_text_buffer_set_text (buffer, buffer_text, -1);
@@ -399,9 +399,9 @@ check_get_leading_spaces_end_boundary (const gchar *text,
 				       gint         iter_offset,
 				       gint         expected_leading_end_offset)
 {
-	GtkTextBuffer *buffer;
-	GtkTextIter iter;
-	GtkTextIter leading_end;
+	CtkTextBuffer *buffer;
+	CtkTextIter iter;
+	CtkTextIter leading_end;
 
 	buffer = ctk_text_buffer_new (NULL);
 	ctk_text_buffer_set_text (buffer, text, -1);
@@ -437,9 +437,9 @@ check_get_trailing_spaces_start_boundary (const gchar *text,
 					  gint         iter_offset,
 					  gint         expected_trailing_start_offset)
 {
-	GtkTextBuffer *buffer;
-	GtkTextIter iter;
-	GtkTextIter trailing_start;
+	CtkTextBuffer *buffer;
+	CtkTextIter iter;
+	CtkTextIter trailing_start;
 
 	buffer = ctk_text_buffer_new (NULL);
 	ctk_text_buffer_set_text (buffer, text, -1);

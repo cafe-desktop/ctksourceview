@@ -18,7 +18,7 @@
 # time when using this script and seeing a problem (or the source code can be
 # changed to avoid the problem).
 #
-# This script has not (yet) been run on the GtkSourceView *.c files, it can
+# This script has not (yet) been run on the CtkSourceView *.c files, it can
 # serve more as a guideline, especially for new files.
 
 input_file=$1

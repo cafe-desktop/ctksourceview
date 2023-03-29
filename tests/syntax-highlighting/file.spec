@@ -22,9 +22,9 @@ BuildRequires:  perl-XML-Parser
 Conflicts:	ctksourceview-sharp <= 0.5-3mdk
 
 %description
-GtkSourceview is a library that adds syntax highlighting,
+CtkSourceview is a library that adds syntax highlighting,
 line numbers, and other programming-editor features.
-GtkSourceView specializes these features for a code editor.
+CtkSourceView specializes these features for a code editor.
 
 %package -n %{lib_name}
 Summary:	Source code viewing library
@@ -37,12 +37,12 @@ Provides:   libctksourceview1.0 = %{version}-%{release}
 Obsoletes:  libctksourceview1.0
 
 %description -n %{lib_name}
-GtkSourceview is a library that adds syntax highlighting,
+CtkSourceview is a library that adds syntax highlighting,
 line numbers, and other programming-editor features.
-GtkSourceView specializes these features for a code editor.
+CtkSourceView specializes these features for a code editor.
 
 %package -n %{lib_name}-devel
-Summary:        Libraries and include files for GtkSourceView
+Summary:        Libraries and include files for CtkSourceView
 Group:          Development/GNOME and CTK+
 Requires:       %{lib_name} = %{version}
 Provides:	%{name}-devel = %{version}-%{release}
@@ -54,7 +54,7 @@ Provides:   libctksourceview1.0-devel = %{version}-%{release}
 Obsoletes:   libctksourceview1.0-devel
 
 %description -n %{lib_name}-devel
-GtkSourceView development files
+CtkSourceView development files
 
 
 %prep

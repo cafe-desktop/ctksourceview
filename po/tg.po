@@ -19,7 +19,7 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 
 #: ../data/glade/ctksourceview.xml.in.h:1
-msgid "GtkSourceView"
+msgid "CtkSourceView"
 msgstr ""
 
 #. Translators: It is related to an option of a set of values
@@ -736,13 +736,13 @@ msgstr ""
 #. *
 #. * SECTION:language
 #. * @Short_description: Object representing a syntax highlighted language
-#. * @Title: GtkSourceLanguage
-#. * @See_also: #GtkSourceLanguageManager
+#. * @Title: CtkSourceLanguage
+#. * @See_also: #CtkSourceLanguageManager
 #. *
-#. * #GtkSourceLanguage encapsulates syntax and highlighting styles for a
-#. * particular language. Use #GtkSourceLanguageManager to obtain a
-#. * #GtkSourceLanguage instance, and ctk_source_buffer_set_language() to apply it
-#. * to a #GtkSourceBuffer.
+#. * #CtkSourceLanguage encapsulates syntax and highlighting styles for a
+#. * particular language. Use #CtkSourceLanguageManager to obtain a
+#. * #CtkSourceLanguage instance, and ctk_source_buffer_set_language() to apply it
+#. * to a #CtkSourceBuffer.
 #.
 #: ../data/language-specs/changelog.lang.h:1
 #: ../data/language-specs/cmake.lang.h:1 ../data/language-specs/css.lang.h:1
@@ -1436,7 +1436,7 @@ msgid "Deprecated"
 msgstr ""
 
 #: ../data/language-specs/ctkrc.lang.h:2
-msgid "GtkRC"
+msgid "CtkRC"
 msgstr ""
 
 #: ../data/language-specs/ctkrc.lang.h:8
@@ -2532,7 +2532,7 @@ msgstr ""
 msgid "Number of undo levels for the buffer"
 msgstr ""
 
-#. Translators: throughout GtkSourceView "language" stands
+#. Translators: throughout CtkSourceView "language" stands
 #. * for "programming language", not "spoken language"
 #: ../ctksourceview/ctksourcebuffer.c:278
 msgid "Language"
@@ -2582,7 +2582,7 @@ msgid "View"
 msgstr "Намоиш"
 
 #: ../ctksourceview/ctksourcecompletion.c:1622
-msgid "The GtkSourceView bound to the completion"
+msgid "The CtkSourceView bound to the completion"
 msgstr ""
 
 #: ../ctksourceview/ctksourcecompletion.c:1636
@@ -2659,13 +2659,13 @@ msgstr ""
 msgid "The completion object to which the context belongs"
 msgstr ""
 
-#. Translators: The GtkTextIter at which the completion was invoked
+#. Translators: The CtkTextIter at which the completion was invoked
 #: ../ctksourceview/ctksourcecompletioncontext.c:275
 msgid "Iterator"
 msgstr ""
 
 #: ../ctksourceview/ctksourcecompletioncontext.c:276
-msgid "The GtkTextIter at which the completion was invoked"
+msgid "The CtkTextIter at which the completion was invoked"
 msgstr ""
 
 #: ../ctksourceview/ctksourcecompletioncontext.c:288
@@ -2771,7 +2771,7 @@ msgid "Missing main language definition (id = \"%s\".)"
 msgstr ""
 
 #: ../ctksourceview/ctksourcegutter.c:549
-msgid "The gutters' GtkSourceView"
+msgid "The gutters' CtkSourceView"
 msgstr ""
 
 #: ../ctksourceview/ctksourcegutter.c:561
@@ -2976,7 +2976,7 @@ msgid "Source Buffer"
 msgstr ""
 
 #: ../ctksourceview/ctksourceprintcompositor.c:445
-msgid "The GtkSourceBuffer object to print"
+msgid "The CtkSourceBuffer object to print"
 msgstr ""
 
 #: ../ctksourceview/ctksourceprintcompositor.c:462

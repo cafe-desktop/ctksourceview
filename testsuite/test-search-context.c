@@ -1,14 +1,14 @@
 /*
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2013, 2015, 2016 - Sébastien Wilmet <swilmet@gnome.org>
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -35,16 +35,16 @@ typedef struct
 	guint forward : 1;
 } AsyncData;
 
-static void check_async_search_results (GtkSourceSearchContext *context,
+static void check_async_search_results (CtkSourceSearchContext *context,
 					SearchResult           *results,
 					gboolean                forward,
 					gboolean                start_check);
 
 static gchar *
-get_buffer_contents (GtkTextBuffer *buffer)
+get_buffer_contents (CtkTextBuffer *buffer)
 {
-	GtkTextIter start;
-	GtkTextIter end;
+	CtkTextIter start;
+	CtkTextIter end;
 
 	ctk_text_buffer_get_bounds (buffer, &start, &end);
 	return ctk_text_iter_get_visible_text (&start, &end);
@@ -62,7 +62,7 @@ init_style_scheme_manager (void)
 
 	if (g_file_test (dir, G_FILE_TEST_IS_DIR))
 	{
-		GtkSourceStyleSchemeManager *manager;
+		CtkSourceStyleSchemeManager *manager;
 		gchar **dirs;
 
 		manager = ctk_source_style_scheme_manager_get_default ();
@@ -92,11 +92,11 @@ flush_queue (void)
 static void
 test_occurrences_count_simple (void)
 {
-	GtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
-	GtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
-	GtkSourceSearchSettings *settings = ctk_source_search_settings_new ();
-	GtkSourceSearchContext *context = ctk_source_search_context_new (source_buffer, settings);
-	GtkTextIter iter;
+	CtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
+	CtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
+	CtkSourceSearchSettings *settings = ctk_source_search_settings_new ();
+	CtkSourceSearchContext *context = ctk_source_search_context_new (source_buffer, settings);
+	CtkTextIter iter;
 	gint occurrences_count;
 
 	ctk_text_buffer_get_start_iter (text_buffer, &iter);
@@ -133,11 +133,11 @@ test_occurrences_count_simple (void)
 static void
 test_occurrences_count_with_insert (void)
 {
-	GtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
-	GtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
-	GtkSourceSearchSettings *settings = ctk_source_search_settings_new ();
-	GtkSourceSearchContext *context = ctk_source_search_context_new (source_buffer, settings);
-	GtkTextIter iter;
+	CtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
+	CtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
+	CtkSourceSearchSettings *settings = ctk_source_search_settings_new ();
+	CtkSourceSearchContext *context = ctk_source_search_context_new (source_buffer, settings);
+	CtkTextIter iter;
 	gint occurrences_count;
 
 	/* Contents: "foobar" */
@@ -206,12 +206,12 @@ test_occurrences_count_with_insert (void)
 static void
 test_occurrences_count_with_delete (void)
 {
-	GtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
-	GtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
-	GtkSourceSearchSettings *settings = ctk_source_search_settings_new ();
-	GtkSourceSearchContext *context = ctk_source_search_context_new (source_buffer, settings);
-	GtkTextIter start;
-	GtkTextIter end;
+	CtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
+	CtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
+	CtkSourceSearchSettings *settings = ctk_source_search_settings_new ();
+	CtkSourceSearchContext *context = ctk_source_search_context_new (source_buffer, settings);
+	CtkTextIter start;
+	CtkTextIter end;
 	gint occurrences_count;
 
 	ctk_source_search_settings_set_search_text (settings, "foo");
@@ -296,10 +296,10 @@ test_occurrences_count_with_delete (void)
 static void
 test_occurrences_count_multiple_lines (void)
 {
-	GtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
-	GtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
-	GtkSourceSearchSettings *settings = ctk_source_search_settings_new ();
-	GtkSourceSearchContext *context = ctk_source_search_context_new (source_buffer, settings);
+	CtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
+	CtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
+	CtkSourceSearchSettings *settings = ctk_source_search_settings_new ();
+	CtkSourceSearchContext *context = ctk_source_search_context_new (source_buffer, settings);
 	gint occurrences_count;
 
 	ctk_source_search_settings_set_search_text (settings, "world\nhello");
@@ -327,10 +327,10 @@ test_occurrences_count_multiple_lines (void)
 static void
 test_case_sensitivity (void)
 {
-	GtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
-	GtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
-	GtkSourceSearchSettings *settings = ctk_source_search_settings_new ();
-	GtkSourceSearchContext *context = ctk_source_search_context_new (source_buffer, settings);
+	CtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
+	CtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
+	CtkSourceSearchSettings *settings = ctk_source_search_settings_new ();
+	CtkSourceSearchContext *context = ctk_source_search_context_new (source_buffer, settings);
 	gboolean case_sensitive;
 	gint occurrences_count;
 
@@ -361,11 +361,11 @@ test_case_sensitivity (void)
 static void
 test_search_at_word_boundaries (void)
 {
-	GtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
-	GtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
-	GtkSourceSearchSettings *settings = ctk_source_search_settings_new ();
-	GtkSourceSearchContext *context = ctk_source_search_context_new (source_buffer, settings);
-	GtkTextIter iter;
+	CtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
+	CtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
+	CtkSourceSearchSettings *settings = ctk_source_search_settings_new ();
+	CtkSourceSearchContext *context = ctk_source_search_context_new (source_buffer, settings);
+	CtkTextIter iter;
 	gboolean at_word_boundaries;
 	gint occurrences_count;
 
@@ -423,13 +423,13 @@ test_search_at_word_boundaries (void)
 }
 
 static void
-check_search_results (GtkSourceBuffer        *source_buffer,
-		      GtkSourceSearchContext *context,
+check_search_results (CtkSourceBuffer        *source_buffer,
+		      CtkSourceSearchContext *context,
 		      SearchResult           *results,
 		      gboolean                forward)
 {
-	GtkTextIter iter;
-	GtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
+	CtkTextIter iter;
+	CtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
 
 	ctk_text_buffer_get_start_iter (text_buffer, &iter);
 
@@ -438,8 +438,8 @@ check_search_results (GtkSourceBuffer        *source_buffer,
 		gint i;
 		gboolean found;
 		gboolean has_wrapped_around;
-		GtkTextIter match_start;
-		GtkTextIter match_end;
+		CtkTextIter match_start;
+		CtkTextIter match_end;
 
 		i = ctk_text_iter_get_offset (&iter);
 
@@ -476,12 +476,12 @@ check_search_results (GtkSourceBuffer        *source_buffer,
 }
 
 static void
-finish_check_result (GtkSourceSearchContext *context,
+finish_check_result (CtkSourceSearchContext *context,
 		     GAsyncResult           *result,
 		     AsyncData              *data)
 {
-	GtkTextIter match_start;
-	GtkTextIter match_end;
+	CtkTextIter match_start;
+	CtkTextIter match_end;
 	gboolean found;
 	gboolean has_wrapped_around;
 	SearchResult search_result = data->results[data->result_num];
@@ -526,14 +526,14 @@ finish_check_result (GtkSourceSearchContext *context,
 }
 
 static void
-check_async_search_results (GtkSourceSearchContext *context,
+check_async_search_results (CtkSourceSearchContext *context,
 			    SearchResult           *results,
 			    gboolean                forward,
 			    gboolean                start_check)
 {
-	GtkSourceBuffer *source_buffer = ctk_source_search_context_get_buffer (context);
-	GtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
-	static GtkTextIter iter;
+	CtkSourceBuffer *source_buffer = ctk_source_search_context_get_buffer (context);
+	CtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
+	static CtkTextIter iter;
 	AsyncData *data;
 
 	if (start_check)
@@ -572,10 +572,10 @@ check_async_search_results (GtkSourceSearchContext *context,
 static void
 test_forward_search (void)
 {
-	GtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
-	GtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
-	GtkSourceSearchSettings *settings = ctk_source_search_settings_new ();
-	GtkSourceSearchContext *context = ctk_source_search_context_new (source_buffer, settings);
+	CtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
+	CtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
+	CtkSourceSearchSettings *settings = ctk_source_search_settings_new ();
+	CtkSourceSearchContext *context = ctk_source_search_context_new (source_buffer, settings);
 	gboolean wrap_around;
 
 	static SearchResult results1[] =
@@ -643,10 +643,10 @@ test_forward_search (void)
 static void
 test_async_forward_search_normal (void)
 {
-	GtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
-	GtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
-	GtkSourceSearchSettings *settings = ctk_source_search_settings_new ();
-	GtkSourceSearchContext *context = ctk_source_search_context_new (source_buffer, settings);
+	CtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
+	CtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
+	CtkSourceSearchSettings *settings = ctk_source_search_settings_new ();
+	CtkSourceSearchContext *context = ctk_source_search_context_new (source_buffer, settings);
 
 	static SearchResult results[] =
 	{
@@ -671,10 +671,10 @@ test_async_forward_search_normal (void)
 static void
 test_async_forward_search_wrap_around (void)
 {
-	GtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
-	GtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
-	GtkSourceSearchSettings *settings = ctk_source_search_settings_new ();
-	GtkSourceSearchContext *context = ctk_source_search_context_new (source_buffer, settings);
+	CtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
+	CtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
+	CtkSourceSearchSettings *settings = ctk_source_search_settings_new ();
+	CtkSourceSearchContext *context = ctk_source_search_context_new (source_buffer, settings);
 
 	static SearchResult results[] =
 	{
@@ -700,10 +700,10 @@ test_async_forward_search_wrap_around (void)
 static void
 test_backward_search (void)
 {
-	GtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
-	GtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
-	GtkSourceSearchSettings *settings = ctk_source_search_settings_new ();
-	GtkSourceSearchContext *context = ctk_source_search_context_new (source_buffer, settings);
+	CtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
+	CtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
+	CtkSourceSearchSettings *settings = ctk_source_search_settings_new ();
+	CtkSourceSearchContext *context = ctk_source_search_context_new (source_buffer, settings);
 
 	static SearchResult results1[] =
 	{
@@ -764,10 +764,10 @@ test_backward_search (void)
 static void
 test_async_backward_search_normal (void)
 {
-	GtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
-	GtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
-	GtkSourceSearchSettings *settings = ctk_source_search_settings_new ();
-	GtkSourceSearchContext *context = ctk_source_search_context_new (source_buffer, settings);
+	CtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
+	CtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
+	CtkSourceSearchSettings *settings = ctk_source_search_settings_new ();
+	CtkSourceSearchContext *context = ctk_source_search_context_new (source_buffer, settings);
 
 	static SearchResult results[] =
 	{
@@ -792,10 +792,10 @@ test_async_backward_search_normal (void)
 static void
 test_async_backward_search_wrap_around (void)
 {
-	GtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
-	GtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
-	GtkSourceSearchSettings *settings = ctk_source_search_settings_new ();
-	GtkSourceSearchContext *context = ctk_source_search_context_new (source_buffer, settings);
+	CtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
+	CtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
+	CtkSourceSearchSettings *settings = ctk_source_search_settings_new ();
+	CtkSourceSearchContext *context = ctk_source_search_context_new (source_buffer, settings);
 
 	static SearchResult results[] =
 	{
@@ -821,9 +821,9 @@ test_async_backward_search_wrap_around (void)
 static void
 test_highlight (void)
 {
-	GtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
-	GtkSourceSearchContext *context1 = ctk_source_search_context_new (source_buffer, NULL);
-	GtkSourceSearchContext *context2 = ctk_source_search_context_new (source_buffer, NULL);
+	CtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
+	CtkSourceSearchContext *context1 = ctk_source_search_context_new (source_buffer, NULL);
+	CtkSourceSearchContext *context2 = ctk_source_search_context_new (source_buffer, NULL);
 	gboolean highlight;
 
 	ctk_source_search_context_set_highlight (context1, TRUE);
@@ -842,7 +842,7 @@ test_highlight (void)
 static void
 test_get_search_text (void)
 {
-	GtkSourceSearchSettings *settings = ctk_source_search_settings_new ();
+	CtkSourceSearchSettings *settings = ctk_source_search_settings_new ();
 	const gchar *search_text;
 
 	search_text = ctk_source_search_settings_get_search_text (settings);
@@ -862,12 +862,12 @@ test_get_search_text (void)
 static void
 test_occurrence_position (void)
 {
-	GtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
-	GtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
-	GtkSourceSearchSettings *settings = ctk_source_search_settings_new ();
-	GtkSourceSearchContext *context = ctk_source_search_context_new (source_buffer, settings);
-	GtkTextIter start;
-	GtkTextIter end;
+	CtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
+	CtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
+	CtkSourceSearchSettings *settings = ctk_source_search_settings_new ();
+	CtkSourceSearchContext *context = ctk_source_search_context_new (source_buffer, settings);
+	CtkTextIter start;
+	CtkTextIter end;
 	gint pos;
 
 	ctk_text_buffer_set_text (text_buffer, "aaaa", -1);
@@ -899,12 +899,12 @@ test_occurrence_position (void)
 static void
 test_replace (void)
 {
-	GtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
-	GtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
-	GtkSourceSearchSettings *settings = ctk_source_search_settings_new ();
-	GtkSourceSearchContext *context = ctk_source_search_context_new (source_buffer, settings);
-	GtkTextIter start;
-	GtkTextIter end;
+	CtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
+	CtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
+	CtkSourceSearchSettings *settings = ctk_source_search_settings_new ();
+	CtkSourceSearchContext *context = ctk_source_search_context_new (source_buffer, settings);
+	CtkTextIter start;
+	CtkTextIter end;
 	gint offset;
 	gboolean replaced;
 	gchar *contents;
@@ -941,10 +941,10 @@ test_replace (void)
 static void
 test_replace_all (void)
 {
-	GtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
-	GtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
-	GtkSourceSearchSettings *settings = ctk_source_search_settings_new ();
-	GtkSourceSearchContext *context = ctk_source_search_context_new (source_buffer, settings);
+	CtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
+	CtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
+	CtkSourceSearchSettings *settings = ctk_source_search_settings_new ();
+	CtkSourceSearchContext *context = ctk_source_search_context_new (source_buffer, settings);
 	gint nb_replacements;
 	gchar *contents;
 
@@ -967,14 +967,14 @@ test_replace_all (void)
 static void
 test_regex_basics (void)
 {
-	GtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
-	GtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
-	GtkSourceSearchSettings *settings = ctk_source_search_settings_new ();
-	GtkSourceSearchContext *context = ctk_source_search_context_new (source_buffer, settings);
+	CtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
+	CtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
+	CtkSourceSearchSettings *settings = ctk_source_search_settings_new ();
+	CtkSourceSearchContext *context = ctk_source_search_context_new (source_buffer, settings);
 	gboolean regex_enabled;
 	gint occurrences_count;
-	GtkTextIter start;
-	GtkTextIter end;
+	CtkTextIter start;
+	CtkTextIter end;
 	gchar *contents;
 
 	ctk_text_buffer_set_text (text_buffer, "hello\nworld\n", -1);
@@ -1029,13 +1029,13 @@ test_regex_basics (void)
 static void
 test_regex_at_word_boundaries (void)
 {
-	GtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
-	GtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
-	GtkSourceSearchSettings *settings = ctk_source_search_settings_new ();
-	GtkSourceSearchContext *context = ctk_source_search_context_new (source_buffer, settings);
-	GtkTextIter iter;
-	GtkTextIter match_start;
-	GtkTextIter match_end;
+	CtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
+	CtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
+	CtkSourceSearchSettings *settings = ctk_source_search_settings_new ();
+	CtkSourceSearchContext *context = ctk_source_search_context_new (source_buffer, settings);
+	CtkTextIter iter;
+	CtkTextIter match_start;
+	CtkTextIter match_end;
 	gboolean has_wrapped_around;
 	gboolean found;
 	gint offset;
@@ -1118,13 +1118,13 @@ test_regex_at_word_boundaries (void)
 static void
 test_regex_look_behind (void)
 {
-	GtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
-	GtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
-	GtkSourceSearchSettings *settings = ctk_source_search_settings_new ();
-	GtkSourceSearchContext *context = ctk_source_search_context_new (source_buffer, settings);
-	GtkTextIter iter;
-	GtkTextIter match_start;
-	GtkTextIter match_end;
+	CtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
+	CtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
+	CtkSourceSearchSettings *settings = ctk_source_search_settings_new ();
+	CtkSourceSearchContext *context = ctk_source_search_context_new (source_buffer, settings);
+	CtkTextIter iter;
+	CtkTextIter match_start;
+	CtkTextIter match_end;
 	gint count;
 	gint pos;
 	gint offset;
@@ -1204,13 +1204,13 @@ test_regex_look_behind (void)
 static void
 test_regex_look_ahead (void)
 {
-	GtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
-	GtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
-	GtkSourceSearchSettings *settings = ctk_source_search_settings_new ();
-	GtkSourceSearchContext *context = ctk_source_search_context_new (source_buffer, settings);
-	GtkTextIter iter;
-	GtkTextIter match_start;
-	GtkTextIter match_end;
+	CtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
+	CtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
+	CtkSourceSearchSettings *settings = ctk_source_search_settings_new ();
+	CtkSourceSearchContext *context = ctk_source_search_context_new (source_buffer, settings);
+	CtkTextIter iter;
+	CtkTextIter match_start;
+	CtkTextIter match_end;
 	gint count;
 	gint pos;
 	gint offset;
@@ -1290,10 +1290,10 @@ test_regex_look_ahead (void)
 static void
 test_destroy_buffer_during_search (void)
 {
-	GtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
-	GtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
-	GtkSourceSearchSettings *settings = ctk_source_search_settings_new ();
-	GtkSourceSearchContext *context = ctk_source_search_context_new (source_buffer, settings);
+	CtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
+	CtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
+	CtkSourceSearchSettings *settings = ctk_source_search_settings_new ();
+	CtkSourceSearchContext *context = ctk_source_search_context_new (source_buffer, settings);
 
 	ctk_text_buffer_set_text (text_buffer, "y", -1);
 	ctk_source_search_settings_set_search_text (settings, "y");

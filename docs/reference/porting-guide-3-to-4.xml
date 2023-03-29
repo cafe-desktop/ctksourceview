@@ -8,19 +8,19 @@
 ]>
 
 <chapter id="porting-guide-3-to-4">
-  <title>GtkSourceView 3 -> 4 Porting Guide</title>
+  <title>CtkSourceView 3 -> 4 Porting Guide</title>
 
   <refsect1>
     <title>CTK+ dependency</title>
     <para>
-      Both GtkSourceView 3 and GtkSourceView 4 depend on CTK+ 3.
+      Both CtkSourceView 3 and CtkSourceView 4 depend on CTK+ 3.
     </para>
   </refsect1>
 
   <refsect1>
-    <title>Preparation in GtkSourceView 3</title>
+    <title>Preparation in CtkSourceView 3</title>
     <para>
-      GtkSourceView 3.24 is the latest stable GtkSourceView 3 version. Before
+      CtkSourceView 3.24 is the latest stable CtkSourceView 3 version. Before
       continuing this porting guide, you should use the 3.24 version without
       using any deprecated API.
     </para>
@@ -29,11 +29,11 @@
   <refsect1>
     <title>New pkg-config name</title>
     <para>
-      For GtkSourceView 4, the pkg-config name is:
+      For CtkSourceView 4, the pkg-config name is:
       <code>ctksourceview-4</code>
     </para>
     <para>
-      To compile a program that uses GtkSourceView 4, you
+      To compile a program that uses CtkSourceView 4, you
       can for example use the following command:
     </para>
     <para>
@@ -42,7 +42,7 @@
   </refsect1>
 
   <refsect1>
-    <title>GtkSourceView 3.99.1</title>
+    <title>CtkSourceView 3.99.1</title>
     <itemizedlist>
       <listitem>
         <para>
@@ -52,13 +52,13 @@
       <listitem>
         <para>
           Only <code>&lt;ctksourceview/ctksource.h&gt;</code> can be included
-          directly. There were already warnings about it in GtkSourceView 3. The
+          directly. There were already warnings about it in CtkSourceView 3. The
           warnings have been changed to errors.
         </para>
       </listitem>
       <listitem>
         <para>
-          Only the version 2 of the <link linkend="lang-reference">GtkSourceView
+          Only the version 2 of the <link linkend="lang-reference">CtkSourceView
           language definition file format</link> is supported (for *.lang files,
           used for syntax highlighting). The support for the version 1 has been
           dropped.
@@ -68,7 +68,7 @@
   </refsect1>
 
   <refsect1>
-    <title>GtkSourceView 3.99.2</title>
+    <title>CtkSourceView 3.99.2</title>
     <itemizedlist>
       <listitem>
         <para>
@@ -108,7 +108,7 @@
       </listitem>
       <listitem>
         <para>
-          The <link linkend="GtkSourceSearchContext--settings">GtkSourceSearchContext:settings</link>
+          The <link linkend="CtkSourceSearchContext--settings">CtkSourceSearchContext:settings</link>
           property is now construct-only.
         </para>
       </listitem>
@@ -116,17 +116,17 @@
   </refsect1>
 
   <refsect1>
-    <title>GtkSourceView 3.99.3</title>
+    <title>CtkSourceView 3.99.3</title>
     <para>No API changes.</para>
   </refsect1>
 
   <refsect1>
-    <title>GtkSourceView 3.99.4</title>
+    <title>CtkSourceView 3.99.4</title>
     <itemizedlist>
       <listitem>
         <para>
           The API of the
-          <link linkend="GtkSourceView-move-lines">GtkSourceView::move-lines</link>
+          <link linkend="CtkSourceView-move-lines">CtkSourceView::move-lines</link>
           keybinding signal has been simplified: the <code>copy</code> parameter
           was deprecated and has been removed; and the <code>count</code>
           parameter has been replaced by the <code>down</code> boolean.
@@ -136,12 +136,12 @@
   </refsect1>
 
   <refsect1>
-    <title>GtkSourceView 3.99.5 and 3.99.6</title>
+    <title>CtkSourceView 3.99.5 and 3.99.6</title>
     <para>No API changes.</para>
   </refsect1>
 
   <refsect1>
-    <title>GtkSourceView 3.99.7</title>
+    <title>CtkSourceView 3.99.7</title>
     <para>
       In order to have a better *.gir file and have less metadata to generate
       the *.vapi for Vala, the following change has been made:
@@ -152,9 +152,9 @@
           <code>ctk_source_completion_show()</code> has been renamed to
           <link linkend="ctk-source-completion-start">ctk_source_completion_start()</link>.
           The function conflicted with the
-          <link linkend="GtkSourceCompletion-show">GtkSourceCompletion::show</link> signal.
+          <link linkend="CtkSourceCompletion-show">CtkSourceCompletion::show</link> signal.
           Note that in Vala this doesn't require code changes because the method
-          was already renamed to <code>start()</code> in GtkSourceView&nbsp;3.
+          was already renamed to <code>start()</code> in CtkSourceView&nbsp;3.
         </para>
       </listitem>
     </itemizedlist>

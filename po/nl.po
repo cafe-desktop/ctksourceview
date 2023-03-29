@@ -561,13 +561,13 @@ msgid "Unknown"
 msgstr "Onbekend"
 
 #. Translators: This is the sorted list of encodings used by
-#. * GtkSourceView for automatic detection of the file encoding. You may
+#. * CtkSourceView for automatic detection of the file encoding. You may
 #. * want to customize it adding encodings that are common in your
 #. * country, for instance the GB18030 encoding for the Chinese
 #. * translation. You may also want to remove the ISO-8859-15 encoding
 #. * (covering English and most Western European languages) if you think
 #. * people in your country will rarely use it.  "CURRENT" is a magic
-#. * value used by GtkSourceView and it represents the encoding for the
+#. * value used by CtkSourceView and it represents the encoding for the
 #. * current locale, so please don't translate the "CURRENT" term.  Only
 #. * recognized encodings are used. See
 #. * https://gitlab.gnome.org/GNOME/ctksourceview/blob/master/ctksourceview/ctksourceencoding.c#L142
@@ -605,14 +605,14 @@ msgstr "De buffer bevat ongeldige tekens."
 #. *
 #. * SECTION:language
 #. * @Short_description: Represents a syntax highlighted language
-#. * @Title: GtkSourceLanguage
-#. * @See_also: #GtkSourceLanguageManager
+#. * @Title: CtkSourceLanguage
+#. * @See_also: #CtkSourceLanguageManager
 #. *
-#. * A #GtkSourceLanguage represents a programming or markup language, affecting
+#. * A #CtkSourceLanguage represents a programming or markup language, affecting
 #. * syntax highlighting and [context classes][context-classes].
 #. *
-#. * Use #GtkSourceLanguageManager to obtain a #GtkSourceLanguage instance, and
-#. * ctk_source_buffer_set_language() to apply it to a #GtkSourceBuffer.
+#. * Use #CtkSourceLanguageManager to obtain a #CtkSourceLanguage instance, and
+#. * ctk_source_buffer_set_language() to apply it to a #CtkSourceBuffer.
 #.
 #: ctksourceview/ctksourcelanguage.c:56
 msgid "Others"
@@ -1370,8 +1370,8 @@ msgstr "H_oofdlettergebruik wijzigen"
 #~ msgid "Deprecated"
 #~ msgstr "Verouderd"
 
-#~ msgid "GtkRC"
-#~ msgstr "GtkRC"
+#~ msgid "CtkRC"
+#~ msgstr "CtkRC"
 
 #~ msgid "Widget State"
 #~ msgstr "Widget-toestand"
@@ -2306,8 +2306,8 @@ msgstr "H_oofdlettergebruik wijzigen"
 #~ msgid "Kate"
 #~ msgstr "Kate"
 
-#~ msgid "GtkSourceView"
-#~ msgstr "GtkSourceView"
+#~ msgid "CtkSourceView"
+#~ msgstr "CtkSourceView"
 
 #~ msgid "Space"
 #~ msgstr "Spatie"
@@ -2435,8 +2435,8 @@ msgstr "H_oofdlettergebruik wijzigen"
 #~ msgid "View"
 #~ msgstr "Weergave"
 
-#~ msgid "The GtkSourceView bound to the completion"
-#~ msgstr "De GtkSourceView verbonden aan de aanvulling"
+#~ msgid "The CtkSourceView bound to the completion"
+#~ msgstr "De CtkSourceView verbonden aan de aanvulling"
 
 #~ msgid "Remember Info Visibility"
 #~ msgstr "Zichtbaarheid van info onthouden"
@@ -2487,8 +2487,8 @@ msgstr "H_oofdlettergebruik wijzigen"
 #~ msgid "Iterator"
 #~ msgstr "Iterator"
 
-#~ msgid "The GtkTextIter at which the completion was invoked"
-#~ msgstr "De GtkTextIter waar de aanvulling werd aangeroepen"
+#~ msgid "The CtkTextIter at which the completion was invoked"
+#~ msgstr "De CtkTextIter waar de aanvulling werd aangeroepen"
 
 #~ msgid "The type of activation"
 #~ msgstr "Activeringstype"
@@ -2511,8 +2511,8 @@ msgstr "H_oofdlettergebruik wijzigen"
 #~ msgid "Info to be shown for this item"
 #~ msgstr "Voor dit item getoonde informatie"
 
-#~ msgid "The gutters' GtkSourceView"
-#~ msgstr "De gutters' GtkSourceView"
+#~ msgid "The gutters' CtkSourceView"
+#~ msgstr "De gutters' CtkSourceView"
 
 #~ msgid "Window Type"
 #~ msgstr "Venstertype"
@@ -2645,8 +2645,8 @@ msgstr "H_oofdlettergebruik wijzigen"
 #~ msgid "Source Buffer"
 #~ msgstr "Bron buffer"
 
-#~ msgid "The GtkSourceBuffer object to print"
-#~ msgstr "Het GtkSourceBuffer-object om af te drukken"
+#~ msgid "The CtkSourceBuffer object to print"
+#~ msgstr "Het CtkSourceBuffer-object om af te drukken"
 
 #~ msgid "Tab Width"
 #~ msgstr "Tabs-breedte"

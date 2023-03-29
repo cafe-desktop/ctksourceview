@@ -1,18 +1,18 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*- */
 /*
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2005 - Paolo Maggi
  * Copyright (C) 2007 - Paolo Maggi, Steve Frécinaux
  * Copyright (C) 2008 - Jesse van den Kieboom
  * Copyright (C) 2014, 2016 - Sébastien Wilmet
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -36,19 +36,19 @@
 
 /**
  * SECTION:fileloader
- * @Short_description: Load a file into a GtkSourceBuffer
- * @Title: GtkSourceFileLoader
- * @See_also: #GtkSourceFile, #GtkSourceFileSaver
+ * @Short_description: Load a file into a CtkSourceBuffer
+ * @Title: CtkSourceFileLoader
+ * @See_also: #CtkSourceFile, #CtkSourceFileSaver
  *
- * A #GtkSourceFileLoader object permits to load the contents of a #GFile or a
- * #GInputStream into a #GtkSourceBuffer.
+ * A #CtkSourceFileLoader object permits to load the contents of a #GFile or a
+ * #GInputStream into a #CtkSourceBuffer.
  *
  * A file loader should be used only for one load operation, including errors
  * handling. If an error occurs, you can reconfigure the loader and relaunch the
  * operation with ctk_source_file_loader_load_async().
  *
- * Running a #GtkSourceFileLoader is an undoable action for the
- * #GtkSourceBuffer. That is, ctk_source_buffer_begin_not_undoable_action() and
+ * Running a #CtkSourceFileLoader is an undoable action for the
+ * #CtkSourceBuffer. That is, ctk_source_buffer_begin_not_undoable_action() and
  * ctk_source_buffer_end_not_undoable_action() are called, which delete the
  * undo/redo history.
  *
@@ -82,19 +82,19 @@ enum
 				G_FILE_ATTRIBUTE_STANDARD_SIZE "," \
 				G_FILE_ATTRIBUTE_ACCESS_CAN_WRITE
 
-struct _GtkSourceFileLoaderPrivate
+struct _CtkSourceFileLoaderPrivate
 {
-	/* Weak ref to the GtkSourceBuffer. A strong ref could create a
+	/* Weak ref to the CtkSourceBuffer. A strong ref could create a
 	 * reference cycle in an application. For example a subclass of
-	 * GtkSourceBuffer can have a strong ref to the FileLoader.
+	 * CtkSourceBuffer can have a strong ref to the FileLoader.
 	 */
-	GtkSourceBuffer *source_buffer;
+	CtkSourceBuffer *source_buffer;
 
-	/* Weak ref to the GtkSourceFile. A strong ref could create a reference
-	 * cycle in an application. For example a subclass of GtkSourceFile can
+	/* Weak ref to the CtkSourceFile. A strong ref could create a reference
+	 * cycle in an application. For example a subclass of CtkSourceFile can
 	 * have a strong ref to the FileLoader.
 	 */
-	GtkSourceFile *file;
+	CtkSourceFile *file;
 
 	GFile *location;
 
@@ -105,9 +105,9 @@ struct _GtkSourceFileLoaderPrivate
 
 	GSList *candidate_encodings;
 
-	const GtkSourceEncoding *auto_detected_encoding;
-	GtkSourceNewlineType auto_detected_newline_type;
-	GtkSourceCompressionType auto_detected_compression_type;
+	const CtkSourceEncoding *auto_detected_encoding;
+	CtkSourceNewlineType auto_detected_newline_type;
+	CtkSourceCompressionType auto_detected_compression_type;
 
 	GTask *task;
 };
@@ -121,7 +121,7 @@ struct _TaskData
 	 *     methods for the input stream.
 	 */
 	GInputStream *input_stream;
-	GtkSourceBufferOutputStream *output_stream;
+	CtkSourceBufferOutputStream *output_stream;
 
 	GFileInfo *info;
 
@@ -139,7 +139,7 @@ struct _TaskData
 	guint tried_mount : 1;
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceFileLoader, ctk_source_file_loader, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (CtkSourceFileLoader, ctk_source_file_loader, G_TYPE_OBJECT)
 
 static void open_file (GTask *task);
 static void read_file_chunk (GTask *task);
@@ -172,7 +172,7 @@ task_data_free (gpointer data)
 	g_free (task_data);
 }
 
-static GtkSourceCompressionType
+static CtkSourceCompressionType
 get_compression_type_from_content_type (const gchar *content_type)
 {
 	if (content_type == NULL)
@@ -194,7 +194,7 @@ ctk_source_file_loader_set_property (GObject      *object,
 				     const GValue *value,
 				     GParamSpec   *pspec)
 {
-	GtkSourceFileLoader *loader = CTK_SOURCE_FILE_LOADER (object);
+	CtkSourceFileLoader *loader = CTK_SOURCE_FILE_LOADER (object);
 
 	switch (prop_id)
 	{
@@ -234,7 +234,7 @@ ctk_source_file_loader_get_property (GObject    *object,
 				     GValue     *value,
 				     GParamSpec *pspec)
 {
-	GtkSourceFileLoader *loader = CTK_SOURCE_FILE_LOADER (object);
+	CtkSourceFileLoader *loader = CTK_SOURCE_FILE_LOADER (object);
 
 	switch (prop_id)
 	{
@@ -263,7 +263,7 @@ ctk_source_file_loader_get_property (GObject    *object,
 static void
 ctk_source_file_loader_dispose (GObject *object)
 {
-	GtkSourceFileLoader *loader = CTK_SOURCE_FILE_LOADER (object);
+	CtkSourceFileLoader *loader = CTK_SOURCE_FILE_LOADER (object);
 
 	if (loader->priv->source_buffer != NULL)
 	{
@@ -292,14 +292,14 @@ ctk_source_file_loader_dispose (GObject *object)
 }
 
 static void
-set_default_candidate_encodings (GtkSourceFileLoader *loader)
+set_default_candidate_encodings (CtkSourceFileLoader *loader)
 {
 	GSList *list;
 	GSList *l;
-	const GtkSourceEncoding *file_encoding;
+	const CtkSourceEncoding *file_encoding;
 
-	/* Get first the default candidates from GtkSourceEncoding. If the
-	 * GtkSourceFile's encoding has been set by a FileLoader or FileSaver,
+	/* Get first the default candidates from CtkSourceEncoding. If the
+	 * CtkSourceFile's encoding has been set by a FileLoader or FileSaver,
 	 * put it at the beginning of the list.
 	 */
 	list = ctk_source_encoding_get_default_candidates ();
@@ -321,7 +321,7 @@ set_default_candidate_encodings (GtkSourceFileLoader *loader)
 	 */
 	for (l = list; l != NULL; l = l->next)
 	{
-		const GtkSourceEncoding *cur_encoding = l->data;
+		const CtkSourceEncoding *cur_encoding = l->data;
 
 		if (cur_encoding == file_encoding)
 		{
@@ -342,7 +342,7 @@ end:
 static void
 ctk_source_file_loader_constructed (GObject *object)
 {
-	GtkSourceFileLoader *loader = CTK_SOURCE_FILE_LOADER (object);
+	CtkSourceFileLoader *loader = CTK_SOURCE_FILE_LOADER (object);
 
 	if (loader->priv->file != NULL)
 	{
@@ -359,7 +359,7 @@ ctk_source_file_loader_constructed (GObject *object)
 			}
 			else
 			{
-				g_warning ("GtkSourceFileLoader: the GtkSourceFile's location is NULL. "
+				g_warning ("CtkSourceFileLoader: the CtkSourceFile's location is NULL. "
 					   "Call ctk_source_file_set_location() or read from a GInputStream.");
 			}
 		}
@@ -369,7 +369,7 @@ ctk_source_file_loader_constructed (GObject *object)
 }
 
 static void
-ctk_source_file_loader_class_init (GtkSourceFileLoaderClass *klass)
+ctk_source_file_loader_class_init (CtkSourceFileLoaderClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
@@ -379,16 +379,16 @@ ctk_source_file_loader_class_init (GtkSourceFileLoaderClass *klass)
 	object_class->constructed = ctk_source_file_loader_constructed;
 
 	/**
-	 * GtkSourceFileLoader:buffer:
+	 * CtkSourceFileLoader:buffer:
 	 *
-	 * The #GtkSourceBuffer to load the contents into. The
-	 * #GtkSourceFileLoader object has a weak reference to the buffer.
+	 * The #CtkSourceBuffer to load the contents into. The
+	 * #CtkSourceFileLoader object has a weak reference to the buffer.
 	 *
 	 * Since: 3.14
 	 */
 	g_object_class_install_property (object_class, PROP_BUFFER,
 					 g_param_spec_object ("buffer",
-							      "GtkSourceBuffer",
+							      "CtkSourceBuffer",
 							      "",
 							      CTK_SOURCE_TYPE_BUFFER,
 							      G_PARAM_READWRITE |
@@ -396,16 +396,16 @@ ctk_source_file_loader_class_init (GtkSourceFileLoaderClass *klass)
 							      G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceFileLoader:file:
+	 * CtkSourceFileLoader:file:
 	 *
-	 * The #GtkSourceFile. The #GtkSourceFileLoader object has a weak
+	 * The #CtkSourceFile. The #CtkSourceFileLoader object has a weak
 	 * reference to the file.
 	 *
 	 * Since: 3.14
 	 */
 	g_object_class_install_property (object_class, PROP_FILE,
 					 g_param_spec_object ("file",
-							      "GtkSourceFile",
+							      "CtkSourceFile",
 							      "",
 							      CTK_SOURCE_TYPE_FILE,
 							      G_PARAM_READWRITE |
@@ -413,10 +413,10 @@ ctk_source_file_loader_class_init (GtkSourceFileLoaderClass *klass)
 							      G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceFileLoader:location:
+	 * CtkSourceFileLoader:location:
 	 *
-	 * The #GFile to load. If the #GtkSourceFileLoader:input-stream is
-	 * %NULL, by default the location is taken from the #GtkSourceFile at
+	 * The #GFile to load. If the #CtkSourceFileLoader:input-stream is
+	 * %NULL, by default the location is taken from the #CtkSourceFile at
 	 * construction time.
 	 *
 	 * Since: 3.14
@@ -431,10 +431,10 @@ ctk_source_file_loader_class_init (GtkSourceFileLoaderClass *klass)
 							      G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceFileLoader:input-stream:
+	 * CtkSourceFileLoader:input-stream:
 	 *
 	 * The #GInputStream to load. Useful for reading stdin. If this property
-	 * is set, the #GtkSourceFileLoader:location property is ignored.
+	 * is set, the #CtkSourceFileLoader:location property is ignored.
 	 *
 	 * Since: 3.14
 	 */
@@ -448,7 +448,7 @@ ctk_source_file_loader_class_init (GtkSourceFileLoaderClass *klass)
 							      G_PARAM_STATIC_STRINGS));
 
 	/* Due to potential deadlocks when registering types, we need to
-	 * ensure the dependent private class GtkSourceBufferOutputStream
+	 * ensure the dependent private class CtkSourceBufferOutputStream
 	 * has been registered up front.
 	 *
 	 * See https://bugzilla.gnome.org/show_bug.cgi?id=780216
@@ -457,7 +457,7 @@ ctk_source_file_loader_class_init (GtkSourceFileLoaderClass *klass)
 }
 
 static void
-ctk_source_file_loader_init (GtkSourceFileLoader *loader)
+ctk_source_file_loader_init (CtkSourceFileLoader *loader)
 {
 	loader->priv = ctk_source_file_loader_get_instance_private (loader);
 }
@@ -594,7 +594,7 @@ read_cb (GObject      *source_object,
 {
 	GInputStream *input_stream = G_INPUT_STREAM (source_object);
 	GTask *task = G_TASK (user_data);
-	GtkSourceFileLoader *loader;
+	CtkSourceFileLoader *loader;
 	TaskData *task_data;
 	GError *error = NULL;
 
@@ -704,7 +704,7 @@ add_gzip_decompressor_stream (GTask *task)
 static void
 create_input_stream (GTask *task)
 {
-	GtkSourceFileLoader *loader;
+	CtkSourceFileLoader *loader;
 	TaskData *task_data;
 
 	loader = g_task_get_source_object (task);
@@ -815,7 +815,7 @@ mount_cb (GObject      *source_object,
 static void
 recover_not_mounted (GTask *task)
 {
-	GtkSourceFileLoader *loader;
+	CtkSourceFileLoader *loader;
 	TaskData *task_data;
 	GMountOperation *mount_operation;
 
@@ -891,7 +891,7 @@ open_file_cb (GObject      *source_object,
 static void
 open_file (GTask *task)
 {
-	GtkSourceFileLoader *loader;
+	CtkSourceFileLoader *loader;
 
 	loader = g_task_get_source_object (task);
 
@@ -917,21 +917,21 @@ ctk_source_file_loader_error_quark (void)
 
 /**
  * ctk_source_file_loader_new:
- * @buffer: the #GtkSourceBuffer to load the contents into.
- * @file: the #GtkSourceFile.
+ * @buffer: the #CtkSourceBuffer to load the contents into.
+ * @file: the #CtkSourceFile.
  *
- * Creates a new #GtkSourceFileLoader object. The contents is read from the
- * #GtkSourceFile's location. If not already done, call
+ * Creates a new #CtkSourceFileLoader object. The contents is read from the
+ * #CtkSourceFile's location. If not already done, call
  * ctk_source_file_set_location() before calling this constructor. The previous
  * location is anyway not needed, because as soon as the file loading begins,
  * the @buffer is emptied.
  *
- * Returns: a new #GtkSourceFileLoader object.
+ * Returns: a new #CtkSourceFileLoader object.
  * Since: 3.14
  */
-GtkSourceFileLoader *
-ctk_source_file_loader_new (GtkSourceBuffer *buffer,
-			    GtkSourceFile   *file)
+CtkSourceFileLoader *
+ctk_source_file_loader_new (CtkSourceBuffer *buffer,
+			    CtkSourceFile   *file)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER (buffer), NULL);
 	g_return_val_if_fail (CTK_SOURCE_IS_FILE (file), NULL);
@@ -944,18 +944,18 @@ ctk_source_file_loader_new (GtkSourceBuffer *buffer,
 
 /**
  * ctk_source_file_loader_new_from_stream:
- * @buffer: the #GtkSourceBuffer to load the contents into.
- * @file: the #GtkSourceFile.
+ * @buffer: the #CtkSourceBuffer to load the contents into.
+ * @file: the #CtkSourceFile.
  * @stream: the #GInputStream to load, e.g. stdin.
  *
- * Creates a new #GtkSourceFileLoader object. The contents is read from @stream.
+ * Creates a new #CtkSourceFileLoader object. The contents is read from @stream.
  *
- * Returns: a new #GtkSourceFileLoader object.
+ * Returns: a new #CtkSourceFileLoader object.
  * Since: 3.14
  */
-GtkSourceFileLoader *
-ctk_source_file_loader_new_from_stream (GtkSourceBuffer *buffer,
-					GtkSourceFile   *file,
+CtkSourceFileLoader *
+ctk_source_file_loader_new_from_stream (CtkSourceBuffer *buffer,
+					CtkSourceFile   *file,
 					GInputStream    *stream)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER (buffer), NULL);
@@ -971,9 +971,9 @@ ctk_source_file_loader_new_from_stream (GtkSourceBuffer *buffer,
 
 /**
  * ctk_source_file_loader_set_candidate_encodings:
- * @loader: a #GtkSourceFileLoader.
- * @candidate_encodings: (element-type GtkSourceEncoding): a list of
- *   #GtkSourceEncoding<!-- -->s.
+ * @loader: a #CtkSourceFileLoader.
+ * @candidate_encodings: (element-type CtkSourceEncoding): a list of
+ *   #CtkSourceEncoding<!-- -->s.
  *
  * Sets the candidate encodings for the file loading. The encodings are tried in
  * the same order as the list.
@@ -982,7 +982,7 @@ ctk_source_file_loader_new_from_stream (GtkSourceBuffer *buffer,
  * occurrence of a duplicated encoding is kept in the list.
  *
  * By default the candidate encodings are (in that order in the list):
- * 1. If set, the #GtkSourceFile's encoding as returned by
+ * 1. If set, the #CtkSourceFile's encoding as returned by
  * ctk_source_file_get_encoding().
  * 2. The default candidates as returned by
  * ctk_source_encoding_get_default_candidates().
@@ -990,7 +990,7 @@ ctk_source_file_loader_new_from_stream (GtkSourceBuffer *buffer,
  * Since: 3.14
  */
 void
-ctk_source_file_loader_set_candidate_encodings (GtkSourceFileLoader *loader,
+ctk_source_file_loader_set_candidate_encodings (CtkSourceFileLoader *loader,
 						GSList              *candidate_encodings)
 {
 	GSList *list;
@@ -1007,13 +1007,13 @@ ctk_source_file_loader_set_candidate_encodings (GtkSourceFileLoader *loader,
 
 /**
  * ctk_source_file_loader_get_buffer:
- * @loader: a #GtkSourceFileLoader.
+ * @loader: a #CtkSourceFileLoader.
  *
- * Returns: (transfer none): the #GtkSourceBuffer to load the contents into.
+ * Returns: (transfer none): the #CtkSourceBuffer to load the contents into.
  * Since: 3.14
  */
-GtkSourceBuffer *
-ctk_source_file_loader_get_buffer (GtkSourceFileLoader *loader)
+CtkSourceBuffer *
+ctk_source_file_loader_get_buffer (CtkSourceFileLoader *loader)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_FILE_LOADER (loader), NULL);
 
@@ -1022,13 +1022,13 @@ ctk_source_file_loader_get_buffer (GtkSourceFileLoader *loader)
 
 /**
  * ctk_source_file_loader_get_file:
- * @loader: a #GtkSourceFileLoader.
+ * @loader: a #CtkSourceFileLoader.
  *
- * Returns: (transfer none): the #GtkSourceFile.
+ * Returns: (transfer none): the #CtkSourceFile.
  * Since: 3.14
  */
-GtkSourceFile *
-ctk_source_file_loader_get_file (GtkSourceFileLoader *loader)
+CtkSourceFile *
+ctk_source_file_loader_get_file (CtkSourceFileLoader *loader)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_FILE_LOADER (loader), NULL);
 
@@ -1037,14 +1037,14 @@ ctk_source_file_loader_get_file (GtkSourceFileLoader *loader)
 
 /**
  * ctk_source_file_loader_get_location:
- * @loader: a #GtkSourceFileLoader.
+ * @loader: a #CtkSourceFileLoader.
  *
  * Returns: (nullable) (transfer none): the #GFile to load, or %NULL
  * if an input stream is used.
  * Since: 3.14
  */
 GFile *
-ctk_source_file_loader_get_location (GtkSourceFileLoader *loader)
+ctk_source_file_loader_get_location (CtkSourceFileLoader *loader)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_FILE_LOADER (loader), NULL);
 
@@ -1053,14 +1053,14 @@ ctk_source_file_loader_get_location (GtkSourceFileLoader *loader)
 
 /**
  * ctk_source_file_loader_get_input_stream:
- * @loader: a #GtkSourceFileLoader.
+ * @loader: a #CtkSourceFileLoader.
  *
  * Returns: (nullable) (transfer none): the #GInputStream to load, or %NULL
  * if a #GFile is used.
  * Since: 3.14
  */
 GInputStream *
-ctk_source_file_loader_get_input_stream (GtkSourceFileLoader *loader)
+ctk_source_file_loader_get_input_stream (CtkSourceFileLoader *loader)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_FILE_LOADER (loader), NULL);
 
@@ -1069,7 +1069,7 @@ ctk_source_file_loader_get_input_stream (GtkSourceFileLoader *loader)
 
 /**
  * ctk_source_file_loader_load_async:
- * @loader: a #GtkSourceFileLoader.
+ * @loader: a #CtkSourceFileLoader.
  * @io_priority: the I/O priority of the request. E.g. %G_PRIORITY_LOW,
  *   %G_PRIORITY_DEFAULT or %G_PRIORITY_HIGH.
  * @cancellable: (nullable): optional #GCancellable object, %NULL to ignore.
@@ -1084,7 +1084,7 @@ ctk_source_file_loader_get_input_stream (GtkSourceFileLoader *loader)
  * @user_data: user data to pass to @callback.
  *
  * Loads asynchronously the file or input stream contents into the
- * #GtkSourceBuffer. See the #GAsyncResult documentation to know how to use this
+ * #CtkSourceBuffer. See the #GAsyncResult documentation to know how to use this
  * function.
  *
  * Since: 3.14
@@ -1094,7 +1094,7 @@ ctk_source_file_loader_get_input_stream (GtkSourceFileLoader *loader)
  * https://bugzilla.gnome.org/show_bug.cgi?id=616044
  */
 void
-ctk_source_file_loader_load_async (GtkSourceFileLoader   *loader,
+ctk_source_file_loader_load_async (CtkSourceFileLoader   *loader,
 				   gint                   io_priority,
 				   GCancellable          *cancellable,
 				   GFileProgressCallback  progress_callback,
@@ -1132,7 +1132,7 @@ ctk_source_file_loader_load_async (GtkSourceFileLoader   *loader,
 	       g_print ("Start loading\n");
 	});
 
-	/* Update GtkSourceFile location directly. The other GtkSourceFile
+	/* Update CtkSourceFile location directly. The other CtkSourceFile
 	 * properties are updated when the operation is finished. But since the
 	 * file is loaded, the previous contents is lost, so the previous
 	 * location is anyway not needed. And for display purposes, the new
@@ -1174,13 +1174,13 @@ ctk_source_file_loader_load_async (GtkSourceFileLoader   *loader,
 
 /**
  * ctk_source_file_loader_load_finish:
- * @loader: a #GtkSourceFileLoader.
+ * @loader: a #CtkSourceFileLoader.
  * @result: a #GAsyncResult.
  * @error: a #GError, or %NULL.
  *
  * Finishes a file loading started with ctk_source_file_loader_load_async().
  *
- * If the contents has been loaded, the following #GtkSourceFile properties will
+ * If the contents has been loaded, the following #CtkSourceFile properties will
  * be updated: the location, the encoding, the newline type and the compression
  * type.
  *
@@ -1188,7 +1188,7 @@ ctk_source_file_loader_load_async (GtkSourceFileLoader   *loader,
  * Since: 3.14
  */
 gboolean
-ctk_source_file_loader_load_finish (GtkSourceFileLoader  *loader,
+ctk_source_file_loader_load_finish (CtkSourceFileLoader  *loader,
 				    GAsyncResult         *result,
 				    GError              **error)
 {
@@ -1276,13 +1276,13 @@ ctk_source_file_loader_load_finish (GtkSourceFileLoader  *loader,
 
 /**
  * ctk_source_file_loader_get_encoding:
- * @loader: a #GtkSourceFileLoader.
+ * @loader: a #CtkSourceFileLoader.
  *
  * Returns: the detected file encoding.
  * Since: 3.14
  */
-const GtkSourceEncoding *
-ctk_source_file_loader_get_encoding (GtkSourceFileLoader *loader)
+const CtkSourceEncoding *
+ctk_source_file_loader_get_encoding (CtkSourceFileLoader *loader)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_FILE_LOADER (loader), NULL);
 
@@ -1291,13 +1291,13 @@ ctk_source_file_loader_get_encoding (GtkSourceFileLoader *loader)
 
 /**
  * ctk_source_file_loader_get_newline_type:
- * @loader: a #GtkSourceFileLoader.
+ * @loader: a #CtkSourceFileLoader.
  *
  * Returns: the detected newline type.
  * Since: 3.14
  */
-GtkSourceNewlineType
-ctk_source_file_loader_get_newline_type (GtkSourceFileLoader *loader)
+CtkSourceNewlineType
+ctk_source_file_loader_get_newline_type (CtkSourceFileLoader *loader)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_FILE_LOADER (loader),
 			      CTK_SOURCE_NEWLINE_TYPE_LF);
@@ -1307,13 +1307,13 @@ ctk_source_file_loader_get_newline_type (GtkSourceFileLoader *loader)
 
 /**
  * ctk_source_file_loader_get_compression_type:
- * @loader: a #GtkSourceFileLoader.
+ * @loader: a #CtkSourceFileLoader.
  *
  * Returns: the detected compression type.
  * Since: 3.14
  */
-GtkSourceCompressionType
-ctk_source_file_loader_get_compression_type (GtkSourceFileLoader *loader)
+CtkSourceCompressionType
+ctk_source_file_loader_get_compression_type (CtkSourceFileLoader *loader)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_FILE_LOADER (loader),
 			      CTK_SOURCE_COMPRESSION_TYPE_NONE);

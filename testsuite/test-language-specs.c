@@ -5,10 +5,10 @@ static GHashTable *skipped;
 static void
 test_func (gconstpointer data)
 {
-	GtkSourceLanguageManager *lm = ctk_source_language_manager_get_default ();
+	CtkSourceLanguageManager *lm = ctk_source_language_manager_get_default ();
 	const char *language_id = data;
-	GtkSourceLanguage *l;
-	GtkSourceBuffer *buffer;
+	CtkSourceLanguage *l;
+	CtkSourceBuffer *buffer;
 
 	g_assert_true (CTK_SOURCE_IS_LANGUAGE_MANAGER (lm));
 	g_assert_nonnull (data);
@@ -36,7 +36,7 @@ int
 main (int   argc,
       char *argv[])
 {
-	GtkSourceLanguageManager *lm;
+	CtkSourceLanguageManager *lm;
 	const char * const *ids;
 	char *language_specs;
 	char *search_path[2];

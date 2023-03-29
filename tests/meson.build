@@ -1,5 +1,5 @@
 tests_c_args = [
-  '-DG_LOG_DOMAIN="GtkSourceView"',
+  '-DG_LOG_DOMAIN="CtkSourceView"',
   '-DTOP_SRCDIR="@0@"'.format(srcdir),
 ]
 
@@ -27,7 +27,7 @@ foreach test_name, test_sources: tests_sources
     )
   endif
 
-  # MSVC builds: We need items from the main GtkSourceView .lib as
+  # MSVC builds: We need items from the main CtkSourceView .lib as
   # well as the static core lib
   executable('test-@0@'.format(test_name), test_sources,
           c_args: tests_c_args,

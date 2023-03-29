@@ -1,15 +1,15 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*-
  *
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2010 - Jesse van den Kieboom
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -32,16 +32,16 @@
 /**
  * SECTION:gutterrenderer
  * @Short_description: Gutter cell renderer
- * @Title: GtkSourceGutterRenderer
- * @See_also: #GtkSourceGutter
+ * @Title: CtkSourceGutterRenderer
+ * @See_also: #CtkSourceGutter
  *
- * A #GtkSourceGutterRenderer represents a column in a #GtkSourceGutter. The
- * column contains one cell for each visible line of the #GtkTextBuffer. Due to
- * text wrapping, a cell can thus span multiple lines of the #GtkTextView. In
- * this case, #GtkSourceGutterRendererAlignmentMode controls the alignment of
+ * A #CtkSourceGutterRenderer represents a column in a #CtkSourceGutter. The
+ * column contains one cell for each visible line of the #CtkTextBuffer. Due to
+ * text wrapping, a cell can thus span multiple lines of the #CtkTextView. In
+ * this case, #CtkSourceGutterRendererAlignmentMode controls the alignment of
  * the cell.
  *
- * The gutter renderer must announce its #GtkSourceGutterRenderer:size. The
+ * The gutter renderer must announce its #CtkSourceGutterRenderer:size. The
  * height is determined by the text view height. The width must be determined by
  * the gutter renderer. The width generally takes into account the entire text
  * buffer. For instance, to display the line numbers, if the buffer contains 100
@@ -49,14 +49,14 @@
  * be printed, even if only the first 20 lines are shown. Another strategy is to
  * take into account only the visible lines.  In this case, only two digits are
  * necessary to display the line numbers of the first 20 lines. To take another
- * example, the gutter renderer for #GtkSourceMark<!-- -->s doesn't need to take
+ * example, the gutter renderer for #CtkSourceMark<!-- -->s doesn't need to take
  * into account the text buffer to announce its width. It only depends on the
  * icons size displayed in the gutter column.
  *
  * An horizontal and vertical padding can be added with
  * ctk_source_gutter_renderer_set_padding().  The total width of a gutter
- * renderer is its size (#GtkSourceGutterRenderer:size) plus two times the
- * horizontal padding (#GtkSourceGutterRenderer:xpad).
+ * renderer is its size (#CtkSourceGutterRenderer:size) plus two times the
+ * horizontal padding (#CtkSourceGutterRenderer:xpad).
  *
  * When the available size to render a cell is greater than the required size to
  * render the cell contents, the cell contents can be aligned horizontally and
@@ -65,9 +65,9 @@
  * The cells rendering occurs in three phases:
  * - begin: the ctk_source_gutter_renderer_begin() function is called when some
  *   cells need to be redrawn. It provides the associated region of the
- *   #GtkTextBuffer. The cells need to be redrawn when the #GtkTextView is
+ *   #CtkTextBuffer. The cells need to be redrawn when the #CtkTextView is
  *   scrolled, or when the state of the cells change (see
- *   #GtkSourceGutterRendererState).
+ *   #CtkSourceGutterRendererState).
  * - draw: ctk_source_gutter_renderer_draw() is called for each cell that needs
  *   to be drawn.
  * - end: finally, ctk_source_gutter_renderer_end() is called.
@@ -83,11 +83,11 @@ enum
 	N_SIGNALS
 };
 
-struct _GtkSourceGutterRendererPrivate
+struct _CtkSourceGutterRendererPrivate
 {
-	GtkTextView *view;
-	GtkTextBuffer *buffer;
-	GtkTextWindowType window_type;
+	CtkTextView *view;
+	CtkTextBuffer *buffer;
+	CtkTextWindowType window_type;
 
 	gint xpad;
 	gint ypad;
@@ -97,7 +97,7 @@ struct _GtkSourceGutterRendererPrivate
 
 	gint size;
 
-	GtkSourceGutterRendererAlignmentMode alignment_mode;
+	CtkSourceGutterRendererAlignmentMode alignment_mode;
 
 	GdkRGBA background_color;
 
@@ -107,7 +107,7 @@ struct _GtkSourceGutterRendererPrivate
 
 static guint signals[N_SIGNALS];
 
-G_DEFINE_ABSTRACT_TYPE_WITH_PRIVATE (GtkSourceGutterRenderer, ctk_source_gutter_renderer, G_TYPE_INITIALLY_UNOWNED)
+G_DEFINE_ABSTRACT_TYPE_WITH_PRIVATE (CtkSourceGutterRenderer, ctk_source_gutter_renderer, G_TYPE_INITIALLY_UNOWNED)
 
 enum
 {
@@ -126,8 +126,8 @@ enum
 };
 
 static void
-set_buffer (GtkSourceGutterRenderer *renderer,
-            GtkTextBuffer           *buffer)
+set_buffer (CtkSourceGutterRenderer *renderer,
+            CtkTextBuffer           *buffer)
 {
 	if (renderer->priv->buffer != NULL)
 	{
@@ -145,10 +145,10 @@ set_buffer (GtkSourceGutterRenderer *renderer,
 }
 
 static void
-emit_buffer_changed (GtkTextView             *view,
-                     GtkSourceGutterRenderer *renderer)
+emit_buffer_changed (CtkTextView             *view,
+                     CtkSourceGutterRenderer *renderer)
 {
-	GtkTextBuffer* buffer;
+	CtkTextBuffer* buffer;
 
 	buffer = ctk_text_view_get_buffer (view);
 
@@ -165,16 +165,16 @@ emit_buffer_changed (GtkTextView             *view,
 }
 
 static void
-on_buffer_changed (GtkTextView             *view,
+on_buffer_changed (CtkTextView             *view,
                    GParamSpec              *spec,
-                   GtkSourceGutterRenderer *renderer)
+                   CtkSourceGutterRenderer *renderer)
 {
 	emit_buffer_changed (view, renderer);
 }
 
 static void
-renderer_change_view_impl (GtkSourceGutterRenderer *renderer,
-                           GtkTextView             *old_view)
+renderer_change_view_impl (CtkSourceGutterRenderer *renderer,
+                           CtkTextView             *old_view)
 {
 	if (old_view)
 	{
@@ -197,7 +197,7 @@ renderer_change_view_impl (GtkSourceGutterRenderer *renderer,
 static void
 ctk_source_gutter_renderer_dispose (GObject *object)
 {
-	GtkSourceGutterRenderer *renderer;
+	CtkSourceGutterRenderer *renderer;
 
 	renderer = CTK_SOURCE_GUTTER_RENDERER (object);
 
@@ -214,7 +214,7 @@ ctk_source_gutter_renderer_dispose (GObject *object)
 }
 
 static void
-set_visible (GtkSourceGutterRenderer *renderer,
+set_visible (CtkSourceGutterRenderer *renderer,
              gboolean                 visible)
 {
 	visible = visible != FALSE;
@@ -229,7 +229,7 @@ set_visible (GtkSourceGutterRenderer *renderer,
 }
 
 static gboolean
-set_padding (GtkSourceGutterRenderer *renderer,
+set_padding (CtkSourceGutterRenderer *renderer,
              gint                    *field,
              gint                     padding,
              const gchar             *name)
@@ -246,7 +246,7 @@ set_padding (GtkSourceGutterRenderer *renderer,
 }
 
 static gboolean
-set_xpad (GtkSourceGutterRenderer *renderer,
+set_xpad (CtkSourceGutterRenderer *renderer,
           gint                     xpad)
 {
 	return set_padding (renderer,
@@ -256,7 +256,7 @@ set_xpad (GtkSourceGutterRenderer *renderer,
 }
 
 static gboolean
-set_ypad (GtkSourceGutterRenderer *renderer,
+set_ypad (CtkSourceGutterRenderer *renderer,
           gint                     ypad)
 {
 	return set_padding (renderer,
@@ -266,7 +266,7 @@ set_ypad (GtkSourceGutterRenderer *renderer,
 }
 
 static gboolean
-set_alignment (GtkSourceGutterRenderer *renderer,
+set_alignment (CtkSourceGutterRenderer *renderer,
                gfloat                  *field,
                gfloat                   align,
                const gchar             *name,
@@ -289,7 +289,7 @@ set_alignment (GtkSourceGutterRenderer *renderer,
 }
 
 static gboolean
-set_xalign (GtkSourceGutterRenderer *renderer,
+set_xalign (CtkSourceGutterRenderer *renderer,
             gfloat                   xalign,
             gboolean                 emit)
 {
@@ -301,7 +301,7 @@ set_xalign (GtkSourceGutterRenderer *renderer,
 }
 
 static gboolean
-set_yalign (GtkSourceGutterRenderer *renderer,
+set_yalign (CtkSourceGutterRenderer *renderer,
             gfloat                   yalign,
             gboolean                 emit)
 {
@@ -313,8 +313,8 @@ set_yalign (GtkSourceGutterRenderer *renderer,
 }
 
 static void
-set_alignment_mode (GtkSourceGutterRenderer              *renderer,
-                    GtkSourceGutterRendererAlignmentMode  mode)
+set_alignment_mode (CtkSourceGutterRenderer              *renderer,
+                    CtkSourceGutterRendererAlignmentMode  mode)
 {
 	if (renderer->priv->alignment_mode == mode)
 	{
@@ -328,7 +328,7 @@ set_alignment_mode (GtkSourceGutterRenderer              *renderer,
 }
 
 static void
-set_size (GtkSourceGutterRenderer *renderer,
+set_size (CtkSourceGutterRenderer *renderer,
           gint                     value)
 {
 	if (renderer->priv->size == value)
@@ -341,7 +341,7 @@ set_size (GtkSourceGutterRenderer *renderer,
 }
 
 static void
-set_background_color_set (GtkSourceGutterRenderer *renderer,
+set_background_color_set (CtkSourceGutterRenderer *renderer,
                           gboolean                 isset)
 {
 	isset = (isset != FALSE);
@@ -354,7 +354,7 @@ set_background_color_set (GtkSourceGutterRenderer *renderer,
 }
 
 static void
-set_background_color (GtkSourceGutterRenderer *renderer,
+set_background_color (CtkSourceGutterRenderer *renderer,
                       const GdkRGBA          *color)
 {
 	if (!color)
@@ -376,7 +376,7 @@ ctk_source_gutter_renderer_set_property (GObject      *object,
                                          const GValue *value,
                                          GParamSpec   *pspec)
 {
-	GtkSourceGutterRenderer *self = CTK_SOURCE_GUTTER_RENDERER (object);
+	CtkSourceGutterRenderer *self = CTK_SOURCE_GUTTER_RENDERER (object);
 
 	switch (prop_id)
 	{
@@ -427,7 +427,7 @@ ctk_source_gutter_renderer_get_property (GObject    *object,
                                          GValue     *value,
                                          GParamSpec *pspec)
 {
-	GtkSourceGutterRenderer *self = CTK_SOURCE_GUTTER_RENDERER (object);
+	CtkSourceGutterRenderer *self = CTK_SOURCE_GUTTER_RENDERER (object);
 
 	switch (prop_id)
 	{
@@ -471,13 +471,13 @@ ctk_source_gutter_renderer_get_property (GObject    *object,
 }
 
 static void
-renderer_draw_impl (GtkSourceGutterRenderer      *renderer,
+renderer_draw_impl (CtkSourceGutterRenderer      *renderer,
                     cairo_t                      *cr,
                     GdkRectangle                 *background_area,
                     GdkRectangle                 *cell_area,
-                    GtkTextIter                  *start,
-                    GtkTextIter                  *end,
-                    GtkSourceGutterRendererState  state)
+                    CtkTextIter                  *start,
+                    CtkTextIter                  *end,
+                    CtkSourceGutterRendererState  state)
 {
 	if (renderer->priv->background_set)
 	{
@@ -491,7 +491,7 @@ renderer_draw_impl (GtkSourceGutterRenderer      *renderer,
 		 CTK_SOURCE_IS_VIEW (renderer->priv->view) &&
 		 ctk_source_view_get_highlight_current_line (CTK_SOURCE_VIEW (renderer->priv->view)))
 	{
-		GtkStyleContext *context;
+		CtkStyleContext *context;
 
 		context = ctk_widget_get_style_context (CTK_WIDGET (renderer->priv->view));
 
@@ -510,7 +510,7 @@ renderer_draw_impl (GtkSourceGutterRenderer      *renderer,
 }
 
 static void
-ctk_source_gutter_renderer_class_init (GtkSourceGutterRendererClass *klass)
+ctk_source_gutter_renderer_class_init (CtkSourceGutterRendererClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
@@ -523,7 +523,7 @@ ctk_source_gutter_renderer_class_init (GtkSourceGutterRendererClass *klass)
 	klass->change_view = renderer_change_view_impl;
 
 	/**
-	 * GtkSourceGutterRenderer:visible:
+	 * CtkSourceGutterRenderer:visible:
 	 *
 	 * The visibility of the renderer.
 	 *
@@ -537,7 +537,7 @@ ctk_source_gutter_renderer_class_init (GtkSourceGutterRendererClass *klass)
 	                                                       G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
 
 	/**
-	 * GtkSourceGutterRenderer:xpad:
+	 * CtkSourceGutterRenderer:xpad:
 	 *
 	 * The left and right padding of the renderer.
 	 */
@@ -552,7 +552,7 @@ ctk_source_gutter_renderer_class_init (GtkSourceGutterRendererClass *klass)
 	                                                   G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
 
 	/**
-	 * GtkSourceGutterRenderer:ypad:
+	 * CtkSourceGutterRenderer:ypad:
 	 *
 	 * The top and bottom padding of the renderer.
 	 */
@@ -567,7 +567,7 @@ ctk_source_gutter_renderer_class_init (GtkSourceGutterRendererClass *klass)
 	                                                   G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
 
 	/**
-	 * GtkSourceGutterRenderer:xalign:
+	 * CtkSourceGutterRenderer:xalign:
 	 *
 	 * The horizontal alignment of the renderer. Set to 0 for a left
 	 * alignment. 1 for a right alignment. And 0.5 for centering the cells.
@@ -584,7 +584,7 @@ ctk_source_gutter_renderer_class_init (GtkSourceGutterRendererClass *klass)
 	                                                     G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
 
 	/**
-	 * GtkSourceGutterRenderer:yalign:
+	 * CtkSourceGutterRenderer:yalign:
 	 *
 	 * The vertical alignment of the renderer. Set to 0 for a top
 	 * alignment. 1 for a bottom alignment. And 0.5 for centering the cells.
@@ -601,9 +601,9 @@ ctk_source_gutter_renderer_class_init (GtkSourceGutterRendererClass *klass)
 	                                                     G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
 
 	/**
-	 * GtkSourceGutterRenderer::activate:
-	 * @renderer: the #GtkSourceGutterRenderer who emits the signal
-	 * @iter: a #GtkTextIter
+	 * CtkSourceGutterRenderer::activate:
+	 * @renderer: the #CtkSourceGutterRenderer who emits the signal
+	 * @iter: a #CtkTextIter
 	 * @area: a #GdkRectangle
 	 * @event: the event that caused the activation
 	 *
@@ -615,7 +615,7 @@ ctk_source_gutter_renderer_class_init (GtkSourceGutterRendererClass *klass)
 		g_signal_new ("activate",
 		              G_TYPE_FROM_CLASS (object_class),
 		              G_SIGNAL_RUN_LAST,
-		              G_STRUCT_OFFSET (GtkSourceGutterRendererClass, activate),
+		              G_STRUCT_OFFSET (CtkSourceGutterRendererClass, activate),
 		              NULL, NULL,
 		              _ctk_source_marshal_VOID__BOXED_BOXED_BOXED,
 		              G_TYPE_NONE,
@@ -628,19 +628,19 @@ ctk_source_gutter_renderer_class_init (GtkSourceGutterRendererClass *klass)
 	                            _ctk_source_marshal_VOID__BOXED_BOXED_BOXEDv);
 
 	/**
-	 * GtkSourceGutterRenderer::queue-draw:
-	 * @renderer: the #GtkSourceGutterRenderer who emits the signal
+	 * CtkSourceGutterRenderer::queue-draw:
+	 * @renderer: the #CtkSourceGutterRenderer who emits the signal
 	 *
 	 * The ::queue-draw signal is emitted when the renderer needs
 	 * to be redrawn. Use ctk_source_gutter_renderer_queue_draw()
 	 * to emit this signal from an implementation of the
-	 * #GtkSourceGutterRenderer interface.
+	 * #CtkSourceGutterRenderer interface.
 	 */
 	signals[QUEUE_DRAW] =
 		g_signal_new ("queue-draw",
 		              G_TYPE_FROM_CLASS (object_class),
 		              G_SIGNAL_RUN_LAST,
-		              G_STRUCT_OFFSET (GtkSourceGutterRendererClass, queue_draw),
+		              G_STRUCT_OFFSET (CtkSourceGutterRendererClass, queue_draw),
 		              NULL, NULL,
 		              g_cclosure_marshal_VOID__VOID,
 		              G_TYPE_NONE, 0);
@@ -649,13 +649,13 @@ ctk_source_gutter_renderer_class_init (GtkSourceGutterRendererClass *klass)
 	                            g_cclosure_marshal_VOID__VOIDv);
 
 	/**
-	 * GtkSourceGutterRenderer::query-tooltip:
-	 * @renderer: the #GtkSourceGutterRenderer who emits the signal
-	 * @iter: a #GtkTextIter
+	 * CtkSourceGutterRenderer::query-tooltip:
+	 * @renderer: the #CtkSourceGutterRenderer who emits the signal
+	 * @iter: a #CtkTextIter
 	 * @area: a #GdkRectangle
 	 * @x: the x position (in window coordinates)
 	 * @y: the y position (in window coordinates)
-	 * @tooltip: a #GtkTooltip
+	 * @tooltip: a #CtkTooltip
 	 *
 	 * The ::query-tooltip signal is emitted when the renderer can
 	 * show a tooltip.
@@ -665,7 +665,7 @@ ctk_source_gutter_renderer_class_init (GtkSourceGutterRendererClass *klass)
 		g_signal_new ("query-tooltip",
 		              G_TYPE_FROM_CLASS (object_class),
 		              G_SIGNAL_RUN_LAST,
-		              G_STRUCT_OFFSET (GtkSourceGutterRendererClass, query_tooltip),
+		              G_STRUCT_OFFSET (CtkSourceGutterRendererClass, query_tooltip),
 		              g_signal_accumulator_true_handled,
 		              NULL,
 		              _ctk_source_marshal_BOOLEAN__BOXED_BOXED_INT_INT_OBJECT,
@@ -681,10 +681,10 @@ ctk_source_gutter_renderer_class_init (GtkSourceGutterRendererClass *klass)
 	                            _ctk_source_marshal_BOOLEAN__BOXED_BOXED_INT_INT_OBJECTv);
 
 	/**
-	 * GtkSourceGutterRenderer::query-data:
-	 * @renderer: the #GtkSourceGutterRenderer who emits the signal
-	 * @start: a #GtkTextIter
-	 * @end: a #GtkTextIter
+	 * CtkSourceGutterRenderer::query-data:
+	 * @renderer: the #CtkSourceGutterRenderer who emits the signal
+	 * @start: a #CtkTextIter
+	 * @end: a #CtkTextIter
 	 * @state: the renderer state
 	 *
 	 * The ::query-data signal is emitted when the renderer needs
@@ -697,7 +697,7 @@ ctk_source_gutter_renderer_class_init (GtkSourceGutterRendererClass *klass)
 		g_signal_new ("query-data",
 		              G_TYPE_FROM_CLASS (object_class),
 		              G_SIGNAL_RUN_LAST,
-		              G_STRUCT_OFFSET (GtkSourceGutterRendererClass, query_data),
+		              G_STRUCT_OFFSET (CtkSourceGutterRendererClass, query_data),
 		              NULL, NULL,
 			      _ctk_source_marshal_VOID__BOXED_BOXED_FLAGS,
 		              G_TYPE_NONE,
@@ -710,9 +710,9 @@ ctk_source_gutter_renderer_class_init (GtkSourceGutterRendererClass *klass)
 	                            _ctk_source_marshal_VOID__BOXED_BOXED_FLAGSv);
 
 	/**
-	 * GtkSourceGutterRenderer::query-activatable:
-	 * @renderer: the #GtkSourceGutterRenderer who emits the signal
-	 * @iter: a #GtkTextIter
+	 * CtkSourceGutterRenderer::query-activatable:
+	 * @renderer: the #CtkSourceGutterRenderer who emits the signal
+	 * @iter: a #CtkTextIter
 	 * @area: a #GdkRectangle
 	 * @event: the #GdkEvent that is causing the activatable query
 	 *
@@ -724,7 +724,7 @@ ctk_source_gutter_renderer_class_init (GtkSourceGutterRendererClass *klass)
 		g_signal_new ("query-activatable",
 		              G_TYPE_FROM_CLASS (object_class),
 		              G_SIGNAL_RUN_LAST,
-		              G_STRUCT_OFFSET (GtkSourceGutterRendererClass, query_activatable),
+		              G_STRUCT_OFFSET (CtkSourceGutterRendererClass, query_activatable),
 		              g_signal_accumulator_true_handled,
 		              NULL,
 		              _ctk_source_marshal_BOOLEAN__BOXED_BOXED_BOXED,
@@ -738,7 +738,7 @@ ctk_source_gutter_renderer_class_init (GtkSourceGutterRendererClass *klass)
 	                            _ctk_source_marshal_BOOLEAN__BOXED_BOXED_BOXEDv);
 
 	/**
-	 * GtkSourceGutterRenderer:view:
+	 * CtkSourceGutterRenderer:view:
 	 *
 	 * The view on which the renderer is placed.
 	 *
@@ -752,7 +752,7 @@ ctk_source_gutter_renderer_class_init (GtkSourceGutterRendererClass *klass)
 	                                                      G_PARAM_READABLE));
 
 	/**
-	 * GtkSourceGutterRenderer:alignment-mode:
+	 * CtkSourceGutterRenderer:alignment-mode:
 	 *
 	 * The alignment mode of the renderer. This can be used to indicate
 	 * that in the case a cell spans multiple lines (due to text wrapping)
@@ -770,7 +770,7 @@ ctk_source_gutter_renderer_class_init (GtkSourceGutterRendererClass *klass)
 	                                                    G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
 
 	/**
-	 * GtkSourceGutterRenderer:window-type:
+	 * CtkSourceGutterRenderer:window-type:
 	 *
 	 * The window type of the view on which the renderer is placed (left,
 	 * or right).
@@ -813,31 +813,31 @@ ctk_source_gutter_renderer_class_init (GtkSourceGutterRendererClass *klass)
 }
 
 static void
-ctk_source_gutter_renderer_init (GtkSourceGutterRenderer *self)
+ctk_source_gutter_renderer_init (CtkSourceGutterRenderer *self)
 {
 	self->priv = ctk_source_gutter_renderer_get_instance_private (self);
 }
 
 /**
  * ctk_source_gutter_renderer_begin:
- * @renderer: a #GtkSourceGutterRenderer
+ * @renderer: a #CtkSourceGutterRenderer
  * @cr: a #cairo_t
  * @background_area: a #GdkRectangle
  * @cell_area: a #GdkRectangle
- * @start: a #GtkTextIter
- * @end: a #GtkTextIter
+ * @start: a #CtkTextIter
+ * @end: a #CtkTextIter
  *
  * Called when drawing a region begins. The region to be drawn is indicated
  * by @start and @end. The purpose is to allow the implementation to precompute
  * some state before the draw method is called for each cell.
  */
 void
-ctk_source_gutter_renderer_begin (GtkSourceGutterRenderer *renderer,
+ctk_source_gutter_renderer_begin (CtkSourceGutterRenderer *renderer,
                                   cairo_t                 *cr,
                                   GdkRectangle            *background_area,
                                   GdkRectangle            *cell_area,
-                                  GtkTextIter             *start,
-                                  GtkTextIter             *end)
+                                  CtkTextIter             *start,
+                                  CtkTextIter             *end)
 {
 	g_return_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER (renderer));
 	g_return_if_fail (cr != NULL);
@@ -860,13 +860,13 @@ ctk_source_gutter_renderer_begin (GtkSourceGutterRenderer *renderer,
 
 /**
  * ctk_source_gutter_renderer_draw:
- * @renderer: a #GtkSourceGutterRenderer
+ * @renderer: a #CtkSourceGutterRenderer
  * @cr: the cairo render context
  * @background_area: a #GdkRectangle indicating the total area to be drawn
  * @cell_area: a #GdkRectangle indicating the area to draw content
- * @start: a #GtkTextIter
- * @end: a #GtkTextIter
- * @state: a #GtkSourceGutterRendererState
+ * @start: a #CtkTextIter
+ * @end: a #CtkTextIter
+ * @state: a #CtkSourceGutterRendererState
  *
  * Main renderering method. Implementations should implement this method to draw
  * onto the cairo context. The @background_area indicates the total area of the
@@ -874,8 +874,8 @@ ctk_source_gutter_renderer_begin (GtkSourceGutterRenderer *renderer,
  * drawn (text, images, etc).
  *
  * The @background_area is the @cell_area plus the padding on each side (two
- * times the #GtkSourceGutterRenderer:xpad horizontally and two times the
- * #GtkSourceGutterRenderer:ypad vertically, so that the @cell_area is centered
+ * times the #CtkSourceGutterRenderer:xpad horizontally and two times the
+ * #CtkSourceGutterRenderer:ypad vertically, so that the @cell_area is centered
  * inside @background_area).
  *
  * The @state argument indicates the current state of the renderer and should
@@ -883,13 +883,13 @@ ctk_source_gutter_renderer_begin (GtkSourceGutterRenderer *renderer,
  * (cursor, prelit, selected) if appropriate.
  */
 void
-ctk_source_gutter_renderer_draw (GtkSourceGutterRenderer      *renderer,
+ctk_source_gutter_renderer_draw (CtkSourceGutterRenderer      *renderer,
                                  cairo_t                      *cr,
                                  GdkRectangle                 *background_area,
                                  GdkRectangle                 *cell_area,
-                                 GtkTextIter                  *start,
-                                 GtkTextIter                  *end,
-                                 GtkSourceGutterRendererState  state)
+                                 CtkTextIter                  *start,
+                                 CtkTextIter                  *end,
+                                 CtkSourceGutterRendererState  state)
 {
 	g_return_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER (renderer));
 	g_return_if_fail (cr != NULL);
@@ -913,13 +913,13 @@ ctk_source_gutter_renderer_draw (GtkSourceGutterRenderer      *renderer,
 
 /**
  * ctk_source_gutter_renderer_end:
- * @renderer: a #GtkSourceGutterRenderer
+ * @renderer: a #CtkSourceGutterRenderer
  *
  * Called when drawing a region of lines has ended.
  *
  **/
 void
-ctk_source_gutter_renderer_end (GtkSourceGutterRenderer *renderer)
+ctk_source_gutter_renderer_end (CtkSourceGutterRenderer *renderer)
 {
 	g_return_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER (renderer));
 
@@ -931,21 +931,21 @@ ctk_source_gutter_renderer_end (GtkSourceGutterRenderer *renderer)
 
 /**
  * ctk_source_gutter_renderer_query_activatable:
- * @renderer: a #GtkSourceGutterRenderer
- * @iter: a #GtkTextIter at the start of the line to be activated
+ * @renderer: a #CtkSourceGutterRenderer
+ * @iter: a #CtkTextIter at the start of the line to be activated
  * @area: a #GdkRectangle of the cell area to be activated
  * @event: the event that triggered the query
  *
  * Get whether the renderer is activatable at the location in @event. This is
- * called from #GtkSourceGutter to determine whether a renderer is activatable
+ * called from #CtkSourceGutter to determine whether a renderer is activatable
  * using the mouse pointer.
  *
  * Returns: %TRUE if the renderer can be activated, %FALSE otherwise
  *
  **/
 gboolean
-ctk_source_gutter_renderer_query_activatable (GtkSourceGutterRenderer *renderer,
-                                              GtkTextIter             *iter,
+ctk_source_gutter_renderer_query_activatable (CtkSourceGutterRenderer *renderer,
+                                              CtkTextIter             *iter,
                                               GdkRectangle            *area,
                                               GdkEvent                *event)
 {
@@ -971,17 +971,17 @@ ctk_source_gutter_renderer_query_activatable (GtkSourceGutterRenderer *renderer,
 
 /**
  * ctk_source_gutter_renderer_activate:
- * @renderer: a #GtkSourceGutterRenderer
- * @iter: a #GtkTextIter at the start of the line where the renderer is activated
+ * @renderer: a #CtkSourceGutterRenderer
+ * @iter: a #CtkTextIter at the start of the line where the renderer is activated
  * @area: a #GdkRectangle of the cell area where the renderer is activated
  * @event: the event that triggered the activation
  *
- * Emits the #GtkSourceGutterRenderer::activate signal of the renderer. This is
- * called from #GtkSourceGutter and should never have to be called manually.
+ * Emits the #CtkSourceGutterRenderer::activate signal of the renderer. This is
+ * called from #CtkSourceGutter and should never have to be called manually.
  */
 void
-ctk_source_gutter_renderer_activate (GtkSourceGutterRenderer *renderer,
-                                     GtkTextIter             *iter,
+ctk_source_gutter_renderer_activate (CtkSourceGutterRenderer *renderer,
+                                     CtkTextIter             *iter,
                                      GdkRectangle            *area,
                                      GdkEvent                *event)
 {
@@ -995,14 +995,14 @@ ctk_source_gutter_renderer_activate (GtkSourceGutterRenderer *renderer,
 
 /**
  * ctk_source_gutter_renderer_queue_draw:
- * @renderer: a #GtkSourceGutterRenderer
+ * @renderer: a #CtkSourceGutterRenderer
  *
- * Emits the #GtkSourceGutterRenderer::queue-draw signal of the renderer. Call
+ * Emits the #CtkSourceGutterRenderer::queue-draw signal of the renderer. Call
  * this from an implementation to inform that the renderer has changed such that
  * it needs to redraw.
  */
 void
-ctk_source_gutter_renderer_queue_draw (GtkSourceGutterRenderer *renderer)
+ctk_source_gutter_renderer_queue_draw (CtkSourceGutterRenderer *renderer)
 {
 	g_return_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER (renderer));
 
@@ -1011,26 +1011,26 @@ ctk_source_gutter_renderer_queue_draw (GtkSourceGutterRenderer *renderer)
 
 /**
  * ctk_source_gutter_renderer_query_tooltip:
- * @renderer: a #GtkSourceGutterRenderer.
- * @iter: a #GtkTextIter.
+ * @renderer: a #CtkSourceGutterRenderer.
+ * @iter: a #CtkTextIter.
  * @area: a #GdkRectangle.
  * @x: The x position of the tooltip.
  * @y: The y position of the tooltip.
- * @tooltip: a #GtkTooltip.
+ * @tooltip: a #CtkTooltip.
  *
- * Emits the #GtkSourceGutterRenderer::query-tooltip signal. This function is
- * called from #GtkSourceGutter. Implementations can override the default signal
+ * Emits the #CtkSourceGutterRenderer::query-tooltip signal. This function is
+ * called from #CtkSourceGutter. Implementations can override the default signal
  * handler or can connect to the signal externally.
  *
  * Returns: %TRUE if the tooltip has been set, %FALSE otherwise
  */
 gboolean
-ctk_source_gutter_renderer_query_tooltip (GtkSourceGutterRenderer *renderer,
-                                          GtkTextIter             *iter,
+ctk_source_gutter_renderer_query_tooltip (CtkSourceGutterRenderer *renderer,
+                                          CtkTextIter             *iter,
                                           GdkRectangle            *area,
                                           gint                     x,
                                           gint                     y,
-                                          GtkTooltip              *tooltip)
+                                          CtkTooltip              *tooltip)
 {
 	gboolean ret;
 
@@ -1056,22 +1056,22 @@ ctk_source_gutter_renderer_query_tooltip (GtkSourceGutterRenderer *renderer,
 
 /**
  * ctk_source_gutter_renderer_query_data:
- * @renderer: a #GtkSourceGutterRenderer.
- * @start: a #GtkTextIter.
- * @end: a #GtkTextIter.
- * @state: a #GtkSourceGutterRendererState.
+ * @renderer: a #CtkSourceGutterRenderer.
+ * @start: a #CtkTextIter.
+ * @end: a #CtkTextIter.
+ * @state: a #CtkSourceGutterRendererState.
  *
- * Emit the #GtkSourceGutterRenderer::query-data signal. This function is called
+ * Emit the #CtkSourceGutterRenderer::query-data signal. This function is called
  * to query for data just before rendering a cell. This is called from the
- * #GtkSourceGutter.  Implementations can override the default signal handler or
+ * #CtkSourceGutter.  Implementations can override the default signal handler or
  * can connect a signal handler externally to the
- * #GtkSourceGutterRenderer::query-data signal.
+ * #CtkSourceGutterRenderer::query-data signal.
  */
 void
-ctk_source_gutter_renderer_query_data (GtkSourceGutterRenderer      *renderer,
-                                       GtkTextIter                  *start,
-                                       GtkTextIter                  *end,
-                                       GtkSourceGutterRendererState  state)
+ctk_source_gutter_renderer_query_data (CtkSourceGutterRenderer      *renderer,
+                                       CtkTextIter                  *start,
+                                       CtkTextIter                  *end,
+                                       CtkSourceGutterRendererState  state)
 {
 	g_return_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER (renderer));
 	g_return_if_fail (start != NULL);
@@ -1096,14 +1096,14 @@ ctk_source_gutter_renderer_query_data (GtkSourceGutterRenderer      *renderer,
 
 /**
  * ctk_source_gutter_renderer_set_visible:
- * @renderer: a #GtkSourceGutterRenderer
+ * @renderer: a #CtkSourceGutterRenderer
  * @visible: the visibility
  *
  * Set whether the gutter renderer is visible.
  *
  **/
 void
-ctk_source_gutter_renderer_set_visible (GtkSourceGutterRenderer *renderer,
+ctk_source_gutter_renderer_set_visible (CtkSourceGutterRenderer *renderer,
                                         gboolean                 visible)
 {
 	g_return_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER (renderer));
@@ -1113,7 +1113,7 @@ ctk_source_gutter_renderer_set_visible (GtkSourceGutterRenderer *renderer,
 
 /**
  * ctk_source_gutter_renderer_get_visible:
- * @renderer: a #GtkSourceGutterRenderer
+ * @renderer: a #CtkSourceGutterRenderer
  *
  * Get whether the gutter renderer is visible.
  *
@@ -1121,7 +1121,7 @@ ctk_source_gutter_renderer_set_visible (GtkSourceGutterRenderer *renderer,
  *
  **/
 gboolean
-ctk_source_gutter_renderer_get_visible (GtkSourceGutterRenderer *renderer)
+ctk_source_gutter_renderer_get_visible (CtkSourceGutterRenderer *renderer)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER (renderer), FALSE);
 
@@ -1130,7 +1130,7 @@ ctk_source_gutter_renderer_get_visible (GtkSourceGutterRenderer *renderer)
 
 /**
  * ctk_source_gutter_renderer_set_padding:
- * @renderer: a #GtkSourceGutterRenderer
+ * @renderer: a #CtkSourceGutterRenderer
  * @xpad: the x-padding
  * @ypad: the y-padding
  *
@@ -1141,7 +1141,7 @@ ctk_source_gutter_renderer_get_visible (GtkSourceGutterRenderer *renderer)
  * @xpad is the left and right padding. @ypad is the top and bottom padding.
  */
 void
-ctk_source_gutter_renderer_set_padding (GtkSourceGutterRenderer *renderer,
+ctk_source_gutter_renderer_set_padding (CtkSourceGutterRenderer *renderer,
                                         gint                     xpad,
                                         gint                     ypad)
 {
@@ -1153,7 +1153,7 @@ ctk_source_gutter_renderer_set_padding (GtkSourceGutterRenderer *renderer,
 
 /**
  * ctk_source_gutter_renderer_get_padding:
- * @renderer: a #GtkSourceGutterRenderer
+ * @renderer: a #CtkSourceGutterRenderer
  * @xpad: (out caller-allocates) (optional): return location for the x-padding,
  *   or %NULL to ignore.
  * @ypad: (out caller-allocates) (optional): return location for the y-padding,
@@ -1162,7 +1162,7 @@ ctk_source_gutter_renderer_set_padding (GtkSourceGutterRenderer *renderer,
  * Get the x-padding and y-padding of the gutter renderer.
  */
 void
-ctk_source_gutter_renderer_get_padding (GtkSourceGutterRenderer *renderer,
+ctk_source_gutter_renderer_get_padding (CtkSourceGutterRenderer *renderer,
                                         gint                    *xpad,
                                         gint                    *ypad)
 {
@@ -1181,7 +1181,7 @@ ctk_source_gutter_renderer_get_padding (GtkSourceGutterRenderer *renderer,
 
 /**
  * ctk_source_gutter_renderer_set_alignment:
- * @renderer: a #GtkSourceGutterRenderer
+ * @renderer: a #CtkSourceGutterRenderer
  * @xalign: the x-alignment
  * @yalign: the y-alignment
  *
@@ -1194,7 +1194,7 @@ ctk_source_gutter_renderer_get_padding (GtkSourceGutterRenderer *renderer,
  * alignment. Set to 0 for a top alignment. 1 for a bottom alignment.
  */
 void
-ctk_source_gutter_renderer_set_alignment (GtkSourceGutterRenderer *renderer,
+ctk_source_gutter_renderer_set_alignment (CtkSourceGutterRenderer *renderer,
                                           gfloat                   xalign,
                                           gfloat                   yalign)
 {
@@ -1214,7 +1214,7 @@ ctk_source_gutter_renderer_set_alignment (GtkSourceGutterRenderer *renderer,
 
 /**
  * ctk_source_gutter_renderer_get_alignment:
- * @renderer: a #GtkSourceGutterRenderer
+ * @renderer: a #CtkSourceGutterRenderer
  * @xalign: (out caller-allocates) (optional): return location for the x-alignment,
  *   or %NULL to ignore.
  * @yalign: (out caller-allocates) (optional): return location for the y-alignment,
@@ -1223,7 +1223,7 @@ ctk_source_gutter_renderer_set_alignment (GtkSourceGutterRenderer *renderer,
  * Get the x-alignment and y-alignment of the gutter renderer.
  */
 void
-ctk_source_gutter_renderer_get_alignment (GtkSourceGutterRenderer *renderer,
+ctk_source_gutter_renderer_get_alignment (CtkSourceGutterRenderer *renderer,
                                           gfloat                  *xalign,
                                           gfloat                  *yalign)
 {
@@ -1242,16 +1242,16 @@ ctk_source_gutter_renderer_get_alignment (GtkSourceGutterRenderer *renderer,
 
 /**
  * ctk_source_gutter_renderer_set_alignment_mode:
- * @renderer: a #GtkSourceGutterRenderer
- * @mode: a #GtkSourceGutterRendererAlignmentMode
+ * @renderer: a #CtkSourceGutterRenderer
+ * @mode: a #CtkSourceGutterRendererAlignmentMode
  *
  * Set the alignment mode. The alignment mode describes the manner in which the
  * renderer is aligned (see :xalign and :yalign).
  *
  **/
 void
-ctk_source_gutter_renderer_set_alignment_mode (GtkSourceGutterRenderer              *renderer,
-                                               GtkSourceGutterRendererAlignmentMode  mode)
+ctk_source_gutter_renderer_set_alignment_mode (CtkSourceGutterRenderer              *renderer,
+                                               CtkSourceGutterRendererAlignmentMode  mode)
 {
 	g_return_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER (renderer));
 
@@ -1260,16 +1260,16 @@ ctk_source_gutter_renderer_set_alignment_mode (GtkSourceGutterRenderer          
 
 /**
  * ctk_source_gutter_renderer_get_alignment_mode:
- * @renderer: a #GtkSourceGutterRenderer
+ * @renderer: a #CtkSourceGutterRenderer
  *
  * Get the alignment mode. The alignment mode describes the manner in which the
  * renderer is aligned (see :xalign and :yalign).
  *
- * Returns: a #GtkSourceGutterRendererAlignmentMode
+ * Returns: a #CtkSourceGutterRendererAlignmentMode
  *
  **/
-GtkSourceGutterRendererAlignmentMode
-ctk_source_gutter_renderer_get_alignment_mode (GtkSourceGutterRenderer *renderer)
+CtkSourceGutterRendererAlignmentMode
+ctk_source_gutter_renderer_get_alignment_mode (CtkSourceGutterRenderer *renderer)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER (renderer), 0);
 
@@ -1278,15 +1278,15 @@ ctk_source_gutter_renderer_get_alignment_mode (GtkSourceGutterRenderer *renderer
 
 /**
  * ctk_source_gutter_renderer_get_window_type:
- * @renderer: a #GtkSourceGutterRenderer
+ * @renderer: a #CtkSourceGutterRenderer
  *
- * Get the #GtkTextWindowType associated with the gutter renderer.
+ * Get the #CtkTextWindowType associated with the gutter renderer.
  *
- * Returns: a #GtkTextWindowType
+ * Returns: a #CtkTextWindowType
  *
  **/
-GtkTextWindowType
-ctk_source_gutter_renderer_get_window_type (GtkSourceGutterRenderer *renderer)
+CtkTextWindowType
+ctk_source_gutter_renderer_get_window_type (CtkSourceGutterRenderer *renderer)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER (renderer), CTK_TEXT_WINDOW_PRIVATE);
 
@@ -1295,15 +1295,15 @@ ctk_source_gutter_renderer_get_window_type (GtkSourceGutterRenderer *renderer)
 
 /**
  * ctk_source_gutter_renderer_get_view:
- * @renderer: a #GtkSourceGutterRenderer
+ * @renderer: a #CtkSourceGutterRenderer
  *
  * Get the view associated to the gutter renderer
  *
- * Returns: (transfer none): a #GtkTextView
+ * Returns: (transfer none): a #CtkTextView
  *
  **/
-GtkTextView *
-ctk_source_gutter_renderer_get_view (GtkSourceGutterRenderer *renderer)
+CtkTextView *
+ctk_source_gutter_renderer_get_view (CtkSourceGutterRenderer *renderer)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER (renderer), NULL);
 
@@ -1312,7 +1312,7 @@ ctk_source_gutter_renderer_get_view (GtkSourceGutterRenderer *renderer)
 
 /**
  * ctk_source_gutter_renderer_get_size:
- * @renderer: a #GtkSourceGutterRenderer
+ * @renderer: a #CtkSourceGutterRenderer
  *
  * Get the size of the renderer.
  *
@@ -1320,7 +1320,7 @@ ctk_source_gutter_renderer_get_view (GtkSourceGutterRenderer *renderer)
  *
  **/
 gint
-ctk_source_gutter_renderer_get_size (GtkSourceGutterRenderer *renderer)
+ctk_source_gutter_renderer_get_size (CtkSourceGutterRenderer *renderer)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER (renderer), 0);
 
@@ -1329,7 +1329,7 @@ ctk_source_gutter_renderer_get_size (GtkSourceGutterRenderer *renderer)
 
 /**
  * ctk_source_gutter_renderer_set_size:
- * @renderer: a #GtkSourceGutterRenderer
+ * @renderer: a #CtkSourceGutterRenderer
  * @size: the size
  *
  * Sets the size of the renderer. A value of -1 specifies that the size
@@ -1337,7 +1337,7 @@ ctk_source_gutter_renderer_get_size (GtkSourceGutterRenderer *renderer)
  *
  **/
 void
-ctk_source_gutter_renderer_set_size (GtkSourceGutterRenderer *renderer,
+ctk_source_gutter_renderer_set_size (CtkSourceGutterRenderer *renderer,
                                      gint                     size)
 {
 	g_return_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER (renderer));
@@ -1347,7 +1347,7 @@ ctk_source_gutter_renderer_set_size (GtkSourceGutterRenderer *renderer,
 
 /**
  * ctk_source_gutter_renderer_get_background:
- * @renderer: a #GtkSourceGutterRenderer
+ * @renderer: a #CtkSourceGutterRenderer
  * @color: (out caller-allocates) (optional): return value for a #GdkRGBA
  *
  * Get the background color of the renderer.
@@ -1356,7 +1356,7 @@ ctk_source_gutter_renderer_set_size (GtkSourceGutterRenderer *renderer,
  *
  **/
 gboolean
-ctk_source_gutter_renderer_get_background (GtkSourceGutterRenderer *renderer,
+ctk_source_gutter_renderer_get_background (CtkSourceGutterRenderer *renderer,
                                            GdkRGBA                 *color)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER (renderer), FALSE);
@@ -1371,7 +1371,7 @@ ctk_source_gutter_renderer_get_background (GtkSourceGutterRenderer *renderer,
 
 /**
  * ctk_source_gutter_renderer_set_background:
- * @renderer: a #GtkSourceGutterRenderer
+ * @renderer: a #CtkSourceGutterRenderer
  * @color: (nullable): a #GdkRGBA or %NULL
  *
  * Set the background color of the renderer. If @color is set to %NULL, the
@@ -1379,7 +1379,7 @@ ctk_source_gutter_renderer_get_background (GtkSourceGutterRenderer *renderer,
  *
  */
 void
-ctk_source_gutter_renderer_set_background (GtkSourceGutterRenderer *renderer,
+ctk_source_gutter_renderer_set_background (CtkSourceGutterRenderer *renderer,
                                            const GdkRGBA           *color)
 {
 	g_return_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER (renderer));
@@ -1388,11 +1388,11 @@ ctk_source_gutter_renderer_set_background (GtkSourceGutterRenderer *renderer,
 }
 
 void
-_ctk_source_gutter_renderer_set_view (GtkSourceGutterRenderer *renderer,
-                                      GtkTextView             *view,
-                                      GtkTextWindowType        window_type)
+_ctk_source_gutter_renderer_set_view (CtkSourceGutterRenderer *renderer,
+                                      CtkTextView             *view,
+                                      CtkTextWindowType        window_type)
 {
-	GtkTextView *old_view;
+	CtkTextView *old_view;
 
 	g_return_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER (renderer));
 	g_return_if_fail (view == NULL || CTK_IS_TEXT_VIEW (view));

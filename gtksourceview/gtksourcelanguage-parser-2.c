@@ -1,17 +1,17 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*-
  *
  * Language specification parser for 2.0 version .lang files
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2003 - Gustavo Giráldez <gustavo.giraldez@gmx.net>
  * Copyright (C) 2005, 2006 - Emanuele Aina, Marco Barisione
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -70,8 +70,8 @@ struct _ParserState
 	/* The args passed to _file_parse_version2() */
 	xmlTextReader *reader;
 	char *filename;
-	GtkSourceLanguage *language;
-	GtkSourceContextData *ctx_data;
+	CtkSourceLanguage *language;
+	CtkSourceContextData *ctx_data;
 
 	gchar *language_decoration;
 
@@ -85,7 +85,7 @@ struct _ParserState
 	 * resolve references (the key is the id) */
 	GHashTable *defined_regexes;
 
-	/* Maps style ids to GtkSourceStyleInfo objects.
+	/* Maps style ids to CtkSourceStyleInfo objects.
 	 * Contains all the styles defined in the lang files parsed
 	 * while parsing the main language file. For example, if the main
 	 * language is C, also styles in def.lang, ctk-doc.lang, etc. are
@@ -127,8 +127,8 @@ static gboolean   id_is_decorated              (const gchar *id,
 static gchar     *decorate_id                  (ParserState *parser_state,
                                                 const gchar *id);
 
-static ParserState *parser_state_new           (GtkSourceLanguage      *language,
-                                                GtkSourceContextData   *ctx_data,
+static ParserState *parser_state_new           (CtkSourceLanguage      *language,
+                                                CtkSourceContextData   *ctx_data,
                                                 GHashTable             *defined_regexes,
                                                 GHashTable             *styles_mapping,
 						GQueue                 *replacements,
@@ -138,8 +138,8 @@ static ParserState *parser_state_new           (GtkSourceLanguage      *language
 static void       parser_state_destroy         (ParserState *parser_state);
 
 static gboolean   file_parse                   (gchar                  *filename,
-                                                GtkSourceLanguage      *language,
-                                                GtkSourceContextData   *ctx_data,
+                                                CtkSourceLanguage      *language,
+                                                CtkSourceContextData   *ctx_data,
                                                 GHashTable             *defined_regexes,
                                                 GHashTable             *styles,
                                                 GHashTable             *loaded_lang_ids,
@@ -267,17 +267,17 @@ get_regex_flags (xmlNode             *node,
 	return flags;
 }
 
-static GtkSourceContextFlags
+static CtkSourceContextFlags
 get_context_flags (ParserState *parser_state)
 {
 	guint i;
 	xmlChar *value;
-	GtkSourceContextFlags flags = CTK_SOURCE_CONTEXT_EXTEND_PARENT;
+	CtkSourceContextFlags flags = CTK_SOURCE_CONTEXT_EXTEND_PARENT;
 	const gchar *names[] = {
 		"extend-parent", "end-parent", "end-at-line-end",
 		"first-line-only", "once-only", "style-inside"
 	};
-	GtkSourceContextFlags values[] = {
+	CtkSourceContextFlags values[] = {
 		CTK_SOURCE_CONTEXT_EXTEND_PARENT,
 		CTK_SOURCE_CONTEXT_END_PARENT,
 		CTK_SOURCE_CONTEXT_END_AT_LINE_END,
@@ -324,7 +324,7 @@ add_classes (GSList      *list,
 
 	while (*ptr)
 	{
-		GtkSourceContextClass *ctx = ctk_source_context_class_new (*ptr, enabled);
+		CtkSourceContextClass *ctx = ctk_source_context_class_new (*ptr, enabled);
 		newlist = g_slist_prepend (newlist, ctx);
 
 		++ptr;
@@ -360,7 +360,7 @@ create_definition (ParserState *parser_state,
 {
 	gchar *match = NULL, *start = NULL, *end = NULL;
 	gchar *prefix = NULL, *suffix = NULL;
-	GtkSourceContextFlags flags;
+	CtkSourceContextFlags flags;
 
 	xmlNode *context_node, *child;
 
@@ -547,7 +547,7 @@ create_definition (ParserState *parser_state,
 static gboolean
 add_ref (ParserState               *parser_state,
 	 const gchar               *ref,
-	 GtkSourceContextRefOptions options,
+	 CtkSourceContextRefOptions options,
 	 const gchar               *style,
 	 GError	                  **error)
 {
@@ -563,8 +563,8 @@ add_ref (ParserState               *parser_state,
 	{
 		if (!lang_id_is_already_loaded (parser_state, lang_id))
 		{
-			GtkSourceLanguageManager *lm;
-			GtkSourceLanguage *imported_language;
+			CtkSourceLanguageManager *lm;
+			CtkSourceLanguage *imported_language;
 
 			lm = _ctk_source_language_get_language_manager (parser_state->language);
 			imported_language = ctk_source_language_manager_get_language (lm, lang_id);
@@ -708,7 +708,7 @@ handle_context_element (ParserState *parser_state)
 	int is_empty;
 	gboolean success;
 	gboolean ignore_style = FALSE;
-	GtkSourceContextRefOptions options = 0;
+	CtkSourceContextRefOptions options = 0;
 	GSList *context_classes;
 
 	GError *tmp_error = NULL;
@@ -863,7 +863,7 @@ static void
 handle_replace_element (ParserState *parser_state)
 {
 	xmlChar *id, *ref;
-	GtkSourceContextReplace *repl;
+	CtkSourceContextReplace *repl;
 	gchar *replace_with;
 
 	id = xmlTextReaderGetAttribute (parser_state->reader, BAD_CAST "id");
@@ -1339,8 +1339,8 @@ static void
 parse_language_with_id (ParserState *parser_state,
 			gchar       *lang_id)
 {
-	GtkSourceLanguageManager *lm;
-	GtkSourceLanguage *imported_language;
+	CtkSourceLanguageManager *lm;
+	CtkSourceLanguage *imported_language;
 
 	g_return_if_fail (parser_state->error == NULL);
 
@@ -1442,7 +1442,7 @@ parse_style (ParserState *parser_state)
 	if (parser_state->error == NULL)
 	{
 
-		GtkSourceStyleInfo *info;
+		CtkSourceStyleInfo *info;
 
 		/* Remember the style name only if the style has been defined in
 		 * the lang file we are parsing */
@@ -1597,8 +1597,8 @@ text_reader_structured_error_func (ParserState *parser_state,
 
 static gboolean
 file_parse (gchar                     *filename,
-	    GtkSourceLanguage         *language,
-	    GtkSourceContextData      *ctx_data,
+	    CtkSourceLanguage         *language,
+	    CtkSourceContextData      *ctx_data,
 	    GHashTable                *defined_regexes,
 	    GHashTable                *styles,
 	    GHashTable                *loaded_lang_ids,
@@ -1609,7 +1609,7 @@ file_parse (gchar                     *filename,
 	xmlTextReader *reader = NULL;
 	int fd = -1;
 	GError *tmp_error = NULL;
-	GtkSourceLanguageManager *lm;
+	CtkSourceLanguageManager *lm;
 	const gchar *rng_lang_schema;
 
 	g_return_val_if_fail (error == NULL || *error == NULL, FALSE);
@@ -1712,8 +1712,8 @@ error:
 }
 
 static ParserState *
-parser_state_new (GtkSourceLanguage       *language,
-		  GtkSourceContextData    *ctx_data,
+parser_state_new (CtkSourceLanguage       *language,
+		  CtkSourceContextData    *ctx_data,
 		  GHashTable              *defined_regexes,
 		  GHashTable              *styles_mapping,
 		  GQueue                  *replacements,
@@ -1775,7 +1775,7 @@ parser_state_destroy (ParserState *parser_state)
 
 static gboolean
 steal_styles_mapping (gchar              *style_id,
-		      GtkSourceStyleInfo *info,
+		      CtkSourceStyleInfo *info,
 		      GHashTable         *styles)
 {
 	g_hash_table_insert (styles, style_id, info);
@@ -1783,8 +1783,8 @@ steal_styles_mapping (gchar              *style_id,
 }
 
 gboolean
-_ctk_source_language_file_parse_version2 (GtkSourceLanguage       *language,
-					  GtkSourceContextData    *ctx_data)
+_ctk_source_language_file_parse_version2 (CtkSourceLanguage       *language,
+					  CtkSourceContextData    *ctx_data)
 {
 	GHashTable *defined_regexes, *styles;
 	gboolean success;

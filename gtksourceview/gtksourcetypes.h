@@ -1,14 +1,14 @@
 /*
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2012-2016 - Sébastien Wilmet <swilmet@gnome.org>
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -35,38 +35,38 @@ G_BEGIN_DECLS
  * https://bugzilla.gnome.org/show_bug.cgi?id=679424#c20
  */
 
-typedef struct _GtkSourceBuffer			GtkSourceBuffer;
-typedef struct _GtkSourceCompletionContext	GtkSourceCompletionContext;
-typedef struct _GtkSourceCompletion		GtkSourceCompletion;
-typedef struct _GtkSourceCompletionInfo		GtkSourceCompletionInfo;
-typedef struct _GtkSourceCompletionItem		GtkSourceCompletionItem;
-typedef struct _GtkSourceCompletionProposal	GtkSourceCompletionProposal;
-typedef struct _GtkSourceCompletionProvider	GtkSourceCompletionProvider;
-typedef struct _GtkSourceEncoding		GtkSourceEncoding;
-typedef struct _GtkSourceFile			GtkSourceFile;
-typedef struct _GtkSourceFileLoader		GtkSourceFileLoader;
-typedef struct _GtkSourceFileSaver		GtkSourceFileSaver;
-typedef struct _GtkSourceGutter			GtkSourceGutter;
-typedef struct _GtkSourceGutterRenderer		GtkSourceGutterRenderer;
-typedef struct _GtkSourceGutterRendererPixbuf	GtkSourceGutterRendererPixbuf;
-typedef struct _GtkSourceGutterRendererText	GtkSourceGutterRendererText;
-typedef struct _GtkSourceLanguage		GtkSourceLanguage;
-typedef struct _GtkSourceLanguageManager	GtkSourceLanguageManager;
-typedef struct _GtkSourceMap			GtkSourceMap;
-typedef struct _GtkSourceMarkAttributes		GtkSourceMarkAttributes;
-typedef struct _GtkSourceMark			GtkSourceMark;
-typedef struct _GtkSourcePrintCompositor	GtkSourcePrintCompositor;
-typedef struct _GtkSourceSearchContext		GtkSourceSearchContext;
-typedef struct _GtkSourceSearchSettings		GtkSourceSearchSettings;
-typedef struct _GtkSourceSpaceDrawer		GtkSourceSpaceDrawer;
-typedef struct _GtkSourceStyle			GtkSourceStyle;
-typedef struct _GtkSourceStyleScheme		GtkSourceStyleScheme;
-typedef struct _GtkSourceStyleSchemeChooser	GtkSourceStyleSchemeChooser;
-typedef struct _GtkSourceStyleSchemeChooserButton GtkSourceStyleSchemeChooserButton;
-typedef struct _GtkSourceStyleSchemeChooserWidget GtkSourceStyleSchemeChooserWidget;
-typedef struct _GtkSourceStyleSchemeManager	GtkSourceStyleSchemeManager;
-typedef struct _GtkSourceUndoManager		GtkSourceUndoManager;
-typedef struct _GtkSourceView			GtkSourceView;
+typedef struct _CtkSourceBuffer			CtkSourceBuffer;
+typedef struct _CtkSourceCompletionContext	CtkSourceCompletionContext;
+typedef struct _CtkSourceCompletion		CtkSourceCompletion;
+typedef struct _CtkSourceCompletionInfo		CtkSourceCompletionInfo;
+typedef struct _CtkSourceCompletionItem		CtkSourceCompletionItem;
+typedef struct _CtkSourceCompletionProposal	CtkSourceCompletionProposal;
+typedef struct _CtkSourceCompletionProvider	CtkSourceCompletionProvider;
+typedef struct _CtkSourceEncoding		CtkSourceEncoding;
+typedef struct _CtkSourceFile			CtkSourceFile;
+typedef struct _CtkSourceFileLoader		CtkSourceFileLoader;
+typedef struct _CtkSourceFileSaver		CtkSourceFileSaver;
+typedef struct _CtkSourceGutter			CtkSourceGutter;
+typedef struct _CtkSourceGutterRenderer		CtkSourceGutterRenderer;
+typedef struct _CtkSourceGutterRendererPixbuf	CtkSourceGutterRendererPixbuf;
+typedef struct _CtkSourceGutterRendererText	CtkSourceGutterRendererText;
+typedef struct _CtkSourceLanguage		CtkSourceLanguage;
+typedef struct _CtkSourceLanguageManager	CtkSourceLanguageManager;
+typedef struct _CtkSourceMap			CtkSourceMap;
+typedef struct _CtkSourceMarkAttributes		CtkSourceMarkAttributes;
+typedef struct _CtkSourceMark			CtkSourceMark;
+typedef struct _CtkSourcePrintCompositor	CtkSourcePrintCompositor;
+typedef struct _CtkSourceSearchContext		CtkSourceSearchContext;
+typedef struct _CtkSourceSearchSettings		CtkSourceSearchSettings;
+typedef struct _CtkSourceSpaceDrawer		CtkSourceSpaceDrawer;
+typedef struct _CtkSourceStyle			CtkSourceStyle;
+typedef struct _CtkSourceStyleScheme		CtkSourceStyleScheme;
+typedef struct _CtkSourceStyleSchemeChooser	CtkSourceStyleSchemeChooser;
+typedef struct _CtkSourceStyleSchemeChooserButton CtkSourceStyleSchemeChooserButton;
+typedef struct _CtkSourceStyleSchemeChooserWidget CtkSourceStyleSchemeChooserWidget;
+typedef struct _CtkSourceStyleSchemeManager	CtkSourceStyleSchemeManager;
+typedef struct _CtkSourceUndoManager		CtkSourceUndoManager;
+typedef struct _CtkSourceView			CtkSourceView;
 
 G_END_DECLS
 

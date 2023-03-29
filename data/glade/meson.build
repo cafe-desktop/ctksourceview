@@ -17,7 +17,7 @@ catalog_xml = configure_file(
 )
 
 # Currently DTD validation does not work with glade's DTD.
-# This does not appear to be limited to GtkSourceView.
+# This does not appear to be limited to CtkSourceView.
 #if xmllint_prg.found()
 #  catalog_dtd = join_paths(
 #    gladeui_dep.get_pkgconfig_variable('catalogdir'),

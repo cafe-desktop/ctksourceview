@@ -208,7 +208,7 @@ msgid "Source Buffer"
 msgstr "འབྱུང་ཁུངས་གནད་ཁོངས།"
 
 #: ../ctksourceview/ctksourceprintcompositor.c:412
-msgid "The GtkSourceBuffer object to print"
+msgid "The CtkSourceBuffer object to print"
 msgstr "དཔར་བསྐྲུན་འབད་ནིའི་ ཇི་ཊི་ཀེ་འབྱུང་ཁུངས་གནད་ཁོངས་དངོས་པོ་ "
 
 #: ../ctksourceview/ctksourceprintcompositor.c:429
@@ -1390,7 +1390,7 @@ msgid "ctk-doc"
 msgstr "ཇི་ཊི་ཀེ་ -ཌོཀ་ "
 
 #: ../ctksourceview/language-specs/ctkrc.lang.h:5
-msgid "GtkRC"
+msgid "CtkRC"
 msgstr "ཇི་ཊི་ཀེ་ཨར་སི།"
 
 #: ../ctksourceview/language-specs/ctkrc.lang.h:6

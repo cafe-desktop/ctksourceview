@@ -544,13 +544,13 @@ msgid "Unknown"
 msgstr "Невядомае"
 
 #. Translators: This is the sorted list of encodings used by
-#. * GtkSourceView for automatic detection of the file encoding. You may
+#. * CtkSourceView for automatic detection of the file encoding. You may
 #. * want to customize it adding encodings that are common in your
 #. * country, for instance the GB18030 encoding for the Chinese
 #. * translation. You may also want to remove the ISO-8859-15 encoding
 #. * (covering English and most Western European languages) if you think
 #. * people in your country will rarely use it.  "CURRENT" is a magic
-#. * value used by GtkSourceView and it represents the encoding for the
+#. * value used by CtkSourceView and it represents the encoding for the
 #. * current locale, so please don't translate the "CURRENT" term.  Only
 #. * recognized encodings are used. See
 #. * https://gitlab.gnome.org/GNOME/ctksourceview/blob/master/ctksourceview/ctksourceencoding.c#L142
@@ -588,14 +588,14 @@ msgstr "Буфер змяшчае хібныя знакі."
 #. *
 #. * SECTION:language
 #. * @Short_description: Represents a syntax highlighted language
-#. * @Title: GtkSourceLanguage
-#. * @See_also: #GtkSourceLanguageManager
+#. * @Title: CtkSourceLanguage
+#. * @See_also: #CtkSourceLanguageManager
 #. *
-#. * A #GtkSourceLanguage represents a programming or markup language, affecting
+#. * A #CtkSourceLanguage represents a programming or markup language, affecting
 #. * syntax highlighting and [context classes][context-classes].
 #. *
-#. * Use #GtkSourceLanguageManager to obtain a #GtkSourceLanguage instance, and
-#. * ctk_source_buffer_set_language() to apply it to a #GtkSourceBuffer.
+#. * Use #CtkSourceLanguageManager to obtain a #CtkSourceLanguage instance, and
+#. * ctk_source_buffer_set_language() to apply it to a #CtkSourceBuffer.
 #.
 #: ctksourceview/ctksourcelanguage.c:56
 msgid "Others"
@@ -1345,8 +1345,8 @@ msgstr "З_мяніць рэгістр"
 #~ msgid "Deprecated"
 #~ msgstr "Састарэла"
 
-#~ msgid "GtkRC"
-#~ msgstr "GtkRC"
+#~ msgid "CtkRC"
+#~ msgstr "CtkRC"
 
 #~ msgid "Widget State"
 #~ msgstr "Стан віджэта"
@@ -2281,8 +2281,8 @@ msgstr "З_мяніць рэгістр"
 #~ msgid "Trailing"
 #~ msgstr "Прабелы ў канцы"
 
-#~ msgid "GtkSourceView"
-#~ msgstr "GtkSourceView"
+#~ msgid "CtkSourceView"
+#~ msgstr "CtkSourceView"
 
 #~ msgid "Escaped Characters"
 #~ msgstr "Экраніраваныя знакі"
@@ -2384,8 +2384,8 @@ msgstr "З_мяніць рэгістр"
 #~ msgid "View"
 #~ msgstr "View"
 
-#~ msgid "The GtkSourceView bound to the completion"
-#~ msgstr "Аб'ект GtkSourceView, звязаны з дапаўненнем"
+#~ msgid "The CtkSourceView bound to the completion"
+#~ msgstr "Аб'ект CtkSourceView, звязаны з дапаўненнем"
 
 #~ msgid "Remember Info Visibility"
 #~ msgstr "Запамінаць бачнасць інфармацыйнага акенца"
@@ -2440,8 +2440,8 @@ msgstr "З_мяніць рэгістр"
 #~ msgid "Iterator"
 #~ msgstr "Ітэратар"
 
-#~ msgid "The GtkTextIter at which the completion was invoked"
-#~ msgstr "Аб'ект GtkTextIter, для якога было запушчана дапаўненне"
+#~ msgid "The CtkTextIter at which the completion was invoked"
+#~ msgstr "Аб'ект CtkTextIter, для якога было запушчана дапаўненне"
 
 #~ msgid "Label to be shown for this item"
 #~ msgstr "Надпіс для гэтага элемента"
@@ -2461,8 +2461,8 @@ msgstr "З_мяніць рэгістр"
 #~ msgid "Info to be shown for this item"
 #~ msgstr "Інфармацыя для гэтага элемента"
 
-#~ msgid "The gutters' GtkSourceView"
-#~ msgstr "GtkSourceView бакавога прагалу (gutters)"
+#~ msgid "The gutters' CtkSourceView"
+#~ msgstr "CtkSourceView бакавога прагалу (gutters)"
 
 #~ msgid "Window Type"
 #~ msgstr "Тып акна"
@@ -2595,8 +2595,8 @@ msgstr "З_мяніць рэгістр"
 #~ msgid "Source Buffer"
 #~ msgstr "Выточны буфер"
 
-#~ msgid "The GtkSourceBuffer object to print"
-#~ msgstr "Аб'ект GtkSourceBuffer для друку"
+#~ msgid "The CtkSourceBuffer object to print"
+#~ msgstr "Аб'ект CtkSourceBuffer для друку"
 
 #~ msgid "Tab Width"
 #~ msgstr "Шырыня табуляцыі"
@@ -2675,14 +2675,14 @@ msgstr "З_мяніць рэгістр"
 #~ msgid "Buffer"
 #~ msgstr "Буфер"
 
-#~ msgid "The associated GtkSourceBuffer"
-#~ msgstr "Адпаведны GtkSourceBuffer"
+#~ msgid "The associated CtkSourceBuffer"
+#~ msgstr "Адпаведны CtkSourceBuffer"
 
 #~ msgid "Settings"
 #~ msgstr "Настройкі"
 
-#~ msgid "The associated GtkSourceSearchSettings"
-#~ msgstr "Адпаведны GtkSourceSearchSettings"
+#~ msgid "The associated CtkSourceSearchSettings"
+#~ msgstr "Адпаведны CtkSourceSearchSettings"
 
 #~ msgid "Highlight"
 #~ msgstr "Падсвечваць"

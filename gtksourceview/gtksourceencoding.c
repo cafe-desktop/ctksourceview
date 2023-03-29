@@ -1,16 +1,16 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*- */
 /*
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2002-2005 - Paolo Maggi
  * Copyright (C) 2014, 2015 - Sébastien Wilmet <swilmet@gnome.org>
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -30,22 +30,22 @@
 /**
  * SECTION:encoding
  * @Short_description: Character encoding
- * @Title: GtkSourceEncoding
- * @See_also: #GtkSourceFileSaver, #GtkSourceFileLoader
+ * @Title: CtkSourceEncoding
+ * @See_also: #CtkSourceFileSaver, #CtkSourceFileLoader
  *
- * The #GtkSourceEncoding boxed type represents a character encoding. It is used
- * for example by #GtkSourceFile. Note that the text in CTK+ widgets is always
+ * The #CtkSourceEncoding boxed type represents a character encoding. It is used
+ * for example by #CtkSourceFile. Note that the text in CTK+ widgets is always
  * encoded in UTF-8.
  */
 
-struct _GtkSourceEncoding
+struct _CtkSourceEncoding
 {
 	gint index;
 	const gchar *charset;
 	const gchar *name;
 };
 
-G_DEFINE_BOXED_TYPE (GtkSourceEncoding, ctk_source_encoding,
+G_DEFINE_BOXED_TYPE (CtkSourceEncoding, ctk_source_encoding,
                      ctk_source_encoding_copy,
                      ctk_source_encoding_free)
 
@@ -55,7 +55,7 @@ G_DEFINE_BOXED_TYPE (GtkSourceEncoding, ctk_source_encoding,
  * Copyright (C) 2002 Red Hat, Inc.
  */
 
-typedef enum _GtkSourceEncodingIndex
+typedef enum _CtkSourceEncodingIndex
 {
 	CTK_SOURCE_ENCODING_ISO_8859_1,
 	CTK_SOURCE_ENCODING_ISO_8859_2,
@@ -131,9 +131,9 @@ typedef enum _GtkSourceEncodingIndex
 
 	CTK_SOURCE_ENCODING_UTF_8,
 	CTK_SOURCE_ENCODING_UNKNOWN
-} GtkSourceEncodingIndex;
+} CtkSourceEncodingIndex;
 
-static const GtkSourceEncoding utf8_encoding =
+static const CtkSourceEncoding utf8_encoding =
 {
 	CTK_SOURCE_ENCODING_UTF_8,
 	"UTF-8",
@@ -141,14 +141,14 @@ static const GtkSourceEncoding utf8_encoding =
 };
 
 /* Initialized in ctk_source_encoding_lazy_init(). */
-static GtkSourceEncoding unknown_encoding =
+static CtkSourceEncoding unknown_encoding =
 {
 	CTK_SOURCE_ENCODING_UNKNOWN,
 	NULL,
 	NULL
 };
 
-static const GtkSourceEncoding encodings[] =
+static const CtkSourceEncoding encodings[] =
 {
 	{ CTK_SOURCE_ENCODING_ISO_8859_1,
 	  "ISO-8859-1", N_("Western") },
@@ -306,14 +306,14 @@ ctk_source_encoding_lazy_init (void)
  * ctk_source_encoding_get_from_charset:
  * @charset: a character set.
  *
- * Gets a #GtkSourceEncoding from a character set such as "UTF-8" or
+ * Gets a #CtkSourceEncoding from a character set such as "UTF-8" or
  * "ISO-8859-1".
  *
- * Returns: (nullable): the corresponding #GtkSourceEncoding, or %NULL
+ * Returns: (nullable): the corresponding #CtkSourceEncoding, or %NULL
  * if not found.
  * Since: 3.14
  */
-const GtkSourceEncoding *
+const CtkSourceEncoding *
 ctk_source_encoding_get_from_charset (const gchar *charset)
 {
 	gint i;
@@ -349,8 +349,8 @@ ctk_source_encoding_get_from_charset (const gchar *charset)
  *
  * Gets all encodings.
  *
- * Returns: (transfer container) (element-type GtkSource.Encoding): a list of
- * all #GtkSourceEncoding's. Free with g_slist_free().
+ * Returns: (transfer container) (element-type CtkSource.Encoding): a list of
+ * all #CtkSourceEncoding's. Free with g_slist_free().
  * Since: 3.14
  */
 GSList *
@@ -375,7 +375,7 @@ ctk_source_encoding_get_all (void)
  * Returns: the UTF-8 encoding.
  * Since: 3.14
  */
-const GtkSourceEncoding *
+const CtkSourceEncoding *
 ctk_source_encoding_get_utf8 (void)
 {
 	return &utf8_encoding;
@@ -384,16 +384,16 @@ ctk_source_encoding_get_utf8 (void)
 /**
  * ctk_source_encoding_get_current:
  *
- * Gets the #GtkSourceEncoding for the current locale. See also g_get_charset().
+ * Gets the #CtkSourceEncoding for the current locale. See also g_get_charset().
  *
  * Returns: the current locale encoding.
  * Since: 3.14
  */
-const GtkSourceEncoding *
+const CtkSourceEncoding *
 ctk_source_encoding_get_current (void)
 {
 	static gboolean initialized = FALSE;
-	static const GtkSourceEncoding *locale_encoding = NULL;
+	static const CtkSourceEncoding *locale_encoding = NULL;
 
 	const gchar *locale_charset;
 
@@ -425,13 +425,13 @@ ctk_source_encoding_get_current (void)
 
 /**
  * ctk_source_encoding_to_string:
- * @enc: a #GtkSourceEncoding.
+ * @enc: a #CtkSourceEncoding.
  *
  * Returns: a string representation. Free with g_free() when no longer needed.
  * Since: 3.14
  */
 gchar *
-ctk_source_encoding_to_string (const GtkSourceEncoding* enc)
+ctk_source_encoding_to_string (const CtkSourceEncoding* enc)
 {
 	g_return_val_if_fail (enc != NULL, NULL);
 
@@ -455,16 +455,16 @@ ctk_source_encoding_to_string (const GtkSourceEncoding* enc)
 
 /**
  * ctk_source_encoding_get_charset:
- * @enc: a #GtkSourceEncoding.
+ * @enc: a #CtkSourceEncoding.
  *
- * Gets the character set of the #GtkSourceEncoding, such as "UTF-8" or
+ * Gets the character set of the #CtkSourceEncoding, such as "UTF-8" or
  * "ISO-8859-1".
  *
- * Returns: the character set of the #GtkSourceEncoding.
+ * Returns: the character set of the #CtkSourceEncoding.
  * Since: 3.14
  */
 const gchar *
-ctk_source_encoding_get_charset (const GtkSourceEncoding* enc)
+ctk_source_encoding_get_charset (const CtkSourceEncoding* enc)
 {
 	g_return_val_if_fail (enc != NULL, NULL);
 
@@ -477,15 +477,15 @@ ctk_source_encoding_get_charset (const GtkSourceEncoding* enc)
 
 /**
  * ctk_source_encoding_get_name:
- * @enc: a #GtkSourceEncoding.
+ * @enc: a #CtkSourceEncoding.
  *
- * Gets the name of the #GtkSourceEncoding such as "Unicode" or "Western".
+ * Gets the name of the #CtkSourceEncoding such as "Unicode" or "Western".
  *
- * Returns: the name of the #GtkSourceEncoding.
+ * Returns: the name of the #CtkSourceEncoding.
  * Since: 3.14
  */
 const gchar *
-ctk_source_encoding_get_name (const GtkSourceEncoding* enc)
+ctk_source_encoding_get_name (const CtkSourceEncoding* enc)
 {
 	g_return_val_if_fail (enc != NULL, NULL);
 
@@ -503,7 +503,7 @@ strv_to_list (const gchar * const *enc_str)
 	for (p = (gchar **)enc_str; p != NULL && *p != NULL; p++)
 	{
 		const gchar *charset = *p;
-		const GtkSourceEncoding *enc;
+		const CtkSourceEncoding *enc;
 
 		if (g_str_equal (charset, "CURRENT"))
 		{
@@ -569,18 +569,18 @@ remove_duplicates_keep_last (GSList *list)
 
 /*
  * _ctk_source_encoding_remove_duplicates:
- * @list: (element-type GtkSource.Encoding): a list of #GtkSourceEncoding's.
- * @removal_type: the #GtkSourceEncodingDuplicates.
+ * @list: (element-type CtkSource.Encoding): a list of #CtkSourceEncoding's.
+ * @removal_type: the #CtkSourceEncodingDuplicates.
  *
  * A convenience function to remove duplicated encodings in a list.
  *
- * Returns: (transfer container) (element-type GtkSource.Encoding): the new
+ * Returns: (transfer container) (element-type CtkSource.Encoding): the new
  * start of the #GSList.
  * Since: 3.14
  */
 GSList *
 _ctk_source_encoding_remove_duplicates (GSList                      *list,
-					GtkSourceEncodingDuplicates  removal_type)
+					CtkSourceEncodingDuplicates  removal_type)
 {
 	switch (removal_type)
 	{
@@ -607,7 +607,7 @@ _ctk_source_encoding_remove_duplicates (GSList                      *list,
  * language, country and default encoding). The UTF-8 encoding and the current
  * locale encoding are guaranteed to be present in the returned list.
  *
- * Returns: (transfer container) (element-type GtkSource.Encoding): the list of
+ * Returns: (transfer container) (element-type CtkSource.Encoding): the list of
  * default candidate encodings. Free with g_slist_free().
  * Since: 3.18
  */
@@ -622,13 +622,13 @@ ctk_source_encoding_get_default_candidates (void)
 	GError *error = NULL;
 
 	/* Translators: This is the sorted list of encodings used by
-	 * GtkSourceView for automatic detection of the file encoding. You may
+	 * CtkSourceView for automatic detection of the file encoding. You may
 	 * want to customize it adding encodings that are common in your
 	 * country, for instance the GB18030 encoding for the Chinese
 	 * translation. You may also want to remove the ISO-8859-15 encoding
 	 * (covering English and most Western European languages) if you think
 	 * people in your country will rarely use it.  "CURRENT" is a magic
-	 * value used by GtkSourceView and it represents the encoding for the
+	 * value used by CtkSourceView and it represents the encoding for the
 	 * current locale, so please don't translate the "CURRENT" term.  Only
 	 * recognized encodings are used. See
 	 * https://gitlab.gnome.org/GNOME/ctksourceview/blob/master/ctksourceview/ctksourceencoding.c#L142
@@ -687,31 +687,31 @@ ctk_source_encoding_get_default_candidates (void)
 
 /**
  * ctk_source_encoding_copy:
- * @enc: a #GtkSourceEncoding.
+ * @enc: a #CtkSourceEncoding.
  *
  * Used by language bindings.
  *
  * Returns: a copy of @enc.
  * Since: 3.14
  */
-GtkSourceEncoding *
-ctk_source_encoding_copy (const GtkSourceEncoding *enc)
+CtkSourceEncoding *
+ctk_source_encoding_copy (const CtkSourceEncoding *enc)
 {
 	g_return_val_if_fail (enc != NULL, NULL);
 
-	return (GtkSourceEncoding *) enc;
+	return (CtkSourceEncoding *) enc;
 }
 
 /**
  * ctk_source_encoding_free:
- * @enc: a #GtkSourceEncoding.
+ * @enc: a #CtkSourceEncoding.
  *
  * Used by language bindings.
  *
  * Since: 3.14
  */
 void
-ctk_source_encoding_free (GtkSourceEncoding *enc)
+ctk_source_encoding_free (CtkSourceEncoding *enc)
 {
 	g_return_if_fail (enc != NULL);
 }

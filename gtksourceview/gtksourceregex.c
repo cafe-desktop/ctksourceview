@@ -1,16 +1,16 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*-
  *
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2003 - Gustavo Giráldez <gustavo.giraldez@gmx.net>
  * Copyright (C) 2005, 2006 - Marco Barisione, Emanuele Aina
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -49,7 +49,7 @@ get_start_ref_regex (void)
 	return start_ref_regex;
 }
 
-struct _GtkSourceRegex
+struct _CtkSourceRegex
 {
 	union {
 		struct {
@@ -109,14 +109,14 @@ find_single_byte_escape (const gchar *string)
  *
  * Creates a new regex.
  *
- * Returns: a newly-allocated #GtkSourceRegex.
+ * Returns: a newly-allocated #CtkSourceRegex.
  */
-GtkSourceRegex *
+CtkSourceRegex *
 _ctk_source_regex_new (const gchar           *pattern,
 		       GRegexCompileFlags     flags,
 		       GError               **error)
 {
-	GtkSourceRegex *regex;
+	CtkSourceRegex *regex;
 
 	g_return_val_if_fail (pattern != NULL, NULL);
 	g_return_val_if_fail (error == NULL || *error == NULL, NULL);
@@ -129,7 +129,7 @@ _ctk_source_regex_new (const gchar           *pattern,
 		return NULL;
 	}
 
-	regex = g_slice_new0 (GtkSourceRegex);
+	regex = g_slice_new0 (CtkSourceRegex);
 	regex->ref_count = 1;
 
 	if (g_regex_match (get_start_ref_regex (), pattern, 0, NULL))
@@ -147,7 +147,7 @@ _ctk_source_regex_new (const gchar           *pattern,
 
 		if (regex->u.regex.regex == NULL)
 		{
-			g_slice_free (GtkSourceRegex, regex);
+			g_slice_free (CtkSourceRegex, regex);
 			regex = NULL;
 		}
 	}
@@ -155,8 +155,8 @@ _ctk_source_regex_new (const gchar           *pattern,
 	return regex;
 }
 
-GtkSourceRegex *
-_ctk_source_regex_ref (GtkSourceRegex *regex)
+CtkSourceRegex *
+_ctk_source_regex_ref (CtkSourceRegex *regex)
 {
 	if (regex != NULL)
 		regex->ref_count++;
@@ -164,7 +164,7 @@ _ctk_source_regex_ref (GtkSourceRegex *regex)
 }
 
 void
-_ctk_source_regex_unref (GtkSourceRegex *regex)
+_ctk_source_regex_unref (CtkSourceRegex *regex)
 {
 	if (regex != NULL && --regex->ref_count == 0)
 	{
@@ -178,12 +178,12 @@ _ctk_source_regex_unref (GtkSourceRegex *regex)
 		{
 			g_free (regex->u.info.pattern);
 		}
-		g_slice_free (GtkSourceRegex, regex);
+		g_slice_free (CtkSourceRegex, regex);
 	}
 }
 
 struct RegexResolveData {
-	GtkSourceRegex *start_regex;
+	CtkSourceRegex *start_regex;
 	const gchar *matched_text;
 };
 
@@ -234,8 +234,8 @@ replace_start_regex (const GMatchInfo *match_info,
 
 /**
  * _ctk_source_regex_resolve:
- * @regex: a #GtkSourceRegex.
- * @start_regex: a #GtkSourceRegex.
+ * @regex: a #CtkSourceRegex.
+ * @start_regex: a #CtkSourceRegex.
  * @matched_text: the text matched against @start_regex.
  *
  * If the regular expression does not contain references to the start
@@ -247,15 +247,15 @@ replace_start_regex (const GMatchInfo *match_info,
  * them (they are extracted from @start_regex and @matched_text) and
  * returns the new regular expression.
  *
- * Returns: a #GtkSourceRegex.
+ * Returns: a #CtkSourceRegex.
  */
-GtkSourceRegex *
-_ctk_source_regex_resolve (GtkSourceRegex *regex,
-			   GtkSourceRegex *start_regex,
+CtkSourceRegex *
+_ctk_source_regex_resolve (CtkSourceRegex *regex,
+			   CtkSourceRegex *start_regex,
 			   const gchar    *matched_text)
 {
 	gchar *expanded_regex;
-	GtkSourceRegex *new_regex;
+	CtkSourceRegex *new_regex;
 	struct RegexResolveData data;
 
 	if (regex == NULL || regex->resolved)
@@ -284,13 +284,13 @@ _ctk_source_regex_resolve (GtkSourceRegex *regex,
 }
 
 gboolean
-_ctk_source_regex_is_resolved (GtkSourceRegex *regex)
+_ctk_source_regex_is_resolved (CtkSourceRegex *regex)
 {
 	return regex->resolved;
 }
 
 gboolean
-_ctk_source_regex_match (GtkSourceRegex *regex,
+_ctk_source_regex_match (CtkSourceRegex *regex,
 			 const gchar    *line,
 			 gint             byte_length,
 			 gint             byte_pos)
@@ -314,7 +314,7 @@ _ctk_source_regex_match (GtkSourceRegex *regex,
 }
 
 gchar *
-_ctk_source_regex_fetch (GtkSourceRegex *regex,
+_ctk_source_regex_fetch (CtkSourceRegex *regex,
 		         gint            num)
 {
 	g_assert (regex->resolved);
@@ -323,7 +323,7 @@ _ctk_source_regex_fetch (GtkSourceRegex *regex,
 }
 
 void
-_ctk_source_regex_fetch_pos (GtkSourceRegex *regex,
+_ctk_source_regex_fetch_pos (CtkSourceRegex *regex,
 			     const gchar    *text,
 			     gint            num,
 			     gint           *start_pos, /* character offsets */
@@ -351,7 +351,7 @@ _ctk_source_regex_fetch_pos (GtkSourceRegex *regex,
 }
 
 void
-_ctk_source_regex_fetch_pos_bytes (GtkSourceRegex *regex,
+_ctk_source_regex_fetch_pos_bytes (CtkSourceRegex *regex,
 				   gint            num,
 				   gint           *start_pos_p, /* byte offsets */
 				   gint           *end_pos_p)   /* byte offsets */
@@ -374,7 +374,7 @@ _ctk_source_regex_fetch_pos_bytes (GtkSourceRegex *regex,
 }
 
 void
-_ctk_source_regex_fetch_named_pos (GtkSourceRegex *regex,
+_ctk_source_regex_fetch_named_pos (CtkSourceRegex *regex,
 				   const gchar    *text,
 				   const gchar    *name,
 				   gint           *start_pos, /* character offsets */
@@ -401,7 +401,7 @@ _ctk_source_regex_fetch_named_pos (GtkSourceRegex *regex,
 }
 
 const gchar *
-_ctk_source_regex_get_pattern (GtkSourceRegex *regex)
+_ctk_source_regex_get_pattern (CtkSourceRegex *regex)
 {
 	g_assert (regex->resolved);
 

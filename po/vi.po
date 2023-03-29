@@ -1500,8 +1500,8 @@ msgstr "Bị phản đối"
 # Name: don't translate / Tên: đừng dịch
 #. (itstool) path: ctkrc.lang/language@_name
 #: ctkrc.lang:25
-msgid "GtkRC"
-msgstr "GtkRC"
+msgid "CtkRC"
+msgstr "CtkRC"
 
 #. (itstool) path: styles/style@_name
 #: ctkrc.lang:38
@@ -2767,14 +2767,14 @@ msgstr "Định nghĩa biến"
 #. *
 #. * SECTION:language
 #. * @Short_description: Represents a syntax highlighted language
-#. * @Title: GtkSourceLanguage
-#. * @See_also: #GtkSourceLanguageManager
+#. * @Title: CtkSourceLanguage
+#. * @See_also: #CtkSourceLanguageManager
 #. *
-#. * A #GtkSourceLanguage represents a programming or markup language, affecting
+#. * A #CtkSourceLanguage represents a programming or markup language, affecting
 #. * syntax highlighting and [context classes][context-classes].
 #. *
-#. * Use #GtkSourceLanguageManager to obtain a #GtkSourceLanguage instance, and
-#. * ctk_source_buffer_set_language() to apply it to a #GtkSourceBuffer.
+#. * Use #CtkSourceLanguageManager to obtain a #CtkSourceLanguage instance, and
+#. * ctk_source_buffer_set_language() to apply it to a #CtkSourceBuffer.
 #.
 #: sh.lang:39 texinfo.lang:35 ctksourceview/ctksourcelanguage.c:56
 msgid "Others"
@@ -3335,13 +3335,13 @@ msgid "Unknown"
 msgstr "Chưa biết"
 
 #. Translators: This is the sorted list of encodings used by
-#. * GtkSourceView for automatic detection of the file encoding. You may
+#. * CtkSourceView for automatic detection of the file encoding. You may
 #. * want to customize it adding encodings that are common in your
 #. * country, for instance the GB18030 encoding for the Chinese
 #. * translation. You may also want to remove the ISO-8859-15 encoding
 #. * (covering English and most Western European languages) if you think
 #. * people in your country will rarely use it.  "CURRENT" is a magic
-#. * value used by GtkSourceView and it represents the encoding for the
+#. * value used by CtkSourceView and it represents the encoding for the
 #. * current locale, so please don't translate the "CURRENT" term.  Only
 #. * recognized encodings are used. See
 #. * https://git.gnome.org/browse/ctksourceview/tree/ctksourceview/ctksourceencoding.c#n147
@@ -3438,8 +3438,8 @@ msgstr "C_huyển đổi HOA/thường"
 #~ msgid "translator-credits"
 #~ msgstr "Nhóm Việt hóa GNOME <gnome-vi-list@gnome.org>"
 
-#~ msgid "GtkSourceView"
-#~ msgstr "GtkSourceView"
+#~ msgid "CtkSourceView"
+#~ msgstr "CtkSourceView"
 
 #~ msgid "Cobol"
 #~ msgstr "Cobol"
@@ -3638,8 +3638,8 @@ msgstr "C_huyển đổi HOA/thường"
 #~ msgid "Source Buffer"
 #~ msgstr "Vùng đệm nguồn"
 
-#~ msgid "The GtkSourceBuffer object to print"
-#~ msgstr "Đối tượng GtkSourceBuffer (vùng đậm nguồn Gtk) cần in"
+#~ msgid "The CtkSourceBuffer object to print"
+#~ msgstr "Đối tượng CtkSourceBuffer (vùng đậm nguồn Ctk) cần in"
 
 #~ msgid "Tab Width"
 #~ msgstr "Cột tab"

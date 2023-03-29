@@ -108,7 +108,7 @@ core_private_c = files([
 core_c_args = [
   '-DHAVE_CONFIG_H',
   '-DCTK_SOURCE_COMPILATION',
-  '-DG_LOG_DOMAIN="GtkSourceView"',
+  '-DG_LOG_DOMAIN="CtkSourceView"',
 ]
 
 core_deps = [
@@ -152,7 +152,7 @@ core_enums_header = '''
 
 core_enums = gnome.mkenums_simple('ctksource-enumtypes',
             sources: core_public_h,
-  identifier_prefix: 'GtkSource',
+  identifier_prefix: 'CtkSource',
       symbol_prefix: 'ctk_source',
       header_prefix: core_enums_header,
           decorator: 'CTK_SOURCE_ENUM_EXTERN',
@@ -194,10 +194,10 @@ install_headers(
 core_enums_h = core_enums.get(1)
 
 # Unfortunately, Visual Studio builds must build the core
-# sources twice, once for the GtkSourceView DLL, and once for
+# sources twice, once for the CtkSourceView DLL, and once for
 # the tests (static core lib), so that we can ensure that
 # all the items from the core sources are properly linked into
-# the final GtkSourceView DLL and exported from it.
+# the final CtkSourceView DLL and exported from it.
 core_lib = static_library(package_string + 'core', core_sources,
   include_directories: ctksourceview_include_dirs,
          dependencies: core_deps,
@@ -262,12 +262,12 @@ if generate_gir
   ctksource_gir = gnome.generate_gir(ctksource_lib,
                 sources: ctksource_gir_sources,
               nsversion: api_version,
-              namespace: 'GtkSource',
+              namespace: 'CtkSource',
           symbol_prefix: 'ctk_source',
-      identifier_prefix: 'GtkSource',
+      identifier_prefix: 'CtkSource',
         export_packages: [package_string],
               link_with: ctksource_lib,
-               includes: [ 'Gdk-3.0', 'Gtk-3.0' ],
+               includes: [ 'Gdk-3.0', 'Ctk-3.0' ],
                 install: true,
         install_dir_gir: girdir,
     install_dir_typelib: typelibdir,
@@ -281,8 +281,8 @@ if generate_gir
 
   if generate_vapi
     configure_file(
-        input: 'GtkSource.metadata.in',
-       output: 'GtkSource-@0@.metadata'.format(api_version),
+        input: 'CtkSource.metadata.in',
+       output: 'CtkSource-@0@.metadata'.format(api_version),
          copy: true,
     )
 
@@ -336,7 +336,7 @@ ctksource_pc_private_reqs += [
 
 ctksource_pc = pkg.generate(
               name: package_string,
-       description: 'Source code editing Gtk+ widget.',
+       description: 'Source code editing Ctk+ widget.',
           requires: ctksource_pc_reqs,
   requires_private: ctksource_pc_private_reqs,
            version: version,

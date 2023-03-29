@@ -1,6 +1,6 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*-
  *
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2007 - Gustavo Giráldez
  * Copyright (C) 2007 - Paolo Maggi
@@ -50,8 +50,8 @@ G_GNUC_INTERNAL
 gchar *		_ctk_source_utils_dgettext			(const gchar *domain,
 								 const gchar *msgid) G_GNUC_FORMAT(2);
 G_GNUC_INTERNAL
-void _ctk_source_view_jump_to_iter (GtkTextView       *view,
-                                    const GtkTextIter *iter,
+void _ctk_source_view_jump_to_iter (CtkTextView       *view,
+                                    const CtkTextIter *iter,
                                     double             within_margin,
                                     gboolean           use_align,
                                     double             xalign,

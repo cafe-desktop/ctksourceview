@@ -545,13 +545,13 @@ msgid "Unknown"
 msgstr "알 수 없음"
 
 #. Translators: This is the sorted list of encodings used by
-#. * GtkSourceView for automatic detection of the file encoding. You may
+#. * CtkSourceView for automatic detection of the file encoding. You may
 #. * want to customize it adding encodings that are common in your
 #. * country, for instance the GB18030 encoding for the Chinese
 #. * translation. You may also want to remove the ISO-8859-15 encoding
 #. * (covering English and most Western European languages) if you think
 #. * people in your country will rarely use it.  "CURRENT" is a magic
-#. * value used by GtkSourceView and it represents the encoding for the
+#. * value used by CtkSourceView and it represents the encoding for the
 #. * current locale, so please don't translate the "CURRENT" term.  Only
 #. * recognized encodings are used. See
 #. * https://gitlab.gnome.org/GNOME/ctksourceview/blob/master/ctksourceview/ctksourceencoding.c#L142
@@ -587,14 +587,14 @@ msgstr "버퍼에 올바르지 않은 문자가 들어 있습니다."
 #. *
 #. * SECTION:language
 #. * @Short_description: Represents a syntax highlighted language
-#. * @Title: GtkSourceLanguage
-#. * @See_also: #GtkSourceLanguageManager
+#. * @Title: CtkSourceLanguage
+#. * @See_also: #CtkSourceLanguageManager
 #. *
-#. * A #GtkSourceLanguage represents a programming or markup language, affecting
+#. * A #CtkSourceLanguage represents a programming or markup language, affecting
 #. * syntax highlighting and [context classes][context-classes].
 #. *
-#. * Use #GtkSourceLanguageManager to obtain a #GtkSourceLanguage instance, and
-#. * ctk_source_buffer_set_language() to apply it to a #GtkSourceBuffer.
+#. * Use #CtkSourceLanguageManager to obtain a #CtkSourceLanguage instance, and
+#. * ctk_source_buffer_set_language() to apply it to a #CtkSourceBuffer.
 #.
 #: ctksourceview/ctksourcelanguage.c:56
 msgid "Others"
@@ -1348,8 +1348,8 @@ msgstr "대소문자 바꾸기(_H)"
 #~ msgid "Deprecated"
 #~ msgstr "낡음"
 
-#~ msgid "GtkRC"
-#~ msgstr "GtkRC"
+#~ msgid "CtkRC"
+#~ msgstr "CtkRC"
 
 #~ msgid "Widget State"
 #~ msgstr "위젯 상태"
@@ -2307,8 +2307,8 @@ msgstr "대소문자 바꾸기(_H)"
 #~ msgid "translator-credits"
 #~ msgstr "류창우 <cwryu@debian.org>"
 
-#~ msgid "GtkSourceView"
-#~ msgstr "GtkSourceView"
+#~ msgid "CtkSourceView"
+#~ msgstr "CtkSourceView"
 
 #~ msgctxt "Object"
 #~ msgid "Name"
@@ -2407,8 +2407,8 @@ msgstr "대소문자 바꾸기(_H)"
 #~ msgid "Implicit trailing newline"
 #~ msgstr "맨 끝에 줄바꿈 있다고 가정"
 
-#~ msgid "The GtkSourceView bound to the completion"
-#~ msgstr "자동 완성할 GtkSourceView"
+#~ msgid "The CtkSourceView bound to the completion"
+#~ msgstr "자동 완성할 CtkSourceView"
 
 #~ msgid "Remember Info Visibility"
 #~ msgstr "정보 표시를 저장합니다"
@@ -2462,8 +2462,8 @@ msgstr "대소문자 바꾸기(_H)"
 #~ msgid "Iterator"
 #~ msgstr "이터레이터"
 
-#~ msgid "The GtkTextIter at which the completion was invoked"
-#~ msgstr "자동 완성이 실행되는 GtkTextIter"
+#~ msgid "The CtkTextIter at which the completion was invoked"
+#~ msgstr "자동 완성이 실행되는 CtkTextIter"
 
 #~ msgid "Label to be shown for this item"
 #~ msgstr "이 항목에 대해 표시할 레이블"
@@ -2495,8 +2495,8 @@ msgstr "대소문자 바꾸기(_H)"
 #~ msgid "Flags"
 #~ msgstr "플래그"
 
-#~ msgid "The gutters' GtkSourceView"
-#~ msgstr "gutter GtkSourceView"
+#~ msgid "The gutters' CtkSourceView"
+#~ msgstr "gutter CtkSourceView"
 
 #~ msgid "Window Type"
 #~ msgstr "창 종류"
@@ -2629,8 +2629,8 @@ msgstr "대소문자 바꾸기(_H)"
 #~ msgid "Source Buffer"
 #~ msgstr "소스 버퍼"
 
-#~ msgid "The GtkSourceBuffer object to print"
-#~ msgstr "인쇄할 GtkSourceBuffer 오브젝트"
+#~ msgid "The CtkSourceBuffer object to print"
+#~ msgstr "인쇄할 CtkSourceBuffer 오브젝트"
 
 #~ msgid "Tab Width"
 #~ msgstr "탭 너비"
@@ -2705,14 +2705,14 @@ msgstr "대소문자 바꾸기(_H)"
 #~ msgid "Buffer"
 #~ msgstr "버퍼"
 
-#~ msgid "The associated GtkSourceBuffer"
-#~ msgstr "관련 GtkSourceBuffer"
+#~ msgid "The associated CtkSourceBuffer"
+#~ msgstr "관련 CtkSourceBuffer"
 
 #~ msgid "Settings"
 #~ msgstr "설정"
 
-#~ msgid "The associated GtkSourceSearchSettings"
-#~ msgstr "관련 GtkSourceSearchSettings"
+#~ msgid "The associated CtkSourceSearchSettings"
+#~ msgstr "관련 CtkSourceSearchSettings"
 
 #~ msgid "Highlight"
 #~ msgstr "강조"

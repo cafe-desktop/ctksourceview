@@ -1,6 +1,6 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*- *
  *
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2009 - Jesse van den Kieboom
  * Copyright (C) 2013 - Sébastien Wilmet
@@ -34,12 +34,12 @@ G_GNUC_INTERNAL
 gchar		*_ctk_source_completion_words_utils_get_end_word	(gchar *text);
 
 G_GNUC_INTERNAL
-void		 _ctk_source_completion_words_utils_adjust_region	(GtkTextIter *start,
-									 GtkTextIter *end);
+void		 _ctk_source_completion_words_utils_adjust_region	(CtkTextIter *start,
+									 CtkTextIter *end);
 
 G_GNUC_INTERNAL
-void		 _ctk_source_completion_words_utils_check_scan_region	(const GtkTextIter *start,
-									 const GtkTextIter *end);
+void		 _ctk_source_completion_words_utils_check_scan_region	(const CtkTextIter *start,
+									 const CtkTextIter *end);
 
 G_END_DECLS
 

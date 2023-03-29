@@ -167,9 +167,9 @@ msgstr "Vis"
 
 #: ../ctksourceview/ctksourcecompletion.c:2230
 #, fuzzy
-#| msgid "The GtkSourceBuffer object to print"
-msgid "The GtkSourceView bound to the completion"
-msgstr "GtkSourceBuffer-objekt som skal skrivast ut"
+#| msgid "The CtkSourceBuffer object to print"
+msgid "The CtkSourceView bound to the completion"
+msgstr "CtkSourceBuffer-objekt som skal skrivast ut"
 
 #: ../ctksourceview/ctksourcecompletion.c:2245
 msgid "Remember Info Visibility"
@@ -255,14 +255,14 @@ msgstr "Fullføring"
 msgid "The completion object to which the context belongs"
 msgstr "Fullføringsobjektet som konteksten høyrer til"
 
-#. Translators: The GtkTextIter at which the completion was invoked
+#. Translators: The CtkTextIter at which the completion was invoked
 #: ../ctksourceview/ctksourcecompletioncontext.c:258
 #| msgid "Operator"
 msgid "Iterator"
 msgstr "Iterator"
 
 #: ../ctksourceview/ctksourcecompletioncontext.c:259
-msgid "The GtkTextIter at which the completion was invoked"
+msgid "The CtkTextIter at which the completion was invoked"
 msgstr ""
 
 #: ../ctksourceview/ctksourcecompletioncontext.c:271
@@ -425,7 +425,7 @@ msgid "Missing main language definition (id = \"%s\".)"
 msgstr "Manglar hovudspråkdefinisjon (id = «%s».)"
 
 #: ../ctksourceview/ctksourcegutter.c:370
-msgid "The gutters' GtkSourceView"
+msgid "The gutters' CtkSourceView"
 msgstr ""
 
 #: ../ctksourceview/ctksourcegutter.c:382
@@ -439,13 +439,13 @@ msgstr ""
 #. *
 #. * SECTION:language
 #. * @Short_description: Object representing a syntax highlighted language
-#. * @Title: GtkSourceLanguage
-#. * @See_also: #GtkSourceLanguageManager
+#. * @Title: CtkSourceLanguage
+#. * @See_also: #CtkSourceLanguageManager
 #. *
-#. * #GtkSourceLanguage encapsulates syntax and highlighting styles for a
-#. * particular language. Use #GtkSourceLanguageManager to obtain a
-#. * #GtkSourceLanguage instance, and ctk_source_buffer_set_language() to apply it
-#. * to a #GtkSourceBuffer.
+#. * #CtkSourceLanguage encapsulates syntax and highlighting styles for a
+#. * particular language. Use #CtkSourceLanguageManager to obtain a
+#. * #CtkSourceLanguage instance, and ctk_source_buffer_set_language() to apply it
+#. * to a #CtkSourceBuffer.
 #.
 #: ../ctksourceview/ctksourcelanguage.c:54
 #: ../ctksourceview/language-specs/changelog.lang.h:8
@@ -534,8 +534,8 @@ msgid "Source Buffer"
 msgstr "Kjeldebuffer"
 
 #: ../ctksourceview/ctksourceprintcompositor.c:447
-msgid "The GtkSourceBuffer object to print"
-msgstr "GtkSourceBuffer-objekt som skal skrivast ut"
+msgid "The CtkSourceBuffer object to print"
+msgstr "CtkSourceBuffer-objekt som skal skrivast ut"
 
 #: ../ctksourceview/ctksourceprintcompositor.c:464
 #: ../ctksourceview/ctksourceview.c:362
@@ -2105,8 +2105,8 @@ msgid "ctk-doc"
 msgstr "ctk-doc"
 
 #: ../ctksourceview/language-specs/ctkrc.lang.h:5
-msgid "GtkRC"
-msgstr "GtkRC"
+msgid "CtkRC"
+msgstr "CtkRC"
 
 #: ../ctksourceview/language-specs/ctkrc.lang.h:6
 msgid "Include directive"

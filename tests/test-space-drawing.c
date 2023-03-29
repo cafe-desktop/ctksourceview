@@ -1,15 +1,15 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*-
  *
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2015 - Université Catholique de Louvain
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -23,10 +23,10 @@
 #include <ctksourceview/ctksource.h>
 
 static void
-fill_buffer (GtkTextBuffer *buffer,
-	     GtkTextTag    *tag)
+fill_buffer (CtkTextBuffer *buffer,
+	     CtkTextTag    *tag)
 {
-	GtkTextIter iter;
+	CtkTextIter iter;
 
 	ctk_text_buffer_set_text (buffer, "", 0);
 
@@ -53,18 +53,18 @@ fill_buffer (GtkTextBuffer *buffer,
 static void
 create_window (void)
 {
-	GtkWidget *window;
-	GtkWidget *hgrid;
-	GtkWidget *panel_grid;
-	GtkWidget *scrolled_window;
-	GtkWidget *matrix_checkbutton;
-	GtkWidget *tag_set_checkbutton;
-	GtkWidget *tag_checkbutton;
-	GtkWidget *implicit_trailing_newline_checkbutton;
-	GtkSourceView *view;
-	GtkSourceBuffer *buffer;
-	GtkTextTag *tag;
-	GtkSourceSpaceDrawer *space_drawer;
+	CtkWidget *window;
+	CtkWidget *hgrid;
+	CtkWidget *panel_grid;
+	CtkWidget *scrolled_window;
+	CtkWidget *matrix_checkbutton;
+	CtkWidget *tag_set_checkbutton;
+	CtkWidget *tag_checkbutton;
+	CtkWidget *implicit_trailing_newline_checkbutton;
+	CtkSourceView *view;
+	CtkSourceBuffer *buffer;
+	CtkTextTag *tag;
+	CtkSourceSpaceDrawer *space_drawer;
 
 	window = ctk_window_new (CTK_WINDOW_TOPLEVEL);
 	ctk_window_set_default_size (CTK_WINDOW (window), 800, 600);
@@ -107,21 +107,21 @@ create_window (void)
 		      "margin", 6,
 		      NULL);
 
-	matrix_checkbutton = ctk_check_button_new_with_label ("GtkSourceSpaceDrawer enable-matrix");
+	matrix_checkbutton = ctk_check_button_new_with_label ("CtkSourceSpaceDrawer enable-matrix");
 	ctk_container_add (CTK_CONTAINER (panel_grid), matrix_checkbutton);
 	ctk_toggle_button_set_active (CTK_TOGGLE_BUTTON (matrix_checkbutton), TRUE);
 	g_object_bind_property (matrix_checkbutton, "active",
 				space_drawer, "enable-matrix",
 				G_BINDING_BIDIRECTIONAL | G_BINDING_SYNC_CREATE);
 
-	tag_set_checkbutton = ctk_check_button_new_with_label ("GtkSourceTag draw-spaces-set");
+	tag_set_checkbutton = ctk_check_button_new_with_label ("CtkSourceTag draw-spaces-set");
 	ctk_container_add (CTK_CONTAINER (panel_grid), tag_set_checkbutton);
 	ctk_toggle_button_set_active (CTK_TOGGLE_BUTTON (tag_set_checkbutton), TRUE);
 	g_object_bind_property (tag_set_checkbutton, "active",
 				tag, "draw-spaces-set",
 				G_BINDING_BIDIRECTIONAL | G_BINDING_SYNC_CREATE);
 
-	tag_checkbutton = ctk_check_button_new_with_label ("GtkSourceTag draw-spaces");
+	tag_checkbutton = ctk_check_button_new_with_label ("CtkSourceTag draw-spaces");
 	ctk_container_add (CTK_CONTAINER (panel_grid), tag_checkbutton);
 	ctk_toggle_button_set_active (CTK_TOGGLE_BUTTON (tag_checkbutton), FALSE);
 	g_object_bind_property (tag_checkbutton, "active",

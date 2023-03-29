@@ -1,6 +1,6 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8 -*-
- * ctksourceregion.h - GtkTextMark-based region utility
- * This file is part of GtkSourceView
+ * ctksourceregion.h - CtkTextMark-based region utility
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2002 Gustavo Giráldez <gustavo.giraldez@gmx.net>
  * Copyright (C) 2016 Sébastien Wilmet <swilmet@gnome.org>
@@ -34,11 +34,11 @@ G_BEGIN_DECLS
 #define CTK_SOURCE_TYPE_REGION (ctk_source_region_get_type ())
 
 CTK_SOURCE_AVAILABLE_IN_3_22
-G_DECLARE_DERIVABLE_TYPE (GtkSourceRegion, ctk_source_region,
+G_DECLARE_DERIVABLE_TYPE (CtkSourceRegion, ctk_source_region,
 			  CTK_SOURCE, REGION,
 			  GObject)
 
-struct _GtkSourceRegionClass
+struct _CtkSourceRegionClass
 {
 	GObjectClass parent_class;
 
@@ -47,15 +47,15 @@ struct _GtkSourceRegionClass
 };
 
 /**
- * GtkSourceRegionIter:
+ * CtkSourceRegionIter:
  *
- * #GtkSourceRegionIter is an opaque datatype; ignore all its fields.
+ * #CtkSourceRegionIter is an opaque datatype; ignore all its fields.
  * Initialize the iter with ctk_source_region_get_start_region_iter().
  *
  * Since: 3.22
  */
-typedef struct _GtkSourceRegionIter GtkSourceRegionIter;
-struct _GtkSourceRegionIter
+typedef struct _CtkSourceRegionIter CtkSourceRegionIter;
+struct _CtkSourceRegionIter
 {
 	/*< private >*/
 	gpointer dummy1;
@@ -64,63 +64,63 @@ struct _GtkSourceRegionIter
 };
 
 CTK_SOURCE_AVAILABLE_IN_3_22
-GtkSourceRegion *	ctk_source_region_new			(GtkTextBuffer *buffer);
+CtkSourceRegion *	ctk_source_region_new			(CtkTextBuffer *buffer);
 
 CTK_SOURCE_AVAILABLE_IN_3_22
-GtkTextBuffer *		ctk_source_region_get_buffer		(GtkSourceRegion *region);
+CtkTextBuffer *		ctk_source_region_get_buffer		(CtkSourceRegion *region);
 
 CTK_SOURCE_AVAILABLE_IN_3_22
-void			ctk_source_region_add_subregion		(GtkSourceRegion   *region,
-								 const GtkTextIter *_start,
-								 const GtkTextIter *_end);
+void			ctk_source_region_add_subregion		(CtkSourceRegion   *region,
+								 const CtkTextIter *_start,
+								 const CtkTextIter *_end);
 
 CTK_SOURCE_AVAILABLE_IN_3_22
-void			ctk_source_region_add_region		(GtkSourceRegion *region,
-								 GtkSourceRegion *region_to_add);
+void			ctk_source_region_add_region		(CtkSourceRegion *region,
+								 CtkSourceRegion *region_to_add);
 
 CTK_SOURCE_AVAILABLE_IN_3_22
-void			ctk_source_region_subtract_subregion	(GtkSourceRegion   *region,
-								 const GtkTextIter *_start,
-								 const GtkTextIter *_end);
+void			ctk_source_region_subtract_subregion	(CtkSourceRegion   *region,
+								 const CtkTextIter *_start,
+								 const CtkTextIter *_end);
 
 CTK_SOURCE_AVAILABLE_IN_3_22
-void			ctk_source_region_subtract_region	(GtkSourceRegion *region,
-								 GtkSourceRegion *region_to_subtract);
+void			ctk_source_region_subtract_region	(CtkSourceRegion *region,
+								 CtkSourceRegion *region_to_subtract);
 
 CTK_SOURCE_AVAILABLE_IN_3_22
-GtkSourceRegion *	ctk_source_region_intersect_subregion	(GtkSourceRegion   *region,
-								 const GtkTextIter *_start,
-								 const GtkTextIter *_end);
+CtkSourceRegion *	ctk_source_region_intersect_subregion	(CtkSourceRegion   *region,
+								 const CtkTextIter *_start,
+								 const CtkTextIter *_end);
 
 CTK_SOURCE_AVAILABLE_IN_3_22
-GtkSourceRegion *	ctk_source_region_intersect_region	(GtkSourceRegion *region1,
-								 GtkSourceRegion *region2);
+CtkSourceRegion *	ctk_source_region_intersect_region	(CtkSourceRegion *region1,
+								 CtkSourceRegion *region2);
 
 CTK_SOURCE_AVAILABLE_IN_3_22
-gboolean		ctk_source_region_is_empty		(GtkSourceRegion *region);
+gboolean		ctk_source_region_is_empty		(CtkSourceRegion *region);
 
 CTK_SOURCE_AVAILABLE_IN_3_22
-gboolean		ctk_source_region_get_bounds		(GtkSourceRegion *region,
-								 GtkTextIter     *start,
-								 GtkTextIter     *end);
+gboolean		ctk_source_region_get_bounds		(CtkSourceRegion *region,
+								 CtkTextIter     *start,
+								 CtkTextIter     *end);
 
 CTK_SOURCE_AVAILABLE_IN_3_22
-void			ctk_source_region_get_start_region_iter	(GtkSourceRegion     *region,
-								 GtkSourceRegionIter *iter);
+void			ctk_source_region_get_start_region_iter	(CtkSourceRegion     *region,
+								 CtkSourceRegionIter *iter);
 
 CTK_SOURCE_AVAILABLE_IN_3_22
-gboolean		ctk_source_region_iter_is_end		(GtkSourceRegionIter *iter);
+gboolean		ctk_source_region_iter_is_end		(CtkSourceRegionIter *iter);
 
 CTK_SOURCE_AVAILABLE_IN_3_22
-gboolean		ctk_source_region_iter_next		(GtkSourceRegionIter *iter);
+gboolean		ctk_source_region_iter_next		(CtkSourceRegionIter *iter);
 
 CTK_SOURCE_AVAILABLE_IN_3_22
-gboolean		ctk_source_region_iter_get_subregion	(GtkSourceRegionIter *iter,
-								 GtkTextIter         *start,
-								 GtkTextIter         *end);
+gboolean		ctk_source_region_iter_get_subregion	(CtkSourceRegionIter *iter,
+								 CtkTextIter         *start,
+								 CtkTextIter         *end);
 
 CTK_SOURCE_AVAILABLE_IN_3_22
-gchar *			ctk_source_region_to_string		(GtkSourceRegion *region);
+gchar *			ctk_source_region_to_string		(CtkSourceRegion *region);
 
 G_END_DECLS
 

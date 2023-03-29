@@ -616,13 +616,13 @@ msgid "Unknown"
 msgstr "Tuntematon"
 
 #. Translators: This is the sorted list of encodings used by
-#. * GtkSourceView for automatic detection of the file encoding. You may
+#. * CtkSourceView for automatic detection of the file encoding. You may
 #. * want to customize it adding encodings that are common in your
 #. * country, for instance the GB18030 encoding for the Chinese
 #. * translation. You may also want to remove the ISO-8859-15 encoding
 #. * (covering English and most Western European languages) if you think
 #. * people in your country will rarely use it.  "CURRENT" is a magic
-#. * value used by GtkSourceView and it represents the encoding for the
+#. * value used by CtkSourceView and it represents the encoding for the
 #. * current locale, so please don't translate the "CURRENT" term.  Only
 #. * recognized encodings are used. See
 #. * https://gitlab.gnome.org/GNOME/ctksourceview/blob/master/ctksourceview/ctksourceencoding.c#L142
@@ -658,14 +658,14 @@ msgstr "Puskuri sisältää virheellisiä merkkejä."
 #. *
 #. * SECTION:language
 #. * @Short_description: Represents a syntax highlighted language
-#. * @Title: GtkSourceLanguage
-#. * @See_also: #GtkSourceLanguageManager
+#. * @Title: CtkSourceLanguage
+#. * @See_also: #CtkSourceLanguageManager
 #. *
-#. * A #GtkSourceLanguage represents a programming or markup language, affecting
+#. * A #CtkSourceLanguage represents a programming or markup language, affecting
 #. * syntax highlighting and [context classes][context-classes].
 #. *
-#. * Use #GtkSourceLanguageManager to obtain a #GtkSourceLanguage instance, and
-#. * ctk_source_buffer_set_language() to apply it to a #GtkSourceBuffer.
+#. * Use #CtkSourceLanguageManager to obtain a #CtkSourceLanguage instance, and
+#. * ctk_source_buffer_set_language() to apply it to a #CtkSourceBuffer.
 #.
 #: ctksourceview/ctksourcelanguage.c:56
 msgid "Others"
@@ -1453,8 +1453,8 @@ msgstr "_Muuta kirjainkokoa"
 #~ msgid "Deprecated"
 #~ msgstr "Vanhentunut"
 
-#~ msgid "GtkRC"
-#~ msgstr "GtkRC"
+#~ msgid "CtkRC"
+#~ msgstr "CtkRC"
 
 #~ msgid "Widget State"
 #~ msgstr "Ikkunaelementin tila"
@@ -2326,8 +2326,8 @@ msgstr "_Muuta kirjainkokoa"
 #~ "\n"
 #~ "https://l10n.gnome.org/teams/fi/"
 
-#~ msgid "GtkSourceView"
-#~ msgstr "GtkSourceView"
+#~ msgid "CtkSourceView"
+#~ msgstr "CtkSourceView"
 
 #~ msgctxt "Object"
 #~ msgid "Name"
@@ -2426,8 +2426,8 @@ msgstr "_Muuta kirjainkokoa"
 #~ msgid "View"
 #~ msgstr "Näkymä"
 
-#~ msgid "The GtkSourceView bound to the completion"
-#~ msgstr "GtkSourceView, joka on sidottu täydennykseen"
+#~ msgid "The CtkSourceView bound to the completion"
+#~ msgstr "CtkSourceView, joka on sidottu täydennykseen"
 
 #~ msgid "Remember Info Visibility"
 #~ msgstr "Muista tietojen näkyvyys"
@@ -2486,8 +2486,8 @@ msgstr "_Muuta kirjainkokoa"
 #~ msgid "Iterator"
 #~ msgstr "Iteraattori"
 
-#~ msgid "The GtkTextIter at which the completion was invoked"
-#~ msgstr "GtkTextIter, jonka täydennystä käytettiin"
+#~ msgid "The CtkTextIter at which the completion was invoked"
+#~ msgstr "CtkTextIter, jonka täydennystä käytettiin"
 
 #~ msgid "Label to be shown for this item"
 #~ msgstr "Nimiö, joka tälle kohteelle näytetään"
@@ -2517,8 +2517,8 @@ msgstr "_Muuta kirjainkokoa"
 #~ msgid "Compression type"
 #~ msgstr "Luokka"
 
-#~ msgid "The gutters' GtkSourceView"
-#~ msgstr "Kourun GtkSourceView"
+#~ msgid "The gutters' CtkSourceView"
+#~ msgstr "Kourun CtkSourceView"
 
 #~ msgid "Window Type"
 #~ msgstr "Ikkunatyyppi"
@@ -2627,8 +2627,8 @@ msgstr "_Muuta kirjainkokoa"
 #~ msgid "Source Buffer"
 #~ msgstr "Lähdepuskuri"
 
-#~ msgid "The GtkSourceBuffer object to print"
-#~ msgstr "Tulostettava GtkSourceBuffer-olio"
+#~ msgid "The CtkSourceBuffer object to print"
+#~ msgstr "Tulostettava CtkSourceBuffer-olio"
 
 #~ msgid "Tab Width"
 #~ msgstr "Sarkaimen leveys"
@@ -2704,9 +2704,9 @@ msgstr "_Muuta kirjainkokoa"
 #~ msgstr "Puskuri"
 
 #, fuzzy
-#~| msgid "The gutters' GtkSourceView"
-#~ msgid "The associated GtkSourceBuffer"
-#~ msgstr "Kourun GtkSourceView"
+#~| msgid "The gutters' CtkSourceView"
+#~ msgid "The associated CtkSourceBuffer"
+#~ msgstr "Kourun CtkSourceView"
 
 #~ msgid "Settings"
 #~ msgstr "Asetukset"

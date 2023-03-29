@@ -15,8 +15,8 @@ msgstr ""
 "X-Launchpad-Export-Date: 2015-02-15 06:18+0000\n"
 
 #: ../data/glade/ctksourceview.xml.in.h:1
-msgid "GtkSourceView"
-msgstr "GtkSourceView"
+msgid "CtkSourceView"
+msgstr "CtkSourceView"
 
 #. Translators: It is related to an option of a set of values
 #: ../data/glade/ctksourceview.xml.in.h:3
@@ -1555,8 +1555,8 @@ msgid "Deprecated"
 msgstr "Zastarjelo"
 
 #: ../data/language-specs/ctkrc.lang.h:2
-msgid "GtkRC"
-msgstr "GtkRC"
+msgid "CtkRC"
+msgstr "CtkRC"
 
 #: ../data/language-specs/ctkrc.lang.h:8
 msgid "Widget State"
@@ -2556,13 +2556,13 @@ msgstr "Definicija promjenljive"
 #. *
 #. * SECTION:language
 #. * @Short_description: Represents a syntax highlighted language
-#. * @Title: GtkSourceLanguage
-#. * @See_also: #GtkSourceLanguageManager
+#. * @Title: CtkSourceLanguage
+#. * @See_also: #CtkSourceLanguageManager
 #. *
-#. * #GtkSourceLanguage encapsulates syntax and highlighting styles for a
-#. * particular language. Usi #GtkSourceLanguageManager to obtain a
-#. * #GtkSourceLanguage instance, and ctk_source_buffer_set_language() to apply it
-#. * to a #GtkSourceBuffer.
+#. * #CtkSourceLanguage encapsulates syntax and highlighting styles for a
+#. * particular language. Usi #CtkSourceLanguageManager to obtain a
+#. * #CtkSourceLanguage instance, and ctk_source_buffer_set_language() to apply it
+#. * to a #CtkSourceBuffer.
 #.
 #: ../data/language-specs/sh.lang.h:10 ../data/language-specs/texinfo.lang.h:5
 #: ../ctksourceview/ctksourcelanguage.c:54
@@ -3089,13 +3089,13 @@ msgid "Unknown"
 msgstr "Nepoznato"
 
 #. Translators: This is the sorted list of encodings used by
-#. * GtkSourceView for automatic detection of the file encoding. You may
+#. * CtkSourceView for automatic detection of the file encoding. You may
 #. * want to customize it adding encodings that are common in your
 #. * country, for instance the GB18030 encoding for the Chinese
 #. * translation. You may also want to remove the ISO-8859-15 encoding
 #. * (covering English and most Western European languages) if you think
 #. * people in your country will rarely usi it.  "CURRENT" is a magic
-#. * value used by GtkSourceView and it represents the encoding for the
+#. * value used by CtkSourceView and it represents the encoding for the
 #. * current locale, so please don't translate the "CURRENT" term.  Only
 #. * recognized encodings are used. Seje
 #. * https://git.gnome.org/browse/ctksourceview/tree/ctksourceview/ctksourceencoding.c#n147

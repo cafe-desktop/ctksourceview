@@ -1,17 +1,17 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*- */
 /*
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2007 -2009 Jesús Barbero Rodríguez <chuchiperriman@gmail.com>
  * Copyright (C) 2009 - Jesse van den Kieboom <jessevdk@gnome.org>
  * Copyright (C) 2012 - Sébastien Wilmet <swilmet@gnome.org>
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -22,7 +22,7 @@
 
 /**
  * SECTION:completioninfo
- * @title: GtkSourceCompletionInfo
+ * @title: CtkSourceCompletionInfo
  * @short_description: Calltips object
  *
  * This object can be used to show a calltip or help for the
@@ -36,9 +36,9 @@
  * <example>
  *   <title>Fixed size with a scrolled window.</title>
  *   <programlisting>
- * GtkSourceCompletionInfo *info;
- * GtkWidget *your_widget;
- * GtkWidget *scrolled_window = ctk_scrolled_window_new (NULL, NULL);
+ * CtkSourceCompletionInfo *info;
+ * CtkWidget *your_widget;
+ * CtkWidget *scrolled_window = ctk_scrolled_window_new (NULL, NULL);
  *
  * ctk_widget_set_size_request (scrolled_window, 300, 200);
  * ctk_container_add (CTK_CONTAINER (scrolled_window), your_widget);
@@ -46,13 +46,13 @@
  *   </programlisting>
  * </example>
  *
- * If the calltip is displayed on top of a certain widget, say a #GtkTextView,
- * you should attach the calltip window to the #GtkTextView with
+ * If the calltip is displayed on top of a certain widget, say a #CtkTextView,
+ * you should attach the calltip window to the #CtkTextView with
  * ctk_window_set_attached_to().  By doing this, the calltip will be hidden when
- * the #GtkWidget::focus-out-event signal is emitted by the #GtkTextView. You
- * may also be interested by the #GtkTextBuffer:cursor-position property (when
- * its value is modified). If you use the #GtkSourceCompletionInfo through the
- * #GtkSourceCompletion machinery, you don't need to worry about this.
+ * the #CtkWidget::focus-out-event signal is emitted by the #CtkTextView. You
+ * may also be interested by the #CtkTextBuffer:cursor-position property (when
+ * its value is modified). If you use the #CtkSourceCompletionInfo through the
+ * #CtkSourceCompletion machinery, you don't need to worry about this.
  */
 
 #ifdef HAVE_CONFIG_H
@@ -62,11 +62,11 @@
 #include "ctksourcecompletioninfo.h"
 #include <glib/gi18n-lib.h>
 
-struct _GtkSourceCompletionInfoPrivate
+struct _CtkSourceCompletionInfoPrivate
 {
 	guint idle_resize;
 
-	GtkWidget *attached_to;
+	CtkWidget *attached_to;
 	gulong focus_out_event_handler;
 
 	gint xoffset;
@@ -74,15 +74,15 @@ struct _GtkSourceCompletionInfoPrivate
 	guint transient_set : 1;
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceCompletionInfo, ctk_source_completion_info, CTK_TYPE_WINDOW);
+G_DEFINE_TYPE_WITH_PRIVATE (CtkSourceCompletionInfo, ctk_source_completion_info, CTK_TYPE_WINDOW);
 
 /* Resize the window */
 
 static gboolean
-idle_resize (GtkSourceCompletionInfo *info)
+idle_resize (CtkSourceCompletionInfo *info)
 {
-	GtkWidget *child = ctk_bin_get_child (CTK_BIN (info));
-	GtkRequisition nat_size;
+	CtkWidget *child = ctk_bin_get_child (CTK_BIN (info));
+	CtkRequisition nat_size;
 	guint border_width;
 	gint window_width;
 	gint window_height;
@@ -117,7 +117,7 @@ idle_resize (GtkSourceCompletionInfo *info)
 }
 
 static void
-queue_resize (GtkSourceCompletionInfo *info)
+queue_resize (CtkSourceCompletionInfo *info)
 {
 	if (info->priv->idle_resize == 0)
 	{
@@ -126,9 +126,9 @@ queue_resize (GtkSourceCompletionInfo *info)
 }
 
 static void
-ctk_source_completion_info_check_resize (GtkContainer *container)
+ctk_source_completion_info_check_resize (CtkContainer *container)
 {
-	GtkSourceCompletionInfo *info = CTK_SOURCE_COMPLETION_INFO (container);
+	CtkSourceCompletionInfo *info = CTK_SOURCE_COMPLETION_INFO (container);
 	queue_resize (info);
 
 	CTK_CONTAINER_CLASS (ctk_source_completion_info_parent_class)->check_resize (container);
@@ -136,23 +136,23 @@ ctk_source_completion_info_check_resize (GtkContainer *container)
 
 /* Geometry management */
 
-static GtkSizeRequestMode
-ctk_source_completion_info_get_request_mode (GtkWidget *widget)
+static CtkSizeRequestMode
+ctk_source_completion_info_get_request_mode (CtkWidget *widget)
 {
 	return CTK_SIZE_REQUEST_CONSTANT_SIZE;
 }
 
 static void
-ctk_source_completion_info_get_preferred_width (GtkWidget *widget,
+ctk_source_completion_info_get_preferred_width (CtkWidget *widget,
 						gint	  *min_width,
 						gint	  *nat_width)
 {
-	GtkWidget *child = ctk_bin_get_child (CTK_BIN (widget));
+	CtkWidget *child = ctk_bin_get_child (CTK_BIN (widget));
 	gint width = 0;
 
 	if (child != NULL)
 	{
-		GtkRequisition nat_size;
+		CtkRequisition nat_size;
 		ctk_widget_get_preferred_size (child, NULL, &nat_size);
 		width = nat_size.width;
 	}
@@ -169,16 +169,16 @@ ctk_source_completion_info_get_preferred_width (GtkWidget *widget,
 }
 
 static void
-ctk_source_completion_info_get_preferred_height (GtkWidget *widget,
+ctk_source_completion_info_get_preferred_height (CtkWidget *widget,
 						 gint	   *min_height,
 						 gint	   *nat_height)
 {
-	GtkWidget *child = ctk_bin_get_child (CTK_BIN (widget));
+	CtkWidget *child = ctk_bin_get_child (CTK_BIN (widget));
 	gint height = 0;
 
 	if (child != NULL)
 	{
-		GtkRequisition nat_size;
+		CtkRequisition nat_size;
 		ctk_widget_get_preferred_size (child, NULL, &nat_size);
 		height = nat_size.height;
 	}
@@ -197,15 +197,15 @@ ctk_source_completion_info_get_preferred_height (GtkWidget *widget,
 /* Init, dispose, finalize, ... */
 
 static gboolean
-focus_out_event_cb (GtkSourceCompletionInfo *info)
+focus_out_event_cb (CtkSourceCompletionInfo *info)
 {
 	ctk_widget_hide (CTK_WIDGET (info));
 	return FALSE;
 }
 
 static void
-set_attached_to (GtkSourceCompletionInfo *info,
-		 GtkWidget               *attached_to)
+set_attached_to (CtkSourceCompletionInfo *info,
+		 CtkWidget               *attached_to)
 {
 	if (info->priv->attached_to != NULL)
 	{
@@ -241,13 +241,13 @@ set_attached_to (GtkSourceCompletionInfo *info,
 }
 
 static void
-update_attached_to (GtkSourceCompletionInfo *info)
+update_attached_to (CtkSourceCompletionInfo *info)
 {
 	set_attached_to (info, ctk_window_get_attached_to (CTK_WINDOW (info)));
 }
 
 static void
-ctk_source_completion_info_init (GtkSourceCompletionInfo *info)
+ctk_source_completion_info_init (CtkSourceCompletionInfo *info)
 {
 	info->priv = ctk_source_completion_info_get_instance_private (info);
 
@@ -271,7 +271,7 @@ ctk_source_completion_info_init (GtkSourceCompletionInfo *info)
 static void
 ctk_source_completion_info_dispose (GObject *object)
 {
-	GtkSourceCompletionInfo *info = CTK_SOURCE_COMPLETION_INFO (object);
+	CtkSourceCompletionInfo *info = CTK_SOURCE_COMPLETION_INFO (object);
 
 	if (info->priv->idle_resize != 0)
 	{
@@ -285,13 +285,13 @@ ctk_source_completion_info_dispose (GObject *object)
 }
 
 static void
-ctk_source_completion_info_show (GtkWidget *widget)
+ctk_source_completion_info_show (CtkWidget *widget)
 {
-	GtkSourceCompletionInfo *info = CTK_SOURCE_COMPLETION_INFO (widget);
+	CtkSourceCompletionInfo *info = CTK_SOURCE_COMPLETION_INFO (widget);
 
 	if (info->priv->attached_to != NULL && !info->priv->transient_set)
 	{
-		GtkWidget *toplevel;
+		CtkWidget *toplevel;
 
 		toplevel = ctk_widget_get_toplevel (CTK_WIDGET (info->priv->attached_to));
 		if (ctk_widget_is_toplevel (toplevel))
@@ -306,7 +306,7 @@ ctk_source_completion_info_show (GtkWidget *widget)
 }
 
 static gboolean
-ctk_source_completion_info_draw (GtkWidget *widget,
+ctk_source_completion_info_draw (CtkWidget *widget,
                                  cairo_t   *cr)
 {
 	CTK_WIDGET_CLASS (ctk_source_completion_info_parent_class)->draw (widget, cr);
@@ -321,11 +321,11 @@ ctk_source_completion_info_draw (GtkWidget *widget,
 }
 
 static void
-ctk_source_completion_info_class_init (GtkSourceCompletionInfoClass *klass)
+ctk_source_completion_info_class_init (CtkSourceCompletionInfoClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
-	GtkWidgetClass *widget_class = CTK_WIDGET_CLASS (klass);
-	GtkContainerClass *container_class = CTK_CONTAINER_CLASS (klass);
+	CtkWidgetClass *widget_class = CTK_WIDGET_CLASS (klass);
+	CtkContainerClass *container_class = CTK_CONTAINER_CLASS (klass);
 
 	object_class->dispose = ctk_source_completion_info_dispose;
 
@@ -339,7 +339,7 @@ ctk_source_completion_info_class_init (GtkSourceCompletionInfoClass *klass)
 }
 
 void
-_ctk_source_completion_info_set_xoffset (GtkSourceCompletionInfo *window,
+_ctk_source_completion_info_set_xoffset (CtkSourceCompletionInfo *window,
 					 gint                     xoffset)
 {
 	g_return_if_fail (CTK_SOURCE_IS_COMPLETION_INFO (window));
@@ -350,8 +350,8 @@ _ctk_source_completion_info_set_xoffset (GtkSourceCompletionInfo *window,
 /* Move to iter */
 
 static void
-get_iter_pos (GtkTextView *text_view,
-              GtkTextIter *iter,
+get_iter_pos (CtkTextView *text_view,
+              CtkTextIter *iter,
               gint        *x,
               gint        *y,
               gint        *height)
@@ -371,9 +371,9 @@ get_iter_pos (GtkTextView *text_view,
 }
 
 static void
-move_to_iter (GtkSourceCompletionInfo *window,
-              GtkTextView             *view,
-              GtkTextIter             *iter)
+move_to_iter (CtkSourceCompletionInfo *window,
+              CtkTextView             *view,
+              CtkTextIter             *iter)
 {
 	GdkRectangle position;
 	GdkWindow *gdk_window;
@@ -407,11 +407,11 @@ move_to_iter (GtkSourceCompletionInfo *window,
 }
 
 static void
-move_to_cursor (GtkSourceCompletionInfo *window,
-		GtkTextView             *view)
+move_to_cursor (CtkSourceCompletionInfo *window,
+		CtkTextView             *view)
 {
-	GtkTextBuffer *buffer;
-	GtkTextIter insert;
+	CtkTextBuffer *buffer;
+	CtkTextIter insert;
 
 	buffer = ctk_text_view_get_buffer (view);
 	ctk_text_buffer_get_iter_at_mark (buffer, &insert, ctk_text_buffer_get_insert (buffer));
@@ -424,9 +424,9 @@ move_to_cursor (GtkSourceCompletionInfo *window,
 /**
  * ctk_source_completion_info_new:
  *
- * Returns: a new GtkSourceCompletionInfo.
+ * Returns: a new CtkSourceCompletionInfo.
  */
-GtkSourceCompletionInfo *
+CtkSourceCompletionInfo *
 ctk_source_completion_info_new (void)
 {
 	return g_object_new (CTK_SOURCE_TYPE_COMPLETION_INFO,
@@ -437,19 +437,19 @@ ctk_source_completion_info_new (void)
 
 /**
  * ctk_source_completion_info_move_to_iter:
- * @info: a #GtkSourceCompletionInfo.
- * @view: a #GtkTextView on which the info window should be positioned.
- * @iter: (nullable): a #GtkTextIter.
+ * @info: a #CtkSourceCompletionInfo.
+ * @view: a #CtkTextView on which the info window should be positioned.
+ * @iter: (nullable): a #CtkTextIter.
  *
- * Moves the #GtkSourceCompletionInfo to @iter. If @iter is %NULL @info is
+ * Moves the #CtkSourceCompletionInfo to @iter. If @iter is %NULL @info is
  * moved to the cursor position. Moving will respect the #GdkGravity setting
  * of the info window and will ensure the line at @iter is not occluded by
  * the window.
  */
 void
-ctk_source_completion_info_move_to_iter (GtkSourceCompletionInfo *info,
-                                         GtkTextView             *view,
-                                         GtkTextIter             *iter)
+ctk_source_completion_info_move_to_iter (CtkSourceCompletionInfo *info,
+                                         CtkTextView             *view,
+                                         CtkTextIter             *iter)
 {
 	g_return_if_fail (CTK_SOURCE_IS_COMPLETION_INFO (info));
 	g_return_if_fail (CTK_IS_TEXT_VIEW (view));

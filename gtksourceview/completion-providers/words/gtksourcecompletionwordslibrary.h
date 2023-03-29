@@ -1,6 +1,6 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*-
  *
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2009 - Jesse van den Kieboom
  *
@@ -27,24 +27,24 @@
 G_BEGIN_DECLS
 
 #define CTK_SOURCE_TYPE_COMPLETION_WORDS_LIBRARY			(ctk_source_completion_words_library_get_type ())
-#define CTK_SOURCE_COMPLETION_WORDS_LIBRARY(obj)			(G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_COMPLETION_WORDS_LIBRARY, GtkSourceCompletionWordsLibrary))
-#define CTK_SOURCE_COMPLETION_WORDS_LIBRARY_CONST(obj)			(G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_COMPLETION_WORDS_LIBRARY, GtkSourceCompletionWordsLibrary const))
-#define CTK_SOURCE_COMPLETION_WORDS_LIBRARY_CLASS(klass)		(G_TYPE_CHECK_CLASS_CAST ((klass), CTK_SOURCE_TYPE_COMPLETION_WORDS_LIBRARY, GtkSourceCompletionWordsLibraryClass))
+#define CTK_SOURCE_COMPLETION_WORDS_LIBRARY(obj)			(G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_COMPLETION_WORDS_LIBRARY, CtkSourceCompletionWordsLibrary))
+#define CTK_SOURCE_COMPLETION_WORDS_LIBRARY_CONST(obj)			(G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_COMPLETION_WORDS_LIBRARY, CtkSourceCompletionWordsLibrary const))
+#define CTK_SOURCE_COMPLETION_WORDS_LIBRARY_CLASS(klass)		(G_TYPE_CHECK_CLASS_CAST ((klass), CTK_SOURCE_TYPE_COMPLETION_WORDS_LIBRARY, CtkSourceCompletionWordsLibraryClass))
 #define CTK_SOURCE_IS_COMPLETION_WORDS_LIBRARY(obj)			(G_TYPE_CHECK_INSTANCE_TYPE ((obj), CTK_SOURCE_TYPE_COMPLETION_WORDS_LIBRARY))
 #define CTK_SOURCE_IS_COMPLETION_WORDS_LIBRARY_CLASS(klass)		(G_TYPE_CHECK_CLASS_TYPE ((klass), CTK_SOURCE_TYPE_COMPLETION_WORDS_LIBRARY))
-#define CTK_SOURCE_COMPLETION_WORDS_LIBRARY_GET_CLASS(obj)		(G_TYPE_INSTANCE_GET_CLASS ((obj), CTK_SOURCE_TYPE_COMPLETION_WORDS_LIBRARY, GtkSourceCompletionWordsLibraryClass))
+#define CTK_SOURCE_COMPLETION_WORDS_LIBRARY_GET_CLASS(obj)		(G_TYPE_INSTANCE_GET_CLASS ((obj), CTK_SOURCE_TYPE_COMPLETION_WORDS_LIBRARY, CtkSourceCompletionWordsLibraryClass))
 
-typedef struct _GtkSourceCompletionWordsLibrary			GtkSourceCompletionWordsLibrary;
-typedef struct _GtkSourceCompletionWordsLibraryClass		GtkSourceCompletionWordsLibraryClass;
-typedef struct _GtkSourceCompletionWordsLibraryPrivate		GtkSourceCompletionWordsLibraryPrivate;
+typedef struct _CtkSourceCompletionWordsLibrary			CtkSourceCompletionWordsLibrary;
+typedef struct _CtkSourceCompletionWordsLibraryClass		CtkSourceCompletionWordsLibraryClass;
+typedef struct _CtkSourceCompletionWordsLibraryPrivate		CtkSourceCompletionWordsLibraryPrivate;
 
-struct _GtkSourceCompletionWordsLibrary {
+struct _CtkSourceCompletionWordsLibrary {
 	GObject parent;
 
-	GtkSourceCompletionWordsLibraryPrivate *priv;
+	CtkSourceCompletionWordsLibraryPrivate *priv;
 };
 
-struct _GtkSourceCompletionWordsLibraryClass {
+struct _CtkSourceCompletionWordsLibraryClass {
 	GObjectClass parent_class;
 };
 
@@ -52,16 +52,16 @@ CTK_SOURCE_INTERNAL
 GType		 ctk_source_completion_words_library_get_type		(void) G_GNUC_CONST;
 
 CTK_SOURCE_INTERNAL
-GtkSourceCompletionWordsLibrary *
+CtkSourceCompletionWordsLibrary *
 		 ctk_source_completion_words_library_new		(void);
 
 /* Finding */
 CTK_SOURCE_INTERNAL
-GSequenceIter	*ctk_source_completion_words_library_find 		(GtkSourceCompletionWordsLibrary  *library,
-									 GtkSourceCompletionWordsProposal *proposal);
+GSequenceIter	*ctk_source_completion_words_library_find 		(CtkSourceCompletionWordsLibrary  *library,
+									 CtkSourceCompletionWordsProposal *proposal);
 
 CTK_SOURCE_INTERNAL
-GSequenceIter	*ctk_source_completion_words_library_find_first		(GtkSourceCompletionWordsLibrary  *library,
+GSequenceIter	*ctk_source_completion_words_library_find_first		(CtkSourceCompletionWordsLibrary  *library,
 									 const gchar                      *word,
 									 gint                              len);
 
@@ -72,27 +72,27 @@ GSequenceIter	*ctk_source_completion_words_library_find_next		(GSequenceIter    
 
 /* Getting */
 CTK_SOURCE_INTERNAL
-GtkSourceCompletionWordsProposal *
+CtkSourceCompletionWordsProposal *
 		 ctk_source_completion_words_library_get_proposal 	(GSequenceIter                    *iter);
 
 /* Adding/removing */
 CTK_SOURCE_INTERNAL
-GtkSourceCompletionWordsProposal *
-		 ctk_source_completion_words_library_add_word 		(GtkSourceCompletionWordsLibrary  *library,
+CtkSourceCompletionWordsProposal *
+		 ctk_source_completion_words_library_add_word 		(CtkSourceCompletionWordsLibrary  *library,
                                               				 const gchar                      *word);
 
 CTK_SOURCE_INTERNAL
-void		 ctk_source_completion_words_library_remove_word 	(GtkSourceCompletionWordsLibrary  *library,
-                                                 			 GtkSourceCompletionWordsProposal *proposal);
+void		 ctk_source_completion_words_library_remove_word 	(CtkSourceCompletionWordsLibrary  *library,
+                                                 			 CtkSourceCompletionWordsProposal *proposal);
 
 CTK_SOURCE_INTERNAL
-gboolean	 ctk_source_completion_words_library_is_locked 		(GtkSourceCompletionWordsLibrary  *library);
+gboolean	 ctk_source_completion_words_library_is_locked 		(CtkSourceCompletionWordsLibrary  *library);
 
 CTK_SOURCE_INTERNAL
-void		 ctk_source_completion_words_library_lock 		(GtkSourceCompletionWordsLibrary  *library);
+void		 ctk_source_completion_words_library_lock 		(CtkSourceCompletionWordsLibrary  *library);
 
 CTK_SOURCE_INTERNAL
-void		 ctk_source_completion_words_library_unlock 		(GtkSourceCompletionWordsLibrary  *library);
+void		 ctk_source_completion_words_library_unlock 		(CtkSourceCompletionWordsLibrary  *library);
 
 G_END_DECLS
 

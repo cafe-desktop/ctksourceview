@@ -1,22 +1,22 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*-
  *
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2014 - Christian Hergert
  * Copyright (C) 2014 - Ignacio Casal Quinteiro
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public License
- * along with GtkSourceView. If not, see <http://www.gnu.org/licenses/>.
+ * along with CtkSourceView. If not, see <http://www.gnu.org/licenses/>.
  */
 
 #ifndef CTK_SOURCE_STYLE_SCHEME_CHOOSER_BUTTON_H
@@ -32,23 +32,23 @@
 G_BEGIN_DECLS
 
 #define CTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER_BUTTON            (ctk_source_style_scheme_chooser_button_get_type())
-#define CTK_SOURCE_STYLE_SCHEME_CHOOSER_BUTTON(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER_BUTTON, GtkSourceStyleSchemeChooserButton))
-#define CTK_SOURCE_STYLE_SCHEME_CHOOSER_BUTTON_CONST(obj)      (G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER_BUTTON, GtkSourceStyleSchemeChooserButton const))
-#define CTK_SOURCE_STYLE_SCHEME_CHOOSER_BUTTON_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass),  CTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER_BUTTON, GtkSourceStyleSchemeChooserButtonClass))
+#define CTK_SOURCE_STYLE_SCHEME_CHOOSER_BUTTON(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER_BUTTON, CtkSourceStyleSchemeChooserButton))
+#define CTK_SOURCE_STYLE_SCHEME_CHOOSER_BUTTON_CONST(obj)      (G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER_BUTTON, CtkSourceStyleSchemeChooserButton const))
+#define CTK_SOURCE_STYLE_SCHEME_CHOOSER_BUTTON_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass),  CTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER_BUTTON, CtkSourceStyleSchemeChooserButtonClass))
 #define CTK_SOURCE_IS_STYLE_SCHEME_CHOOSER_BUTTON(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER_BUTTON))
 #define CTK_SOURCE_IS_STYLE_SCHEME_CHOOSER_BUTTON_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass),  CTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER_BUTTON))
-#define CTK_SOURCE_STYLE_SCHEME_CHOOSER_BUTTON_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj),  CTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER_BUTTON, GtkSourceStyleSchemeChooserButtonClass))
+#define CTK_SOURCE_STYLE_SCHEME_CHOOSER_BUTTON_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj),  CTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER_BUTTON, CtkSourceStyleSchemeChooserButtonClass))
 
-typedef struct _GtkSourceStyleSchemeChooserButtonClass GtkSourceStyleSchemeChooserButtonClass;
+typedef struct _CtkSourceStyleSchemeChooserButtonClass CtkSourceStyleSchemeChooserButtonClass;
 
-struct _GtkSourceStyleSchemeChooserButton
+struct _CtkSourceStyleSchemeChooserButton
 {
-	GtkButton parent;
+	CtkButton parent;
 };
 
-struct _GtkSourceStyleSchemeChooserButtonClass
+struct _CtkSourceStyleSchemeChooserButtonClass
 {
-	GtkButtonClass parent;
+	CtkButtonClass parent;
 
 	gpointer padding[10];
 };
@@ -57,7 +57,7 @@ CTK_SOURCE_AVAILABLE_IN_3_16
 GType                 ctk_source_style_scheme_chooser_button_get_type              (void);
 
 CTK_SOURCE_AVAILABLE_IN_3_16
-GtkWidget            *ctk_source_style_scheme_chooser_button_new                   (void);
+CtkWidget            *ctk_source_style_scheme_chooser_button_new                   (void);
 
 G_END_DECLS
 

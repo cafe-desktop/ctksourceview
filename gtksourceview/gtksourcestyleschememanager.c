@@ -1,15 +1,15 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*- */
 /*
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2003-2007 - Paolo Maggi <paolo@gnome.org>
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -29,17 +29,17 @@
 
 /**
  * SECTION:styleschememanager
- * @Short_description: Provides access to GtkSourceStyleSchemes
- * @Title: GtkSourceStyleSchemeManager
- * @See_also: #GtkSourceStyleScheme
+ * @Short_description: Provides access to CtkSourceStyleSchemes
+ * @Title: CtkSourceStyleSchemeManager
+ * @See_also: #CtkSourceStyleScheme
  *
- * Object which provides access to #GtkSourceStyleScheme<!-- -->s.
+ * Object which provides access to #CtkSourceStyleScheme<!-- -->s.
  */
 
 #define SCHEME_FILE_SUFFIX	".xml"
 #define STYLES_DIR		"styles"
 
-struct _GtkSourceStyleSchemeManagerPrivate
+struct _CtkSourceStyleSchemeManagerPrivate
 {
 	GHashTable	*schemes_hash;
 
@@ -55,9 +55,9 @@ enum {
 	PROP_SCHEME_IDS
 };
 
-static GtkSourceStyleSchemeManager *default_instance;
+static CtkSourceStyleSchemeManager *default_instance;
 
-G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceStyleSchemeManager, ctk_source_style_scheme_manager, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (CtkSourceStyleSchemeManager, ctk_source_style_scheme_manager, G_TYPE_OBJECT)
 
 static void
 ctk_source_style_scheme_manager_set_property (GObject 	   *object,
@@ -65,7 +65,7 @@ ctk_source_style_scheme_manager_set_property (GObject 	   *object,
 					      const GValue *value,
 					      GParamSpec   *pspec)
 {
-	GtkSourceStyleSchemeManager *sm;
+	CtkSourceStyleSchemeManager *sm;
 
 	sm = CTK_SOURCE_STYLE_SCHEME_MANAGER (object);
 
@@ -90,7 +90,7 @@ ctk_source_style_scheme_manager_get_property (GObject    *object,
 					      GValue     *value,
 					      GParamSpec *pspec)
 {
-	GtkSourceStyleSchemeManager *sm;
+	CtkSourceStyleSchemeManager *sm;
 
 	sm = CTK_SOURCE_STYLE_SCHEME_MANAGER (object);
 
@@ -115,7 +115,7 @@ ctk_source_style_scheme_manager_get_property (GObject    *object,
 }
 
 static void
-free_schemes (GtkSourceStyleSchemeManager *mgr)
+free_schemes (CtkSourceStyleSchemeManager *mgr)
 {
 	if (mgr->priv->schemes_hash != NULL)
 	{
@@ -130,7 +130,7 @@ free_schemes (GtkSourceStyleSchemeManager *mgr)
 static void
 ctk_source_style_scheme_manager_finalize (GObject *object)
 {
-	GtkSourceStyleSchemeManager *mgr;
+	CtkSourceStyleSchemeManager *mgr;
 
 	mgr = CTK_SOURCE_STYLE_SCHEME_MANAGER (object);
 
@@ -142,7 +142,7 @@ ctk_source_style_scheme_manager_finalize (GObject *object)
 }
 
 static void
-ctk_source_style_scheme_manager_class_init (GtkSourceStyleSchemeManagerClass *klass)
+ctk_source_style_scheme_manager_class_init (CtkSourceStyleSchemeManagerClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
@@ -168,7 +168,7 @@ ctk_source_style_scheme_manager_class_init (GtkSourceStyleSchemeManagerClass *kl
 }
 
 static void
-ctk_source_style_scheme_manager_init (GtkSourceStyleSchemeManager *mgr)
+ctk_source_style_scheme_manager_init (CtkSourceStyleSchemeManager *mgr)
 {
 	mgr->priv = ctk_source_style_scheme_manager_get_instance_private (mgr);
 	mgr->priv->schemes_hash = NULL;
@@ -183,9 +183,9 @@ ctk_source_style_scheme_manager_init (GtkSourceStyleSchemeManager *mgr)
  * Creates a new style manager. If you do not need more than one style
  * manager then use ctk_source_style_scheme_manager_get_default() instead.
  *
- * Returns: a new #GtkSourceStyleSchemeManager.
+ * Returns: a new #CtkSourceStyleSchemeManager.
  */
-GtkSourceStyleSchemeManager *
+CtkSourceStyleSchemeManager *
 ctk_source_style_scheme_manager_new (void)
 {
 	return g_object_new (CTK_SOURCE_TYPE_STYLE_SCHEME_MANAGER, NULL);
@@ -194,12 +194,12 @@ ctk_source_style_scheme_manager_new (void)
 /**
  * ctk_source_style_scheme_manager_get_default:
  *
- * Returns the default #GtkSourceStyleSchemeManager instance.
+ * Returns the default #CtkSourceStyleSchemeManager instance.
  *
- * Returns: (transfer none): a #GtkSourceStyleSchemeManager. Return value
- * is owned by GtkSourceView library and must not be unref'ed.
+ * Returns: (transfer none): a #CtkSourceStyleSchemeManager. Return value
+ * is owned by CtkSourceView library and must not be unref'ed.
  */
-GtkSourceStyleSchemeManager *
+CtkSourceStyleSchemeManager *
 ctk_source_style_scheme_manager_get_default (void)
 {
 	if (default_instance == NULL)
@@ -212,14 +212,14 @@ ctk_source_style_scheme_manager_get_default (void)
 	return default_instance;
 }
 
-GtkSourceStyleSchemeManager *
+CtkSourceStyleSchemeManager *
 _ctk_source_style_scheme_manager_peek_default (void)
 {
 	return default_instance;
 }
 
 static gboolean
-build_reference_chain (GtkSourceStyleScheme *scheme,
+build_reference_chain (CtkSourceStyleScheme *scheme,
 		       GHashTable           *hash,
 		       GSList              **ret)
 {
@@ -230,7 +230,7 @@ build_reference_chain (GtkSourceStyleScheme *scheme,
 
 	while (TRUE)
 	{
-		GtkSourceStyleScheme *parent_scheme;
+		CtkSourceStyleScheme *parent_scheme;
 		const gchar *parent_id;
 
 		parent_id = _ctk_source_style_scheme_get_parent_id (scheme);
@@ -275,7 +275,7 @@ check_parents (GSList *schemes, GHashTable *hash)
 
 	while (to_check != NULL)
 	{
-		GtkSourceStyleScheme *scheme_to_check;
+		CtkSourceStyleScheme *scheme_to_check;
 		GSList *chain;
 		gboolean valid;
 
@@ -285,7 +285,7 @@ check_parents (GSList *schemes, GHashTable *hash)
 
 		while (chain != NULL)
 		{
-			GtkSourceStyleScheme *scheme = chain->data;
+			CtkSourceStyleScheme *scheme = chain->data;
 
 			to_check = g_slist_remove (to_check, scheme);
 
@@ -304,7 +304,7 @@ check_parents (GSList *schemes, GHashTable *hash)
 }
 
 static gint
-schemes_compare (GtkSourceStyleScheme *scheme1, GtkSourceStyleScheme *scheme2)
+schemes_compare (CtkSourceStyleScheme *scheme1, CtkSourceStyleScheme *scheme2)
 {
 	const gchar *name1;
 	const gchar *name2;
@@ -336,7 +336,7 @@ schemes_list_to_ids (GSList *list)
 }
 
 static void
-reload_if_needed (GtkSourceStyleSchemeManager *mgr)
+reload_if_needed (CtkSourceStyleSchemeManager *mgr)
 {
 	GSList *schemes = NULL;
 	GSList *files;
@@ -354,7 +354,7 @@ reload_if_needed (GtkSourceStyleSchemeManager *mgr)
 
 	for (l = files; l != NULL; l = l->next)
 	{
-		GtkSourceStyleScheme *scheme;
+		CtkSourceStyleScheme *scheme;
 		gchar *filename;
 
 		filename = l->data;
@@ -394,7 +394,7 @@ reload_if_needed (GtkSourceStyleSchemeManager *mgr)
 }
 
 static void
-notify_search_path (GtkSourceStyleSchemeManager *mgr)
+notify_search_path (CtkSourceStyleSchemeManager *mgr)
 {
 	mgr->priv->need_reload = TRUE;
 
@@ -404,7 +404,7 @@ notify_search_path (GtkSourceStyleSchemeManager *mgr)
 
 /**
  * ctk_source_style_scheme_manager_set_search_path:
- * @manager: a #GtkSourceStyleSchemeManager.
+ * @manager: a #CtkSourceStyleSchemeManager.
  * @path: (array zero-terminated=1) (nullable):
  * a %NULL-terminated array of strings or %NULL.
  *
@@ -413,7 +413,7 @@ notify_search_path (GtkSourceStyleSchemeManager *mgr)
  * If @path is %NULL, the search path is reset to default.
  */
 void
-ctk_source_style_scheme_manager_set_search_path (GtkSourceStyleSchemeManager  *manager,
+ctk_source_style_scheme_manager_set_search_path (CtkSourceStyleSchemeManager  *manager,
 						 gchar	                     **path)
 {
 	gchar **tmp;
@@ -434,7 +434,7 @@ ctk_source_style_scheme_manager_set_search_path (GtkSourceStyleSchemeManager  *m
 
 /**
  * ctk_source_style_scheme_manager_append_search_path:
- * @manager: a #GtkSourceStyleSchemeManager.
+ * @manager: a #CtkSourceStyleSchemeManager.
  * @path: a directory or a filename.
  *
  * Appends @path to the list of directories where the @manager looks for
@@ -442,7 +442,7 @@ ctk_source_style_scheme_manager_set_search_path (GtkSourceStyleSchemeManager  *m
  * See ctk_source_style_scheme_manager_set_search_path() for details.
  */
 void
-ctk_source_style_scheme_manager_append_search_path (GtkSourceStyleSchemeManager *manager,
+ctk_source_style_scheme_manager_append_search_path (CtkSourceStyleSchemeManager *manager,
 						    const gchar                 *path)
 {
 	guint len = 0;
@@ -469,7 +469,7 @@ ctk_source_style_scheme_manager_append_search_path (GtkSourceStyleSchemeManager 
 
 /**
  * ctk_source_style_scheme_manager_prepend_search_path:
- * @manager: a #GtkSourceStyleSchemeManager.
+ * @manager: a #CtkSourceStyleSchemeManager.
  * @path: a directory or a filename.
  *
  * Prepends @path to the list of directories where the @manager looks
@@ -477,7 +477,7 @@ ctk_source_style_scheme_manager_append_search_path (GtkSourceStyleSchemeManager 
  * See ctk_source_style_scheme_manager_set_search_path() for details.
  */
 void
-ctk_source_style_scheme_manager_prepend_search_path (GtkSourceStyleSchemeManager *manager,
+ctk_source_style_scheme_manager_prepend_search_path (CtkSourceStyleSchemeManager *manager,
 						     const gchar                 *path)
 {
 	guint len = 0;
@@ -505,7 +505,7 @@ ctk_source_style_scheme_manager_prepend_search_path (GtkSourceStyleSchemeManager
 
 /**
  * ctk_source_style_scheme_manager_get_search_path:
- * @manager: a #GtkSourceStyleSchemeManager.
+ * @manager: a #CtkSourceStyleSchemeManager.
  *
  * Returns the current search path for the @manager.
  * See ctk_source_style_scheme_manager_set_search_path() for details.
@@ -515,7 +515,7 @@ ctk_source_style_scheme_manager_prepend_search_path (GtkSourceStyleSchemeManager
  * The array is owned by the @manager and must not be modified.
  */
 const gchar * const *
-ctk_source_style_scheme_manager_get_search_path (GtkSourceStyleSchemeManager *manager)
+ctk_source_style_scheme_manager_get_search_path (CtkSourceStyleSchemeManager *manager)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_STYLE_SCHEME_MANAGER (manager), NULL);
 
@@ -527,14 +527,14 @@ ctk_source_style_scheme_manager_get_search_path (GtkSourceStyleSchemeManager *ma
 
 /**
  * ctk_source_style_scheme_manager_force_rescan:
- * @manager: a #GtkSourceStyleSchemeManager.
+ * @manager: a #CtkSourceStyleSchemeManager.
  *
  * Mark any currently cached information about the available style scehems
  * as invalid. All the available style schemes will be reloaded next time
  * the @manager is accessed.
  */
 void
-ctk_source_style_scheme_manager_force_rescan (GtkSourceStyleSchemeManager *manager)
+ctk_source_style_scheme_manager_force_rescan (CtkSourceStyleSchemeManager *manager)
 {
 	g_return_if_fail (CTK_SOURCE_IS_STYLE_SCHEME_MANAGER (manager));
 
@@ -545,7 +545,7 @@ ctk_source_style_scheme_manager_force_rescan (GtkSourceStyleSchemeManager *manag
 
 /**
  * ctk_source_style_scheme_manager_get_scheme_ids:
- * @manager: a #GtkSourceStyleSchemeManager.
+ * @manager: a #CtkSourceStyleSchemeManager.
  *
  * Returns the ids of the available style schemes.
  *
@@ -556,7 +556,7 @@ ctk_source_style_scheme_manager_force_rescan (GtkSourceStyleSchemeManager *manag
  * The array is owned by the @manager and must not be modified.
  */
 const gchar * const *
-ctk_source_style_scheme_manager_get_scheme_ids (GtkSourceStyleSchemeManager *manager)
+ctk_source_style_scheme_manager_get_scheme_ids (CtkSourceStyleSchemeManager *manager)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_STYLE_SCHEME_MANAGER (manager), NULL);
 
@@ -567,16 +567,16 @@ ctk_source_style_scheme_manager_get_scheme_ids (GtkSourceStyleSchemeManager *man
 
 /**
  * ctk_source_style_scheme_manager_get_scheme:
- * @manager: a #GtkSourceStyleSchemeManager.
+ * @manager: a #CtkSourceStyleSchemeManager.
  * @scheme_id: style scheme id to find.
  *
  * Looks up style scheme by id.
  *
- * Returns: (transfer none) (nullable): a #GtkSourceStyleScheme object.
+ * Returns: (transfer none) (nullable): a #CtkSourceStyleScheme object.
  *   The returned value is owned by @manager and must not be unref'ed.
  */
-GtkSourceStyleScheme *
-ctk_source_style_scheme_manager_get_scheme (GtkSourceStyleSchemeManager *manager,
+CtkSourceStyleScheme *
+ctk_source_style_scheme_manager_get_scheme (CtkSourceStyleSchemeManager *manager,
 					    const gchar                 *scheme_id)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_STYLE_SCHEME_MANAGER (manager), NULL);

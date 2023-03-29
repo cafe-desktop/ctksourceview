@@ -1,6 +1,6 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8 -*-
- * ctksourceregion.c - GtkTextMark-based region utility
- * This file is part of GtkSourceView
+ * ctksourceregion.c - CtkTextMark-based region utility
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2002 Gustavo Giráldez <gustavo.giraldez@gmx.net>
  * Copyright (C) 2016 Sébastien Wilmet <swilmet@gnome.org>
@@ -28,36 +28,36 @@
 /**
  * SECTION:region
  * @Short_description: Region utility
- * @Title: GtkSourceRegion
- * @See_also: #GtkTextBuffer
+ * @Title: CtkSourceRegion
+ * @See_also: #CtkTextBuffer
  *
- * A #GtkSourceRegion permits to store a group of subregions of a
- * #GtkTextBuffer. #GtkSourceRegion stores the subregions with pairs of
- * #GtkTextMark's, so the region is still valid after insertions and deletions
- * in the #GtkTextBuffer.
+ * A #CtkSourceRegion permits to store a group of subregions of a
+ * #CtkTextBuffer. #CtkSourceRegion stores the subregions with pairs of
+ * #CtkTextMark's, so the region is still valid after insertions and deletions
+ * in the #CtkTextBuffer.
  *
- * The #GtkTextMark for the start of a subregion has a left gravity, while the
- * #GtkTextMark for the end of a subregion has a right gravity.
+ * The #CtkTextMark for the start of a subregion has a left gravity, while the
+ * #CtkTextMark for the end of a subregion has a right gravity.
  *
- * The typical use-case of #GtkSourceRegion is to scan a #GtkTextBuffer chunk by
+ * The typical use-case of #CtkSourceRegion is to scan a #CtkTextBuffer chunk by
  * chunk, not the whole buffer at once to not block the user interface. The
- * #GtkSourceRegion represents in that case the remaining region to scan. You
- * can listen to the #GtkTextBuffer::insert-text and
- * #GtkTextBuffer::delete-range signals to update the #GtkSourceRegion
+ * #CtkSourceRegion represents in that case the remaining region to scan. You
+ * can listen to the #CtkTextBuffer::insert-text and
+ * #CtkTextBuffer::delete-range signals to update the #CtkSourceRegion
  * accordingly.
  *
- * To iterate through the subregions, you need to use a #GtkSourceRegionIter,
+ * To iterate through the subregions, you need to use a #CtkSourceRegionIter,
  * for example:
  * |[
- * GtkSourceRegion *region;
- * GtkSourceRegionIter region_iter;
+ * CtkSourceRegion *region;
+ * CtkSourceRegionIter region_iter;
  *
  * ctk_source_region_get_start_region_iter (region, &region_iter);
  *
  * while (!ctk_source_region_iter_is_end (&region_iter))
  * {
- *         GtkTextIter subregion_start;
- *         GtkTextIter subregion_end;
+ *         CtkTextIter subregion_start;
+ *         CtkTextIter subregion_end;
  *
  *         if (!ctk_source_region_iter_get_subregion (&region_iter,
  *                                                    &subregion_start,
@@ -73,7 +73,7 @@
  * ]|
  */
 
-/* With the gravities of the GtkTextMarks, it is possible for subregions to
+/* With the gravities of the CtkTextMarks, it is possible for subregions to
  * become interlaced:
  * Buffer content:
  *   "hello world"
@@ -99,14 +99,14 @@
 #define DEBUG(x)
 #endif
 
-typedef struct _GtkSourceRegionPrivate GtkSourceRegionPrivate;
+typedef struct _CtkSourceRegionPrivate CtkSourceRegionPrivate;
 typedef struct _Subregion Subregion;
-typedef struct _GtkSourceRegionIterReal GtkSourceRegionIterReal;
+typedef struct _CtkSourceRegionIterReal CtkSourceRegionIterReal;
 
-struct _GtkSourceRegionPrivate
+struct _CtkSourceRegionPrivate
 {
 	/* Weak pointer to the buffer. */
-	GtkTextBuffer *buffer;
+	CtkTextBuffer *buffer;
 
 	/* List of sorted 'Subregion*' */
 	GList *subregions;
@@ -116,13 +116,13 @@ struct _GtkSourceRegionPrivate
 
 struct _Subregion
 {
-	GtkTextMark *start;
-	GtkTextMark *end;
+	CtkTextMark *start;
+	CtkTextMark *end;
 };
 
-struct _GtkSourceRegionIterReal
+struct _CtkSourceRegionIterReal
 {
-	GtkSourceRegion *region;
+	CtkSourceRegion *region;
 	guint32 region_timestamp;
 	GList *subregions;
 };
@@ -136,11 +136,11 @@ enum
 
 static GParamSpec *properties[N_PROPERTIES];
 
-G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceRegion, ctk_source_region, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (CtkSourceRegion, ctk_source_region, G_TYPE_OBJECT)
 
 #ifdef ENABLE_DEBUG
 static void
-print_region (GtkSourceRegion *region)
+print_region (CtkSourceRegion *region)
 {
 	gchar *str;
 
@@ -156,13 +156,13 @@ print_region (GtkSourceRegion *region)
  * subregion.
  */
 static GList *
-find_nearest_subregion (GtkSourceRegion   *region,
-			const GtkTextIter *iter,
+find_nearest_subregion (CtkSourceRegion   *region,
+			const CtkTextIter *iter,
 			GList             *begin,
 			gboolean           leftmost,
 			gboolean           include_edges)
 {
-	GtkSourceRegionPrivate *priv = ctk_source_region_get_instance_private (region);
+	CtkSourceRegionPrivate *priv = ctk_source_region_get_instance_private (region);
 	GList *retval;
 	GList *l;
 
@@ -184,7 +184,7 @@ find_nearest_subregion (GtkSourceRegion   *region,
 
 	for (l = begin; l != NULL; l = l->next)
 	{
-		GtkTextIter sr_iter;
+		CtkTextIter sr_iter;
 		Subregion *sr = l->data;
 		gint cmp;
 
@@ -223,7 +223,7 @@ ctk_source_region_get_property (GObject    *object,
 				GValue     *value,
 				GParamSpec *pspec)
 {
-	GtkSourceRegion *region = CTK_SOURCE_REGION (object);
+	CtkSourceRegion *region = CTK_SOURCE_REGION (object);
 
 	switch (prop_id)
 	{
@@ -243,7 +243,7 @@ ctk_source_region_set_property (GObject      *object,
 				const GValue *value,
 				GParamSpec   *pspec)
 {
-	GtkSourceRegionPrivate *priv = ctk_source_region_get_instance_private (CTK_SOURCE_REGION (object));
+	CtkSourceRegionPrivate *priv = ctk_source_region_get_instance_private (CTK_SOURCE_REGION (object));
 
 	switch (prop_id)
 	{
@@ -263,7 +263,7 @@ ctk_source_region_set_property (GObject      *object,
 static void
 ctk_source_region_dispose (GObject *object)
 {
-	GtkSourceRegionPrivate *priv = ctk_source_region_get_instance_private (CTK_SOURCE_REGION (object));
+	CtkSourceRegionPrivate *priv = ctk_source_region_get_instance_private (CTK_SOURCE_REGION (object));
 
 	while (priv->subregions != NULL)
 	{
@@ -291,7 +291,7 @@ ctk_source_region_dispose (GObject *object)
 }
 
 static void
-ctk_source_region_class_init (GtkSourceRegionClass *klass)
+ctk_source_region_class_init (CtkSourceRegionClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
@@ -300,9 +300,9 @@ ctk_source_region_class_init (GtkSourceRegionClass *klass)
 	object_class->dispose = ctk_source_region_dispose;
 
 	/**
-	 * GtkSourceRegion:buffer:
+	 * CtkSourceRegion:buffer:
 	 *
-	 * The #GtkTextBuffer. The #GtkSourceRegion has a weak reference to the
+	 * The #CtkTextBuffer. The #CtkSourceRegion has a weak reference to the
 	 * buffer.
 	 *
 	 * Since: 3.22
@@ -320,19 +320,19 @@ ctk_source_region_class_init (GtkSourceRegionClass *klass)
 }
 
 static void
-ctk_source_region_init (GtkSourceRegion *region)
+ctk_source_region_init (CtkSourceRegion *region)
 {
 }
 
 /**
  * ctk_source_region_new:
- * @buffer: a #GtkTextBuffer.
+ * @buffer: a #CtkTextBuffer.
  *
- * Returns: a new #GtkSourceRegion object for @buffer.
+ * Returns: a new #CtkSourceRegion object for @buffer.
  * Since: 3.22
  */
-GtkSourceRegion *
-ctk_source_region_new (GtkTextBuffer *buffer)
+CtkSourceRegion *
+ctk_source_region_new (CtkTextBuffer *buffer)
 {
 	g_return_val_if_fail (CTK_IS_TEXT_BUFFER (buffer), NULL);
 
@@ -343,15 +343,15 @@ ctk_source_region_new (GtkTextBuffer *buffer)
 
 /**
  * ctk_source_region_get_buffer:
- * @region: a #GtkSourceRegion.
+ * @region: a #CtkSourceRegion.
  *
- * Returns: (transfer none) (nullable): the #GtkTextBuffer.
+ * Returns: (transfer none) (nullable): the #CtkTextBuffer.
  * Since: 3.22
  */
-GtkTextBuffer *
-ctk_source_region_get_buffer (GtkSourceRegion *region)
+CtkTextBuffer *
+ctk_source_region_get_buffer (CtkSourceRegion *region)
 {
-	GtkSourceRegionPrivate *priv;
+	CtkSourceRegionPrivate *priv;
 
 	g_return_val_if_fail (CTK_SOURCE_IS_REGION (region), NULL);
 
@@ -360,17 +360,17 @@ ctk_source_region_get_buffer (GtkSourceRegion *region)
 }
 
 static void
-ctk_source_region_clear_zero_length_subregions (GtkSourceRegion *region)
+ctk_source_region_clear_zero_length_subregions (CtkSourceRegion *region)
 {
-	GtkSourceRegionPrivate *priv = ctk_source_region_get_instance_private (region);
+	CtkSourceRegionPrivate *priv = ctk_source_region_get_instance_private (region);
 	GList *node;
 
 	node = priv->subregions;
 	while (node != NULL)
 	{
 		Subregion *sr = node->data;
-		GtkTextIter start;
-		GtkTextIter end;
+		CtkTextIter start;
+		CtkTextIter end;
 
 		ctk_text_buffer_get_iter_at_mark (priv->buffer, &start, sr->start);
 		ctk_text_buffer_get_iter_at_mark (priv->buffer, &end, sr->end);
@@ -401,7 +401,7 @@ ctk_source_region_clear_zero_length_subregions (GtkSourceRegion *region)
 
 /**
  * ctk_source_region_add_subregion:
- * @region: a #GtkSourceRegion.
+ * @region: a #CtkSourceRegion.
  * @_start: the start of the subregion.
  * @_end: the end of the subregion.
  *
@@ -410,15 +410,15 @@ ctk_source_region_clear_zero_length_subregions (GtkSourceRegion *region)
  * Since: 3.22
  */
 void
-ctk_source_region_add_subregion (GtkSourceRegion   *region,
-				 const GtkTextIter *_start,
-				 const GtkTextIter *_end)
+ctk_source_region_add_subregion (CtkSourceRegion   *region,
+				 const CtkTextIter *_start,
+				 const CtkTextIter *_end)
 {
-	GtkSourceRegionPrivate *priv;
+	CtkSourceRegionPrivate *priv;
 	GList *start_node;
 	GList *end_node;
-	GtkTextIter start;
-	GtkTextIter end;
+	CtkTextIter start;
+	CtkTextIter end;
 
 	g_return_if_fail (CTK_SOURCE_IS_REGION (region));
 	g_return_if_fail (_start != NULL);
@@ -477,7 +477,7 @@ ctk_source_region_add_subregion (GtkSourceRegion   *region,
 	}
 	else
 	{
-		GtkTextIter iter;
+		CtkTextIter iter;
 		Subregion *sr = start_node->data;
 
 		if (start_node != end_node)
@@ -525,20 +525,20 @@ ctk_source_region_add_subregion (GtkSourceRegion   *region,
 
 /**
  * ctk_source_region_add_region:
- * @region: a #GtkSourceRegion.
- * @region_to_add: (nullable): the #GtkSourceRegion to add to @region, or %NULL.
+ * @region: a #CtkSourceRegion.
+ * @region_to_add: (nullable): the #CtkSourceRegion to add to @region, or %NULL.
  *
  * Adds @region_to_add to @region. @region_to_add is not modified.
  *
  * Since: 3.22
  */
 void
-ctk_source_region_add_region (GtkSourceRegion *region,
-			      GtkSourceRegion *region_to_add)
+ctk_source_region_add_region (CtkSourceRegion *region,
+			      CtkSourceRegion *region_to_add)
 {
-	GtkSourceRegionIter iter;
-	GtkTextBuffer *region_buffer;
-	GtkTextBuffer *region_to_add_buffer;
+	CtkSourceRegionIter iter;
+	CtkTextBuffer *region_buffer;
+	CtkTextBuffer *region_to_add_buffer;
 
 	g_return_if_fail (CTK_SOURCE_IS_REGION (region));
 	g_return_if_fail (region_to_add == NULL || CTK_SOURCE_IS_REGION (region_to_add));
@@ -561,8 +561,8 @@ ctk_source_region_add_region (GtkSourceRegion *region,
 
 	while (!ctk_source_region_iter_is_end (&iter))
 	{
-		GtkTextIter subregion_start;
-		GtkTextIter subregion_end;
+		CtkTextIter subregion_start;
+		CtkTextIter subregion_end;
 
 		if (!ctk_source_region_iter_get_subregion (&iter,
 							   &subregion_start,
@@ -581,7 +581,7 @@ ctk_source_region_add_region (GtkSourceRegion *region,
 
 /**
  * ctk_source_region_subtract_subregion:
- * @region: a #GtkSourceRegion.
+ * @region: a #CtkSourceRegion.
  * @_start: the start of the subregion.
  * @_end: the end of the subregion.
  *
@@ -590,22 +590,22 @@ ctk_source_region_add_region (GtkSourceRegion *region,
  * Since: 3.22
  */
 void
-ctk_source_region_subtract_subregion (GtkSourceRegion   *region,
-				      const GtkTextIter *_start,
-				      const GtkTextIter *_end)
+ctk_source_region_subtract_subregion (CtkSourceRegion   *region,
+				      const CtkTextIter *_start,
+				      const CtkTextIter *_end)
 {
-	GtkSourceRegionPrivate *priv;
+	CtkSourceRegionPrivate *priv;
 	GList *start_node;
 	GList *end_node;
 	GList *node;
-	GtkTextIter sr_start_iter;
-	GtkTextIter sr_end_iter;
+	CtkTextIter sr_start_iter;
+	CtkTextIter sr_end_iter;
 	gboolean done;
 	gboolean start_is_outside;
 	gboolean end_is_outside;
 	Subregion *sr;
-	GtkTextIter start;
-	GtkTextIter end;
+	CtkTextIter start;
+	CtkTextIter end;
 
 	g_return_if_fail (CTK_SOURCE_IS_REGION (region));
 	g_return_if_fail (_start != NULL);
@@ -755,8 +755,8 @@ ctk_source_region_subtract_subregion (GtkSourceRegion   *region,
 
 /**
  * ctk_source_region_subtract_region:
- * @region: a #GtkSourceRegion.
- * @region_to_subtract: (nullable): the #GtkSourceRegion to subtract from
+ * @region: a #CtkSourceRegion.
+ * @region_to_subtract: (nullable): the #CtkSourceRegion to subtract from
  *   @region, or %NULL.
  *
  * Subtracts @region_to_subtract from @region. @region_to_subtract is not
@@ -765,12 +765,12 @@ ctk_source_region_subtract_subregion (GtkSourceRegion   *region,
  * Since: 3.22
  */
 void
-ctk_source_region_subtract_region (GtkSourceRegion *region,
-				   GtkSourceRegion *region_to_subtract)
+ctk_source_region_subtract_region (CtkSourceRegion *region,
+				   CtkSourceRegion *region_to_subtract)
 {
-	GtkTextBuffer *region_buffer;
-	GtkTextBuffer *region_to_subtract_buffer;
-	GtkSourceRegionIter iter;
+	CtkTextBuffer *region_buffer;
+	CtkTextBuffer *region_to_subtract_buffer;
+	CtkSourceRegionIter iter;
 
 	g_return_if_fail (CTK_SOURCE_IS_REGION (region));
 	g_return_if_fail (region_to_subtract == NULL || CTK_SOURCE_IS_REGION (region_to_subtract));
@@ -788,8 +788,8 @@ ctk_source_region_subtract_region (GtkSourceRegion *region,
 
 	while (!ctk_source_region_iter_is_end (&iter))
 	{
-		GtkTextIter subregion_start;
-		GtkTextIter subregion_end;
+		CtkTextIter subregion_start;
+		CtkTextIter subregion_end;
 
 		if (!ctk_source_region_iter_get_subregion (&iter,
 							   &subregion_start,
@@ -808,7 +808,7 @@ ctk_source_region_subtract_region (GtkSourceRegion *region,
 
 /**
  * ctk_source_region_is_empty:
- * @region: (nullable): a #GtkSourceRegion, or %NULL.
+ * @region: (nullable): a #CtkSourceRegion, or %NULL.
  *
  * Returns whether the @region is empty. A %NULL @region is considered empty.
  *
@@ -816,29 +816,29 @@ ctk_source_region_subtract_region (GtkSourceRegion *region,
  * Since: 3.22
  */
 gboolean
-ctk_source_region_is_empty (GtkSourceRegion *region)
+ctk_source_region_is_empty (CtkSourceRegion *region)
 {
-	GtkSourceRegionIter region_iter;
+	CtkSourceRegionIter region_iter;
 
 	if (region == NULL)
 	{
 		return TRUE;
 	}
 
-	/* A #GtkSourceRegion can contain empty subregions. So checking the
+	/* A #CtkSourceRegion can contain empty subregions. So checking the
 	 * number of subregions is not sufficient.
 	 * When calling ctk_source_region_add_subregion() with equal iters, the
 	 * subregion is not added. But when a subregion becomes empty, due to
 	 * text deletion, the subregion is not removed from the
-	 * #GtkSourceRegion.
+	 * #CtkSourceRegion.
 	 */
 
 	ctk_source_region_get_start_region_iter (region, &region_iter);
 
 	while (!ctk_source_region_iter_is_end (&region_iter))
 	{
-		GtkTextIter subregion_start;
-		GtkTextIter subregion_end;
+		CtkTextIter subregion_start;
+		CtkTextIter subregion_end;
 
 		if (!ctk_source_region_iter_get_subregion (&region_iter,
 							   &subregion_start,
@@ -860,7 +860,7 @@ ctk_source_region_is_empty (GtkSourceRegion *region)
 
 /**
  * ctk_source_region_get_bounds:
- * @region: a #GtkSourceRegion.
+ * @region: a #CtkSourceRegion.
  * @start: (out) (optional): iterator to initialize with the start of @region,
  *   or %NULL.
  * @end: (out) (optional): iterator to initialize with the end of @region,
@@ -873,11 +873,11 @@ ctk_source_region_is_empty (GtkSourceRegion *region)
  * Since: 3.22
  */
 gboolean
-ctk_source_region_get_bounds (GtkSourceRegion *region,
-			      GtkTextIter     *start,
-			      GtkTextIter     *end)
+ctk_source_region_get_bounds (CtkSourceRegion *region,
+			      CtkTextIter     *start,
+			      CtkTextIter     *end)
 {
-	GtkSourceRegionPrivate *priv;
+	CtkSourceRegionPrivate *priv;
 
 	g_return_val_if_fail (CTK_SOURCE_IS_REGION (region), FALSE);
 
@@ -908,7 +908,7 @@ ctk_source_region_get_bounds (GtkSourceRegion *region,
 
 /**
  * ctk_source_region_intersect_subregion:
- * @region: a #GtkSourceRegion.
+ * @region: a #CtkSourceRegion.
  * @_start: the start of the subregion.
  * @_end: the end of the subregion.
  *
@@ -916,27 +916,27 @@ ctk_source_region_get_bounds (GtkSourceRegion *region,
  * @_start and @_end. @region is not modified.
  *
  * Returns: (transfer full) (nullable): the intersection as a new
- *   #GtkSourceRegion.
+ *   #CtkSourceRegion.
  * Since: 3.22
  */
-GtkSourceRegion *
-ctk_source_region_intersect_subregion (GtkSourceRegion   *region,
-				       const GtkTextIter *_start,
-				       const GtkTextIter *_end)
+CtkSourceRegion *
+ctk_source_region_intersect_subregion (CtkSourceRegion   *region,
+				       const CtkTextIter *_start,
+				       const CtkTextIter *_end)
 {
-	GtkSourceRegionPrivate *priv;
-	GtkSourceRegion *new_region;
-	GtkSourceRegionPrivate *new_priv;
+	CtkSourceRegionPrivate *priv;
+	CtkSourceRegion *new_region;
+	CtkSourceRegionPrivate *new_priv;
 	GList *start_node;
 	GList *end_node;
 	GList *node;
-	GtkTextIter sr_start_iter;
-	GtkTextIter sr_end_iter;
+	CtkTextIter sr_start_iter;
+	CtkTextIter sr_end_iter;
 	Subregion *sr;
 	Subregion *new_sr;
 	gboolean done;
-	GtkTextIter start;
-	GtkTextIter end;
+	CtkTextIter start;
+	CtkTextIter end;
 
 	g_return_val_if_fail (CTK_SOURCE_IS_REGION (region), NULL);
 	g_return_val_if_fail (_start != NULL, NULL);
@@ -1081,24 +1081,24 @@ ctk_source_region_intersect_subregion (GtkSourceRegion   *region,
 
 /**
  * ctk_source_region_intersect_region:
- * @region1: (nullable): a #GtkSourceRegion, or %NULL.
- * @region2: (nullable): a #GtkSourceRegion, or %NULL.
+ * @region1: (nullable): a #CtkSourceRegion, or %NULL.
+ * @region2: (nullable): a #CtkSourceRegion, or %NULL.
  *
  * Returns the intersection between @region1 and @region2. @region1 and
  * @region2 are not modified.
  *
- * Returns: (transfer full) (nullable): the intersection as a #GtkSourceRegion
+ * Returns: (transfer full) (nullable): the intersection as a #CtkSourceRegion
  *   object.
  * Since: 3.22
  */
-GtkSourceRegion *
-ctk_source_region_intersect_region (GtkSourceRegion *region1,
-				    GtkSourceRegion *region2)
+CtkSourceRegion *
+ctk_source_region_intersect_region (CtkSourceRegion *region1,
+				    CtkSourceRegion *region2)
 {
-	GtkTextBuffer *region1_buffer;
-	GtkTextBuffer *region2_buffer;
-	GtkSourceRegion *full_intersect = NULL;
-	GtkSourceRegionIter region2_iter;
+	CtkTextBuffer *region1_buffer;
+	CtkTextBuffer *region2_buffer;
+	CtkSourceRegion *full_intersect = NULL;
+	CtkSourceRegionIter region2_iter;
 
 	g_return_val_if_fail (region1 == NULL || CTK_SOURCE_IS_REGION (region1), NULL);
 	g_return_val_if_fail (region2 == NULL || CTK_SOURCE_IS_REGION (region2), NULL);
@@ -1129,9 +1129,9 @@ ctk_source_region_intersect_region (GtkSourceRegion *region1,
 
 	while (!ctk_source_region_iter_is_end (&region2_iter))
 	{
-		GtkTextIter subregion2_start;
-		GtkTextIter subregion2_end;
-		GtkSourceRegion *sub_intersect;
+		CtkTextIter subregion2_start;
+		CtkTextIter subregion2_end;
+		CtkSourceRegion *sub_intersect;
 
 		if (!ctk_source_region_iter_get_subregion (&region2_iter,
 							   &subregion2_start,
@@ -1161,9 +1161,9 @@ ctk_source_region_intersect_region (GtkSourceRegion *region1,
 }
 
 static gboolean
-check_iterator (GtkSourceRegionIterReal *real)
+check_iterator (CtkSourceRegionIterReal *real)
 {
-	GtkSourceRegionPrivate *priv;
+	CtkSourceRegionPrivate *priv;
 
 	if (real->region == NULL)
 	{
@@ -1178,7 +1178,7 @@ check_iterator (GtkSourceRegionIterReal *real)
 	}
 
 invalid:
-	g_warning ("Invalid GtkSourceRegionIter: either the iterator is "
+	g_warning ("Invalid CtkSourceRegionIter: either the iterator is "
 		   "uninitialized, or the region has been modified since the "
 		   "iterator was created.");
 
@@ -1187,26 +1187,26 @@ invalid:
 
 /**
  * ctk_source_region_get_start_region_iter:
- * @region: a #GtkSourceRegion.
+ * @region: a #CtkSourceRegion.
  * @iter: (out): iterator to initialize to the first subregion.
  *
- * Initializes a #GtkSourceRegionIter to the first subregion of @region. If
+ * Initializes a #CtkSourceRegionIter to the first subregion of @region. If
  * @region is empty, @iter will be initialized to the end iterator.
  *
  * Since: 3.22
  */
 void
-ctk_source_region_get_start_region_iter (GtkSourceRegion     *region,
-					 GtkSourceRegionIter *iter)
+ctk_source_region_get_start_region_iter (CtkSourceRegion     *region,
+					 CtkSourceRegionIter *iter)
 {
-	GtkSourceRegionPrivate *priv;
-	GtkSourceRegionIterReal *real;
+	CtkSourceRegionPrivate *priv;
+	CtkSourceRegionIterReal *real;
 
 	g_return_if_fail (CTK_SOURCE_IS_REGION (region));
 	g_return_if_fail (iter != NULL);
 
 	priv = ctk_source_region_get_instance_private (region);
-	real = (GtkSourceRegionIterReal *)iter;
+	real = (CtkSourceRegionIterReal *)iter;
 
 	/* priv->subregions may be NULL, -> end iter */
 
@@ -1217,19 +1217,19 @@ ctk_source_region_get_start_region_iter (GtkSourceRegion     *region,
 
 /**
  * ctk_source_region_iter_is_end:
- * @iter: a #GtkSourceRegionIter.
+ * @iter: a #CtkSourceRegionIter.
  *
  * Returns: whether @iter is the end iterator.
  * Since: 3.22
  */
 gboolean
-ctk_source_region_iter_is_end (GtkSourceRegionIter *iter)
+ctk_source_region_iter_is_end (CtkSourceRegionIter *iter)
 {
-	GtkSourceRegionIterReal *real;
+	CtkSourceRegionIterReal *real;
 
 	g_return_val_if_fail (iter != NULL, FALSE);
 
-	real = (GtkSourceRegionIterReal *)iter;
+	real = (CtkSourceRegionIterReal *)iter;
 	g_return_val_if_fail (check_iterator (real), FALSE);
 
 	return real->subregions == NULL;
@@ -1237,7 +1237,7 @@ ctk_source_region_iter_is_end (GtkSourceRegionIter *iter)
 
 /**
  * ctk_source_region_iter_next:
- * @iter: a #GtkSourceRegionIter.
+ * @iter: a #CtkSourceRegionIter.
  *
  * Moves @iter to the next subregion.
  *
@@ -1246,13 +1246,13 @@ ctk_source_region_iter_is_end (GtkSourceRegionIter *iter)
  * Since: 3.22
  */
 gboolean
-ctk_source_region_iter_next (GtkSourceRegionIter *iter)
+ctk_source_region_iter_next (CtkSourceRegionIter *iter)
 {
-	GtkSourceRegionIterReal *real;
+	CtkSourceRegionIterReal *real;
 
 	g_return_val_if_fail (iter != NULL, FALSE);
 
-	real = (GtkSourceRegionIterReal *)iter;
+	real = (CtkSourceRegionIterReal *)iter;
 	g_return_val_if_fail (check_iterator (real), FALSE);
 
 	if (real->subregions != NULL)
@@ -1266,7 +1266,7 @@ ctk_source_region_iter_next (GtkSourceRegionIter *iter)
 
 /**
  * ctk_source_region_iter_get_subregion:
- * @iter: a #GtkSourceRegionIter.
+ * @iter: a #CtkSourceRegionIter.
  * @start: (out) (optional): iterator to initialize with the subregion start, or %NULL.
  * @end: (out) (optional): iterator to initialize with the subregion end, or %NULL.
  *
@@ -1277,17 +1277,17 @@ ctk_source_region_iter_next (GtkSourceRegionIter *iter)
  * Since: 3.22
  */
 gboolean
-ctk_source_region_iter_get_subregion (GtkSourceRegionIter *iter,
-				      GtkTextIter         *start,
-				      GtkTextIter         *end)
+ctk_source_region_iter_get_subregion (CtkSourceRegionIter *iter,
+				      CtkTextIter         *start,
+				      CtkTextIter         *end)
 {
-	GtkSourceRegionIterReal *real;
-	GtkSourceRegionPrivate *priv;
+	CtkSourceRegionIterReal *real;
+	CtkSourceRegionPrivate *priv;
 	Subregion *sr;
 
 	g_return_val_if_fail (iter != NULL, FALSE);
 
-	real = (GtkSourceRegionIterReal *)iter;
+	real = (CtkSourceRegionIterReal *)iter;
 	g_return_val_if_fail (check_iterator (real), FALSE);
 
 	if (real->subregions == NULL)
@@ -1320,7 +1320,7 @@ ctk_source_region_iter_get_subregion (GtkSourceRegionIter *iter,
 
 /**
  * ctk_source_region_to_string:
- * @region: a #GtkSourceRegion.
+ * @region: a #CtkSourceRegion.
  *
  * Gets a string represention of @region, for debugging purposes.
  *
@@ -1332,9 +1332,9 @@ ctk_source_region_iter_get_subregion (GtkSourceRegionIter *iter,
  * Since: 3.22
  */
 gchar *
-ctk_source_region_to_string (GtkSourceRegion *region)
+ctk_source_region_to_string (CtkSourceRegion *region)
 {
-	GtkSourceRegionPrivate *priv;
+	CtkSourceRegionPrivate *priv;
 	GString *string;
 	GList *l;
 
@@ -1352,8 +1352,8 @@ ctk_source_region_to_string (GtkSourceRegion *region)
 	for (l = priv->subregions; l != NULL; l = l->next)
 	{
 		Subregion *sr = l->data;
-		GtkTextIter start;
-		GtkTextIter end;
+		CtkTextIter start;
+		CtkTextIter end;
 
 		ctk_text_buffer_get_iter_at_mark (priv->buffer, &start, sr->start);
 		ctk_text_buffer_get_iter_at_mark (priv->buffer, &end, sr->end);

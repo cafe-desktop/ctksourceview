@@ -446,7 +446,7 @@ msgstr "Informácie o dokončovaní"
 msgid "Provider"
 msgstr "Poskytovateľ"
 
-# GtkToggleButton tooltip
+# CtkToggleButton tooltip
 #: ctksourceview/ctksourcecompletion.ui:86
 msgid "Show detailed proposal information"
 msgstr "Zobrazí podrobné informácie o návrhu"
@@ -634,13 +634,13 @@ msgid "Unknown"
 msgstr "Neznáme"
 
 #. Translators: This is the sorted list of encodings used by
-#. * GtkSourceView for automatic detection of the file encoding. You may
+#. * CtkSourceView for automatic detection of the file encoding. You may
 #. * want to customize it adding encodings that are common in your
 #. * country, for instance the GB18030 encoding for the Chinese
 #. * translation. You may also want to remove the ISO-8859-15 encoding
 #. * (covering English and most Western European languages) if you think
 #. * people in your country will rarely use it.  "CURRENT" is a magic
-#. * value used by GtkSourceView and it represents the encoding for the
+#. * value used by CtkSourceView and it represents the encoding for the
 #. * current locale, so please don't translate the "CURRENT" term.  Only
 #. * recognized encodings are used. See
 #. * https://gitlab.gnome.org/GNOME/ctksourceview/blob/master/ctksourceview/ctksourceencoding.c#L142
@@ -679,14 +679,14 @@ msgstr "Zásobník obsahuje neplatné znaky."
 #. *
 #. * SECTION:language
 #. * @Short_description: Represents a syntax highlighted language
-#. * @Title: GtkSourceLanguage
-#. * @See_also: #GtkSourceLanguageManager
+#. * @Title: CtkSourceLanguage
+#. * @See_also: #CtkSourceLanguageManager
 #. *
-#. * A #GtkSourceLanguage represents a programming or markup language, affecting
+#. * A #CtkSourceLanguage represents a programming or markup language, affecting
 #. * syntax highlighting and [context classes][context-classes].
 #. *
-#. * Use #GtkSourceLanguageManager to obtain a #GtkSourceLanguage instance, and
-#. * ctk_source_buffer_set_language() to apply it to a #GtkSourceBuffer.
+#. * Use #CtkSourceLanguageManager to obtain a #CtkSourceLanguage instance, and
+#. * ctk_source_buffer_set_language() to apply it to a #CtkSourceBuffer.
 #.
 #: ctksourceview/ctksourcelanguage.c:56
 msgid "Others"
@@ -1713,8 +1713,8 @@ msgstr "Z_meniť veľkosť písma"
 #~ msgstr "Zastaralé"
 
 # language name
-#~ msgid "GtkRC"
-#~ msgstr "GtkRC"
+#~ msgid "CtkRC"
+#~ msgstr "CtkRC"
 
 #  style name
 #~ msgid "Widget State"
@@ -2993,8 +2993,8 @@ msgstr "Z_meniť veľkosť písma"
 #~ msgstr "Popis písma Pango, ktorý sa má použiť."
 
 # widget group title
-#~ msgid "GtkSourceView"
-#~ msgstr "GtkSourceView"
+#~ msgid "CtkSourceView"
+#~ msgstr "CtkSourceView"
 
 # language name
 #~ msgid "Cobol"
@@ -3131,8 +3131,8 @@ msgstr "Z_meniť veľkosť písma"
 #~ msgstr "Nie sú dostupné žiadne ďalšie informácie"
 
 # property blurb
-#~ msgid "The GtkSourceView bound to the completion"
-#~ msgstr "GtkSourceView viazané k dokončovaniu"
+#~ msgid "The CtkSourceView bound to the completion"
+#~ msgstr "CtkSourceView viazané k dokončovaniu"
 
 # property nick
 #~ msgid "Remember Info Visibility"
@@ -3213,8 +3213,8 @@ msgstr "Z_meniť veľkosť písma"
 #~ msgstr "Iterátor"
 
 # property blurb
-#~ msgid "The GtkTextIter at which the completion was invoked"
-#~ msgstr "Iterátor GtkTexIter, v ktorom bolo spustené dokončovanie"
+#~ msgid "The CtkTextIter at which the completion was invoked"
+#~ msgstr "Iterátor CtkTexIter, v ktorom bolo spustené dokončovanie"
 
 # property nick
 #~ msgid "Activation"
@@ -3252,13 +3252,13 @@ msgstr "Z_meniť veľkosť písma"
 
 # MČ: Ak som správne pochopil gutters sú okraje, v ktorých môžu byť nejaké informácie vzťahujúce sa ku textu (čísla riadkov, značky)
 # poperty blurb
-# * The #GtkSourceGutter object represents the left and right gutters of the text
-# * view. It is used by #GtkSourceView to draw the line numbers and category
-# * marks that might be present on a line. By packing additional #GtkSourceGutterRenderer
+# * The #CtkSourceGutter object represents the left and right gutters of the text
+# * view. It is used by #CtkSourceView to draw the line numbers and category
+# * marks that might be present on a line. By packing additional #CtkSourceGutterRenderer
 # * objects in the gutter, you can extend the gutter with your own custom
 # * drawings.
-#~ msgid "The gutters' GtkSourceView"
-#~ msgstr "Informačné okraje GtkSourceView"
+#~ msgid "The gutters' CtkSourceView"
+#~ msgstr "Informačné okraje CtkSourceView"
 
 # poperty nick
 #~ msgid "Window Type"
@@ -3450,8 +3450,8 @@ msgstr "Z_meniť veľkosť písma"
 #~ msgstr "Zdrojová vyrovnávacia pamäť"
 
 # poperty blurb
-#~ msgid "The GtkSourceBuffer object to print"
-#~ msgstr "Objekt GtkSourceBuffer na tlač"
+#~ msgid "The CtkSourceBuffer object to print"
+#~ msgstr "Objekt CtkSourceBuffer na tlač"
 
 # poperty nick
 #~ msgid "Tab Width"

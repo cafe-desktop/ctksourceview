@@ -1,6 +1,6 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*-
  *
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2009 - Jesse van den Kieboom
  *
@@ -28,24 +28,24 @@
 G_BEGIN_DECLS
 
 #define CTK_SOURCE_TYPE_COMPLETION_WORDS_BUFFER			(ctk_source_completion_words_buffer_get_type ())
-#define CTK_SOURCE_COMPLETION_WORDS_BUFFER(obj)			(G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_COMPLETION_WORDS_BUFFER, GtkSourceCompletionWordsBuffer))
-#define CTK_SOURCE_COMPLETION_WORDS_BUFFER_CONST(obj)		(G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_COMPLETION_WORDS_BUFFER, GtkSourceCompletionWordsBuffer const))
-#define CTK_SOURCE_COMPLETION_WORDS_BUFFER_CLASS(klass)		(G_TYPE_CHECK_CLASS_CAST ((klass), CTK_SOURCE_TYPE_COMPLETION_WORDS_BUFFER, GtkSourceCompletionWordsBufferClass))
+#define CTK_SOURCE_COMPLETION_WORDS_BUFFER(obj)			(G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_COMPLETION_WORDS_BUFFER, CtkSourceCompletionWordsBuffer))
+#define CTK_SOURCE_COMPLETION_WORDS_BUFFER_CONST(obj)		(G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_COMPLETION_WORDS_BUFFER, CtkSourceCompletionWordsBuffer const))
+#define CTK_SOURCE_COMPLETION_WORDS_BUFFER_CLASS(klass)		(G_TYPE_CHECK_CLASS_CAST ((klass), CTK_SOURCE_TYPE_COMPLETION_WORDS_BUFFER, CtkSourceCompletionWordsBufferClass))
 #define CTK_SOURCE_IS_COMPLETION_WORDS_BUFFER(obj)		(G_TYPE_CHECK_INSTANCE_TYPE ((obj), CTK_SOURCE_TYPE_COMPLETION_WORDS_BUFFER))
 #define CTK_SOURCE_IS_COMPLETION_WORDS_BUFFER_CLASS(klass)	(G_TYPE_CHECK_CLASS_TYPE ((klass), CTK_SOURCE_TYPE_COMPLETION_WORDS_BUFFER))
-#define CTK_SOURCE_COMPLETION_WORDS_BUFFER_GET_CLASS(obj)	(G_TYPE_INSTANCE_GET_CLASS ((obj), CTK_SOURCE_TYPE_COMPLETION_WORDS_BUFFER, GtkSourceCompletionWordsBufferClass))
+#define CTK_SOURCE_COMPLETION_WORDS_BUFFER_GET_CLASS(obj)	(G_TYPE_INSTANCE_GET_CLASS ((obj), CTK_SOURCE_TYPE_COMPLETION_WORDS_BUFFER, CtkSourceCompletionWordsBufferClass))
 
-typedef struct _GtkSourceCompletionWordsBuffer			GtkSourceCompletionWordsBuffer;
-typedef struct _GtkSourceCompletionWordsBufferClass		GtkSourceCompletionWordsBufferClass;
-typedef struct _GtkSourceCompletionWordsBufferPrivate		GtkSourceCompletionWordsBufferPrivate;
+typedef struct _CtkSourceCompletionWordsBuffer			CtkSourceCompletionWordsBuffer;
+typedef struct _CtkSourceCompletionWordsBufferClass		CtkSourceCompletionWordsBufferClass;
+typedef struct _CtkSourceCompletionWordsBufferPrivate		CtkSourceCompletionWordsBufferPrivate;
 
-struct _GtkSourceCompletionWordsBuffer {
+struct _CtkSourceCompletionWordsBuffer {
 	GObject parent;
 
-	GtkSourceCompletionWordsBufferPrivate *priv;
+	CtkSourceCompletionWordsBufferPrivate *priv;
 };
 
-struct _GtkSourceCompletionWordsBufferClass {
+struct _CtkSourceCompletionWordsBufferClass {
 	GObjectClass parent_class;
 };
 
@@ -53,19 +53,19 @@ G_GNUC_INTERNAL
 GType		 ctk_source_completion_words_buffer_get_type			(void) G_GNUC_CONST;
 
 G_GNUC_INTERNAL
-GtkSourceCompletionWordsBuffer *
-		 ctk_source_completion_words_buffer_new				(GtkSourceCompletionWordsLibrary *library,
-										 GtkTextBuffer                   *buffer);
+CtkSourceCompletionWordsBuffer *
+		 ctk_source_completion_words_buffer_new				(CtkSourceCompletionWordsLibrary *library,
+										 CtkTextBuffer                   *buffer);
 
 G_GNUC_INTERNAL
-GtkTextBuffer 	*ctk_source_completion_words_buffer_get_buffer			(GtkSourceCompletionWordsBuffer  *buffer);
+CtkTextBuffer 	*ctk_source_completion_words_buffer_get_buffer			(CtkSourceCompletionWordsBuffer  *buffer);
 
 G_GNUC_INTERNAL
-void		 ctk_source_completion_words_buffer_set_scan_batch_size		(GtkSourceCompletionWordsBuffer  *buffer,
+void		 ctk_source_completion_words_buffer_set_scan_batch_size		(CtkSourceCompletionWordsBuffer  *buffer,
 										 guint                            size);
 
 G_GNUC_INTERNAL
-void		 ctk_source_completion_words_buffer_set_minimum_word_size	(GtkSourceCompletionWordsBuffer  *buffer,
+void		 ctk_source_completion_words_buffer_set_minimum_word_size	(CtkSourceCompletionWordsBuffer  *buffer,
 										 guint                            size);
 
 G_END_DECLS

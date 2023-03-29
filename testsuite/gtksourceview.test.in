@@ -1,5 +1,5 @@
 [Test]
-Description=GtkSourceView @test@
+Description=CtkSourceView @test@
 Exec=@testexecdir@/@test@
 Type=session
 Output=TAP

@@ -557,13 +557,13 @@ msgid "Unknown"
 msgstr "Άγνωστο"
 
 #. Translators: This is the sorted list of encodings used by
-#. * GtkSourceView for automatic detection of the file encoding. You may
+#. * CtkSourceView for automatic detection of the file encoding. You may
 #. * want to customize it adding encodings that are common in your
 #. * country, for instance the GB18030 encoding for the Chinese
 #. * translation. You may also want to remove the ISO-8859-15 encoding
 #. * (covering English and most Western European languages) if you think
 #. * people in your country will rarely use it.  "CURRENT" is a magic
-#. * value used by GtkSourceView and it represents the encoding for the
+#. * value used by CtkSourceView and it represents the encoding for the
 #. * current locale, so please don't translate the "CURRENT" term.  Only
 #. * recognized encodings are used. See
 #. * https://gitlab.gnome.org/GNOME/ctksourceview/blob/master/ctksourceview/ctksourceencoding.c#L142
@@ -601,14 +601,14 @@ msgstr "Η ενδιάμεση μνήμη περιέχει άκυρους χαρ�
 #. *
 #. * SECTION:language
 #. * @Short_description: Represents a syntax highlighted language
-#. * @Title: GtkSourceLanguage
-#. * @See_also: #GtkSourceLanguageManager
+#. * @Title: CtkSourceLanguage
+#. * @See_also: #CtkSourceLanguageManager
 #. *
-#. * A #GtkSourceLanguage represents a programming or markup language, affecting
+#. * A #CtkSourceLanguage represents a programming or markup language, affecting
 #. * syntax highlighting and [context classes][context-classes].
 #. *
-#. * Use #GtkSourceLanguageManager to obtain a #GtkSourceLanguage instance, and
-#. * ctk_source_buffer_set_language() to apply it to a #GtkSourceBuffer.
+#. * Use #CtkSourceLanguageManager to obtain a #CtkSourceLanguage instance, and
+#. * ctk_source_buffer_set_language() to apply it to a #CtkSourceBuffer.
 #.
 #: ctksourceview/ctksourcelanguage.c:56
 msgid "Others"
@@ -1379,8 +1379,8 @@ msgstr "Α_λλαγή κεφαλαίων/πεζών"
 #~ msgid "Deprecated"
 #~ msgstr "Παρωχημένο"
 
-#~ msgid "GtkRC"
-#~ msgstr "GtkRC"
+#~ msgid "CtkRC"
+#~ msgstr "CtkRC"
 
 #~ msgid "Widget State"
 #~ msgstr "Κατάσταση γραφικού συστατικού"
@@ -2280,8 +2280,8 @@ msgstr "Α_λλαγή κεφαλαίων/πεζών"
 #~ msgid "Kate"
 #~ msgstr "Kate"
 
-#~ msgid "GtkSourceView"
-#~ msgstr "GtkSourceView"
+#~ msgid "CtkSourceView"
+#~ msgstr "CtkSourceView"
 
 #~ msgid "Escaped Characters"
 #~ msgstr "Χαρακτήρες διαφυγής"
@@ -2317,11 +2317,11 @@ msgstr "Α_λλαγή κεφαλαίων/πεζών"
 #~ msgid "Sources"
 #~ msgstr "Πηγές"
 
-#~ msgid "GtkSourceStyleSchemeChooserWidget"
-#~ msgstr "GtkSourceStyleSchemeChooserWidget"
+#~ msgid "CtkSourceStyleSchemeChooserWidget"
+#~ msgstr "CtkSourceStyleSchemeChooserWidget"
 
-#~ msgid "GtkSourceStyleSchemeChooserButton"
-#~ msgstr "GtkSourceStyleSchemeChooserButton"
+#~ msgid "CtkSourceStyleSchemeChooserButton"
+#~ msgstr "CtkSourceStyleSchemeChooserButton"
 
 #~ msgctxt "Object"
 #~ msgid "Name"
@@ -2420,8 +2420,8 @@ msgstr "Α_λλαγή κεφαλαίων/πεζών"
 #~ msgid "Implicit trailing newline"
 #~ msgstr "Σιωπηρή νέα γραμμή στο τέλος"
 
-#~ msgid "The GtkSourceView bound to the completion"
-#~ msgstr "Το GtkSourceView που είναι συνδεδεμένο με την συμπλήρωση"
+#~ msgid "The CtkSourceView bound to the completion"
+#~ msgstr "Το CtkSourceView που είναι συνδεδεμένο με την συμπλήρωση"
 
 #~ msgid "Remember Info Visibility"
 #~ msgstr "Απομνημόνευση πληροφοριών προβολής"
@@ -2485,8 +2485,8 @@ msgstr "Α_λλαγή κεφαλαίων/πεζών"
 #~ msgid "Iterator"
 #~ msgstr "Iterator"
 
-#~ msgid "The GtkTextIter at which the completion was invoked"
-#~ msgstr "Το GtkTextIter στο οποίο προκλήθηκε η συμπλήρωση"
+#~ msgid "The CtkTextIter at which the completion was invoked"
+#~ msgstr "Το CtkTextIter στο οποίο προκλήθηκε η συμπλήρωση"
 
 #~ msgid "Label to be shown for this item"
 #~ msgstr "Η ετικέτα που θα εμφανιστεί για αυτό το στοιχείο"
@@ -2518,8 +2518,8 @@ msgstr "Α_λλαγή κεφαλαίων/πεζών"
 #~ msgid "Flags"
 #~ msgstr "Σημαίες"
 
-#~ msgid "The gutters' GtkSourceView"
-#~ msgstr "Το GtkSourceView του περιθωρίου βιβλιοδεσίας"
+#~ msgid "The gutters' CtkSourceView"
+#~ msgstr "Το CtkSourceView του περιθωρίου βιβλιοδεσίας"
 
 #~ msgid "Window Type"
 #~ msgstr "Τύπος παραθύρου"
@@ -2650,8 +2650,8 @@ msgstr "Α_λλαγή κεφαλαίων/πεζών"
 #~ msgid "Source Buffer"
 #~ msgstr "Πηγαία ενδιάμεση μνήμη"
 
-#~ msgid "The GtkSourceBuffer object to print"
-#~ msgstr "Αντικείμενο GtkSourceBuffer για εκτύπωση"
+#~ msgid "The CtkSourceBuffer object to print"
+#~ msgstr "Αντικείμενο CtkSourceBuffer για εκτύπωση"
 
 #~ msgid "Tab Width"
 #~ msgstr "Πλάτος στηλοθέτη"
@@ -2734,14 +2734,14 @@ msgstr "Α_λλαγή κεφαλαίων/πεζών"
 #~ msgid "Buffer"
 #~ msgstr "Ενδιάμεση μνήμη"
 
-#~ msgid "The associated GtkSourceBuffer"
-#~ msgstr "Το συνδεμένο GtkSourceBuffer"
+#~ msgid "The associated CtkSourceBuffer"
+#~ msgstr "Το συνδεμένο CtkSourceBuffer"
 
 #~ msgid "Settings"
 #~ msgstr "Ρυθμίσεις"
 
-#~ msgid "The associated GtkSourceSearchSettings"
-#~ msgstr "Το συσχετισμένο GtkSourceSearchSettings"
+#~ msgid "The associated CtkSourceSearchSettings"
+#~ msgstr "Το συσχετισμένο CtkSourceSearchSettings"
 
 #~ msgid "Highlight"
 #~ msgstr "Επισήμανση"

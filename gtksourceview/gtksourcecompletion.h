@@ -1,16 +1,16 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*-
  *
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2007 - 2009 Jesús Barbero Rodríguez <chuchiperriman@gmail.com>
  * Copyright (C) 2009 - Jesse van den Kieboom <jessevdk@gnome.org>
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -35,67 +35,67 @@ G_BEGIN_DECLS
  * Type checking and casting macros
  */
 #define CTK_SOURCE_TYPE_COMPLETION              (ctk_source_completion_get_type())
-#define CTK_SOURCE_COMPLETION(obj)              (G_TYPE_CHECK_INSTANCE_CAST((obj), CTK_SOURCE_TYPE_COMPLETION, GtkSourceCompletion))
-#define CTK_SOURCE_COMPLETION_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST((klass), CTK_SOURCE_TYPE_COMPLETION, GtkSourceCompletionClass))
+#define CTK_SOURCE_COMPLETION(obj)              (G_TYPE_CHECK_INSTANCE_CAST((obj), CTK_SOURCE_TYPE_COMPLETION, CtkSourceCompletion))
+#define CTK_SOURCE_COMPLETION_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST((klass), CTK_SOURCE_TYPE_COMPLETION, CtkSourceCompletionClass))
 #define CTK_SOURCE_IS_COMPLETION(obj)           (G_TYPE_CHECK_INSTANCE_TYPE((obj), CTK_SOURCE_TYPE_COMPLETION))
 #define CTK_SOURCE_IS_COMPLETION_CLASS(klass)   (G_TYPE_CHECK_CLASS_TYPE ((klass), CTK_SOURCE_TYPE_COMPLETION))
-#define CTK_SOURCE_COMPLETION_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS((obj), CTK_SOURCE_TYPE_COMPLETION, GtkSourceCompletionClass))
+#define CTK_SOURCE_COMPLETION_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS((obj), CTK_SOURCE_TYPE_COMPLETION, CtkSourceCompletionClass))
 
 /**
  * CTK_SOURCE_COMPLETION_ERROR:
  *
  * Error domain for the completion. Errors in this domain will be from the
- * #GtkSourceCompletionError enumeration. See #GError for more information on
+ * #CtkSourceCompletionError enumeration. See #GError for more information on
  * error domains.
  */
 #define CTK_SOURCE_COMPLETION_ERROR		(ctk_source_completion_error_quark ())
 
-typedef struct _GtkSourceCompletionPrivate GtkSourceCompletionPrivate;
-typedef struct _GtkSourceCompletionClass GtkSourceCompletionClass;
+typedef struct _CtkSourceCompletionPrivate CtkSourceCompletionPrivate;
+typedef struct _CtkSourceCompletionClass CtkSourceCompletionClass;
 
 /**
- * GtkSourceCompletionError:
- * @CTK_SOURCE_COMPLETION_ERROR_ALREADY_BOUND: The #GtkSourceCompletionProvider
- * is already bound to the #GtkSourceCompletion object.
- * @CTK_SOURCE_COMPLETION_ERROR_NOT_BOUND: The #GtkSourceCompletionProvider is
- * not bound to the #GtkSourceCompletion object.
+ * CtkSourceCompletionError:
+ * @CTK_SOURCE_COMPLETION_ERROR_ALREADY_BOUND: The #CtkSourceCompletionProvider
+ * is already bound to the #CtkSourceCompletion object.
+ * @CTK_SOURCE_COMPLETION_ERROR_NOT_BOUND: The #CtkSourceCompletionProvider is
+ * not bound to the #CtkSourceCompletion object.
  *
  * An error code used with %CTK_SOURCE_COMPLETION_ERROR in a #GError returned
  * from a completion-related function.
  */
-typedef enum _GtkSourceCompletionError
+typedef enum _CtkSourceCompletionError
 {
 	CTK_SOURCE_COMPLETION_ERROR_ALREADY_BOUND = 0,
 	CTK_SOURCE_COMPLETION_ERROR_NOT_BOUND
-} GtkSourceCompletionError;
+} CtkSourceCompletionError;
 
-struct _GtkSourceCompletion
+struct _CtkSourceCompletion
 {
 	GObject parent_instance;
 
-	GtkSourceCompletionPrivate *priv;
+	CtkSourceCompletionPrivate *priv;
 };
 
-struct _GtkSourceCompletionClass
+struct _CtkSourceCompletionClass
 {
 	GObjectClass parent_class;
 
-	gboolean 	(* proposal_activated)		(GtkSourceCompletion         *completion,
-	                                                 GtkSourceCompletionProvider *provider,
-							 GtkSourceCompletionProposal *proposal);
-	void 		(* show)			(GtkSourceCompletion         *completion);
-	void		(* hide)			(GtkSourceCompletion         *completion);
-	void		(* populate_context)		(GtkSourceCompletion         *completion,
-							 GtkSourceCompletionContext  *context);
+	gboolean 	(* proposal_activated)		(CtkSourceCompletion         *completion,
+	                                                 CtkSourceCompletionProvider *provider,
+							 CtkSourceCompletionProposal *proposal);
+	void 		(* show)			(CtkSourceCompletion         *completion);
+	void		(* hide)			(CtkSourceCompletion         *completion);
+	void		(* populate_context)		(CtkSourceCompletion         *completion,
+							 CtkSourceCompletionContext  *context);
 
 	/* Actions */
-	void		(* move_cursor)			(GtkSourceCompletion         *completion,
-							 GtkScrollStep                step,
+	void		(* move_cursor)			(CtkSourceCompletion         *completion,
+							 CtkScrollStep                step,
 							 gint                         num);
-	void		(* move_page)			(GtkSourceCompletion         *completion,
-							 GtkScrollStep                step,
+	void		(* move_page)			(CtkSourceCompletion         *completion,
+							 CtkScrollStep                step,
 							 gint                         num);
-	void		(* activate_proposal)		(GtkSourceCompletion         *completion);
+	void		(* activate_proposal)		(CtkSourceCompletion         *completion);
 
 	gpointer padding[20];
 };
@@ -107,48 +107,48 @@ CTK_SOURCE_AVAILABLE_IN_ALL
 GQuark		 ctk_source_completion_error_quark		(void);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-gboolean	 ctk_source_completion_add_provider		(GtkSourceCompletion           *completion,
-								 GtkSourceCompletionProvider   *provider,
+gboolean	 ctk_source_completion_add_provider		(CtkSourceCompletion           *completion,
+								 CtkSourceCompletionProvider   *provider,
 								 GError                       **error);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-gboolean	 ctk_source_completion_remove_provider		(GtkSourceCompletion           *completion,
-								 GtkSourceCompletionProvider   *provider,
+gboolean	 ctk_source_completion_remove_provider		(CtkSourceCompletion           *completion,
+								 CtkSourceCompletionProvider   *provider,
 								 GError                       **error);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-GList		*ctk_source_completion_get_providers		(GtkSourceCompletion           *completion);
+GList		*ctk_source_completion_get_providers		(CtkSourceCompletion           *completion);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-gboolean	 ctk_source_completion_start			(GtkSourceCompletion           *completion,
+gboolean	 ctk_source_completion_start			(CtkSourceCompletion           *completion,
 								 GList                         *providers,
-								 GtkSourceCompletionContext    *context);
+								 CtkSourceCompletionContext    *context);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-void		 ctk_source_completion_hide			(GtkSourceCompletion           *completion);
+void		 ctk_source_completion_hide			(CtkSourceCompletion           *completion);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-GtkSourceCompletionInfo *
-		 ctk_source_completion_get_info_window		(GtkSourceCompletion           *completion);
+CtkSourceCompletionInfo *
+		 ctk_source_completion_get_info_window		(CtkSourceCompletion           *completion);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-GtkSourceView	*ctk_source_completion_get_view			(GtkSourceCompletion	       *completion);
+CtkSourceView	*ctk_source_completion_get_view			(CtkSourceCompletion	       *completion);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-GtkSourceCompletionContext *
-		 ctk_source_completion_create_context		(GtkSourceCompletion           *completion,
-		 						 GtkTextIter                   *position);
+CtkSourceCompletionContext *
+		 ctk_source_completion_create_context		(CtkSourceCompletion           *completion,
+		 						 CtkTextIter                   *position);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-void		 ctk_source_completion_block_interactive	(GtkSourceCompletion           *completion);
+void		 ctk_source_completion_block_interactive	(CtkSourceCompletion           *completion);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-void		 ctk_source_completion_unblock_interactive	(GtkSourceCompletion           *completion);
+void		 ctk_source_completion_unblock_interactive	(CtkSourceCompletion           *completion);
 
 G_GNUC_INTERNAL
-void		 _ctk_source_completion_add_proposals		(GtkSourceCompletion           *completion,
-								 GtkSourceCompletionContext    *context,
-								 GtkSourceCompletionProvider   *provider,
+void		 _ctk_source_completion_add_proposals		(CtkSourceCompletion           *completion,
+								 CtkSourceCompletionContext    *context,
+								 CtkSourceCompletionProvider   *provider,
 								 GList                         *proposals,
 								 gboolean                       finished);
 G_END_DECLS

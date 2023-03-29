@@ -1,15 +1,15 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*- */
 /*
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2013, 2014, 2016 - Sébastien Wilmet <swilmet@gnome.org>
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -19,11 +19,11 @@
  */
 
 /*
- * Custom sizing of the scrolled window containing the GtkTreeView containing
- * the completion proposals. If the GtkTreeView is small enough, the scrolled
- * window returns the natural size of the GtkTreeView. If it exceeds a certain
+ * Custom sizing of the scrolled window containing the CtkTreeView containing
+ * the completion proposals. If the CtkTreeView is small enough, the scrolled
+ * window returns the natural size of the CtkTreeView. If it exceeds a certain
  * size, the scrolled window returns a smaller size, with the height at a row
- * boundary of the GtkTreeView.
+ * boundary of the CtkTreeView.
  *
  * The purpose is to have a compact completion window, with a certain size
  * limit.
@@ -38,18 +38,18 @@
 #define UNREALIZED_WIDTH  350
 #define MAX_HEIGHT        180
 
-G_DEFINE_TYPE (GtkSourceCompletionContainer,
+G_DEFINE_TYPE (CtkSourceCompletionContainer,
 	       _ctk_source_completion_container,
 	       CTK_TYPE_SCROLLED_WINDOW);
 
 static gint
-get_max_width (GtkSourceCompletionContainer *container)
+get_max_width (CtkSourceCompletionContainer *container)
 {
 	if (ctk_widget_get_realized (CTK_WIDGET (container)))
 	{
 		GdkDisplay *display;
 		GdkMonitor *monitor;
-		GtkWidget *toplevel;
+		CtkWidget *toplevel;
 		GdkWindow *window;
 		GdkRectangle geom;
 		gint max_width;
@@ -75,13 +75,13 @@ get_max_width (GtkSourceCompletionContainer *container)
 }
 
 static void
-_ctk_source_completion_container_get_preferred_width (GtkWidget *widget,
+_ctk_source_completion_container_get_preferred_width (CtkWidget *widget,
 						      gint      *min_width,
 						      gint      *nat_width)
 {
-	GtkSourceCompletionContainer *container = CTK_SOURCE_COMPLETION_CONTAINER (widget);
-	GtkWidget *child;
-	GtkRequisition nat_size;
+	CtkSourceCompletionContainer *container = CTK_SOURCE_COMPLETION_CONTAINER (widget);
+	CtkWidget *child;
+	CtkRequisition nat_size;
 	gint width;
 
 	child = ctk_bin_get_child (CTK_BIN (container));
@@ -114,11 +114,11 @@ _ctk_source_completion_container_get_preferred_width (GtkWidget *widget,
 }
 
 static gint
-get_row_height (GtkSourceCompletionContainer *container,
+get_row_height (CtkSourceCompletionContainer *container,
 		gint                          tree_view_height)
 {
-	GtkWidget *tree_view;
-	GtkTreeModel *model;
+	CtkWidget *tree_view;
+	CtkTreeModel *model;
 	gint nb_rows;
 
 	/* For another possible implementation, see ctkentrycompletion.c in the
@@ -128,7 +128,7 @@ get_row_height (GtkSourceCompletionContainer *container,
 	 * "vertical-separator" height (note that the vertical separator must
 	 * probably be counted one less time than the number or rows).
 	 * But using that technique is buggy, it returns a smaller height (it's
-	 * maybe a bug in GtkTreeView, or there are other missing parameters).
+	 * maybe a bug in CtkTreeView, or there are other missing parameters).
 	 *
 	 * Note that the following implementation doesn't take into account
 	 * "vertical-separator". If there are some sizing bugs, it's maybe the
@@ -154,15 +154,15 @@ get_row_height (GtkSourceCompletionContainer *container,
 	return tree_view_height / nb_rows;
 }
 
-/* Return a height at a row boundary of the GtkTreeView. */
+/* Return a height at a row boundary of the CtkTreeView. */
 static void
-_ctk_source_completion_container_get_preferred_height (GtkWidget *widget,
+_ctk_source_completion_container_get_preferred_height (CtkWidget *widget,
 						       gint	 *min_height,
 						       gint	 *nat_height)
 {
-	GtkSourceCompletionContainer *container = CTK_SOURCE_COMPLETION_CONTAINER (widget);
-	GtkWidget *child;
-	GtkRequisition nat_size;
+	CtkSourceCompletionContainer *container = CTK_SOURCE_COMPLETION_CONTAINER (widget);
+	CtkWidget *child;
+	CtkRequisition nat_size;
 	gint height;
 
 	child = ctk_bin_get_child (CTK_BIN (container));
@@ -205,20 +205,20 @@ _ctk_source_completion_container_get_preferred_height (GtkWidget *widget,
 }
 
 static void
-_ctk_source_completion_container_class_init (GtkSourceCompletionContainerClass *klass)
+_ctk_source_completion_container_class_init (CtkSourceCompletionContainerClass *klass)
 {
-	GtkWidgetClass *widget_class = CTK_WIDGET_CLASS (klass);
+	CtkWidgetClass *widget_class = CTK_WIDGET_CLASS (klass);
 
 	widget_class->get_preferred_width = _ctk_source_completion_container_get_preferred_width;
 	widget_class->get_preferred_height = _ctk_source_completion_container_get_preferred_height;
 }
 
 static void
-_ctk_source_completion_container_init (GtkSourceCompletionContainer *container)
+_ctk_source_completion_container_init (CtkSourceCompletionContainer *container)
 {
 }
 
-GtkSourceCompletionContainer *
+CtkSourceCompletionContainer *
 _ctk_source_completion_container_new (void)
 {
 	return g_object_new (CTK_SOURCE_TYPE_COMPLETION_CONTAINER, NULL);

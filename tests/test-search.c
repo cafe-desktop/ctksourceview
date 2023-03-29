@@ -1,15 +1,15 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*-
  *
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2013 - Sébastien Wilmet <swilmet@gnome.org>
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -34,24 +34,24 @@ typedef struct _TestSearchPrivate TestSearchPrivate;
 
 struct _TestSearch
 {
-	GtkGrid parent;
+	CtkGrid parent;
 	TestSearchPrivate *priv;
 };
 
 struct _TestSearchClass
 {
-	GtkGridClass parent_class;
+	CtkGridClass parent_class;
 };
 
 struct _TestSearchPrivate
 {
-	GtkSourceView *source_view;
-	GtkSourceBuffer *source_buffer;
-	GtkSourceSearchContext *search_context;
-	GtkSourceSearchSettings *search_settings;
-	GtkEntry *replace_entry;
-	GtkLabel *label_occurrences;
-	GtkLabel *label_regex_error;
+	CtkSourceView *source_view;
+	CtkSourceBuffer *source_buffer;
+	CtkSourceSearchContext *search_context;
+	CtkSourceSearchSettings *search_settings;
+	CtkEntry *replace_entry;
+	CtkLabel *label_occurrences;
+	CtkLabel *label_regex_error;
 
 	guint idle_update_label_id;
 };
@@ -66,11 +66,11 @@ open_file (TestSearch  *search,
 {
 	gchar *contents;
 	GError *error = NULL;
-	GtkSourceLanguageManager *language_manager;
-	GtkSourceLanguage *language;
-	GtkTextIter iter;
+	CtkSourceLanguageManager *language_manager;
+	CtkSourceLanguage *language;
+	CtkTextIter iter;
 
-	/* In a realistic application you would use GtkSourceFile of course. */
+	/* In a realistic application you would use CtkSourceFile of course. */
 	if (!g_file_get_contents (filename, &contents, NULL, &error))
 	{
 		g_error ("Impossible to load file: %s", error->message);
@@ -98,8 +98,8 @@ static void
 update_label_occurrences (TestSearch *search)
 {
 	gint occurrences_count;
-	GtkTextIter select_start;
-	GtkTextIter select_end;
+	CtkTextIter select_start;
+	CtkTextIter select_end;
 	gint occurrence_pos;
 	gchar *text;
 
@@ -152,7 +152,7 @@ update_label_regex_error (TestSearch *search)
 
 static void
 search_entry_changed_cb (TestSearch *search,
-			 GtkEntry   *entry)
+			 CtkEntry   *entry)
 {
 	const gchar *text = ctk_entry_get_text (entry);
 	gchar *unescaped_text = ctk_source_utils_unescape_search_text (text);
@@ -163,10 +163,10 @@ search_entry_changed_cb (TestSearch *search,
 
 static void
 select_search_occurrence (TestSearch        *search,
-			  const GtkTextIter *match_start,
-			  const GtkTextIter *match_end)
+			  const CtkTextIter *match_start,
+			  const CtkTextIter *match_end)
 {
-	GtkTextMark *insert;
+	CtkTextMark *insert;
 
 	ctk_text_buffer_select_range (CTK_TEXT_BUFFER (search->priv->source_buffer),
 				      match_start,
@@ -179,12 +179,12 @@ select_search_occurrence (TestSearch        *search,
 }
 
 static void
-backward_search_finished (GtkSourceSearchContext *search_context,
+backward_search_finished (CtkSourceSearchContext *search_context,
 			  GAsyncResult           *result,
 			  TestSearch             *search)
 {
-	GtkTextIter match_start;
-	GtkTextIter match_end;
+	CtkTextIter match_start;
+	CtkTextIter match_end;
 
 	if (ctk_source_search_context_backward_finish (search_context,
 						       result,
@@ -199,9 +199,9 @@ backward_search_finished (GtkSourceSearchContext *search_context,
 
 static void
 button_previous_clicked_cb (TestSearch *search,
-			    GtkButton  *button)
+			    CtkButton  *button)
 {
-	GtkTextIter start_at;
+	CtkTextIter start_at;
 
 	ctk_text_buffer_get_selection_bounds (CTK_TEXT_BUFFER (search->priv->source_buffer),
 					      &start_at,
@@ -215,12 +215,12 @@ button_previous_clicked_cb (TestSearch *search,
 }
 
 static void
-forward_search_finished (GtkSourceSearchContext *search_context,
+forward_search_finished (CtkSourceSearchContext *search_context,
 			 GAsyncResult           *result,
 			 TestSearch             *search)
 {
-	GtkTextIter match_start;
-	GtkTextIter match_end;
+	CtkTextIter match_start;
+	CtkTextIter match_end;
 
 	if (ctk_source_search_context_forward_finish (search_context,
 						      result,
@@ -235,9 +235,9 @@ forward_search_finished (GtkSourceSearchContext *search_context,
 
 static void
 button_next_clicked_cb (TestSearch *search,
-			GtkButton  *button)
+			CtkButton  *button)
 {
-	GtkTextIter start_at;
+	CtkTextIter start_at;
 
 	ctk_text_buffer_get_selection_bounds (CTK_TEXT_BUFFER (search->priv->source_buffer),
 					      NULL,
@@ -252,12 +252,12 @@ button_next_clicked_cb (TestSearch *search,
 
 static void
 button_replace_clicked_cb (TestSearch *search,
-			   GtkButton  *button)
+			   CtkButton  *button)
 {
-	GtkTextIter match_start;
-	GtkTextIter match_end;
-	GtkTextIter iter;
-	GtkEntryBuffer *entry_buffer;
+	CtkTextIter match_start;
+	CtkTextIter match_end;
+	CtkTextIter iter;
+	CtkEntryBuffer *entry_buffer;
 	gint replace_length;
 
 	ctk_text_buffer_get_selection_bounds (CTK_TEXT_BUFFER (search->priv->source_buffer),
@@ -287,9 +287,9 @@ button_replace_clicked_cb (TestSearch *search,
 
 static void
 button_replace_all_clicked_cb (TestSearch *search,
-			       GtkButton  *button)
+			       CtkButton  *button)
 {
-	GtkEntryBuffer *entry_buffer = ctk_entry_get_buffer (search->priv->replace_entry);
+	CtkEntryBuffer *entry_buffer = ctk_entry_get_buffer (search->priv->replace_entry);
 	gint replace_length = ctk_entry_buffer_get_bytes (entry_buffer);
 
 	ctk_source_search_context_replace_all (search->priv->search_context,
@@ -309,13 +309,13 @@ update_label_idle_cb (TestSearch *search)
 }
 
 static void
-mark_set_cb (GtkTextBuffer *buffer,
-	     GtkTextIter   *location,
-	     GtkTextMark   *mark,
+mark_set_cb (CtkTextBuffer *buffer,
+	     CtkTextIter   *location,
+	     CtkTextMark   *mark,
 	     TestSearch    *search)
 {
-	GtkTextMark *insert;
-	GtkTextMark *selection_bound;
+	CtkTextMark *insert;
+	CtkTextMark *selection_bound;
 
 	insert = ctk_text_buffer_get_insert (buffer);
 	selection_bound = ctk_text_buffer_get_selection_bound (buffer);
@@ -330,7 +330,7 @@ mark_set_cb (GtkTextBuffer *buffer,
 
 static void
 highlight_toggled_cb (TestSearch      *search,
-		      GtkToggleButton *button)
+		      CtkToggleButton *button)
 {
 	ctk_source_search_context_set_highlight (search->priv->search_context,
 						 ctk_toggle_button_get_active (button));
@@ -338,7 +338,7 @@ highlight_toggled_cb (TestSearch      *search,
 
 static void
 match_case_toggled_cb (TestSearch      *search,
-		       GtkToggleButton *button)
+		       CtkToggleButton *button)
 {
 	ctk_source_search_settings_set_case_sensitive (search->priv->search_settings,
 						       ctk_toggle_button_get_active (button));
@@ -346,7 +346,7 @@ match_case_toggled_cb (TestSearch      *search,
 
 static void
 at_word_boundaries_toggled_cb (TestSearch      *search,
-			       GtkToggleButton *button)
+			       CtkToggleButton *button)
 {
 	ctk_source_search_settings_set_at_word_boundaries (search->priv->search_settings,
 							   ctk_toggle_button_get_active (button));
@@ -354,7 +354,7 @@ at_word_boundaries_toggled_cb (TestSearch      *search,
 
 static void
 wrap_around_toggled_cb (TestSearch      *search,
-			GtkToggleButton *button)
+			CtkToggleButton *button)
 {
 	ctk_source_search_settings_set_wrap_around (search->priv->search_settings,
 						    ctk_toggle_button_get_active (button));
@@ -362,7 +362,7 @@ wrap_around_toggled_cb (TestSearch      *search,
 
 static void
 regex_toggled_cb (TestSearch      *search,
-		  GtkToggleButton *button)
+		  CtkToggleButton *button)
 {
 	ctk_source_search_settings_set_regex_enabled (search->priv->search_settings,
 						      ctk_toggle_button_get_active (button));
@@ -384,7 +384,7 @@ static void
 test_search_class_init (TestSearchClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
-	GtkWidgetClass *widget_class = CTK_WIDGET_CLASS (klass);
+	CtkWidgetClass *widget_class = CTK_WIDGET_CLASS (klass);
 
 	object_class->dispose = test_search_dispose;
 
@@ -404,7 +404,7 @@ test_search_class_init (TestSearchClass *klass)
 
 	/* It is also possible to bind the properties with
 	 * g_object_bind_property(), between the check buttons and the source
-	 * buffer. But GtkBuilder and Glade don't support that yet.
+	 * buffer. But CtkBuilder and Glade don't support that yet.
 	 */
 	ctk_widget_class_bind_template_callback (widget_class, highlight_toggled_cb);
 	ctk_widget_class_bind_template_callback (widget_class, match_case_toggled_cb);
@@ -459,7 +459,7 @@ test_search_new (void)
 gint
 main (gint argc, gchar *argv[])
 {
-	GtkWidget *window;
+	CtkWidget *window;
 	TestSearch *search;
 
 	ctk_init (&argc, &argv);

@@ -1,18 +1,18 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*- */
 /*
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2001 - Mikael Hermansson <tyan@linux.se> and
  *                      Chris Phelps <chicane@reninet.com>
  * Copyright (C) 2002 - Jeroen Zwartepoorte
  * Copyright (C) 2003 - Gustavo Giráldez and Paolo Maggi
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -56,12 +56,12 @@
 
 /**
  * SECTION:view
- * @Short_description: Subclass of #GtkTextView
- * @Title: GtkSourceView
- * @See_also: #GtkTextView, #GtkSourceBuffer
+ * @Short_description: Subclass of #CtkTextView
+ * @Title: CtkSourceView
+ * @See_also: #CtkTextView, #CtkSourceBuffer
  *
- * #GtkSourceView is the main class of the GtkSourceView library.
- * Use a #GtkSourceBuffer to display text with a #GtkSourceView.
+ * #CtkSourceView is the main class of the CtkSourceView library.
+ * Use a #CtkSourceBuffer to display text with a #CtkSourceView.
  *
  * This class provides:
  *  - Show the line numbers;
@@ -73,20 +73,20 @@
  *  - And a few other things.
  *
  * An easy way to test all these features is to use the test-widget mini-program
- * provided in the GtkSourceView repository, in the tests/ directory.
+ * provided in the CtkSourceView repository, in the tests/ directory.
  *
- * # GtkSourceView as GtkBuildable
+ * # CtkSourceView as CtkBuildable
  *
- * The GtkSourceView implementation of the #GtkBuildable interface exposes the
- * #GtkSourceView:completion object with the internal-child "completion".
+ * The CtkSourceView implementation of the #CtkBuildable interface exposes the
+ * #CtkSourceView:completion object with the internal-child "completion".
  *
- * An example of a UI definition fragment with GtkSourceView:
+ * An example of a UI definition fragment with CtkSourceView:
  * |[
- * <object class="GtkSourceView" id="source_view">
+ * <object class="CtkSourceView" id="source_view">
  *   <property name="tab_width">4</property>
  *   <property name="auto_indent">True</property>
  *   <child internal-child="completion">
- *     <object class="GtkSourceCompletion">
+ *     <object class="CtkSourceCompletion">
  *       <property name="select_on_show">False</property>
  *     </object>
  *   </child>
@@ -95,12 +95,12 @@
  *
  * # Changing the Font
  *
- * Gtk CSS provides the best way to change the font for a #GtkSourceView in a
- * manner that allows for components like #GtkSourceMap to scale the desired
+ * Ctk CSS provides the best way to change the font for a #CtkSourceView in a
+ * manner that allows for components like #CtkSourceMap to scale the desired
  * font.
  *
  * |[
- *   GtkCssProvider *provider = ctk_css_provider_new ();
+ *   CtkCssProvider *provider = ctk_css_provider_new ();
  *   ctk_css_provider_load_from_data (provider,
  *                                    "textview { font-family: Monospace; font-size: 8pt; }",
  *                                    -1,
@@ -112,8 +112,8 @@
  * ]|
  *
  * If you need to adjust the font or size of font within a portion of the
- * document only, you should use a #GtkTextTag with the #GtkTextTag:family or
- * #GtkTextTag:scale set so that the font size may be scaled relative to
+ * document only, you should use a #CtkTextTag with the #CtkTextTag:family or
+ * #CtkTextTag:scale set so that the font size may be scaled relative to
  * the default font set in CSS.
  */
 
@@ -186,34 +186,34 @@ enum
 	PROP_SPACE_DRAWER
 };
 
-struct _GtkSourceViewPrivate
+struct _CtkSourceViewPrivate
 {
-	GtkSourceStyleScheme *style_scheme;
+	CtkSourceStyleScheme *style_scheme;
 	GdkRGBA *right_margin_line_color;
 	GdkRGBA *right_margin_overlay_color;
 
-	GtkSourceSpaceDrawer *space_drawer;
+	CtkSourceSpaceDrawer *space_drawer;
 
 	GHashTable *mark_categories;
 
-	GtkSourceBuffer *source_buffer;
+	CtkSourceBuffer *source_buffer;
 
-	GtkSourceGutter *left_gutter;
-	GtkSourceGutter *right_gutter;
+	CtkSourceGutter *left_gutter;
+	CtkSourceGutter *right_gutter;
 
-	GtkSourceGutterRenderer *line_renderer;
-	GtkSourceGutterRenderer *marks_renderer;
+	CtkSourceGutterRenderer *line_renderer;
+	CtkSourceGutterRenderer *marks_renderer;
 
 	GdkRGBA current_line_color;
 
-	GtkSourceCompletion *completion;
+	CtkSourceCompletion *completion;
 
 	guint right_margin_pos;
 	gint cached_right_margin_pos;
 	guint tab_width;
 	gint indent_width;
-	GtkSourceSmartHomeEndType smart_home_end;
-	GtkSourceBackgroundPatternType background_pattern;
+	CtkSourceSmartHomeEndType smart_home_end;
+	CtkSourceBackgroundPatternType background_pattern;
 	GdkRGBA background_pattern_color;
 
 	guint tabs_set : 1;
@@ -233,76 +233,76 @@ typedef struct _MarkCategory MarkCategory;
 
 struct _MarkCategory
 {
-	GtkSourceMarkAttributes *attributes;
+	CtkSourceMarkAttributes *attributes;
 	gint priority;
 };
 
 static guint signals[N_SIGNALS];
 
-static void ctk_source_view_buildable_interface_init (GtkBuildableIface *iface);
+static void ctk_source_view_buildable_interface_init (CtkBuildableIface *iface);
 
-G_DEFINE_TYPE_WITH_CODE (GtkSourceView, ctk_source_view, CTK_TYPE_TEXT_VIEW,
-			 G_ADD_PRIVATE (GtkSourceView)
+G_DEFINE_TYPE_WITH_CODE (CtkSourceView, ctk_source_view, CTK_TYPE_TEXT_VIEW,
+			 G_ADD_PRIVATE (CtkSourceView)
 			 G_IMPLEMENT_INTERFACE (CTK_TYPE_BUILDABLE,
 						ctk_source_view_buildable_interface_init))
 
 /* Implement DnD for application/x-color drops */
-typedef enum _GtkSourceViewDropTypes {
+typedef enum _CtkSourceViewDropTypes {
 	TARGET_COLOR = 200
-} GtkSourceViewDropTypes;
+} CtkSourceViewDropTypes;
 
-static const GtkTargetEntry drop_types[] = {
+static const CtkTargetEntry drop_types[] = {
 	{(gchar *)"application/x-color", 0, TARGET_COLOR}
 };
 
 /* Prototypes. */
 static void 	ctk_source_view_dispose			(GObject            *object);
 static void 	ctk_source_view_finalize		(GObject            *object);
-static void	ctk_source_view_undo 			(GtkSourceView      *view);
-static void	ctk_source_view_redo 			(GtkSourceView      *view);
-static void	ctk_source_view_show_completion_real	(GtkSourceView      *view);
-static GtkTextBuffer * ctk_source_view_create_buffer	(GtkTextView        *view);
-static void	remove_source_buffer			(GtkSourceView      *view);
-static void	set_source_buffer			(GtkSourceView      *view,
-							 GtkTextBuffer      *buffer);
-static void	ctk_source_view_populate_popup 		(GtkTextView        *view,
-							 GtkWidget          *popup);
-static void	ctk_source_view_move_cursor		(GtkTextView        *text_view,
-							 GtkMovementStep     step,
+static void	ctk_source_view_undo 			(CtkSourceView      *view);
+static void	ctk_source_view_redo 			(CtkSourceView      *view);
+static void	ctk_source_view_show_completion_real	(CtkSourceView      *view);
+static CtkTextBuffer * ctk_source_view_create_buffer	(CtkTextView        *view);
+static void	remove_source_buffer			(CtkSourceView      *view);
+static void	set_source_buffer			(CtkSourceView      *view,
+							 CtkTextBuffer      *buffer);
+static void	ctk_source_view_populate_popup 		(CtkTextView        *view,
+							 CtkWidget          *popup);
+static void	ctk_source_view_move_cursor		(CtkTextView        *text_view,
+							 CtkMovementStep     step,
 							 gint                count,
 							 gboolean            extend_selection);
-static void	ctk_source_view_delete_from_cursor	(GtkTextView        *text_view,
-							 GtkDeleteType       type,
+static void	ctk_source_view_delete_from_cursor	(CtkTextView        *text_view,
+							 CtkDeleteType       type,
 							 gint                count);
-static gboolean ctk_source_view_extend_selection	(GtkTextView            *text_view,
-							 GtkTextExtendSelection  granularity,
-							 const GtkTextIter      *location,
-							 GtkTextIter            *start,
-							 GtkTextIter            *end);
-static void 	ctk_source_view_get_lines		(GtkTextView       *text_view,
+static gboolean ctk_source_view_extend_selection	(CtkTextView            *text_view,
+							 CtkTextExtendSelection  granularity,
+							 const CtkTextIter      *location,
+							 CtkTextIter            *start,
+							 CtkTextIter            *end);
+static void 	ctk_source_view_get_lines		(CtkTextView       *text_view,
 							 gint               first_y,
 							 gint               last_y,
 							 GArray            *buffer_coords,
 							 GArray            *line_heights,
 							 GArray            *numbers,
 							 gint              *countp);
-static gboolean ctk_source_view_draw 			(GtkWidget         *widget,
+static gboolean ctk_source_view_draw 			(CtkWidget         *widget,
 							 cairo_t           *cr);
-static void	ctk_source_view_move_lines		(GtkSourceView     *view,
+static void	ctk_source_view_move_lines		(CtkSourceView     *view,
 							 gboolean           down);
-static void	ctk_source_view_move_words		(GtkSourceView     *view,
+static void	ctk_source_view_move_words		(CtkSourceView     *view,
 							 gint               step);
-static gboolean	ctk_source_view_key_press_event		(GtkWidget         *widget,
+static gboolean	ctk_source_view_key_press_event		(CtkWidget         *widget,
 							 GdkEventKey       *event);
-static void	view_dnd_drop 				(GtkTextView       *view,
+static void	view_dnd_drop 				(CtkTextView       *view,
 							 GdkDragContext    *context,
 							 gint               x,
 							 gint               y,
-							 GtkSelectionData  *selection_data,
+							 CtkSelectionData  *selection_data,
 							 guint              info,
 							 guint              timestamp,
 							 gpointer           data);
-static gint	calculate_real_tab_width 		(GtkSourceView     *view,
+static gint	calculate_real_tab_width 		(CtkSourceView     *view,
 							 guint              tab_size,
 							 gchar              c);
 static void	ctk_source_view_set_property		(GObject           *object,
@@ -313,20 +313,20 @@ static void	ctk_source_view_get_property		(GObject           *object,
 							 guint              prop_id,
 							 GValue            *value,
 							 GParamSpec        *pspec);
-static void	ctk_source_view_style_updated		(GtkWidget         *widget);
-static void	ctk_source_view_update_style_scheme	(GtkSourceView     *view);
-static void	ctk_source_view_draw_layer		(GtkTextView        *view,
-							 GtkTextViewLayer   layer,
+static void	ctk_source_view_style_updated		(CtkWidget         *widget);
+static void	ctk_source_view_update_style_scheme	(CtkSourceView     *view);
+static void	ctk_source_view_draw_layer		(CtkTextView        *view,
+							 CtkTextViewLayer   layer,
 							 cairo_t           *cr);
 
-static MarkCategory *mark_category_new                  (GtkSourceMarkAttributes *attributes,
+static MarkCategory *mark_category_new                  (CtkSourceMarkAttributes *attributes,
                                                          gint priority);
 static void          mark_category_free                 (MarkCategory *category);
 
 static void
 ctk_source_view_constructed (GObject *object)
 {
-	GtkSourceView *view = CTK_SOURCE_VIEW (object);
+	CtkSourceView *view = CTK_SOURCE_VIEW (object);
 
 	set_source_buffer (view, ctk_text_view_get_buffer (CTK_TEXT_VIEW (view)));
 
@@ -334,15 +334,15 @@ ctk_source_view_constructed (GObject *object)
 }
 
 static void
-ctk_source_view_move_to_matching_bracket (GtkSourceView *view,
+ctk_source_view_move_to_matching_bracket (CtkSourceView *view,
 					  gboolean       extend_selection)
 {
-	GtkTextView *text_view = CTK_TEXT_VIEW (view);
-	GtkTextBuffer *buffer;
-	GtkTextMark *insert_mark;
-	GtkTextIter insert;
-	GtkTextIter bracket_match;
-	GtkSourceBracketMatchType result;
+	CtkTextView *text_view = CTK_TEXT_VIEW (view);
+	CtkTextBuffer *buffer;
+	CtkTextMark *insert_mark;
+	CtkTextIter insert;
+	CtkTextIter bracket_match;
+	CtkSourceBracketMatchType result;
 
 	buffer = ctk_text_view_get_buffer (text_view);
 	insert_mark = ctk_text_buffer_get_insert (buffer);
@@ -369,12 +369,12 @@ ctk_source_view_move_to_matching_bracket (GtkSourceView *view,
 }
 
 static void
-ctk_source_view_change_number (GtkSourceView *view,
+ctk_source_view_change_number (CtkSourceView *view,
 			       gint           count)
 {
-	GtkTextView *text_view = CTK_TEXT_VIEW (view);
-	GtkTextBuffer *buffer;
-	GtkTextIter start, end;
+	CtkTextView *text_view = CTK_TEXT_VIEW (view);
+	CtkTextBuffer *buffer;
+	CtkTextIter start, end;
 	gchar *str;
 
 	buffer = ctk_text_view_get_buffer (text_view);
@@ -387,7 +387,7 @@ ctk_source_view_change_number (GtkSourceView *view,
 	{
 		if (!ctk_text_iter_starts_word (&start))
 		{
-			GtkTextIter prev;
+			CtkTextIter prev;
 
 			ctk_text_iter_backward_word_start (&start);
 
@@ -442,11 +442,11 @@ ctk_source_view_change_number (GtkSourceView *view,
 }
 
 static void
-ctk_source_view_change_case (GtkSourceView           *view,
-			     GtkSourceChangeCaseType  case_type)
+ctk_source_view_change_case (CtkSourceView           *view,
+			     CtkSourceChangeCaseType  case_type)
 {
-	GtkSourceBuffer *buffer;
-	GtkTextIter start, end;
+	CtkSourceBuffer *buffer;
+	CtkTextIter start, end;
 
 	buffer = CTK_SOURCE_BUFFER (ctk_text_view_get_buffer (CTK_TEXT_VIEW (view)));
 
@@ -462,11 +462,11 @@ ctk_source_view_change_case (GtkSourceView           *view,
 }
 
 static void
-ctk_source_view_join_lines (GtkSourceView *view)
+ctk_source_view_join_lines (CtkSourceView *view)
 {
-	GtkSourceBuffer *buffer;
-	GtkTextIter start;
-	GtkTextIter end;
+	CtkSourceBuffer *buffer;
+	CtkTextIter start;
+	CtkTextIter end;
 
 	buffer = CTK_SOURCE_BUFFER (ctk_text_view_get_buffer (CTK_TEXT_VIEW (view)));
 
@@ -478,12 +478,12 @@ ctk_source_view_join_lines (GtkSourceView *view)
 }
 
 static void
-ctk_source_view_class_init (GtkSourceViewClass *klass)
+ctk_source_view_class_init (CtkSourceViewClass *klass)
 {
 	GObjectClass *object_class;
-	GtkTextViewClass *textview_class;
-	GtkBindingSet *binding_set;
-	GtkWidgetClass *widget_class;
+	CtkTextViewClass *textview_class;
+	CtkBindingSet *binding_set;
+	CtkWidgetClass *widget_class;
 
 	object_class = G_OBJECT_CLASS (klass);
 	textview_class = CTK_TEXT_VIEW_CLASS (klass);
@@ -513,7 +513,7 @@ ctk_source_view_class_init (GtkSourceViewClass *klass)
 	klass->move_words = ctk_source_view_move_words;
 
 	/**
-	 * GtkSourceView:completion:
+	 * CtkSourceView:completion:
 	 *
 	 * The completion object associated with the view
 	 */
@@ -527,7 +527,7 @@ ctk_source_view_class_init (GtkSourceViewClass *klass)
 							      G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceView:show-line-numbers:
+	 * CtkSourceView:show-line-numbers:
 	 *
 	 * Whether to display line numbers
 	 */
@@ -540,7 +540,7 @@ ctk_source_view_class_init (GtkSourceViewClass *klass)
 							       G_PARAM_READWRITE |
 							       G_PARAM_STATIC_STRINGS));
 	/**
-	 * GtkSourceView:show-line-marks:
+	 * CtkSourceView:show-line-marks:
 	 *
 	 * Whether to display line mark pixbufs
 	 */
@@ -554,7 +554,7 @@ ctk_source_view_class_init (GtkSourceViewClass *klass)
 							       G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceView:tab-width:
+	 * CtkSourceView:tab-width:
 	 *
 	 * Width of a tab character expressed in number of spaces.
 	 */
@@ -570,7 +570,7 @@ ctk_source_view_class_init (GtkSourceViewClass *klass)
 							    G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceView:indent-width:
+	 * CtkSourceView:indent-width:
 	 *
 	 * Width of an indentation step expressed in number of spaces.
 	 */
@@ -604,7 +604,7 @@ ctk_source_view_class_init (GtkSourceViewClass *klass)
 							       G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceView:show-right-margin:
+	 * CtkSourceView:show-right-margin:
 	 *
 	 * Whether to display the right margin.
 	 */
@@ -618,7 +618,7 @@ ctk_source_view_class_init (GtkSourceViewClass *klass)
 							       G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceView:right-margin-position:
+	 * CtkSourceView:right-margin-position:
 	 *
 	 * Position of the right margin.
 	 */
@@ -634,7 +634,7 @@ ctk_source_view_class_init (GtkSourceViewClass *klass)
 							    G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceView:smart-home-end:
+	 * CtkSourceView:smart-home-end:
 	 *
 	 * Set the behavior of the HOME and END keys.
 	 *
@@ -671,7 +671,7 @@ ctk_source_view_class_init (GtkSourceViewClass *klass)
 							       G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceView:background-pattern:
+	 * CtkSourceView:background-pattern:
 	 *
 	 * Draw a specific background pattern on the view.
 	 *
@@ -688,7 +688,7 @@ ctk_source_view_class_init (GtkSourceViewClass *klass)
 							    G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceView:smart-backspace:
+	 * CtkSourceView:smart-backspace:
 	 *
 	 * Whether smart Backspace should be used.
 	 *
@@ -704,9 +704,9 @@ ctk_source_view_class_init (GtkSourceViewClass *klass)
 							       G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceView:space-drawer:
+	 * CtkSourceView:space-drawer:
 	 *
-	 * The #GtkSourceSpaceDrawer object associated with the view.
+	 * The #CtkSourceSpaceDrawer object associated with the view.
 	 *
 	 * Since: 3.24
 	 */
@@ -723,7 +723,7 @@ ctk_source_view_class_init (GtkSourceViewClass *klass)
 		g_signal_new ("undo",
 			      G_TYPE_FROM_CLASS (klass),
 			      G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
-			      G_STRUCT_OFFSET (GtkSourceViewClass, undo),
+			      G_STRUCT_OFFSET (CtkSourceViewClass, undo),
 			      NULL, NULL,
 		              g_cclosure_marshal_VOID__VOID,
 			      G_TYPE_NONE, 0);
@@ -735,7 +735,7 @@ ctk_source_view_class_init (GtkSourceViewClass *klass)
 		g_signal_new ("redo",
 			      G_TYPE_FROM_CLASS (klass),
 			      G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
-			      G_STRUCT_OFFSET (GtkSourceViewClass, redo),
+			      G_STRUCT_OFFSET (CtkSourceViewClass, redo),
 			      NULL, NULL,
 			      g_cclosure_marshal_VOID__VOID,
 			      G_TYPE_NONE, 0);
@@ -744,14 +744,14 @@ ctk_source_view_class_init (GtkSourceViewClass *klass)
 	                            g_cclosure_marshal_VOID__VOIDv);
 
 	/**
-	 * GtkSourceView::show-completion:
-	 * @view: The #GtkSourceView who emits the signal
+	 * CtkSourceView::show-completion:
+	 * @view: The #CtkSourceView who emits the signal
 	 *
 	 * The ::show-completion signal is a key binding signal which gets
 	 * emitted when the user requests a completion, by pressing
 	 * <keycombo><keycap>Control</keycap><keycap>space</keycap></keycombo>.
 	 *
-	 * This will create a #GtkSourceCompletionContext with the activation
+	 * This will create a #CtkSourceCompletionContext with the activation
 	 * type as %CTK_SOURCE_COMPLETION_ACTIVATION_USER_REQUESTED.
 	 *
 	 * Applications should not connect to it, but may emit it with
@@ -762,7 +762,7 @@ ctk_source_view_class_init (GtkSourceViewClass *klass)
 		g_signal_new ("show-completion",
 			      G_TYPE_FROM_CLASS (klass),
 			      G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
-			      G_STRUCT_OFFSET (GtkSourceViewClass, show_completion),
+			      G_STRUCT_OFFSET (CtkSourceViewClass, show_completion),
 			      NULL, NULL,
 			      g_cclosure_marshal_VOID__VOID,
 			      G_TYPE_NONE, 0);
@@ -771,9 +771,9 @@ ctk_source_view_class_init (GtkSourceViewClass *klass)
 	                            g_cclosure_marshal_VOID__VOIDv);
 
 	/**
-	 * GtkSourceView::line-mark-activated:
-	 * @view: the #GtkSourceView
-	 * @iter: a #GtkTextIter
+	 * CtkSourceView::line-mark-activated:
+	 * @view: the #CtkSourceView
+	 * @iter: a #CtkTextIter
 	 * @event: the #GdkEvent that activated the event
 	 *
 	 * Emitted when a line mark has been activated (for instance when there
@@ -784,7 +784,7 @@ ctk_source_view_class_init (GtkSourceViewClass *klass)
 		g_signal_new ("line-mark-activated",
 			      G_TYPE_FROM_CLASS (klass),
 			      G_SIGNAL_RUN_LAST,
-			      G_STRUCT_OFFSET (GtkSourceViewClass, line_mark_activated),
+			      G_STRUCT_OFFSET (CtkSourceViewClass, line_mark_activated),
 			      NULL, NULL,
 			      _ctk_source_marshal_VOID__BOXED_BOXED,
 			      G_TYPE_NONE,
@@ -796,8 +796,8 @@ ctk_source_view_class_init (GtkSourceViewClass *klass)
 	                            _ctk_source_marshal_VOID__BOXED_BOXEDv);
 
 	/**
-	 * GtkSourceView::move-lines:
-	 * @view: the #GtkSourceView which received the signal.
+	 * CtkSourceView::move-lines:
+	 * @view: the #CtkSourceView which received the signal.
 	 * @down: %TRUE to move down, %FALSE to move up.
 	 *
 	 * The ::move-lines signal is a keybinding which gets emitted
@@ -809,7 +809,7 @@ ctk_source_view_class_init (GtkSourceViewClass *klass)
 		g_signal_new ("move-lines",
 			      G_TYPE_FROM_CLASS (klass),
 			      G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
-			      G_STRUCT_OFFSET (GtkSourceViewClass, move_lines),
+			      G_STRUCT_OFFSET (CtkSourceViewClass, move_lines),
 			      NULL, NULL,
 			      g_cclosure_marshal_VOID__BOOLEAN,
 			      G_TYPE_NONE, 1,
@@ -819,8 +819,8 @@ ctk_source_view_class_init (GtkSourceViewClass *klass)
 	                            g_cclosure_marshal_VOID__BOOLEANv);
 
 	/**
-	 * GtkSourceView::move-words:
-	 * @view: the #GtkSourceView which received the signal
+	 * CtkSourceView::move-words:
+	 * @view: the #CtkSourceView which received the signal
 	 * @count: the number of words to move over
 	 *
 	 * The ::move-words signal is a keybinding which gets emitted
@@ -834,7 +834,7 @@ ctk_source_view_class_init (GtkSourceViewClass *klass)
 		g_signal_new ("move-words",
 			      G_TYPE_FROM_CLASS (klass),
 			      G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
-			      G_STRUCT_OFFSET (GtkSourceViewClass, move_words),
+			      G_STRUCT_OFFSET (CtkSourceViewClass, move_words),
 			      NULL, NULL,
 			      g_cclosure_marshal_VOID__INT,
 			      G_TYPE_NONE, 1,
@@ -844,14 +844,14 @@ ctk_source_view_class_init (GtkSourceViewClass *klass)
 	                            g_cclosure_marshal_VOID__INTv);
 
 	/**
-	 * GtkSourceView::smart-home-end:
-	 * @view: the #GtkSourceView
-	 * @iter: a #GtkTextIter
+	 * CtkSourceView::smart-home-end:
+	 * @view: the #CtkSourceView
+	 * @iter: a #CtkTextIter
 	 * @count: the count
 	 *
 	 * Emitted when a the cursor was moved according to the smart home
 	 * end setting. The signal is emitted after the cursor is moved, but
-	 * during the GtkTextView::move-cursor action. This can be used to find
+	 * during the CtkTextView::move-cursor action. This can be used to find
 	 * out whether the cursor was moved by a normal home/end or by a smart
 	 * home/end.
 	 *
@@ -873,8 +873,8 @@ ctk_source_view_class_init (GtkSourceViewClass *klass)
 	                            _ctk_source_marshal_VOID__BOXED_INTv);
 
 	/**
-	 * GtkSourceView::move-to-matching-bracket:
-	 * @view: the #GtkSourceView
+	 * CtkSourceView::move-to-matching-bracket:
+	 * @view: the #CtkSourceView
 	 * @extend_selection: %TRUE if the move should extend the selection
 	 *
 	 * Keybinding signal to move the cursor to the matching bracket.
@@ -897,8 +897,8 @@ ctk_source_view_class_init (GtkSourceViewClass *klass)
 	                            g_cclosure_marshal_VOID__BOOLEANv);
 
 	/**
-	 * GtkSourceView::change-number:
-	 * @view: the #GtkSourceView
+	 * CtkSourceView::change-number:
+	 * @view: the #CtkSourceView
 	 * @count: the number to add to the number at the current position
 	 *
 	 * Keybinding signal to edit a number at the current cursor position.
@@ -920,8 +920,8 @@ ctk_source_view_class_init (GtkSourceViewClass *klass)
 	                            g_cclosure_marshal_VOID__INTv);
 
 	/**
-	 * GtkSourceView::change-case:
-	 * @view: the #GtkSourceView
+	 * CtkSourceView::change-case:
+	 * @view: the #CtkSourceView
 	 * @case_type: the case to use
 	 *
 	 * Keybinding signal to change case of the text at the current cursor position.
@@ -943,8 +943,8 @@ ctk_source_view_class_init (GtkSourceViewClass *klass)
 	                            g_cclosure_marshal_VOID__ENUMv);
 
 	/**
-	 * GtkSourceView::join-lines:
-	 * @view: the #GtkSourceView
+	 * CtkSourceView::join-lines:
+	 * @view: the #CtkSourceView
 	 *
 	 * Keybinding signal to join the lines currently selected.
 	 *
@@ -1128,11 +1128,11 @@ ctk_source_view_class_init (GtkSourceViewClass *klass)
 }
 
 static GObject *
-ctk_source_view_buildable_get_internal_child (GtkBuildable *buildable,
-					      GtkBuilder   *builder,
+ctk_source_view_buildable_get_internal_child (CtkBuildable *buildable,
+					      CtkBuilder   *builder,
 					      const gchar  *childname)
 {
-	GtkSourceView *view = CTK_SOURCE_VIEW (buildable);
+	CtkSourceView *view = CTK_SOURCE_VIEW (buildable);
 
 	if (g_strcmp0 (childname, "completion") == 0)
 	{
@@ -1143,7 +1143,7 @@ ctk_source_view_buildable_get_internal_child (GtkBuildable *buildable,
 }
 
 static void
-ctk_source_view_buildable_interface_init (GtkBuildableIface *iface)
+ctk_source_view_buildable_interface_init (CtkBuildableIface *iface)
 {
 	iface->get_internal_child = ctk_source_view_buildable_get_internal_child;
 }
@@ -1154,7 +1154,7 @@ ctk_source_view_set_property (GObject      *object,
 			      const GValue *value,
 			      GParamSpec   *pspec)
 {
-	GtkSourceView *view;
+	CtkSourceView *view;
 
 	g_return_if_fail (CTK_SOURCE_IS_VIEW (object));
 
@@ -1226,7 +1226,7 @@ ctk_source_view_get_property (GObject    *object,
 			      GValue     *value,
 			      GParamSpec *pspec)
 {
-	GtkSourceView *view;
+	CtkSourceView *view;
 
 	g_return_if_fail (CTK_SOURCE_IS_VIEW (object));
 
@@ -1301,25 +1301,25 @@ ctk_source_view_get_property (GObject    *object,
 }
 
 static void
-space_drawer_notify_cb (GtkSourceSpaceDrawer *space_drawer,
+space_drawer_notify_cb (CtkSourceSpaceDrawer *space_drawer,
 			GParamSpec           *pspec,
-			GtkSourceView        *view)
+			CtkSourceView        *view)
 {
 	ctk_widget_queue_draw (CTK_WIDGET (view));
 }
 
 static void
-notify_buffer_cb (GtkSourceView *view)
+notify_buffer_cb (CtkSourceView *view)
 {
 	set_source_buffer (view, ctk_text_view_get_buffer (CTK_TEXT_VIEW (view)));
 }
 
 static void
-ctk_source_view_init (GtkSourceView *view)
+ctk_source_view_init (CtkSourceView *view)
 {
-	GtkStyleContext *context;
+	CtkStyleContext *context;
 
-	GtkTargetList *target_list;
+	CtkTargetList *target_list;
 
 	view->priv = ctk_source_view_get_instance_private (view);
 
@@ -1373,7 +1373,7 @@ ctk_source_view_init (GtkSourceView *view)
 static void
 ctk_source_view_dispose (GObject *object)
 {
-	GtkSourceView *view = CTK_SOURCE_VIEW (object);
+	CtkSourceView *view = CTK_SOURCE_VIEW (object);
 
 	g_clear_object (&view->priv->completion);
 	g_clear_object (&view->priv->left_gutter);
@@ -1397,7 +1397,7 @@ ctk_source_view_dispose (GObject *object)
 static void
 ctk_source_view_finalize (GObject *object)
 {
-	GtkSourceView *view = CTK_SOURCE_VIEW (object);
+	CtkSourceView *view = CTK_SOURCE_VIEW (object);
 
 	if (view->priv->right_margin_line_color != NULL)
 	{
@@ -1418,9 +1418,9 @@ ctk_source_view_finalize (GObject *object)
 }
 
 static void
-get_visible_region (GtkTextView *text_view,
-		    GtkTextIter *start,
-		    GtkTextIter *end)
+get_visible_region (CtkTextView *text_view,
+		    CtkTextIter *start,
+		    CtkTextIter *end)
 {
 	GdkRectangle visible_rect;
 
@@ -1441,17 +1441,17 @@ get_visible_region (GtkTextView *text_view,
 }
 
 static void
-highlight_updated_cb (GtkSourceBuffer *buffer,
-		      GtkTextIter     *_start,
-		      GtkTextIter     *_end,
-		      GtkTextView     *text_view)
+highlight_updated_cb (CtkSourceBuffer *buffer,
+		      CtkTextIter     *_start,
+		      CtkTextIter     *_end,
+		      CtkTextView     *text_view)
 {
-	GtkTextIter start;
-	GtkTextIter end;
-	GtkTextIter visible_start;
-	GtkTextIter visible_end;
-	GtkTextIter intersect_start;
-	GtkTextIter intersect_end;
+	CtkTextIter start;
+	CtkTextIter end;
+	CtkTextIter visible_start;
+	CtkTextIter visible_end;
+	CtkTextIter intersect_start;
+	CtkTextIter intersect_end;
 
 #if 0
 	{
@@ -1496,7 +1496,7 @@ highlight_updated_cb (GtkSourceBuffer *buffer,
 		intersect_end = end;
 	}
 
-	/* GtkSourceContextEngine sends the highlight-updated signal to notify
+	/* CtkSourceContextEngine sends the highlight-updated signal to notify
 	 * the view, and in the view (here) we tell the ContextEngine to update
 	 * the highlighting, but only in the visible area. It seems that the
 	 * purpose is to reduce the number of tags that the ContextEngine
@@ -1517,18 +1517,18 @@ highlight_updated_cb (GtkSourceBuffer *buffer,
 }
 
 static void
-search_start_cb (GtkSourceBufferInternal *buffer_internal,
-		 GtkSourceSearchContext  *search_context,
-		 GtkSourceView           *view)
+search_start_cb (CtkSourceBufferInternal *buffer_internal,
+		 CtkSourceSearchContext  *search_context,
+		 CtkSourceView           *view)
 {
-	GtkTextIter visible_start;
-	GtkTextIter visible_end;
+	CtkTextIter visible_start;
+	CtkTextIter visible_end;
 
 	get_visible_region (CTK_TEXT_VIEW (view), &visible_start, &visible_end);
 
 #ifndef G_DISABLE_ASSERT
 	{
-		GtkSourceBuffer *buffer_search = ctk_source_search_context_get_buffer (search_context);
+		CtkSourceBuffer *buffer_search = ctk_source_search_context_get_buffer (search_context);
 		g_assert (buffer_search == view->priv->source_buffer);
 	}
 #endif
@@ -1540,9 +1540,9 @@ search_start_cb (GtkSourceBufferInternal *buffer_internal,
 }
 
 static void
-source_mark_updated_cb (GtkSourceBuffer *buffer,
-			GtkSourceMark   *mark,
-			GtkTextView     *text_view)
+source_mark_updated_cb (CtkSourceBuffer *buffer,
+			CtkSourceMark   *mark,
+			CtkTextView     *text_view)
 {
 	/* TODO do something more intelligent here, namely
 	 * invalidate only the area under the mark if possible */
@@ -1550,28 +1550,28 @@ source_mark_updated_cb (GtkSourceBuffer *buffer,
 }
 
 static void
-buffer_style_scheme_changed_cb (GtkSourceBuffer *buffer,
+buffer_style_scheme_changed_cb (CtkSourceBuffer *buffer,
 				GParamSpec      *pspec,
-				GtkSourceView   *view)
+				CtkSourceView   *view)
 {
 	ctk_source_view_update_style_scheme (view);
 }
 
 static void
-implicit_trailing_newline_changed_cb (GtkSourceBuffer *buffer,
+implicit_trailing_newline_changed_cb (CtkSourceBuffer *buffer,
 				      GParamSpec      *pspec,
-				      GtkSourceView   *view)
+				      CtkSourceView   *view)
 {
 	/* For drawing or not a trailing newline. */
 	ctk_widget_queue_draw (CTK_WIDGET (view));
 }
 
 static void
-remove_source_buffer (GtkSourceView *view)
+remove_source_buffer (CtkSourceView *view)
 {
 	if (view->priv->source_buffer != NULL)
 	{
-		GtkSourceBufferInternal *buffer_internal;
+		CtkSourceBufferInternal *buffer_internal;
 
 		g_signal_handlers_disconnect_by_func (view->priv->source_buffer,
 						      highlight_updated_cb,
@@ -1601,10 +1601,10 @@ remove_source_buffer (GtkSourceView *view)
 }
 
 static void
-set_source_buffer (GtkSourceView *view,
-		   GtkTextBuffer *buffer)
+set_source_buffer (CtkSourceView *view,
+		   CtkTextBuffer *buffer)
 {
-	if (buffer == (GtkTextBuffer*) view->priv->source_buffer)
+	if (buffer == (CtkTextBuffer*) view->priv->source_buffer)
 	{
 		return;
 	}
@@ -1613,7 +1613,7 @@ set_source_buffer (GtkSourceView *view,
 
 	if (CTK_SOURCE_IS_BUFFER (buffer))
 	{
-		GtkSourceBufferInternal *buffer_internal;
+		CtkSourceBufferInternal *buffer_internal;
 
 		view->priv->source_buffer = g_object_ref (CTK_SOURCE_BUFFER (buffer));
 
@@ -1649,11 +1649,11 @@ set_source_buffer (GtkSourceView *view,
 }
 
 static void
-scroll_to_insert (GtkSourceView *view,
-		  GtkTextBuffer *buffer)
+scroll_to_insert (CtkSourceView *view,
+		  CtkTextBuffer *buffer)
 {
-	GtkTextMark *insert;
-	GtkTextIter iter;
+	CtkTextMark *insert;
+	CtkTextIter iter;
 	GdkRectangle visible, location;
 
 	insert = ctk_text_buffer_get_insert (buffer);
@@ -1673,7 +1673,7 @@ scroll_to_insert (GtkSourceView *view,
 	else if (location.x < visible.x || visible.x + visible.width < location.x)
 	{
 		gdouble position;
-		GtkAdjustment *adjustment;
+		CtkAdjustment *adjustment;
 
 		/* We revert the vertical position of the view because
 		 * _scroll_to_iter will cause it to move and the
@@ -1696,9 +1696,9 @@ scroll_to_insert (GtkSourceView *view,
 }
 
 static void
-ctk_source_view_undo (GtkSourceView *view)
+ctk_source_view_undo (CtkSourceView *view)
 {
-	GtkTextBuffer *buffer;
+	CtkTextBuffer *buffer;
 
 	g_return_if_fail (CTK_SOURCE_IS_VIEW (view));
 
@@ -1714,9 +1714,9 @@ ctk_source_view_undo (GtkSourceView *view)
 }
 
 static void
-ctk_source_view_redo (GtkSourceView *view)
+ctk_source_view_redo (CtkSourceView *view)
 {
-	GtkTextBuffer *buffer;
+	CtkTextBuffer *buffer;
 
 	g_return_if_fail (CTK_SOURCE_IS_VIEW (view));
 
@@ -1732,10 +1732,10 @@ ctk_source_view_redo (GtkSourceView *view)
 }
 
 static void
-ctk_source_view_show_completion_real (GtkSourceView *view)
+ctk_source_view_show_completion_real (CtkSourceView *view)
 {
-	GtkSourceCompletion *completion;
-	GtkSourceCompletionContext *context;
+	CtkSourceCompletion *completion;
+	CtkSourceCompletionContext *context;
 
 	completion = ctk_source_view_get_completion (view);
 	context = ctk_source_completion_create_context (completion, NULL);
@@ -1746,11 +1746,11 @@ ctk_source_view_show_completion_real (GtkSourceView *view)
 }
 
 static void
-menu_item_activate_change_case_cb (GtkWidget   *menu_item,
-				   GtkTextView *text_view)
+menu_item_activate_change_case_cb (CtkWidget   *menu_item,
+				   CtkTextView *text_view)
 {
-	GtkTextBuffer *buffer;
-	GtkTextIter start, end;
+	CtkTextBuffer *buffer;
+	CtkTextIter start, end;
 
 	buffer = ctk_text_view_get_buffer (text_view);
 	if (!CTK_SOURCE_IS_BUFFER (buffer))
@@ -1760,7 +1760,7 @@ menu_item_activate_change_case_cb (GtkWidget   *menu_item,
 
 	if (ctk_text_buffer_get_selection_bounds (buffer, &start, &end))
 	{
-		GtkSourceChangeCaseType case_type;
+		CtkSourceChangeCaseType case_type;
 
 		case_type = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (menu_item), "change-case"));
 		ctk_source_buffer_change_case (CTK_SOURCE_BUFFER (buffer), case_type, &start, &end);
@@ -1768,8 +1768,8 @@ menu_item_activate_change_case_cb (GtkWidget   *menu_item,
 }
 
 static void
-menu_item_activate_cb (GtkWidget   *menu_item,
-		       GtkTextView *text_view)
+menu_item_activate_cb (CtkWidget   *menu_item,
+		       CtkTextView *text_view)
 {
 	const gchar *ctksignal;
 
@@ -1778,13 +1778,13 @@ menu_item_activate_cb (GtkWidget   *menu_item,
 }
 
 static void
-ctk_source_view_populate_popup (GtkTextView *text_view,
-				GtkWidget   *popup)
+ctk_source_view_populate_popup (CtkTextView *text_view,
+				CtkWidget   *popup)
 {
-	GtkTextBuffer *buffer;
-	GtkMenuShell *menu;
-	GtkWidget *menu_item;
-	GtkMenuShell *case_menu;
+	CtkTextBuffer *buffer;
+	CtkMenuShell *menu;
+	CtkWidget *menu_item;
+	CtkMenuShell *case_menu;
 
 	buffer = ctk_text_view_get_buffer (text_view);
 	if (!CTK_SOURCE_IS_BUFFER (buffer))
@@ -1887,12 +1887,12 @@ ctk_source_view_populate_popup (GtkTextView *text_view,
 }
 
 static void
-move_cursor (GtkTextView       *text_view,
-	     const GtkTextIter *new_location,
+move_cursor (CtkTextView       *text_view,
+	     const CtkTextIter *new_location,
 	     gboolean           extend_selection)
 {
-	GtkTextBuffer *buffer = ctk_text_view_get_buffer (text_view);
-	GtkTextMark *insert = ctk_text_buffer_get_insert (buffer);
+	CtkTextBuffer *buffer = ctk_text_view_get_buffer (text_view);
+	CtkTextMark *insert = ctk_text_buffer_get_insert (buffer);
 
 	if (extend_selection)
 	{
@@ -1907,11 +1907,11 @@ move_cursor (GtkTextView       *text_view,
 }
 
 static void
-move_to_first_char (GtkTextView *text_view,
-		    GtkTextIter *iter,
+move_to_first_char (CtkTextView *text_view,
+		    CtkTextIter *iter,
 		    gboolean     display_line)
 {
-	GtkTextIter last;
+	CtkTextIter last;
 
 	last = *iter;
 
@@ -1952,11 +1952,11 @@ move_to_first_char (GtkTextView *text_view,
 }
 
 static void
-move_to_last_char (GtkTextView *text_view,
-		   GtkTextIter *iter,
+move_to_last_char (CtkTextView *text_view,
+		   CtkTextIter *iter,
 		   gboolean     display_line)
 {
-	GtkTextIter first;
+	CtkTextIter first;
 
 	first = *iter;
 
@@ -1996,9 +1996,9 @@ move_to_last_char (GtkTextView *text_view,
 }
 
 static void
-do_cursor_move_home_end (GtkTextView *text_view,
-			 GtkTextIter *cur,
-			 GtkTextIter *iter,
+do_cursor_move_home_end (CtkTextView *text_view,
+			 CtkTextIter *cur,
+			 CtkTextIter *iter,
 			 gboolean     extend_selection,
 			 gint         count)
 {
@@ -2014,17 +2014,17 @@ do_cursor_move_home_end (GtkTextView *text_view,
 
 /* Returns %TRUE if handled. */
 static gboolean
-move_cursor_smart_home_end (GtkTextView     *text_view,
-			    GtkMovementStep  step,
+move_cursor_smart_home_end (CtkTextView     *text_view,
+			    CtkMovementStep  step,
 			    gint             count,
 			    gboolean         extend_selection)
 {
-	GtkSourceView *source_view = CTK_SOURCE_VIEW (text_view);
-	GtkTextBuffer *buffer = ctk_text_view_get_buffer (text_view);
+	CtkSourceView *source_view = CTK_SOURCE_VIEW (text_view);
+	CtkTextBuffer *buffer = ctk_text_view_get_buffer (text_view);
 	gboolean move_display_line;
-	GtkTextMark *mark;
-	GtkTextIter cur;
-	GtkTextIter iter;
+	CtkTextMark *mark;
+	CtkTextIter cur;
+	CtkTextIter iter;
 
 	g_assert (step == CTK_MOVEMENT_DISPLAY_LINE_ENDS ||
 		  step == CTK_MOVEMENT_PARAGRAPH_ENDS);
@@ -2097,7 +2097,7 @@ move_cursor_smart_home_end (GtkTextView     *text_view,
 
 		if (move_display_line)
 		{
-			GtkTextIter display_end;
+			CtkTextIter display_end;
 			display_end = cur;
 
 			ctk_text_view_forward_display_line_end (text_view, &display_end);
@@ -2152,15 +2152,15 @@ move_cursor_smart_home_end (GtkTextView     *text_view,
 }
 
 static void
-move_cursor_words (GtkTextView *text_view,
+move_cursor_words (CtkTextView *text_view,
 		   gint         count,
 		   gboolean     extend_selection)
 {
-	GtkTextBuffer *buffer;
-	GtkTextIter insert;
-	GtkTextIter newplace;
-	GtkTextIter line_start;
-	GtkTextIter line_end;
+	CtkTextBuffer *buffer;
+	CtkTextIter insert;
+	CtkTextIter newplace;
+	CtkTextIter line_start;
+	CtkTextIter line_end;
 	const gchar *ptr;
 	gchar *line_text;
 
@@ -2182,8 +2182,8 @@ move_cursor_words (GtkTextView *text_view,
 	 * intuitve and causes confusion for RTL users.
 	 *
 	 * You would think we could iterate using the textiter, but we cannot
-	 * since there is no way in GtkTextIter to check if it is visible (as
-	 * that is not exposed by GtkTextBTree). So we use the allocated string
+	 * since there is no way in CtkTextIter to check if it is visible (as
+	 * that is not exposed by CtkTextBTree). So we use the allocated string
 	 * contents instead.
 	 */
 	for (ptr = line_text; *ptr; ptr = g_utf8_next_char (ptr))
@@ -2223,8 +2223,8 @@ move_cursor_words (GtkTextView *text_view,
 }
 
 static void
-ctk_source_view_move_cursor (GtkTextView     *text_view,
-			     GtkMovementStep  step,
+ctk_source_view_move_cursor (CtkTextView     *text_view,
+			     CtkMovementStep  step,
 			     gint             count,
 			     gboolean         extend_selection)
 {
@@ -2268,14 +2268,14 @@ chain_up:
 }
 
 static void
-ctk_source_view_delete_from_cursor (GtkTextView   *text_view,
-				    GtkDeleteType  type,
+ctk_source_view_delete_from_cursor (CtkTextView   *text_view,
+				    CtkDeleteType  type,
 				    gint           count)
 {
-	GtkTextBuffer *buffer = ctk_text_view_get_buffer (text_view);
-	GtkTextIter insert;
-	GtkTextIter start;
-	GtkTextIter end;
+	CtkTextBuffer *buffer = ctk_text_view_get_buffer (text_view);
+	CtkTextIter insert;
+	CtkTextIter start;
+	CtkTextIter end;
 
 	if (type != CTK_DELETE_WORD_ENDS)
 	{
@@ -2314,11 +2314,11 @@ ctk_source_view_delete_from_cursor (GtkTextView   *text_view,
 }
 
 static gboolean
-ctk_source_view_extend_selection (GtkTextView            *text_view,
-				  GtkTextExtendSelection  granularity,
-				  const GtkTextIter      *location,
-				  GtkTextIter            *start,
-				  GtkTextIter            *end)
+ctk_source_view_extend_selection (CtkTextView            *text_view,
+				  CtkTextExtendSelection  granularity,
+				  const CtkTextIter      *location,
+				  CtkTextIter            *start,
+				  CtkTextIter            *end)
 {
 	if (granularity == CTK_TEXT_EXTEND_SELECTION_WORD)
 	{
@@ -2334,11 +2334,11 @@ ctk_source_view_extend_selection (GtkTextView            *text_view,
 }
 
 static void
-ctk_source_view_ensure_redrawn_rect_is_highlighted (GtkSourceView *view,
+ctk_source_view_ensure_redrawn_rect_is_highlighted (CtkSourceView *view,
 						    cairo_t       *cr)
 {
 	GdkRectangle clip;
-	GtkTextIter iter1, iter2;
+	CtkTextIter iter1, iter2;
 
 	if (view->priv->source_buffer == NULL ||
 	    !gdk_cairo_get_clip_rectangle (cr, &clip))
@@ -2366,7 +2366,7 @@ ctk_source_view_ensure_redrawn_rect_is_highlighted (GtkSourceView *view,
 
 /* This function is taken from ctk+/tests/testtext.c */
 static void
-ctk_source_view_get_lines (GtkTextView *text_view,
+ctk_source_view_get_lines (CtkTextView *text_view,
 			   gint         first_y,
 			   gint         last_y,
 			   GArray      *buffer_coords,
@@ -2374,7 +2374,7 @@ ctk_source_view_get_lines (GtkTextView *text_view,
 			   GArray      *numbers,
 			   gint        *countp)
 {
-	GtkTextIter iter;
+	CtkTextIter iter;
 	gint count;
 	gint last_line_num = -1;
 
@@ -2436,8 +2436,8 @@ ctk_source_view_get_lines (GtkTextView *text_view,
 }
 
 /* Another solution to paint the line background is to use the
- * GtkTextTag:paragraph-background property. But there are several issues:
- * - GtkTextTags are per buffer, not per view. It's better to keep the line
+ * CtkTextTag:paragraph-background property. But there are several issues:
+ * - CtkTextTags are per buffer, not per view. It's better to keep the line
  *   highlighting per view.
  * - There is a problem for empty lines: a text tag can not be applied to an
  *   empty region. And it can not be worked around easily for the last line.
@@ -2445,7 +2445,7 @@ ctk_source_view_get_lines (GtkTextView *text_view,
  * See https://bugzilla.gnome.org/show_bug.cgi?id=310847 for more details.
  */
 static void
-ctk_source_view_paint_line_background (GtkTextView    *text_view,
+ctk_source_view_paint_line_background (CtkTextView    *text_view,
 				       cairo_t        *cr,
 				       int             y, /* in buffer coordinates */
 				       int             height,
@@ -2465,10 +2465,10 @@ ctk_source_view_paint_line_background (GtkTextView    *text_view,
 }
 
 static void
-ctk_source_view_paint_marks_background (GtkSourceView *view,
+ctk_source_view_paint_marks_background (CtkSourceView *view,
 					cairo_t       *cr)
 {
-	GtkTextView *text_view;
+	CtkTextView *text_view;
 	GdkRectangle clip;
 	GArray *numbers;
 	GArray *pixels;
@@ -2507,7 +2507,7 @@ ctk_source_view_paint_marks_background (GtkSourceView *view,
 		gint n = 0;
 		gint y;
 		gint height;
-		GtkTextIter iter;
+		CtkTextIter iter;
 
 		ctk_text_buffer_get_start_iter (ctk_text_view_get_buffer (text_view), &iter);
 		ctk_text_view_get_line_yrange (text_view, &iter, &y, &height);
@@ -2541,7 +2541,7 @@ ctk_source_view_paint_marks_background (GtkSourceView *view,
 
 		while (marks != NULL)
 		{
-			GtkSourceMarkAttributes *attrs;
+			CtkSourceMarkAttributes *attrs;
 			gint prio;
 			GdkRGBA bg;
 
@@ -2576,13 +2576,13 @@ ctk_source_view_paint_marks_background (GtkSourceView *view,
 }
 
 static void
-ctk_source_view_paint_right_margin (GtkSourceView *view,
+ctk_source_view_paint_right_margin (CtkSourceView *view,
 				    cairo_t       *cr)
 {
 	GdkRectangle clip;
 	gdouble x;
 
-	GtkTextView *text_view = CTK_TEXT_VIEW (view);
+	CtkTextView *text_view = CTK_TEXT_VIEW (view);
 
 #ifdef ENABLE_PROFILE
 	static GTimer *timer = NULL;
@@ -2662,7 +2662,7 @@ realign (gint  offset,
 }
 
 static void
-ctk_source_view_paint_background_pattern_grid (GtkSourceView *view,
+ctk_source_view_paint_background_pattern_grid (CtkSourceView *view,
 					       cairo_t       *cr)
 {
 	GdkRectangle clip;
@@ -2712,11 +2712,11 @@ ctk_source_view_paint_background_pattern_grid (GtkSourceView *view,
 }
 
 static void
-ctk_source_view_paint_current_line_highlight (GtkSourceView *view,
+ctk_source_view_paint_current_line_highlight (CtkSourceView *view,
 					      cairo_t       *cr)
 {
-	GtkTextBuffer *buffer;
-	GtkTextIter cur;
+	CtkTextBuffer *buffer;
+	CtkTextIter cur;
 	gint y;
 	gint height;
 
@@ -2733,11 +2733,11 @@ ctk_source_view_paint_current_line_highlight (GtkSourceView *view,
 }
 
 static void
-ctk_source_view_draw_layer (GtkTextView      *text_view,
-			    GtkTextViewLayer  layer,
+ctk_source_view_draw_layer (CtkTextView      *text_view,
+			    CtkTextViewLayer  layer,
 			    cairo_t          *cr)
 {
-	GtkSourceView *view;
+	CtkSourceView *view;
 
 	view = CTK_SOURCE_VIEW (text_view);
 
@@ -2780,10 +2780,10 @@ ctk_source_view_draw_layer (GtkTextView      *text_view,
 }
 
 static gboolean
-ctk_source_view_draw (GtkWidget *widget,
+ctk_source_view_draw (CtkWidget *widget,
 		      cairo_t   *cr)
 {
-	GtkSourceView *view = CTK_SOURCE_VIEW (widget);
+	CtkSourceView *view = CTK_SOURCE_VIEW (widget);
 	gboolean event_handled;
 
 #ifdef ENABLE_PROFILE
@@ -2827,7 +2827,7 @@ ctk_source_view_draw (GtkWidget *widget,
 /* This is a pretty important function... We call it when the tab_stop is changed,
  * and when the font is changed.
  * NOTE: You must change this with the default font for now...
- * It may be a good idea to set the tab_width for each GtkTextTag as well
+ * It may be a good idea to set the tab_width for each CtkTextTag as well
  * based on the font that we set at creation time
  * something like style_cache_set_tabs_from_font or the like.
  * Now, this *may* not be necessary because most tabs wont be inside of another highlight,
@@ -2837,7 +2837,7 @@ ctk_source_view_draw (GtkWidget *widget,
  * "^\(\t\| \)+" would probably do the trick for that.
  */
 static gint
-calculate_real_tab_width (GtkSourceView *view, guint tab_size, gchar c)
+calculate_real_tab_width (CtkSourceView *view, guint tab_size, gchar c)
 {
 	PangoLayout *layout;
 	gchar *tab_string;
@@ -2865,8 +2865,8 @@ calculate_real_tab_width (GtkSourceView *view, guint tab_size, gchar c)
 	return tab_width;
 }
 
-static GtkTextBuffer *
-ctk_source_view_create_buffer (GtkTextView *text_view)
+static CtkTextBuffer *
+ctk_source_view_create_buffer (CtkTextView *text_view)
 {
 	return CTK_TEXT_BUFFER (ctk_source_buffer_new (NULL));
 }
@@ -2880,18 +2880,18 @@ ctk_source_view_create_buffer (GtkTextView *text_view)
 /**
  * ctk_source_view_new:
  *
- * Creates a new #GtkSourceView.
+ * Creates a new #CtkSourceView.
  *
- * By default, an empty #GtkSourceBuffer will be lazily created and can be
+ * By default, an empty #CtkSourceBuffer will be lazily created and can be
  * retrieved with ctk_text_view_get_buffer().
  *
  * If you want to specify your own buffer, either override the
- * #GtkTextViewClass create_buffer factory method, or use
+ * #CtkTextViewClass create_buffer factory method, or use
  * ctk_source_view_new_with_buffer().
  *
- * Returns: a new #GtkSourceView.
+ * Returns: a new #CtkSourceView.
  */
-GtkWidget *
+CtkWidget *
 ctk_source_view_new (void)
 {
 	return g_object_new (CTK_SOURCE_TYPE_VIEW, NULL);
@@ -2899,15 +2899,15 @@ ctk_source_view_new (void)
 
 /**
  * ctk_source_view_new_with_buffer:
- * @buffer: a #GtkSourceBuffer.
+ * @buffer: a #CtkSourceBuffer.
  *
- * Creates a new #GtkSourceView widget displaying the buffer
+ * Creates a new #CtkSourceView widget displaying the buffer
  * @buffer. One buffer can be shared among many widgets.
  *
- * Returns: a new #GtkSourceView.
+ * Returns: a new #CtkSourceView.
  */
-GtkWidget *
-ctk_source_view_new_with_buffer (GtkSourceBuffer *buffer)
+CtkWidget *
+ctk_source_view_new_with_buffer (CtkSourceBuffer *buffer)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER (buffer), NULL);
 
@@ -2918,14 +2918,14 @@ ctk_source_view_new_with_buffer (GtkSourceBuffer *buffer)
 
 /**
  * ctk_source_view_get_show_line_numbers:
- * @view: a #GtkSourceView.
+ * @view: a #CtkSourceView.
  *
  * Returns whether line numbers are displayed beside the text.
  *
  * Return value: %TRUE if the line numbers are displayed.
  */
 gboolean
-ctk_source_view_get_show_line_numbers (GtkSourceView *view)
+ctk_source_view_get_show_line_numbers (CtkSourceView *view)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_VIEW (view), FALSE);
 
@@ -2934,13 +2934,13 @@ ctk_source_view_get_show_line_numbers (GtkSourceView *view)
 
 /**
  * ctk_source_view_set_show_line_numbers:
- * @view: a #GtkSourceView.
+ * @view: a #CtkSourceView.
  * @show: whether line numbers should be displayed.
  *
  * If %TRUE line numbers will be displayed beside the text.
  */
 void
-ctk_source_view_set_show_line_numbers (GtkSourceView *view,
+ctk_source_view_set_show_line_numbers (CtkSourceView *view,
 				       gboolean       show)
 {
 	g_return_if_fail (CTK_SOURCE_IS_VIEW (view));
@@ -2954,7 +2954,7 @@ ctk_source_view_set_show_line_numbers (GtkSourceView *view,
 
 	if (view->priv->line_renderer == NULL)
 	{
-		GtkSourceGutter *gutter;
+		CtkSourceGutter *gutter;
 
 		gutter = ctk_source_view_get_gutter (view, CTK_TEXT_WINDOW_LEFT);
 
@@ -2979,7 +2979,7 @@ ctk_source_view_set_show_line_numbers (GtkSourceView *view,
 
 /**
  * ctk_source_view_get_show_line_marks:
- * @view: a #GtkSourceView.
+ * @view: a #CtkSourceView.
  *
  * Returns whether line marks are displayed beside the text.
  *
@@ -2988,7 +2988,7 @@ ctk_source_view_set_show_line_numbers (GtkSourceView *view,
  * Since: 2.2
  */
 gboolean
-ctk_source_view_get_show_line_marks (GtkSourceView *view)
+ctk_source_view_get_show_line_marks (CtkSourceView *view)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_VIEW (view), FALSE);
 
@@ -2996,11 +2996,11 @@ ctk_source_view_get_show_line_marks (GtkSourceView *view)
 }
 
 static void
-gutter_renderer_marks_activate (GtkSourceGutterRenderer *renderer,
-				GtkTextIter             *iter,
+gutter_renderer_marks_activate (CtkSourceGutterRenderer *renderer,
+				CtkTextIter             *iter,
 				const GdkRectangle      *area,
 				GdkEvent                *event,
-				GtkSourceView           *view)
+				CtkSourceView           *view)
 {
 	g_signal_emit (view,
 	               signals[LINE_MARK_ACTIVATED],
@@ -3011,7 +3011,7 @@ gutter_renderer_marks_activate (GtkSourceGutterRenderer *renderer,
 
 /**
  * ctk_source_view_set_show_line_marks:
- * @view: a #GtkSourceView.
+ * @view: a #CtkSourceView.
  * @show: whether line marks should be displayed.
  *
  * If %TRUE line marks will be displayed beside the text.
@@ -3019,7 +3019,7 @@ gutter_renderer_marks_activate (GtkSourceGutterRenderer *renderer,
  * Since: 2.2
  */
 void
-ctk_source_view_set_show_line_marks (GtkSourceView *view,
+ctk_source_view_set_show_line_marks (CtkSourceView *view,
 				     gboolean       show)
 {
 	g_return_if_fail (CTK_SOURCE_IS_VIEW (view));
@@ -3033,7 +3033,7 @@ ctk_source_view_set_show_line_marks (GtkSourceView *view,
 
 	if (view->priv->marks_renderer == NULL)
 	{
-		GtkSourceGutter *gutter;
+		CtkSourceGutter *gutter;
 
 		gutter = ctk_source_view_get_gutter (view, CTK_TEXT_WINDOW_LEFT);
 
@@ -3056,7 +3056,7 @@ ctk_source_view_set_show_line_marks (GtkSourceView *view,
 }
 
 static gboolean
-set_tab_stops_internal (GtkSourceView *view)
+set_tab_stops_internal (CtkSourceView *view)
 {
 	PangoTabArray *tab_array;
 	gint real_tab_width;
@@ -3082,15 +3082,15 @@ set_tab_stops_internal (GtkSourceView *view)
 
 /**
  * ctk_source_view_set_tab_width:
- * @view: a #GtkSourceView.
+ * @view: a #CtkSourceView.
  * @width: width of tab in characters.
  *
- * Sets the width of tabulation in characters. The #GtkTextBuffer still contains
- * \t characters, but they can take a different visual width in a #GtkSourceView
+ * Sets the width of tabulation in characters. The #CtkTextBuffer still contains
+ * \t characters, but they can take a different visual width in a #CtkSourceView
  * widget.
  */
 void
-ctk_source_view_set_tab_width (GtkSourceView *view,
+ctk_source_view_set_tab_width (CtkSourceView *view,
 			       guint          width)
 {
 	guint save_width;
@@ -3118,14 +3118,14 @@ ctk_source_view_set_tab_width (GtkSourceView *view,
 
 /**
  * ctk_source_view_get_tab_width:
- * @view: a #GtkSourceView.
+ * @view: a #CtkSourceView.
  *
  * Returns the width of tabulation in characters.
  *
  * Return value: width of tab.
  */
 guint
-ctk_source_view_get_tab_width (GtkSourceView *view)
+ctk_source_view_get_tab_width (CtkSourceView *view)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_VIEW (view), DEFAULT_TAB_WIDTH);
 
@@ -3134,32 +3134,32 @@ ctk_source_view_get_tab_width (GtkSourceView *view)
 
 /**
  * ctk_source_view_set_indent_width:
- * @view: a #GtkSourceView.
+ * @view: a #CtkSourceView.
  * @width: indent width in characters.
  *
  * Sets the number of spaces to use for each step of indent when the tab key is
- * pressed. If @width is -1, the value of the #GtkSourceView:tab-width property
+ * pressed. If @width is -1, the value of the #CtkSourceView:tab-width property
  * will be used.
  *
- * The #GtkSourceView:indent-width interacts with the
- * #GtkSourceView:insert-spaces-instead-of-tabs property and
- * #GtkSourceView:tab-width. An example will be clearer: if the
- * #GtkSourceView:indent-width is 4 and
- * #GtkSourceView:tab-width is 8 and
- * #GtkSourceView:insert-spaces-instead-of-tabs is %FALSE, then pressing the tab
+ * The #CtkSourceView:indent-width interacts with the
+ * #CtkSourceView:insert-spaces-instead-of-tabs property and
+ * #CtkSourceView:tab-width. An example will be clearer: if the
+ * #CtkSourceView:indent-width is 4 and
+ * #CtkSourceView:tab-width is 8 and
+ * #CtkSourceView:insert-spaces-instead-of-tabs is %FALSE, then pressing the tab
  * key at the beginning of a line will insert 4 spaces. So far so good. Pressing
  * the tab key a second time will remove the 4 spaces and insert a \t character
- * instead (since #GtkSourceView:tab-width is 8). On the other hand, if
- * #GtkSourceView:insert-spaces-instead-of-tabs is %TRUE, the second tab key
+ * instead (since #CtkSourceView:tab-width is 8). On the other hand, if
+ * #CtkSourceView:insert-spaces-instead-of-tabs is %TRUE, the second tab key
  * pressed will insert 4 more spaces for a total of 8 spaces in the
- * #GtkTextBuffer.
+ * #CtkTextBuffer.
  *
- * The test-widget program (available in the GtkSourceView repository) may be
+ * The test-widget program (available in the CtkSourceView repository) may be
  * useful to better understand the indentation settings (enable the space
  * drawing!).
  */
 void
-ctk_source_view_set_indent_width (GtkSourceView *view,
+ctk_source_view_set_indent_width (CtkSourceView *view,
 				  gint           width)
 {
 	g_return_if_fail (CTK_SOURCE_VIEW (view));
@@ -3174,7 +3174,7 @@ ctk_source_view_set_indent_width (GtkSourceView *view,
 
 /**
  * ctk_source_view_get_indent_width:
- * @view: a #GtkSourceView.
+ * @view: a #CtkSourceView.
  *
  * Returns the number of spaces to use for each step of indent.
  * See ctk_source_view_set_indent_width() for details.
@@ -3182,7 +3182,7 @@ ctk_source_view_set_indent_width (GtkSourceView *view,
  * Return value: indent width.
  */
 gint
-ctk_source_view_get_indent_width (GtkSourceView *view)
+ctk_source_view_get_indent_width (CtkSourceView *view)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_VIEW (view), 0);
 
@@ -3190,11 +3190,11 @@ ctk_source_view_get_indent_width (GtkSourceView *view)
 }
 
 static gchar *
-compute_indentation (GtkSourceView *view,
-		     GtkTextIter   *cur)
+compute_indentation (CtkSourceView *view,
+		     CtkTextIter   *cur)
 {
-	GtkTextIter start;
-	GtkTextIter end;
+	CtkTextIter start;
+	CtkTextIter end;
 	gunichar ch;
 
 	start = *cur;
@@ -3226,7 +3226,7 @@ compute_indentation (GtkSourceView *view,
 }
 
 static guint
-get_real_indent_width (GtkSourceView *view)
+get_real_indent_width (CtkSourceView *view)
 {
 	return view->priv->indent_width < 0 ?
 	       view->priv->tab_width :
@@ -3258,9 +3258,9 @@ get_indent_string (guint tabs,
 
 /**
  * ctk_source_view_indent_lines:
- * @view: a #GtkSourceView.
- * @start: #GtkTextIter of the first line to indent
- * @end: #GtkTextIter of the last line to indent
+ * @view: a #CtkSourceView.
+ * @start: #CtkTextIter of the first line to indent
+ * @end: #CtkTextIter of the last line to indent
  *
  * Inserts one indentation level at the beginning of the specified lines. The
  * empty lines are not indented.
@@ -3268,13 +3268,13 @@ get_indent_string (guint tabs,
  * Since: 3.16
  */
 void
-ctk_source_view_indent_lines (GtkSourceView *view,
-			      GtkTextIter   *start,
-			      GtkTextIter   *end)
+ctk_source_view_indent_lines (CtkSourceView *view,
+			      CtkTextIter   *start,
+			      CtkTextIter   *end)
 {
-	GtkTextBuffer *buf;
+	CtkTextBuffer *buf;
 	gboolean bracket_hl;
-	GtkTextMark *start_mark, *end_mark;
+	CtkTextMark *start_mark, *end_mark;
 	gint start_line, end_line;
 	gchar *tab_buffer = NULL;
 	guint tabs = 0;
@@ -3330,8 +3330,8 @@ ctk_source_view_indent_lines (GtkSourceView *view,
 
 	for (i = start_line; i <= end_line; i++)
 	{
-		GtkTextIter iter;
-		GtkTextIter iter2;
+		CtkTextIter iter;
+		CtkTextIter iter2;
 		guint replaced_spaces = 0;
 
 		ctk_text_buffer_get_iter_at_line (buf, &iter, i);
@@ -3412,9 +3412,9 @@ ctk_source_view_indent_lines (GtkSourceView *view,
 
 /**
  * ctk_source_view_unindent_lines:
- * @view: a #GtkSourceView.
- * @start: #GtkTextIter of the first line to indent
- * @end: #GtkTextIter of the last line to indent
+ * @view: a #CtkSourceView.
+ * @start: #CtkTextIter of the first line to indent
+ * @end: #CtkTextIter of the last line to indent
  *
  * Removes one indentation level at the beginning of the
  * specified lines.
@@ -3422,13 +3422,13 @@ ctk_source_view_indent_lines (GtkSourceView *view,
  * Since: 3.16
  */
 void
-ctk_source_view_unindent_lines (GtkSourceView *view,
-				GtkTextIter   *start,
-				GtkTextIter   *end)
+ctk_source_view_unindent_lines (CtkSourceView *view,
+				CtkTextIter   *start,
+				CtkTextIter   *end)
 {
-	GtkTextBuffer *buf;
+	CtkTextBuffer *buf;
 	gboolean bracket_hl;
-	GtkTextMark *start_mark, *end_mark;
+	CtkTextMark *start_mark, *end_mark;
 	gint start_line, end_line;
 	gint tab_width;
 	gint indent_width;
@@ -3463,7 +3463,7 @@ ctk_source_view_unindent_lines (GtkSourceView *view,
 
 	for (i = start_line; i <= end_line; i++)
 	{
-		GtkTextIter iter, iter2;
+		CtkTextIter iter, iter2;
 		gint to_delete = 0;
 		gint to_delete_equiv = 0;
 
@@ -3523,10 +3523,10 @@ ctk_source_view_unindent_lines (GtkSourceView *view,
 }
 
 static gint
-get_line_offset_in_equivalent_spaces (GtkSourceView *view,
-				      GtkTextIter   *iter)
+get_line_offset_in_equivalent_spaces (CtkSourceView *view,
+				      CtkTextIter   *iter)
 {
-	GtkTextIter i;
+	CtkTextIter i;
 	gint tab_width;
 	gint n = 0;
 
@@ -3556,11 +3556,11 @@ get_line_offset_in_equivalent_spaces (GtkSourceView *view,
 }
 
 static void
-insert_tab_or_spaces (GtkSourceView *view,
-		      GtkTextIter   *start,
-		      GtkTextIter   *end)
+insert_tab_or_spaces (CtkSourceView *view,
+		      CtkTextIter   *start,
+		      CtkTextIter   *end)
 {
-	GtkTextBuffer *buf;
+	CtkTextBuffer *buf;
 	gchar *tab_buf;
 	gint cursor_offset = 0;
 
@@ -3581,7 +3581,7 @@ insert_tab_or_spaces (GtkSourceView *view,
 	else if (view->priv->indent_width > 0 &&
 	         view->priv->indent_width != (gint)view->priv->tab_width)
 	{
-		GtkTextIter iter;
+		CtkTextIter iter;
 		gint i;
 		gint tab_width;
 		gint indent_width;
@@ -3655,7 +3655,7 @@ insert_tab_or_spaces (GtkSourceView *view,
 	/* adjust cursor position if needed */
 	if (cursor_offset > 0)
 	{
-		GtkTextIter iter;
+		CtkTextIter iter;
 
 		ctk_text_buffer_get_iter_at_offset (buf, &iter, cursor_offset);
 		ctk_text_buffer_place_cursor (buf, &iter);
@@ -3667,12 +3667,12 @@ insert_tab_or_spaces (GtkSourceView *view,
 }
 
 static void
-ctk_source_view_move_words (GtkSourceView *view,
+ctk_source_view_move_words (CtkSourceView *view,
 			    gint           step)
 {
-	GtkTextBuffer *buf;
-	GtkTextIter s, e, ns, ne;
-	GtkTextMark *nsmark, *nemark;
+	CtkTextBuffer *buf;
+	CtkTextIter s, e, ns, ne;
+	CtkTextMark *nsmark, *nemark;
 	gchar *old_text, *new_text;
 
 	buf = ctk_text_view_get_buffer (CTK_TEXT_VIEW (view));
@@ -3800,9 +3800,9 @@ ctk_source_view_move_words (GtkSourceView *view,
 }
 
 static gboolean
-buffer_contains_trailing_newline (GtkTextBuffer *buffer)
+buffer_contains_trailing_newline (CtkTextBuffer *buffer)
 {
-	GtkTextIter iter;
+	CtkTextIter iter;
 	gunichar ch;
 
 	ctk_text_buffer_get_end_iter (buffer, &iter);
@@ -3812,14 +3812,14 @@ buffer_contains_trailing_newline (GtkTextBuffer *buffer)
 	return (ch == '\n' || ch == '\r');
 }
 
-/* FIXME could be a function of GtkSourceBuffer, it's also useful for the
+/* FIXME could be a function of CtkSourceBuffer, it's also useful for the
  * FileLoader.
  */
 static void
-remove_trailing_newline (GtkTextBuffer *buffer)
+remove_trailing_newline (CtkTextBuffer *buffer)
 {
-	GtkTextIter start;
-	GtkTextIter end;
+	CtkTextIter start;
+	CtkTextIter end;
 
 	ctk_text_buffer_get_end_iter (buffer, &end);
 	start = end;
@@ -3839,15 +3839,15 @@ remove_trailing_newline (GtkTextBuffer *buffer)
 }
 
 static void
-ctk_source_view_move_lines (GtkSourceView *view,
+ctk_source_view_move_lines (CtkSourceView *view,
 			    gboolean       down)
 {
-	GtkTextBuffer *buffer;
-	GtkTextIter start;
-	GtkTextIter end;
-	GtkTextIter insert_pos;
-	GtkTextMark *start_mark;
-	GtkTextMark *end_mark;
+	CtkTextBuffer *buffer;
+	CtkTextIter start;
+	CtkTextIter end;
+	CtkTextIter insert_pos;
+	CtkTextMark *start_mark;
+	CtkTextMark *end_mark;
 	gchar *text;
 	gboolean initially_contains_trailing_newline;
 
@@ -3940,13 +3940,13 @@ ctk_source_view_move_lines (GtkSourceView *view,
 }
 
 static gboolean
-do_smart_backspace (GtkSourceView *view)
+do_smart_backspace (CtkSourceView *view)
 {
-	GtkTextBuffer *buffer;
+	CtkTextBuffer *buffer;
 	gboolean default_editable;
-	GtkTextIter insert;
-	GtkTextIter end;
-	GtkTextIter leading_end;
+	CtkTextIter insert;
+	CtkTextIter end;
+	CtkTextIter leading_end;
 	guint visual_column;
 	gint indent_width;
 
@@ -4012,12 +4012,12 @@ do_smart_backspace (GtkSourceView *view)
 }
 
 static gboolean
-do_ctrl_backspace (GtkSourceView *view)
+do_ctrl_backspace (CtkSourceView *view)
 {
-	GtkTextBuffer *buffer;
-	GtkTextIter insert;
-	GtkTextIter end;
-	GtkTextIter leading_end;
+	CtkTextBuffer *buffer;
+	CtkTextIter insert;
+	CtkTextIter end;
+	CtkTextIter leading_end;
 	gboolean default_editable;
 
 	buffer = CTK_TEXT_BUFFER (view->priv->source_buffer);
@@ -4055,13 +4055,13 @@ do_ctrl_backspace (GtkSourceView *view)
 }
 
 static gboolean
-ctk_source_view_key_press_event (GtkWidget   *widget,
+ctk_source_view_key_press_event (CtkWidget   *widget,
 				 GdkEventKey *event)
 {
-	GtkSourceView *view;
-	GtkTextBuffer *buf;
-	GtkTextIter cur;
-	GtkTextMark *mark;
+	CtkSourceView *view;
+	CtkTextBuffer *buf;
+	CtkTextIter cur;
+	CtkTextMark *mark;
 	guint modifiers;
 	gint key;
 	gboolean editable;
@@ -4136,7 +4136,7 @@ ctk_source_view_key_press_event (GtkWidget   *widget,
 	    editable &&
 	    ctk_text_view_get_accepts_tab (CTK_TEXT_VIEW (view)))
 	{
-		GtkTextIter s, e;
+		CtkTextIter s, e;
 		gboolean has_selection;
 
 		has_selection = ctk_text_buffer_get_selection_bounds (buf, &s, &e);
@@ -4194,14 +4194,14 @@ ctk_source_view_key_press_event (GtkWidget   *widget,
 
 /**
  * ctk_source_view_get_auto_indent:
- * @view: a #GtkSourceView.
+ * @view: a #CtkSourceView.
  *
  * Returns whether auto-indentation of text is enabled.
  *
  * Returns: %TRUE if auto indentation is enabled.
  */
 gboolean
-ctk_source_view_get_auto_indent (GtkSourceView *view)
+ctk_source_view_get_auto_indent (CtkSourceView *view)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_VIEW (view), FALSE);
 
@@ -4210,7 +4210,7 @@ ctk_source_view_get_auto_indent (GtkSourceView *view)
 
 /**
  * ctk_source_view_set_auto_indent:
- * @view: a #GtkSourceView.
+ * @view: a #CtkSourceView.
  * @enable: whether to enable auto indentation.
  *
  * If %TRUE auto-indentation of text is enabled.
@@ -4221,7 +4221,7 @@ ctk_source_view_get_auto_indent (GtkSourceView *view)
  * on the context.
  */
 void
-ctk_source_view_set_auto_indent (GtkSourceView *view,
+ctk_source_view_set_auto_indent (CtkSourceView *view,
 				 gboolean       enable)
 {
 	g_return_if_fail (CTK_SOURCE_IS_VIEW (view));
@@ -4237,7 +4237,7 @@ ctk_source_view_set_auto_indent (GtkSourceView *view,
 
 /**
  * ctk_source_view_get_insert_spaces_instead_of_tabs:
- * @view: a #GtkSourceView.
+ * @view: a #CtkSourceView.
  *
  * Returns whether when inserting a tabulator character it should
  * be replaced by a group of space characters.
@@ -4245,7 +4245,7 @@ ctk_source_view_set_auto_indent (GtkSourceView *view,
  * Returns: %TRUE if spaces are inserted instead of tabs.
  */
 gboolean
-ctk_source_view_get_insert_spaces_instead_of_tabs (GtkSourceView *view)
+ctk_source_view_get_insert_spaces_instead_of_tabs (CtkSourceView *view)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_VIEW (view), FALSE);
 
@@ -4254,15 +4254,15 @@ ctk_source_view_get_insert_spaces_instead_of_tabs (GtkSourceView *view)
 
 /**
  * ctk_source_view_set_insert_spaces_instead_of_tabs:
- * @view: a #GtkSourceView.
+ * @view: a #CtkSourceView.
  * @enable: whether to insert spaces instead of tabs.
  *
  * If %TRUE a tab key pressed is replaced by a group of space characters. Of
  * course it is still possible to insert a real \t programmatically with the
- * #GtkTextBuffer API.
+ * #CtkTextBuffer API.
  */
 void
-ctk_source_view_set_insert_spaces_instead_of_tabs (GtkSourceView *view,
+ctk_source_view_set_insert_spaces_instead_of_tabs (CtkSourceView *view,
 						   gboolean       enable)
 {
 	g_return_if_fail (CTK_SOURCE_IS_VIEW (view));
@@ -4278,7 +4278,7 @@ ctk_source_view_set_insert_spaces_instead_of_tabs (GtkSourceView *view,
 
 /**
  * ctk_source_view_get_indent_on_tab:
- * @view: a #GtkSourceView.
+ * @view: a #CtkSourceView.
  *
  * Returns whether when the tab key is pressed the current selection
  * should get indented instead of replaced with the \t character.
@@ -4286,7 +4286,7 @@ ctk_source_view_set_insert_spaces_instead_of_tabs (GtkSourceView *view,
  * Return value: %TRUE if the selection is indented when tab is pressed.
  */
 gboolean
-ctk_source_view_get_indent_on_tab (GtkSourceView *view)
+ctk_source_view_get_indent_on_tab (CtkSourceView *view)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_VIEW (view), FALSE);
 
@@ -4295,7 +4295,7 @@ ctk_source_view_get_indent_on_tab (GtkSourceView *view)
 
 /**
  * ctk_source_view_set_indent_on_tab:
- * @view: a #GtkSourceView.
+ * @view: a #CtkSourceView.
  * @enable: whether to indent a block when tab is pressed.
  *
  * If %TRUE, when the tab key is pressed when several lines are selected, the
@@ -4309,7 +4309,7 @@ ctk_source_view_get_indent_on_tab (GtkSourceView *view)
  * the selection with a normal \t character.
  */
 void
-ctk_source_view_set_indent_on_tab (GtkSourceView *view,
+ctk_source_view_set_indent_on_tab (CtkSourceView *view,
 				   gboolean       enable)
 {
 	g_return_if_fail (CTK_SOURCE_IS_VIEW (view));
@@ -4324,17 +4324,17 @@ ctk_source_view_set_indent_on_tab (GtkSourceView *view,
 }
 
 static void
-view_dnd_drop (GtkTextView      *view,
+view_dnd_drop (CtkTextView      *view,
 	       GdkDragContext   *context,
 	       gint              x,
 	       gint              y,
-	       GtkSelectionData *selection_data,
+	       CtkSelectionData *selection_data,
 	       guint             info,
 	       guint             timestamp,
 	       gpointer          data)
 {
 
-	GtkTextIter iter;
+	CtkTextIter iter;
 
 	if (info == TARGET_COLOR)
 	{
@@ -4415,14 +4415,14 @@ view_dnd_drop (GtkTextView      *view,
 
 /**
  * ctk_source_view_get_highlight_current_line:
- * @view: a #GtkSourceView.
+ * @view: a #CtkSourceView.
  *
  * Returns whether the current line is highlighted.
  *
  * Return value: %TRUE if the current line is highlighted.
  */
 gboolean
-ctk_source_view_get_highlight_current_line (GtkSourceView *view)
+ctk_source_view_get_highlight_current_line (CtkSourceView *view)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_VIEW (view), FALSE);
 
@@ -4431,13 +4431,13 @@ ctk_source_view_get_highlight_current_line (GtkSourceView *view)
 
 /**
  * ctk_source_view_set_highlight_current_line:
- * @view: a #GtkSourceView.
+ * @view: a #CtkSourceView.
  * @highlight: whether to highlight the current line.
  *
  * If @highlight is %TRUE the current line will be highlighted.
  */
 void
-ctk_source_view_set_highlight_current_line (GtkSourceView *view,
+ctk_source_view_set_highlight_current_line (CtkSourceView *view,
 					    gboolean       highlight)
 {
 	g_return_if_fail (CTK_SOURCE_IS_VIEW (view));
@@ -4456,14 +4456,14 @@ ctk_source_view_set_highlight_current_line (GtkSourceView *view,
 
 /**
  * ctk_source_view_get_show_right_margin:
- * @view: a #GtkSourceView.
+ * @view: a #CtkSourceView.
  *
  * Returns whether a right margin is displayed.
  *
  * Return value: %TRUE if the right margin is shown.
  */
 gboolean
-ctk_source_view_get_show_right_margin (GtkSourceView *view)
+ctk_source_view_get_show_right_margin (CtkSourceView *view)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_VIEW (view), FALSE);
 
@@ -4472,13 +4472,13 @@ ctk_source_view_get_show_right_margin (GtkSourceView *view)
 
 /**
  * ctk_source_view_set_show_right_margin:
- * @view: a #GtkSourceView.
+ * @view: a #CtkSourceView.
  * @show: whether to show a right margin.
  *
  * If %TRUE a right margin is displayed.
  */
 void
-ctk_source_view_set_show_right_margin (GtkSourceView *view,
+ctk_source_view_set_show_right_margin (CtkSourceView *view,
 				       gboolean       show)
 {
 	g_return_if_fail (CTK_SOURCE_IS_VIEW (view));
@@ -4497,14 +4497,14 @@ ctk_source_view_set_show_right_margin (GtkSourceView *view,
 
 /**
  * ctk_source_view_get_right_margin_position:
- * @view: a #GtkSourceView.
+ * @view: a #CtkSourceView.
  *
  * Gets the position of the right margin in the given @view.
  *
  * Return value: the position of the right margin.
  */
 guint
-ctk_source_view_get_right_margin_position (GtkSourceView *view)
+ctk_source_view_get_right_margin_position (CtkSourceView *view)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_VIEW (view), DEFAULT_RIGHT_MARGIN_POSITION);
 
@@ -4513,13 +4513,13 @@ ctk_source_view_get_right_margin_position (GtkSourceView *view)
 
 /**
  * ctk_source_view_set_right_margin_position:
- * @view: a #GtkSourceView.
+ * @view: a #CtkSourceView.
  * @pos: the width in characters where to position the right margin.
  *
  * Sets the position of the right margin in the given @view.
  */
 void
-ctk_source_view_set_right_margin_position (GtkSourceView *view,
+ctk_source_view_set_right_margin_position (CtkSourceView *view,
 					   guint          pos)
 {
 	g_return_if_fail (CTK_SOURCE_IS_VIEW (view));
@@ -4538,7 +4538,7 @@ ctk_source_view_set_right_margin_position (GtkSourceView *view,
 
 /**
  * ctk_source_view_set_smart_backspace:
- * @view: a #GtkSourceView.
+ * @view: a #CtkSourceView.
  * @smart_backspace: whether to enable smart Backspace handling.
  *
  * When set to %TRUE, pressing the Backspace key will try to delete spaces
@@ -4547,7 +4547,7 @@ ctk_source_view_set_right_margin_position (GtkSourceView *view,
  * Since: 3.18
  */
 void
-ctk_source_view_set_smart_backspace (GtkSourceView *view,
+ctk_source_view_set_smart_backspace (CtkSourceView *view,
                                      gboolean       smart_backspace)
 {
 	g_return_if_fail (CTK_SOURCE_IS_VIEW (view));
@@ -4563,7 +4563,7 @@ ctk_source_view_set_smart_backspace (GtkSourceView *view,
 
 /**
  * ctk_source_view_get_smart_backspace:
- * @view: a #GtkSourceView.
+ * @view: a #CtkSourceView.
  *
  * Returns %TRUE if pressing the Backspace key will try to delete spaces
  * up to the previous tab stop.
@@ -4573,7 +4573,7 @@ ctk_source_view_set_smart_backspace (GtkSourceView *view,
  * Since: 3.18
  */
 gboolean
-ctk_source_view_get_smart_backspace (GtkSourceView *view)
+ctk_source_view_get_smart_backspace (CtkSourceView *view)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_VIEW (view), FALSE);
 
@@ -4582,15 +4582,15 @@ ctk_source_view_get_smart_backspace (GtkSourceView *view)
 
 /**
  * ctk_source_view_set_smart_home_end:
- * @view: a #GtkSourceView.
- * @smart_home_end: the desired behavior among #GtkSourceSmartHomeEndType.
+ * @view: a #CtkSourceView.
+ * @smart_home_end: the desired behavior among #CtkSourceSmartHomeEndType.
  *
  * Set the desired movement of the cursor when HOME and END keys
  * are pressed.
  */
 void
-ctk_source_view_set_smart_home_end (GtkSourceView             *view,
-				    GtkSourceSmartHomeEndType  smart_home_end)
+ctk_source_view_set_smart_home_end (CtkSourceView             *view,
+				    CtkSourceSmartHomeEndType  smart_home_end)
 {
 	g_return_if_fail (CTK_SOURCE_IS_VIEW (view));
 
@@ -4603,15 +4603,15 @@ ctk_source_view_set_smart_home_end (GtkSourceView             *view,
 
 /**
  * ctk_source_view_get_smart_home_end:
- * @view: a #GtkSourceView.
+ * @view: a #CtkSourceView.
  *
- * Returns a #GtkSourceSmartHomeEndType end value specifying
+ * Returns a #CtkSourceSmartHomeEndType end value specifying
  * how the cursor will move when HOME and END keys are pressed.
  *
- * Returns: a #GtkSourceSmartHomeEndType value.
+ * Returns: a #CtkSourceSmartHomeEndType value.
  */
-GtkSourceSmartHomeEndType
-ctk_source_view_get_smart_home_end (GtkSourceView *view)
+CtkSourceSmartHomeEndType
+ctk_source_view_get_smart_home_end (CtkSourceView *view)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_VIEW (view), FALSE);
 
@@ -4620,19 +4620,19 @@ ctk_source_view_get_smart_home_end (GtkSourceView *view)
 
 /**
  * ctk_source_view_get_visual_column:
- * @view: a #GtkSourceView.
+ * @view: a #CtkSourceView.
  * @iter: a position in @view.
  *
  * Determines the visual column at @iter taking into consideration the
- * #GtkSourceView:tab-width of @view.
+ * #CtkSourceView:tab-width of @view.
  *
  * Returns: the visual column at @iter.
  */
 guint
-ctk_source_view_get_visual_column (GtkSourceView     *view,
-				   const GtkTextIter *iter)
+ctk_source_view_get_visual_column (CtkSourceView     *view,
+				   const CtkTextIter *iter)
 {
-	GtkTextIter position;
+	CtkTextIter position;
 	guint column;
 	guint tab_width;
 
@@ -4668,7 +4668,7 @@ ctk_source_view_get_visual_column (GtkSourceView     *view,
 }
 
 static void
-update_background_pattern_color (GtkSourceView *view)
+update_background_pattern_color (CtkSourceView *view)
 {
 	if (view->priv->style_scheme == NULL)
 	{
@@ -4682,7 +4682,7 @@ update_background_pattern_color (GtkSourceView *view)
 }
 
 static void
-update_current_line_color (GtkSourceView *view)
+update_current_line_color (CtkSourceView *view)
 {
 	if (view->priv->style_scheme == NULL)
 	{
@@ -4696,9 +4696,9 @@ update_current_line_color (GtkSourceView *view)
 }
 
 static void
-update_right_margin_colors (GtkSourceView *view)
+update_right_margin_colors (CtkSourceView *view)
 {
-	GtkWidget *widget = CTK_WIDGET (view);
+	CtkWidget *widget = CTK_WIDGET (view);
 
 	if (view->priv->right_margin_line_color != NULL)
 	{
@@ -4714,7 +4714,7 @@ update_right_margin_colors (GtkSourceView *view)
 
 	if (view->priv->style_scheme != NULL)
 	{
-		GtkSourceStyle *style;
+		CtkSourceStyle *style;
 
 		style = _ctk_source_style_scheme_get_right_margin_style (view->priv->style_scheme);
 
@@ -4761,7 +4761,7 @@ update_right_margin_colors (GtkSourceView *view)
 
 	if (view->priv->right_margin_line_color == NULL)
 	{
-		GtkStyleContext *context;
+		CtkStyleContext *context;
 		GdkRGBA color;
 
 		context = ctk_widget_get_style_context (widget);
@@ -4779,7 +4779,7 @@ update_right_margin_colors (GtkSourceView *view)
 }
 
 static void
-update_style (GtkSourceView *view)
+update_style (CtkSourceView *view)
 {
 	update_background_pattern_color (view);
 	update_current_line_color (view);
@@ -4794,10 +4794,10 @@ update_style (GtkSourceView *view)
 }
 
 static void
-ctk_source_view_update_style_scheme (GtkSourceView *view)
+ctk_source_view_update_style_scheme (CtkSourceView *view)
 {
-	GtkTextBuffer *buffer;
-	GtkSourceStyleScheme *new_scheme = NULL;
+	CtkTextBuffer *buffer;
+	CtkSourceStyleScheme *new_scheme = NULL;
 
 	buffer = ctk_text_view_get_buffer (CTK_TEXT_VIEW (view));
 
@@ -4827,9 +4827,9 @@ ctk_source_view_update_style_scheme (GtkSourceView *view)
 }
 
 static void
-ctk_source_view_style_updated (GtkWidget *widget)
+ctk_source_view_style_updated (CtkWidget *widget)
 {
-	GtkSourceView *view = CTK_SOURCE_VIEW (widget);
+	CtkSourceView *view = CTK_SOURCE_VIEW (widget);
 
 	/* Call default handler first. */
 	if (CTK_WIDGET_CLASS (ctk_source_view_parent_class)->style_updated != NULL)
@@ -4852,7 +4852,7 @@ ctk_source_view_style_updated (GtkWidget *widget)
 }
 
 static MarkCategory *
-mark_category_new (GtkSourceMarkAttributes *attributes,
+mark_category_new (CtkSourceMarkAttributes *attributes,
 		   gint                     priority)
 {
 	MarkCategory* category = g_slice_new (MarkCategory);
@@ -4875,16 +4875,16 @@ mark_category_free (MarkCategory *category)
 
 /**
  * ctk_source_view_get_completion:
- * @view: a #GtkSourceView.
+ * @view: a #CtkSourceView.
  *
- * Gets the #GtkSourceCompletion associated with @view. The returned object is
- * guaranteed to be the same for the lifetime of @view. Each #GtkSourceView
- * object has a different #GtkSourceCompletion.
+ * Gets the #CtkSourceCompletion associated with @view. The returned object is
+ * guaranteed to be the same for the lifetime of @view. Each #CtkSourceView
+ * object has a different #CtkSourceCompletion.
  *
- * Returns: (transfer none): the #GtkSourceCompletion associated with @view.
+ * Returns: (transfer none): the #CtkSourceCompletion associated with @view.
  */
-GtkSourceCompletion *
-ctk_source_view_get_completion (GtkSourceView *view)
+CtkSourceCompletion *
+ctk_source_view_get_completion (CtkSourceView *view)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_VIEW (view), NULL);
 
@@ -4898,21 +4898,21 @@ ctk_source_view_get_completion (GtkSourceView *view)
 
 /**
  * ctk_source_view_get_gutter:
- * @view: a #GtkSourceView.
+ * @view: a #CtkSourceView.
  * @window_type: the gutter window type.
  *
- * Returns the #GtkSourceGutter object associated with @window_type for @view.
+ * Returns the #CtkSourceGutter object associated with @window_type for @view.
  * Only CTK_TEXT_WINDOW_LEFT and CTK_TEXT_WINDOW_RIGHT are supported,
  * respectively corresponding to the left and right gutter. The line numbers
  * and mark category icons are rendered in the left gutter.
  *
  * Since: 2.8
  *
- * Returns: (transfer none): the #GtkSourceGutter.
+ * Returns: (transfer none): the #CtkSourceGutter.
  */
-GtkSourceGutter *
-ctk_source_view_get_gutter (GtkSourceView     *view,
-			    GtkTextWindowType  window_type)
+CtkSourceGutter *
+ctk_source_view_get_gutter (CtkSourceView     *view,
+			    CtkTextWindowType  window_type)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_VIEW (view), NULL);
 	g_return_val_if_fail (window_type == CTK_TEXT_WINDOW_LEFT ||
@@ -4940,7 +4940,7 @@ ctk_source_view_get_gutter (GtkSourceView     *view,
 
 /**
  * ctk_source_view_set_mark_attributes:
- * @view: a #GtkSourceView.
+ * @view: a #CtkSourceView.
  * @category: the category.
  * @attributes: mark attributes.
  * @priority: priority of the category.
@@ -4948,9 +4948,9 @@ ctk_source_view_get_gutter (GtkSourceView     *view,
  * Sets attributes and priority for the @category.
  */
 void
-ctk_source_view_set_mark_attributes (GtkSourceView           *view,
+ctk_source_view_set_mark_attributes (CtkSourceView           *view,
 				     const gchar             *category,
-				     GtkSourceMarkAttributes *attributes,
+				     CtkSourceMarkAttributes *attributes,
 				     gint                     priority)
 {
 	MarkCategory *mark_category;
@@ -4968,17 +4968,17 @@ ctk_source_view_set_mark_attributes (GtkSourceView           *view,
 
 /**
  * ctk_source_view_get_mark_attributes:
- * @view: a #GtkSourceView.
+ * @view: a #CtkSourceView.
  * @category: the category.
  * @priority: place where priority of the category will be stored.
  *
  * Gets attributes and priority for the @category.
  *
- * Returns: (transfer none): #GtkSourceMarkAttributes for the @category.
+ * Returns: (transfer none): #CtkSourceMarkAttributes for the @category.
  * The object belongs to @view, so it must not be unreffed.
  */
-GtkSourceMarkAttributes *
-ctk_source_view_get_mark_attributes (GtkSourceView *view,
+CtkSourceMarkAttributes *
+ctk_source_view_get_mark_attributes (CtkSourceView *view,
 				     const gchar   *category,
 				     gint          *priority)
 {
@@ -5005,16 +5005,16 @@ ctk_source_view_get_mark_attributes (GtkSourceView *view,
 
 /**
  * ctk_source_view_set_background_pattern:
- * @view: a #GtkSourceView.
- * @background_pattern: the #GtkSourceBackgroundPatternType.
+ * @view: a #CtkSourceView.
+ * @background_pattern: the #CtkSourceBackgroundPatternType.
  *
  * Set if and how the background pattern should be displayed.
  *
  * Since: 3.16
  */
 void
-ctk_source_view_set_background_pattern (GtkSourceView                  *view,
-					GtkSourceBackgroundPatternType  background_pattern)
+ctk_source_view_set_background_pattern (CtkSourceView                  *view,
+					CtkSourceBackgroundPatternType  background_pattern)
 {
 	g_return_if_fail (CTK_SOURCE_IS_VIEW (view));
 
@@ -5030,16 +5030,16 @@ ctk_source_view_set_background_pattern (GtkSourceView                  *view,
 
 /**
  * ctk_source_view_get_background_pattern:
- * @view: a #GtkSourceView
+ * @view: a #CtkSourceView
  *
- * Returns the #GtkSourceBackgroundPatternType specifying if and how
+ * Returns the #CtkSourceBackgroundPatternType specifying if and how
  * the background pattern should be displayed for this @view.
  *
- * Returns: the #GtkSourceBackgroundPatternType.
+ * Returns: the #CtkSourceBackgroundPatternType.
  * Since: 3.16
  */
-GtkSourceBackgroundPatternType
-ctk_source_view_get_background_pattern (GtkSourceView *view)
+CtkSourceBackgroundPatternType
+ctk_source_view_get_background_pattern (CtkSourceView *view)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_VIEW (view), CTK_SOURCE_BACKGROUND_PATTERN_TYPE_NONE);
 
@@ -5048,17 +5048,17 @@ ctk_source_view_get_background_pattern (GtkSourceView *view)
 
 /**
  * ctk_source_view_get_space_drawer:
- * @view: a #GtkSourceView.
+ * @view: a #CtkSourceView.
  *
- * Gets the #GtkSourceSpaceDrawer associated with @view. The returned object is
- * guaranteed to be the same for the lifetime of @view. Each #GtkSourceView
- * object has a different #GtkSourceSpaceDrawer.
+ * Gets the #CtkSourceSpaceDrawer associated with @view. The returned object is
+ * guaranteed to be the same for the lifetime of @view. Each #CtkSourceView
+ * object has a different #CtkSourceSpaceDrawer.
  *
- * Returns: (transfer none): the #GtkSourceSpaceDrawer associated with @view.
+ * Returns: (transfer none): the #CtkSourceSpaceDrawer associated with @view.
  * Since: 3.24
  */
-GtkSourceSpaceDrawer *
-ctk_source_view_get_space_drawer (GtkSourceView *view)
+CtkSourceSpaceDrawer *
+ctk_source_view_get_space_drawer (CtkSourceView *view)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_VIEW (view), NULL);
 

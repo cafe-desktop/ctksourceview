@@ -1,16 +1,16 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*- */
 /*
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2007 - 2009 Jesús Barbero Rodríguez <chuchiperriman@gmail.com>
  * Copyright (C) 2009 - Jesse van den Kieboom <jessevdk@gnome.org>
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -29,10 +29,10 @@
 
 /**
  * SECTION:completionprovider
- * @title: GtkSourceCompletionProvider
+ * @title: CtkSourceCompletionProvider
  * @short_description: Completion provider interface
  *
- * You must implement this interface to provide proposals to #GtkSourceCompletion
+ * You must implement this interface to provide proposals to #CtkSourceCompletion
  *
  * The provider may be displayed in the completion window as a header row, showing
  * its name and optionally an icon.
@@ -42,102 +42,102 @@
  * will be used.
  */
 
-typedef GtkSourceCompletionProviderIface GtkSourceCompletionProviderInterface;
+typedef CtkSourceCompletionProviderIface CtkSourceCompletionProviderInterface;
 
-G_DEFINE_INTERFACE(GtkSourceCompletionProvider, ctk_source_completion_provider, G_TYPE_OBJECT)
+G_DEFINE_INTERFACE(CtkSourceCompletionProvider, ctk_source_completion_provider, G_TYPE_OBJECT)
 
 /* Default implementations */
 static gchar *
-ctk_source_completion_provider_get_name_default (GtkSourceCompletionProvider *provider)
+ctk_source_completion_provider_get_name_default (CtkSourceCompletionProvider *provider)
 {
 	g_return_val_if_reached (NULL);
 }
 
 static GdkPixbuf *
-ctk_source_completion_provider_get_icon_default (GtkSourceCompletionProvider *provider)
+ctk_source_completion_provider_get_icon_default (CtkSourceCompletionProvider *provider)
 {
 	return NULL;
 }
 
 static const gchar *
-ctk_source_completion_provider_get_icon_name_default (GtkSourceCompletionProvider *provider)
+ctk_source_completion_provider_get_icon_name_default (CtkSourceCompletionProvider *provider)
 {
 	return NULL;
 }
 
 static GIcon *
-ctk_source_completion_provider_get_gicon_default (GtkSourceCompletionProvider *provider)
+ctk_source_completion_provider_get_gicon_default (CtkSourceCompletionProvider *provider)
 {
 	return NULL;
 }
 
 static void
-ctk_source_completion_provider_populate_default (GtkSourceCompletionProvider *provider,
-                                                 GtkSourceCompletionContext  *context)
+ctk_source_completion_provider_populate_default (CtkSourceCompletionProvider *provider,
+                                                 CtkSourceCompletionContext  *context)
 {
 	ctk_source_completion_context_add_proposals (context, provider, NULL, TRUE);
 }
 
-static GtkSourceCompletionActivation
-ctk_source_completion_provider_get_activation_default (GtkSourceCompletionProvider *provider)
+static CtkSourceCompletionActivation
+ctk_source_completion_provider_get_activation_default (CtkSourceCompletionProvider *provider)
 {
 	return CTK_SOURCE_COMPLETION_ACTIVATION_INTERACTIVE |
 	       CTK_SOURCE_COMPLETION_ACTIVATION_USER_REQUESTED;
 }
 
 static gboolean
-ctk_source_completion_provider_match_default (GtkSourceCompletionProvider *provider,
-                                              GtkSourceCompletionContext  *context)
+ctk_source_completion_provider_match_default (CtkSourceCompletionProvider *provider,
+                                              CtkSourceCompletionContext  *context)
 {
 	return TRUE;
 }
 
-static GtkWidget *
-ctk_source_completion_provider_get_info_widget_default (GtkSourceCompletionProvider *provider,
-                                                        GtkSourceCompletionProposal *proposal)
+static CtkWidget *
+ctk_source_completion_provider_get_info_widget_default (CtkSourceCompletionProvider *provider,
+                                                        CtkSourceCompletionProposal *proposal)
 {
 	return NULL;
 }
 
 static void
-ctk_source_completion_provider_update_info_default (GtkSourceCompletionProvider *provider,
-                                                    GtkSourceCompletionProposal *proposal,
-                                                    GtkSourceCompletionInfo     *info)
+ctk_source_completion_provider_update_info_default (CtkSourceCompletionProvider *provider,
+                                                    CtkSourceCompletionProposal *proposal,
+                                                    CtkSourceCompletionInfo     *info)
 {
 }
 
 static gboolean
-ctk_source_completion_provider_get_start_iter_default (GtkSourceCompletionProvider *provider,
-                                                       GtkSourceCompletionContext  *context,
-                                                       GtkSourceCompletionProposal *proposal,
-                                                       GtkTextIter                 *iter)
+ctk_source_completion_provider_get_start_iter_default (CtkSourceCompletionProvider *provider,
+                                                       CtkSourceCompletionContext  *context,
+                                                       CtkSourceCompletionProposal *proposal,
+                                                       CtkTextIter                 *iter)
 {
 	return FALSE;
 }
 
 static gboolean
-ctk_source_completion_provider_activate_proposal_default (GtkSourceCompletionProvider *provider,
-                                                          GtkSourceCompletionProposal *proposal,
-                                                          GtkTextIter                 *iter)
+ctk_source_completion_provider_activate_proposal_default (CtkSourceCompletionProvider *provider,
+                                                          CtkSourceCompletionProposal *proposal,
+                                                          CtkTextIter                 *iter)
 {
 	return FALSE;
 }
 
 static gint
-ctk_source_completion_provider_get_interactive_delay_default (GtkSourceCompletionProvider *provider)
+ctk_source_completion_provider_get_interactive_delay_default (CtkSourceCompletionProvider *provider)
 {
 	/* -1 means the default value in the completion object */
 	return -1;
 }
 
 static gint
-ctk_source_completion_provider_get_priority_default (GtkSourceCompletionProvider *provider)
+ctk_source_completion_provider_get_priority_default (CtkSourceCompletionProvider *provider)
 {
 	return 0;
 }
 
 static void
-ctk_source_completion_provider_default_init (GtkSourceCompletionProviderIface *iface)
+ctk_source_completion_provider_default_init (CtkSourceCompletionProviderIface *iface)
 {
 	iface->get_name = ctk_source_completion_provider_get_name_default;
 
@@ -162,7 +162,7 @@ ctk_source_completion_provider_default_init (GtkSourceCompletionProviderIface *i
 
 /**
  * ctk_source_completion_provider_get_name:
- * @provider: a #GtkSourceCompletionProvider.
+ * @provider: a #CtkSourceCompletionProvider.
  *
  * Get the name of the provider. This should be a translatable name for
  * display to the user. For example: _("Document word completion provider"). The
@@ -171,7 +171,7 @@ ctk_source_completion_provider_default_init (GtkSourceCompletionProviderIface *i
  * Returns: a new string containing the name of the provider.
  */
 gchar *
-ctk_source_completion_provider_get_name (GtkSourceCompletionProvider *provider)
+ctk_source_completion_provider_get_name (CtkSourceCompletionProvider *provider)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_PROVIDER (provider), NULL);
 
@@ -180,7 +180,7 @@ ctk_source_completion_provider_get_name (GtkSourceCompletionProvider *provider)
 
 /**
  * ctk_source_completion_provider_get_icon:
- * @provider: The #GtkSourceCompletionProvider
+ * @provider: The #CtkSourceCompletionProvider
  *
  * Get the #GdkPixbuf for the icon of the @provider.
  *
@@ -188,7 +188,7 @@ ctk_source_completion_provider_get_name (GtkSourceCompletionProvider *provider)
  *          or %NULL if the provider does not have a special icon.
  */
 GdkPixbuf *
-ctk_source_completion_provider_get_icon (GtkSourceCompletionProvider *provider)
+ctk_source_completion_provider_get_icon (CtkSourceCompletionProvider *provider)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_PROVIDER (provider), NULL);
 
@@ -197,7 +197,7 @@ ctk_source_completion_provider_get_icon (GtkSourceCompletionProvider *provider)
 
 /**
  * ctk_source_completion_provider_get_icon_name:
- * @provider: The #GtkSourceCompletionProvider
+ * @provider: The #CtkSourceCompletionProvider
  *
  * Gets the icon name of @provider.
  *
@@ -207,7 +207,7 @@ ctk_source_completion_provider_get_icon (GtkSourceCompletionProvider *provider)
  * Since: 3.18
  */
 const gchar *
-ctk_source_completion_provider_get_icon_name (GtkSourceCompletionProvider *provider)
+ctk_source_completion_provider_get_icon_name (CtkSourceCompletionProvider *provider)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_PROVIDER (provider), NULL);
 
@@ -216,7 +216,7 @@ ctk_source_completion_provider_get_icon_name (GtkSourceCompletionProvider *provi
 
 /**
  * ctk_source_completion_provider_get_gicon:
- * @provider: The #GtkSourceCompletionProvider
+ * @provider: The #CtkSourceCompletionProvider
  *
  * Gets the #GIcon for the icon of @provider.
  *
@@ -226,7 +226,7 @@ ctk_source_completion_provider_get_icon_name (GtkSourceCompletionProvider *provi
  * Since: 3.18
  */
 GIcon *
-ctk_source_completion_provider_get_gicon (GtkSourceCompletionProvider *provider)
+ctk_source_completion_provider_get_gicon (CtkSourceCompletionProvider *provider)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_PROVIDER (provider), NULL);
 
@@ -235,15 +235,15 @@ ctk_source_completion_provider_get_gicon (GtkSourceCompletionProvider *provider)
 
 /**
  * ctk_source_completion_provider_populate:
- * @provider: a #GtkSourceCompletionProvider.
- * @context: a #GtkSourceCompletionContext.
+ * @provider: a #CtkSourceCompletionProvider.
+ * @context: a #CtkSourceCompletionContext.
  *
  * Populate @context with proposals from @provider added with the
  * ctk_source_completion_context_add_proposals() function.
  */
 void
-ctk_source_completion_provider_populate (GtkSourceCompletionProvider *provider,
-                                         GtkSourceCompletionContext  *context)
+ctk_source_completion_provider_populate (CtkSourceCompletionProvider *provider,
+                                         CtkSourceCompletionContext  *context)
 {
 	g_return_if_fail (CTK_SOURCE_IS_COMPLETION_PROVIDER (provider));
 
@@ -252,14 +252,14 @@ ctk_source_completion_provider_populate (GtkSourceCompletionProvider *provider,
 
 /**
  * ctk_source_completion_provider_get_activation:
- * @provider: a #GtkSourceCompletionProvider.
+ * @provider: a #CtkSourceCompletionProvider.
  *
  * Get with what kind of activation the provider should be activated.
  *
- * Returns: a combination of #GtkSourceCompletionActivation.
+ * Returns: a combination of #CtkSourceCompletionActivation.
  **/
-GtkSourceCompletionActivation
-ctk_source_completion_provider_get_activation (GtkSourceCompletionProvider *provider)
+CtkSourceCompletionActivation
+ctk_source_completion_provider_get_activation (CtkSourceCompletionProvider *provider)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_PROVIDER (provider), CTK_SOURCE_COMPLETION_ACTIVATION_NONE);
 
@@ -268,8 +268,8 @@ ctk_source_completion_provider_get_activation (GtkSourceCompletionProvider *prov
 
 /**
  * ctk_source_completion_provider_match:
- * @provider: a #GtkSourceCompletionProvider.
- * @context: a #GtkSourceCompletionContext.
+ * @provider: a #CtkSourceCompletionProvider.
+ * @context: a #CtkSourceCompletionContext.
  *
  * Get whether the provider match the context of completion detailed in
  * @context.
@@ -277,8 +277,8 @@ ctk_source_completion_provider_get_activation (GtkSourceCompletionProvider *prov
  * Returns: %TRUE if @provider matches the completion context, %FALSE otherwise.
  */
 gboolean
-ctk_source_completion_provider_match (GtkSourceCompletionProvider *provider,
-                                      GtkSourceCompletionContext  *context)
+ctk_source_completion_provider_match (CtkSourceCompletionProvider *provider,
+                                      CtkSourceCompletionContext  *context)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_PROVIDER (provider), TRUE);
 
@@ -288,17 +288,17 @@ ctk_source_completion_provider_match (GtkSourceCompletionProvider *provider,
 
 /**
  * ctk_source_completion_provider_get_info_widget:
- * @provider: a #GtkSourceCompletionProvider.
- * @proposal: a currently selected #GtkSourceCompletionProposal.
+ * @provider: a #CtkSourceCompletionProvider.
+ * @proposal: a currently selected #CtkSourceCompletionProposal.
  *
  * Get a customized info widget to show extra information of a proposal.
  * This allows for customized widgets on a proposal basis, although in general
  * providers will have the same custom widget for all their proposals and
  * @proposal can be ignored. The implementation of this function is optional.
  *
- * If this function is not implemented, the default widget is a #GtkLabel. The
+ * If this function is not implemented, the default widget is a #CtkLabel. The
  * return value of ctk_source_completion_proposal_get_info() is used as the
- * content of the #GtkLabel.
+ * content of the #CtkLabel.
  *
  * <note>
  *   <para>
@@ -307,13 +307,13 @@ ctk_source_completion_provider_match (GtkSourceCompletionProvider *provider,
  *   </para>
  * </note>
  *
- * Returns: (nullable) (transfer none): a custom #GtkWidget to show extra
+ * Returns: (nullable) (transfer none): a custom #CtkWidget to show extra
  * information about @proposal, or %NULL if the provider does not have a special
  * info widget.
  */
-GtkWidget *
-ctk_source_completion_provider_get_info_widget (GtkSourceCompletionProvider *provider,
-                                                GtkSourceCompletionProposal *proposal)
+CtkWidget *
+ctk_source_completion_provider_get_info_widget (CtkSourceCompletionProvider *provider,
+                                                CtkSourceCompletionProposal *proposal)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_PROVIDER (provider), NULL);
 	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_PROPOSAL (proposal), NULL);
@@ -323,9 +323,9 @@ ctk_source_completion_provider_get_info_widget (GtkSourceCompletionProvider *pro
 
 /**
  * ctk_source_completion_provider_update_info:
- * @provider: a #GtkSourceCompletionProvider.
- * @proposal: a #GtkSourceCompletionProposal.
- * @info: a #GtkSourceCompletionInfo.
+ * @provider: a #CtkSourceCompletionProvider.
+ * @proposal: a #CtkSourceCompletionProposal.
+ * @info: a #CtkSourceCompletionInfo.
  *
  * Update extra information shown in @info for @proposal.
  *
@@ -337,9 +337,9 @@ ctk_source_completion_provider_get_info_widget (GtkSourceCompletionProvider *pro
  * </note>
  */
 void
-ctk_source_completion_provider_update_info (GtkSourceCompletionProvider *provider,
-                                            GtkSourceCompletionProposal *proposal,
-                                            GtkSourceCompletionInfo     *info)
+ctk_source_completion_provider_update_info (CtkSourceCompletionProvider *provider,
+                                            CtkSourceCompletionProposal *proposal,
+                                            CtkSourceCompletionInfo     *info)
 {
 	g_return_if_fail (CTK_SOURCE_IS_COMPLETION_PROVIDER (provider));
 	g_return_if_fail (CTK_SOURCE_IS_COMPLETION_PROPOSAL (proposal));
@@ -350,12 +350,12 @@ ctk_source_completion_provider_update_info (GtkSourceCompletionProvider *provide
 
 /**
  * ctk_source_completion_provider_get_start_iter:
- * @provider: a #GtkSourceCompletionProvider.
- * @proposal: a #GtkSourceCompletionProposal.
- * @context: a #GtkSourceCompletionContext.
- * @iter: (out): a #GtkTextIter.
+ * @provider: a #CtkSourceCompletionProvider.
+ * @proposal: a #CtkSourceCompletionProposal.
+ * @context: a #CtkSourceCompletionContext.
+ * @iter: (out): a #CtkTextIter.
  *
- * Get the #GtkTextIter at which the completion for @proposal starts. When
+ * Get the #CtkTextIter at which the completion for @proposal starts. When
  * implemented, this information is used to position the completion window
  * accordingly when a proposal is selected in the completion window. The
  * @proposal text inside the completion window is aligned on @iter.
@@ -371,10 +371,10 @@ ctk_source_completion_provider_update_info (GtkSourceCompletionProvider *provide
  * Returns: %TRUE if @iter was set for @proposal, %FALSE otherwise.
  */
 gboolean
-ctk_source_completion_provider_get_start_iter (GtkSourceCompletionProvider *provider,
-                                               GtkSourceCompletionContext  *context,
-                                               GtkSourceCompletionProposal *proposal,
-                                               GtkTextIter                 *iter)
+ctk_source_completion_provider_get_start_iter (CtkSourceCompletionProvider *provider,
+                                               CtkSourceCompletionContext  *context,
+                                               CtkSourceCompletionProposal *proposal,
+                                               CtkTextIter                 *iter)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_PROVIDER (provider), FALSE);
 	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_CONTEXT (context), FALSE);
@@ -389,9 +389,9 @@ ctk_source_completion_provider_get_start_iter (GtkSourceCompletionProvider *prov
 
 /**
  * ctk_source_completion_provider_activate_proposal:
- * @provider: a #GtkSourceCompletionProvider.
- * @proposal: a #GtkSourceCompletionProposal.
- * @iter: a #GtkTextIter.
+ * @provider: a #CtkSourceCompletionProvider.
+ * @proposal: a #CtkSourceCompletionProposal.
+ * @iter: a #CtkTextIter.
  *
  * Activate @proposal at @iter. When this functions returns %FALSE, the default
  * activation of @proposal will take place which replaces the word at @iter
@@ -408,9 +408,9 @@ ctk_source_completion_provider_get_start_iter (GtkSourceCompletionProvider *prov
  *          %FALSE otherwise.
  */
 gboolean
-ctk_source_completion_provider_activate_proposal (GtkSourceCompletionProvider *provider,
-                                                  GtkSourceCompletionProposal *proposal,
-                                                  GtkTextIter                 *iter)
+ctk_source_completion_provider_activate_proposal (CtkSourceCompletionProvider *provider,
+                                                  CtkSourceCompletionProposal *proposal,
+                                                  CtkTextIter                 *iter)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_PROVIDER (provider), FALSE);
 	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_PROPOSAL (proposal), FALSE);
@@ -422,16 +422,16 @@ ctk_source_completion_provider_activate_proposal (GtkSourceCompletionProvider *p
 
 /**
  * ctk_source_completion_provider_get_interactive_delay:
- * @provider: a #GtkSourceCompletionProvider.
+ * @provider: a #CtkSourceCompletionProvider.
  *
  * Get the delay in milliseconds before starting interactive completion for
  * this provider. A value of -1 indicates to use the default value as set
- * by the #GtkSourceCompletion:auto-complete-delay property.
+ * by the #CtkSourceCompletion:auto-complete-delay property.
  *
  * Returns: the interactive delay in milliseconds.
  **/
 gint
-ctk_source_completion_provider_get_interactive_delay (GtkSourceCompletionProvider *provider)
+ctk_source_completion_provider_get_interactive_delay (CtkSourceCompletionProvider *provider)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_PROVIDER (provider), -1);
 
@@ -440,7 +440,7 @@ ctk_source_completion_provider_get_interactive_delay (GtkSourceCompletionProvide
 
 /**
  * ctk_source_completion_provider_get_priority:
- * @provider: a #GtkSourceCompletionProvider.
+ * @provider: a #CtkSourceCompletionProvider.
  *
  * Get the provider priority. The priority determines the order in which
  * proposals appear in the completion popup. Higher priorities are sorted
@@ -449,7 +449,7 @@ ctk_source_completion_provider_get_interactive_delay (GtkSourceCompletionProvide
  * Returns: the provider priority.
  **/
 gint
-ctk_source_completion_provider_get_priority (GtkSourceCompletionProvider *provider)
+ctk_source_completion_provider_get_priority (CtkSourceCompletionProvider *provider)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_PROVIDER (provider), 0);
 

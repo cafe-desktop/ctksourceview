@@ -1,22 +1,22 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*-
  *
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2014 - Christian Hergert
  * Copyright (C) 2014 - Ignacio Casal Quinteiro
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public License
- * along with GtkSourceView. If not, see <http://www.gnu.org/licenses/>.
+ * along with CtkSourceView. If not, see <http://www.gnu.org/licenses/>.
  */
 
 #ifdef HAVE_CONFIG_H
@@ -32,15 +32,15 @@
 /**
  * SECTION:styleschemechooserbutton
  * @Short_description: A button to launch a style scheme selection dialog
- * @Title: GtkSourceStyleSchemeChooserButton
- * @See_also: #GtkSourceStyleSchemeChooserWidget
+ * @Title: CtkSourceStyleSchemeChooserButton
+ * @See_also: #CtkSourceStyleSchemeChooserWidget
  *
- * The #GtkSourceStyleSchemeChooserButton is a button which displays
+ * The #CtkSourceStyleSchemeChooserButton is a button which displays
  * the currently selected style scheme and allows to open a style scheme
  * selection dialog to change the style scheme.
  * It is suitable widget for selecting a style scheme in a preference dialog.
  *
- * In #GtkSourceStyleSchemeChooserButton, a #GtkSourceStyleSchemeChooserWidget
+ * In #CtkSourceStyleSchemeChooserButton, a #CtkSourceStyleSchemeChooserWidget
  * is used to provide a dialog for selecting style schemes.
  *
  * Since: 3.16
@@ -48,18 +48,18 @@
 
 typedef struct
 {
-	GtkSourceStyleScheme *scheme;
+	CtkSourceStyleScheme *scheme;
 
-	GtkWidget *dialog;
-	GtkSourceStyleSchemeChooserWidget *chooser;
-} GtkSourceStyleSchemeChooserButtonPrivate;
+	CtkWidget *dialog;
+	CtkSourceStyleSchemeChooserWidget *chooser;
+} CtkSourceStyleSchemeChooserButtonPrivate;
 
-static void ctk_source_style_scheme_chooser_button_style_scheme_chooser_interface_init (GtkSourceStyleSchemeChooserInterface *iface);
+static void ctk_source_style_scheme_chooser_button_style_scheme_chooser_interface_init (CtkSourceStyleSchemeChooserInterface *iface);
 
-G_DEFINE_TYPE_WITH_CODE (GtkSourceStyleSchemeChooserButton,
+G_DEFINE_TYPE_WITH_CODE (CtkSourceStyleSchemeChooserButton,
                          ctk_source_style_scheme_chooser_button,
                          CTK_TYPE_BUTTON,
-                         G_ADD_PRIVATE (GtkSourceStyleSchemeChooserButton)
+                         G_ADD_PRIVATE (CtkSourceStyleSchemeChooserButton)
                          G_IMPLEMENT_INTERFACE (CTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER,
                                                 ctk_source_style_scheme_chooser_button_style_scheme_chooser_interface_init))
 
@@ -74,8 +74,8 @@ enum
 static void
 ctk_source_style_scheme_chooser_button_dispose (GObject *object)
 {
-	GtkSourceStyleSchemeChooserButton *button = CTK_SOURCE_STYLE_SCHEME_CHOOSER_BUTTON (object);
-	GtkSourceStyleSchemeChooserButtonPrivate *priv = GET_PRIV (button);
+	CtkSourceStyleSchemeChooserButton *button = CTK_SOURCE_STYLE_SCHEME_CHOOSER_BUTTON (object);
+	CtkSourceStyleSchemeChooserButtonPrivate *priv = GET_PRIV (button);
 
 	g_clear_object (&priv->scheme);
 
@@ -121,7 +121,7 @@ ctk_source_style_scheme_chooser_button_set_property (GObject      *object,
 static void
 ctk_source_style_scheme_chooser_button_constructed (GObject *object)
 {
-	GtkSourceStyleSchemeChooserButton *button = CTK_SOURCE_STYLE_SCHEME_CHOOSER_BUTTON (object);
+	CtkSourceStyleSchemeChooserButton *button = CTK_SOURCE_STYLE_SCHEME_CHOOSER_BUTTON (object);
 
 	G_OBJECT_CLASS (ctk_source_style_scheme_chooser_button_parent_class)->constructed (object);
 
@@ -130,11 +130,11 @@ ctk_source_style_scheme_chooser_button_constructed (GObject *object)
 }
 
 static gboolean
-dialog_destroy (GtkWidget *widget,
+dialog_destroy (CtkWidget *widget,
                 gpointer   data)
 {
-	GtkSourceStyleSchemeChooserButton *button = CTK_SOURCE_STYLE_SCHEME_CHOOSER_BUTTON (data);
-	GtkSourceStyleSchemeChooserButtonPrivate *priv = GET_PRIV (button);
+	CtkSourceStyleSchemeChooserButton *button = CTK_SOURCE_STYLE_SCHEME_CHOOSER_BUTTON (data);
+	CtkSourceStyleSchemeChooserButtonPrivate *priv = GET_PRIV (button);
 
 	priv->dialog = NULL;
 	priv->chooser = NULL;
@@ -143,7 +143,7 @@ dialog_destroy (GtkWidget *widget,
 }
 
 static void
-dialog_response (GtkDialog *dialog,
+dialog_response (CtkDialog *dialog,
                  gint       response,
                  gpointer   data)
 {
@@ -153,9 +153,9 @@ dialog_response (GtkDialog *dialog,
 	}
 	else if (response == CTK_RESPONSE_OK)
 	{
-		GtkSourceStyleSchemeChooserButton *button = CTK_SOURCE_STYLE_SCHEME_CHOOSER_BUTTON (data);
-		GtkSourceStyleSchemeChooserButtonPrivate *priv = GET_PRIV (button);
-		GtkSourceStyleScheme *scheme;
+		CtkSourceStyleSchemeChooserButton *button = CTK_SOURCE_STYLE_SCHEME_CHOOSER_BUTTON (data);
+		CtkSourceStyleSchemeChooserButtonPrivate *priv = GET_PRIV (button);
+		CtkSourceStyleScheme *scheme;
 
 		scheme = ctk_source_style_scheme_chooser_get_style_scheme (CTK_SOURCE_STYLE_SCHEME_CHOOSER (priv->chooser));
 
@@ -168,11 +168,11 @@ dialog_response (GtkDialog *dialog,
 
 /* Create the dialog and connects its buttons */
 static void
-ensure_dialog (GtkSourceStyleSchemeChooserButton *button)
+ensure_dialog (CtkSourceStyleSchemeChooserButton *button)
 {
-	GtkSourceStyleSchemeChooserButtonPrivate *priv = GET_PRIV (button);
-	GtkWidget *parent, *dialog, *scrolled_window;
-	GtkWidget *content_area;
+	CtkSourceStyleSchemeChooserButtonPrivate *priv = GET_PRIV (button);
+	CtkWidget *parent, *dialog, *scrolled_window;
+	CtkWidget *content_area;
 
 	if (priv->dialog != NULL)
 	{
@@ -224,10 +224,10 @@ ensure_dialog (GtkSourceStyleSchemeChooserButton *button)
 }
 
 static void
-ctk_source_style_scheme_chooser_button_clicked (GtkButton *button)
+ctk_source_style_scheme_chooser_button_clicked (CtkButton *button)
 {
-	GtkSourceStyleSchemeChooserButton *cbutton = CTK_SOURCE_STYLE_SCHEME_CHOOSER_BUTTON (button);
-	GtkSourceStyleSchemeChooserButtonPrivate *priv = GET_PRIV (cbutton);
+	CtkSourceStyleSchemeChooserButton *cbutton = CTK_SOURCE_STYLE_SCHEME_CHOOSER_BUTTON (button);
+	CtkSourceStyleSchemeChooserButtonPrivate *priv = GET_PRIV (cbutton);
 
 	ensure_dialog (cbutton);
 
@@ -238,10 +238,10 @@ ctk_source_style_scheme_chooser_button_clicked (GtkButton *button)
 }
 
 static void
-ctk_source_style_scheme_chooser_button_class_init (GtkSourceStyleSchemeChooserButtonClass *klass)
+ctk_source_style_scheme_chooser_button_class_init (CtkSourceStyleSchemeChooserButtonClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
-	GtkButtonClass *button_class = CTK_BUTTON_CLASS (klass);
+	CtkButtonClass *button_class = CTK_BUTTON_CLASS (klass);
 
 	object_class->dispose = ctk_source_style_scheme_chooser_button_dispose;
 	object_class->get_property = ctk_source_style_scheme_chooser_button_get_property;
@@ -254,23 +254,23 @@ ctk_source_style_scheme_chooser_button_class_init (GtkSourceStyleSchemeChooserBu
 }
 
 static void
-ctk_source_style_scheme_chooser_button_init (GtkSourceStyleSchemeChooserButton *button)
+ctk_source_style_scheme_chooser_button_init (CtkSourceStyleSchemeChooserButton *button)
 {
 }
 
-static GtkSourceStyleScheme *
-ctk_source_style_scheme_chooser_button_get_style_scheme (GtkSourceStyleSchemeChooser *chooser)
+static CtkSourceStyleScheme *
+ctk_source_style_scheme_chooser_button_get_style_scheme (CtkSourceStyleSchemeChooser *chooser)
 {
-	GtkSourceStyleSchemeChooserButton *button = CTK_SOURCE_STYLE_SCHEME_CHOOSER_BUTTON (chooser);
-	GtkSourceStyleSchemeChooserButtonPrivate *priv = GET_PRIV (button);
+	CtkSourceStyleSchemeChooserButton *button = CTK_SOURCE_STYLE_SCHEME_CHOOSER_BUTTON (chooser);
+	CtkSourceStyleSchemeChooserButtonPrivate *priv = GET_PRIV (button);
 
 	return priv->scheme;
 }
 
 static void
-ctk_source_style_scheme_chooser_button_update_label (GtkSourceStyleSchemeChooserButton *button)
+ctk_source_style_scheme_chooser_button_update_label (CtkSourceStyleSchemeChooserButton *button)
 {
-	GtkSourceStyleSchemeChooserButtonPrivate *priv = GET_PRIV (button);
+	CtkSourceStyleSchemeChooserButtonPrivate *priv = GET_PRIV (button);
 	const gchar *label;
 
 	label = priv->scheme != NULL ? ctk_source_style_scheme_get_name (priv->scheme) : NULL;
@@ -278,11 +278,11 @@ ctk_source_style_scheme_chooser_button_update_label (GtkSourceStyleSchemeChooser
 }
 
 static void
-ctk_source_style_scheme_chooser_button_set_style_scheme (GtkSourceStyleSchemeChooser *chooser,
-                                                         GtkSourceStyleScheme        *scheme)
+ctk_source_style_scheme_chooser_button_set_style_scheme (CtkSourceStyleSchemeChooser *chooser,
+                                                         CtkSourceStyleScheme        *scheme)
 {
-	GtkSourceStyleSchemeChooserButton *button = CTK_SOURCE_STYLE_SCHEME_CHOOSER_BUTTON (chooser);
-	GtkSourceStyleSchemeChooserButtonPrivate *priv = GET_PRIV (button);
+	CtkSourceStyleSchemeChooserButton *button = CTK_SOURCE_STYLE_SCHEME_CHOOSER_BUTTON (chooser);
+	CtkSourceStyleSchemeChooserButtonPrivate *priv = GET_PRIV (button);
 
 	if (g_set_object (&priv->scheme, scheme))
 	{
@@ -293,7 +293,7 @@ ctk_source_style_scheme_chooser_button_set_style_scheme (GtkSourceStyleSchemeCho
 }
 
 static void
-ctk_source_style_scheme_chooser_button_style_scheme_chooser_interface_init (GtkSourceStyleSchemeChooserInterface *iface)
+ctk_source_style_scheme_chooser_button_style_scheme_chooser_interface_init (CtkSourceStyleSchemeChooserInterface *iface)
 {
 	iface->get_style_scheme = ctk_source_style_scheme_chooser_button_get_style_scheme;
 	iface->set_style_scheme = ctk_source_style_scheme_chooser_button_set_style_scheme;
@@ -302,13 +302,13 @@ ctk_source_style_scheme_chooser_button_style_scheme_chooser_interface_init (GtkS
 /**
  * ctk_source_style_scheme_chooser_button_new:
  *
- * Creates a new #GtkSourceStyleSchemeChooserButton.
+ * Creates a new #CtkSourceStyleSchemeChooserButton.
  *
- * Returns: a new #GtkSourceStyleSchemeChooserButton.
+ * Returns: a new #CtkSourceStyleSchemeChooserButton.
  *
  * Since: 3.16
  */
-GtkWidget *
+CtkWidget *
 ctk_source_style_scheme_chooser_button_new (void)
 {
 	return g_object_new (CTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER_BUTTON, NULL);

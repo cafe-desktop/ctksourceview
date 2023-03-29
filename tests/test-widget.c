@@ -1,17 +1,17 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*-
  *
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2001 - Mikael Hermansson <tyan@linux.se>
  * Copyright (C) 2003 - Gustavo Giráldez <gustavo.giraldez@gmx.net>
  * Copyright (C) 2014 - Sébastien Wilmet <swilmet@gnome.org>
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -36,31 +36,31 @@ typedef struct _TestWidgetPrivate  TestWidgetPrivate;
 
 struct _TestWidget
 {
-	GtkGrid parent;
+	CtkGrid parent;
 
 	TestWidgetPrivate *priv;
 };
 
 struct _TestWidgetClass
 {
-	GtkGridClass parent_class;
+	CtkGridClass parent_class;
 };
 
 struct _TestWidgetPrivate
 {
-	GtkSourceView *view;
-	GtkSourceBuffer *buffer;
-	GtkSourceFile *file;
-	GtkSourceMap *map;
-	GtkCheckButton *show_top_border_window_checkbutton;
-	GtkCheckButton *show_map_checkbutton;
-	GtkCheckButton *draw_spaces_checkbutton;
-	GtkCheckButton *smart_backspace_checkbutton;
-	GtkCheckButton *indent_width_checkbutton;
-	GtkSpinButton *indent_width_spinbutton;
-	GtkLabel *cursor_position_info;
-	GtkSourceStyleSchemeChooserButton *chooser_button;
-	GtkComboBoxText *background_pattern;
+	CtkSourceView *view;
+	CtkSourceBuffer *buffer;
+	CtkSourceFile *file;
+	CtkSourceMap *map;
+	CtkCheckButton *show_top_border_window_checkbutton;
+	CtkCheckButton *show_map_checkbutton;
+	CtkCheckButton *draw_spaces_checkbutton;
+	CtkCheckButton *smart_backspace_checkbutton;
+	CtkCheckButton *indent_width_checkbutton;
+	CtkSpinButton *indent_width_spinbutton;
+	CtkLabel *cursor_position_info;
+	CtkSourceStyleSchemeChooserButton *chooser_button;
+	CtkComboBoxText *background_pattern;
 };
 
 GType test_widget_get_type (void);
@@ -73,24 +73,24 @@ G_DEFINE_TYPE_WITH_PRIVATE (TestWidget, test_widget, CTK_TYPE_GRID)
 static const char *cmd_filename;
 
 static void
-remove_all_marks (GtkSourceBuffer *buffer)
+remove_all_marks (CtkSourceBuffer *buffer)
 {
-	GtkTextIter start;
-	GtkTextIter end;
+	CtkTextIter start;
+	CtkTextIter end;
 
 	ctk_text_buffer_get_bounds (CTK_TEXT_BUFFER (buffer), &start, &end);
 
 	ctk_source_buffer_remove_source_marks (buffer, &start, &end, NULL);
 }
 
-static GtkSourceLanguage *
-get_language_for_file (GtkTextBuffer *buffer,
+static CtkSourceLanguage *
+get_language_for_file (CtkTextBuffer *buffer,
 		       const gchar   *filename)
 {
-	GtkSourceLanguageManager *manager;
-	GtkSourceLanguage *language;
-	GtkTextIter start;
-	GtkTextIter end;
+	CtkSourceLanguageManager *manager;
+	CtkSourceLanguage *language;
+	CtkTextIter start;
+	CtkTextIter end;
 	gchar *text;
 	gchar *content_type;
 	gboolean result_uncertain;
@@ -125,21 +125,21 @@ get_language_for_file (GtkTextBuffer *buffer,
 	return language;
 }
 
-static GtkSourceLanguage *
+static CtkSourceLanguage *
 get_language_by_id (const gchar *id)
 {
-	GtkSourceLanguageManager *manager;
+	CtkSourceLanguageManager *manager;
 	manager = ctk_source_language_manager_get_default ();
 	return ctk_source_language_manager_get_language (manager, id);
 }
 
-static GtkSourceLanguage *
-get_language (GtkTextBuffer *buffer,
+static CtkSourceLanguage *
+get_language (CtkTextBuffer *buffer,
 	      GFile         *location)
 {
-	GtkSourceLanguage *language = NULL;
-	GtkTextIter start;
-	GtkTextIter end;
+	CtkSourceLanguage *language = NULL;
+	CtkTextIter start;
+	CtkTextIter end;
 	gchar *text;
 	gchar *lang_string;
 
@@ -181,7 +181,7 @@ get_language (GtkTextBuffer *buffer,
 }
 
 static void
-print_language_style_ids (GtkSourceLanguage *language)
+print_language_style_ids (CtkSourceLanguage *language)
 {
 	gchar **styles;
 
@@ -214,13 +214,13 @@ print_language_style_ids (GtkSourceLanguage *language)
 }
 
 static void
-load_cb (GtkSourceFileLoader *loader,
+load_cb (CtkSourceFileLoader *loader,
 	 GAsyncResult        *result,
 	 TestWidget          *self)
 {
-	GtkTextIter iter;
+	CtkTextIter iter;
 	GFile *location;
-	GtkSourceLanguage *language = NULL;
+	CtkSourceLanguage *language = NULL;
 	GError *error = NULL;
 
 	ctk_source_file_loader_load_finish (loader, result, &error);
@@ -262,7 +262,7 @@ static void
 open_file (TestWidget *self,
 	   GFile      *location)
 {
-	GtkSourceFileLoader *loader;
+	CtkSourceFileLoader *loader;
 
 	g_clear_object (&self->priv->file);
 	self->priv->file = ctk_source_file_new ();
@@ -284,7 +284,7 @@ open_file (TestWidget *self,
 
 static void
 show_line_numbers_toggled_cb (TestWidget     *self,
-			      GtkCheckButton *button)
+			      CtkCheckButton *button)
 {
 	gboolean enabled = ctk_toggle_button_get_active (CTK_TOGGLE_BUTTON (button));
 	ctk_source_view_set_show_line_numbers (self->priv->view, enabled);
@@ -292,7 +292,7 @@ show_line_numbers_toggled_cb (TestWidget     *self,
 
 static void
 show_line_marks_toggled_cb (TestWidget     *self,
-			    GtkCheckButton *button)
+			    CtkCheckButton *button)
 {
 	gboolean enabled = ctk_toggle_button_get_active (CTK_TOGGLE_BUTTON (button));
 	ctk_source_view_set_show_line_marks (self->priv->view, enabled);
@@ -300,7 +300,7 @@ show_line_marks_toggled_cb (TestWidget     *self,
 
 static void
 show_right_margin_toggled_cb (TestWidget     *self,
-			      GtkCheckButton *button)
+			      CtkCheckButton *button)
 {
 	gboolean enabled = ctk_toggle_button_get_active (CTK_TOGGLE_BUTTON (button));
 	ctk_source_view_set_show_right_margin (self->priv->view, enabled);
@@ -308,7 +308,7 @@ show_right_margin_toggled_cb (TestWidget     *self,
 
 static void
 right_margin_position_value_changed_cb (TestWidget    *self,
-					GtkSpinButton *button)
+					CtkSpinButton *button)
 {
 	gint position = ctk_spin_button_get_value_as_int (button);
 	ctk_source_view_set_right_margin_position (self->priv->view, position);
@@ -316,7 +316,7 @@ right_margin_position_value_changed_cb (TestWidget    *self,
 
 static void
 highlight_syntax_toggled_cb (TestWidget     *self,
-			     GtkCheckButton *button)
+			     CtkCheckButton *button)
 {
 	gboolean enabled = ctk_toggle_button_get_active (CTK_TOGGLE_BUTTON (button));
 	ctk_source_buffer_set_highlight_syntax (self->priv->buffer, enabled);
@@ -324,7 +324,7 @@ highlight_syntax_toggled_cb (TestWidget     *self,
 
 static void
 highlight_matching_bracket_toggled_cb (TestWidget     *self,
-				       GtkCheckButton *button)
+				       CtkCheckButton *button)
 {
 	gboolean enabled = ctk_toggle_button_get_active (CTK_TOGGLE_BUTTON (button));
 	ctk_source_buffer_set_highlight_matching_brackets (self->priv->buffer, enabled);
@@ -332,7 +332,7 @@ highlight_matching_bracket_toggled_cb (TestWidget     *self,
 
 static void
 highlight_current_line_toggled_cb (TestWidget     *self,
-				   GtkCheckButton *button)
+				   CtkCheckButton *button)
 {
 	gboolean enabled = ctk_toggle_button_get_active (CTK_TOGGLE_BUTTON (button));
 	ctk_source_view_set_highlight_current_line (self->priv->view, enabled);
@@ -340,7 +340,7 @@ highlight_current_line_toggled_cb (TestWidget     *self,
 
 static void
 wrap_lines_toggled_cb (TestWidget     *self,
-		       GtkCheckButton *button)
+		       CtkCheckButton *button)
 {
 	gboolean enabled = ctk_toggle_button_get_active (CTK_TOGGLE_BUTTON (button));
 	ctk_text_view_set_wrap_mode (CTK_TEXT_VIEW (self->priv->view),
@@ -349,7 +349,7 @@ wrap_lines_toggled_cb (TestWidget     *self,
 
 static void
 auto_indent_toggled_cb (TestWidget     *self,
-			GtkCheckButton *button)
+			CtkCheckButton *button)
 {
 	gboolean enabled = ctk_toggle_button_get_active (CTK_TOGGLE_BUTTON (button));
 	ctk_source_view_set_auto_indent (self->priv->view, enabled);
@@ -357,7 +357,7 @@ auto_indent_toggled_cb (TestWidget     *self,
 
 static void
 indent_spaces_toggled_cb (TestWidget     *self,
-			  GtkCheckButton *button)
+			  CtkCheckButton *button)
 {
 	gboolean enabled = ctk_toggle_button_get_active (CTK_TOGGLE_BUTTON (button));
 	ctk_source_view_set_insert_spaces_instead_of_tabs (self->priv->view, enabled);
@@ -365,7 +365,7 @@ indent_spaces_toggled_cb (TestWidget     *self,
 
 static void
 tab_width_value_changed_cb (TestWidget    *self,
-			    GtkSpinButton *button)
+			    CtkSpinButton *button)
 {
 	gint tab_width = ctk_spin_button_get_value_as_int (button);
 	ctk_source_view_set_tab_width (self->priv->view, tab_width);
@@ -386,9 +386,9 @@ update_indent_width (TestWidget *self)
 
 static void
 smart_home_end_changed_cb (TestWidget  *self,
-			   GtkComboBox *combo)
+			   CtkComboBox *combo)
 {
-	GtkSourceSmartHomeEndType type;
+	CtkSourceSmartHomeEndType type;
 	gint active = ctk_combo_box_get_active (combo);
 
 	switch (active)
@@ -420,8 +420,8 @@ smart_home_end_changed_cb (TestWidget  *self,
 static void
 backward_string_clicked_cb (TestWidget *self)
 {
-	GtkTextIter iter;
-	GtkTextMark *insert;
+	CtkTextIter iter;
+	CtkTextMark *insert;
 
 	insert = ctk_text_buffer_get_insert (CTK_TEXT_BUFFER (self->priv->buffer));
 
@@ -443,8 +443,8 @@ backward_string_clicked_cb (TestWidget *self)
 static void
 forward_string_clicked_cb (TestWidget *self)
 {
-	GtkTextIter iter;
-	GtkTextMark *insert;
+	CtkTextIter iter;
+	CtkTextMark *insert;
 
 	insert = ctk_text_buffer_get_insert (CTK_TEXT_BUFFER (self->priv->buffer));
 
@@ -466,8 +466,8 @@ forward_string_clicked_cb (TestWidget *self)
 static void
 open_button_clicked_cb (TestWidget *self)
 {
-	GtkWidget *main_window;
-	GtkWidget *chooser;
+	CtkWidget *main_window;
+	CtkWidget *chooser;
 	gint response;
 	static gchar *last_dir;
 
@@ -516,9 +516,9 @@ open_button_clicked_cb (TestWidget *self)
 #ifndef NON_BLOCKING_PAGINATION
 
 static void
-begin_print (GtkPrintOperation        *operation,
-	     GtkPrintContext          *context,
-	     GtkSourcePrintCompositor *compositor)
+begin_print (CtkPrintOperation        *operation,
+	     CtkPrintContext          *context,
+	     CtkSourcePrintCompositor *compositor)
 {
 	gint n_pages;
 
@@ -532,9 +532,9 @@ begin_print (GtkPrintOperation        *operation,
 #else
 
 static gboolean
-paginate (GtkPrintOperation        *operation,
-	  GtkPrintContext          *context,
-	  GtkSourcePrintCompositor *compositor)
+paginate (CtkPrintOperation        *operation,
+	  CtkPrintContext          *context,
+	  CtkSourcePrintCompositor *compositor)
 {
 	g_print ("Pagination progress: %.2f %%\n", ctk_source_print_compositor_get_pagination_progress (compositor) * 100.0);
 
@@ -559,15 +559,15 @@ paginate (GtkPrintOperation        *operation,
 #define ENABLE_CUSTOM_OVERLAY
 
 static void
-draw_page (GtkPrintOperation        *operation,
-	   GtkPrintContext          *context,
+draw_page (CtkPrintOperation        *operation,
+	   CtkPrintContext          *context,
 	   gint                      page_nr,
-	   GtkSourcePrintCompositor *compositor)
+	   CtkSourcePrintCompositor *compositor)
 {
 #ifdef ENABLE_CUSTOM_OVERLAY
 
 	/* This part of the code shows how to add a custom overlay to the
-	   printed text generated by GtkSourcePrintCompositor */
+	   printed text generated by CtkSourcePrintCompositor */
 
 	cairo_t *cr;
 	PangoLayout *layout;
@@ -614,9 +614,9 @@ draw_page (GtkPrintOperation        *operation,
 }
 
 static void
-end_print (GtkPrintOperation        *operation,
-	   GtkPrintContext          *context,
-	   GtkSourcePrintCompositor *compositor)
+end_print (CtkPrintOperation        *operation,
+	   CtkPrintContext          *context,
+	   CtkSourcePrintCompositor *compositor)
 {
 	g_object_unref (compositor);
 }
@@ -636,8 +636,8 @@ static void
 print_button_clicked_cb (TestWidget *self)
 {
 	gchar *basename = NULL;
-	GtkSourcePrintCompositor *compositor;
-	GtkPrintOperation *operation;
+	CtkSourcePrintCompositor *compositor;
+	CtkPrintOperation *operation;
 
 	if (self->priv->file != NULL)
 	{
@@ -725,11 +725,11 @@ update_cursor_position_info (TestWidget *self)
 	gint offset;
 	gint line;
 	guint column;
-	GtkTextIter iter;
+	CtkTextIter iter;
 	gchar **classes;
 	gchar **classes_ptr;
 	GString *classes_str;
-	GtkSourceLanguage *lang;
+	CtkSourceLanguage *lang;
 	const char *language = "none";
 
 	ctk_text_buffer_get_iter_at_mark (CTK_TEXT_BUFFER (self->priv->buffer),
@@ -773,9 +773,9 @@ update_cursor_position_info (TestWidget *self)
 }
 
 static void
-mark_set_cb (GtkTextBuffer *buffer,
-	     GtkTextIter   *iter,
-	     GtkTextMark   *mark,
+mark_set_cb (CtkTextBuffer *buffer,
+	     CtkTextIter   *iter,
+	     CtkTextMark   *mark,
 	     TestWidget    *self)
 {
 	if (mark == ctk_text_buffer_get_insert (buffer))
@@ -785,8 +785,8 @@ mark_set_cb (GtkTextBuffer *buffer,
 }
 
 static void
-line_mark_activated_cb (GtkSourceGutter *gutter,
-			GtkTextIter     *iter,
+line_mark_activated_cb (CtkSourceGutter *gutter,
+			CtkTextIter     *iter,
 			GdkEventButton  *event,
 			TestWidget      *self)
 {
@@ -819,9 +819,9 @@ line_mark_activated_cb (GtkSourceGutter *gutter,
 }
 
 static void
-bracket_matched_cb (GtkSourceBuffer           *buffer,
-		    GtkTextIter               *iter,
-		    GtkSourceBracketMatchType  state)
+bracket_matched_cb (CtkSourceBuffer           *buffer,
+		    CtkTextIter               *iter,
+		    CtkSourceBracketMatchType  state)
 {
 	GEnumClass *eclass;
 	GEnumValue *evalue;
@@ -845,12 +845,12 @@ bracket_matched_cb (GtkSourceBuffer           *buffer,
 }
 
 static gchar *
-mark_tooltip_func (GtkSourceMarkAttributes *attrs,
-                   GtkSourceMark           *mark,
-                   GtkSourceView           *view)
+mark_tooltip_func (CtkSourceMarkAttributes *attrs,
+                   CtkSourceMark           *mark,
+                   CtkSourceView           *view)
 {
-	GtkTextBuffer *buffer;
-	GtkTextIter iter;
+	CtkTextBuffer *buffer;
+	CtkTextIter iter;
 	gint line;
 	gint column;
 
@@ -871,10 +871,10 @@ mark_tooltip_func (GtkSourceMarkAttributes *attrs,
 }
 
 static void
-add_source_mark_attributes (GtkSourceView *view)
+add_source_mark_attributes (CtkSourceView *view)
 {
 	GdkRGBA color;
-	GtkSourceMarkAttributes *attrs;
+	CtkSourceMarkAttributes *attrs;
 
 	attrs = ctk_source_mark_attributes_new ();
 
@@ -910,7 +910,7 @@ add_source_mark_attributes (GtkSourceView *view)
 }
 
 static void
-on_background_pattern_changed (GtkComboBox *combobox,
+on_background_pattern_changed (CtkComboBox *combobox,
                                TestWidget  *self)
 {
 	gchar *text;
@@ -946,7 +946,7 @@ static void
 test_widget_class_init (TestWidgetClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
-	GtkWidgetClass *widget_class = CTK_WIDGET_CLASS (klass);
+	CtkWidgetClass *widget_class = CTK_WIDGET_CLASS (klass);
 
 	object_class->dispose = test_widget_dispose;
 
@@ -984,7 +984,7 @@ test_widget_class_init (TestWidgetClass *klass)
 }
 
 static void
-show_top_border_window_toggled_cb (GtkToggleButton *checkbutton,
+show_top_border_window_toggled_cb (CtkToggleButton *checkbutton,
 				   TestWidget      *self)
 {
 	gint size;
@@ -999,7 +999,7 @@ show_top_border_window_toggled_cb (GtkToggleButton *checkbutton,
 static void
 test_widget_init (TestWidget *self)
 {
-	GtkSourceSpaceDrawer *space_drawer;
+	CtkSourceSpaceDrawer *space_drawer;
 	GFile *file;
 
 	self->priv = test_widget_get_instance_private (self);
@@ -1099,7 +1099,7 @@ test_widget_new (void)
 int
 main (int argc, char *argv[])
 {
-	GtkWidget *window;
+	CtkWidget *window;
 	TestWidget *test_widget;
 
 	ctk_init (&argc, &argv);

@@ -1,7 +1,7 @@
-Building GtkSourceView for Windows with Meson using Visual Studio
+Building CtkSourceView for Windows with Meson using Visual Studio
 =========
 
-Meson is now the supported method of building GtkSourceView with Visual Studio, where the process
+Meson is now the supported method of building CtkSourceView with Visual Studio, where the process
 of doing so is described in the following section:
 
 Prior to building, you will need the following:
@@ -29,13 +29,13 @@ your INCLUDE and LIB environment variables include these repective paths.  For t
 introspection to complete successfully, you will also need to ensure that the DLLs can be
 found in the bindir entries of your .pc files or in your PATH.
 
-To build GtkSourceView, do the following:
+To build CtkSourceView, do the following:
 
 -Open a Visual Studio command prompt.
 -In the command prompt, create an empty build directory that is on the same drive
- as the GtkSourceView sources.
+ as the CtkSourceView sources.
 -Run the command in the command prompt in your build directory:
-   meson <path_to_GtkSourceView_sources> --buildtype=... --prefix=... -Dvapi=false
+   meson <path_to_CtkSourceView_sources> --buildtype=... --prefix=... -Dvapi=false
  
  Where:
   -buildtype can be debug, release,plain or debugoptmized (default),

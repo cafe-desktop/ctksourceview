@@ -1,15 +1,15 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*-
  *
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2003 - Paolo Maggi <paolo.maggi@polito.it>
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -28,10 +28,10 @@
 /**
  * SECTION:style
  * @Short_description: Represents a style
- * @Title: GtkSourceStyle
- * @See_also: #GtkSourceStyleScheme, #GtkSourceStyleSchemeManager
+ * @Title: CtkSourceStyle
+ * @See_also: #CtkSourceStyleScheme, #CtkSourceStyleSchemeManager
  *
- * The #GtkSourceStyle structure is used to describe text attributes
+ * The #CtkSourceStyle structure is used to describe text attributes
  * which are set when given style is used.
  */
 
@@ -45,12 +45,12 @@ static void	ctk_source_style_get_property	(GObject      *object,
 						 GValue       *value,
 						 GParamSpec   *pspec);
 
-struct _GtkSourceStyleClass
+struct _CtkSourceStyleClass
 {
 	GObjectClass parent_class;
 };
 
-G_DEFINE_TYPE (GtkSourceStyle, ctk_source_style, G_TYPE_OBJECT)
+G_DEFINE_TYPE (CtkSourceStyle, ctk_source_style, G_TYPE_OBJECT)
 
 enum
 {
@@ -76,7 +76,7 @@ enum
 };
 
 static void
-ctk_source_style_class_init (GtkSourceStyleClass *klass)
+ctk_source_style_class_init (CtkSourceStyleClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
@@ -234,7 +234,7 @@ ctk_source_style_class_init (GtkSourceStyleClass *klass)
 }
 
 static void
-ctk_source_style_init (GtkSourceStyle *style)
+ctk_source_style_init (CtkSourceStyle *style)
 {
 	style->foreground = NULL;
 	style->background = NULL;
@@ -261,7 +261,7 @@ ctk_source_style_set_property (GObject      *object,
 			       const GValue *value,
 			       GParamSpec   *pspec)
 {
-	GtkSourceStyle *style = CTK_SOURCE_STYLE (object);
+	CtkSourceStyle *style = CTK_SOURCE_STYLE (object);
 	const gchar *string;
 
 	switch (prop_id)
@@ -404,7 +404,7 @@ ctk_source_style_get_property (GObject      *object,
 			       GValue       *value,
 			       GParamSpec   *pspec)
 {
-	GtkSourceStyle *style = CTK_SOURCE_STYLE (object);
+	CtkSourceStyle *style = CTK_SOURCE_STYLE (object);
 
 	switch (prop_id)
 	{
@@ -488,9 +488,9 @@ ctk_source_style_get_property (GObject      *object,
 
 /**
  * ctk_source_style_copy:
- * @style: a #GtkSourceStyle structure to copy.
+ * @style: a #CtkSourceStyle structure to copy.
  *
- * Creates a copy of @style, that is a new #GtkSourceStyle instance which
+ * Creates a copy of @style, that is a new #CtkSourceStyle instance which
  * has the same attributes set.
  *
  * Returns: (transfer full): copy of @style, call g_object_unref()
@@ -498,10 +498,10 @@ ctk_source_style_get_property (GObject      *object,
  *
  * Since: 2.0
  */
-GtkSourceStyle *
-ctk_source_style_copy (const GtkSourceStyle *style)
+CtkSourceStyle *
+ctk_source_style_copy (const CtkSourceStyle *style)
 {
-	GtkSourceStyle *copy;
+	CtkSourceStyle *copy;
 
 	g_return_val_if_fail (style != NULL, NULL);
 
@@ -523,22 +523,22 @@ ctk_source_style_copy (const GtkSourceStyle *style)
 
 /**
  * ctk_source_style_apply:
- * @style: (nullable): a #GtkSourceStyle to apply, or %NULL.
- * @tag: a #GtkTextTag to apply styles to.
+ * @style: (nullable): a #CtkSourceStyle to apply, or %NULL.
+ * @tag: a #CtkTextTag to apply styles to.
  *
- * This function modifies the #GtkTextTag properties that are related to the
- * #GtkSourceStyle properties. Other #GtkTextTag properties are left untouched.
+ * This function modifies the #CtkTextTag properties that are related to the
+ * #CtkSourceStyle properties. Other #CtkTextTag properties are left untouched.
  *
  * If @style is non-%NULL, applies @style to @tag.
  *
- * If @style is %NULL, the related *-set properties of #GtkTextTag are set to
+ * If @style is %NULL, the related *-set properties of #CtkTextTag are set to
  * %FALSE.
  *
  * Since: 3.22
  */
 void
-ctk_source_style_apply (const GtkSourceStyle *style,
-			GtkTextTag           *tag)
+ctk_source_style_apply (const CtkSourceStyle *style,
+			CtkTextTag           *tag)
 {
 	g_return_if_fail (CTK_IS_TEXT_TAG (tag));
 

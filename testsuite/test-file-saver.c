@@ -1,16 +1,16 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*- */
 /*
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2010 - Jesse van den Kieboom
  * Copyright (C) 2014 - Sébastien Wilmet
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -49,7 +49,7 @@ typedef void (*SavedCallback) (SaverTestData *data);
 
 struct _SaverTestData
 {
-	GtkSourceFileSaver *saver;
+	CtkSourceFileSaver *saver;
 	GFile *location;
 	const gchar *expected_file_contents;
 	SavedCallback saved_callback;
@@ -83,7 +83,7 @@ read_file (GFile *location)
 }
 
 static void
-save_file_cb (GtkSourceFileSaver *saver,
+save_file_cb (CtkSourceFileSaver *saver,
 	      GAsyncResult       *result,
 	      SaverTestData      *data)
 {
@@ -169,14 +169,14 @@ static void
 test_saver (const gchar            *filename_or_uri,
 	    const gchar            *buffer_contents,
 	    const gchar            *expected_file_contents,
-	    GtkSourceNewlineType    newline_type,
+	    CtkSourceNewlineType    newline_type,
 	    SavedCallback           saved_callback,
 	    gpointer                userdata)
 {
 	GFile *location;
-	GtkSourceBuffer *buffer;
-	GtkSourceFile *file;
-	GtkSourceFileSaver *saver;
+	CtkSourceBuffer *buffer;
+	CtkSourceFile *file;
+	CtkSourceFileSaver *saver;
 	SaverTestData *data;
 
 	location = g_file_new_for_commandline_arg (filename_or_uri);
@@ -209,7 +209,7 @@ test_saver (const gchar            *filename_or_uri,
 
 typedef struct
 {
-	GtkSourceNewlineType type;
+	CtkSourceNewlineType type;
 	const gchar *text;
 	const gchar *result;
 } NewLineTestData;

@@ -1,15 +1,15 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*-
  *
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2010 - Jesse van den Kieboom
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -30,17 +30,17 @@
 
 #define COMPOSITE_ALPHA                 225
 
-G_DEFINE_TYPE (GtkSourceGutterRendererMarks, ctk_source_gutter_renderer_marks, CTK_SOURCE_TYPE_GUTTER_RENDERER_PIXBUF)
+G_DEFINE_TYPE (CtkSourceGutterRendererMarks, ctk_source_gutter_renderer_marks, CTK_SOURCE_TYPE_GUTTER_RENDERER_PIXBUF)
 
 static gint
 sort_marks_by_priority (gconstpointer m1,
 			gconstpointer m2,
 			gpointer data)
 {
-	GtkSourceMark *mark1 = CTK_SOURCE_MARK (m1);
-	GtkSourceMark *mark2 = CTK_SOURCE_MARK (m2);
-	GtkSourceView *view = CTK_SOURCE_VIEW (data);
-	GtkTextIter iter1, iter2;
+	CtkSourceMark *mark1 = CTK_SOURCE_MARK (m1);
+	CtkSourceMark *mark2 = CTK_SOURCE_MARK (m2);
+	CtkSourceView *view = CTK_SOURCE_VIEW (data);
+	CtkTextIter iter1, iter2;
 	gint line1;
 	gint line2;
 
@@ -77,7 +77,7 @@ sort_marks_by_priority (gconstpointer m1,
 }
 
 static int
-measure_line_height (GtkSourceView *view)
+measure_line_height (CtkSourceView *view)
 {
 	PangoLayout *layout;
 	gint height = 12;
@@ -94,7 +94,7 @@ measure_line_height (GtkSourceView *view)
 }
 
 static GdkPixbuf *
-composite_marks (GtkSourceView *view,
+composite_marks (CtkSourceView *view,
                  GSList        *marks,
                  gint           size)
 {
@@ -112,8 +112,8 @@ composite_marks (GtkSourceView *view,
 	/* composite all the pixbufs for the marks present at the line */
 	do
 	{
-		GtkSourceMark *mark;
-		GtkSourceMarkAttributes *attrs;
+		CtkSourceMark *mark;
+		CtkSourceMarkAttributes *attrs;
 		const GdkPixbuf *pixbuf;
 
 		mark = marks->data;
@@ -166,16 +166,16 @@ composite_marks (GtkSourceView *view,
 }
 
 static void
-gutter_renderer_query_data (GtkSourceGutterRenderer      *renderer,
-			    GtkTextIter                  *start,
-			    GtkTextIter                  *end,
-			    GtkSourceGutterRendererState  state)
+gutter_renderer_query_data (CtkSourceGutterRenderer      *renderer,
+			    CtkTextIter                  *start,
+			    CtkTextIter                  *end,
+			    CtkSourceGutterRendererState  state)
 {
 	GSList *marks;
 	GdkPixbuf *pixbuf = NULL;
 	gint size = 0;
-	GtkSourceView *view;
-	GtkSourceBuffer *buffer;
+	CtkSourceView *view;
+	CtkSourceBuffer *buffer;
 
 	view = CTK_SOURCE_VIEW (ctk_source_gutter_renderer_get_view (renderer));
 	buffer = CTK_SOURCE_BUFFER (ctk_text_view_get_buffer (CTK_TEXT_VIEW (view)));
@@ -204,11 +204,11 @@ gutter_renderer_query_data (GtkSourceGutterRenderer      *renderer,
 }
 
 static gboolean
-set_tooltip_widget_from_marks (GtkSourceView *view,
-                               GtkTooltip    *tooltip,
+set_tooltip_widget_from_marks (CtkSourceView *view,
+                               CtkTooltip    *tooltip,
                                GSList        *marks)
 {
-	GtkGrid *grid = NULL;
+	CtkGrid *grid = NULL;
 	gint row_num = 0;
 	gint icon_size;
 
@@ -217,11 +217,11 @@ set_tooltip_widget_from_marks (GtkSourceView *view,
 	for (; marks; marks = g_slist_next (marks))
 	{
 		const gchar *category;
-		GtkSourceMark *mark;
-		GtkSourceMarkAttributes *attrs;
+		CtkSourceMark *mark;
+		CtkSourceMarkAttributes *attrs;
 		gchar *text;
 		gboolean ismarkup = FALSE;
-		GtkWidget *label;
+		CtkWidget *label;
 		const GdkPixbuf *pixbuf;
 
 		mark = marks->data;
@@ -282,7 +282,7 @@ set_tooltip_widget_from_marks (GtkSourceView *view,
 		}
 		else
 		{
-			GtkWidget *image;
+			CtkWidget *image;
 			GdkPixbuf *copy;
 
 			/* FIXME why a copy is needed? */
@@ -302,7 +302,7 @@ set_tooltip_widget_from_marks (GtkSourceView *view,
 
 		if (marks->next != NULL)
 		{
-			GtkWidget *separator;
+			CtkWidget *separator;
 
 			separator = ctk_separator_new (CTK_ORIENTATION_HORIZONTAL);
 
@@ -326,16 +326,16 @@ set_tooltip_widget_from_marks (GtkSourceView *view,
 }
 
 static gboolean
-gutter_renderer_query_tooltip (GtkSourceGutterRenderer *renderer,
-                               GtkTextIter             *iter,
+gutter_renderer_query_tooltip (CtkSourceGutterRenderer *renderer,
+                               CtkTextIter             *iter,
                                GdkRectangle            *area,
                                gint                     x,
                                gint                     y,
-                               GtkTooltip              *tooltip)
+                               CtkTooltip              *tooltip)
 {
 	GSList *marks;
-	GtkSourceView *view;
-	GtkSourceBuffer *buffer;
+	CtkSourceView *view;
+	CtkSourceBuffer *buffer;
 	gboolean ret;
 
 	view = CTK_SOURCE_VIEW (ctk_source_gutter_renderer_get_view (renderer));
@@ -364,8 +364,8 @@ gutter_renderer_query_tooltip (GtkSourceGutterRenderer *renderer,
 }
 
 static gboolean
-gutter_renderer_query_activatable (GtkSourceGutterRenderer *renderer,
-                                   GtkTextIter             *iter,
+gutter_renderer_query_activatable (CtkSourceGutterRenderer *renderer,
+                                   CtkTextIter             *iter,
                                    GdkRectangle            *area,
                                    GdkEvent                *event)
 {
@@ -373,10 +373,10 @@ gutter_renderer_query_activatable (GtkSourceGutterRenderer *renderer,
 }
 
 static void
-gutter_renderer_change_view (GtkSourceGutterRenderer *renderer,
-                             GtkTextView             *old_view)
+gutter_renderer_change_view (CtkSourceGutterRenderer *renderer,
+                             CtkTextView             *old_view)
 {
-	GtkSourceView *view;
+	CtkSourceView *view;
 
 	view = CTK_SOURCE_VIEW (ctk_source_gutter_renderer_get_view (renderer));
 
@@ -394,9 +394,9 @@ gutter_renderer_change_view (GtkSourceGutterRenderer *renderer,
 }
 
 static void
-ctk_source_gutter_renderer_marks_class_init (GtkSourceGutterRendererMarksClass *klass)
+ctk_source_gutter_renderer_marks_class_init (CtkSourceGutterRendererMarksClass *klass)
 {
-	GtkSourceGutterRendererClass *renderer_class = CTK_SOURCE_GUTTER_RENDERER_CLASS (klass);
+	CtkSourceGutterRendererClass *renderer_class = CTK_SOURCE_GUTTER_RENDERER_CLASS (klass);
 
 	renderer_class->query_data = gutter_renderer_query_data;
 	renderer_class->query_tooltip = gutter_renderer_query_tooltip;
@@ -405,11 +405,11 @@ ctk_source_gutter_renderer_marks_class_init (GtkSourceGutterRendererMarksClass *
 }
 
 static void
-ctk_source_gutter_renderer_marks_init (GtkSourceGutterRendererMarks *self)
+ctk_source_gutter_renderer_marks_init (CtkSourceGutterRendererMarks *self)
 {
 }
 
-GtkSourceGutterRenderer *
+CtkSourceGutterRenderer *
 ctk_source_gutter_renderer_marks_new (void)
 {
 	return g_object_new (CTK_SOURCE_TYPE_GUTTER_RENDERER_MARKS, NULL);

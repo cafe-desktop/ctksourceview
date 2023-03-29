@@ -1,17 +1,17 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*- */
 /*
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2003 - Gustavo Giráldez
  * Copyright (C) 2006, 2013 - Paolo Borelli
  * Copyright (C) 2013, 2016 - Sébastien Wilmet
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -25,11 +25,11 @@
 static void
 test_weak_ref (void)
 {
-	GtkTextBuffer *buffer;
-	GtkSourceRegion *region;
-	GtkSourceRegionIter region_iter;
-	GtkTextIter start;
-	GtkTextIter end;
+	CtkTextBuffer *buffer;
+	CtkSourceRegion *region;
+	CtkSourceRegionIter region_iter;
+	CtkTextIter start;
+	CtkTextIter end;
 
 	buffer = ctk_text_buffer_new (NULL);
 	region = ctk_source_region_new (buffer);
@@ -52,13 +52,13 @@ test_weak_ref (void)
 }
 
 static void
-add_subregion (GtkSourceRegion *region,
+add_subregion (CtkSourceRegion *region,
 	       gint             start_offset,
 	       gint             end_offset)
 {
-	GtkTextBuffer *buffer;
-	GtkTextIter start_iter;
-	GtkTextIter end_iter;
+	CtkTextBuffer *buffer;
+	CtkTextIter start_iter;
+	CtkTextIter end_iter;
 
 	buffer = ctk_source_region_get_buffer (region);
 	ctk_text_buffer_get_iter_at_offset (buffer, &start_iter, start_offset);
@@ -68,13 +68,13 @@ add_subregion (GtkSourceRegion *region,
 }
 
 static void
-subtract_subregion (GtkSourceRegion *region,
+subtract_subregion (CtkSourceRegion *region,
 		    gint             start_offset,
 		    gint             end_offset)
 {
-	GtkTextBuffer *buffer;
-	GtkTextIter start_iter;
-	GtkTextIter end_iter;
+	CtkTextBuffer *buffer;
+	CtkTextIter start_iter;
+	CtkTextIter end_iter;
 
 	buffer = ctk_source_region_get_buffer (region);
 	ctk_text_buffer_get_iter_at_offset (buffer, &start_iter, start_offset);
@@ -84,7 +84,7 @@ subtract_subregion (GtkSourceRegion *region,
 }
 
 static void
-check_result (GtkSourceRegion *region,
+check_result (CtkSourceRegion *region,
 	      const gchar     *expected_result)
 {
 	gchar *expected_region_str;
@@ -109,13 +109,13 @@ check_result (GtkSourceRegion *region,
 static void
 test_add_subtract_subregion (void)
 {
-	GtkTextBuffer *buffer;
-	GtkSourceRegion *region;
+	CtkTextBuffer *buffer;
+	CtkSourceRegion *region;
 
 	buffer = ctk_text_buffer_new (NULL);
 	region = ctk_source_region_new (buffer);
 
-	ctk_text_buffer_set_text (buffer, "This is a test of GtkSourceRegion", -1);
+	ctk_text_buffer_set_text (buffer, "This is a test of CtkSourceRegion", -1);
 
 	g_assert_true (ctk_source_region_is_empty (region));
 
@@ -208,15 +208,15 @@ test_add_subtract_subregion (void)
 }
 
 static void
-do_intersection_subregion (GtkSourceRegion *region,
+do_intersection_subregion (CtkSourceRegion *region,
 			   gint             start_offset,
 			   gint             end_offset,
 			   const gchar     *expected_result)
 {
-	GtkTextBuffer *buffer;
-	GtkTextIter start_iter;
-	GtkTextIter end_iter;
-	GtkSourceRegion *intersection;
+	CtkTextBuffer *buffer;
+	CtkTextIter start_iter;
+	CtkTextIter end_iter;
+	CtkSourceRegion *intersection;
 
 	buffer = ctk_source_region_get_buffer (region);
 	ctk_text_buffer_get_iter_at_offset (buffer, &start_iter, start_offset);
@@ -230,13 +230,13 @@ do_intersection_subregion (GtkSourceRegion *region,
 static void
 test_intersect_subregion (void)
 {
-	GtkTextBuffer *buffer;
-	GtkSourceRegion *region;
+	CtkTextBuffer *buffer;
+	CtkSourceRegion *region;
 
 	buffer = ctk_text_buffer_new (NULL);
 	region = ctk_source_region_new (buffer);
 
-	ctk_text_buffer_set_text (buffer, "This is a test of GtkSourceRegion", -1);
+	ctk_text_buffer_set_text (buffer, "This is a test of CtkSourceRegion", -1);
 
 	g_assert_true (ctk_source_region_is_empty (region));
 
@@ -258,16 +258,16 @@ test_intersect_subregion (void)
 static void
 test_add_subtract_intersect_region (void)
 {
-	GtkTextBuffer *buffer;
-	GtkSourceRegion *main_region = NULL;
-	GtkSourceRegion *region_to_add = NULL;
-	GtkSourceRegion *region_to_subtract = NULL;
-	GtkSourceRegion *intersection = NULL;
+	CtkTextBuffer *buffer;
+	CtkSourceRegion *main_region = NULL;
+	CtkSourceRegion *region_to_add = NULL;
+	CtkSourceRegion *region_to_subtract = NULL;
+	CtkSourceRegion *intersection = NULL;
 
 	buffer = ctk_text_buffer_new (NULL);
 	main_region = ctk_source_region_new (buffer);
 
-	ctk_text_buffer_set_text (buffer, "This is a test of GtkSourceRegion", -1);
+	ctk_text_buffer_set_text (buffer, "This is a test of CtkSourceRegion", -1);
 
 	g_assert_true (ctk_source_region_is_empty (main_region));
 

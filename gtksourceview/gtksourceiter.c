@@ -1,15 +1,15 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*- */
 /*
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2014, 2016 - Sébastien Wilmet <swilmet@gnome.org>
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -24,11 +24,11 @@
 
 #include "ctksourceiter.h"
 
-/* GtkTextIter functions. Contains forward/backward functions for word
+/* CtkTextIter functions. Contains forward/backward functions for word
  * movements, with custom word boundaries that are used for word selection
  * (double-click) and cursor movements (Ctrl+left, Ctrl+right, etc).  The
  * initial idea was to use those word boundaries directly in CTK+, for all text
- * widgets. But in the end only the GtkTextView::extend-selection signal has
+ * widgets. But in the end only the CtkTextView::extend-selection signal has
  * been added to be able to customize the boundaries for double- and
  * triple-click (the ::move-cursor and ::delete-from-cursor signals were already
  * present to customize boundaries for cursor movements). The CTK+ developers
@@ -54,9 +54,9 @@
  * "---- a|bcd"   -> "---- abcd|"
  */
 void
-_ctk_source_iter_forward_full_word_end (GtkTextIter *iter)
+_ctk_source_iter_forward_full_word_end (CtkTextIter *iter)
 {
-	GtkTextIter pos;
+	CtkTextIter pos;
 	gboolean non_blank_found = FALSE;
 
 	/* It would be better to use ctk_text_iter_forward_visible_char(), but
@@ -93,10 +93,10 @@ _ctk_source_iter_forward_full_word_end (GtkTextIter *iter)
 
 /* Symmetric of iter_forward_full_word_end(). */
 void
-_ctk_source_iter_backward_full_word_start (GtkTextIter *iter)
+_ctk_source_iter_backward_full_word_start (CtkTextIter *iter)
 {
-	GtkTextIter pos;
-	GtkTextIter prev;
+	CtkTextIter pos;
+	CtkTextIter prev;
 	gboolean non_blank_found = FALSE;
 
 	pos = *iter;
@@ -143,9 +143,9 @@ _ctk_source_iter_backward_full_word_start (GtkTextIter *iter)
 }
 
 gboolean
-_ctk_source_iter_starts_full_word (const GtkTextIter *iter)
+_ctk_source_iter_starts_full_word (const CtkTextIter *iter)
 {
-	GtkTextIter prev = *iter;
+	CtkTextIter prev = *iter;
 
 	if (ctk_text_iter_is_end (iter))
 	{
@@ -162,9 +162,9 @@ _ctk_source_iter_starts_full_word (const GtkTextIter *iter)
 }
 
 gboolean
-_ctk_source_iter_ends_full_word (const GtkTextIter *iter)
+_ctk_source_iter_ends_full_word (const CtkTextIter *iter)
 {
-	GtkTextIter prev = *iter;
+	CtkTextIter prev = *iter;
 
 	if (!ctk_text_iter_backward_visible_cursor_position (&prev))
 	{
@@ -180,11 +180,11 @@ _ctk_source_iter_ends_full_word (const GtkTextIter *iter)
  * underscore is added to the possible characters of a natural-language word.
  */
 void
-_ctk_source_iter_forward_extra_natural_word_end (GtkTextIter *iter)
+_ctk_source_iter_forward_extra_natural_word_end (CtkTextIter *iter)
 {
-	GtkTextIter next_word_end = *iter;
-	GtkTextIter next_underscore_end = *iter;
-	GtkTextIter *limit = NULL;
+	CtkTextIter next_word_end = *iter;
+	CtkTextIter next_underscore_end = *iter;
+	CtkTextIter *limit = NULL;
 	gboolean found;
 
 	if (ctk_text_iter_forward_visible_word_end (&next_word_end))
@@ -233,11 +233,11 @@ _ctk_source_iter_forward_extra_natural_word_end (GtkTextIter *iter)
 
 /* Symmetric of iter_forward_extra_natural_word_end(). */
 void
-_ctk_source_iter_backward_extra_natural_word_start (GtkTextIter *iter)
+_ctk_source_iter_backward_extra_natural_word_start (CtkTextIter *iter)
 {
-	GtkTextIter prev_word_start = *iter;
-	GtkTextIter prev_underscore_start = *iter;
-	GtkTextIter *limit = NULL;
+	CtkTextIter prev_word_start = *iter;
+	CtkTextIter prev_underscore_start = *iter;
+	CtkTextIter *limit = NULL;
 	gboolean found;
 
 	if (ctk_text_iter_backward_visible_word_start (&prev_word_start))
@@ -263,7 +263,7 @@ _ctk_source_iter_backward_extra_natural_word_start (GtkTextIter *iter)
 
 	while (!ctk_text_iter_is_start (iter))
 	{
-		GtkTextIter prev = *iter;
+		CtkTextIter prev = *iter;
 
 		if (!ctk_text_iter_backward_visible_cursor_position (&prev))
 		{
@@ -289,7 +289,7 @@ _ctk_source_iter_backward_extra_natural_word_start (GtkTextIter *iter)
 }
 
 static gboolean
-backward_cursor_position (GtkTextIter *iter,
+backward_cursor_position (CtkTextIter *iter,
 			  gboolean     visible)
 {
 	if (visible)
@@ -301,11 +301,11 @@ backward_cursor_position (GtkTextIter *iter,
 }
 
 gboolean
-_ctk_source_iter_starts_extra_natural_word (const GtkTextIter *iter,
+_ctk_source_iter_starts_extra_natural_word (const CtkTextIter *iter,
 					    gboolean           visible)
 {
 	gboolean starts_word;
-	GtkTextIter prev;
+	CtkTextIter prev;
 
 	starts_word = ctk_text_iter_starts_word (iter);
 
@@ -326,10 +326,10 @@ _ctk_source_iter_starts_extra_natural_word (const GtkTextIter *iter,
 }
 
 gboolean
-_ctk_source_iter_ends_extra_natural_word (const GtkTextIter *iter,
+_ctk_source_iter_ends_extra_natural_word (const CtkTextIter *iter,
 					  gboolean           visible)
 {
-	GtkTextIter prev;
+	CtkTextIter prev;
 	gboolean ends_word;
 
 	prev = *iter;
@@ -367,12 +367,12 @@ _ctk_source_iter_ends_extra_natural_word (const GtkTextIter *iter,
  * - a group of contiguous non-blank characters.
  */
 gboolean
-_ctk_source_iter_forward_visible_word_end (GtkTextIter *iter)
+_ctk_source_iter_forward_visible_word_end (CtkTextIter *iter)
 {
-	GtkTextIter orig = *iter;
-	GtkTextIter farthest = *iter;
-	GtkTextIter next_word_end = *iter;
-	GtkTextIter word_start;
+	CtkTextIter orig = *iter;
+	CtkTextIter farthest = *iter;
+	CtkTextIter next_word_end = *iter;
+	CtkTextIter word_start;
 
 	/* 'farthest' is the farthest position that this function can return. Example:
 	 * "|---- aaaa"  ->  "----| aaaa"
@@ -439,12 +439,12 @@ end:
 
 /* Symmetric of _ctk_source_iter_forward_visible_word_end(). */
 gboolean
-_ctk_source_iter_backward_visible_word_start (GtkTextIter *iter)
+_ctk_source_iter_backward_visible_word_start (CtkTextIter *iter)
 {
-	GtkTextIter orig = *iter;
-	GtkTextIter farthest = *iter;
-	GtkTextIter prev_word_start = *iter;
-	GtkTextIter word_end;
+	CtkTextIter orig = *iter;
+	CtkTextIter farthest = *iter;
+	CtkTextIter prev_word_start = *iter;
+	CtkTextIter word_end;
 
 	/* 'farthest' is the farthest position that this function can return. Example:
 	 * "aaaa ----|"  ->  "aaaa |----"
@@ -511,10 +511,10 @@ end:
 
 /* Similar to ctk_text_iter_forward_visible_word_ends(). */
 gboolean
-_ctk_source_iter_forward_visible_word_ends (GtkTextIter *iter,
+_ctk_source_iter_forward_visible_word_ends (CtkTextIter *iter,
 					    gint         count)
 {
-	GtkTextIter orig = *iter;
+	CtkTextIter orig = *iter;
 	gint i;
 
 	if (count < 0)
@@ -535,10 +535,10 @@ _ctk_source_iter_forward_visible_word_ends (GtkTextIter *iter,
 
 /* Similar to ctk_text_iter_backward_visible_word_starts(). */
 gboolean
-_ctk_source_iter_backward_visible_word_starts (GtkTextIter *iter,
+_ctk_source_iter_backward_visible_word_starts (CtkTextIter *iter,
 					       gint         count)
 {
-	GtkTextIter orig = *iter;
+	CtkTextIter orig = *iter;
 	gint i;
 
 	if (count < 0)
@@ -558,7 +558,7 @@ _ctk_source_iter_backward_visible_word_starts (GtkTextIter *iter,
 }
 
 gboolean
-_ctk_source_iter_starts_word (const GtkTextIter *iter)
+_ctk_source_iter_starts_word (const CtkTextIter *iter)
 {
 	if (_ctk_source_iter_starts_full_word (iter) ||
 	    _ctk_source_iter_starts_extra_natural_word (iter, TRUE))
@@ -572,7 +572,7 @@ _ctk_source_iter_starts_word (const GtkTextIter *iter)
 }
 
 gboolean
-_ctk_source_iter_ends_word (const GtkTextIter *iter)
+_ctk_source_iter_ends_word (const CtkTextIter *iter)
 {
 	if (_ctk_source_iter_ends_full_word (iter) ||
 	    _ctk_source_iter_ends_extra_natural_word (iter, TRUE))
@@ -586,10 +586,10 @@ _ctk_source_iter_ends_word (const GtkTextIter *iter)
 }
 
 gboolean
-_ctk_source_iter_inside_word (const GtkTextIter *iter)
+_ctk_source_iter_inside_word (const CtkTextIter *iter)
 {
-	GtkTextIter prev_word_start;
-	GtkTextIter word_end;
+	CtkTextIter prev_word_start;
+	CtkTextIter word_end;
 
 	if (_ctk_source_iter_starts_word (iter))
 	{
@@ -609,11 +609,11 @@ _ctk_source_iter_inside_word (const GtkTextIter *iter)
 		ctk_text_iter_compare (iter, &word_end) < 0);
 }
 
-/* Used for the GtkTextView::extend-selection signal. */
+/* Used for the CtkTextView::extend-selection signal. */
 void
-_ctk_source_iter_extend_selection_word (const GtkTextIter *location,
-					GtkTextIter       *start,
-					GtkTextIter       *end)
+_ctk_source_iter_extend_selection_word (const CtkTextIter *location,
+					CtkTextIter       *start,
+					CtkTextIter       *end)
 {
 	/* Exactly the same algorithm as in CTK+, but with our custom word
 	 * boundaries.
@@ -635,7 +635,7 @@ _ctk_source_iter_extend_selection_word (const GtkTextIter *location,
 	}
 	else
 	{
-		GtkTextIter tmp;
+		CtkTextIter tmp;
 
 		tmp = *start;
 		if (_ctk_source_iter_backward_visible_word_start (&tmp))
@@ -678,8 +678,8 @@ _ctk_source_iter_extend_selection_word (const GtkTextIter *location,
  * the text.
  */
 void
-_ctk_source_iter_get_leading_spaces_end_boundary (const GtkTextIter *iter,
-						  GtkTextIter       *leading_end)
+_ctk_source_iter_get_leading_spaces_end_boundary (const CtkTextIter *iter,
+						  CtkTextIter       *leading_end)
 {
 	g_return_if_fail (iter != NULL);
 	g_return_if_fail (leading_end != NULL);
@@ -704,8 +704,8 @@ _ctk_source_iter_get_leading_spaces_end_boundary (const GtkTextIter *iter,
  * spaces.
  */
 void
-_ctk_source_iter_get_trailing_spaces_start_boundary (const GtkTextIter *iter,
-						     GtkTextIter       *trailing_start)
+_ctk_source_iter_get_trailing_spaces_start_boundary (const CtkTextIter *iter,
+						     CtkTextIter       *trailing_start)
 {
 	g_return_if_fail (iter != NULL);
 	g_return_if_fail (trailing_start != NULL);
@@ -718,7 +718,7 @@ _ctk_source_iter_get_trailing_spaces_start_boundary (const GtkTextIter *iter,
 
 	while (!ctk_text_iter_starts_line (trailing_start))
 	{
-		GtkTextIter prev;
+		CtkTextIter prev;
 		gunichar ch;
 
 		prev = *trailing_start;

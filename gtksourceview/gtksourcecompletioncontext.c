@@ -1,15 +1,15 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*- *
  *
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2009 - Jesse van den Kieboom <jessevdk@gnome.org>
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -20,13 +20,13 @@
 
 /**
  * SECTION:completioncontext
- * @title: GtkSourceCompletionContext
+ * @title: CtkSourceCompletionContext
  * @short_description: The context of a completion
  *
  * Initially, the completion window is hidden. For a completion to occur, it has
  * to be activated. The different possible activations are listed in
- * #GtkSourceCompletionActivation. When an activation occurs, a
- * #GtkSourceCompletionContext object is created, and the eligible providers are
+ * #CtkSourceCompletionActivation. When an activation occurs, a
+ * #CtkSourceCompletionContext object is created, and the eligible providers are
  * asked to add proposals with ctk_source_completion_context_add_proposals().
  *
  * If no proposals are added, the completion window remains hidden, and the
@@ -36,9 +36,9 @@
  * visible, and the user can choose a proposal. If the user is not happy with
  * the shown proposals, he or she can insert or delete characters, to modify the
  * completion context and therefore hoping to see the proposal he or she wants.
- * This means that when an insertion or deletion occurs in the #GtkTextBuffer
+ * This means that when an insertion or deletion occurs in the #CtkTextBuffer
  * when the completion window is visible, the eligible providers are again asked
- * to add proposals. The #GtkSourceCompletionContext:activation remains the
+ * to add proposals. The #CtkSourceCompletionContext:activation remains the
  * same in this case.
  *
  * When the completion window is hidden, the interactive completion is triggered
@@ -54,9 +54,9 @@
  * disappears, the previous proposals will not reappear on the character
  * deletion.
  *
- * A #GtkTextIter is associated with the context, this is where the completion
- * takes place. With this #GtkTextIter, you can get the associated
- * #GtkTextBuffer with ctk_text_iter_get_buffer().
+ * A #CtkTextIter is associated with the context, this is where the completion
+ * takes place. With this #CtkTextIter, you can get the associated
+ * #CtkTextBuffer with ctk_text_iter_get_buffer().
  */
 
 #ifdef HAVE_CONFIG_H
@@ -68,12 +68,12 @@
 #include "ctksourcecompletionprovider.h"
 #include "ctksourcecompletion.h"
 
-struct _GtkSourceCompletionContextPrivate
+struct _CtkSourceCompletionContextPrivate
 {
-	GtkSourceCompletion *completion;
+	CtkSourceCompletion *completion;
 
-	GtkTextMark *mark;
-	GtkSourceCompletionActivation activation;
+	CtkTextMark *mark;
+	CtkSourceCompletionActivation activation;
 };
 
 enum
@@ -92,16 +92,16 @@ enum
 
 static guint context_signals[N_SIGNALS];
 
-G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceCompletionContext, ctk_source_completion_context, G_TYPE_INITIALLY_UNOWNED)
+G_DEFINE_TYPE_WITH_PRIVATE (CtkSourceCompletionContext, ctk_source_completion_context, G_TYPE_INITIALLY_UNOWNED)
 
 static void
 ctk_source_completion_context_dispose (GObject *object)
 {
-	GtkSourceCompletionContext *context = CTK_SOURCE_COMPLETION_CONTEXT (object);
+	CtkSourceCompletionContext *context = CTK_SOURCE_COMPLETION_CONTEXT (object);
 
 	if (context->priv->mark != NULL)
 	{
-		GtkTextBuffer *buffer = ctk_text_mark_get_buffer (context->priv->mark);
+		CtkTextBuffer *buffer = ctk_text_mark_get_buffer (context->priv->mark);
 
 		if (buffer != NULL)
 		{
@@ -118,16 +118,16 @@ ctk_source_completion_context_dispose (GObject *object)
 }
 
 static void
-set_iter (GtkSourceCompletionContext *context,
-	  GtkTextIter                *iter)
+set_iter (CtkSourceCompletionContext *context,
+	  CtkTextIter                *iter)
 {
-	GtkTextBuffer *buffer;
+	CtkTextBuffer *buffer;
 
 	buffer = ctk_text_iter_get_buffer (iter);
 
 	if (context->priv->mark != NULL)
 	{
-		GtkTextBuffer *old_buffer;
+		CtkTextBuffer *old_buffer;
 
 		old_buffer = ctk_text_mark_get_buffer (context->priv->mark);
 
@@ -157,7 +157,7 @@ ctk_source_completion_context_set_property (GObject      *object,
                                             const GValue *value,
                                             GParamSpec   *pspec)
 {
-	GtkSourceCompletionContext *context = CTK_SOURCE_COMPLETION_CONTEXT (object);
+	CtkSourceCompletionContext *context = CTK_SOURCE_COMPLETION_CONTEXT (object);
 
 	switch (prop_id)
 	{
@@ -184,7 +184,7 @@ ctk_source_completion_context_get_property (GObject    *object,
                                             GValue     *value,
                                             GParamSpec *pspec)
 {
-	GtkSourceCompletionContext *context = CTK_SOURCE_COMPLETION_CONTEXT (object);
+	CtkSourceCompletionContext *context = CTK_SOURCE_COMPLETION_CONTEXT (object);
 
 	switch (prop_id)
 	{
@@ -194,7 +194,7 @@ ctk_source_completion_context_get_property (GObject    *object,
 
 		case PROP_ITER:
 			{
-				GtkTextIter iter;
+				CtkTextIter iter;
 
 				if (ctk_source_completion_context_get_iter (context, &iter))
 				{
@@ -213,7 +213,7 @@ ctk_source_completion_context_get_property (GObject    *object,
 }
 
 static void
-ctk_source_completion_context_class_init (GtkSourceCompletionContextClass *klass)
+ctk_source_completion_context_class_init (CtkSourceCompletionContextClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
@@ -222,7 +222,7 @@ ctk_source_completion_context_class_init (GtkSourceCompletionContextClass *klass
 	object_class->dispose = ctk_source_completion_context_dispose;
 
 	/**
-	 * GtkSourceCompletionContext::cancelled:
+	 * CtkSourceCompletionContext::cancelled:
 	 *
 	 * Emitted when the current population of proposals has been cancelled.
 	 * Providers adding proposals asynchronously should connect to this signal
@@ -232,7 +232,7 @@ ctk_source_completion_context_class_init (GtkSourceCompletionContextClass *klass
 		g_signal_new ("cancelled",
 		              G_TYPE_FROM_CLASS (klass),
 		              G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
-		              G_STRUCT_OFFSET (GtkSourceCompletionContextClass, cancelled),
+		              G_STRUCT_OFFSET (CtkSourceCompletionContextClass, cancelled),
 		              NULL, NULL,
 		              g_cclosure_marshal_VOID__VOID,
 		              G_TYPE_NONE, 0);
@@ -241,9 +241,9 @@ ctk_source_completion_context_class_init (GtkSourceCompletionContextClass *klass
 	                            g_cclosure_marshal_VOID__VOIDv);
 
 	/**
-	 * GtkSourceCompletionContext:completion:
+	 * CtkSourceCompletionContext:completion:
 	 *
-	 * The #GtkSourceCompletion associated with the context.
+	 * The #CtkSourceCompletion associated with the context.
 	 **/
 	g_object_class_install_property (object_class,
 	                                 PROP_COMPLETION,
@@ -256,21 +256,21 @@ ctk_source_completion_context_class_init (GtkSourceCompletionContextClass *klass
 							      G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceCompletionContext:iter:
+	 * CtkSourceCompletionContext:iter:
 	 *
-	 * The #GtkTextIter at which the completion is invoked.
+	 * The #CtkTextIter at which the completion is invoked.
 	 **/
 	g_object_class_install_property (object_class,
 	                                 PROP_ITER,
 					 g_param_spec_boxed ("iter",
 							     "Iterator",
-							     "The GtkTextIter at which the completion was invoked",
+							     "The CtkTextIter at which the completion was invoked",
 							     CTK_TYPE_TEXT_ITER,
 							     G_PARAM_READWRITE |
 							     G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceCompletionContext:activation:
+	 * CtkSourceCompletionContext:activation:
 	 *
 	 * The completion activation
 	 **/
@@ -287,16 +287,16 @@ ctk_source_completion_context_class_init (GtkSourceCompletionContextClass *klass
 }
 
 static void
-ctk_source_completion_context_init (GtkSourceCompletionContext *context)
+ctk_source_completion_context_init (CtkSourceCompletionContext *context)
 {
 	context->priv = ctk_source_completion_context_get_instance_private (context);
 }
 
 /**
  * ctk_source_completion_context_add_proposals:
- * @context: a #GtkSourceCompletionContext.
- * @provider: a #GtkSourceCompletionProvider.
- * @proposals: (nullable) (element-type GtkSource.CompletionProposal): The list of proposals to add.
+ * @context: a #CtkSourceCompletionContext.
+ * @provider: a #CtkSourceCompletionProvider.
+ * @proposals: (nullable) (element-type CtkSource.CompletionProposal): The list of proposals to add.
  * @finished: Whether the provider is finished adding proposals.
  *
  * Providers can use this function to add proposals to the completion. They
@@ -307,8 +307,8 @@ ctk_source_completion_context_init (GtkSourceCompletionContext *context)
  * function is called.
  **/
 void
-ctk_source_completion_context_add_proposals (GtkSourceCompletionContext  *context,
-                                             GtkSourceCompletionProvider *provider,
+ctk_source_completion_context_add_proposals (CtkSourceCompletionContext  *context,
+                                             CtkSourceCompletionProvider *provider,
                                              GList                       *proposals,
                                              gboolean                     finished)
 {
@@ -324,8 +324,8 @@ ctk_source_completion_context_add_proposals (GtkSourceCompletionContext  *contex
 
 /**
  * ctk_source_completion_context_get_iter:
- * @context: a #GtkSourceCompletionContext.
- * @iter: (out): a #GtkTextIter.
+ * @context: a #CtkSourceCompletionContext.
+ * @iter: (out): a #CtkTextIter.
  *
  * Get the iter at which the completion was invoked. Providers can use this
  * to determine how and if to match proposals.
@@ -333,12 +333,12 @@ ctk_source_completion_context_add_proposals (GtkSourceCompletionContext  *contex
  * Returns: %TRUE if @iter is correctly set, %FALSE otherwise.
  **/
 gboolean
-ctk_source_completion_context_get_iter (GtkSourceCompletionContext *context,
-                                        GtkTextIter                *iter)
+ctk_source_completion_context_get_iter (CtkSourceCompletionContext *context,
+                                        CtkTextIter                *iter)
 {
-	GtkTextBuffer *mark_buffer;
-	GtkSourceView *view;
-	GtkTextBuffer *completion_buffer;
+	CtkTextBuffer *mark_buffer;
+	CtkSourceView *view;
+	CtkTextBuffer *completion_buffer;
 
 	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_CONTEXT (context), FALSE);
 
@@ -376,14 +376,14 @@ ctk_source_completion_context_get_iter (GtkSourceCompletionContext *context,
 
 /**
  * ctk_source_completion_context_get_activation:
- * @context: a #GtkSourceCompletionContext.
+ * @context: a #CtkSourceCompletionContext.
  *
  * Get the context activation.
  *
  * Returns: The context activation.
  */
-GtkSourceCompletionActivation
-ctk_source_completion_context_get_activation (GtkSourceCompletionContext *context)
+CtkSourceCompletionActivation
+ctk_source_completion_context_get_activation (CtkSourceCompletionContext *context)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_CONTEXT (context),
 			      CTK_SOURCE_COMPLETION_ACTIVATION_NONE);
@@ -392,16 +392,16 @@ ctk_source_completion_context_get_activation (GtkSourceCompletionContext *contex
 }
 
 void
-_ctk_source_completion_context_cancel (GtkSourceCompletionContext *context)
+_ctk_source_completion_context_cancel (CtkSourceCompletionContext *context)
 {
 	g_return_if_fail (CTK_SOURCE_IS_COMPLETION_CONTEXT (context));
 
 	g_signal_emit (context, context_signals[CANCELLED], 0);
 }
 
-GtkSourceCompletionContext *
-_ctk_source_completion_context_new (GtkSourceCompletion *completion,
-				    GtkTextIter         *position)
+CtkSourceCompletionContext *
+_ctk_source_completion_context_new (CtkSourceCompletion *completion,
+				    CtkTextIter         *position)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION (completion), NULL);
 	g_return_val_if_fail (position != NULL, NULL);

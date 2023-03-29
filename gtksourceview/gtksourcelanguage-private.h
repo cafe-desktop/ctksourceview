@@ -1,15 +1,15 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*-
  *
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2003 - Paolo Maggi <paolo.maggi@polito.it>
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -30,15 +30,15 @@ G_BEGIN_DECLS
 #define CTK_SOURCE_LANGUAGE_VERSION_1_0  100
 #define CTK_SOURCE_LANGUAGE_VERSION_2_0  200
 
-typedef struct _GtkSourceStyleInfo GtkSourceStyleInfo;
+typedef struct _CtkSourceStyleInfo CtkSourceStyleInfo;
 
-struct _GtkSourceStyleInfo
+struct _CtkSourceStyleInfo
 {
 	gchar *name;
 	gchar *map_to;
 };
 
-struct _GtkSourceLanguagePrivate
+struct _CtkSourceLanguagePrivate
 {
 	gchar                    *lang_file_name;
 	gchar                    *translation_domain;
@@ -47,7 +47,7 @@ struct _GtkSourceLanguagePrivate
 	gchar                    *name;
 	gchar                    *section;
 
-	/* Maps ids to GtkSourceStyleInfo objects */
+	/* Maps ids to CtkSourceStyleInfo objects */
 	/* Names of styles defined in other lang files are not stored */
 	GHashTable               *styles;
 	gboolean		  styles_loaded;
@@ -57,45 +57,45 @@ struct _GtkSourceLanguagePrivate
 
 	GHashTable               *properties;
 
-	GtkSourceLanguageManager *language_manager;
+	CtkSourceLanguageManager *language_manager;
 
-	GtkSourceContextData     *ctx_data;
+	CtkSourceContextData     *ctx_data;
 };
 
 G_GNUC_INTERNAL
-GtkSourceLanguage 	 *_ctk_source_language_new_from_file 		(const gchar		   *filename,
-									 GtkSourceLanguageManager  *lm);
+CtkSourceLanguage 	 *_ctk_source_language_new_from_file 		(const gchar		   *filename,
+									 CtkSourceLanguageManager  *lm);
 
 G_GNUC_INTERNAL
-GtkSourceLanguageManager *_ctk_source_language_get_language_manager 	(GtkSourceLanguage        *language);
+CtkSourceLanguageManager *_ctk_source_language_get_language_manager 	(CtkSourceLanguage        *language);
 
 G_GNUC_INTERNAL
-const gchar		 *_ctk_source_language_manager_get_rng_file	(GtkSourceLanguageManager *lm);
+const gchar		 *_ctk_source_language_manager_get_rng_file	(CtkSourceLanguageManager *lm);
 
 G_GNUC_INTERNAL
-gchar       		 *_ctk_source_language_translate_string 	(GtkSourceLanguage        *language,
+gchar       		 *_ctk_source_language_translate_string 	(CtkSourceLanguage        *language,
 									 const gchar              *string);
 
 G_GNUC_INTERNAL
-void 			  _ctk_source_language_define_language_styles	(GtkSourceLanguage        *language);
+void 			  _ctk_source_language_define_language_styles	(CtkSourceLanguage        *language);
 
 G_GNUC_INTERNAL
-gboolean 		  _ctk_source_language_file_parse_version2	(GtkSourceLanguage        *language,
-									 GtkSourceContextData     *ctx_data);
+gboolean 		  _ctk_source_language_file_parse_version2	(CtkSourceLanguage        *language,
+									 CtkSourceContextData     *ctx_data);
 
 G_GNUC_INTERNAL
-GtkSourceEngine 	 *_ctk_source_language_create_engine		(GtkSourceLanguage	  *language);
+CtkSourceEngine 	 *_ctk_source_language_create_engine		(CtkSourceLanguage	  *language);
 
-/* Utility functions for GtkSourceStyleInfo */
+/* Utility functions for CtkSourceStyleInfo */
 G_GNUC_INTERNAL
-GtkSourceStyleInfo 	 *_ctk_source_style_info_new 			(const gchar		  *name,
+CtkSourceStyleInfo 	 *_ctk_source_style_info_new 			(const gchar		  *name,
 									 const gchar              *map_to);
 
 G_GNUC_INTERNAL
-GtkSourceStyleInfo 	 *_ctk_source_style_info_copy			(GtkSourceStyleInfo       *info);
+CtkSourceStyleInfo 	 *_ctk_source_style_info_copy			(CtkSourceStyleInfo       *info);
 
 G_GNUC_INTERNAL
-void			  _ctk_source_style_info_free			(GtkSourceStyleInfo       *info);
+void			  _ctk_source_style_info_free			(CtkSourceStyleInfo       *info);
 
 G_END_DECLS
 

@@ -1,7 +1,7 @@
-How to contribute to GtkSourceView
+How to contribute to CtkSourceView
 ==================================
 
-GtkSourceView is hosted on the GNOME GitLab instance, you can fork the
+CtkSourceView is hosted on the GNOME GitLab instance, you can fork the
 repository and then do a merge request:
 
     https://gitlab.gnome.org/GNOME/ctksourceview
@@ -12,10 +12,10 @@ Read the following wiki page to know the conventions for the commit messages:
 
 If you have write access to the Git repository, please don't push your commits
 directly unless you have been given the green light to commit freely to
-GtkSourceView. When in doubt assume you haven't ;-).
+CtkSourceView. When in doubt assume you haven't ;-).
 
-People who can commit freely to GtkSourceView:
-* GtkSourceView maintainers (or sub-maintainers in their area of expertise),
+People who can commit freely to CtkSourceView:
+* CtkSourceView maintainers (or sub-maintainers in their area of expertise),
   with of course discussion before doing important changes.
 * GNOME "build sheriffs", to fix build issues.
 
@@ -27,7 +27,7 @@ conventions, but for new code it is better to follow them, for consistency.
 
 In the scripts/ directory there is an uncrustify config file with a script to
 apply the coding style to a certain *.c file. The script has not (yet) been run
-on all the GtkSourceView source code, but it can serve as a guideline.
+on all the CtkSourceView source code, but it can serve as a guideline.
 
   - Avoid trailing whitespace.
 
@@ -68,7 +68,7 @@ https://wiki.gnome.org/Projects/GLib/CompilerRequirements
 Programming best-practices
 --------------------------
 
-GtkSourceView is a sizeable piece of software, developed over the years by
+CtkSourceView is a sizeable piece of software, developed over the years by
 different people and GNOME technologies. Some parts of the code may be a little
 old. So when editing the code, we should try to make it better, not worse.
 

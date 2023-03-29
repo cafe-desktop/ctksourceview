@@ -1,16 +1,16 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*-
  *
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2007 - 2009 Jesús Barbero Rodríguez <chuchiperriman@gmail.com>
  * Copyright (C) 2009 - Jesse van den Kieboom <jessevdk@gnome.org>
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -33,14 +33,14 @@
 G_BEGIN_DECLS
 
 #define CTK_SOURCE_TYPE_COMPLETION_PROPOSAL			(ctk_source_completion_proposal_get_type ())
-#define CTK_SOURCE_COMPLETION_PROPOSAL(obj)			(G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_COMPLETION_PROPOSAL, GtkSourceCompletionProposal))
+#define CTK_SOURCE_COMPLETION_PROPOSAL(obj)			(G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_COMPLETION_PROPOSAL, CtkSourceCompletionProposal))
 #define CTK_SOURCE_IS_COMPLETION_PROPOSAL(obj)			(G_TYPE_CHECK_INSTANCE_TYPE ((obj), CTK_SOURCE_TYPE_COMPLETION_PROPOSAL))
-#define CTK_SOURCE_COMPLETION_PROPOSAL_GET_INTERFACE(obj)	(G_TYPE_INSTANCE_GET_INTERFACE ((obj), CTK_SOURCE_TYPE_COMPLETION_PROPOSAL, GtkSourceCompletionProposalIface))
+#define CTK_SOURCE_COMPLETION_PROPOSAL_GET_INTERFACE(obj)	(G_TYPE_INSTANCE_GET_INTERFACE ((obj), CTK_SOURCE_TYPE_COMPLETION_PROPOSAL, CtkSourceCompletionProposalIface))
 
-typedef struct _GtkSourceCompletionProposalIface	GtkSourceCompletionProposalIface;
+typedef struct _CtkSourceCompletionProposalIface	CtkSourceCompletionProposalIface;
 
 /**
- * GtkSourceCompletionProposalIface:
+ * CtkSourceCompletionProposalIface:
  * @parent: The parent interface.
  * @get_label: The virtual function pointer for ctk_source_completion_proposal_get_label().
  * By default, %NULL is returned.
@@ -60,66 +60,66 @@ typedef struct _GtkSourceCompletionProposalIface	GtkSourceCompletionProposalIfac
  * By default, it uses a direct hash (g_direct_hash()).
  * @equal: The virtual function pointer for ctk_source_completion_proposal_equal().
  * By default, it uses direct equality (g_direct_equal()).
- * @changed: The function pointer for the #GtkSourceCompletionProposal::changed signal.
+ * @changed: The function pointer for the #CtkSourceCompletionProposal::changed signal.
  *
- * The virtual function table for #GtkSourceCompletionProposal.
+ * The virtual function table for #CtkSourceCompletionProposal.
  */
-struct _GtkSourceCompletionProposalIface
+struct _CtkSourceCompletionProposalIface
 {
 	GTypeInterface parent;
 
 	/* Interface functions */
-	gchar		*(*get_label)		(GtkSourceCompletionProposal *proposal);
-	gchar		*(*get_markup)		(GtkSourceCompletionProposal *proposal);
-	gchar		*(*get_text)		(GtkSourceCompletionProposal *proposal);
+	gchar		*(*get_label)		(CtkSourceCompletionProposal *proposal);
+	gchar		*(*get_markup)		(CtkSourceCompletionProposal *proposal);
+	gchar		*(*get_text)		(CtkSourceCompletionProposal *proposal);
 
-	GdkPixbuf	*(*get_icon)		(GtkSourceCompletionProposal *proposal);
-	const gchar	*(*get_icon_name)	(GtkSourceCompletionProposal *proposal);
-	GIcon		*(*get_gicon)		(GtkSourceCompletionProposal *proposal);
+	GdkPixbuf	*(*get_icon)		(CtkSourceCompletionProposal *proposal);
+	const gchar	*(*get_icon_name)	(CtkSourceCompletionProposal *proposal);
+	GIcon		*(*get_gicon)		(CtkSourceCompletionProposal *proposal);
 
-	gchar		*(*get_info)		(GtkSourceCompletionProposal *proposal);
+	gchar		*(*get_info)		(CtkSourceCompletionProposal *proposal);
 
-	guint		 (*hash)		(GtkSourceCompletionProposal *proposal);
-	gboolean	 (*equal)		(GtkSourceCompletionProposal *proposal,
-						 GtkSourceCompletionProposal *other);
+	guint		 (*hash)		(CtkSourceCompletionProposal *proposal);
+	gboolean	 (*equal)		(CtkSourceCompletionProposal *proposal,
+						 CtkSourceCompletionProposal *other);
 
 	/* Signals */
-	void		 (*changed)		(GtkSourceCompletionProposal *proposal);
+	void		 (*changed)		(CtkSourceCompletionProposal *proposal);
 };
 
 CTK_SOURCE_AVAILABLE_IN_ALL
 GType 			 ctk_source_completion_proposal_get_type 	(void) G_GNUC_CONST;
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-gchar			*ctk_source_completion_proposal_get_label	(GtkSourceCompletionProposal *proposal);
+gchar			*ctk_source_completion_proposal_get_label	(CtkSourceCompletionProposal *proposal);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-gchar			*ctk_source_completion_proposal_get_markup	(GtkSourceCompletionProposal *proposal);
+gchar			*ctk_source_completion_proposal_get_markup	(CtkSourceCompletionProposal *proposal);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-gchar			*ctk_source_completion_proposal_get_text	(GtkSourceCompletionProposal *proposal);
+gchar			*ctk_source_completion_proposal_get_text	(CtkSourceCompletionProposal *proposal);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-GdkPixbuf		*ctk_source_completion_proposal_get_icon	(GtkSourceCompletionProposal *proposal);
+GdkPixbuf		*ctk_source_completion_proposal_get_icon	(CtkSourceCompletionProposal *proposal);
 
 CTK_SOURCE_AVAILABLE_IN_3_18
-const gchar		*ctk_source_completion_proposal_get_icon_name	(GtkSourceCompletionProposal *proposal);
+const gchar		*ctk_source_completion_proposal_get_icon_name	(CtkSourceCompletionProposal *proposal);
 
 CTK_SOURCE_AVAILABLE_IN_3_18
-GIcon			*ctk_source_completion_proposal_get_gicon	(GtkSourceCompletionProposal *proposal);
+GIcon			*ctk_source_completion_proposal_get_gicon	(CtkSourceCompletionProposal *proposal);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-gchar			*ctk_source_completion_proposal_get_info	(GtkSourceCompletionProposal *proposal);
+gchar			*ctk_source_completion_proposal_get_info	(CtkSourceCompletionProposal *proposal);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-void			 ctk_source_completion_proposal_changed		(GtkSourceCompletionProposal *proposal);
+void			 ctk_source_completion_proposal_changed		(CtkSourceCompletionProposal *proposal);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-guint			 ctk_source_completion_proposal_hash		(GtkSourceCompletionProposal *proposal);
+guint			 ctk_source_completion_proposal_hash		(CtkSourceCompletionProposal *proposal);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-gboolean		 ctk_source_completion_proposal_equal		(GtkSourceCompletionProposal *proposal,
-									 GtkSourceCompletionProposal *other);
+gboolean		 ctk_source_completion_proposal_equal		(CtkSourceCompletionProposal *proposal,
+									 CtkSourceCompletionProposal *other);
 
 G_END_DECLS
 

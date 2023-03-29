@@ -1,6 +1,6 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*-
  *
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2009 - Jesse van den Kieboom
  *
@@ -31,23 +31,23 @@
 G_BEGIN_DECLS
 
 #define CTK_SOURCE_TYPE_COMPLETION_WORDS		(ctk_source_completion_words_get_type ())
-#define CTK_SOURCE_COMPLETION_WORDS(obj)		(G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_COMPLETION_WORDS, GtkSourceCompletionWords))
-#define CTK_SOURCE_COMPLETION_WORDS_CLASS(klass)	(G_TYPE_CHECK_CLASS_CAST ((klass), CTK_SOURCE_TYPE_COMPLETION_WORDS, GtkSourceCompletionWordsClass))
+#define CTK_SOURCE_COMPLETION_WORDS(obj)		(G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_COMPLETION_WORDS, CtkSourceCompletionWords))
+#define CTK_SOURCE_COMPLETION_WORDS_CLASS(klass)	(G_TYPE_CHECK_CLASS_CAST ((klass), CTK_SOURCE_TYPE_COMPLETION_WORDS, CtkSourceCompletionWordsClass))
 #define CTK_SOURCE_IS_COMPLETION_WORDS(obj)		(G_TYPE_CHECK_INSTANCE_TYPE ((obj), CTK_SOURCE_TYPE_COMPLETION_WORDS))
 #define CTK_SOURCE_IS_COMPLETION_WORDS_CLASS(klass)	(G_TYPE_CHECK_CLASS_TYPE ((klass), CTK_SOURCE_TYPE_COMPLETION_WORDS))
-#define CTK_SOURCE_COMPLETION_WORDS_GET_CLASS(obj)	(G_TYPE_INSTANCE_GET_CLASS ((obj), CTK_SOURCE_TYPE_COMPLETION_WORDS, GtkSourceCompletionWordsClass))
+#define CTK_SOURCE_COMPLETION_WORDS_GET_CLASS(obj)	(G_TYPE_INSTANCE_GET_CLASS ((obj), CTK_SOURCE_TYPE_COMPLETION_WORDS, CtkSourceCompletionWordsClass))
 
-typedef struct _GtkSourceCompletionWords		GtkSourceCompletionWords;
-typedef struct _GtkSourceCompletionWordsClass		GtkSourceCompletionWordsClass;
-typedef struct _GtkSourceCompletionWordsPrivate		GtkSourceCompletionWordsPrivate;
+typedef struct _CtkSourceCompletionWords		CtkSourceCompletionWords;
+typedef struct _CtkSourceCompletionWordsClass		CtkSourceCompletionWordsClass;
+typedef struct _CtkSourceCompletionWordsPrivate		CtkSourceCompletionWordsPrivate;
 
-struct _GtkSourceCompletionWords {
+struct _CtkSourceCompletionWords {
 	GObject parent;
 
-	GtkSourceCompletionWordsPrivate *priv;
+	CtkSourceCompletionWordsPrivate *priv;
 };
 
-struct _GtkSourceCompletionWordsClass {
+struct _CtkSourceCompletionWordsClass {
 	GObjectClass parent_class;
 };
 
@@ -55,17 +55,17 @@ CTK_SOURCE_AVAILABLE_IN_ALL
 GType		ctk_source_completion_words_get_type	(void) G_GNUC_CONST;
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-GtkSourceCompletionWords *
+CtkSourceCompletionWords *
 		ctk_source_completion_words_new 	(const gchar              *name,
 		                                         GdkPixbuf                *icon);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-void 		ctk_source_completion_words_register 	(GtkSourceCompletionWords *words,
-                                                         GtkTextBuffer            *buffer);
+void 		ctk_source_completion_words_register 	(CtkSourceCompletionWords *words,
+                                                         CtkTextBuffer            *buffer);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-void 		ctk_source_completion_words_unregister 	(GtkSourceCompletionWords *words,
-                                                         GtkTextBuffer            *buffer);
+void 		ctk_source_completion_words_unregister 	(CtkSourceCompletionWords *words,
+                                                         CtkTextBuffer            *buffer);
 
 G_END_DECLS
 

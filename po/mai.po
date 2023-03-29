@@ -219,7 +219,7 @@ msgid "Source Buffer"
 msgstr "सोर्स बफ़र"
 
 #: ../ctksourceview/ctksourceprintcompositor.c:412
-msgid "The GtkSourceBuffer object to print"
+msgid "The CtkSourceBuffer object to print"
 msgstr ""
 
 #: ../ctksourceview/ctksourceprintcompositor.c:429
@@ -1573,8 +1573,8 @@ msgid "ctk-doc"
 msgstr ""
 
 #: ../ctksourceview/language-specs/ctkrc.lang.h:5
-msgid "GtkRC"
-msgstr "GtkRC"
+msgid "CtkRC"
+msgstr "CtkRC"
 
 #: ../ctksourceview/language-specs/ctkrc.lang.h:6
 msgid "Include directive"

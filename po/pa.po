@@ -25,8 +25,8 @@ msgstr ""
 "\n"
 
 #: ../data/glade/ctksourceview.xml.in.h:1
-msgid "GtkSourceView"
-msgstr "GtkSourceView"
+msgid "CtkSourceView"
+msgstr "CtkSourceView"
 
 #. Translators: It is related to an option of a set of values
 #: ../data/glade/ctksourceview.xml.in.h:3
@@ -756,13 +756,13 @@ msgstr "Builtin"
 #. *
 #. * SECTION:language
 #. * @Short_description: Object representing a syntax highlighted language
-#. * @Title: GtkSourceLanguage
-#. * @See_also: #GtkSourceLanguageManager
+#. * @Title: CtkSourceLanguage
+#. * @See_also: #CtkSourceLanguageManager
 #. *
-#. * #GtkSourceLanguage encapsulates syntax and highlighting styles for a
-#. * particular language. Use #GtkSourceLanguageManager to obtain a
-#. * #GtkSourceLanguage instance, and ctk_source_buffer_set_language() to apply it
-#. * to a #GtkSourceBuffer.
+#. * #CtkSourceLanguage encapsulates syntax and highlighting styles for a
+#. * particular language. Use #CtkSourceLanguageManager to obtain a
+#. * #CtkSourceLanguage instance, and ctk_source_buffer_set_language() to apply it
+#. * to a #CtkSourceBuffer.
 #.
 #: ../data/language-specs/changelog.lang.h:1
 #: ../data/language-specs/cmake.lang.h:1 ../data/language-specs/css.lang.h:1
@@ -1457,8 +1457,8 @@ msgid "Deprecated"
 msgstr "ਬਰਤਰਫ਼"
 
 #: ../data/language-specs/ctkrc.lang.h:2
-msgid "GtkRC"
-msgstr "GtkRC"
+msgid "CtkRC"
+msgstr "CtkRC"
 
 #: ../data/language-specs/ctkrc.lang.h:8
 msgid "Widget State"
@@ -2677,7 +2677,7 @@ msgstr "ਵੱਧ ਤੋਂ ਵੱਧ ਮੁੜ ਕਰਨ ਯੋਗ ਪਗ"
 msgid "Number of undo levels for the buffer"
 msgstr "ਬਫ਼ਰ ਵਿੱਚੋ ਮੁੜ ਕਰਨ ਯੋਗ ਪਗਾਂ ਦੀ ਗਿਣਤੀ"
 
-#. Translators: throughout GtkSourceView "language" stands
+#. Translators: throughout CtkSourceView "language" stands
 #. * for "programming language", not "spoken language"
 #: ../ctksourceview/ctksourcebuffer.c:334
 msgid "Language"
@@ -2722,8 +2722,8 @@ msgid "View"
 msgstr "ਵੇਖੋ"
 
 #: ../ctksourceview/ctksourcecompletion.c:1787
-msgid "The GtkSourceView bound to the completion"
-msgstr "ਪੂਰਾ ਕਰਨ ਲਈ GtkSourceView ਆਬਜੈਕਟ"
+msgid "The CtkSourceView bound to the completion"
+msgstr "ਪੂਰਾ ਕਰਨ ਲਈ CtkSourceView ਆਬਜੈਕਟ"
 
 #: ../ctksourceview/ctksourcecompletion.c:1801
 msgid "Remember Info Visibility"
@@ -2799,14 +2799,14 @@ msgstr "ਪੂਰਨਤਾ"
 msgid "The completion object to which the context belongs"
 msgstr "ਪ੍ਰਸੰਗ ਜਿਸ ਨਾਲ ਸਬੰਧਿਤ ਹੈ, ਉਹ ਪੂਰਨਤਾ ਆਬਜੈਕਟ"
 
-#. Translators: The GtkTextIter at which the completion was invoked
+#. Translators: The CtkTextIter at which the completion was invoked
 #: ../ctksourceview/ctksourcecompletioncontext.c:286
 msgid "Iterator"
 msgstr "ਇਟੀਰਾਟੇਰ"
 
 #: ../ctksourceview/ctksourcecompletioncontext.c:287
-msgid "The GtkTextIter at which the completion was invoked"
-msgstr "GtkTextIter, ਜਿਸ ਉੱਤੇ ਪੂਰਨਤਾ ਸ਼ਾਮਲ ਹੋ ਸਕਦੀ ਹੈ"
+msgid "The CtkTextIter at which the completion was invoked"
+msgstr "CtkTextIter, ਜਿਸ ਉੱਤੇ ਪੂਰਨਤਾ ਸ਼ਾਮਲ ਹੋ ਸਕਦੀ ਹੈ"
 
 #. Tooltip style
 #: ../ctksourceview/ctksourcecompletioninfo.c:240
@@ -2913,8 +2913,8 @@ msgstr "ਮੇਨ ਲੈਗੂਏਜ਼ ਪਰਿਭਾਸ਼ਾ (id = \"%s\".) 
 #. * on the left or on the right of the text view. To draw the
 #. * line numbers for example.
 #: ../ctksourceview/ctksourcegutter.c:550
-msgid "The gutters' GtkSourceView"
-msgstr "ਗੁੱਟਰਸ GtkSourceView"
+msgid "The gutters' CtkSourceView"
+msgstr "ਗੁੱਟਰਸ CtkSourceView"
 
 #: ../ctksourceview/ctksourcegutter.c:562
 #: ../ctksourceview/ctksourcegutterrenderer.c:717
@@ -3119,8 +3119,8 @@ msgid "Source Buffer"
 msgstr "ਸਰੋਤ ਬਫ਼ਰ"
 
 #: ../ctksourceview/ctksourceprintcompositor.c:446
-msgid "The GtkSourceBuffer object to print"
-msgstr "ਪਰਿੰਟ ਕਰਨ ਲਈ GtkSourceBuffer ਆਬਜੈਕਟ"
+msgid "The CtkSourceBuffer object to print"
+msgstr "ਪਰਿੰਟ ਕਰਨ ਲਈ CtkSourceBuffer ਆਬਜੈਕਟ"
 
 #: ../ctksourceview/ctksourceprintcompositor.c:463
 #: ../ctksourceview/ctksourceview.c:346
@@ -3223,17 +3223,17 @@ msgid "Buffer"
 msgstr "ਬਫ਼ਰ"
 
 #: ../ctksourceview/ctksourcesearchcontext.c:2716
-#| msgid "The gutters' GtkSourceView"
-msgid "The associated GtkSourceBuffer"
-msgstr "ਸਬੰਧਿਤ GtkSourceBuffer"
+#| msgid "The gutters' CtkSourceView"
+msgid "The associated CtkSourceBuffer"
+msgstr "ਸਬੰਧਿਤ CtkSourceBuffer"
 
 #: ../ctksourceview/ctksourcesearchcontext.c:2730
 msgid "Settings"
 msgstr "ਸੈਟਿੰਗ"
 
 #: ../ctksourceview/ctksourcesearchcontext.c:2731
-msgid "The associated GtkSourceSearchSettings"
-msgstr "ਸਬੰਧਿਤ GtkSourceSearchSettings"
+msgid "The associated CtkSourceSearchSettings"
+msgstr "ਸਬੰਧਿਤ CtkSourceSearchSettings"
 
 #: ../ctksourceview/ctksourcesearchcontext.c:2745
 #| msgid "Highlight Syntax"
@@ -3588,13 +3588,13 @@ msgstr "ਅਨੁਵਾਦ-ਮਾਣ"
 #~ msgstr "grammar"
 
 #. Translators: This is the sorted list of encodings used by
-#. * GtkSourceView for automatic detection of the file encoding. You may
+#. * CtkSourceView for automatic detection of the file encoding. You may
 #. * want to customize it adding encodings that are common in your
 #. * country, for instance the GB18030 encoding for the Chinese
 #. * translation. You may also want to remove the ISO-8859-15 encoding
 #. * (covering English and most Western European languages) if you think
 #. * people in your country will rarely use it.  "CURRENT" is a magic
-#. * value used by GtkSourceView and it represents the encoding for the
+#. * value used by CtkSourceView and it represents the encoding for the
 #. * current locale, so please don't translate the "CURRENT" term.  Only
 #. * recognized encodings are used. See
 #. * https://git.gnome.org/browse/ctksourceview/tree/ctksourceview/ctksourceencoding.c#n147

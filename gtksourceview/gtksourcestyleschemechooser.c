@@ -1,21 +1,21 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*-
  *
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2014 - Ignacio Casal Quinteiro
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public License
- * along with GtkSourceView. If not, see <http://www.gnu.org/licenses/>.
+ * along with CtkSourceView. If not, see <http://www.gnu.org/licenses/>.
  */
 
 #ifdef HAVE_CONFIG_H
@@ -28,25 +28,25 @@
 /**
  * SECTION:styleschemechooser
  * @Short_description: Interface implemented by widgets for choosing style schemes
- * @Title: GtkSourceStyleSchemeChooser
- * @See_also: #GtkSourceStyleSchemeChooserWidget, #GtkSourceStyleSchemeChooserButton
+ * @Title: CtkSourceStyleSchemeChooser
+ * @See_also: #CtkSourceStyleSchemeChooserWidget, #CtkSourceStyleSchemeChooserButton
  *
- * #GtkSourceStyleSchemeChooser is an interface that is implemented by widgets
+ * #CtkSourceStyleSchemeChooser is an interface that is implemented by widgets
  * for choosing style schemes.
  *
- * In GtkSourceView, the main widgets that implement this interface are
- * #GtkSourceStyleSchemeChooserWidget and #GtkSourceStyleSchemeChooserButton.
+ * In CtkSourceView, the main widgets that implement this interface are
+ * #CtkSourceStyleSchemeChooserWidget and #CtkSourceStyleSchemeChooserButton.
  *
  * Since: 3.16
  */
 
-G_DEFINE_INTERFACE (GtkSourceStyleSchemeChooser, ctk_source_style_scheme_chooser, G_TYPE_OBJECT);
+G_DEFINE_INTERFACE (CtkSourceStyleSchemeChooser, ctk_source_style_scheme_chooser, G_TYPE_OBJECT);
 
 static void
-ctk_source_style_scheme_chooser_default_init (GtkSourceStyleSchemeChooserInterface *iface)
+ctk_source_style_scheme_chooser_default_init (CtkSourceStyleSchemeChooserInterface *iface)
 {
 	/**
-	 * GtkSourceStyleSchemeChooser:style-scheme:
+	 * CtkSourceStyleSchemeChooser:style-scheme:
 	 *
 	 * The :style-scheme property contains the currently selected style
 	 * scheme. The property can be set to change
@@ -64,7 +64,7 @@ ctk_source_style_scheme_chooser_default_init (GtkSourceStyleSchemeChooserInterfa
 
 /**
  * ctk_source_style_scheme_chooser_get_style_scheme:
- * @chooser: a #GtkSourceStyleSchemeChooser
+ * @chooser: a #CtkSourceStyleSchemeChooser
  *
  * Gets the currently-selected scheme.
  *
@@ -72,8 +72,8 @@ ctk_source_style_scheme_chooser_default_init (GtkSourceStyleSchemeChooserInterfa
  *
  * Since: 3.16
  */
-GtkSourceStyleScheme *
-ctk_source_style_scheme_chooser_get_style_scheme (GtkSourceStyleSchemeChooser *chooser)
+CtkSourceStyleScheme *
+ctk_source_style_scheme_chooser_get_style_scheme (CtkSourceStyleSchemeChooser *chooser)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_STYLE_SCHEME_CHOOSER (chooser), NULL);
 
@@ -82,16 +82,16 @@ ctk_source_style_scheme_chooser_get_style_scheme (GtkSourceStyleSchemeChooser *c
 
 /**
  * ctk_source_style_scheme_chooser_set_style_scheme:
- * @chooser: a #GtkSourceStyleSchemeChooser
- * @scheme: a #GtkSourceStyleScheme
+ * @chooser: a #CtkSourceStyleSchemeChooser
+ * @scheme: a #CtkSourceStyleScheme
  *
  * Sets the scheme.
  *
  * Since: 3.16
  */
 void
-ctk_source_style_scheme_chooser_set_style_scheme (GtkSourceStyleSchemeChooser *chooser,
-                                                  GtkSourceStyleScheme        *scheme)
+ctk_source_style_scheme_chooser_set_style_scheme (CtkSourceStyleSchemeChooser *chooser,
+                                                  CtkSourceStyleScheme        *scheme)
 {
 	g_return_if_fail (CTK_SOURCE_IS_STYLE_SCHEME_CHOOSER (chooser));
 	g_return_if_fail (CTK_SOURCE_IS_STYLE_SCHEME (scheme));

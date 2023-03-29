@@ -1,15 +1,15 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*- */
 /*
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2013 - Sébastien Wilmet <swilmet@gnome.org>
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -27,12 +27,12 @@
 /**
  * SECTION:searchsettings
  * @Short_description: Search settings
- * @Title: GtkSourceSearchSettings
- * @See_also: #GtkSourceSearchContext
+ * @Title: CtkSourceSearchSettings
+ * @See_also: #CtkSourceSearchContext
  *
- * A #GtkSourceSearchSettings object represents the settings of a search. The
+ * A #CtkSourceSearchSettings object represents the settings of a search. The
  * search settings can be associated with one or several
- * #GtkSourceSearchContext<!-- -->s.
+ * #CtkSourceSearchContext<!-- -->s.
  */
 
 enum
@@ -45,7 +45,7 @@ enum
 	PROP_REGEX_ENABLED
 };
 
-struct _GtkSourceSearchSettingsPrivate
+struct _CtkSourceSearchSettingsPrivate
 {
 	gchar *search_text;
 	guint case_sensitive : 1;
@@ -54,12 +54,12 @@ struct _GtkSourceSearchSettingsPrivate
 	guint regex_enabled : 1;
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceSearchSettings, ctk_source_search_settings, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (CtkSourceSearchSettings, ctk_source_search_settings, G_TYPE_OBJECT)
 
 static void
 ctk_source_search_settings_finalize (GObject *object)
 {
-	GtkSourceSearchSettings *settings = CTK_SOURCE_SEARCH_SETTINGS (object);
+	CtkSourceSearchSettings *settings = CTK_SOURCE_SEARCH_SETTINGS (object);
 
 	g_free (settings->priv->search_text);
 
@@ -72,7 +72,7 @@ ctk_source_search_settings_get_property (GObject    *object,
 					 GValue     *value,
 					 GParamSpec *pspec)
 {
-	GtkSourceSearchSettings *settings;
+	CtkSourceSearchSettings *settings;
 
 	g_return_if_fail (CTK_SOURCE_IS_SEARCH_SETTINGS (object));
 
@@ -112,7 +112,7 @@ ctk_source_search_settings_set_property (GObject      *object,
 					 const GValue *value,
 					 GParamSpec   *pspec)
 {
-	GtkSourceSearchSettings *settings;
+	CtkSourceSearchSettings *settings;
 
 	g_return_if_fail (CTK_SOURCE_IS_SEARCH_SETTINGS (object));
 
@@ -147,7 +147,7 @@ ctk_source_search_settings_set_property (GObject      *object,
 }
 
 static void
-ctk_source_search_settings_class_init (GtkSourceSearchSettingsClass *klass)
+ctk_source_search_settings_class_init (CtkSourceSearchSettingsClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
@@ -156,10 +156,10 @@ ctk_source_search_settings_class_init (GtkSourceSearchSettingsClass *klass)
 	object_class->set_property = ctk_source_search_settings_set_property;
 
 	/**
-	 * GtkSourceSearchSettings:search-text:
+	 * CtkSourceSearchSettings:search-text:
 	 *
 	 * A search string, or %NULL if the search is disabled. If the regular
-	 * expression search is enabled, #GtkSourceSearchSettings:search-text is
+	 * expression search is enabled, #CtkSourceSearchSettings:search-text is
 	 * the pattern.
 	 *
 	 * Since: 3.10
@@ -175,7 +175,7 @@ ctk_source_search_settings_class_init (GtkSourceSearchSettingsClass *klass)
 							      G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceSearchSettings:case-sensitive:
+	 * CtkSourceSearchSettings:case-sensitive:
 	 *
 	 * Whether the search is case sensitive.
 	 *
@@ -192,7 +192,7 @@ ctk_source_search_settings_class_init (GtkSourceSearchSettingsClass *klass)
 							       G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceSearchSettings:at-word-boundaries:
+	 * CtkSourceSearchSettings:at-word-boundaries:
 	 *
 	 * If %TRUE, a search match must start and end a word. The match can
 	 * span multiple words.
@@ -210,7 +210,7 @@ ctk_source_search_settings_class_init (GtkSourceSearchSettingsClass *klass)
 							       G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceSearchSettings:wrap-around:
+	 * CtkSourceSearchSettings:wrap-around:
 	 *
 	 * For a forward search, continue at the beginning of the buffer if no
 	 * search occurrence is found. For a backward search, continue at the
@@ -229,10 +229,10 @@ ctk_source_search_settings_class_init (GtkSourceSearchSettingsClass *klass)
 							       G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceSearchSettings:regex-enabled:
+	 * CtkSourceSearchSettings:regex-enabled:
 	 *
 	 * Search by regular expressions with
-	 * #GtkSourceSearchSettings:search-text as the pattern.
+	 * #CtkSourceSearchSettings:search-text as the pattern.
 	 *
 	 * Since: 3.10
 	 */
@@ -248,7 +248,7 @@ ctk_source_search_settings_class_init (GtkSourceSearchSettingsClass *klass)
 }
 
 static void
-ctk_source_search_settings_init (GtkSourceSearchSettings *self)
+ctk_source_search_settings_init (CtkSourceSearchSettings *self)
 {
 	self->priv = ctk_source_search_settings_get_instance_private (self);
 }
@@ -261,7 +261,7 @@ ctk_source_search_settings_init (GtkSourceSearchSettings *self)
  * Returns: a new search settings object.
  * Since: 3.10
  */
-GtkSourceSearchSettings *
+CtkSourceSearchSettings *
 ctk_source_search_settings_new (void)
 {
 	return g_object_new (CTK_SOURCE_TYPE_SEARCH_SETTINGS, NULL);
@@ -269,7 +269,7 @@ ctk_source_search_settings_new (void)
 
 /**
  * ctk_source_search_settings_set_search_text:
- * @settings: a #GtkSourceSearchSettings.
+ * @settings: a #CtkSourceSearchSettings.
  * @search_text: (nullable): the nul-terminated text to search, or %NULL to disable the search.
  *
  * Sets the text to search. If @search_text is %NULL or is empty, the search
@@ -282,7 +282,7 @@ ctk_source_search_settings_new (void)
  * Since: 3.10
  */
 void
-ctk_source_search_settings_set_search_text (GtkSourceSearchSettings *settings,
+ctk_source_search_settings_set_search_text (CtkSourceSearchSettings *settings,
 					    const gchar             *search_text)
 {
 	g_return_if_fail (CTK_SOURCE_IS_SEARCH_SETTINGS (settings));
@@ -311,7 +311,7 @@ ctk_source_search_settings_set_search_text (GtkSourceSearchSettings *settings,
 
 /**
  * ctk_source_search_settings_get_search_text:
- * @settings: a #GtkSourceSearchSettings.
+ * @settings: a #CtkSourceSearchSettings.
  *
  * Gets the text to search. The return value must not be freed.
  *
@@ -322,7 +322,7 @@ ctk_source_search_settings_set_search_text (GtkSourceSearchSettings *settings,
  * Since: 3.10
  */
 const gchar *
-ctk_source_search_settings_get_search_text (GtkSourceSearchSettings *settings)
+ctk_source_search_settings_get_search_text (CtkSourceSearchSettings *settings)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_SEARCH_SETTINGS (settings), NULL);
 
@@ -331,7 +331,7 @@ ctk_source_search_settings_get_search_text (GtkSourceSearchSettings *settings)
 
 /**
  * ctk_source_search_settings_set_case_sensitive:
- * @settings: a #GtkSourceSearchSettings.
+ * @settings: a #CtkSourceSearchSettings.
  * @case_sensitive: the setting.
  *
  * Enables or disables the case sensitivity for the search.
@@ -339,7 +339,7 @@ ctk_source_search_settings_get_search_text (GtkSourceSearchSettings *settings)
  * Since: 3.10
  */
 void
-ctk_source_search_settings_set_case_sensitive (GtkSourceSearchSettings *settings,
+ctk_source_search_settings_set_case_sensitive (CtkSourceSearchSettings *settings,
 					       gboolean                 case_sensitive)
 {
 	g_return_if_fail (CTK_SOURCE_IS_SEARCH_SETTINGS (settings));
@@ -355,13 +355,13 @@ ctk_source_search_settings_set_case_sensitive (GtkSourceSearchSettings *settings
 
 /**
  * ctk_source_search_settings_get_case_sensitive:
- * @settings: a #GtkSourceSearchSettings.
+ * @settings: a #CtkSourceSearchSettings.
  *
  * Returns: whether the search is case sensitive.
  * Since: 3.10
  */
 gboolean
-ctk_source_search_settings_get_case_sensitive (GtkSourceSearchSettings *settings)
+ctk_source_search_settings_get_case_sensitive (CtkSourceSearchSettings *settings)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_SEARCH_SETTINGS (settings), FALSE);
 
@@ -370,7 +370,7 @@ ctk_source_search_settings_get_case_sensitive (GtkSourceSearchSettings *settings
 
 /**
  * ctk_source_search_settings_set_at_word_boundaries:
- * @settings: a #GtkSourceSearchSettings.
+ * @settings: a #CtkSourceSearchSettings.
  * @at_word_boundaries: the setting.
  *
  * Change whether the search is done at word boundaries. If @at_word_boundaries
@@ -381,7 +381,7 @@ ctk_source_search_settings_get_case_sensitive (GtkSourceSearchSettings *settings
  * Since: 3.10
  */
 void
-ctk_source_search_settings_set_at_word_boundaries (GtkSourceSearchSettings *settings,
+ctk_source_search_settings_set_at_word_boundaries (CtkSourceSearchSettings *settings,
 						   gboolean                 at_word_boundaries)
 {
 	g_return_if_fail (CTK_SOURCE_IS_SEARCH_SETTINGS (settings));
@@ -397,13 +397,13 @@ ctk_source_search_settings_set_at_word_boundaries (GtkSourceSearchSettings *sett
 
 /**
  * ctk_source_search_settings_get_at_word_boundaries:
- * @settings: a #GtkSourceSearchSettings.
+ * @settings: a #CtkSourceSearchSettings.
  *
  * Returns: whether to search at word boundaries.
  * Since: 3.10
  */
 gboolean
-ctk_source_search_settings_get_at_word_boundaries (GtkSourceSearchSettings *settings)
+ctk_source_search_settings_get_at_word_boundaries (CtkSourceSearchSettings *settings)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_SEARCH_SETTINGS (settings), FALSE);
 
@@ -412,7 +412,7 @@ ctk_source_search_settings_get_at_word_boundaries (GtkSourceSearchSettings *sett
 
 /**
  * ctk_source_search_settings_set_wrap_around:
- * @settings: a #GtkSourceSearchSettings.
+ * @settings: a #CtkSourceSearchSettings.
  * @wrap_around: the setting.
  *
  * Enables or disables the wrap around search. If @wrap_around is %TRUE, the
@@ -423,7 +423,7 @@ ctk_source_search_settings_get_at_word_boundaries (GtkSourceSearchSettings *sett
  * Since: 3.10
  */
 void
-ctk_source_search_settings_set_wrap_around (GtkSourceSearchSettings *settings,
+ctk_source_search_settings_set_wrap_around (CtkSourceSearchSettings *settings,
 					    gboolean                 wrap_around)
 {
 	g_return_if_fail (CTK_SOURCE_IS_SEARCH_SETTINGS (settings));
@@ -439,13 +439,13 @@ ctk_source_search_settings_set_wrap_around (GtkSourceSearchSettings *settings,
 
 /**
  * ctk_source_search_settings_get_wrap_around:
- * @settings: a #GtkSourceSearchSettings.
+ * @settings: a #CtkSourceSearchSettings.
  *
  * Returns: whether to wrap around the search.
  * Since: 3.10
  */
 gboolean
-ctk_source_search_settings_get_wrap_around (GtkSourceSearchSettings *settings)
+ctk_source_search_settings_get_wrap_around (CtkSourceSearchSettings *settings)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_SEARCH_SETTINGS (settings), FALSE);
 
@@ -454,21 +454,21 @@ ctk_source_search_settings_get_wrap_around (GtkSourceSearchSettings *settings)
 
 /**
  * ctk_source_search_settings_set_regex_enabled:
- * @settings: a #GtkSourceSearchSettings.
+ * @settings: a #CtkSourceSearchSettings.
  * @regex_enabled: the setting.
  *
  * Enables or disables whether to search by regular expressions.
- * If enabled, the #GtkSourceSearchSettings:search-text property contains the
+ * If enabled, the #CtkSourceSearchSettings:search-text property contains the
  * pattern of the regular expression.
  *
- * #GtkSourceSearchContext uses #GRegex when regex search is enabled. See the
+ * #CtkSourceSearchContext uses #GRegex when regex search is enabled. See the
  * [Regular expression syntax](https://developer.gnome.org/glib/stable/glib-regex-syntax.html)
  * page in the GLib reference manual.
  *
  * Since: 3.10
  */
 void
-ctk_source_search_settings_set_regex_enabled (GtkSourceSearchSettings *settings,
+ctk_source_search_settings_set_regex_enabled (CtkSourceSearchSettings *settings,
 					      gboolean                 regex_enabled)
 {
 	g_return_if_fail (CTK_SOURCE_IS_SEARCH_SETTINGS (settings));
@@ -484,13 +484,13 @@ ctk_source_search_settings_set_regex_enabled (GtkSourceSearchSettings *settings,
 
 /**
  * ctk_source_search_settings_get_regex_enabled:
- * @settings: a #GtkSourceSearchSettings.
+ * @settings: a #CtkSourceSearchSettings.
  *
  * Returns: whether to search by regular expressions.
  * Since: 3.10
  */
 gboolean
-ctk_source_search_settings_get_regex_enabled (GtkSourceSearchSettings *settings)
+ctk_source_search_settings_get_regex_enabled (CtkSourceSearchSettings *settings)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_SEARCH_SETTINGS (settings), FALSE);
 

@@ -1,6 +1,6 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*- *
  *
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2009 - Jesse van den Kieboom
  * Copyright (C) 2013 - Sébastien Wilmet
@@ -27,7 +27,7 @@
 #include <string.h>
 
 /* Here, we work on strings. It is more efficient than working with
- * GtkTextIters to traverse the text (~3x faster). Both techniques are equally
+ * CtkTextIters to traverse the text (~3x faster). Both techniques are equally
  * difficult to implement.
  */
 
@@ -183,14 +183,14 @@ _ctk_source_completion_words_utils_get_end_word (gchar *text)
  * word. Uses only valid_word_char().
  */
 void
-_ctk_source_completion_words_utils_adjust_region (GtkTextIter *start,
-						  GtkTextIter *end)
+_ctk_source_completion_words_utils_adjust_region (CtkTextIter *start,
+						  CtkTextIter *end)
 {
 	g_return_if_fail (ctk_text_iter_compare (start, end) <= 0);
 
 	while (TRUE)
 	{
-		GtkTextIter iter = *start;
+		CtkTextIter iter = *start;
 
 		if (!ctk_text_iter_backward_char (&iter))
 		{
@@ -216,9 +216,9 @@ _ctk_source_completion_words_utils_adjust_region (GtkTextIter *start,
  * definition used by ctk_text_iter_inside_word().
  */
 static gboolean
-iter_inside_word (const GtkTextIter *iter)
+iter_inside_word (const CtkTextIter *iter)
 {
-	GtkTextIter prev;
+	CtkTextIter prev;
 
 	if (ctk_text_iter_is_start (iter) || ctk_text_iter_is_end (iter))
 	{
@@ -238,8 +238,8 @@ iter_inside_word (const GtkTextIter *iter)
  * inconsistent with the words present in the text buffer.
  */
 void
-_ctk_source_completion_words_utils_check_scan_region (const GtkTextIter *start,
-						      const GtkTextIter *end)
+_ctk_source_completion_words_utils_check_scan_region (const CtkTextIter *start,
+						      const CtkTextIter *end)
 {
 	g_return_if_fail (ctk_text_iter_compare (start, end) <= 0);
 

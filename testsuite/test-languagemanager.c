@@ -1,18 +1,18 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*- */
 /*
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2009, 2013 - Paolo Borelli
  * Copyright (C) 2009 - Ignacio Casal Quinteiro
  * Copyright (C) 2010 - Krzesimir Nowak
  * Copyright (C) 2013 - Sébastien Wilmet
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -36,7 +36,7 @@ init_default_manager (void)
 
 	if (g_file_test (dir, G_FILE_TEST_IS_DIR))
 	{
-		GtkSourceLanguageManager *lm;
+		CtkSourceLanguageManager *lm;
 		gchar **lang_dirs;
 
 		lm = ctk_source_language_manager_get_default ();
@@ -56,7 +56,7 @@ init_default_manager (void)
 static void
 test_get_default (void)
 {
-	GtkSourceLanguageManager *lm1, *lm2;
+	CtkSourceLanguageManager *lm1, *lm2;
 
 	lm1 = ctk_source_language_manager_get_default ();
 	lm2 = ctk_source_language_manager_get_default ();
@@ -66,7 +66,7 @@ test_get_default (void)
 static void
 test_get_language (void)
 {
-	GtkSourceLanguageManager *lm;
+	CtkSourceLanguageManager *lm;
 	const gchar * const *ids;
 
 	lm = ctk_source_language_manager_get_default ();
@@ -75,7 +75,7 @@ test_get_language (void)
 
 	while (*ids != NULL)
 	{
-		GtkSourceLanguage *lang1, *lang2;
+		CtkSourceLanguage *lang1, *lang2;
 
 		lang1 = ctk_source_language_manager_get_language (lm, *ids);
 		g_assert_nonnull (lang1);
@@ -93,7 +93,7 @@ test_get_language (void)
 static void
 test_guess_language_null_null (void)
 {
-	GtkSourceLanguageManager *lm = ctk_source_language_manager_get_default ();
+	CtkSourceLanguageManager *lm = ctk_source_language_manager_get_default ();
 
 	ctk_source_language_manager_guess_language (lm, NULL, NULL);
 }
@@ -101,7 +101,7 @@ test_guess_language_null_null (void)
 static void
 test_guess_language_empty_null (void)
 {
-	GtkSourceLanguageManager *lm = ctk_source_language_manager_get_default ();
+	CtkSourceLanguageManager *lm = ctk_source_language_manager_get_default ();
 
 	ctk_source_language_manager_guess_language (lm, "", NULL);
 }
@@ -109,7 +109,7 @@ test_guess_language_empty_null (void)
 static void
 test_guess_language_null_empty (void)
 {
-	GtkSourceLanguageManager *lm = ctk_source_language_manager_get_default ();
+	CtkSourceLanguageManager *lm = ctk_source_language_manager_get_default ();
 
 	ctk_source_language_manager_guess_language (lm, NULL, "");
 }
@@ -117,7 +117,7 @@ test_guess_language_null_empty (void)
 static void
 test_guess_language_empty_empty (void)
 {
-	GtkSourceLanguageManager *lm = ctk_source_language_manager_get_default ();
+	CtkSourceLanguageManager *lm = ctk_source_language_manager_get_default ();
 
 	ctk_source_language_manager_guess_language (lm, "", "");
 }
@@ -125,8 +125,8 @@ test_guess_language_empty_empty (void)
 static void
 test_guess_language (void)
 {
-	GtkSourceLanguageManager *lm;
-	GtkSourceLanguage *l;
+	CtkSourceLanguageManager *lm;
+	CtkSourceLanguage *l;
 
 	lm = ctk_source_language_manager_get_default ();
 

@@ -1,15 +1,15 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*- */
 /*
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2014 - Sébastien Wilmet <swilmet@gnome.org>
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -27,7 +27,7 @@
 G_BEGIN_DECLS
 
 /*
- * GtkSourceEncodingDuplicates:
+ * CtkSourceEncodingDuplicates:
  * @CTK_SOURCE_ENCODING_DUPLICATES_KEEP_FIRST: Keep the first occurrence.
  * @CTK_SOURCE_ENCODING_DUPLICATES_KEEP_LAST: Keep the last occurrence.
  *
@@ -36,15 +36,15 @@ G_BEGIN_DECLS
  *
  * Since: 3.14
  */
-typedef enum _GtkSourceEncodingDuplicates
+typedef enum _CtkSourceEncodingDuplicates
 {
 	CTK_SOURCE_ENCODING_DUPLICATES_KEEP_FIRST,
 	CTK_SOURCE_ENCODING_DUPLICATES_KEEP_LAST
-} GtkSourceEncodingDuplicates;
+} CtkSourceEncodingDuplicates;
 
 CTK_SOURCE_INTERNAL
 GSList *		_ctk_source_encoding_remove_duplicates		(GSList                      *encodings,
-									 GtkSourceEncodingDuplicates  removal_type);
+									 CtkSourceEncodingDuplicates  removal_type);
 
 G_END_DECLS
 

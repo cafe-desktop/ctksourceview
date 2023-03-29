@@ -1,15 +1,15 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*- */
 /*
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2016 - Sébastien Wilmet <swilmet@gnome.org>
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -27,11 +27,11 @@
 #include "ctksource-marshal.h"
 #include "ctksourcesearchcontext.h"
 
-/* A private extension of GtkSourceBuffer, to add private signals and
+/* A private extension of CtkSourceBuffer, to add private signals and
  * properties.
  */
 
-struct _GtkSourceBufferInternal
+struct _CtkSourceBufferInternal
 {
 	GObject parent_instance;
 };
@@ -46,17 +46,17 @@ enum
 
 static guint signals[N_SIGNALS];
 
-G_DEFINE_TYPE (GtkSourceBufferInternal, _ctk_source_buffer_internal, G_TYPE_OBJECT)
+G_DEFINE_TYPE (CtkSourceBufferInternal, _ctk_source_buffer_internal, G_TYPE_OBJECT)
 
 static void
-_ctk_source_buffer_internal_class_init (GtkSourceBufferInternalClass *klass)
+_ctk_source_buffer_internal_class_init (CtkSourceBufferInternalClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
 	/*
-	 * GtkSourceBufferInternal::search-start:
+	 * CtkSourceBufferInternal::search-start:
 	 * @buffer_internal: the object that received the signal.
-	 * @search_context: the #GtkSourceSearchContext.
+	 * @search_context: the #CtkSourceSearchContext.
 	 *
 	 * The ::search-start signal is emitted when a search is starting.
 	 */
@@ -75,23 +75,23 @@ _ctk_source_buffer_internal_class_init (GtkSourceBufferInternalClass *klass)
 }
 
 static void
-_ctk_source_buffer_internal_init (GtkSourceBufferInternal *buffer_internal)
+_ctk_source_buffer_internal_init (CtkSourceBufferInternal *buffer_internal)
 {
 }
 
 /*
  * _ctk_source_buffer_internal_get_from_buffer:
- * @buffer: a #GtkSourceBuffer.
+ * @buffer: a #CtkSourceBuffer.
  *
- * Returns the #GtkSourceBufferInternal object of @buffer. The returned object
+ * Returns the #CtkSourceBufferInternal object of @buffer. The returned object
  * is guaranteed to be the same for the lifetime of @buffer.
  *
- * Returns: (transfer none): the #GtkSourceBufferInternal object of @buffer.
+ * Returns: (transfer none): the #CtkSourceBufferInternal object of @buffer.
  */
-GtkSourceBufferInternal *
-_ctk_source_buffer_internal_get_from_buffer (GtkSourceBuffer *buffer)
+CtkSourceBufferInternal *
+_ctk_source_buffer_internal_get_from_buffer (CtkSourceBuffer *buffer)
 {
-	GtkSourceBufferInternal *buffer_internal;
+	CtkSourceBufferInternal *buffer_internal;
 
 	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER (buffer), NULL);
 
@@ -112,8 +112,8 @@ _ctk_source_buffer_internal_get_from_buffer (GtkSourceBuffer *buffer)
 }
 
 void
-_ctk_source_buffer_internal_emit_search_start (GtkSourceBufferInternal *buffer_internal,
-					       GtkSourceSearchContext  *search_context)
+_ctk_source_buffer_internal_emit_search_start (CtkSourceBufferInternal *buffer_internal,
+					       CtkSourceSearchContext  *search_context)
 {
 	g_return_if_fail (CTK_SOURCE_IS_BUFFER_INTERNAL (buffer_internal));
 	g_return_if_fail (CTK_SOURCE_IS_SEARCH_CONTEXT (search_context));

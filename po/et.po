@@ -42,8 +42,8 @@ msgstr "Enne"
 msgid "Disabled"
 msgstr "Keelatud"
 
-msgid "GtkSourceView"
-msgstr "GtkSourceView"
+msgid "CtkSourceView"
+msgstr "CtkSourceView"
 
 msgid "Leading"
 msgstr ""
@@ -231,13 +231,13 @@ msgstr "Nimi"
 #. *
 #. * SECTION:language
 #. * @Short_description: Object representing a syntax highlighted language
-#. * @Title: GtkSourceLanguage
-#. * @See_also: #GtkSourceLanguageManager
+#. * @Title: CtkSourceLanguage
+#. * @See_also: #CtkSourceLanguageManager
 #. *
-#. * #GtkSourceLanguage encapsulates syntax and highlighting styles for a
-#. * particular language. Use #GtkSourceLanguageManager to obtain a
-#. * #GtkSourceLanguage instance, and ctk_source_buffer_set_language() to apply it
-#. * to a #GtkSourceBuffer.
+#. * #CtkSourceLanguage encapsulates syntax and highlighting styles for a
+#. * particular language. Use #CtkSourceLanguageManager to obtain a
+#. * #CtkSourceLanguage instance, and ctk_source_buffer_set_language() to apply it
+#. * to a #CtkSourceBuffer.
 #.
 msgid "Others"
 msgstr "Muud"
@@ -684,8 +684,8 @@ msgstr "Tüübid"
 msgid "ctk-doc"
 msgstr "ctk-doc"
 
-msgid "GtkRC"
-msgstr "GtkRC"
+msgid "CtkRC"
+msgstr "CtkRC"
 
 msgid "Include directive"
 msgstr ""
@@ -1325,7 +1325,7 @@ msgstr "Suurim unustatavate toimingute arv"
 msgid "Number of undo levels for the buffer"
 msgstr "Puhvri unustamistasemete arv"
 
-#. Translators: throughout GtkSourceView "language" stands
+#. Translators: throughout CtkSourceView "language" stands
 #. * for "programming language", not "spoken language"
 msgid "Language"
 msgstr "Keel"
@@ -1360,7 +1360,7 @@ msgstr "Täiendavaid andmeid pole saadaval"
 msgid "View"
 msgstr "Vaade"
 
-msgid "The GtkSourceView bound to the completion"
+msgid "The CtkSourceView bound to the completion"
 msgstr ""
 
 msgid "Remember Info Visibility"
@@ -1421,11 +1421,11 @@ msgstr ""
 msgid "The completion object to which the context belongs"
 msgstr ""
 
-#. Translators: The GtkTextIter at which the completion was invoked
+#. Translators: The CtkTextIter at which the completion was invoked
 msgid "Iterator"
 msgstr ""
 
-msgid "The GtkTextIter at which the completion was invoked"
+msgid "The CtkTextIter at which the completion was invoked"
 msgstr ""
 
 msgid "Activation"
@@ -1509,8 +1509,8 @@ msgstr "tundmatu kontekst '%s'"
 msgid "Missing main language definition (id = \"%s\".)"
 msgstr "Puudub peamise keele definitsioon (id = \"%s\".)"
 
-msgid "The gutters' GtkSourceView"
-msgstr "Gutteri GtkSourceView"
+msgid "The gutters' CtkSourceView"
+msgstr "Gutteri CtkSourceView"
 
 msgid "Window Type"
 msgstr "Akna liik"
@@ -1660,8 +1660,8 @@ msgstr "GIcon"
 msgid "Source Buffer"
 msgstr "Lähtepuhver"
 
-msgid "The GtkSourceBuffer object to print"
-msgstr "Prinditav GtkSourceBuffer objekt"
+msgid "The CtkSourceBuffer object to print"
+msgstr "Prinditav CtkSourceBuffer objekt"
 
 msgid "Tab Width"
 msgstr "Tabulaatori laius"

@@ -79,8 +79,8 @@ msgid "Source Buffer"
 msgstr "Buffer loharano"
 
 #: ../ctksourceview/ctksourceprintjob.c:274
-msgid "GtkSourceBuffer object to print"
-msgstr "Zavatra GtkSourceBuffer hatonta"
+msgid "CtkSourceBuffer object to print"
+msgstr "Zavatra CtkSourceBuffer hatonta"
 
 #: ../ctksourceview/ctksourceprintjob.c:280
 #: ../ctksourceview/ctksourceview.c:233
@@ -976,8 +976,8 @@ msgid "Double Quoted String"
 msgstr "Laha-daza anaty farango sosona"
 
 #: ../ctksourceview/language-specs/ctkrc.lang.h:3
-msgid "GtkRC"
-msgstr "GtkRC"
+msgid "CtkRC"
+msgstr "CtkRC"
 
 #: ../ctksourceview/language-specs/ctkrc.lang.h:4
 msgid "Include Directive"

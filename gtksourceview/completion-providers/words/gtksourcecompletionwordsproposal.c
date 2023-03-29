@@ -1,6 +1,6 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*- *
  *
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2009 - Jesse van den Kieboom
  *
@@ -24,7 +24,7 @@
 
 #include "ctksourcecompletionwordsproposal.h"
 
-struct _GtkSourceCompletionWordsProposalPrivate
+struct _CtkSourceCompletionWordsProposalPrivate
 {
 	gchar *word;
 	gint use_count;
@@ -40,15 +40,15 @@ static guint signals[N_SIGNALS];
 
 static void ctk_source_completion_proposal_iface_init (gpointer g_iface, gpointer iface_data);
 
-G_DEFINE_TYPE_WITH_CODE (GtkSourceCompletionWordsProposal,
+G_DEFINE_TYPE_WITH_CODE (CtkSourceCompletionWordsProposal,
 			 ctk_source_completion_words_proposal,
 			 G_TYPE_OBJECT,
-			 G_ADD_PRIVATE (GtkSourceCompletionWordsProposal)
+			 G_ADD_PRIVATE (CtkSourceCompletionWordsProposal)
 			 G_IMPLEMENT_INTERFACE (CTK_SOURCE_TYPE_COMPLETION_PROPOSAL,
 			 			ctk_source_completion_proposal_iface_init))
 
 static gchar *
-ctk_source_completion_words_proposal_get_text (GtkSourceCompletionProposal *proposal)
+ctk_source_completion_words_proposal_get_text (CtkSourceCompletionProposal *proposal)
 {
 	return g_strdup (CTK_SOURCE_COMPLETION_WORDS_PROPOSAL(proposal)->priv->word);
 }
@@ -57,7 +57,7 @@ static void
 ctk_source_completion_proposal_iface_init (gpointer g_iface,
                                            gpointer iface_data)
 {
-	GtkSourceCompletionProposalIface *iface = (GtkSourceCompletionProposalIface *)g_iface;
+	CtkSourceCompletionProposalIface *iface = (CtkSourceCompletionProposalIface *)g_iface;
 
 	/* Interface data getter implementations */
 	iface->get_label = ctk_source_completion_words_proposal_get_text;
@@ -67,7 +67,7 @@ ctk_source_completion_proposal_iface_init (gpointer g_iface,
 static void
 ctk_source_completion_words_proposal_finalize (GObject *object)
 {
-	GtkSourceCompletionWordsProposal *proposal;
+	CtkSourceCompletionWordsProposal *proposal;
 
 	proposal = CTK_SOURCE_COMPLETION_WORDS_PROPOSAL (object);
 	g_free (proposal->priv->word);
@@ -76,7 +76,7 @@ ctk_source_completion_words_proposal_finalize (GObject *object)
 }
 
 static void
-ctk_source_completion_words_proposal_class_init (GtkSourceCompletionWordsProposalClass *klass)
+ctk_source_completion_words_proposal_class_init (CtkSourceCompletionWordsProposalClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
@@ -92,16 +92,16 @@ ctk_source_completion_words_proposal_class_init (GtkSourceCompletionWordsProposa
 }
 
 static void
-ctk_source_completion_words_proposal_init (GtkSourceCompletionWordsProposal *self)
+ctk_source_completion_words_proposal_init (CtkSourceCompletionWordsProposal *self)
 {
 	self->priv = ctk_source_completion_words_proposal_get_instance_private (self);
 	self->priv->use_count = 1;
 }
 
-GtkSourceCompletionWordsProposal *
+CtkSourceCompletionWordsProposal *
 ctk_source_completion_words_proposal_new (const gchar *word)
 {
-	GtkSourceCompletionWordsProposal *proposal =
+	CtkSourceCompletionWordsProposal *proposal =
 		g_object_new (CTK_SOURCE_TYPE_COMPLETION_WORDS_PROPOSAL, NULL);
 
 	proposal->priv->word = g_strdup (word);
@@ -109,7 +109,7 @@ ctk_source_completion_words_proposal_new (const gchar *word)
 }
 
 void
-ctk_source_completion_words_proposal_use (GtkSourceCompletionWordsProposal *proposal)
+ctk_source_completion_words_proposal_use (CtkSourceCompletionWordsProposal *proposal)
 {
 	g_return_if_fail (CTK_SOURCE_IS_COMPLETION_WORDS_PROPOSAL (proposal));
 
@@ -117,7 +117,7 @@ ctk_source_completion_words_proposal_use (GtkSourceCompletionWordsProposal *prop
 }
 
 void
-ctk_source_completion_words_proposal_unuse (GtkSourceCompletionWordsProposal *proposal)
+ctk_source_completion_words_proposal_unuse (CtkSourceCompletionWordsProposal *proposal)
 {
 	g_return_if_fail (CTK_SOURCE_IS_COMPLETION_WORDS_PROPOSAL (proposal));
 
@@ -128,7 +128,7 @@ ctk_source_completion_words_proposal_unuse (GtkSourceCompletionWordsProposal *pr
 }
 
 const gchar *
-ctk_source_completion_words_proposal_get_word (GtkSourceCompletionWordsProposal *proposal)
+ctk_source_completion_words_proposal_get_word (CtkSourceCompletionWordsProposal *proposal)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_WORDS_PROPOSAL (proposal), NULL);
 	return proposal->priv->word;

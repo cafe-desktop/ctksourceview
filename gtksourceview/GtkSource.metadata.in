@@ -1,6 +1,6 @@
 * name="(.+)/Source\\1"
-utils_* name="utils_(.+)" parent="Gtk.SourceUtils"
-GtkSource name="Gtk" cprefix="Gtk" lower_case_cprefix="ctk_"
+utils_* name="utils_(.+)" parent="Ctk.SourceUtils"
+CtkSource name="Ctk" cprefix="Ctk" lower_case_cprefix="ctk_"
 CompletionProvider
         .*#virtual_method virtual
 CompletionProposal

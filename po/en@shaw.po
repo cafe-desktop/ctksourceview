@@ -167,8 +167,8 @@ msgstr "𐑝𐑿"
 
 #, fuzzy
 #: ../ctksourceview/ctksourcecompletion.c:2234
-msgid "The GtkSourceView bound to the completion"
-msgstr "𐑞 GtkSourceView 𐑚𐑬𐑯𐑛 𐑑 𐑞 𐑒𐑩𐑥𐑐𐑤𐑰𐑖𐑩𐑯"
+msgid "The CtkSourceView bound to the completion"
+msgstr "𐑞 CtkSourceView 𐑚𐑬𐑯𐑛 𐑑 𐑞 𐑒𐑩𐑥𐑐𐑤𐑰𐑖𐑩𐑯"
 
 #, fuzzy
 #: ../ctksourceview/ctksourcecompletion.c:2249
@@ -251,7 +251,7 @@ msgstr "𐑒𐑩𐑥𐑐𐑤𐑰𐑖𐑩𐑯"
 msgid "The completion object to which the context belongs"
 msgstr "𐑞 𐑒𐑩𐑥𐑐𐑤𐑰𐑖𐑩𐑯 𐑩𐑚𐑡𐑧𐑒𐑑 𐑑 𐑢𐑦𐑗 𐑞 𐑒𐑪𐑯𐑑𐑧𐑒𐑕𐑑 𐑚𐑦𐑤𐑪𐑙𐑟"
 
-#. Translators: The GtkTextIter at which the completion was invoked
+#. Translators: The CtkTextIter at which the completion was invoked
 #, fuzzy
 #: ../ctksourceview/ctksourcecompletioncontext.c:258
 msgid "Iterator"
@@ -259,8 +259,8 @@ msgstr "Iterator"
 
 #, fuzzy
 #: ../ctksourceview/ctksourcecompletioncontext.c:259
-msgid "The GtkTextIter at which the completion was invoked"
-msgstr "𐑞 GtkTextIter 𐑨𐑑 𐑢𐑦𐑗 𐑞 𐑒𐑩𐑥𐑐𐑤𐑰𐑖𐑩𐑯 𐑢𐑪𐑟 𐑦𐑯𐑝𐑴𐑒𐑑"
+msgid "The CtkTextIter at which the completion was invoked"
+msgstr "𐑞 CtkTextIter 𐑨𐑑 𐑢𐑦𐑗 𐑞 𐑒𐑩𐑥𐑐𐑤𐑰𐑖𐑩𐑯 𐑢𐑪𐑟 𐑦𐑯𐑝𐑴𐑒𐑑"
 
 #: ../ctksourceview/ctksourcecompletioncontext.c:271
 msgid "Activation"
@@ -417,8 +417,8 @@ msgstr "𐑥𐑦𐑕𐑦𐑙 𐑥𐑱𐑯 𐑤𐑨𐑙𐑜𐑢𐑩𐑡 𐑛𐑧�
 
 #, fuzzy
 #: ../ctksourceview/ctksourcegutter.c:370
-msgid "The gutters' GtkSourceView"
-msgstr "𐑞 𐑜𐑩𐑑𐑻𐑟' GtkSourceView"
+msgid "The gutters' CtkSourceView"
+msgstr "𐑞 𐑜𐑩𐑑𐑻𐑟' CtkSourceView"
 
 #: ../ctksourceview/ctksourcegutter.c:382
 msgid "Window Type"
@@ -431,13 +431,13 @@ msgstr "𐑞 𐑜𐑩𐑑𐑻𐑟 𐑑𐑧𐑒𐑕𐑑 𐑢𐑦𐑯𐑛𐑴 𐑑
 #. *
 #. * SECTION:language
 #. * @Short_description: Object representing a syntax highlighted language
-#. * @Title: GtkSourceLanguage
-#. * @See_also: #GtkSourceLanguageManager
+#. * @Title: CtkSourceLanguage
+#. * @See_also: #CtkSourceLanguageManager
 #. *
-#. * #GtkSourceLanguage encapsulates syntax and highlighting styles for a
-#. * particular language. Use #GtkSourceLanguageManager to obtain a
-#. * #GtkSourceLanguage instance, and ctk_source_buffer_set_language() to apply it
-#. * to a #GtkSourceBuffer.
+#. * #CtkSourceLanguage encapsulates syntax and highlighting styles for a
+#. * particular language. Use #CtkSourceLanguageManager to obtain a
+#. * #CtkSourceLanguage instance, and ctk_source_buffer_set_language() to apply it
+#. * to a #CtkSourceBuffer.
 #.
 #: ../ctksourceview/ctksourcelanguage.c:54
 #: ../ctksourceview/language-specs/changelog.lang.h:8
@@ -529,8 +529,8 @@ msgstr "𐑕𐑹𐑕 𐑚𐑳𐑓𐑼"
 
 #, fuzzy
 #: ../ctksourceview/ctksourceprintcompositor.c:447
-msgid "The GtkSourceBuffer object to print"
-msgstr "𐑞 GtkSourceBuffer 𐑪𐑚𐑡𐑧𐑒𐑑 𐑑 𐑐𐑮𐑦𐑯𐑑"
+msgid "The CtkSourceBuffer object to print"
+msgstr "𐑞 CtkSourceBuffer 𐑪𐑚𐑡𐑧𐑒𐑑 𐑑 𐑐𐑮𐑦𐑯𐑑"
 
 #: ../ctksourceview/ctksourceprintcompositor.c:464
 #: ../ctksourceview/ctksourceview.c:363
@@ -2128,8 +2128,8 @@ msgstr "ctk-𐑛𐑭𐑒"
 
 #, fuzzy
 #: ../ctksourceview/language-specs/ctkrc.lang.h:5
-msgid "GtkRC"
-msgstr "GtkRC"
+msgid "CtkRC"
+msgstr "CtkRC"
 
 #: ../ctksourceview/language-specs/ctkrc.lang.h:6
 msgid "Include directive"

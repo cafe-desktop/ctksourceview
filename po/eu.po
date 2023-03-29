@@ -551,13 +551,13 @@ msgid "Unknown"
 msgstr "Ezezaguna"
 
 #. Translators: This is the sorted list of encodings used by
-#. * GtkSourceView for automatic detection of the file encoding. You may
+#. * CtkSourceView for automatic detection of the file encoding. You may
 #. * want to customize it adding encodings that are common in your
 #. * country, for instance the GB18030 encoding for the Chinese
 #. * translation. You may also want to remove the ISO-8859-15 encoding
 #. * (covering English and most Western European languages) if you think
 #. * people in your country will rarely use it.  "CURRENT" is a magic
-#. * value used by GtkSourceView and it represents the encoding for the
+#. * value used by CtkSourceView and it represents the encoding for the
 #. * current locale, so please don't translate the "CURRENT" term.  Only
 #. * recognized encodings are used. See
 #. * https://gitlab.gnome.org/GNOME/ctksourceview/blob/master/ctksourceview/ctksourceencoding.c#L142
@@ -593,14 +593,14 @@ msgstr "Bufferrak baliogabeko karaktereak ditu."
 #. *
 #. * SECTION:language
 #. * @Short_description: Represents a syntax highlighted language
-#. * @Title: GtkSourceLanguage
-#. * @See_also: #GtkSourceLanguageManager
+#. * @Title: CtkSourceLanguage
+#. * @See_also: #CtkSourceLanguageManager
 #. *
-#. * A #GtkSourceLanguage represents a programming or markup language, affecting
+#. * A #CtkSourceLanguage represents a programming or markup language, affecting
 #. * syntax highlighting and [context classes][context-classes].
 #. *
-#. * Use #GtkSourceLanguageManager to obtain a #GtkSourceLanguage instance, and
-#. * ctk_source_buffer_set_language() to apply it to a #GtkSourceBuffer.
+#. * Use #CtkSourceLanguageManager to obtain a #CtkSourceLanguage instance, and
+#. * ctk_source_buffer_set_language() to apply it to a #CtkSourceBuffer.
 #.
 #: ctksourceview/ctksourcelanguage.c:56
 msgid "Others"
@@ -1350,8 +1350,8 @@ msgstr "Aldatu _maiuskulak/minuskulak"
 #~ msgid "Deprecated"
 #~ msgstr "Zaharkitua"
 
-#~ msgid "GtkRC"
-#~ msgstr "GtkRC"
+#~ msgid "CtkRC"
+#~ msgstr "CtkRC"
 
 #~ msgid "Widget State"
 #~ msgstr "Trepetaren egoera"
@@ -2298,14 +2298,14 @@ msgstr "Aldatu _maiuskulak/minuskulak"
 #~ "Piarres Beobide <pi@beobide.net>\n"
 #~ "Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.com>"
 
-#~ msgid "GtkSourceView"
-#~ msgstr "GtkSourceView"
+#~ msgid "CtkSourceView"
+#~ msgstr "CtkSourceView"
 
-#~ msgid "GtkSourceStyleSchemeChooserWidget"
-#~ msgstr "GtkSourceStyleSchemeChooserWidget"
+#~ msgid "CtkSourceStyleSchemeChooserWidget"
+#~ msgstr "CtkSourceStyleSchemeChooserWidget"
 
-#~ msgid "GtkSourceStyleSchemeChooserButton"
-#~ msgstr "GtkSourceStyleSchemeChooserButton"
+#~ msgid "CtkSourceStyleSchemeChooserButton"
+#~ msgstr "CtkSourceStyleSchemeChooserButton"
 
 #~ msgid "Sources"
 #~ msgstr "Iturburuak"
@@ -2410,8 +2410,8 @@ msgstr "Aldatu _maiuskulak/minuskulak"
 #~ msgid "View"
 #~ msgstr "Ikusi"
 
-#~ msgid "The GtkSourceView bound to the completion"
-#~ msgstr "GtkSourceView osaketara lotuta"
+#~ msgid "The CtkSourceView bound to the completion"
+#~ msgstr "CtkSourceView osaketara lotuta"
 
 #~ msgid "Remember Info Visibility"
 #~ msgstr "Gogoratu informazioaren ikusgaitasuna"
@@ -2468,8 +2468,8 @@ msgstr "Aldatu _maiuskulak/minuskulak"
 #~ msgid "Iterator"
 #~ msgstr "Iteratzailea"
 
-#~ msgid "The GtkTextIter at which the completion was invoked"
-#~ msgstr "Osaketa deitu den GtkTextIter objektua"
+#~ msgid "The CtkTextIter at which the completion was invoked"
+#~ msgstr "Osaketa deitu den CtkTextIter objektua"
 
 #~ msgid "Label to be shown for this item"
 #~ msgstr "Etiketa elementu honetan erakusteko"
@@ -2501,8 +2501,8 @@ msgstr "Aldatu _maiuskulak/minuskulak"
 #~ msgid "Flags"
 #~ msgstr "Banderak"
 
-#~ msgid "The gutters' GtkSourceView"
-#~ msgstr "Erretenaren GtkSourceView"
+#~ msgid "The gutters' CtkSourceView"
+#~ msgstr "Erretenaren CtkSourceView"
 
 #~ msgid "Window Type"
 #~ msgstr "Leiho mota"
@@ -2637,8 +2637,8 @@ msgstr "Aldatu _maiuskulak/minuskulak"
 #~ msgid "Source Buffer"
 #~ msgstr "Iturburuko bufferra"
 
-#~ msgid "The GtkSourceBuffer object to print"
-#~ msgstr "GtkSourceBuffer objektua inprimatzeko"
+#~ msgid "The CtkSourceBuffer object to print"
+#~ msgstr "CtkSourceBuffer objektua inprimatzeko"
 
 #~ msgid "Tab Width"
 #~ msgstr "Tabuladorearen zabalera"
@@ -2718,14 +2718,14 @@ msgstr "Aldatu _maiuskulak/minuskulak"
 #~ msgid "Buffer"
 #~ msgstr "Bufferra"
 
-#~ msgid "The associated GtkSourceBuffer"
-#~ msgstr "Esleitutako GtkSourceBuffer"
+#~ msgid "The associated CtkSourceBuffer"
+#~ msgstr "Esleitutako CtkSourceBuffer"
 
 #~ msgid "Settings"
 #~ msgstr "Ezarpenak"
 
-#~ msgid "The associated GtkSourceSearchSettings"
-#~ msgstr "Esleitutako GtkSourceSearchSettings"
+#~ msgid "The associated CtkSourceSearchSettings"
+#~ msgstr "Esleitutako CtkSourceSearchSettings"
 
 #~ msgid "Highlight"
 #~ msgstr "Nabarmendu"

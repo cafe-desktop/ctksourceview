@@ -1,16 +1,16 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*- */
 /*
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2010 - Ignacio Casal Quinteiro
  * Copyright (C) 2014 - Sébastien Wilmet <swilmet@gnome.org>
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -33,8 +33,8 @@
 #include "ctksourcefileloader.h"
 
 /* NOTE: never use async methods on this stream, the stream is just
- * a wrapper around GtkTextBuffer api so that we can use GIO Stream
- * methods, but the underlying code operates on a GtkTextBuffer, so
+ * a wrapper around CtkTextBuffer api so that we can use GIO Stream
+ * methods, but the underlying code operates on a CtkTextBuffer, so
  * there is no I/O involved and should be accessed only by the main
  * thread.
  */
@@ -57,10 +57,10 @@
 
 #define MAX_UNICHAR_LEN 6
 
-struct _GtkSourceBufferOutputStreamPrivate
+struct _CtkSourceBufferOutputStreamPrivate
 {
-	GtkSourceBuffer *source_buffer;
-	GtkTextIter pos;
+	CtkSourceBuffer *source_buffer;
+	CtkTextIter pos;
 
 	gchar *buffer;
 	gsize buflen;
@@ -94,7 +94,7 @@ enum
 	PROP_REMOVE_TRAILING_NEWLINE
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceBufferOutputStream, ctk_source_buffer_output_stream, G_TYPE_OUTPUT_STREAM)
+G_DEFINE_TYPE_WITH_PRIVATE (CtkSourceBufferOutputStream, ctk_source_buffer_output_stream, G_TYPE_OUTPUT_STREAM)
 
 static gssize ctk_source_buffer_output_stream_write   (GOutputStream  *stream,
 						       const void     *buffer,
@@ -116,7 +116,7 @@ ctk_source_buffer_output_stream_set_property (GObject      *object,
 					      const GValue *value,
 					      GParamSpec   *pspec)
 {
-	GtkSourceBufferOutputStream *stream = CTK_SOURCE_BUFFER_OUTPUT_STREAM (object);
+	CtkSourceBufferOutputStream *stream = CTK_SOURCE_BUFFER_OUTPUT_STREAM (object);
 
 	switch (prop_id)
 	{
@@ -141,7 +141,7 @@ ctk_source_buffer_output_stream_get_property (GObject    *object,
 					      GValue     *value,
 					      GParamSpec *pspec)
 {
-	GtkSourceBufferOutputStream *stream = CTK_SOURCE_BUFFER_OUTPUT_STREAM (object);
+	CtkSourceBufferOutputStream *stream = CTK_SOURCE_BUFFER_OUTPUT_STREAM (object);
 
 	switch (prop_id)
 	{
@@ -162,7 +162,7 @@ ctk_source_buffer_output_stream_get_property (GObject    *object,
 static void
 ctk_source_buffer_output_stream_dispose (GObject *object)
 {
-	GtkSourceBufferOutputStream *stream = CTK_SOURCE_BUFFER_OUTPUT_STREAM (object);
+	CtkSourceBufferOutputStream *stream = CTK_SOURCE_BUFFER_OUTPUT_STREAM (object);
 
 	g_clear_object (&stream->priv->source_buffer);
 	g_clear_object (&stream->priv->charset_conv);
@@ -173,7 +173,7 @@ ctk_source_buffer_output_stream_dispose (GObject *object)
 static void
 ctk_source_buffer_output_stream_finalize (GObject *object)
 {
-	GtkSourceBufferOutputStream *stream = CTK_SOURCE_BUFFER_OUTPUT_STREAM (object);
+	CtkSourceBufferOutputStream *stream = CTK_SOURCE_BUFFER_OUTPUT_STREAM (object);
 
 	g_free (stream->priv->buffer);
 	g_free (stream->priv->iconv_buffer);
@@ -185,7 +185,7 @@ ctk_source_buffer_output_stream_finalize (GObject *object)
 static void
 ctk_source_buffer_output_stream_constructed (GObject *object)
 {
-	GtkSourceBufferOutputStream *stream = CTK_SOURCE_BUFFER_OUTPUT_STREAM (object);
+	CtkSourceBufferOutputStream *stream = CTK_SOURCE_BUFFER_OUTPUT_STREAM (object);
 
 	if (stream->priv->source_buffer == NULL)
 	{
@@ -204,7 +204,7 @@ ctk_source_buffer_output_stream_constructed (GObject *object)
 }
 
 static void
-ctk_source_buffer_output_stream_class_init (GtkSourceBufferOutputStreamClass *klass)
+ctk_source_buffer_output_stream_class_init (CtkSourceBufferOutputStreamClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 	GOutputStreamClass *stream_class = G_OUTPUT_STREAM_CLASS (klass);
@@ -222,7 +222,7 @@ ctk_source_buffer_output_stream_class_init (GtkSourceBufferOutputStreamClass *kl
 	g_object_class_install_property (object_class,
 					 PROP_BUFFER,
 					 g_param_spec_object ("buffer",
-							      "GtkSourceBuffer",
+							      "CtkSourceBuffer",
 							      "",
 							      CTK_SOURCE_TYPE_BUFFER,
 							      G_PARAM_READWRITE |
@@ -241,7 +241,7 @@ ctk_source_buffer_output_stream_class_init (GtkSourceBufferOutputStreamClass *kl
 }
 
 static void
-ctk_source_buffer_output_stream_init (GtkSourceBufferOutputStream *stream)
+ctk_source_buffer_output_stream_init (CtkSourceBufferOutputStream *stream)
 {
 	stream->priv = ctk_source_buffer_output_stream_get_instance_private (stream);
 
@@ -260,8 +260,8 @@ ctk_source_buffer_output_stream_init (GtkSourceBufferOutputStream *stream)
 	stream->priv->use_first = FALSE;
 }
 
-static const GtkSourceEncoding *
-get_encoding (GtkSourceBufferOutputStream *stream)
+static const CtkSourceEncoding *
+get_encoding (CtkSourceBufferOutputStream *stream)
 {
 	if (stream->priv->current_encoding == NULL)
 	{
@@ -356,7 +356,7 @@ try_convert (GCharsetConverter *converter,
 }
 
 static GCharsetConverter *
-guess_encoding (GtkSourceBufferOutputStream *stream,
+guess_encoding (CtkSourceBufferOutputStream *stream,
 	       	const void                  *inbuf,
 	       	gsize                        inbuf_size)
 {
@@ -377,7 +377,7 @@ guess_encoding (GtkSourceBufferOutputStream *stream,
 	/* We just check the first block */
 	while (TRUE)
 	{
-		const GtkSourceEncoding *enc;
+		const CtkSourceEncoding *enc;
 
 		g_clear_object (&conv);
 
@@ -443,11 +443,11 @@ guess_encoding (GtkSourceBufferOutputStream *stream,
 	return conv;
 }
 
-static GtkSourceNewlineType
-get_newline_type (GtkTextIter *end)
+static CtkSourceNewlineType
+get_newline_type (CtkTextIter *end)
 {
-	GtkSourceNewlineType res;
-	GtkTextIter copy;
+	CtkSourceNewlineType res;
+	CtkTextIter copy;
 	gunichar c;
 
 	copy = *end;
@@ -473,12 +473,12 @@ get_newline_type (GtkTextIter *end)
 	return res;
 }
 
-GtkSourceBufferOutputStream *
-ctk_source_buffer_output_stream_new (GtkSourceBuffer *buffer,
+CtkSourceBufferOutputStream *
+ctk_source_buffer_output_stream_new (CtkSourceBuffer *buffer,
 				     GSList          *candidate_encodings,
 				     gboolean         remove_trailing_newline)
 {
-	GtkSourceBufferOutputStream *stream;
+	CtkSourceBufferOutputStream *stream;
 
 	stream = g_object_new (CTK_SOURCE_TYPE_BUFFER_OUTPUT_STREAM,
 	                       "buffer", buffer,
@@ -490,11 +490,11 @@ ctk_source_buffer_output_stream_new (GtkSourceBuffer *buffer,
 	return stream;
 }
 
-GtkSourceNewlineType
-ctk_source_buffer_output_stream_detect_newline_type (GtkSourceBufferOutputStream *stream)
+CtkSourceNewlineType
+ctk_source_buffer_output_stream_detect_newline_type (CtkSourceBufferOutputStream *stream)
 {
-	GtkSourceNewlineType type;
-	GtkTextIter iter;
+	CtkSourceNewlineType type;
+	CtkTextIter iter;
 
 	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER_OUTPUT_STREAM (stream),
 			      CTK_SOURCE_NEWLINE_TYPE_DEFAULT);
@@ -517,8 +517,8 @@ ctk_source_buffer_output_stream_detect_newline_type (GtkSourceBufferOutputStream
 	return type;
 }
 
-const GtkSourceEncoding *
-ctk_source_buffer_output_stream_get_guessed (GtkSourceBufferOutputStream *stream)
+const CtkSourceEncoding *
+ctk_source_buffer_output_stream_get_guessed (CtkSourceBufferOutputStream *stream)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER_OUTPUT_STREAM (stream), NULL);
 
@@ -538,7 +538,7 @@ ctk_source_buffer_output_stream_get_guessed (GtkSourceBufferOutputStream *stream
 }
 
 guint
-ctk_source_buffer_output_stream_get_num_fallbacks (GtkSourceBufferOutputStream *stream)
+ctk_source_buffer_output_stream_get_num_fallbacks (CtkSourceBufferOutputStream *stream)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER_OUTPUT_STREAM (stream), 0);
 
@@ -546,9 +546,9 @@ ctk_source_buffer_output_stream_get_num_fallbacks (GtkSourceBufferOutputStream *
 }
 
 static void
-apply_error_tag (GtkSourceBufferOutputStream *stream)
+apply_error_tag (CtkSourceBufferOutputStream *stream)
 {
-	GtkTextIter start;
+	CtkTextIter start;
 
 	if (stream->priv->error_offset == -1 ||
 	    stream->priv->source_buffer == NULL)
@@ -567,7 +567,7 @@ apply_error_tag (GtkSourceBufferOutputStream *stream)
 }
 
 static void
-insert_fallback (GtkSourceBufferOutputStream *stream,
+insert_fallback (CtkSourceBufferOutputStream *stream,
 		 const gchar                 *buffer)
 {
 	guint8 out[4];
@@ -595,13 +595,13 @@ insert_fallback (GtkSourceBufferOutputStream *stream,
 }
 
 static void
-validate_and_insert (GtkSourceBufferOutputStream *stream,
+validate_and_insert (CtkSourceBufferOutputStream *stream,
 		     gchar                       *buffer,
 		     gsize                        count,
 		     gboolean                     owned)
 {
-	GtkTextBuffer *text_buffer;
-	GtkTextIter *iter;
+	CtkTextBuffer *text_buffer;
+	CtkTextIter *iter;
 	gsize len;
 	gchar *free_text = NULL;
 
@@ -624,7 +624,7 @@ validate_and_insert (GtkSourceBufferOutputStream *stream,
 		valid = g_utf8_validate (buffer, len, &end);
 		nvalid = end - buffer;
 
-		/* Note: this is a workaround for a 'bug' in GtkTextBuffer where
+		/* Note: this is a workaround for a 'bug' in CtkTextBuffer where
 		   inserting first a \r and then in a second insert, a \n,
 		   will result in two lines being added instead of a single
 		   one */
@@ -722,10 +722,10 @@ validate_and_insert (GtkSourceBufferOutputStream *stream,
 }
 
 static void
-remove_trailing_newline (GtkSourceBufferOutputStream *stream)
+remove_trailing_newline (CtkSourceBufferOutputStream *stream)
 {
-	GtkTextIter end;
-	GtkTextIter start;
+	CtkTextIter end;
+	CtkTextIter start;
 
 	if (stream->priv->source_buffer == NULL)
 	{
@@ -752,7 +752,7 @@ remove_trailing_newline (GtkSourceBufferOutputStream *stream)
 }
 
 static void
-end_append_text_to_document (GtkSourceBufferOutputStream *stream)
+end_append_text_to_document (CtkSourceBufferOutputStream *stream)
 {
 	if (stream->priv->source_buffer == NULL)
 	{
@@ -772,7 +772,7 @@ end_append_text_to_document (GtkSourceBufferOutputStream *stream)
 }
 
 static gboolean
-convert_text (GtkSourceBufferOutputStream  *stream,
+convert_text (CtkSourceBufferOutputStream  *stream,
 	      const gchar                  *inbuf,
 	      gsize                         inbuf_len,
 	      gchar                       **outbuf,
@@ -880,7 +880,7 @@ ctk_source_buffer_output_stream_write (GOutputStream  *stream,
 				       GCancellable   *cancellable,
 				       GError        **error)
 {
-	GtkSourceBufferOutputStream *ostream;
+	CtkSourceBufferOutputStream *ostream;
 	gchar *text;
 	gsize len;
 	gboolean freetext = FALSE;
@@ -1067,7 +1067,7 @@ ctk_source_buffer_output_stream_flush (GOutputStream  *stream,
 				       GCancellable   *cancellable,
 				       GError        **error)
 {
-	GtkSourceBufferOutputStream *ostream;
+	CtkSourceBufferOutputStream *ostream;
 
 	ostream = CTK_SOURCE_BUFFER_OUTPUT_STREAM (stream);
 
@@ -1165,7 +1165,7 @@ ctk_source_buffer_output_stream_close (GOutputStream  *stream,
 				       GCancellable   *cancellable,
 				       GError        **error)
 {
-	GtkSourceBufferOutputStream *ostream = CTK_SOURCE_BUFFER_OUTPUT_STREAM (stream);
+	CtkSourceBufferOutputStream *ostream = CTK_SOURCE_BUFFER_OUTPUT_STREAM (stream);
 
 	if (!ostream->priv->is_closed && ostream->priv->is_initialized)
 	{

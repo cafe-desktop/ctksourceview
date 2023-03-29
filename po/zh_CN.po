@@ -551,13 +551,13 @@ msgid "Unknown"
 msgstr "未知"
 
 #. Translators: This is the sorted list of encodings used by
-#. * GtkSourceView for automatic detection of the file encoding. You may
+#. * CtkSourceView for automatic detection of the file encoding. You may
 #. * want to customize it adding encodings that are common in your
 #. * country, for instance the GB18030 encoding for the Chinese
 #. * translation. You may also want to remove the ISO-8859-15 encoding
 #. * (covering English and most Western European languages) if you think
 #. * people in your country will rarely use it.  "CURRENT" is a magic
-#. * value used by GtkSourceView and it represents the encoding for the
+#. * value used by CtkSourceView and it represents the encoding for the
 #. * current locale, so please don't translate the "CURRENT" term.  Only
 #. * recognized encodings are used. See
 #. * https://gitlab.gnome.org/GNOME/ctksourceview/blob/master/ctksourceview/ctksourceencoding.c#L142
@@ -593,14 +593,14 @@ msgstr "缓存中包含错误字符。"
 #. *
 #. * SECTION:language
 #. * @Short_description: Represents a syntax highlighted language
-#. * @Title: GtkSourceLanguage
-#. * @See_also: #GtkSourceLanguageManager
+#. * @Title: CtkSourceLanguage
+#. * @See_also: #CtkSourceLanguageManager
 #. *
-#. * A #GtkSourceLanguage represents a programming or markup language, affecting
+#. * A #CtkSourceLanguage represents a programming or markup language, affecting
 #. * syntax highlighting and [context classes][context-classes].
 #. *
-#. * Use #GtkSourceLanguageManager to obtain a #GtkSourceLanguage instance, and
-#. * ctk_source_buffer_set_language() to apply it to a #GtkSourceBuffer.
+#. * Use #CtkSourceLanguageManager to obtain a #CtkSourceLanguage instance, and
+#. * ctk_source_buffer_set_language() to apply it to a #CtkSourceBuffer.
 #.
 #: ctksourceview/ctksourcelanguage.c:56
 msgid "Others"
@@ -1350,8 +1350,8 @@ msgstr "更改大小写(_H)"
 #~ msgid "Deprecated"
 #~ msgstr "已过时的"
 
-#~ msgid "GtkRC"
-#~ msgstr "GtkRC"
+#~ msgid "CtkRC"
+#~ msgstr "CtkRC"
 
 #~ msgid "Widget State"
 #~ msgstr "部件状态"
@@ -2301,8 +2301,8 @@ msgstr "更改大小写(_H)"
 #~ "YunQiang Su <wzssyqa@gmail.com>, 2010 - 2014\n"
 #~ "Sphinx Jiang <yishanj13@gmail.com>, 2014"
 
-#~ msgid "GtkSourceView"
-#~ msgstr "GtkSourceView"
+#~ msgid "CtkSourceView"
+#~ msgstr "CtkSourceView"
 
 #~ msgctxt "Object"
 #~ msgid "Name"
@@ -2404,8 +2404,8 @@ msgstr "更改大小写(_H)"
 #~ msgid "View"
 #~ msgstr "查看器"
 
-#~ msgid "The GtkSourceView bound to the completion"
-#~ msgstr "GtkSourceView 补全的界限"
+#~ msgid "The CtkSourceView bound to the completion"
+#~ msgstr "CtkSourceView 补全的界限"
 
 #~ msgid "Remember Info Visibility"
 #~ msgstr "记住信息可见程度"
@@ -2459,8 +2459,8 @@ msgstr "更改大小写(_H)"
 #~ msgid "Iterator"
 #~ msgstr "迭代器"
 
-#~ msgid "The GtkTextIter at which the completion was invoked"
-#~ msgstr "GtkTextIter，在其上调用补全"
+#~ msgid "The CtkTextIter at which the completion was invoked"
+#~ msgstr "CtkTextIter，在其上调用补全"
 
 #~ msgid "Label to be shown for this item"
 #~ msgstr "为此条目显示的标签"
@@ -2492,8 +2492,8 @@ msgstr "更改大小写(_H)"
 #~ msgid "Flags"
 #~ msgstr "标识"
 
-#~ msgid "The gutters' GtkSourceView"
-#~ msgstr "gutters 的 GtkSourceView"
+#~ msgid "The gutters' CtkSourceView"
+#~ msgstr "gutters 的 CtkSourceView"
 
 #~ msgid "Window Type"
 #~ msgstr "窗口类型"
@@ -2626,8 +2626,8 @@ msgstr "更改大小写(_H)"
 #~ msgid "Source Buffer"
 #~ msgstr "源缓冲区"
 
-#~ msgid "The GtkSourceBuffer object to print"
-#~ msgstr "待打印的 GtkSourceBuffer 对象"
+#~ msgid "The CtkSourceBuffer object to print"
+#~ msgstr "待打印的 CtkSourceBuffer 对象"
 
 #~ msgid "Tab Width"
 #~ msgstr "Tab 宽度"
@@ -2699,14 +2699,14 @@ msgstr "更改大小写(_H)"
 #~ msgid "Buffer"
 #~ msgstr "缓冲区"
 
-#~ msgid "The associated GtkSourceBuffer"
-#~ msgstr "关联的 GtkSourceBuffer"
+#~ msgid "The associated CtkSourceBuffer"
+#~ msgstr "关联的 CtkSourceBuffer"
 
 #~ msgid "Settings"
 #~ msgstr "设置"
 
-#~ msgid "The associated GtkSourceSearchSettings"
-#~ msgstr "关联的 GtkSourceSearchSettings"
+#~ msgid "The associated CtkSourceSearchSettings"
+#~ msgstr "关联的 CtkSourceSearchSettings"
 
 #~ msgid "Highlight"
 #~ msgstr "高亮"
