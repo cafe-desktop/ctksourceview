@@ -18,10 +18,10 @@
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTK_SOURCE_LANGUAGE_MANAGER_H
-#define GTK_SOURCE_LANGUAGE_MANAGER_H
+#ifndef CTK_SOURCE_LANGUAGE_MANAGER_H
+#define CTK_SOURCE_LANGUAGE_MANAGER_H
 
-#if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
+#if !defined (CTK_SOURCE_H_INSIDE) && !defined (CTK_SOURCE_COMPILATION)
 #error "Only <ctksourceview/ctksource.h> can be included directly."
 #endif
 
@@ -30,12 +30,12 @@
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_LANGUAGE_MANAGER		(ctk_source_language_manager_get_type ())
-#define GTK_SOURCE_LANGUAGE_MANAGER(obj)		(G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_SOURCE_TYPE_LANGUAGE_MANAGER, GtkSourceLanguageManager))
-#define GTK_SOURCE_LANGUAGE_MANAGER_CLASS(klass)	(G_TYPE_CHECK_CLASS_CAST((klass), GTK_SOURCE_TYPE_LANGUAGE_MANAGER, GtkSourceLanguageManagerClass))
-#define GTK_SOURCE_IS_LANGUAGE_MANAGER(obj)		(G_TYPE_CHECK_INSTANCE_TYPE((obj), GTK_SOURCE_TYPE_LANGUAGE_MANAGER))
-#define GTK_SOURCE_IS_LANGUAGE_MANAGER_CLASS(klass)	(G_TYPE_CHECK_CLASS_TYPE ((klass), GTK_SOURCE_TYPE_LANGUAGE_MANAGER))
-#define GTK_SOURCE_LANGUAGE_MANAGER_GET_CLASS(obj)	(G_TYPE_INSTANCE_GET_CLASS((obj), GTK_SOURCE_TYPE_LANGUAGE_MANAGER, GtkSourceLanguageManagerClass))
+#define CTK_SOURCE_TYPE_LANGUAGE_MANAGER		(ctk_source_language_manager_get_type ())
+#define CTK_SOURCE_LANGUAGE_MANAGER(obj)		(G_TYPE_CHECK_INSTANCE_CAST((obj), CTK_SOURCE_TYPE_LANGUAGE_MANAGER, GtkSourceLanguageManager))
+#define CTK_SOURCE_LANGUAGE_MANAGER_CLASS(klass)	(G_TYPE_CHECK_CLASS_CAST((klass), CTK_SOURCE_TYPE_LANGUAGE_MANAGER, GtkSourceLanguageManagerClass))
+#define CTK_SOURCE_IS_LANGUAGE_MANAGER(obj)		(G_TYPE_CHECK_INSTANCE_TYPE((obj), CTK_SOURCE_TYPE_LANGUAGE_MANAGER))
+#define CTK_SOURCE_IS_LANGUAGE_MANAGER_CLASS(klass)	(G_TYPE_CHECK_CLASS_TYPE ((klass), CTK_SOURCE_TYPE_LANGUAGE_MANAGER))
+#define CTK_SOURCE_LANGUAGE_MANAGER_GET_CLASS(obj)	(G_TYPE_INSTANCE_GET_CLASS((obj), CTK_SOURCE_TYPE_LANGUAGE_MANAGER, GtkSourceLanguageManagerClass))
 
 
 typedef struct _GtkSourceLanguageManagerClass	GtkSourceLanguageManagerClass;
@@ -56,30 +56,30 @@ struct _GtkSourceLanguageManagerClass
 	gpointer padding[10];
 };
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 GType			  ctk_source_language_manager_get_type			(void) G_GNUC_CONST;
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 GtkSourceLanguageManager *ctk_source_language_manager_new			(void);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 GtkSourceLanguageManager *ctk_source_language_manager_get_default		(void);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 const gchar * const *	  ctk_source_language_manager_get_search_path		(GtkSourceLanguageManager *lm);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 void			  ctk_source_language_manager_set_search_path		(GtkSourceLanguageManager *lm,
 										 gchar                   **dirs);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 const gchar * const *	  ctk_source_language_manager_get_language_ids		(GtkSourceLanguageManager *lm);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 GtkSourceLanguage	 *ctk_source_language_manager_get_language		(GtkSourceLanguageManager *lm,
 										 const gchar              *id);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 GtkSourceLanguage	 *ctk_source_language_manager_guess_language		(GtkSourceLanguageManager *lm,
 										 const gchar		  *filename,
 										 const gchar		  *content_type);
@@ -89,4 +89,4 @@ GtkSourceLanguageManager *_ctk_source_language_manager_peek_default		(void);
 
 G_END_DECLS
 
-#endif /* GTK_SOURCE_LANGUAGE_MANAGER_H */
+#endif /* CTK_SOURCE_LANGUAGE_MANAGER_H */

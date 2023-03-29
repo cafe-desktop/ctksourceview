@@ -62,23 +62,23 @@ main (int argc, char *argv[])
 
 	buffer = ctk_source_buffer_new (NULL);
 
-	ctk_text_buffer_get_start_iter (GTK_TEXT_BUFFER (buffer), &iter);
+	ctk_text_buffer_get_start_iter (CTK_TEXT_BUFFER (buffer), &iter);
 
 	for (i = 0; i < NB_LINES; i++)
 	{
-		ctk_text_buffer_insert (GTK_TEXT_BUFFER (buffer),
+		ctk_text_buffer_insert (CTK_TEXT_BUFFER (buffer),
 					&iter,
 					"A line of text to fill the text buffer. Is it long enough?\n",
 					-1);
 	}
 
-	ctk_text_buffer_insert (GTK_TEXT_BUFFER (buffer), &iter, "foo\n", -1);
+	ctk_text_buffer_insert (CTK_TEXT_BUFFER (buffer), &iter, "foo\n", -1);
 
 	/* Basic search, no flags */
 
 	timer = g_timer_new ();
 
-	ctk_text_buffer_get_start_iter (GTK_TEXT_BUFFER (buffer), &iter);
+	ctk_text_buffer_get_start_iter (CTK_TEXT_BUFFER (buffer), &iter);
 
 	flags = 0;
 
@@ -95,9 +95,9 @@ main (int argc, char *argv[])
 
 	g_timer_start (timer);
 
-	ctk_text_buffer_get_start_iter (GTK_TEXT_BUFFER (buffer), &iter);
+	ctk_text_buffer_get_start_iter (CTK_TEXT_BUFFER (buffer), &iter);
 
-	flags = GTK_TEXT_SEARCH_VISIBLE_ONLY | GTK_TEXT_SEARCH_TEXT_ONLY;
+	flags = CTK_TEXT_SEARCH_VISIBLE_ONLY | CTK_TEXT_SEARCH_TEXT_ONLY;
 
 	while (ctk_text_iter_forward_search (&iter, "foo", flags, NULL, &match_end, NULL))
 	{
@@ -112,11 +112,11 @@ main (int argc, char *argv[])
 
 	g_timer_start (timer);
 
-	ctk_text_buffer_get_start_iter (GTK_TEXT_BUFFER (buffer), &iter);
+	ctk_text_buffer_get_start_iter (CTK_TEXT_BUFFER (buffer), &iter);
 
-	flags = GTK_TEXT_SEARCH_VISIBLE_ONLY |
-		GTK_TEXT_SEARCH_TEXT_ONLY |
-		GTK_TEXT_SEARCH_CASE_INSENSITIVE;
+	flags = CTK_TEXT_SEARCH_VISIBLE_ONLY |
+		CTK_TEXT_SEARCH_TEXT_ONLY |
+		CTK_TEXT_SEARCH_CASE_INSENSITIVE;
 
 	while (ctk_text_iter_forward_search (&iter, "foo", flags, NULL, &match_end, NULL))
 	{
@@ -136,7 +136,7 @@ main (int argc, char *argv[])
 
 	ctk_source_search_settings_set_search_text (search_settings, "foo");
 
-	ctk_text_buffer_get_start_iter (GTK_TEXT_BUFFER (buffer), &iter);
+	ctk_text_buffer_get_start_iter (CTK_TEXT_BUFFER (buffer), &iter);
 
 	while (ctk_source_search_context_forward (search_context, &iter, NULL, &match_end, NULL))
 	{
@@ -155,7 +155,7 @@ main (int argc, char *argv[])
 	ctk_source_search_settings_set_case_sensitive (search_settings, TRUE);
 	ctk_source_search_settings_set_search_text (search_settings, "foo");
 
-	ctk_text_buffer_get_start_iter (GTK_TEXT_BUFFER (buffer), &iter);
+	ctk_text_buffer_get_start_iter (CTK_TEXT_BUFFER (buffer), &iter);
 
 	while (ctk_source_search_context_forward (search_context, &iter, NULL, &match_end, NULL))
 	{
@@ -174,7 +174,7 @@ main (int argc, char *argv[])
 	ctk_source_search_settings_set_regex_enabled (search_settings, TRUE);
 	ctk_source_search_settings_set_search_text (search_settings, "foo");
 
-	ctk_text_buffer_get_start_iter (GTK_TEXT_BUFFER (buffer), &iter);
+	ctk_text_buffer_get_start_iter (CTK_TEXT_BUFFER (buffer), &iter);
 
 	while (ctk_source_search_context_forward (search_context, &iter, NULL, &match_end, NULL))
 	{
@@ -191,7 +191,7 @@ main (int argc, char *argv[])
 
 	ctk_source_search_settings_set_search_text (search_settings, "fill");
 
-	ctk_text_buffer_get_start_iter (GTK_TEXT_BUFFER (buffer), &iter);
+	ctk_text_buffer_get_start_iter (CTK_TEXT_BUFFER (buffer), &iter);
 
 	while (ctk_source_search_context_forward (search_context, &iter, NULL, &match_end, NULL))
 	{
@@ -208,7 +208,7 @@ main (int argc, char *argv[])
 
 	ctk_source_search_settings_set_search_text (search_settings, ".*");
 
-	ctk_text_buffer_get_start_iter (GTK_TEXT_BUFFER (buffer), &iter);
+	ctk_text_buffer_get_start_iter (CTK_TEXT_BUFFER (buffer), &iter);
 
 	while (ctk_source_search_context_forward (search_context, &iter, NULL, &match_end, NULL))
 	{
@@ -228,7 +228,7 @@ main (int argc, char *argv[])
 	 */
 	ctk_source_search_settings_set_search_text (search_settings, " (.*\n){3}");
 
-	ctk_text_buffer_get_start_iter (GTK_TEXT_BUFFER (buffer), &iter);
+	ctk_text_buffer_get_start_iter (CTK_TEXT_BUFFER (buffer), &iter);
 
 	while (ctk_source_search_context_forward (search_context, &iter, NULL, &match_end, NULL))
 	{
@@ -247,7 +247,7 @@ main (int argc, char *argv[])
 	ctk_source_search_settings_set_search_text (search_settings, regex_pattern);
 	g_free (regex_pattern);
 
-	ctk_text_buffer_get_start_iter (GTK_TEXT_BUFFER (buffer), &iter);
+	ctk_text_buffer_get_start_iter (CTK_TEXT_BUFFER (buffer), &iter);
 
 	while (ctk_source_search_context_forward (search_context, &iter, NULL, &match_end, NULL))
 	{

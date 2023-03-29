@@ -18,8 +18,8 @@
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTK_SOURCE_GUTTER_RENDERER_LINES_H
-#define GTK_SOURCE_GUTTER_RENDERER_LINES_H
+#ifndef CTK_SOURCE_GUTTER_RENDERER_LINES_H
+#define CTK_SOURCE_GUTTER_RENDERER_LINES_H
 
 #include <ctk/ctk.h>
 #include "ctksourcetypes.h"
@@ -28,13 +28,13 @@
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_GUTTER_RENDERER_LINES		(ctk_source_gutter_renderer_lines_get_type ())
-#define GTK_SOURCE_GUTTER_RENDERER_LINES(obj)		(G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_GUTTER_RENDERER_LINES, GtkSourceGutterRendererLines))
-#define GTK_SOURCE_GUTTER_RENDERER_LINES_CONST(obj)	(G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_GUTTER_RENDERER_LINES, GtkSourceGutterRendererLines const))
-#define GTK_SOURCE_GUTTER_RENDERER_LINES_CLASS(klass)	(G_TYPE_CHECK_CLASS_CAST ((klass), GTK_SOURCE_TYPE_GUTTER_RENDERER_LINES, GtkSourceGutterRendererLinesClass))
-#define GTK_SOURCE_IS_GUTTER_RENDERER_LINES(obj)		(G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_SOURCE_TYPE_GUTTER_RENDERER_LINES))
-#define GTK_SOURCE_IS_GUTTER_RENDERER_LINES_CLASS(klass)	(G_TYPE_CHECK_CLASS_TYPE ((klass), GTK_SOURCE_TYPE_GUTTER_RENDERER_LINES))
-#define GTK_SOURCE_GUTTER_RENDERER_LINES_GET_CLASS(obj)	(G_TYPE_INSTANCE_GET_CLASS ((obj), GTK_SOURCE_TYPE_GUTTER_RENDERER_LINES, GtkSourceGutterRendererLinesClass))
+#define CTK_SOURCE_TYPE_GUTTER_RENDERER_LINES		(ctk_source_gutter_renderer_lines_get_type ())
+#define CTK_SOURCE_GUTTER_RENDERER_LINES(obj)		(G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_GUTTER_RENDERER_LINES, GtkSourceGutterRendererLines))
+#define CTK_SOURCE_GUTTER_RENDERER_LINES_CONST(obj)	(G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_GUTTER_RENDERER_LINES, GtkSourceGutterRendererLines const))
+#define CTK_SOURCE_GUTTER_RENDERER_LINES_CLASS(klass)	(G_TYPE_CHECK_CLASS_CAST ((klass), CTK_SOURCE_TYPE_GUTTER_RENDERER_LINES, GtkSourceGutterRendererLinesClass))
+#define CTK_SOURCE_IS_GUTTER_RENDERER_LINES(obj)		(G_TYPE_CHECK_INSTANCE_TYPE ((obj), CTK_SOURCE_TYPE_GUTTER_RENDERER_LINES))
+#define CTK_SOURCE_IS_GUTTER_RENDERER_LINES_CLASS(klass)	(G_TYPE_CHECK_CLASS_TYPE ((klass), CTK_SOURCE_TYPE_GUTTER_RENDERER_LINES))
+#define CTK_SOURCE_GUTTER_RENDERER_LINES_GET_CLASS(obj)	(G_TYPE_INSTANCE_GET_CLASS ((obj), CTK_SOURCE_TYPE_GUTTER_RENDERER_LINES, GtkSourceGutterRendererLinesClass))
 
 typedef struct _GtkSourceGutterRendererLinesClass	GtkSourceGutterRendererLinesClass;
 typedef struct _GtkSourceGutterRendererLinesPrivate	GtkSourceGutterRendererLinesPrivate;
@@ -65,4 +65,4 @@ GtkSourceGutterRenderer *ctk_source_gutter_renderer_lines_new (void);
 
 G_END_DECLS
 
-#endif /* GTK_SOURCE_GUTTER_RENDERER_LINES_H */
+#endif /* CTK_SOURCE_GUTTER_RENDERER_LINES_H */

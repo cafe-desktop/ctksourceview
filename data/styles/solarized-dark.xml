@@ -125,7 +125,7 @@
   <style name="c:preprocessor"              foreground="orange"/>
   <style name="c:type-keyword"              foreground="yellow"/>
 
-  <!-- GTK-DOC Overrides -->
+  <!-- CTK-DOC Overrides -->
   <style name="ctk-doc:type"                foreground="yellow"/>
   <style name="ctk-doc:function"            foreground="blue"/>
   <style name="ctk-doc:function-name"       bold="true"/>

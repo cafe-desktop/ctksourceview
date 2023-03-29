@@ -18,8 +18,8 @@
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTK_SOURCE_COMPLETION_WORDS_PROPOSAL_H
-#define GTK_SOURCE_COMPLETION_WORDS_PROPOSAL_H
+#ifndef CTK_SOURCE_COMPLETION_WORDS_PROPOSAL_H
+#define CTK_SOURCE_COMPLETION_WORDS_PROPOSAL_H
 
 #include <glib-object.h>
 #include <ctksourceview/ctksourcecompletionproposal.h>
@@ -28,13 +28,13 @@
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_COMPLETION_WORDS_PROPOSAL			(ctk_source_completion_words_proposal_get_type ())
-#define GTK_SOURCE_COMPLETION_WORDS_PROPOSAL(obj)			(G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_COMPLETION_WORDS_PROPOSAL, GtkSourceCompletionWordsProposal))
-#define GTK_SOURCE_COMPLETION_WORDS_PROPOSAL_CONST(obj)			(G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_COMPLETION_WORDS_PROPOSAL, GtkSourceCompletionWordsProposal const))
-#define GTK_SOURCE_COMPLETION_WORDS_PROPOSAL_CLASS(klass)		(G_TYPE_CHECK_CLASS_CAST ((klass), GTK_SOURCE_TYPE_COMPLETION_WORDS_PROPOSAL, GtkSourceCompletionWordsProposalClass))
-#define GTK_SOURCE_IS_COMPLETION_WORDS_PROPOSAL(obj)			(G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_SOURCE_TYPE_COMPLETION_WORDS_PROPOSAL))
-#define GTK_SOURCE_IS_COMPLETION_WORDS_PROPOSAL_CLASS(klass)		(G_TYPE_CHECK_CLASS_TYPE ((klass), GTK_SOURCE_TYPE_COMPLETION_WORDS_PROPOSAL))
-#define GTK_SOURCE_COMPLETION_WORDS_PROPOSAL_GET_CLASS(obj)		(G_TYPE_INSTANCE_GET_CLASS ((obj), GTK_SOURCE_TYPE_COMPLETION_WORDS_PROPOSAL, GtkSourceCompletionWordsProposalClass))
+#define CTK_SOURCE_TYPE_COMPLETION_WORDS_PROPOSAL			(ctk_source_completion_words_proposal_get_type ())
+#define CTK_SOURCE_COMPLETION_WORDS_PROPOSAL(obj)			(G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_COMPLETION_WORDS_PROPOSAL, GtkSourceCompletionWordsProposal))
+#define CTK_SOURCE_COMPLETION_WORDS_PROPOSAL_CONST(obj)			(G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_COMPLETION_WORDS_PROPOSAL, GtkSourceCompletionWordsProposal const))
+#define CTK_SOURCE_COMPLETION_WORDS_PROPOSAL_CLASS(klass)		(G_TYPE_CHECK_CLASS_CAST ((klass), CTK_SOURCE_TYPE_COMPLETION_WORDS_PROPOSAL, GtkSourceCompletionWordsProposalClass))
+#define CTK_SOURCE_IS_COMPLETION_WORDS_PROPOSAL(obj)			(G_TYPE_CHECK_INSTANCE_TYPE ((obj), CTK_SOURCE_TYPE_COMPLETION_WORDS_PROPOSAL))
+#define CTK_SOURCE_IS_COMPLETION_WORDS_PROPOSAL_CLASS(klass)		(G_TYPE_CHECK_CLASS_TYPE ((klass), CTK_SOURCE_TYPE_COMPLETION_WORDS_PROPOSAL))
+#define CTK_SOURCE_COMPLETION_WORDS_PROPOSAL_GET_CLASS(obj)		(G_TYPE_INSTANCE_GET_CLASS ((obj), CTK_SOURCE_TYPE_COMPLETION_WORDS_PROPOSAL, GtkSourceCompletionWordsProposalClass))
 
 typedef struct _GtkSourceCompletionWordsProposal		GtkSourceCompletionWordsProposal;
 typedef struct _GtkSourceCompletionWordsProposalClass		GtkSourceCompletionWordsProposalClass;
@@ -50,22 +50,22 @@ struct _GtkSourceCompletionWordsProposalClass {
 	GObjectClass parent_class;
 };
 
-GTK_SOURCE_INTERNAL
+CTK_SOURCE_INTERNAL
 GType		 ctk_source_completion_words_proposal_get_type	(void) G_GNUC_CONST;
 
-GTK_SOURCE_INTERNAL
+CTK_SOURCE_INTERNAL
 GtkSourceCompletionWordsProposal *
 		 ctk_source_completion_words_proposal_new 	(const gchar                      *word);
 
-GTK_SOURCE_INTERNAL
+CTK_SOURCE_INTERNAL
 const gchar 	*ctk_source_completion_words_proposal_get_word 	(GtkSourceCompletionWordsProposal *proposal);
 
-GTK_SOURCE_INTERNAL
+CTK_SOURCE_INTERNAL
 void		 ctk_source_completion_words_proposal_use 	(GtkSourceCompletionWordsProposal *proposal);
 
-GTK_SOURCE_INTERNAL
+CTK_SOURCE_INTERNAL
 void		 ctk_source_completion_words_proposal_unuse 	(GtkSourceCompletionWordsProposal *proposal);
 
 G_END_DECLS
 
-#endif /* GTK_SOURCE_COMPLETION_WORDS_PROPOSAL_H */
+#endif /* CTK_SOURCE_COMPLETION_WORDS_PROPOSAL_H */

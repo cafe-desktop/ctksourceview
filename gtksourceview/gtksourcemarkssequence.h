@@ -18,20 +18,20 @@
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTK_SOURCE_MARKS_SEQUENCE_H
-#define GTK_SOURCE_MARKS_SEQUENCE_H
+#ifndef CTK_SOURCE_MARKS_SEQUENCE_H
+#define CTK_SOURCE_MARKS_SEQUENCE_H
 
 #include <ctk/ctk.h>
 #include "ctksourcetypes-private.h"
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_MARKS_SEQUENCE             (_ctk_source_marks_sequence_get_type ())
-#define GTK_SOURCE_MARKS_SEQUENCE(obj)             (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_MARKS_SEQUENCE, GtkSourceMarksSequence))
-#define GTK_SOURCE_MARKS_SEQUENCE_CLASS(klass)     (G_TYPE_CHECK_CLASS_CAST ((klass), GTK_SOURCE_TYPE_MARKS_SEQUENCE, GtkSourceMarksSequenceClass))
-#define GTK_SOURCE_IS_MARKS_SEQUENCE(obj)          (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_SOURCE_TYPE_MARKS_SEQUENCE))
-#define GTK_SOURCE_IS_MARKS_SEQUENCE_CLASS(klass)  (G_TYPE_CHECK_CLASS_TYPE ((klass), GTK_SOURCE_TYPE_MARKS_SEQUENCE))
-#define GTK_SOURCE_MARKS_SEQUENCE_GET_CLASS(obj)   (G_TYPE_INSTANCE_GET_CLASS ((obj), GTK_SOURCE_TYPE_MARKS_SEQUENCE, GtkSourceMarksSequenceClass))
+#define CTK_SOURCE_TYPE_MARKS_SEQUENCE             (_ctk_source_marks_sequence_get_type ())
+#define CTK_SOURCE_MARKS_SEQUENCE(obj)             (G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_MARKS_SEQUENCE, GtkSourceMarksSequence))
+#define CTK_SOURCE_MARKS_SEQUENCE_CLASS(klass)     (G_TYPE_CHECK_CLASS_CAST ((klass), CTK_SOURCE_TYPE_MARKS_SEQUENCE, GtkSourceMarksSequenceClass))
+#define CTK_SOURCE_IS_MARKS_SEQUENCE(obj)          (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CTK_SOURCE_TYPE_MARKS_SEQUENCE))
+#define CTK_SOURCE_IS_MARKS_SEQUENCE_CLASS(klass)  (G_TYPE_CHECK_CLASS_TYPE ((klass), CTK_SOURCE_TYPE_MARKS_SEQUENCE))
+#define CTK_SOURCE_MARKS_SEQUENCE_GET_CLASS(obj)   (G_TYPE_INSTANCE_GET_CLASS ((obj), CTK_SOURCE_TYPE_MARKS_SEQUENCE, GtkSourceMarksSequenceClass))
 
 typedef struct _GtkSourceMarksSequenceClass    GtkSourceMarksSequenceClass;
 typedef struct _GtkSourceMarksSequencePrivate  GtkSourceMarksSequencePrivate;
@@ -92,4 +92,4 @@ GSList			*_ctk_source_marks_sequence_get_marks_in_range	(GtkSourceMarksSequence 
 
 G_END_DECLS
 
-#endif /* GTK_SOURCE_MARKS_SEQUENCE_H */
+#endif /* CTK_SOURCE_MARKS_SEQUENCE_H */

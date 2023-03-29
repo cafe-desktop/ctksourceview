@@ -154,9 +154,9 @@ emit_buffer_changed (GtkTextView             *view,
 
 	if (buffer != renderer->priv->buffer)
 	{
-		if (GTK_SOURCE_GUTTER_RENDERER_GET_CLASS (renderer)->change_buffer)
+		if (CTK_SOURCE_GUTTER_RENDERER_GET_CLASS (renderer)->change_buffer)
 		{
-			GTK_SOURCE_GUTTER_RENDERER_GET_CLASS (renderer)->change_buffer (renderer,
+			CTK_SOURCE_GUTTER_RENDERER_GET_CLASS (renderer)->change_buffer (renderer,
 			                                                                renderer->priv->buffer);
 		}
 
@@ -199,7 +199,7 @@ ctk_source_gutter_renderer_dispose (GObject *object)
 {
 	GtkSourceGutterRenderer *renderer;
 
-	renderer = GTK_SOURCE_GUTTER_RENDERER (object);
+	renderer = CTK_SOURCE_GUTTER_RENDERER (object);
 
 	set_buffer (renderer, NULL);
 
@@ -207,7 +207,7 @@ ctk_source_gutter_renderer_dispose (GObject *object)
 	{
 		_ctk_source_gutter_renderer_set_view (renderer,
 		                                      NULL,
-		                                      GTK_TEXT_WINDOW_PRIVATE);
+		                                      CTK_TEXT_WINDOW_PRIVATE);
 	}
 
 	G_OBJECT_CLASS (ctk_source_gutter_renderer_parent_class)->dispose (object);
@@ -376,7 +376,7 @@ ctk_source_gutter_renderer_set_property (GObject      *object,
                                          const GValue *value,
                                          GParamSpec   *pspec)
 {
-	GtkSourceGutterRenderer *self = GTK_SOURCE_GUTTER_RENDERER (object);
+	GtkSourceGutterRenderer *self = CTK_SOURCE_GUTTER_RENDERER (object);
 
 	switch (prop_id)
 	{
@@ -427,7 +427,7 @@ ctk_source_gutter_renderer_get_property (GObject    *object,
                                          GValue     *value,
                                          GParamSpec *pspec)
 {
-	GtkSourceGutterRenderer *self = GTK_SOURCE_GUTTER_RENDERER (object);
+	GtkSourceGutterRenderer *self = CTK_SOURCE_GUTTER_RENDERER (object);
 
 	switch (prop_id)
 	{
@@ -487,13 +487,13 @@ renderer_draw_impl (GtkSourceGutterRenderer      *renderer,
 		cairo_fill (cr);
 		cairo_restore (cr);
 	}
-	else if ((state & GTK_SOURCE_GUTTER_RENDERER_STATE_CURSOR) != 0 &&
-		 GTK_SOURCE_IS_VIEW (renderer->priv->view) &&
-		 ctk_source_view_get_highlight_current_line (GTK_SOURCE_VIEW (renderer->priv->view)))
+	else if ((state & CTK_SOURCE_GUTTER_RENDERER_STATE_CURSOR) != 0 &&
+		 CTK_SOURCE_IS_VIEW (renderer->priv->view) &&
+		 ctk_source_view_get_highlight_current_line (CTK_SOURCE_VIEW (renderer->priv->view)))
 	{
 		GtkStyleContext *context;
 
-		context = ctk_widget_get_style_context (GTK_WIDGET (renderer->priv->view));
+		context = ctk_widget_get_style_context (CTK_WIDGET (renderer->priv->view));
 
 		ctk_style_context_save (context);
 		ctk_style_context_add_class (context, "current-line-number");
@@ -620,7 +620,7 @@ ctk_source_gutter_renderer_class_init (GtkSourceGutterRendererClass *klass)
 		              _ctk_source_marshal_VOID__BOXED_BOXED_BOXED,
 		              G_TYPE_NONE,
 		              3,
-		              GTK_TYPE_TEXT_ITER,
+		              CTK_TYPE_TEXT_ITER,
 		              GDK_TYPE_RECTANGLE,
 		              GDK_TYPE_EVENT);
 	g_signal_set_va_marshaller (signals[ACTIVATE],
@@ -671,11 +671,11 @@ ctk_source_gutter_renderer_class_init (GtkSourceGutterRendererClass *klass)
 		              _ctk_source_marshal_BOOLEAN__BOXED_BOXED_INT_INT_OBJECT,
 		              G_TYPE_BOOLEAN,
 		              5,
-		              GTK_TYPE_TEXT_ITER,
+		              CTK_TYPE_TEXT_ITER,
 		              GDK_TYPE_RECTANGLE,
 		              G_TYPE_INT,
 		              G_TYPE_INT,
-		              GTK_TYPE_TOOLTIP);
+		              CTK_TYPE_TOOLTIP);
 	g_signal_set_va_marshaller (signals[QUERY_TOOLTIP],
 	                            G_TYPE_FROM_CLASS (klass),
 	                            _ctk_source_marshal_BOOLEAN__BOXED_BOXED_INT_INT_OBJECTv);
@@ -702,9 +702,9 @@ ctk_source_gutter_renderer_class_init (GtkSourceGutterRendererClass *klass)
 			      _ctk_source_marshal_VOID__BOXED_BOXED_FLAGS,
 		              G_TYPE_NONE,
 		              3,
-		              GTK_TYPE_TEXT_ITER,
-		              GTK_TYPE_TEXT_ITER,
-		              GTK_SOURCE_TYPE_GUTTER_RENDERER_STATE);
+		              CTK_TYPE_TEXT_ITER,
+		              CTK_TYPE_TEXT_ITER,
+		              CTK_SOURCE_TYPE_GUTTER_RENDERER_STATE);
 	g_signal_set_va_marshaller (signals[QUERY_DATA],
 	                            G_TYPE_FROM_CLASS (klass),
 	                            _ctk_source_marshal_VOID__BOXED_BOXED_FLAGSv);
@@ -730,7 +730,7 @@ ctk_source_gutter_renderer_class_init (GtkSourceGutterRendererClass *klass)
 		              _ctk_source_marshal_BOOLEAN__BOXED_BOXED_BOXED,
 		              G_TYPE_BOOLEAN,
 		              3,
-		              GTK_TYPE_TEXT_ITER,
+		              CTK_TYPE_TEXT_ITER,
 		              GDK_TYPE_RECTANGLE,
 		              GDK_TYPE_EVENT);
 	g_signal_set_va_marshaller (signals[QUERY_ACTIVATABLE],
@@ -748,7 +748,7 @@ ctk_source_gutter_renderer_class_init (GtkSourceGutterRendererClass *klass)
 	                                 g_param_spec_object ("view",
 	                                                      "The View",
 	                                                      "The view",
-	                                                      GTK_TYPE_TEXT_VIEW,
+	                                                      CTK_TYPE_TEXT_VIEW,
 	                                                      G_PARAM_READABLE));
 
 	/**
@@ -765,8 +765,8 @@ ctk_source_gutter_renderer_class_init (GtkSourceGutterRendererClass *klass)
 	                                 g_param_spec_enum ("alignment-mode",
 	                                                    "Alignment Mode",
 	                                                    "The alignment mode",
-	                                                    GTK_SOURCE_TYPE_GUTTER_RENDERER_ALIGNMENT_MODE,
-	                                                    GTK_SOURCE_GUTTER_RENDERER_ALIGNMENT_MODE_CELL,
+	                                                    CTK_SOURCE_TYPE_GUTTER_RENDERER_ALIGNMENT_MODE,
+	                                                    CTK_SOURCE_GUTTER_RENDERER_ALIGNMENT_MODE_CELL,
 	                                                    G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
 
 	/**
@@ -781,8 +781,8 @@ ctk_source_gutter_renderer_class_init (GtkSourceGutterRendererClass *klass)
 	                                 g_param_spec_enum ("window-type",
 	                                                    "Window Type",
 	                                                    "The window type",
-	                                                    GTK_TYPE_TEXT_WINDOW_TYPE,
-	                                                    GTK_TEXT_WINDOW_PRIVATE,
+	                                                    CTK_TYPE_TEXT_WINDOW_TYPE,
+	                                                    CTK_TEXT_WINDOW_PRIVATE,
 	                                                    G_PARAM_READABLE));
 
 	g_object_class_install_property (object_class,
@@ -839,16 +839,16 @@ ctk_source_gutter_renderer_begin (GtkSourceGutterRenderer *renderer,
                                   GtkTextIter             *start,
                                   GtkTextIter             *end)
 {
-	g_return_if_fail (GTK_SOURCE_IS_GUTTER_RENDERER (renderer));
+	g_return_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER (renderer));
 	g_return_if_fail (cr != NULL);
 	g_return_if_fail (background_area != NULL);
 	g_return_if_fail (cell_area != NULL);
 	g_return_if_fail (start != NULL);
 	g_return_if_fail (end != NULL);
 
-	if (GTK_SOURCE_GUTTER_RENDERER_CLASS (G_OBJECT_GET_CLASS (renderer))->begin)
+	if (CTK_SOURCE_GUTTER_RENDERER_CLASS (G_OBJECT_GET_CLASS (renderer))->begin)
 	{
-		GTK_SOURCE_GUTTER_RENDERER_CLASS (
+		CTK_SOURCE_GUTTER_RENDERER_CLASS (
 			G_OBJECT_GET_CLASS (renderer))->begin (renderer,
 			                                       cr,
 			                                       background_area,
@@ -891,16 +891,16 @@ ctk_source_gutter_renderer_draw (GtkSourceGutterRenderer      *renderer,
                                  GtkTextIter                  *end,
                                  GtkSourceGutterRendererState  state)
 {
-	g_return_if_fail (GTK_SOURCE_IS_GUTTER_RENDERER (renderer));
+	g_return_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER (renderer));
 	g_return_if_fail (cr != NULL);
 	g_return_if_fail (background_area != NULL);
 	g_return_if_fail (cell_area != NULL);
 	g_return_if_fail (start != NULL);
 	g_return_if_fail (end != NULL);
 
-	if (GTK_SOURCE_GUTTER_RENDERER_CLASS (G_OBJECT_GET_CLASS (renderer))->draw)
+	if (CTK_SOURCE_GUTTER_RENDERER_CLASS (G_OBJECT_GET_CLASS (renderer))->draw)
 	{
-		GTK_SOURCE_GUTTER_RENDERER_CLASS (
+		CTK_SOURCE_GUTTER_RENDERER_CLASS (
 			G_OBJECT_GET_CLASS (renderer))->draw (renderer,
 			                                      cr,
 			                                      background_area,
@@ -921,11 +921,11 @@ ctk_source_gutter_renderer_draw (GtkSourceGutterRenderer      *renderer,
 void
 ctk_source_gutter_renderer_end (GtkSourceGutterRenderer *renderer)
 {
-	g_return_if_fail (GTK_SOURCE_IS_GUTTER_RENDERER (renderer));
+	g_return_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER (renderer));
 
-	if (GTK_SOURCE_GUTTER_RENDERER_CLASS (G_OBJECT_GET_CLASS (renderer))->end)
+	if (CTK_SOURCE_GUTTER_RENDERER_CLASS (G_OBJECT_GET_CLASS (renderer))->end)
 	{
-		GTK_SOURCE_GUTTER_RENDERER_CLASS (G_OBJECT_GET_CLASS (renderer))->end (renderer);
+		CTK_SOURCE_GUTTER_RENDERER_CLASS (G_OBJECT_GET_CLASS (renderer))->end (renderer);
 	}
 }
 
@@ -951,7 +951,7 @@ ctk_source_gutter_renderer_query_activatable (GtkSourceGutterRenderer *renderer,
 {
 	gboolean ret;
 
-	g_return_val_if_fail (GTK_SOURCE_IS_GUTTER_RENDERER (renderer), FALSE);
+	g_return_val_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER (renderer), FALSE);
 	g_return_val_if_fail (iter != NULL, FALSE);
 	g_return_val_if_fail (area != NULL, FALSE);
 	g_return_val_if_fail (event != NULL, FALSE);
@@ -985,7 +985,7 @@ ctk_source_gutter_renderer_activate (GtkSourceGutterRenderer *renderer,
                                      GdkRectangle            *area,
                                      GdkEvent                *event)
 {
-	g_return_if_fail (GTK_SOURCE_IS_GUTTER_RENDERER (renderer));
+	g_return_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER (renderer));
 	g_return_if_fail (iter != NULL);
 	g_return_if_fail (area != NULL);
 	g_return_if_fail (event != NULL);
@@ -1004,7 +1004,7 @@ ctk_source_gutter_renderer_activate (GtkSourceGutterRenderer *renderer,
 void
 ctk_source_gutter_renderer_queue_draw (GtkSourceGutterRenderer *renderer)
 {
-	g_return_if_fail (GTK_SOURCE_IS_GUTTER_RENDERER (renderer));
+	g_return_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER (renderer));
 
 	g_signal_emit (renderer, signals[QUEUE_DRAW], 0);
 }
@@ -1034,10 +1034,10 @@ ctk_source_gutter_renderer_query_tooltip (GtkSourceGutterRenderer *renderer,
 {
 	gboolean ret;
 
-	g_return_val_if_fail (GTK_SOURCE_IS_GUTTER_RENDERER (renderer), FALSE);
+	g_return_val_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER (renderer), FALSE);
 	g_return_val_if_fail (iter != NULL, FALSE);
 	g_return_val_if_fail (area != NULL, FALSE);
-	g_return_val_if_fail (GTK_IS_TOOLTIP (tooltip), FALSE);
+	g_return_val_if_fail (CTK_IS_TOOLTIP (tooltip), FALSE);
 
 	ret = FALSE;
 
@@ -1073,7 +1073,7 @@ ctk_source_gutter_renderer_query_data (GtkSourceGutterRenderer      *renderer,
                                        GtkTextIter                  *end,
                                        GtkSourceGutterRendererState  state)
 {
-	g_return_if_fail (GTK_SOURCE_IS_GUTTER_RENDERER (renderer));
+	g_return_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER (renderer));
 	g_return_if_fail (start != NULL);
 	g_return_if_fail (end != NULL);
 
@@ -1088,9 +1088,9 @@ ctk_source_gutter_renderer_query_data (GtkSourceGutterRenderer      *renderer,
 	{
 		g_signal_emit (renderer, signals[QUERY_DATA], 0, start, end, state);
 	}
-	else if (GTK_SOURCE_GUTTER_RENDERER_GET_CLASS (renderer)->query_data)
+	else if (CTK_SOURCE_GUTTER_RENDERER_GET_CLASS (renderer)->query_data)
 	{
-		GTK_SOURCE_GUTTER_RENDERER_GET_CLASS (renderer)->query_data (renderer, start, end, state);
+		CTK_SOURCE_GUTTER_RENDERER_GET_CLASS (renderer)->query_data (renderer, start, end, state);
 	}
 }
 
@@ -1106,7 +1106,7 @@ void
 ctk_source_gutter_renderer_set_visible (GtkSourceGutterRenderer *renderer,
                                         gboolean                 visible)
 {
-	g_return_if_fail (GTK_SOURCE_IS_GUTTER_RENDERER (renderer));
+	g_return_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER (renderer));
 
 	set_visible (renderer, visible);
 }
@@ -1123,7 +1123,7 @@ ctk_source_gutter_renderer_set_visible (GtkSourceGutterRenderer *renderer,
 gboolean
 ctk_source_gutter_renderer_get_visible (GtkSourceGutterRenderer *renderer)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_GUTTER_RENDERER (renderer), FALSE);
+	g_return_val_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER (renderer), FALSE);
 
 	return renderer->priv->visible;
 }
@@ -1145,7 +1145,7 @@ ctk_source_gutter_renderer_set_padding (GtkSourceGutterRenderer *renderer,
                                         gint                     xpad,
                                         gint                     ypad)
 {
-	g_return_if_fail (GTK_SOURCE_IS_GUTTER_RENDERER (renderer));
+	g_return_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER (renderer));
 
 	set_xpad (renderer, xpad);
 	set_ypad (renderer, ypad);
@@ -1166,7 +1166,7 @@ ctk_source_gutter_renderer_get_padding (GtkSourceGutterRenderer *renderer,
                                         gint                    *xpad,
                                         gint                    *ypad)
 {
-	g_return_if_fail (GTK_SOURCE_IS_GUTTER_RENDERER (renderer));
+	g_return_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER (renderer));
 
 	if (xpad)
 	{
@@ -1201,7 +1201,7 @@ ctk_source_gutter_renderer_set_alignment (GtkSourceGutterRenderer *renderer,
 	gboolean changed_x;
 	gboolean changed_y;
 
-	g_return_if_fail (GTK_SOURCE_IS_GUTTER_RENDERER (renderer));
+	g_return_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER (renderer));
 
 	changed_x = set_xalign (renderer, xalign, FALSE);
 	changed_y = set_yalign (renderer, yalign, FALSE);
@@ -1227,7 +1227,7 @@ ctk_source_gutter_renderer_get_alignment (GtkSourceGutterRenderer *renderer,
                                           gfloat                  *xalign,
                                           gfloat                  *yalign)
 {
-	g_return_if_fail (GTK_SOURCE_IS_GUTTER_RENDERER (renderer));
+	g_return_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER (renderer));
 
 	if (xalign)
 	{
@@ -1253,7 +1253,7 @@ void
 ctk_source_gutter_renderer_set_alignment_mode (GtkSourceGutterRenderer              *renderer,
                                                GtkSourceGutterRendererAlignmentMode  mode)
 {
-	g_return_if_fail (GTK_SOURCE_IS_GUTTER_RENDERER (renderer));
+	g_return_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER (renderer));
 
 	set_alignment_mode (renderer, mode);
 }
@@ -1271,7 +1271,7 @@ ctk_source_gutter_renderer_set_alignment_mode (GtkSourceGutterRenderer          
 GtkSourceGutterRendererAlignmentMode
 ctk_source_gutter_renderer_get_alignment_mode (GtkSourceGutterRenderer *renderer)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_GUTTER_RENDERER (renderer), 0);
+	g_return_val_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER (renderer), 0);
 
 	return renderer->priv->alignment_mode;
 }
@@ -1288,7 +1288,7 @@ ctk_source_gutter_renderer_get_alignment_mode (GtkSourceGutterRenderer *renderer
 GtkTextWindowType
 ctk_source_gutter_renderer_get_window_type (GtkSourceGutterRenderer *renderer)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_GUTTER_RENDERER (renderer), GTK_TEXT_WINDOW_PRIVATE);
+	g_return_val_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER (renderer), CTK_TEXT_WINDOW_PRIVATE);
 
 	return renderer->priv->window_type;
 }
@@ -1305,7 +1305,7 @@ ctk_source_gutter_renderer_get_window_type (GtkSourceGutterRenderer *renderer)
 GtkTextView *
 ctk_source_gutter_renderer_get_view (GtkSourceGutterRenderer *renderer)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_GUTTER_RENDERER (renderer), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER (renderer), NULL);
 
 	return renderer->priv->view;
 }
@@ -1322,7 +1322,7 @@ ctk_source_gutter_renderer_get_view (GtkSourceGutterRenderer *renderer)
 gint
 ctk_source_gutter_renderer_get_size (GtkSourceGutterRenderer *renderer)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_GUTTER_RENDERER (renderer), 0);
+	g_return_val_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER (renderer), 0);
 
 	return renderer->priv->size;
 }
@@ -1340,7 +1340,7 @@ void
 ctk_source_gutter_renderer_set_size (GtkSourceGutterRenderer *renderer,
                                      gint                     size)
 {
-	g_return_if_fail (GTK_SOURCE_IS_GUTTER_RENDERER (renderer));
+	g_return_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER (renderer));
 
 	set_size (renderer, size);
 }
@@ -1359,7 +1359,7 @@ gboolean
 ctk_source_gutter_renderer_get_background (GtkSourceGutterRenderer *renderer,
                                            GdkRGBA                 *color)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_GUTTER_RENDERER (renderer), FALSE);
+	g_return_val_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER (renderer), FALSE);
 
 	if (color)
 	{
@@ -1382,7 +1382,7 @@ void
 ctk_source_gutter_renderer_set_background (GtkSourceGutterRenderer *renderer,
                                            const GdkRGBA           *color)
 {
-	g_return_if_fail (GTK_SOURCE_IS_GUTTER_RENDERER (renderer));
+	g_return_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER (renderer));
 
 	set_background_color (renderer, color);
 }
@@ -1394,17 +1394,17 @@ _ctk_source_gutter_renderer_set_view (GtkSourceGutterRenderer *renderer,
 {
 	GtkTextView *old_view;
 
-	g_return_if_fail (GTK_SOURCE_IS_GUTTER_RENDERER (renderer));
-	g_return_if_fail (view == NULL || GTK_IS_TEXT_VIEW (view));
+	g_return_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER (renderer));
+	g_return_if_fail (view == NULL || CTK_IS_TEXT_VIEW (view));
 
 	old_view = renderer->priv->view;
 
 	renderer->priv->window_type = window_type;
 	renderer->priv->view = view != NULL ? g_object_ref (view) : NULL;
 
-	if (GTK_SOURCE_GUTTER_RENDERER_GET_CLASS (renderer)->change_view)
+	if (CTK_SOURCE_GUTTER_RENDERER_GET_CLASS (renderer)->change_view)
 	{
-		GTK_SOURCE_GUTTER_RENDERER_GET_CLASS (renderer)->change_view (renderer,
+		CTK_SOURCE_GUTTER_RENDERER_GET_CLASS (renderer)->change_view (renderer,
 		                                                              old_view);
 	}
 

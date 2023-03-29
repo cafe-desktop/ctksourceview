@@ -81,8 +81,8 @@ ctk_source_completion_provider_populate_default (GtkSourceCompletionProvider *pr
 static GtkSourceCompletionActivation
 ctk_source_completion_provider_get_activation_default (GtkSourceCompletionProvider *provider)
 {
-	return GTK_SOURCE_COMPLETION_ACTIVATION_INTERACTIVE |
-	       GTK_SOURCE_COMPLETION_ACTIVATION_USER_REQUESTED;
+	return CTK_SOURCE_COMPLETION_ACTIVATION_INTERACTIVE |
+	       CTK_SOURCE_COMPLETION_ACTIVATION_USER_REQUESTED;
 }
 
 static gboolean
@@ -173,9 +173,9 @@ ctk_source_completion_provider_default_init (GtkSourceCompletionProviderIface *i
 gchar *
 ctk_source_completion_provider_get_name (GtkSourceCompletionProvider *provider)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_COMPLETION_PROVIDER (provider), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_PROVIDER (provider), NULL);
 
-	return GTK_SOURCE_COMPLETION_PROVIDER_GET_INTERFACE (provider)->get_name (provider);
+	return CTK_SOURCE_COMPLETION_PROVIDER_GET_INTERFACE (provider)->get_name (provider);
 }
 
 /**
@@ -190,9 +190,9 @@ ctk_source_completion_provider_get_name (GtkSourceCompletionProvider *provider)
 GdkPixbuf *
 ctk_source_completion_provider_get_icon (GtkSourceCompletionProvider *provider)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_COMPLETION_PROVIDER (provider), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_PROVIDER (provider), NULL);
 
-	return GTK_SOURCE_COMPLETION_PROVIDER_GET_INTERFACE (provider)->get_icon (provider);
+	return CTK_SOURCE_COMPLETION_PROVIDER_GET_INTERFACE (provider)->get_icon (provider);
 }
 
 /**
@@ -209,9 +209,9 @@ ctk_source_completion_provider_get_icon (GtkSourceCompletionProvider *provider)
 const gchar *
 ctk_source_completion_provider_get_icon_name (GtkSourceCompletionProvider *provider)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_COMPLETION_PROVIDER (provider), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_PROVIDER (provider), NULL);
 
-	return GTK_SOURCE_COMPLETION_PROVIDER_GET_INTERFACE (provider)->get_icon_name (provider);
+	return CTK_SOURCE_COMPLETION_PROVIDER_GET_INTERFACE (provider)->get_icon_name (provider);
 }
 
 /**
@@ -228,9 +228,9 @@ ctk_source_completion_provider_get_icon_name (GtkSourceCompletionProvider *provi
 GIcon *
 ctk_source_completion_provider_get_gicon (GtkSourceCompletionProvider *provider)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_COMPLETION_PROVIDER (provider), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_PROVIDER (provider), NULL);
 
-	return GTK_SOURCE_COMPLETION_PROVIDER_GET_INTERFACE (provider)->get_gicon (provider);
+	return CTK_SOURCE_COMPLETION_PROVIDER_GET_INTERFACE (provider)->get_gicon (provider);
 }
 
 /**
@@ -245,9 +245,9 @@ void
 ctk_source_completion_provider_populate (GtkSourceCompletionProvider *provider,
                                          GtkSourceCompletionContext  *context)
 {
-	g_return_if_fail (GTK_SOURCE_IS_COMPLETION_PROVIDER (provider));
+	g_return_if_fail (CTK_SOURCE_IS_COMPLETION_PROVIDER (provider));
 
-	GTK_SOURCE_COMPLETION_PROVIDER_GET_INTERFACE (provider)->populate (provider, context);
+	CTK_SOURCE_COMPLETION_PROVIDER_GET_INTERFACE (provider)->populate (provider, context);
 }
 
 /**
@@ -261,9 +261,9 @@ ctk_source_completion_provider_populate (GtkSourceCompletionProvider *provider,
 GtkSourceCompletionActivation
 ctk_source_completion_provider_get_activation (GtkSourceCompletionProvider *provider)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_COMPLETION_PROVIDER (provider), GTK_SOURCE_COMPLETION_ACTIVATION_NONE);
+	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_PROVIDER (provider), CTK_SOURCE_COMPLETION_ACTIVATION_NONE);
 
-	return GTK_SOURCE_COMPLETION_PROVIDER_GET_INTERFACE (provider)->get_activation (provider);
+	return CTK_SOURCE_COMPLETION_PROVIDER_GET_INTERFACE (provider)->get_activation (provider);
 }
 
 /**
@@ -280,9 +280,9 @@ gboolean
 ctk_source_completion_provider_match (GtkSourceCompletionProvider *provider,
                                       GtkSourceCompletionContext  *context)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_COMPLETION_PROVIDER (provider), TRUE);
+	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_PROVIDER (provider), TRUE);
 
-	return GTK_SOURCE_COMPLETION_PROVIDER_GET_INTERFACE (provider)->match (provider,
+	return CTK_SOURCE_COMPLETION_PROVIDER_GET_INTERFACE (provider)->match (provider,
 	                                                                       context);
 }
 
@@ -315,10 +315,10 @@ GtkWidget *
 ctk_source_completion_provider_get_info_widget (GtkSourceCompletionProvider *provider,
                                                 GtkSourceCompletionProposal *proposal)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_COMPLETION_PROVIDER (provider), NULL);
-	g_return_val_if_fail (GTK_SOURCE_IS_COMPLETION_PROPOSAL (proposal), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_PROVIDER (provider), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_PROPOSAL (proposal), NULL);
 
-	return GTK_SOURCE_COMPLETION_PROVIDER_GET_INTERFACE (provider)->get_info_widget (provider, proposal);
+	return CTK_SOURCE_COMPLETION_PROVIDER_GET_INTERFACE (provider)->get_info_widget (provider, proposal);
 }
 
 /**
@@ -341,11 +341,11 @@ ctk_source_completion_provider_update_info (GtkSourceCompletionProvider *provide
                                             GtkSourceCompletionProposal *proposal,
                                             GtkSourceCompletionInfo     *info)
 {
-	g_return_if_fail (GTK_SOURCE_IS_COMPLETION_PROVIDER (provider));
-	g_return_if_fail (GTK_SOURCE_IS_COMPLETION_PROPOSAL (proposal));
-	g_return_if_fail (GTK_SOURCE_IS_COMPLETION_INFO (info));
+	g_return_if_fail (CTK_SOURCE_IS_COMPLETION_PROVIDER (provider));
+	g_return_if_fail (CTK_SOURCE_IS_COMPLETION_PROPOSAL (proposal));
+	g_return_if_fail (CTK_SOURCE_IS_COMPLETION_INFO (info));
 
-	GTK_SOURCE_COMPLETION_PROVIDER_GET_INTERFACE (provider)->update_info (provider, proposal, info);
+	CTK_SOURCE_COMPLETION_PROVIDER_GET_INTERFACE (provider)->update_info (provider, proposal, info);
 }
 
 /**
@@ -376,12 +376,12 @@ ctk_source_completion_provider_get_start_iter (GtkSourceCompletionProvider *prov
                                                GtkSourceCompletionProposal *proposal,
                                                GtkTextIter                 *iter)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_COMPLETION_PROVIDER (provider), FALSE);
-	g_return_val_if_fail (GTK_SOURCE_IS_COMPLETION_CONTEXT (context), FALSE);
-	g_return_val_if_fail (GTK_SOURCE_IS_COMPLETION_PROPOSAL (proposal), FALSE);
+	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_PROVIDER (provider), FALSE);
+	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_CONTEXT (context), FALSE);
+	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_PROPOSAL (proposal), FALSE);
 	g_return_val_if_fail (iter != NULL, FALSE);
 
-	return GTK_SOURCE_COMPLETION_PROVIDER_GET_INTERFACE (provider)->get_start_iter (provider,
+	return CTK_SOURCE_COMPLETION_PROVIDER_GET_INTERFACE (provider)->get_start_iter (provider,
 	                                                                                context,
 	                                                                                proposal,
 	                                                                                iter);
@@ -412,10 +412,10 @@ ctk_source_completion_provider_activate_proposal (GtkSourceCompletionProvider *p
                                                   GtkSourceCompletionProposal *proposal,
                                                   GtkTextIter                 *iter)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_COMPLETION_PROVIDER (provider), FALSE);
-	g_return_val_if_fail (GTK_SOURCE_IS_COMPLETION_PROPOSAL (proposal), FALSE);
+	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_PROVIDER (provider), FALSE);
+	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_PROPOSAL (proposal), FALSE);
 
-	return GTK_SOURCE_COMPLETION_PROVIDER_GET_INTERFACE (provider)->activate_proposal (provider,
+	return CTK_SOURCE_COMPLETION_PROVIDER_GET_INTERFACE (provider)->activate_proposal (provider,
 	                                                                                   proposal,
 	                                                                                   iter);
 }
@@ -433,9 +433,9 @@ ctk_source_completion_provider_activate_proposal (GtkSourceCompletionProvider *p
 gint
 ctk_source_completion_provider_get_interactive_delay (GtkSourceCompletionProvider *provider)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_COMPLETION_PROVIDER (provider), -1);
+	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_PROVIDER (provider), -1);
 
-	return GTK_SOURCE_COMPLETION_PROVIDER_GET_INTERFACE (provider)->get_interactive_delay (provider);
+	return CTK_SOURCE_COMPLETION_PROVIDER_GET_INTERFACE (provider)->get_interactive_delay (provider);
 }
 
 /**
@@ -451,7 +451,7 @@ ctk_source_completion_provider_get_interactive_delay (GtkSourceCompletionProvide
 gint
 ctk_source_completion_provider_get_priority (GtkSourceCompletionProvider *provider)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_COMPLETION_PROVIDER (provider), 0);
+	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_PROVIDER (provider), 0);
 
-	return GTK_SOURCE_COMPLETION_PROVIDER_GET_INTERFACE (provider)->get_priority (provider);
+	return CTK_SOURCE_COMPLETION_PROVIDER_GET_INTERFACE (provider)->get_priority (provider);
 }

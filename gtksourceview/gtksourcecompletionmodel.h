@@ -18,8 +18,8 @@
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTK_SOURCE_COMPLETION_MODEL_H
-#define GTK_SOURCE_COMPLETION_MODEL_H
+#ifndef CTK_SOURCE_COMPLETION_MODEL_H
+#define CTK_SOURCE_COMPLETION_MODEL_H
 
 #include <ctk/ctk.h>
 #include "ctksourcetypes.h"
@@ -27,13 +27,13 @@
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_COMPLETION_MODEL		(ctk_source_completion_model_get_type ())
-#define GTK_SOURCE_COMPLETION_MODEL(obj)		(G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_COMPLETION_MODEL, GtkSourceCompletionModel))
-#define GTK_SOURCE_COMPLETION_MODEL_CONST(obj)		(G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_COMPLETION_MODEL, GtkSourceCompletionModel const))
-#define GTK_SOURCE_COMPLETION_MODEL_CLASS(klass)	(G_TYPE_CHECK_CLASS_CAST ((klass), GTK_SOURCE_TYPE_COMPLETION_MODEL, GtkSourceCompletionModelClass))
-#define GTK_SOURCE_IS_COMPLETION_MODEL(obj)		(G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_SOURCE_TYPE_COMPLETION_MODEL))
-#define GTK_SOURCE_IS_COMPLETION_MODEL_CLASS(klass)	(G_TYPE_CHECK_CLASS_TYPE ((klass), GTK_SOURCE_TYPE_COMPLETION_MODEL))
-#define GTK_SOURCE_COMPLETION_MODEL_GET_CLASS(obj)	(G_TYPE_INSTANCE_GET_CLASS ((obj), GTK_SOURCE_TYPE_COMPLETION_MODEL, GtkSourceCompletionModelClass))
+#define CTK_SOURCE_TYPE_COMPLETION_MODEL		(ctk_source_completion_model_get_type ())
+#define CTK_SOURCE_COMPLETION_MODEL(obj)		(G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_COMPLETION_MODEL, GtkSourceCompletionModel))
+#define CTK_SOURCE_COMPLETION_MODEL_CONST(obj)		(G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_COMPLETION_MODEL, GtkSourceCompletionModel const))
+#define CTK_SOURCE_COMPLETION_MODEL_CLASS(klass)	(G_TYPE_CHECK_CLASS_CAST ((klass), CTK_SOURCE_TYPE_COMPLETION_MODEL, GtkSourceCompletionModelClass))
+#define CTK_SOURCE_IS_COMPLETION_MODEL(obj)		(G_TYPE_CHECK_INSTANCE_TYPE ((obj), CTK_SOURCE_TYPE_COMPLETION_MODEL))
+#define CTK_SOURCE_IS_COMPLETION_MODEL_CLASS(klass)	(G_TYPE_CHECK_CLASS_TYPE ((klass), CTK_SOURCE_TYPE_COMPLETION_MODEL))
+#define CTK_SOURCE_COMPLETION_MODEL_GET_CLASS(obj)	(G_TYPE_INSTANCE_GET_CLASS ((obj), CTK_SOURCE_TYPE_COMPLETION_MODEL, GtkSourceCompletionModelClass))
 
 typedef struct _GtkSourceCompletionModelClass	GtkSourceCompletionModelClass;
 typedef struct _GtkSourceCompletionModelPrivate	GtkSourceCompletionModelPrivate;
@@ -52,78 +52,78 @@ struct _GtkSourceCompletionModelClass {
 
 enum
 {
-	GTK_SOURCE_COMPLETION_MODEL_COLUMN_MARKUP,
-	GTK_SOURCE_COMPLETION_MODEL_COLUMN_ICON,
-	GTK_SOURCE_COMPLETION_MODEL_COLUMN_ICON_NAME,
-	GTK_SOURCE_COMPLETION_MODEL_COLUMN_GICON,
-	GTK_SOURCE_COMPLETION_MODEL_COLUMN_PROPOSAL,
-	GTK_SOURCE_COMPLETION_MODEL_COLUMN_PROVIDER,
-	GTK_SOURCE_COMPLETION_MODEL_COLUMN_IS_HEADER,
-	GTK_SOURCE_COMPLETION_MODEL_N_COLUMNS
+	CTK_SOURCE_COMPLETION_MODEL_COLUMN_MARKUP,
+	CTK_SOURCE_COMPLETION_MODEL_COLUMN_ICON,
+	CTK_SOURCE_COMPLETION_MODEL_COLUMN_ICON_NAME,
+	CTK_SOURCE_COMPLETION_MODEL_COLUMN_GICON,
+	CTK_SOURCE_COMPLETION_MODEL_COLUMN_PROPOSAL,
+	CTK_SOURCE_COMPLETION_MODEL_COLUMN_PROVIDER,
+	CTK_SOURCE_COMPLETION_MODEL_COLUMN_IS_HEADER,
+	CTK_SOURCE_COMPLETION_MODEL_N_COLUMNS
 };
 
-GTK_SOURCE_INTERNAL
+CTK_SOURCE_INTERNAL
 GType    ctk_source_completion_model_get_type			(void) G_GNUC_CONST;
 
-GTK_SOURCE_INTERNAL
+CTK_SOURCE_INTERNAL
 GtkSourceCompletionModel *
          ctk_source_completion_model_new			(void);
 
-GTK_SOURCE_INTERNAL
+CTK_SOURCE_INTERNAL
 void     ctk_source_completion_model_add_proposals              (GtkSourceCompletionModel    *model,
 								 GtkSourceCompletionProvider *provider,
 								 GList                       *proposals);
 
-GTK_SOURCE_INTERNAL
+CTK_SOURCE_INTERNAL
 gboolean ctk_source_completion_model_is_empty			(GtkSourceCompletionModel    *model,
 								 gboolean                     only_visible);
 
-GTK_SOURCE_INTERNAL
+CTK_SOURCE_INTERNAL
 void     ctk_source_completion_model_set_visible_providers	(GtkSourceCompletionModel    *model,
 								 GList                       *providers);
 
-GTK_SOURCE_INTERNAL
+CTK_SOURCE_INTERNAL
 GList   *ctk_source_completion_model_get_visible_providers	(GtkSourceCompletionModel    *model);
 
-GTK_SOURCE_INTERNAL
+CTK_SOURCE_INTERNAL
 GList   *ctk_source_completion_model_get_providers		(GtkSourceCompletionModel    *model);
 
-GTK_SOURCE_INTERNAL
+CTK_SOURCE_INTERNAL
 void     ctk_source_completion_model_set_show_headers		(GtkSourceCompletionModel    *model,
 								 gboolean                     show_headers);
 
-GTK_SOURCE_INTERNAL
+CTK_SOURCE_INTERNAL
 gboolean ctk_source_completion_model_iter_is_header		(GtkSourceCompletionModel    *model,
 								 GtkTreeIter                 *iter);
 
-GTK_SOURCE_INTERNAL
+CTK_SOURCE_INTERNAL
 gboolean ctk_source_completion_model_iter_previous		(GtkSourceCompletionModel    *model,
 								 GtkTreeIter                 *iter);
 
-GTK_SOURCE_INTERNAL
+CTK_SOURCE_INTERNAL
 gboolean ctk_source_completion_model_first_proposal             (GtkSourceCompletionModel    *model,
 								 GtkTreeIter                 *iter);
 
-GTK_SOURCE_INTERNAL
+CTK_SOURCE_INTERNAL
 gboolean ctk_source_completion_model_last_proposal              (GtkSourceCompletionModel    *model,
 								 GtkTreeIter                 *iter);
 
-GTK_SOURCE_INTERNAL
+CTK_SOURCE_INTERNAL
 gboolean ctk_source_completion_model_next_proposal              (GtkSourceCompletionModel    *model,
 								 GtkTreeIter                 *iter);
 
-GTK_SOURCE_INTERNAL
+CTK_SOURCE_INTERNAL
 gboolean ctk_source_completion_model_previous_proposal          (GtkSourceCompletionModel    *model,
 								 GtkTreeIter                 *iter);
 
-GTK_SOURCE_INTERNAL
+CTK_SOURCE_INTERNAL
 gboolean ctk_source_completion_model_has_info                   (GtkSourceCompletionModel    *model);
 
-GTK_SOURCE_INTERNAL
+CTK_SOURCE_INTERNAL
 gboolean ctk_source_completion_model_iter_equal			(GtkSourceCompletionModel    *model,
 								 GtkTreeIter                 *iter1,
 								 GtkTreeIter                 *iter2);
 
 G_END_DECLS
 
-#endif /* GTK_SOURCE_COMPLETION_MODEL_H */
+#endif /* CTK_SOURCE_COMPLETION_MODEL_H */

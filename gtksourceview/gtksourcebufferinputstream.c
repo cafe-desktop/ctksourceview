@@ -64,11 +64,11 @@ get_new_line_size (GtkSourceBufferInputStream *stream)
 {
 	switch (stream->priv->newline_type)
 	{
-		case GTK_SOURCE_NEWLINE_TYPE_CR:
-		case GTK_SOURCE_NEWLINE_TYPE_LF:
+		case CTK_SOURCE_NEWLINE_TYPE_CR:
+		case CTK_SOURCE_NEWLINE_TYPE_LF:
 			return 1;
 
-		case GTK_SOURCE_NEWLINE_TYPE_CR_LF:
+		case CTK_SOURCE_NEWLINE_TYPE_CR_LF:
 			return 2;
 
 		default:
@@ -84,13 +84,13 @@ get_new_line (GtkSourceBufferInputStream *stream)
 {
 	switch (stream->priv->newline_type)
 	{
-		case GTK_SOURCE_NEWLINE_TYPE_LF:
+		case CTK_SOURCE_NEWLINE_TYPE_LF:
 			return "\n";
 
-		case GTK_SOURCE_NEWLINE_TYPE_CR:
+		case CTK_SOURCE_NEWLINE_TYPE_CR:
 			return "\r";
 
-		case GTK_SOURCE_NEWLINE_TYPE_CR_LF:
+		case CTK_SOURCE_NEWLINE_TYPE_CR_LF:
 			return "\r\n";
 
 		default:
@@ -238,7 +238,7 @@ _ctk_source_buffer_input_stream_read (GInputStream  *input_stream,
 	GtkTextIter iter;
 	gssize space_left, read, n;
 
-	stream = GTK_SOURCE_BUFFER_INPUT_STREAM (input_stream);
+	stream = CTK_SOURCE_BUFFER_INPUT_STREAM (input_stream);
 
 	if (count < 6)
 	{
@@ -315,7 +315,7 @@ _ctk_source_buffer_input_stream_close (GInputStream  *input_stream,
 				       GCancellable  *cancellable,
 				       GError       **error)
 {
-	GtkSourceBufferInputStream *stream = GTK_SOURCE_BUFFER_INPUT_STREAM (input_stream);
+	GtkSourceBufferInputStream *stream = CTK_SOURCE_BUFFER_INPUT_STREAM (input_stream);
 
 	stream->priv->newline_added = FALSE;
 
@@ -334,7 +334,7 @@ _ctk_source_buffer_input_stream_set_property (GObject      *object,
 					      const GValue *value,
 					      GParamSpec   *pspec)
 {
-	GtkSourceBufferInputStream *stream = GTK_SOURCE_BUFFER_INPUT_STREAM (object);
+	GtkSourceBufferInputStream *stream = CTK_SOURCE_BUFFER_INPUT_STREAM (object);
 
 	switch (prop_id)
 	{
@@ -363,7 +363,7 @@ _ctk_source_buffer_input_stream_get_property (GObject    *object,
 					  GValue     *value,
 					  GParamSpec *pspec)
 {
-	GtkSourceBufferInputStream *stream = GTK_SOURCE_BUFFER_INPUT_STREAM (object);
+	GtkSourceBufferInputStream *stream = CTK_SOURCE_BUFFER_INPUT_STREAM (object);
 
 	switch (prop_id)
 	{
@@ -388,7 +388,7 @@ _ctk_source_buffer_input_stream_get_property (GObject    *object,
 static void
 _ctk_source_buffer_input_stream_dispose (GObject *object)
 {
-	GtkSourceBufferInputStream *stream = GTK_SOURCE_BUFFER_INPUT_STREAM (object);
+	GtkSourceBufferInputStream *stream = CTK_SOURCE_BUFFER_INPUT_STREAM (object);
 
 	g_clear_object (&stream->priv->buffer);
 
@@ -413,7 +413,7 @@ _ctk_source_buffer_input_stream_class_init (GtkSourceBufferInputStreamClass *kla
 					 g_param_spec_object ("buffer",
 							      "GtkTextBuffer",
 							      "",
-							      GTK_TYPE_TEXT_BUFFER,
+							      CTK_TYPE_TEXT_BUFFER,
 							      G_PARAM_READWRITE |
 							      G_PARAM_CONSTRUCT_ONLY |
 							      G_PARAM_STATIC_STRINGS));
@@ -429,8 +429,8 @@ _ctk_source_buffer_input_stream_class_init (GtkSourceBufferInputStreamClass *kla
 					 g_param_spec_enum ("newline-type",
 							    "Newline type",
 							    "",
-							    GTK_SOURCE_TYPE_NEWLINE_TYPE,
-							    GTK_SOURCE_NEWLINE_TYPE_LF,
+							    CTK_SOURCE_TYPE_NEWLINE_TYPE,
+							    CTK_SOURCE_NEWLINE_TYPE_LF,
 							    G_PARAM_READWRITE |
 							    G_PARAM_STATIC_STRINGS |
 							    G_PARAM_CONSTRUCT_ONLY));
@@ -471,9 +471,9 @@ _ctk_source_buffer_input_stream_new (GtkTextBuffer        *buffer,
 				     GtkSourceNewlineType  type,
 				     gboolean              add_trailing_newline)
 {
-	g_return_val_if_fail (GTK_IS_TEXT_BUFFER (buffer), NULL);
+	g_return_val_if_fail (CTK_IS_TEXT_BUFFER (buffer), NULL);
 
-	return g_object_new (GTK_SOURCE_TYPE_BUFFER_INPUT_STREAM,
+	return g_object_new (CTK_SOURCE_TYPE_BUFFER_INPUT_STREAM,
 			     "buffer", buffer,
 			     "newline-type", type,
 			     "add-trailing-newline", add_trailing_newline,
@@ -483,7 +483,7 @@ _ctk_source_buffer_input_stream_new (GtkTextBuffer        *buffer,
 gsize
 _ctk_source_buffer_input_stream_get_total_size (GtkSourceBufferInputStream *stream)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_BUFFER_INPUT_STREAM (stream), 0);
+	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER_INPUT_STREAM (stream), 0);
 
 	if (stream->priv->buffer == NULL)
 	{
@@ -496,7 +496,7 @@ _ctk_source_buffer_input_stream_get_total_size (GtkSourceBufferInputStream *stre
 gsize
 _ctk_source_buffer_input_stream_tell (GtkSourceBufferInputStream *stream)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_BUFFER_INPUT_STREAM (stream), 0);
+	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER_INPUT_STREAM (stream), 0);
 
 	/* FIXME: is this potentially inefficient? If yes, we could keep
 	   track of the offset internally, assuming the mark doesn't move

@@ -42,7 +42,7 @@ enum
 	N_SIGNALS
 };
 
-#define GTK_SOURCE_BUFFER_INTERNAL_KEY "ctk-source-buffer-internal-key"
+#define CTK_SOURCE_BUFFER_INTERNAL_KEY "ctk-source-buffer-internal-key"
 
 static guint signals[N_SIGNALS];
 
@@ -68,7 +68,7 @@ _ctk_source_buffer_internal_class_init (GtkSourceBufferInternalClass *klass)
 			      NULL, NULL,
 		              g_cclosure_marshal_VOID__OBJECT,
 			      G_TYPE_NONE,
-			      1, GTK_SOURCE_TYPE_SEARCH_CONTEXT);
+			      1, CTK_SOURCE_TYPE_SEARCH_CONTEXT);
 	g_signal_set_va_marshaller (signals[SIGNAL_SEARCH_START],
 	                            G_TYPE_FROM_CLASS (klass),
 	                            g_cclosure_marshal_VOID__OBJECTv);
@@ -93,21 +93,21 @@ _ctk_source_buffer_internal_get_from_buffer (GtkSourceBuffer *buffer)
 {
 	GtkSourceBufferInternal *buffer_internal;
 
-	g_return_val_if_fail (GTK_SOURCE_IS_BUFFER (buffer), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER (buffer), NULL);
 
-	buffer_internal = g_object_get_data (G_OBJECT (buffer), GTK_SOURCE_BUFFER_INTERNAL_KEY);
+	buffer_internal = g_object_get_data (G_OBJECT (buffer), CTK_SOURCE_BUFFER_INTERNAL_KEY);
 
 	if (buffer_internal == NULL)
 	{
-		buffer_internal = g_object_new (GTK_SOURCE_TYPE_BUFFER_INTERNAL, NULL);
+		buffer_internal = g_object_new (CTK_SOURCE_TYPE_BUFFER_INTERNAL, NULL);
 
 		g_object_set_data_full (G_OBJECT (buffer),
-					GTK_SOURCE_BUFFER_INTERNAL_KEY,
+					CTK_SOURCE_BUFFER_INTERNAL_KEY,
 					buffer_internal,
 					g_object_unref);
 	}
 
-	g_return_val_if_fail (GTK_SOURCE_IS_BUFFER_INTERNAL (buffer_internal), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER_INTERNAL (buffer_internal), NULL);
 	return buffer_internal;
 }
 
@@ -115,8 +115,8 @@ void
 _ctk_source_buffer_internal_emit_search_start (GtkSourceBufferInternal *buffer_internal,
 					       GtkSourceSearchContext  *search_context)
 {
-	g_return_if_fail (GTK_SOURCE_IS_BUFFER_INTERNAL (buffer_internal));
-	g_return_if_fail (GTK_SOURCE_IS_SEARCH_CONTEXT (search_context));
+	g_return_if_fail (CTK_SOURCE_IS_BUFFER_INTERNAL (buffer_internal));
+	g_return_if_fail (CTK_SOURCE_IS_SEARCH_CONTEXT (search_context));
 
 	g_signal_emit (buffer_internal,
 		       signals[SIGNAL_SEARCH_START],

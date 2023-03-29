@@ -65,7 +65,7 @@ main (gint    argc,
 	ctk_init (&argc, &argv);
 
 	source_buffer = ctk_source_buffer_new (NULL);
-	text_buffer = GTK_TEXT_BUFFER (source_buffer);
+	text_buffer = CTK_TEXT_BUFFER (source_buffer);
 
 	ctk_text_buffer_get_start_iter (text_buffer, &iter);
 

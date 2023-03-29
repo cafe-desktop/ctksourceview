@@ -78,7 +78,7 @@ ctk_source_language_manager_set_property (GObject 	*object,
 {
 	GtkSourceLanguageManager *lm;
 
-	lm = GTK_SOURCE_LANGUAGE_MANAGER (object);
+	lm = CTK_SOURCE_LANGUAGE_MANAGER (object);
 
 	switch (prop_id)
 	{
@@ -100,7 +100,7 @@ ctk_source_language_manager_get_property (GObject 	*object,
 {
 	GtkSourceLanguageManager *lm;
 
-	lm = GTK_SOURCE_LANGUAGE_MANAGER (object);
+	lm = CTK_SOURCE_LANGUAGE_MANAGER (object);
 
 	switch (prop_id)
 	{
@@ -123,7 +123,7 @@ ctk_source_language_manager_finalize (GObject *object)
 {
 	GtkSourceLanguageManager *lm;
 
-	lm = GTK_SOURCE_LANGUAGE_MANAGER (object);
+	lm = CTK_SOURCE_LANGUAGE_MANAGER (object);
 
 	if (lm->priv->language_ids)
 		g_hash_table_destroy (lm->priv->language_ids);
@@ -189,7 +189,7 @@ ctk_source_language_manager_init (GtkSourceLanguageManager *lm)
 GtkSourceLanguageManager *
 ctk_source_language_manager_new (void)
 {
-	return g_object_new (GTK_SOURCE_TYPE_LANGUAGE_MANAGER, NULL);
+	return g_object_new (CTK_SOURCE_TYPE_LANGUAGE_MANAGER, NULL);
 }
 
 /**
@@ -251,7 +251,7 @@ ctk_source_language_manager_set_search_path (GtkSourceLanguageManager *lm,
 {
 	gchar **tmp;
 
-	g_return_if_fail (GTK_SOURCE_IS_LANGUAGE_MANAGER (lm));
+	g_return_if_fail (CTK_SOURCE_IS_LANGUAGE_MANAGER (lm));
 
 	/* Search path cannot be changed in the list of available languages
 	 * as been already computed */
@@ -282,7 +282,7 @@ ctk_source_language_manager_set_search_path (GtkSourceLanguageManager *lm,
 const gchar * const *
 ctk_source_language_manager_get_search_path (GtkSourceLanguageManager *lm)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_LANGUAGE_MANAGER (lm), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_LANGUAGE_MANAGER (lm), NULL);
 
 	if (lm->priv->lang_dirs == NULL)
 		lm->priv->lang_dirs = _ctk_source_utils_get_default_dirs (LANGUAGE_DIR);
@@ -301,7 +301,7 @@ ctk_source_language_manager_get_search_path (GtkSourceLanguageManager *lm)
 const char *
 _ctk_source_language_manager_get_rng_file (GtkSourceLanguageManager *lm)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_LANGUAGE_MANAGER (lm), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_LANGUAGE_MANAGER (lm), NULL);
 
 	if (lm->priv->rng_file == NULL)
 	{
@@ -422,7 +422,7 @@ ensure_languages (GtkSourceLanguageManager *lm)
 const gchar * const *
 ctk_source_language_manager_get_language_ids (GtkSourceLanguageManager *lm)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_LANGUAGE_MANAGER (lm), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_LANGUAGE_MANAGER (lm), NULL);
 
 	ensure_languages (lm);
 
@@ -445,7 +445,7 @@ GtkSourceLanguage *
 ctk_source_language_manager_get_language (GtkSourceLanguageManager *lm,
 					  const gchar              *id)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_LANGUAGE_MANAGER (lm), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_LANGUAGE_MANAGER (lm), NULL);
 	g_return_val_if_fail (id != NULL, NULL);
 
 	ensure_languages (lm);
@@ -586,7 +586,7 @@ pick_lang_for_mime_type (GtkSourceLanguageManager *lm,
 		langs = pick_langs_for_filename (lm, alt_filename);
 
 		if (langs != NULL)
-			lang = GTK_SOURCE_LANGUAGE (langs->data);
+			lang = CTK_SOURCE_LANGUAGE (langs->data);
 	}
 
 	if (lang == NULL && mime_type != NULL)
@@ -651,7 +651,7 @@ ctk_source_language_manager_guess_language (GtkSourceLanguageManager *lm,
 	GtkSourceLanguage *lang = NULL;
 	GSList *langs = NULL;
 
-	g_return_val_if_fail (GTK_SOURCE_IS_LANGUAGE_MANAGER (lm), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_LANGUAGE_MANAGER (lm), NULL);
 	g_return_val_if_fail ((filename != NULL && *filename != '\0') ||
 	                      (content_type != NULL && *content_type != '\0'), NULL);
 
@@ -678,7 +678,7 @@ ctk_source_language_manager_guess_language (GtkSourceLanguageManager *lm,
 			{
 				gchar **mime_types, **gptr;
 
-				lang = GTK_SOURCE_LANGUAGE (l->data);
+				lang = CTK_SOURCE_LANGUAGE (l->data);
 				mime_types = ctk_source_language_get_mime_types (lang);
 
 				for (gptr = mime_types; gptr != NULL && *gptr != NULL; gptr++)
@@ -711,7 +711,7 @@ ctk_source_language_manager_guess_language (GtkSourceLanguageManager *lm,
 				g_strfreev (mime_types);
 			}
 		}
-		lang = GTK_SOURCE_LANGUAGE (langs->data);
+		lang = CTK_SOURCE_LANGUAGE (langs->data);
 
 		g_slist_free (langs);
 	}

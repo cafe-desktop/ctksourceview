@@ -60,7 +60,7 @@ load_file_cb (GtkSourceFileLoader *loader,
 
 		buffer = ctk_source_file_loader_get_buffer (loader);
 
-		ctk_text_buffer_get_bounds (GTK_TEXT_BUFFER (buffer), &start, &end);
+		ctk_text_buffer_get_bounds (CTK_TEXT_BUFFER (buffer), &start, &end);
 		buffer_contents = ctk_text_iter_get_slice (&start, &end);
 
 		g_assert_cmpstr (buffer_contents, ==, data->expected_buffer_contents);
@@ -191,17 +191,17 @@ test_end_new_line_detection (void)
 	test_loader ("file-loader.txt",
 	             "hello world\n",
 	             NULL,
-	             GTK_SOURCE_NEWLINE_TYPE_LF);
+	             CTK_SOURCE_NEWLINE_TYPE_LF);
 
 	test_loader ("file-loader.txt",
 	             "hello world\r\n",
 	             NULL,
-	             GTK_SOURCE_NEWLINE_TYPE_CR_LF);
+	             CTK_SOURCE_NEWLINE_TYPE_CR_LF);
 
 	test_loader ("file-loader.txt",
 	             "hello world\r",
 	             NULL,
-	             GTK_SOURCE_NEWLINE_TYPE_CR);
+	             CTK_SOURCE_NEWLINE_TYPE_CR);
 }
 
 static void
@@ -210,17 +210,17 @@ test_begin_new_line_detection (void)
 	test_loader ("file-loader.txt",
 	             "\nhello world",
 	             NULL,
-	             GTK_SOURCE_NEWLINE_TYPE_LF);
+	             CTK_SOURCE_NEWLINE_TYPE_LF);
 
 	test_loader ("file-loader.txt",
 	             "\r\nhello world",
 	             NULL,
-	             GTK_SOURCE_NEWLINE_TYPE_CR_LF);
+	             CTK_SOURCE_NEWLINE_TYPE_CR_LF);
 
 	test_loader ("file-loader.txt",
 	             "\rhello world",
 	             NULL,
-	             GTK_SOURCE_NEWLINE_TYPE_CR);
+	             CTK_SOURCE_NEWLINE_TYPE_CR);
 }
 
 gint

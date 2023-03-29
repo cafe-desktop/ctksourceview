@@ -44,13 +44,13 @@ G_DEFINE_TYPE_WITH_CODE (GtkSourceCompletionWordsProposal,
 			 ctk_source_completion_words_proposal,
 			 G_TYPE_OBJECT,
 			 G_ADD_PRIVATE (GtkSourceCompletionWordsProposal)
-			 G_IMPLEMENT_INTERFACE (GTK_SOURCE_TYPE_COMPLETION_PROPOSAL,
+			 G_IMPLEMENT_INTERFACE (CTK_SOURCE_TYPE_COMPLETION_PROPOSAL,
 			 			ctk_source_completion_proposal_iface_init))
 
 static gchar *
 ctk_source_completion_words_proposal_get_text (GtkSourceCompletionProposal *proposal)
 {
-	return g_strdup (GTK_SOURCE_COMPLETION_WORDS_PROPOSAL(proposal)->priv->word);
+	return g_strdup (CTK_SOURCE_COMPLETION_WORDS_PROPOSAL(proposal)->priv->word);
 }
 
 static void
@@ -69,7 +69,7 @@ ctk_source_completion_words_proposal_finalize (GObject *object)
 {
 	GtkSourceCompletionWordsProposal *proposal;
 
-	proposal = GTK_SOURCE_COMPLETION_WORDS_PROPOSAL (object);
+	proposal = CTK_SOURCE_COMPLETION_WORDS_PROPOSAL (object);
 	g_free (proposal->priv->word);
 
 	G_OBJECT_CLASS (ctk_source_completion_words_proposal_parent_class)->finalize (object);
@@ -102,7 +102,7 @@ GtkSourceCompletionWordsProposal *
 ctk_source_completion_words_proposal_new (const gchar *word)
 {
 	GtkSourceCompletionWordsProposal *proposal =
-		g_object_new (GTK_SOURCE_TYPE_COMPLETION_WORDS_PROPOSAL, NULL);
+		g_object_new (CTK_SOURCE_TYPE_COMPLETION_WORDS_PROPOSAL, NULL);
 
 	proposal->priv->word = g_strdup (word);
 	return proposal;
@@ -111,7 +111,7 @@ ctk_source_completion_words_proposal_new (const gchar *word)
 void
 ctk_source_completion_words_proposal_use (GtkSourceCompletionWordsProposal *proposal)
 {
-	g_return_if_fail (GTK_SOURCE_IS_COMPLETION_WORDS_PROPOSAL (proposal));
+	g_return_if_fail (CTK_SOURCE_IS_COMPLETION_WORDS_PROPOSAL (proposal));
 
 	g_atomic_int_inc (&proposal->priv->use_count);
 }
@@ -119,7 +119,7 @@ ctk_source_completion_words_proposal_use (GtkSourceCompletionWordsProposal *prop
 void
 ctk_source_completion_words_proposal_unuse (GtkSourceCompletionWordsProposal *proposal)
 {
-	g_return_if_fail (GTK_SOURCE_IS_COMPLETION_WORDS_PROPOSAL (proposal));
+	g_return_if_fail (CTK_SOURCE_IS_COMPLETION_WORDS_PROPOSAL (proposal));
 
 	if (g_atomic_int_dec_and_test (&proposal->priv->use_count))
 	{
@@ -130,7 +130,7 @@ ctk_source_completion_words_proposal_unuse (GtkSourceCompletionWordsProposal *pr
 const gchar *
 ctk_source_completion_words_proposal_get_word (GtkSourceCompletionWordsProposal *proposal)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_COMPLETION_WORDS_PROPOSAL (proposal), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_WORDS_PROPOSAL (proposal), NULL);
 	return proposal->priv->word;
 }
 

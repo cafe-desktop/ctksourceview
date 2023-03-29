@@ -136,7 +136,7 @@ ctk_minor_version = ctk_version_arr[1]
 add_project_arguments([
   '-DG_DISABLE_DEPRECATED',
   '-DGDK_DISABLE_DEPRECATED',
-  '-DGTK_DISABLE_DEPRECATED',
+  '-DCTK_DISABLE_DEPRECATED',
   '-DGDK_PIXBUF_DISABLE_DEPRECATED',
   '-DGDK_VERSION_MIN_REQUIRED=GDK_VERSION_@0@_@1@'.format(ctk_major_version, ctk_minor_version),
   '-DGDK_VERSION_MAX_ALLOWED=GDK_VERSION_@0@_@1@'.format(ctk_major_version, ctk_minor_version),
@@ -245,12 +245,12 @@ if get_option('default_library') != 'static'
   if host_machine.system() == 'windows'
     config_h.set('DLL_EXPORT', true)
     if cc.get_id() == 'msvc'
-      config_h.set('_GTK_SOURCE_EXTERN', '__declspec(dllexport) extern')
+      config_h.set('_CTK_SOURCE_EXTERN', '__declspec(dllexport) extern')
     elif cc.has_argument('-fvisibility=hidden')
-      config_h.set('_GTK_SOURCE_EXTERN', '__attribute__((visibility("default"))) __declspec(dllexport) extern')
+      config_h.set('_CTK_SOURCE_EXTERN', '__attribute__((visibility("default"))) __declspec(dllexport) extern')
     endif
   elif cc.has_argument('-fvisibility=hidden')
-    config_h.set('_GTK_SOURCE_EXTERN', '__attribute__((visibility("default"))) extern')
+    config_h.set('_CTK_SOURCE_EXTERN', '__attribute__((visibility("default"))) extern')
   endif
 endif
 

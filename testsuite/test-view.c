@@ -92,10 +92,10 @@ test_move_lines__move_single_line (void)
 	gchar *text;
 	gint case_num;
 
-	view = GTK_SOURCE_VIEW (ctk_source_view_new ());
+	view = CTK_SOURCE_VIEW (ctk_source_view_new ());
 	g_object_ref_sink (view);
 
-	buffer = ctk_text_view_get_buffer (GTK_TEXT_VIEW (view));
+	buffer = ctk_text_view_get_buffer (CTK_TEXT_VIEW (view));
 
 	/* Move down first line */
 	for (case_num = 0; case_num < N_CASES_INITIAL_SELECTION_FOR_SINGLE_LINE; case_num++)
@@ -335,10 +335,10 @@ test_move_lines__move_several_lines (void)
 	gchar *text;
 	gint case_num;
 
-	view = GTK_SOURCE_VIEW (ctk_source_view_new ());
+	view = CTK_SOURCE_VIEW (ctk_source_view_new ());
 	g_object_ref_sink (view);
 
-	buffer = ctk_text_view_get_buffer (GTK_TEXT_VIEW (view));
+	buffer = ctk_text_view_get_buffer (CTK_TEXT_VIEW (view));
 
 	/* Move down first two lines */
 	for (case_num = 0; case_num < N_CASES_INITIAL_SELECTION_FOR_SEVERAL_LINES; case_num++)

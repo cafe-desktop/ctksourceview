@@ -98,19 +98,19 @@ G_DEFINE_TYPE_WITH_CODE (GtkSourceCompletionWords,
 			 ctk_source_completion_words,
 			 G_TYPE_OBJECT,
 			 G_ADD_PRIVATE (GtkSourceCompletionWords)
-			 G_IMPLEMENT_INTERFACE (GTK_SOURCE_TYPE_COMPLETION_PROVIDER,
+			 G_IMPLEMENT_INTERFACE (CTK_SOURCE_TYPE_COMPLETION_PROVIDER,
 				 		ctk_source_completion_words_iface_init))
 
 static gchar *
 ctk_source_completion_words_get_name (GtkSourceCompletionProvider *self)
 {
-	return g_strdup (GTK_SOURCE_COMPLETION_WORDS (self)->priv->name);
+	return g_strdup (CTK_SOURCE_COMPLETION_WORDS (self)->priv->name);
 }
 
 static GdkPixbuf *
 ctk_source_completion_words_get_icon (GtkSourceCompletionProvider *self)
 {
-	return GTK_SOURCE_COMPLETION_WORDS (self)->priv->icon;
+	return CTK_SOURCE_COMPLETION_WORDS (self)->priv->icon;
 }
 
 static void
@@ -177,7 +177,7 @@ add_in_idle (GtkSourceCompletionWords *words)
 	finished = words->priv->populate_iter == NULL;
 
 	ctk_source_completion_context_add_proposals (words->priv->context,
-	                                             GTK_SOURCE_COMPLETION_PROVIDER (words),
+	                                             CTK_SOURCE_COMPLETION_PROVIDER (words),
 	                                             ret,
 	                                             finished);
 
@@ -216,7 +216,7 @@ static void
 ctk_source_completion_words_populate (GtkSourceCompletionProvider *provider,
                                       GtkSourceCompletionContext  *context)
 {
-	GtkSourceCompletionWords *words = GTK_SOURCE_COMPLETION_WORDS (provider);
+	GtkSourceCompletionWords *words = CTK_SOURCE_COMPLETION_WORDS (provider);
 	GtkSourceCompletionActivation activation;
 	GtkTextIter iter;
 	gchar *word;
@@ -235,7 +235,7 @@ ctk_source_completion_words_populate (GtkSourceCompletionProvider *provider,
 	activation = ctk_source_completion_context_get_activation (context);
 
 	if (word == NULL ||
-	    (activation == GTK_SOURCE_COMPLETION_ACTIVATION_INTERACTIVE &&
+	    (activation == CTK_SOURCE_COMPLETION_ACTIVATION_INTERACTIVE &&
 	     g_utf8_strlen (word, -1) < (glong)words->priv->minimum_word_size))
 	{
 		g_free (word);
@@ -266,7 +266,7 @@ ctk_source_completion_words_populate (GtkSourceCompletionProvider *provider,
 static void
 ctk_source_completion_words_dispose (GObject *object)
 {
-	GtkSourceCompletionWords *provider = GTK_SOURCE_COMPLETION_WORDS (object);
+	GtkSourceCompletionWords *provider = CTK_SOURCE_COMPLETION_WORDS (object);
 
 	population_finished (provider);
 
@@ -319,7 +319,7 @@ ctk_source_completion_words_set_property (GObject      *object,
                                           const GValue *value,
                                           GParamSpec   *pspec)
 {
-	GtkSourceCompletionWords *self = GTK_SOURCE_COMPLETION_WORDS (object);
+	GtkSourceCompletionWords *self = CTK_SOURCE_COMPLETION_WORDS (object);
 
 	switch (prop_id)
 	{
@@ -376,7 +376,7 @@ ctk_source_completion_words_get_property (GObject    *object,
                                           GValue     *value,
                                           GParamSpec *pspec)
 {
-	GtkSourceCompletionWords *self = GTK_SOURCE_COMPLETION_WORDS (object);
+	GtkSourceCompletionWords *self = CTK_SOURCE_COMPLETION_WORDS (object);
 
 	switch (prop_id)
 	{
@@ -497,9 +497,9 @@ ctk_source_completion_words_class_init (GtkSourceCompletionWordsClass *klass)
 		g_param_spec_flags ("activation",
 				    "Activation",
 				    "The type of activation",
-				    GTK_SOURCE_TYPE_COMPLETION_ACTIVATION,
-				    GTK_SOURCE_COMPLETION_ACTIVATION_INTERACTIVE |
-				    GTK_SOURCE_COMPLETION_ACTIVATION_USER_REQUESTED,
+				    CTK_SOURCE_TYPE_COMPLETION_ACTIVATION,
+				    CTK_SOURCE_COMPLETION_ACTIVATION_INTERACTIVE |
+				    CTK_SOURCE_COMPLETION_ACTIVATION_USER_REQUESTED,
 				    G_PARAM_READWRITE | G_PARAM_CONSTRUCT | G_PARAM_STATIC_STRINGS);
 
 	g_object_class_install_properties (object_class, N_PROPERTIES, properties);
@@ -532,19 +532,19 @@ ctk_source_completion_words_get_start_iter (GtkSourceCompletionProvider *provide
 static gint
 ctk_source_completion_words_get_interactive_delay (GtkSourceCompletionProvider *provider)
 {
-	return GTK_SOURCE_COMPLETION_WORDS (provider)->priv->interactive_delay;
+	return CTK_SOURCE_COMPLETION_WORDS (provider)->priv->interactive_delay;
 }
 
 static gint
 ctk_source_completion_words_get_priority (GtkSourceCompletionProvider *provider)
 {
-	return GTK_SOURCE_COMPLETION_WORDS (provider)->priv->priority;
+	return CTK_SOURCE_COMPLETION_WORDS (provider)->priv->priority;
 }
 
 static GtkSourceCompletionActivation
 ctk_source_completion_words_get_activation (GtkSourceCompletionProvider *provider)
 {
-	return GTK_SOURCE_COMPLETION_WORDS (provider)->priv->activation;
+	return CTK_SOURCE_COMPLETION_WORDS (provider)->priv->activation;
 }
 
 static void
@@ -578,7 +578,7 @@ GtkSourceCompletionWords *
 ctk_source_completion_words_new (const gchar *name,
                                  GdkPixbuf   *icon)
 {
-	return g_object_new (GTK_SOURCE_TYPE_COMPLETION_WORDS,
+	return g_object_new (CTK_SOURCE_TYPE_COMPLETION_WORDS,
 	                     "name", name,
 	                     "icon", icon,
 	                     NULL);
@@ -607,8 +607,8 @@ ctk_source_completion_words_register (GtkSourceCompletionWords *words,
 	GtkSourceCompletionWordsBuffer *buf;
 	BufferBinding *binding;
 
-	g_return_if_fail (GTK_SOURCE_IS_COMPLETION_WORDS (words));
-	g_return_if_fail (GTK_IS_TEXT_BUFFER (buffer));
+	g_return_if_fail (CTK_SOURCE_IS_COMPLETION_WORDS (words));
+	g_return_if_fail (CTK_IS_TEXT_BUFFER (buffer));
 
 	binding = g_object_get_data (G_OBJECT (buffer), BUFFER_KEY);
 
@@ -650,8 +650,8 @@ void
 ctk_source_completion_words_unregister (GtkSourceCompletionWords *words,
                                         GtkTextBuffer            *buffer)
 {
-	g_return_if_fail (GTK_SOURCE_IS_COMPLETION_WORDS (words));
-	g_return_if_fail (GTK_IS_TEXT_BUFFER (buffer));
+	g_return_if_fail (CTK_SOURCE_IS_COMPLETION_WORDS (words));
+	g_return_if_fail (CTK_IS_TEXT_BUFFER (buffer));
 
 	g_object_set_data (G_OBJECT (buffer), BUFFER_KEY, NULL);
 }

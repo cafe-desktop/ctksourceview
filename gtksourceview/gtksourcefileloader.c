@@ -177,15 +177,15 @@ get_compression_type_from_content_type (const gchar *content_type)
 {
 	if (content_type == NULL)
 	{
-		return GTK_SOURCE_COMPRESSION_TYPE_NONE;
+		return CTK_SOURCE_COMPRESSION_TYPE_NONE;
 	}
 
 	if (g_content_type_is_a (content_type, "application/x-gzip"))
 	{
-		return GTK_SOURCE_COMPRESSION_TYPE_GZIP;
+		return CTK_SOURCE_COMPRESSION_TYPE_GZIP;
 	}
 
-	return GTK_SOURCE_COMPRESSION_TYPE_NONE;
+	return CTK_SOURCE_COMPRESSION_TYPE_NONE;
 }
 
 static void
@@ -194,7 +194,7 @@ ctk_source_file_loader_set_property (GObject      *object,
 				     const GValue *value,
 				     GParamSpec   *pspec)
 {
-	GtkSourceFileLoader *loader = GTK_SOURCE_FILE_LOADER (object);
+	GtkSourceFileLoader *loader = CTK_SOURCE_FILE_LOADER (object);
 
 	switch (prop_id)
 	{
@@ -234,7 +234,7 @@ ctk_source_file_loader_get_property (GObject    *object,
 				     GValue     *value,
 				     GParamSpec *pspec)
 {
-	GtkSourceFileLoader *loader = GTK_SOURCE_FILE_LOADER (object);
+	GtkSourceFileLoader *loader = CTK_SOURCE_FILE_LOADER (object);
 
 	switch (prop_id)
 	{
@@ -263,7 +263,7 @@ ctk_source_file_loader_get_property (GObject    *object,
 static void
 ctk_source_file_loader_dispose (GObject *object)
 {
-	GtkSourceFileLoader *loader = GTK_SOURCE_FILE_LOADER (object);
+	GtkSourceFileLoader *loader = CTK_SOURCE_FILE_LOADER (object);
 
 	if (loader->priv->source_buffer != NULL)
 	{
@@ -342,7 +342,7 @@ end:
 static void
 ctk_source_file_loader_constructed (GObject *object)
 {
-	GtkSourceFileLoader *loader = GTK_SOURCE_FILE_LOADER (object);
+	GtkSourceFileLoader *loader = CTK_SOURCE_FILE_LOADER (object);
 
 	if (loader->priv->file != NULL)
 	{
@@ -390,7 +390,7 @@ ctk_source_file_loader_class_init (GtkSourceFileLoaderClass *klass)
 					 g_param_spec_object ("buffer",
 							      "GtkSourceBuffer",
 							      "",
-							      GTK_SOURCE_TYPE_BUFFER,
+							      CTK_SOURCE_TYPE_BUFFER,
 							      G_PARAM_READWRITE |
 							      G_PARAM_CONSTRUCT_ONLY |
 							      G_PARAM_STATIC_STRINGS));
@@ -407,7 +407,7 @@ ctk_source_file_loader_class_init (GtkSourceFileLoaderClass *klass)
 					 g_param_spec_object ("file",
 							      "GtkSourceFile",
 							      "",
-							      GTK_SOURCE_TYPE_FILE,
+							      CTK_SOURCE_TYPE_FILE,
 							      G_PARAM_READWRITE |
 							      G_PARAM_CONSTRUCT_ONLY |
 							      G_PARAM_STATIC_STRINGS));
@@ -453,7 +453,7 @@ ctk_source_file_loader_class_init (GtkSourceFileLoaderClass *klass)
 	 *
 	 * See https://bugzilla.gnome.org/show_bug.cgi?id=780216
 	 */
-	g_type_ensure (GTK_SOURCE_TYPE_BUFFER_OUTPUT_STREAM);
+	g_type_ensure (CTK_SOURCE_TYPE_BUFFER_OUTPUT_STREAM);
 }
 
 static void
@@ -510,8 +510,8 @@ close_input_stream_cb (GObject      *source_object,
 	if (ctk_source_buffer_output_stream_get_num_fallbacks (task_data->output_stream) > 0)
 	{
 		g_task_return_new_error (task,
-					 GTK_SOURCE_FILE_LOADER_ERROR,
-					 GTK_SOURCE_FILE_LOADER_ERROR_CONVERSION_FALLBACK,
+					 CTK_SOURCE_FILE_LOADER_ERROR,
+					 CTK_SOURCE_FILE_LOADER_ERROR_CONVERSION_FALLBACK,
 					 _("There was a character encoding conversion error "
 					   "and it was needed to use a fallback character."));
 		return;
@@ -617,8 +617,8 @@ read_cb (GObject      *source_object,
 	if (task_data->total_bytes_read + task_data->chunk_bytes_read < task_data->total_bytes_read)
 	{
 		g_task_return_new_error (task,
-					 GTK_SOURCE_FILE_LOADER_ERROR,
-					 GTK_SOURCE_FILE_LOADER_ERROR_TOO_BIG,
+					 CTK_SOURCE_FILE_LOADER_ERROR,
+					 CTK_SOURCE_FILE_LOADER_ERROR_TOO_BIG,
 					 _("File too big."));
 		return;
 	}
@@ -710,7 +710,7 @@ create_input_stream (GTask *task)
 	loader = g_task_get_source_object (task);
 	task_data = g_task_get_task_data (task);
 
-	loader->priv->auto_detected_compression_type = GTK_SOURCE_COMPRESSION_TYPE_NONE;
+	loader->priv->auto_detected_compression_type = CTK_SOURCE_COMPRESSION_TYPE_NONE;
 
 	if (loader->priv->input_stream_property != NULL)
 	{
@@ -722,12 +722,12 @@ create_input_stream (GTask *task)
 
 		switch (get_compression_type_from_content_type (content_type))
 		{
-			case GTK_SOURCE_COMPRESSION_TYPE_GZIP:
+			case CTK_SOURCE_COMPRESSION_TYPE_GZIP:
 				add_gzip_decompressor_stream (task);
-				loader->priv->auto_detected_compression_type = GTK_SOURCE_COMPRESSION_TYPE_GZIP;
+				loader->priv->auto_detected_compression_type = CTK_SOURCE_COMPRESSION_TYPE_GZIP;
 				break;
 
-			case GTK_SOURCE_COMPRESSION_TYPE_NONE:
+			case CTK_SOURCE_COMPRESSION_TYPE_NONE:
 				/* NOOP */
 				break;
 
@@ -933,10 +933,10 @@ GtkSourceFileLoader *
 ctk_source_file_loader_new (GtkSourceBuffer *buffer,
 			    GtkSourceFile   *file)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_BUFFER (buffer), NULL);
-	g_return_val_if_fail (GTK_SOURCE_IS_FILE (file), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER (buffer), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_FILE (file), NULL);
 
-	return g_object_new (GTK_SOURCE_TYPE_FILE_LOADER,
+	return g_object_new (CTK_SOURCE_TYPE_FILE_LOADER,
 			     "buffer", buffer,
 			     "file", file,
 			     NULL);
@@ -958,11 +958,11 @@ ctk_source_file_loader_new_from_stream (GtkSourceBuffer *buffer,
 					GtkSourceFile   *file,
 					GInputStream    *stream)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_BUFFER (buffer), NULL);
-	g_return_val_if_fail (GTK_SOURCE_IS_FILE (file), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER (buffer), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_FILE (file), NULL);
 	g_return_val_if_fail (G_IS_INPUT_STREAM (stream), NULL);
 
-	return g_object_new (GTK_SOURCE_TYPE_FILE_LOADER,
+	return g_object_new (CTK_SOURCE_TYPE_FILE_LOADER,
 			     "buffer", buffer,
 			     "file", file,
 			     "input-stream", stream,
@@ -995,11 +995,11 @@ ctk_source_file_loader_set_candidate_encodings (GtkSourceFileLoader *loader,
 {
 	GSList *list;
 
-	g_return_if_fail (GTK_SOURCE_IS_FILE_LOADER (loader));
+	g_return_if_fail (CTK_SOURCE_IS_FILE_LOADER (loader));
 	g_return_if_fail (loader->priv->task == NULL);
 
 	list = g_slist_copy (candidate_encodings);
-	list = _ctk_source_encoding_remove_duplicates (list, GTK_SOURCE_ENCODING_DUPLICATES_KEEP_FIRST);
+	list = _ctk_source_encoding_remove_duplicates (list, CTK_SOURCE_ENCODING_DUPLICATES_KEEP_FIRST);
 
 	g_slist_free (loader->priv->candidate_encodings);
 	loader->priv->candidate_encodings = list;
@@ -1015,7 +1015,7 @@ ctk_source_file_loader_set_candidate_encodings (GtkSourceFileLoader *loader,
 GtkSourceBuffer *
 ctk_source_file_loader_get_buffer (GtkSourceFileLoader *loader)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_FILE_LOADER (loader), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_FILE_LOADER (loader), NULL);
 
 	return loader->priv->source_buffer;
 }
@@ -1030,7 +1030,7 @@ ctk_source_file_loader_get_buffer (GtkSourceFileLoader *loader)
 GtkSourceFile *
 ctk_source_file_loader_get_file (GtkSourceFileLoader *loader)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_FILE_LOADER (loader), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_FILE_LOADER (loader), NULL);
 
 	return loader->priv->file;
 }
@@ -1046,7 +1046,7 @@ ctk_source_file_loader_get_file (GtkSourceFileLoader *loader)
 GFile *
 ctk_source_file_loader_get_location (GtkSourceFileLoader *loader)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_FILE_LOADER (loader), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_FILE_LOADER (loader), NULL);
 
 	return loader->priv->location;
 }
@@ -1062,7 +1062,7 @@ ctk_source_file_loader_get_location (GtkSourceFileLoader *loader)
 GInputStream *
 ctk_source_file_loader_get_input_stream (GtkSourceFileLoader *loader)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_FILE_LOADER (loader), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_FILE_LOADER (loader), NULL);
 
 	return loader->priv->input_stream_property;
 }
@@ -1106,7 +1106,7 @@ ctk_source_file_loader_load_async (GtkSourceFileLoader   *loader,
 	TaskData *task_data;
 	gboolean implicit_trailing_newline;
 
-	g_return_if_fail (GTK_SOURCE_IS_FILE_LOADER (loader));
+	g_return_if_fail (CTK_SOURCE_IS_FILE_LOADER (loader));
 	g_return_if_fail (cancellable == NULL || G_IS_CANCELLABLE (cancellable));
 	g_return_if_fail (loader->priv->task == NULL);
 
@@ -1196,7 +1196,7 @@ ctk_source_file_loader_load_finish (GtkSourceFileLoader  *loader,
 	gboolean update_file_properties;
 	GError *real_error = NULL;
 
-	g_return_val_if_fail (GTK_SOURCE_IS_FILE_LOADER (loader), FALSE);
+	g_return_val_if_fail (CTK_SOURCE_IS_FILE_LOADER (loader), FALSE);
 	g_return_val_if_fail (error == NULL || *error == NULL, FALSE);
 	g_return_val_if_fail (g_task_is_valid (result, loader), FALSE);
 
@@ -1216,8 +1216,8 @@ ctk_source_file_loader_load_finish (GtkSourceFileLoader  *loader,
 	 * the buffer, i.e. the buffer is still empty.
 	 */
 	update_file_properties = ok || (real_error != NULL &&
-					real_error->domain == GTK_SOURCE_FILE_LOADER_ERROR &&
-					real_error->code == GTK_SOURCE_FILE_LOADER_ERROR_CONVERSION_FALLBACK);
+					real_error->domain == CTK_SOURCE_FILE_LOADER_ERROR &&
+					real_error->code == CTK_SOURCE_FILE_LOADER_ERROR_CONVERSION_FALLBACK);
 
 	if (update_file_properties && loader->priv->file != NULL)
 	{
@@ -1284,7 +1284,7 @@ ctk_source_file_loader_load_finish (GtkSourceFileLoader  *loader,
 const GtkSourceEncoding *
 ctk_source_file_loader_get_encoding (GtkSourceFileLoader *loader)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_FILE_LOADER (loader), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_FILE_LOADER (loader), NULL);
 
 	return loader->priv->auto_detected_encoding;
 }
@@ -1299,8 +1299,8 @@ ctk_source_file_loader_get_encoding (GtkSourceFileLoader *loader)
 GtkSourceNewlineType
 ctk_source_file_loader_get_newline_type (GtkSourceFileLoader *loader)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_FILE_LOADER (loader),
-			      GTK_SOURCE_NEWLINE_TYPE_LF);
+	g_return_val_if_fail (CTK_SOURCE_IS_FILE_LOADER (loader),
+			      CTK_SOURCE_NEWLINE_TYPE_LF);
 
 	return loader->priv->auto_detected_newline_type;
 }
@@ -1315,8 +1315,8 @@ ctk_source_file_loader_get_newline_type (GtkSourceFileLoader *loader)
 GtkSourceCompressionType
 ctk_source_file_loader_get_compression_type (GtkSourceFileLoader *loader)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_FILE_LOADER (loader),
-			      GTK_SOURCE_COMPRESSION_TYPE_NONE);
+	g_return_val_if_fail (CTK_SOURCE_IS_FILE_LOADER (loader),
+			      CTK_SOURCE_COMPRESSION_TYPE_NONE);
 
 	return loader->priv->auto_detected_compression_type;
 }

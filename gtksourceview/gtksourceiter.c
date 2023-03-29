@@ -27,11 +27,11 @@
 /* GtkTextIter functions. Contains forward/backward functions for word
  * movements, with custom word boundaries that are used for word selection
  * (double-click) and cursor movements (Ctrl+left, Ctrl+right, etc).  The
- * initial idea was to use those word boundaries directly in GTK+, for all text
+ * initial idea was to use those word boundaries directly in CTK+, for all text
  * widgets. But in the end only the GtkTextView::extend-selection signal has
  * been added to be able to customize the boundaries for double- and
  * triple-click (the ::move-cursor and ::delete-from-cursor signals were already
- * present to customize boundaries for cursor movements). The GTK+ developers
+ * present to customize boundaries for cursor movements). The CTK+ developers
  * didn't want to change the word boundaries for text widgets. More information:
  * https://mail.gnome.org/archives/ctk-devel-list/2014-September/msg00019.html
  * https://bugzilla.gnome.org/show_bug.cgi?id=111503
@@ -194,7 +194,7 @@ _ctk_source_iter_forward_extra_natural_word_end (GtkTextIter *iter)
 
 	found = ctk_text_iter_forward_search (iter,
 					      "_",
-					      GTK_TEXT_SEARCH_VISIBLE_ONLY | GTK_TEXT_SEARCH_TEXT_ONLY,
+					      CTK_TEXT_SEARCH_VISIBLE_ONLY | CTK_TEXT_SEARCH_TEXT_ONLY,
 					      NULL,
 					      &next_underscore_end,
 					      limit);
@@ -247,7 +247,7 @@ _ctk_source_iter_backward_extra_natural_word_start (GtkTextIter *iter)
 
 	found = ctk_text_iter_backward_search (iter,
 					       "_",
-					       GTK_TEXT_SEARCH_VISIBLE_ONLY | GTK_TEXT_SEARCH_TEXT_ONLY,
+					       CTK_TEXT_SEARCH_VISIBLE_ONLY | CTK_TEXT_SEARCH_TEXT_ONLY,
 					       &prev_underscore_start,
 					       NULL,
 					       limit);
@@ -615,7 +615,7 @@ _ctk_source_iter_extend_selection_word (const GtkTextIter *location,
 					GtkTextIter       *start,
 					GtkTextIter       *end)
 {
-	/* Exactly the same algorithm as in GTK+, but with our custom word
+	/* Exactly the same algorithm as in CTK+, but with our custom word
 	 * boundaries.
 	 */
 	*start = *location;

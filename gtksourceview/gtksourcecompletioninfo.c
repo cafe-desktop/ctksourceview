@@ -41,8 +41,8 @@
  * GtkWidget *scrolled_window = ctk_scrolled_window_new (NULL, NULL);
  *
  * ctk_widget_set_size_request (scrolled_window, 300, 200);
- * ctk_container_add (GTK_CONTAINER (scrolled_window), your_widget);
- * ctk_container_add (GTK_CONTAINER (info), scrolled_window);
+ * ctk_container_add (CTK_CONTAINER (scrolled_window), your_widget);
+ * ctk_container_add (CTK_CONTAINER (info), scrolled_window);
  *   </programlisting>
  * </example>
  *
@@ -74,14 +74,14 @@ struct _GtkSourceCompletionInfoPrivate
 	guint transient_set : 1;
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceCompletionInfo, ctk_source_completion_info, GTK_TYPE_WINDOW);
+G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceCompletionInfo, ctk_source_completion_info, CTK_TYPE_WINDOW);
 
 /* Resize the window */
 
 static gboolean
 idle_resize (GtkSourceCompletionInfo *info)
 {
-	GtkWidget *child = ctk_bin_get_child (GTK_BIN (info));
+	GtkWidget *child = ctk_bin_get_child (CTK_BIN (info));
 	GtkRequisition nat_size;
 	guint border_width;
 	gint window_width;
@@ -98,17 +98,17 @@ idle_resize (GtkSourceCompletionInfo *info)
 
 	ctk_widget_get_preferred_size (child, NULL, &nat_size);
 
-	border_width = ctk_container_get_border_width (GTK_CONTAINER (info));
+	border_width = ctk_container_get_border_width (CTK_CONTAINER (info));
 
 	window_width = nat_size.width + 2 * border_width;
 	window_height = nat_size.height + 2 * border_width;
 
-	ctk_window_get_size (GTK_WINDOW (info), &cur_window_width, &cur_window_height);
+	ctk_window_get_size (CTK_WINDOW (info), &cur_window_width, &cur_window_height);
 
 	/* Avoid an infinite loop */
 	if (cur_window_width != window_width || cur_window_height != window_height)
 	{
-		ctk_window_resize (GTK_WINDOW (info),
+		ctk_window_resize (CTK_WINDOW (info),
 				   MAX (1, window_width),
 				   MAX (1, window_height));
 	}
@@ -128,10 +128,10 @@ queue_resize (GtkSourceCompletionInfo *info)
 static void
 ctk_source_completion_info_check_resize (GtkContainer *container)
 {
-	GtkSourceCompletionInfo *info = GTK_SOURCE_COMPLETION_INFO (container);
+	GtkSourceCompletionInfo *info = CTK_SOURCE_COMPLETION_INFO (container);
 	queue_resize (info);
 
-	GTK_CONTAINER_CLASS (ctk_source_completion_info_parent_class)->check_resize (container);
+	CTK_CONTAINER_CLASS (ctk_source_completion_info_parent_class)->check_resize (container);
 }
 
 /* Geometry management */
@@ -139,7 +139,7 @@ ctk_source_completion_info_check_resize (GtkContainer *container)
 static GtkSizeRequestMode
 ctk_source_completion_info_get_request_mode (GtkWidget *widget)
 {
-	return GTK_SIZE_REQUEST_CONSTANT_SIZE;
+	return CTK_SIZE_REQUEST_CONSTANT_SIZE;
 }
 
 static void
@@ -147,7 +147,7 @@ ctk_source_completion_info_get_preferred_width (GtkWidget *widget,
 						gint	  *min_width,
 						gint	  *nat_width)
 {
-	GtkWidget *child = ctk_bin_get_child (GTK_BIN (widget));
+	GtkWidget *child = ctk_bin_get_child (CTK_BIN (widget));
 	gint width = 0;
 
 	if (child != NULL)
@@ -173,7 +173,7 @@ ctk_source_completion_info_get_preferred_height (GtkWidget *widget,
 						 gint	   *min_height,
 						 gint	   *nat_height)
 {
-	GtkWidget *child = ctk_bin_get_child (GTK_BIN (widget));
+	GtkWidget *child = ctk_bin_get_child (CTK_BIN (widget));
 	gint height = 0;
 
 	if (child != NULL)
@@ -199,7 +199,7 @@ ctk_source_completion_info_get_preferred_height (GtkWidget *widget,
 static gboolean
 focus_out_event_cb (GtkSourceCompletionInfo *info)
 {
-	ctk_widget_hide (GTK_WIDGET (info));
+	ctk_widget_hide (CTK_WIDGET (info));
 	return FALSE;
 }
 
@@ -243,7 +243,7 @@ set_attached_to (GtkSourceCompletionInfo *info,
 static void
 update_attached_to (GtkSourceCompletionInfo *info)
 {
-	set_attached_to (info, ctk_window_get_attached_to (GTK_WINDOW (info)));
+	set_attached_to (info, ctk_window_get_attached_to (CTK_WINDOW (info)));
 }
 
 static void
@@ -259,19 +259,19 @@ ctk_source_completion_info_init (GtkSourceCompletionInfo *info)
 	update_attached_to (info);
 
 	/* Tooltip style */
-	ctk_window_set_title (GTK_WINDOW (info), _("Completion Info"));
-	ctk_widget_set_name (GTK_WIDGET (info), "ctk-tooltip");
+	ctk_window_set_title (CTK_WINDOW (info), _("Completion Info"));
+	ctk_widget_set_name (CTK_WIDGET (info), "ctk-tooltip");
 
-	ctk_window_set_type_hint (GTK_WINDOW (info),
+	ctk_window_set_type_hint (CTK_WINDOW (info),
 	                          GDK_WINDOW_TYPE_HINT_COMBO);
 
-	ctk_container_set_border_width (GTK_CONTAINER (info), 1);
+	ctk_container_set_border_width (CTK_CONTAINER (info), 1);
 }
 
 static void
 ctk_source_completion_info_dispose (GObject *object)
 {
-	GtkSourceCompletionInfo *info = GTK_SOURCE_COMPLETION_INFO (object);
+	GtkSourceCompletionInfo *info = CTK_SOURCE_COMPLETION_INFO (object);
 
 	if (info->priv->idle_resize != 0)
 	{
@@ -287,29 +287,29 @@ ctk_source_completion_info_dispose (GObject *object)
 static void
 ctk_source_completion_info_show (GtkWidget *widget)
 {
-	GtkSourceCompletionInfo *info = GTK_SOURCE_COMPLETION_INFO (widget);
+	GtkSourceCompletionInfo *info = CTK_SOURCE_COMPLETION_INFO (widget);
 
 	if (info->priv->attached_to != NULL && !info->priv->transient_set)
 	{
 		GtkWidget *toplevel;
 
-		toplevel = ctk_widget_get_toplevel (GTK_WIDGET (info->priv->attached_to));
+		toplevel = ctk_widget_get_toplevel (CTK_WIDGET (info->priv->attached_to));
 		if (ctk_widget_is_toplevel (toplevel))
 		{
-			ctk_window_set_transient_for (GTK_WINDOW (info),
-						      GTK_WINDOW (toplevel));
+			ctk_window_set_transient_for (CTK_WINDOW (info),
+						      CTK_WINDOW (toplevel));
 			info->priv->transient_set = TRUE;
 		}
 	}
 
-	GTK_WIDGET_CLASS (ctk_source_completion_info_parent_class)->show (widget);
+	CTK_WIDGET_CLASS (ctk_source_completion_info_parent_class)->show (widget);
 }
 
 static gboolean
 ctk_source_completion_info_draw (GtkWidget *widget,
                                  cairo_t   *cr)
 {
-	GTK_WIDGET_CLASS (ctk_source_completion_info_parent_class)->draw (widget, cr);
+	CTK_WIDGET_CLASS (ctk_source_completion_info_parent_class)->draw (widget, cr);
 
 	ctk_render_frame (ctk_widget_get_style_context (widget),
 	                  cr,
@@ -324,8 +324,8 @@ static void
 ctk_source_completion_info_class_init (GtkSourceCompletionInfoClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
-	GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
-	GtkContainerClass *container_class = GTK_CONTAINER_CLASS (klass);
+	GtkWidgetClass *widget_class = CTK_WIDGET_CLASS (klass);
+	GtkContainerClass *container_class = CTK_CONTAINER_CLASS (klass);
 
 	object_class->dispose = ctk_source_completion_info_dispose;
 
@@ -342,7 +342,7 @@ void
 _ctk_source_completion_info_set_xoffset (GtkSourceCompletionInfo *window,
 					 gint                     xoffset)
 {
-	g_return_if_fail (GTK_SOURCE_IS_COMPLETION_INFO (window));
+	g_return_if_fail (CTK_SOURCE_IS_COMPLETION_INFO (window));
 
 	window->priv->xoffset = xoffset;
 }
@@ -361,7 +361,7 @@ get_iter_pos (GtkTextView *text_view,
 	ctk_text_view_get_iter_location (text_view, iter, &location);
 
 	ctk_text_view_buffer_to_window_coords (text_view,
-					       GTK_TEXT_WINDOW_WIDGET,
+					       CTK_TEXT_WINDOW_WIDGET,
 					       location.x,
 					       location.y,
 					       x,
@@ -380,7 +380,7 @@ move_to_iter (GtkSourceCompletionInfo *window,
 	gint x, y;
 	gint line_height;
 
-	gdk_window = ctk_widget_get_window (GTK_WIDGET (window));
+	gdk_window = ctk_widget_get_window (CTK_WIDGET (window));
 
 	if (gdk_window == NULL)
 	{
@@ -389,8 +389,8 @@ move_to_iter (GtkSourceCompletionInfo *window,
 
 	get_iter_pos (view, iter, &x, &y, &line_height);
 
-	ctk_widget_translate_coordinates (GTK_WIDGET (view),
-	                                  ctk_widget_get_toplevel (GTK_WIDGET (view)),
+	ctk_widget_translate_coordinates (CTK_WIDGET (view),
+	                                  ctk_widget_get_toplevel (CTK_WIDGET (view)),
 					  x, y, &x, &y);
 
 	position.x = x;
@@ -429,8 +429,8 @@ move_to_cursor (GtkSourceCompletionInfo *window,
 GtkSourceCompletionInfo *
 ctk_source_completion_info_new (void)
 {
-	return g_object_new (GTK_SOURCE_TYPE_COMPLETION_INFO,
-	                     "type", GTK_WINDOW_POPUP,
+	return g_object_new (CTK_SOURCE_TYPE_COMPLETION_INFO,
+	                     "type", CTK_WINDOW_POPUP,
 			     "border-width", 3,
 	                     NULL);
 }
@@ -451,8 +451,8 @@ ctk_source_completion_info_move_to_iter (GtkSourceCompletionInfo *info,
                                          GtkTextView             *view,
                                          GtkTextIter             *iter)
 {
-	g_return_if_fail (GTK_SOURCE_IS_COMPLETION_INFO (info));
-	g_return_if_fail (GTK_IS_TEXT_VIEW (view));
+	g_return_if_fail (CTK_SOURCE_IS_COMPLETION_INFO (info));
+	g_return_if_fail (CTK_IS_TEXT_VIEW (view));
 
 	if (iter == NULL)
 	{

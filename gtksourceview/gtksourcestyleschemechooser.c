@@ -58,7 +58,7 @@ ctk_source_style_scheme_chooser_default_init (GtkSourceStyleSchemeChooserInterfa
 		g_param_spec_object ("style-scheme",
 		                     "Style Scheme",
 		                     "Current style scheme",
-		                     GTK_SOURCE_TYPE_STYLE_SCHEME,
+		                     CTK_SOURCE_TYPE_STYLE_SCHEME,
 		                     G_PARAM_READWRITE));
 }
 
@@ -75,9 +75,9 @@ ctk_source_style_scheme_chooser_default_init (GtkSourceStyleSchemeChooserInterfa
 GtkSourceStyleScheme *
 ctk_source_style_scheme_chooser_get_style_scheme (GtkSourceStyleSchemeChooser *chooser)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_STYLE_SCHEME_CHOOSER (chooser), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_STYLE_SCHEME_CHOOSER (chooser), NULL);
 
-	return GTK_SOURCE_STYLE_SCHEME_CHOOSER_GET_IFACE (chooser)->get_style_scheme (chooser);
+	return CTK_SOURCE_STYLE_SCHEME_CHOOSER_GET_IFACE (chooser)->get_style_scheme (chooser);
 }
 
 /**
@@ -93,8 +93,8 @@ void
 ctk_source_style_scheme_chooser_set_style_scheme (GtkSourceStyleSchemeChooser *chooser,
                                                   GtkSourceStyleScheme        *scheme)
 {
-	g_return_if_fail (GTK_SOURCE_IS_STYLE_SCHEME_CHOOSER (chooser));
-	g_return_if_fail (GTK_SOURCE_IS_STYLE_SCHEME (scheme));
+	g_return_if_fail (CTK_SOURCE_IS_STYLE_SCHEME_CHOOSER (chooser));
+	g_return_if_fail (CTK_SOURCE_IS_STYLE_SCHEME (scheme));
 
-	GTK_SOURCE_STYLE_SCHEME_CHOOSER_GET_IFACE (chooser)->set_style_scheme (chooser, scheme);
+	CTK_SOURCE_STYLE_SCHEME_CHOOSER_GET_IFACE (chooser)->set_style_scheme (chooser, scheme);
 }

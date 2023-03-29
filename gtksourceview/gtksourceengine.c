@@ -38,10 +38,10 @@ void
 _ctk_source_engine_attach_buffer (GtkSourceEngine *engine,
 				  GtkTextBuffer   *buffer)
 {
-	g_return_if_fail (GTK_SOURCE_IS_ENGINE (engine));
-	g_return_if_fail (GTK_SOURCE_ENGINE_GET_INTERFACE (engine)->attach_buffer != NULL);
+	g_return_if_fail (CTK_SOURCE_IS_ENGINE (engine));
+	g_return_if_fail (CTK_SOURCE_ENGINE_GET_INTERFACE (engine)->attach_buffer != NULL);
 
-	GTK_SOURCE_ENGINE_GET_INTERFACE (engine)->attach_buffer (engine, buffer);
+	CTK_SOURCE_ENGINE_GET_INTERFACE (engine)->attach_buffer (engine, buffer);
 }
 
 void
@@ -49,10 +49,10 @@ _ctk_source_engine_text_inserted (GtkSourceEngine *engine,
 				  gint             start_offset,
 				  gint             end_offset)
 {
-	g_return_if_fail (GTK_SOURCE_IS_ENGINE (engine));
-	g_return_if_fail (GTK_SOURCE_ENGINE_GET_INTERFACE (engine)->text_inserted != NULL);
+	g_return_if_fail (CTK_SOURCE_IS_ENGINE (engine));
+	g_return_if_fail (CTK_SOURCE_ENGINE_GET_INTERFACE (engine)->text_inserted != NULL);
 
-	GTK_SOURCE_ENGINE_GET_INTERFACE (engine)->text_inserted (engine,
+	CTK_SOURCE_ENGINE_GET_INTERFACE (engine)->text_inserted (engine,
 								 start_offset,
 								 end_offset);
 }
@@ -62,10 +62,10 @@ _ctk_source_engine_text_deleted (GtkSourceEngine *engine,
 				 gint             offset,
 				 gint             length)
 {
-	g_return_if_fail (GTK_SOURCE_IS_ENGINE (engine));
-	g_return_if_fail (GTK_SOURCE_ENGINE_GET_INTERFACE (engine)->text_deleted != NULL);
+	g_return_if_fail (CTK_SOURCE_IS_ENGINE (engine));
+	g_return_if_fail (CTK_SOURCE_ENGINE_GET_INTERFACE (engine)->text_deleted != NULL);
 
-	GTK_SOURCE_ENGINE_GET_INTERFACE (engine)->text_deleted (engine,
+	CTK_SOURCE_ENGINE_GET_INTERFACE (engine)->text_deleted (engine,
 								offset,
 								length);
 }
@@ -76,11 +76,11 @@ _ctk_source_engine_update_highlight (GtkSourceEngine   *engine,
 				     const GtkTextIter *end,
 				     gboolean           synchronous)
 {
-	g_return_if_fail (GTK_SOURCE_IS_ENGINE (engine));
+	g_return_if_fail (CTK_SOURCE_IS_ENGINE (engine));
 	g_return_if_fail (start != NULL && end != NULL);
-	g_return_if_fail (GTK_SOURCE_ENGINE_GET_INTERFACE (engine)->update_highlight != NULL);
+	g_return_if_fail (CTK_SOURCE_ENGINE_GET_INTERFACE (engine)->update_highlight != NULL);
 
-	GTK_SOURCE_ENGINE_GET_INTERFACE (engine)->update_highlight (engine,
+	CTK_SOURCE_ENGINE_GET_INTERFACE (engine)->update_highlight (engine,
 								    start,
 								    end,
 								    synchronous);
@@ -90,9 +90,9 @@ void
 _ctk_source_engine_set_style_scheme (GtkSourceEngine      *engine,
 				     GtkSourceStyleScheme *scheme)
 {
-	g_return_if_fail (GTK_SOURCE_IS_ENGINE (engine));
-	g_return_if_fail (GTK_SOURCE_IS_STYLE_SCHEME (scheme) || scheme == NULL);
-	g_return_if_fail (GTK_SOURCE_ENGINE_GET_INTERFACE (engine)->set_style_scheme != NULL);
+	g_return_if_fail (CTK_SOURCE_IS_ENGINE (engine));
+	g_return_if_fail (CTK_SOURCE_IS_STYLE_SCHEME (scheme) || scheme == NULL);
+	g_return_if_fail (CTK_SOURCE_ENGINE_GET_INTERFACE (engine)->set_style_scheme != NULL);
 
-	GTK_SOURCE_ENGINE_GET_INTERFACE (engine)->set_style_scheme (engine, scheme);
+	CTK_SOURCE_ENGINE_GET_INTERFACE (engine)->set_style_scheme (engine, scheme);
 }

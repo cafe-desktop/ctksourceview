@@ -18,10 +18,10 @@
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTK_SOURCE_FILE_H
-#define GTK_SOURCE_FILE_H
+#ifndef CTK_SOURCE_FILE_H
+#define CTK_SOURCE_FILE_H
 
-#if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
+#if !defined (CTK_SOURCE_H_INSIDE) && !defined (CTK_SOURCE_COMPILATION)
 #error "Only <ctksourceview/ctksource.h> can be included directly."
 #endif
 
@@ -30,56 +30,56 @@
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_FILE             (ctk_source_file_get_type ())
-#define GTK_SOURCE_FILE(obj)             (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_FILE, GtkSourceFile))
-#define GTK_SOURCE_FILE_CLASS(klass)     (G_TYPE_CHECK_CLASS_CAST ((klass), GTK_SOURCE_TYPE_FILE, GtkSourceFileClass))
-#define GTK_SOURCE_IS_FILE(obj)          (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_SOURCE_TYPE_FILE))
-#define GTK_SOURCE_IS_FILE_CLASS(klass)  (G_TYPE_CHECK_CLASS_TYPE ((klass), GTK_SOURCE_TYPE_FILE))
-#define GTK_SOURCE_FILE_GET_CLASS(obj)   (G_TYPE_INSTANCE_GET_CLASS ((obj), GTK_SOURCE_TYPE_FILE, GtkSourceFileClass))
+#define CTK_SOURCE_TYPE_FILE             (ctk_source_file_get_type ())
+#define CTK_SOURCE_FILE(obj)             (G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_FILE, GtkSourceFile))
+#define CTK_SOURCE_FILE_CLASS(klass)     (G_TYPE_CHECK_CLASS_CAST ((klass), CTK_SOURCE_TYPE_FILE, GtkSourceFileClass))
+#define CTK_SOURCE_IS_FILE(obj)          (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CTK_SOURCE_TYPE_FILE))
+#define CTK_SOURCE_IS_FILE_CLASS(klass)  (G_TYPE_CHECK_CLASS_TYPE ((klass), CTK_SOURCE_TYPE_FILE))
+#define CTK_SOURCE_FILE_GET_CLASS(obj)   (G_TYPE_INSTANCE_GET_CLASS ((obj), CTK_SOURCE_TYPE_FILE, GtkSourceFileClass))
 
 typedef struct _GtkSourceFileClass    GtkSourceFileClass;
 typedef struct _GtkSourceFilePrivate  GtkSourceFilePrivate;
 
 /**
  * GtkSourceNewlineType:
- * @GTK_SOURCE_NEWLINE_TYPE_LF: line feed, used on UNIX.
- * @GTK_SOURCE_NEWLINE_TYPE_CR: carriage return, used on Mac.
- * @GTK_SOURCE_NEWLINE_TYPE_CR_LF: carriage return followed by a line feed, used
+ * @CTK_SOURCE_NEWLINE_TYPE_LF: line feed, used on UNIX.
+ * @CTK_SOURCE_NEWLINE_TYPE_CR: carriage return, used on Mac.
+ * @CTK_SOURCE_NEWLINE_TYPE_CR_LF: carriage return followed by a line feed, used
  *   on Windows.
  *
  * Since: 3.14
  */
 typedef enum _GtkSourceNewlineType
 {
-	GTK_SOURCE_NEWLINE_TYPE_LF,
-	GTK_SOURCE_NEWLINE_TYPE_CR,
-	GTK_SOURCE_NEWLINE_TYPE_CR_LF
+	CTK_SOURCE_NEWLINE_TYPE_LF,
+	CTK_SOURCE_NEWLINE_TYPE_CR,
+	CTK_SOURCE_NEWLINE_TYPE_CR_LF
 } GtkSourceNewlineType;
 
 /**
- * GTK_SOURCE_NEWLINE_TYPE_DEFAULT:
+ * CTK_SOURCE_NEWLINE_TYPE_DEFAULT:
  *
  * The default newline type on the current OS.
  *
  * Since: 3.14
  */
 #ifdef G_OS_WIN32
-#define GTK_SOURCE_NEWLINE_TYPE_DEFAULT GTK_SOURCE_NEWLINE_TYPE_CR_LF
+#define CTK_SOURCE_NEWLINE_TYPE_DEFAULT CTK_SOURCE_NEWLINE_TYPE_CR_LF
 #else
-#define GTK_SOURCE_NEWLINE_TYPE_DEFAULT GTK_SOURCE_NEWLINE_TYPE_LF
+#define CTK_SOURCE_NEWLINE_TYPE_DEFAULT CTK_SOURCE_NEWLINE_TYPE_LF
 #endif
 
 /**
  * GtkSourceCompressionType:
- * @GTK_SOURCE_COMPRESSION_TYPE_NONE: plain text.
- * @GTK_SOURCE_COMPRESSION_TYPE_GZIP: gzip compression.
+ * @CTK_SOURCE_COMPRESSION_TYPE_NONE: plain text.
+ * @CTK_SOURCE_COMPRESSION_TYPE_GZIP: gzip compression.
  *
  * Since: 3.14
  */
 typedef enum _GtkSourceCompressionType
 {
-	GTK_SOURCE_COMPRESSION_TYPE_NONE,
-	GTK_SOURCE_COMPRESSION_TYPE_GZIP
+	CTK_SOURCE_COMPRESSION_TYPE_NONE,
+	CTK_SOURCE_COMPRESSION_TYPE_GZIP
 } GtkSourceCompressionType;
 
 /**
@@ -109,50 +109,50 @@ struct _GtkSourceFileClass
 	gpointer padding[10];
 };
 
-GTK_SOURCE_AVAILABLE_IN_3_14
+CTK_SOURCE_AVAILABLE_IN_3_14
 GType		 ctk_source_file_get_type			(void) G_GNUC_CONST;
 
-GTK_SOURCE_AVAILABLE_IN_3_14
+CTK_SOURCE_AVAILABLE_IN_3_14
 GtkSourceFile	*ctk_source_file_new				(void);
 
-GTK_SOURCE_AVAILABLE_IN_3_14
+CTK_SOURCE_AVAILABLE_IN_3_14
 GFile		*ctk_source_file_get_location			(GtkSourceFile *file);
 
-GTK_SOURCE_AVAILABLE_IN_3_14
+CTK_SOURCE_AVAILABLE_IN_3_14
 void		 ctk_source_file_set_location			(GtkSourceFile *file,
 								 GFile         *location);
 
-GTK_SOURCE_AVAILABLE_IN_3_14
+CTK_SOURCE_AVAILABLE_IN_3_14
 const GtkSourceEncoding *
 		 ctk_source_file_get_encoding			(GtkSourceFile *file);
 
-GTK_SOURCE_AVAILABLE_IN_3_14
+CTK_SOURCE_AVAILABLE_IN_3_14
 GtkSourceNewlineType
 		 ctk_source_file_get_newline_type		(GtkSourceFile *file);
 
-GTK_SOURCE_AVAILABLE_IN_3_14
+CTK_SOURCE_AVAILABLE_IN_3_14
 GtkSourceCompressionType
 		 ctk_source_file_get_compression_type		(GtkSourceFile *file);
 
-GTK_SOURCE_AVAILABLE_IN_3_14
+CTK_SOURCE_AVAILABLE_IN_3_14
 void		 ctk_source_file_set_mount_operation_factory	(GtkSourceFile                  *file,
 								 GtkSourceMountOperationFactory  callback,
 								 gpointer                        user_data,
 								 GDestroyNotify                  notify);
 
-GTK_SOURCE_AVAILABLE_IN_3_18
+CTK_SOURCE_AVAILABLE_IN_3_18
 void		 ctk_source_file_check_file_on_disk		(GtkSourceFile *file);
 
-GTK_SOURCE_AVAILABLE_IN_3_18
+CTK_SOURCE_AVAILABLE_IN_3_18
 gboolean	 ctk_source_file_is_local			(GtkSourceFile *file);
 
-GTK_SOURCE_AVAILABLE_IN_3_18
+CTK_SOURCE_AVAILABLE_IN_3_18
 gboolean	 ctk_source_file_is_externally_modified		(GtkSourceFile *file);
 
-GTK_SOURCE_AVAILABLE_IN_3_18
+CTK_SOURCE_AVAILABLE_IN_3_18
 gboolean	 ctk_source_file_is_deleted			(GtkSourceFile *file);
 
-GTK_SOURCE_AVAILABLE_IN_3_18
+CTK_SOURCE_AVAILABLE_IN_3_18
 gboolean	 ctk_source_file_is_readonly			(GtkSourceFile *file);
 
 G_GNUC_INTERNAL
@@ -194,4 +194,4 @@ void		 _ctk_source_file_set_readonly			(GtkSourceFile *file,
 
 G_END_DECLS
 
-#endif /* GTK_SOURCE_FILE_H */
+#endif /* CTK_SOURCE_FILE_H */

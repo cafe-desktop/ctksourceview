@@ -40,7 +40,7 @@ struct _GtkSourceGutterRendererPixbufPrivate
 	GtkSourcePixbufHelper *helper;
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceGutterRendererPixbuf, ctk_source_gutter_renderer_pixbuf, GTK_SOURCE_TYPE_GUTTER_RENDERER)
+G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceGutterRendererPixbuf, ctk_source_gutter_renderer_pixbuf, CTK_SOURCE_TYPE_GUTTER_RENDERER)
 
 enum
 {
@@ -89,7 +89,7 @@ gutter_renderer_pixbuf_draw (GtkSourceGutterRenderer      *renderer,
                              GtkTextIter                  *end,
                              GtkSourceGutterRendererState  state)
 {
-	GtkSourceGutterRendererPixbuf *pix = GTK_SOURCE_GUTTER_RENDERER_PIXBUF (renderer);
+	GtkSourceGutterRendererPixbuf *pix = CTK_SOURCE_GUTTER_RENDERER_PIXBUF (renderer);
 	gint width;
 	gint height;
 	gfloat xalign;
@@ -103,9 +103,9 @@ gutter_renderer_pixbuf_draw (GtkSourceGutterRenderer      *renderer,
 	cairo_surface_t *surface;
 
 	/* Chain up to draw background */
-	if (GTK_SOURCE_GUTTER_RENDERER_CLASS (ctk_source_gutter_renderer_pixbuf_parent_class)->draw != NULL)
+	if (CTK_SOURCE_GUTTER_RENDERER_CLASS (ctk_source_gutter_renderer_pixbuf_parent_class)->draw != NULL)
 	{
-		GTK_SOURCE_GUTTER_RENDERER_CLASS (ctk_source_gutter_renderer_pixbuf_parent_class)->draw (renderer,
+		CTK_SOURCE_GUTTER_RENDERER_CLASS (ctk_source_gutter_renderer_pixbuf_parent_class)->draw (renderer,
 													 cr,
 													 background_area,
 													 cell_area,
@@ -117,7 +117,7 @@ gutter_renderer_pixbuf_draw (GtkSourceGutterRenderer      *renderer,
 	view = ctk_source_gutter_renderer_get_view (renderer);
 
 	pixbuf = ctk_source_pixbuf_helper_render (pix->priv->helper,
-	                                          GTK_WIDGET (view),
+	                                          CTK_WIDGET (view),
 	                                          cell_area->width);
 
 	if (!pixbuf)
@@ -134,7 +134,7 @@ gutter_renderer_pixbuf_draw (GtkSourceGutterRenderer      *renderer,
 	 * different size back and then gdk_cairo_surface_create_from_pixbuf()
 	 * will take care of the rest.
 	 */
-	scale = ctk_widget_get_scale_factor (GTK_WIDGET (view));
+	scale = ctk_widget_get_scale_factor (CTK_WIDGET (view));
 	if ((scale > 1) &&
 	    ((width > cell_area->width) || (height > cell_area->height)) &&
 	    (width <= (cell_area->width * scale)) &&
@@ -152,11 +152,11 @@ gutter_renderer_pixbuf_draw (GtkSourceGutterRenderer      *renderer,
 
 	switch (mode)
 	{
-		case GTK_SOURCE_GUTTER_RENDERER_ALIGNMENT_MODE_CELL:
+		case CTK_SOURCE_GUTTER_RENDERER_ALIGNMENT_MODE_CELL:
 			x = cell_area->x + (cell_area->width - width) * xalign;
 			y = cell_area->y + (cell_area->height - height) * yalign;
 			break;
-		case GTK_SOURCE_GUTTER_RENDERER_ALIGNMENT_MODE_FIRST:
+		case CTK_SOURCE_GUTTER_RENDERER_ALIGNMENT_MODE_FIRST:
 			center_on (renderer,
 			           cell_area,
 			           start,
@@ -167,7 +167,7 @@ gutter_renderer_pixbuf_draw (GtkSourceGutterRenderer      *renderer,
 			           &x,
 			           &y);
 			break;
-		case GTK_SOURCE_GUTTER_RENDERER_ALIGNMENT_MODE_LAST:
+		case CTK_SOURCE_GUTTER_RENDERER_ALIGNMENT_MODE_LAST:
 			center_on (renderer,
 			           cell_area,
 			           end,
@@ -193,7 +193,7 @@ gutter_renderer_pixbuf_draw (GtkSourceGutterRenderer      *renderer,
 static void
 ctk_source_gutter_renderer_pixbuf_finalize (GObject *object)
 {
-	GtkSourceGutterRendererPixbuf *renderer = GTK_SOURCE_GUTTER_RENDERER_PIXBUF (object);
+	GtkSourceGutterRendererPixbuf *renderer = CTK_SOURCE_GUTTER_RENDERER_PIXBUF (object);
 
 	ctk_source_pixbuf_helper_free (renderer->priv->helper);
 
@@ -209,7 +209,7 @@ set_pixbuf (GtkSourceGutterRendererPixbuf *renderer,
 
 	g_object_notify (G_OBJECT (renderer), "pixbuf");
 
-	ctk_source_gutter_renderer_queue_draw (GTK_SOURCE_GUTTER_RENDERER (renderer));
+	ctk_source_gutter_renderer_queue_draw (CTK_SOURCE_GUTTER_RENDERER (renderer));
 }
 
 static void
@@ -221,7 +221,7 @@ set_gicon (GtkSourceGutterRendererPixbuf *renderer,
 
 	g_object_notify (G_OBJECT (renderer), "gicon");
 
-	ctk_source_gutter_renderer_queue_draw (GTK_SOURCE_GUTTER_RENDERER (renderer));
+	ctk_source_gutter_renderer_queue_draw (CTK_SOURCE_GUTTER_RENDERER (renderer));
 }
 
 static void
@@ -233,7 +233,7 @@ set_icon_name (GtkSourceGutterRendererPixbuf *renderer,
 
 	g_object_notify (G_OBJECT (renderer), "icon-name");
 
-	ctk_source_gutter_renderer_queue_draw (GTK_SOURCE_GUTTER_RENDERER (renderer));
+	ctk_source_gutter_renderer_queue_draw (CTK_SOURCE_GUTTER_RENDERER (renderer));
 }
 
 
@@ -245,7 +245,7 @@ ctk_source_gutter_renderer_pixbuf_set_property (GObject      *object,
 {
 	GtkSourceGutterRendererPixbuf *renderer;
 
-	renderer = GTK_SOURCE_GUTTER_RENDERER_PIXBUF (object);
+	renderer = CTK_SOURCE_GUTTER_RENDERER_PIXBUF (object);
 
 	switch (prop_id)
 	{
@@ -272,7 +272,7 @@ ctk_source_gutter_renderer_pixbuf_get_property (GObject    *object,
 {
 	GtkSourceGutterRendererPixbuf *renderer;
 
-	renderer = GTK_SOURCE_GUTTER_RENDERER_PIXBUF (object);
+	renderer = CTK_SOURCE_GUTTER_RENDERER_PIXBUF (object);
 
 	switch (prop_id)
 	{
@@ -298,7 +298,7 @@ static void
 ctk_source_gutter_renderer_pixbuf_class_init (GtkSourceGutterRendererPixbufClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
-	GtkSourceGutterRendererClass *renderer_class = GTK_SOURCE_GUTTER_RENDERER_CLASS (klass);
+	GtkSourceGutterRendererClass *renderer_class = CTK_SOURCE_GUTTER_RENDERER_CLASS (klass);
 
 	object_class->finalize = ctk_source_gutter_renderer_pixbuf_finalize;
 
@@ -351,7 +351,7 @@ ctk_source_gutter_renderer_pixbuf_init (GtkSourceGutterRendererPixbuf *self)
 GtkSourceGutterRenderer *
 ctk_source_gutter_renderer_pixbuf_new (void)
 {
-	return g_object_new (GTK_SOURCE_TYPE_GUTTER_RENDERER_PIXBUF, NULL);
+	return g_object_new (CTK_SOURCE_TYPE_GUTTER_RENDERER_PIXBUF, NULL);
 }
 
 /**
@@ -363,7 +363,7 @@ void
 ctk_source_gutter_renderer_pixbuf_set_pixbuf (GtkSourceGutterRendererPixbuf *renderer,
                                               GdkPixbuf                     *pixbuf)
 {
-	g_return_if_fail (GTK_SOURCE_IS_GUTTER_RENDERER_PIXBUF (renderer));
+	g_return_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER_PIXBUF (renderer));
 	g_return_if_fail (renderer == NULL || GDK_IS_PIXBUF (pixbuf));
 
 	set_pixbuf (renderer, pixbuf);
@@ -382,7 +382,7 @@ ctk_source_gutter_renderer_pixbuf_set_pixbuf (GtkSourceGutterRendererPixbuf *ren
 GdkPixbuf *
 ctk_source_gutter_renderer_pixbuf_get_pixbuf (GtkSourceGutterRendererPixbuf *renderer)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_GUTTER_RENDERER_PIXBUF (renderer), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER_PIXBUF (renderer), NULL);
 
 	return ctk_source_pixbuf_helper_get_pixbuf (renderer->priv->helper);
 }
@@ -396,7 +396,7 @@ void
 ctk_source_gutter_renderer_pixbuf_set_gicon (GtkSourceGutterRendererPixbuf *renderer,
                                              GIcon                         *icon)
 {
-	g_return_if_fail (GTK_SOURCE_IS_GUTTER_RENDERER_PIXBUF (renderer));
+	g_return_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER_PIXBUF (renderer));
 	g_return_if_fail (icon == NULL || G_IS_ICON (icon));
 
 	set_gicon (renderer, icon);
@@ -414,7 +414,7 @@ ctk_source_gutter_renderer_pixbuf_set_gicon (GtkSourceGutterRendererPixbuf *rend
 GIcon *
 ctk_source_gutter_renderer_pixbuf_get_gicon (GtkSourceGutterRendererPixbuf *renderer)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_GUTTER_RENDERER_PIXBUF (renderer), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER_PIXBUF (renderer), NULL);
 
 	return ctk_source_pixbuf_helper_get_gicon (renderer->priv->helper);
 }
@@ -428,7 +428,7 @@ void
 ctk_source_gutter_renderer_pixbuf_set_icon_name (GtkSourceGutterRendererPixbuf *renderer,
                                                  const gchar                   *icon_name)
 {
-	g_return_if_fail (GTK_SOURCE_IS_GUTTER_RENDERER_PIXBUF (renderer));
+	g_return_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER_PIXBUF (renderer));
 
 	set_icon_name (renderer, icon_name);
 }
@@ -436,7 +436,7 @@ ctk_source_gutter_renderer_pixbuf_set_icon_name (GtkSourceGutterRendererPixbuf *
 const gchar *
 ctk_source_gutter_renderer_pixbuf_get_icon_name (GtkSourceGutterRendererPixbuf *renderer)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_GUTTER_RENDERER_PIXBUF (renderer), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER_PIXBUF (renderer), NULL);
 
 	return ctk_source_pixbuf_helper_get_icon_name (renderer->priv->helper);
 }

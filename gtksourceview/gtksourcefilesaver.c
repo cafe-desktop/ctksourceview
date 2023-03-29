@@ -174,7 +174,7 @@ ctk_source_file_saver_set_property (GObject      *object,
 				    const GValue *value,
 				    GParamSpec   *pspec)
 {
-	GtkSourceFileSaver *saver = GTK_SOURCE_FILE_SAVER (object);
+	GtkSourceFileSaver *saver = CTK_SOURCE_FILE_SAVER (object);
 
 	switch (prop_id)
 	{
@@ -225,7 +225,7 @@ ctk_source_file_saver_get_property (GObject    *object,
 				    GValue     *value,
 				    GParamSpec *pspec)
 {
-	GtkSourceFileSaver *saver = GTK_SOURCE_FILE_SAVER (object);
+	GtkSourceFileSaver *saver = CTK_SOURCE_FILE_SAVER (object);
 
 	switch (prop_id)
 	{
@@ -266,7 +266,7 @@ ctk_source_file_saver_get_property (GObject    *object,
 static void
 ctk_source_file_saver_dispose (GObject *object)
 {
-	GtkSourceFileSaver *saver = GTK_SOURCE_FILE_SAVER (object);
+	GtkSourceFileSaver *saver = CTK_SOURCE_FILE_SAVER (object);
 
 	if (saver->priv->source_buffer != NULL)
 	{
@@ -293,7 +293,7 @@ ctk_source_file_saver_dispose (GObject *object)
 static void
 ctk_source_file_saver_constructed (GObject *object)
 {
-	GtkSourceFileSaver *saver = GTK_SOURCE_FILE_SAVER (object);
+	GtkSourceFileSaver *saver = CTK_SOURCE_FILE_SAVER (object);
 
 	if (saver->priv->file != NULL)
 	{
@@ -352,7 +352,7 @@ ctk_source_file_saver_class_init (GtkSourceFileSaverClass *klass)
 					 g_param_spec_object ("buffer",
 							      "GtkSourceBuffer",
 							      "",
-							      GTK_SOURCE_TYPE_BUFFER,
+							      CTK_SOURCE_TYPE_BUFFER,
 							      G_PARAM_READWRITE |
 							      G_PARAM_CONSTRUCT_ONLY |
 							      G_PARAM_STATIC_STRINGS));
@@ -370,7 +370,7 @@ ctk_source_file_saver_class_init (GtkSourceFileSaverClass *klass)
 					 g_param_spec_object ("file",
 							      "GtkSourceFile",
 							      "",
-							      GTK_SOURCE_TYPE_FILE,
+							      CTK_SOURCE_TYPE_FILE,
 							      G_PARAM_READWRITE |
 							      G_PARAM_CONSTRUCT_ONLY |
 							      G_PARAM_STATIC_STRINGS));
@@ -405,7 +405,7 @@ ctk_source_file_saver_class_init (GtkSourceFileSaverClass *klass)
 					 g_param_spec_boxed ("encoding",
 							     "Encoding",
 							     "",
-							     GTK_SOURCE_TYPE_ENCODING,
+							     CTK_SOURCE_TYPE_ENCODING,
 							     G_PARAM_READWRITE |
 							     G_PARAM_CONSTRUCT |
 							     G_PARAM_STATIC_STRINGS));
@@ -422,8 +422,8 @@ ctk_source_file_saver_class_init (GtkSourceFileSaverClass *klass)
 					 g_param_spec_enum ("newline-type",
 					                    "Newline type",
 							    "",
-					                    GTK_SOURCE_TYPE_NEWLINE_TYPE,
-					                    GTK_SOURCE_NEWLINE_TYPE_LF,
+					                    CTK_SOURCE_TYPE_NEWLINE_TYPE,
+					                    CTK_SOURCE_NEWLINE_TYPE_LF,
 					                    G_PARAM_READWRITE |
 					                    G_PARAM_CONSTRUCT |
 							    G_PARAM_STATIC_STRINGS));
@@ -440,8 +440,8 @@ ctk_source_file_saver_class_init (GtkSourceFileSaverClass *klass)
 					 g_param_spec_enum ("compression-type",
 					                    "Compression type",
 					                    "",
-					                    GTK_SOURCE_TYPE_COMPRESSION_TYPE,
-					                    GTK_SOURCE_COMPRESSION_TYPE_NONE,
+					                    CTK_SOURCE_TYPE_COMPRESSION_TYPE,
+					                    CTK_SOURCE_COMPRESSION_TYPE_NONE,
 					                    G_PARAM_READWRITE |
 					                    G_PARAM_CONSTRUCT |
 							    G_PARAM_STATIC_STRINGS));
@@ -458,8 +458,8 @@ ctk_source_file_saver_class_init (GtkSourceFileSaverClass *klass)
 					 g_param_spec_flags ("flags",
 							     "Flags",
 							     "",
-							     GTK_SOURCE_TYPE_FILE_SAVER_FLAGS,
-							     GTK_SOURCE_FILE_SAVER_FLAGS_NONE,
+							     CTK_SOURCE_TYPE_FILE_SAVER_FLAGS,
+							     CTK_SOURCE_FILE_SAVER_FLAGS_NONE,
 							     G_PARAM_READWRITE |
 							     G_PARAM_CONSTRUCT |
 							     G_PARAM_STATIC_STRINGS));
@@ -470,7 +470,7 @@ ctk_source_file_saver_class_init (GtkSourceFileSaverClass *klass)
 	 *
 	 * See https://bugzilla.gnome.org/show_bug.cgi?id=780216
 	 */
-	g_type_ensure (GTK_SOURCE_TYPE_BUFFER_INPUT_STREAM);
+	g_type_ensure (CTK_SOURCE_TYPE_BUFFER_INPUT_STREAM);
 }
 
 static void
@@ -827,7 +827,7 @@ replace_file_cb (GObject      *source_object,
 		return;
 	}
 
-	if (saver->priv->compression_type == GTK_SOURCE_COMPRESSION_TYPE_GZIP)
+	if (saver->priv->compression_type == CTK_SOURCE_COMPRESSION_TYPE_GZIP)
 	{
 		GZlibCompressor *compressor;
 
@@ -893,7 +893,7 @@ begin_write (GTask *task)
 
 	saver = g_task_get_source_object (task);
 
-	create_backup = (saver->priv->flags & GTK_SOURCE_FILE_SAVER_FLAGS_CREATE_BACKUP) != 0;
+	create_backup = (saver->priv->flags & CTK_SOURCE_FILE_SAVER_FLAGS_CREATE_BACKUP) != 0;
 
 	DEBUG ({
 	       g_print ("Start replacing file contents\n");
@@ -970,8 +970,8 @@ check_externally_modified_cb (GObject      *source_object,
 			});
 
 			g_task_return_new_error (task,
-						 GTK_SOURCE_FILE_SAVER_ERROR,
-						 GTK_SOURCE_FILE_SAVER_ERROR_EXTERNALLY_MODIFIED,
+						 CTK_SOURCE_FILE_SAVER_ERROR,
+						 CTK_SOURCE_FILE_SAVER_ERROR_EXTERNALLY_MODIFIED,
 						 _("The file is externally modified."));
 			g_object_unref (info);
 			return;
@@ -1008,7 +1008,7 @@ check_externally_modified (GTask *task)
 			   !g_file_equal (prev_location, saver->priv->location));
 	}
 
-	if (saver->priv->flags & GTK_SOURCE_FILE_SAVER_FLAGS_IGNORE_MODIFICATION_TIME ||
+	if (saver->priv->flags & CTK_SOURCE_FILE_SAVER_FLAGS_IGNORE_MODIFICATION_TIME ||
 	    save_as)
 	{
 		begin_write (task);
@@ -1111,10 +1111,10 @@ GtkSourceFileSaver *
 ctk_source_file_saver_new (GtkSourceBuffer *buffer,
 			   GtkSourceFile   *file)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_BUFFER (buffer), NULL);
-	g_return_val_if_fail (GTK_SOURCE_IS_FILE (file), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER (buffer), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_FILE (file), NULL);
 
-	return g_object_new (GTK_SOURCE_TYPE_FILE_SAVER,
+	return g_object_new (CTK_SOURCE_TYPE_FILE_SAVER,
 			     "buffer", buffer,
 			     "file", file,
 			     NULL);
@@ -1142,11 +1142,11 @@ ctk_source_file_saver_new_with_target (GtkSourceBuffer *buffer,
 				       GtkSourceFile   *file,
 				       GFile           *target_location)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_BUFFER (buffer), NULL);
-	g_return_val_if_fail (GTK_SOURCE_IS_FILE (file), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER (buffer), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_FILE (file), NULL);
 	g_return_val_if_fail (G_IS_FILE (target_location), NULL);
 
-	return g_object_new (GTK_SOURCE_TYPE_FILE_SAVER,
+	return g_object_new (CTK_SOURCE_TYPE_FILE_SAVER,
 			     "buffer", buffer,
 			     "file", file,
 			     "location", target_location,
@@ -1163,7 +1163,7 @@ ctk_source_file_saver_new_with_target (GtkSourceBuffer *buffer,
 GtkSourceBuffer *
 ctk_source_file_saver_get_buffer (GtkSourceFileSaver *saver)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_FILE_SAVER (saver), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_FILE_SAVER (saver), NULL);
 
 	return saver->priv->source_buffer;
 }
@@ -1178,7 +1178,7 @@ ctk_source_file_saver_get_buffer (GtkSourceFileSaver *saver)
 GtkSourceFile *
 ctk_source_file_saver_get_file (GtkSourceFileSaver *saver)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_FILE_SAVER (saver), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_FILE_SAVER (saver), NULL);
 
 	return saver->priv->file;
 }
@@ -1193,7 +1193,7 @@ ctk_source_file_saver_get_file (GtkSourceFileSaver *saver)
 GFile *
 ctk_source_file_saver_get_location (GtkSourceFileSaver *saver)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_FILE_SAVER (saver), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_FILE_SAVER (saver), NULL);
 
 	return saver->priv->location;
 }
@@ -1212,7 +1212,7 @@ void
 ctk_source_file_saver_set_encoding (GtkSourceFileSaver      *saver,
 				    const GtkSourceEncoding *encoding)
 {
-	g_return_if_fail (GTK_SOURCE_IS_FILE_SAVER (saver));
+	g_return_if_fail (CTK_SOURCE_IS_FILE_SAVER (saver));
 	g_return_if_fail (saver->priv->task == NULL);
 
 	if (encoding == NULL)
@@ -1237,7 +1237,7 @@ ctk_source_file_saver_set_encoding (GtkSourceFileSaver      *saver,
 const GtkSourceEncoding *
 ctk_source_file_saver_get_encoding (GtkSourceFileSaver *saver)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_FILE_SAVER (saver), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_FILE_SAVER (saver), NULL);
 
 	return saver->priv->encoding;
 }
@@ -1256,7 +1256,7 @@ void
 ctk_source_file_saver_set_newline_type (GtkSourceFileSaver   *saver,
 					GtkSourceNewlineType  newline_type)
 {
-	g_return_if_fail (GTK_SOURCE_IS_FILE_SAVER (saver));
+	g_return_if_fail (CTK_SOURCE_IS_FILE_SAVER (saver));
 	g_return_if_fail (saver->priv->task == NULL);
 
 	if (saver->priv->newline_type != newline_type)
@@ -1276,7 +1276,7 @@ ctk_source_file_saver_set_newline_type (GtkSourceFileSaver   *saver,
 GtkSourceNewlineType
 ctk_source_file_saver_get_newline_type (GtkSourceFileSaver *saver)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_FILE_SAVER (saver), GTK_SOURCE_NEWLINE_TYPE_DEFAULT);
+	g_return_val_if_fail (CTK_SOURCE_IS_FILE_SAVER (saver), CTK_SOURCE_NEWLINE_TYPE_DEFAULT);
 
 	return saver->priv->newline_type;
 }
@@ -1295,7 +1295,7 @@ void
 ctk_source_file_saver_set_compression_type (GtkSourceFileSaver       *saver,
 					    GtkSourceCompressionType  compression_type)
 {
-	g_return_if_fail (GTK_SOURCE_IS_FILE_SAVER (saver));
+	g_return_if_fail (CTK_SOURCE_IS_FILE_SAVER (saver));
 	g_return_if_fail (saver->priv->task == NULL);
 
 	if (saver->priv->compression_type != compression_type)
@@ -1315,7 +1315,7 @@ ctk_source_file_saver_set_compression_type (GtkSourceFileSaver       *saver,
 GtkSourceCompressionType
 ctk_source_file_saver_get_compression_type (GtkSourceFileSaver *saver)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_FILE_SAVER (saver), GTK_SOURCE_COMPRESSION_TYPE_NONE);
+	g_return_val_if_fail (CTK_SOURCE_IS_FILE_SAVER (saver), CTK_SOURCE_COMPRESSION_TYPE_NONE);
 
 	return saver->priv->compression_type;
 }
@@ -1331,7 +1331,7 @@ void
 ctk_source_file_saver_set_flags (GtkSourceFileSaver      *saver,
 				 GtkSourceFileSaverFlags  flags)
 {
-	g_return_if_fail (GTK_SOURCE_IS_FILE_SAVER (saver));
+	g_return_if_fail (CTK_SOURCE_IS_FILE_SAVER (saver));
 	g_return_if_fail (saver->priv->task == NULL);
 
 	if (saver->priv->flags != flags)
@@ -1351,7 +1351,7 @@ ctk_source_file_saver_set_flags (GtkSourceFileSaver      *saver,
 GtkSourceFileSaverFlags
 ctk_source_file_saver_get_flags (GtkSourceFileSaver *saver)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_FILE_SAVER (saver), GTK_SOURCE_FILE_SAVER_FLAGS_NONE);
+	g_return_val_if_fail (CTK_SOURCE_IS_FILE_SAVER (saver), CTK_SOURCE_FILE_SAVER_FLAGS_NONE);
 
 	return saver->priv->flags;
 }
@@ -1395,7 +1395,7 @@ ctk_source_file_saver_save_async (GtkSourceFileSaver     *saver,
 	gboolean check_invalid_chars;
 	gboolean implicit_trailing_newline;
 
-	g_return_if_fail (GTK_SOURCE_IS_FILE_SAVER (saver));
+	g_return_if_fail (CTK_SOURCE_IS_FILE_SAVER (saver));
 	g_return_if_fail (cancellable == NULL || G_IS_CANCELLABLE (cancellable));
 	g_return_if_fail (saver->priv->task == NULL);
 
@@ -1417,13 +1417,13 @@ ctk_source_file_saver_save_async (GtkSourceFileSaver     *saver,
 		return;
 	}
 
-	check_invalid_chars = (saver->priv->flags & GTK_SOURCE_FILE_SAVER_FLAGS_IGNORE_INVALID_CHARS) == 0;
+	check_invalid_chars = (saver->priv->flags & CTK_SOURCE_FILE_SAVER_FLAGS_IGNORE_INVALID_CHARS) == 0;
 
 	if (check_invalid_chars && _ctk_source_buffer_has_invalid_chars (saver->priv->source_buffer))
 	{
 		g_task_return_new_error (saver->priv->task,
-					 GTK_SOURCE_FILE_SAVER_ERROR,
-					 GTK_SOURCE_FILE_SAVER_ERROR_INVALID_CHARS,
+					 CTK_SOURCE_FILE_SAVER_ERROR,
+					 CTK_SOURCE_FILE_SAVER_ERROR_INVALID_CHARS,
 					 _("The buffer contains invalid characters."));
 		return;
 	}
@@ -1438,7 +1438,7 @@ ctk_source_file_saver_save_async (GtkSourceFileSaver     *saver,
 	 * We create the BufferInputStream here so we are sure that the
 	 * buffer will not be destroyed during the file saving.
 	 */
-	task_data->input_stream = _ctk_source_buffer_input_stream_new (GTK_TEXT_BUFFER (saver->priv->source_buffer),
+	task_data->input_stream = _ctk_source_buffer_input_stream_new (CTK_TEXT_BUFFER (saver->priv->source_buffer),
 								       saver->priv->newline_type,
 								       implicit_trailing_newline);
 
@@ -1470,7 +1470,7 @@ ctk_source_file_saver_save_finish (GtkSourceFileSaver  *saver,
 {
 	gboolean ok;
 
-	g_return_val_if_fail (GTK_SOURCE_IS_FILE_SAVER (saver), FALSE);
+	g_return_val_if_fail (CTK_SOURCE_IS_FILE_SAVER (saver), FALSE);
 	g_return_val_if_fail (error == NULL || *error == NULL, FALSE);
 	g_return_val_if_fail (g_task_is_valid (result, saver), FALSE);
 
@@ -1509,7 +1509,7 @@ ctk_source_file_saver_save_finish (GtkSourceFileSaver  *saver,
 
 	if (ok && saver->priv->source_buffer != NULL)
 	{
-		ctk_text_buffer_set_modified (GTK_TEXT_BUFFER (saver->priv->source_buffer),
+		ctk_text_buffer_set_modified (CTK_TEXT_BUFFER (saver->priv->source_buffer),
 					      FALSE);
 	}
 

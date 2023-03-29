@@ -18,8 +18,8 @@
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTK_SOURCE_GUTTER_RENDERER_PRIVATE_H
-#define GTK_SOURCE_GUTTER_RENDERER_PRIVATE_H
+#ifndef CTK_SOURCE_GUTTER_RENDERER_PRIVATE_H
+#define CTK_SOURCE_GUTTER_RENDERER_PRIVATE_H
 
 #include <ctk/ctk.h>
 #include "ctksourcetypes.h"
@@ -33,4 +33,4 @@ void _ctk_source_gutter_renderer_set_view         (GtkSourceGutterRenderer *rend
 
 G_END_DECLS
 
-#endif /* GTK_SOURCE_GUTTER_RENDERER_PRIVATE_H */
+#endif /* CTK_SOURCE_GUTTER_RENDERER_PRIVATE_H */

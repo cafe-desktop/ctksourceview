@@ -4,8 +4,8 @@ diff -r 231ed68760a0 moo/moofileview/moofileview.c
 @@ -1407,7 +1413,7 @@ create_toolbar (MooFileView *fileview)
 
      ctk_toolbar_set_tooltips (toolbar, TRUE);
-     ctk_toolbar_set_style (toolbar, GTK_TOOLBAR_ICONS);
--    ctk_toolbar_set_icon_size (toolbar, GTK_ICON_SIZE_MENU);
+     ctk_toolbar_set_style (toolbar, CTK_TOOLBAR_ICONS);
+-    ctk_toolbar_set_icon_size (toolbar, CTK_ICON_SIZE_MENU);
 +    ctk_toolbar_set_icon_size (toolbar, TOOLBAR_ICON_SIZE);
 
      _moo_file_view_setup_button_drag_dest (fileview, "MooFileView/Toolbar/GoUp", "go-up");

@@ -59,7 +59,7 @@ G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceSearchSettings, ctk_source_search_settings,
 static void
 ctk_source_search_settings_finalize (GObject *object)
 {
-	GtkSourceSearchSettings *settings = GTK_SOURCE_SEARCH_SETTINGS (object);
+	GtkSourceSearchSettings *settings = CTK_SOURCE_SEARCH_SETTINGS (object);
 
 	g_free (settings->priv->search_text);
 
@@ -74,9 +74,9 @@ ctk_source_search_settings_get_property (GObject    *object,
 {
 	GtkSourceSearchSettings *settings;
 
-	g_return_if_fail (GTK_SOURCE_IS_SEARCH_SETTINGS (object));
+	g_return_if_fail (CTK_SOURCE_IS_SEARCH_SETTINGS (object));
 
-	settings = GTK_SOURCE_SEARCH_SETTINGS (object);
+	settings = CTK_SOURCE_SEARCH_SETTINGS (object);
 
 	switch (prop_id)
 	{
@@ -114,9 +114,9 @@ ctk_source_search_settings_set_property (GObject      *object,
 {
 	GtkSourceSearchSettings *settings;
 
-	g_return_if_fail (GTK_SOURCE_IS_SEARCH_SETTINGS (object));
+	g_return_if_fail (CTK_SOURCE_IS_SEARCH_SETTINGS (object));
 
-	settings = GTK_SOURCE_SEARCH_SETTINGS (object);
+	settings = CTK_SOURCE_SEARCH_SETTINGS (object);
 
 	switch (prop_id)
 	{
@@ -264,7 +264,7 @@ ctk_source_search_settings_init (GtkSourceSearchSettings *self)
 GtkSourceSearchSettings *
 ctk_source_search_settings_new (void)
 {
-	return g_object_new (GTK_SOURCE_TYPE_SEARCH_SETTINGS, NULL);
+	return g_object_new (CTK_SOURCE_TYPE_SEARCH_SETTINGS, NULL);
 }
 
 /**
@@ -285,7 +285,7 @@ void
 ctk_source_search_settings_set_search_text (GtkSourceSearchSettings *settings,
 					    const gchar             *search_text)
 {
-	g_return_if_fail (GTK_SOURCE_IS_SEARCH_SETTINGS (settings));
+	g_return_if_fail (CTK_SOURCE_IS_SEARCH_SETTINGS (settings));
 	g_return_if_fail (search_text == NULL || g_utf8_validate (search_text, -1, NULL));
 
 	if ((settings->priv->search_text == NULL &&
@@ -324,7 +324,7 @@ ctk_source_search_settings_set_search_text (GtkSourceSearchSettings *settings,
 const gchar *
 ctk_source_search_settings_get_search_text (GtkSourceSearchSettings *settings)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_SEARCH_SETTINGS (settings), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_SEARCH_SETTINGS (settings), NULL);
 
 	return settings->priv->search_text;
 }
@@ -342,7 +342,7 @@ void
 ctk_source_search_settings_set_case_sensitive (GtkSourceSearchSettings *settings,
 					       gboolean                 case_sensitive)
 {
-	g_return_if_fail (GTK_SOURCE_IS_SEARCH_SETTINGS (settings));
+	g_return_if_fail (CTK_SOURCE_IS_SEARCH_SETTINGS (settings));
 
 	case_sensitive = case_sensitive != FALSE;
 
@@ -363,7 +363,7 @@ ctk_source_search_settings_set_case_sensitive (GtkSourceSearchSettings *settings
 gboolean
 ctk_source_search_settings_get_case_sensitive (GtkSourceSearchSettings *settings)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_SEARCH_SETTINGS (settings), FALSE);
+	g_return_val_if_fail (CTK_SOURCE_IS_SEARCH_SETTINGS (settings), FALSE);
 
 	return settings->priv->case_sensitive;
 }
@@ -384,7 +384,7 @@ void
 ctk_source_search_settings_set_at_word_boundaries (GtkSourceSearchSettings *settings,
 						   gboolean                 at_word_boundaries)
 {
-	g_return_if_fail (GTK_SOURCE_IS_SEARCH_SETTINGS (settings));
+	g_return_if_fail (CTK_SOURCE_IS_SEARCH_SETTINGS (settings));
 
 	at_word_boundaries = at_word_boundaries != FALSE;
 
@@ -405,7 +405,7 @@ ctk_source_search_settings_set_at_word_boundaries (GtkSourceSearchSettings *sett
 gboolean
 ctk_source_search_settings_get_at_word_boundaries (GtkSourceSearchSettings *settings)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_SEARCH_SETTINGS (settings), FALSE);
+	g_return_val_if_fail (CTK_SOURCE_IS_SEARCH_SETTINGS (settings), FALSE);
 
 	return settings->priv->at_word_boundaries;
 }
@@ -426,7 +426,7 @@ void
 ctk_source_search_settings_set_wrap_around (GtkSourceSearchSettings *settings,
 					    gboolean                 wrap_around)
 {
-	g_return_if_fail (GTK_SOURCE_IS_SEARCH_SETTINGS (settings));
+	g_return_if_fail (CTK_SOURCE_IS_SEARCH_SETTINGS (settings));
 
 	wrap_around = wrap_around != FALSE;
 
@@ -447,7 +447,7 @@ ctk_source_search_settings_set_wrap_around (GtkSourceSearchSettings *settings,
 gboolean
 ctk_source_search_settings_get_wrap_around (GtkSourceSearchSettings *settings)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_SEARCH_SETTINGS (settings), FALSE);
+	g_return_val_if_fail (CTK_SOURCE_IS_SEARCH_SETTINGS (settings), FALSE);
 
 	return settings->priv->wrap_around;
 }
@@ -471,7 +471,7 @@ void
 ctk_source_search_settings_set_regex_enabled (GtkSourceSearchSettings *settings,
 					      gboolean                 regex_enabled)
 {
-	g_return_if_fail (GTK_SOURCE_IS_SEARCH_SETTINGS (settings));
+	g_return_if_fail (CTK_SOURCE_IS_SEARCH_SETTINGS (settings));
 
 	regex_enabled = regex_enabled != FALSE;
 
@@ -492,7 +492,7 @@ ctk_source_search_settings_set_regex_enabled (GtkSourceSearchSettings *settings,
 gboolean
 ctk_source_search_settings_get_regex_enabled (GtkSourceSearchSettings *settings)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_SEARCH_SETTINGS (settings), FALSE);
+	g_return_val_if_fail (CTK_SOURCE_IS_SEARCH_SETTINGS (settings), FALSE);
 
 	return settings->priv->regex_enabled;
 }

@@ -19,10 +19,10 @@
  * along with GtkSourceView. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTK_SOURCE_STYLE_SCHEME_CHOOSER_WIDGET_H
-#define GTK_SOURCE_STYLE_SCHEME_CHOOSER_WIDGET_H
+#ifndef CTK_SOURCE_STYLE_SCHEME_CHOOSER_WIDGET_H
+#define CTK_SOURCE_STYLE_SCHEME_CHOOSER_WIDGET_H
 
-#if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
+#if !defined (CTK_SOURCE_H_INSIDE) && !defined (CTK_SOURCE_COMPILATION)
 #error "Only <ctksourceview/ctksource.h> can be included directly."
 #endif
 
@@ -31,13 +31,13 @@
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER_WIDGET            (ctk_source_style_scheme_chooser_widget_get_type())
-#define GTK_SOURCE_STYLE_SCHEME_CHOOSER_WIDGET(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER_WIDGET, GtkSourceStyleSchemeChooserWidget))
-#define GTK_SOURCE_STYLE_SCHEME_CHOOSER_WIDGET_CONST(obj)      (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER_WIDGET, GtkSourceStyleSchemeChooserWidget const))
-#define GTK_SOURCE_STYLE_SCHEME_CHOOSER_WIDGET_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass),  GTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER_WIDGET, GtkSourceStyleSchemeChooserWidgetClass))
-#define GTK_SOURCE_IS_STYLE_SCHEME_CHOOSER_WIDGET(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER_WIDGET))
-#define GTK_SOURCE_IS_STYLE_SCHEME_CHOOSER_WIDGET_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass),  GTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER_WIDGET))
-#define GTK_SOURCE_STYLE_SCHEME_CHOOSER_WIDGET_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj),  GTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER_WIDGET, GtkSourceStyleSchemeChooserWidgetClass))
+#define CTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER_WIDGET            (ctk_source_style_scheme_chooser_widget_get_type())
+#define CTK_SOURCE_STYLE_SCHEME_CHOOSER_WIDGET(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER_WIDGET, GtkSourceStyleSchemeChooserWidget))
+#define CTK_SOURCE_STYLE_SCHEME_CHOOSER_WIDGET_CONST(obj)      (G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER_WIDGET, GtkSourceStyleSchemeChooserWidget const))
+#define CTK_SOURCE_STYLE_SCHEME_CHOOSER_WIDGET_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass),  CTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER_WIDGET, GtkSourceStyleSchemeChooserWidgetClass))
+#define CTK_SOURCE_IS_STYLE_SCHEME_CHOOSER_WIDGET(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER_WIDGET))
+#define CTK_SOURCE_IS_STYLE_SCHEME_CHOOSER_WIDGET_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass),  CTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER_WIDGET))
+#define CTK_SOURCE_STYLE_SCHEME_CHOOSER_WIDGET_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj),  CTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER_WIDGET, GtkSourceStyleSchemeChooserWidgetClass))
 
 typedef struct _GtkSourceStyleSchemeChooserWidgetClass GtkSourceStyleSchemeChooserWidgetClass;
 
@@ -53,12 +53,12 @@ struct _GtkSourceStyleSchemeChooserWidgetClass
 	gpointer padding[10];
 };
 
-GTK_SOURCE_AVAILABLE_IN_3_16
+CTK_SOURCE_AVAILABLE_IN_3_16
 GType        ctk_source_style_scheme_chooser_widget_get_type              (void);
 
-GTK_SOURCE_AVAILABLE_IN_3_16
+CTK_SOURCE_AVAILABLE_IN_3_16
 GtkWidget   *ctk_source_style_scheme_chooser_widget_new                   (void);
 
 G_END_DECLS
 
-#endif /* GTK_SOURCE_STYLE_SCHEME_CHOOSER_WIDGET_H */
+#endif /* CTK_SOURCE_STYLE_SCHEME_CHOOSER_WIDGET_H */

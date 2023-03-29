@@ -62,7 +62,7 @@ on all the GtkSourceView source code, but it can serve as a guideline.
 
 See also:
 https://developer.gnome.org/programming-guidelines/stable/
-https://wiki.gnome.org/Projects/GTK%2B/BestPractices
+https://wiki.gnome.org/Projects/CTK%2B/BestPractices
 https://wiki.gnome.org/Projects/GLib/CompilerRequirements
 
 Programming best-practices
@@ -101,7 +101,7 @@ Here are some general advices:
     Do not write comments to state the obvious, for example avoid:
     i = 0; /* assign 0 to i */
 
-    Of course, write GTK-Doc comments to document the public API, especially
+    Of course, write CTK-Doc comments to document the public API, especially
     the class descriptions. The class descriptions gives a nice overview when
     someone discovers the library.
 

@@ -19,8 +19,8 @@
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTK_SOURCE_CONTEXT_ENGINE_H
-#define GTK_SOURCE_CONTEXT_ENGINE_H
+#ifndef CTK_SOURCE_CONTEXT_ENGINE_H
+#define CTK_SOURCE_CONTEXT_ENGINE_H
 
 #include "ctksourceengine.h"
 #include "ctksourcetypes.h"
@@ -28,12 +28,12 @@
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_CONTEXT_ENGINE            (_ctk_source_context_engine_get_type ())
-#define GTK_SOURCE_CONTEXT_ENGINE(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_CONTEXT_ENGINE, GtkSourceContextEngine))
-#define GTK_SOURCE_CONTEXT_ENGINE_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), GTK_SOURCE_TYPE_CONTEXT_ENGINE, GtkSourceContextEngineClass))
-#define GTK_SOURCE_IS_CONTEXT_ENGINE(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_SOURCE_TYPE_CONTEXT_ENGINE))
-#define GTK_SOURCE_IS_CONTEXT_ENGINE_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GTK_SOURCE_TYPE_CONTEXT_ENGINE))
-#define GTK_SOURCE_CONTEXT_ENGINE_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), GTK_SOURCE_TYPE_CONTEXT_ENGINE, GtkSourceContextEngineClass))
+#define CTK_SOURCE_TYPE_CONTEXT_ENGINE            (_ctk_source_context_engine_get_type ())
+#define CTK_SOURCE_CONTEXT_ENGINE(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_CONTEXT_ENGINE, GtkSourceContextEngine))
+#define CTK_SOURCE_CONTEXT_ENGINE_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), CTK_SOURCE_TYPE_CONTEXT_ENGINE, GtkSourceContextEngineClass))
+#define CTK_SOURCE_IS_CONTEXT_ENGINE(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CTK_SOURCE_TYPE_CONTEXT_ENGINE))
+#define CTK_SOURCE_IS_CONTEXT_ENGINE_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), CTK_SOURCE_TYPE_CONTEXT_ENGINE))
+#define CTK_SOURCE_CONTEXT_ENGINE_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), CTK_SOURCE_TYPE_CONTEXT_ENGINE, GtkSourceContextEngineClass))
 
 typedef struct _GtkSourceContextData          GtkSourceContextData;
 typedef struct _GtkSourceContextReplace       GtkSourceContextReplace;
@@ -55,18 +55,18 @@ struct _GtkSourceContextEngineClass
 };
 
 typedef enum _GtkSourceContextFlags {
-	GTK_SOURCE_CONTEXT_EXTEND_PARENT	= 1 << 0,
-	GTK_SOURCE_CONTEXT_END_PARENT		= 1 << 1,
-	GTK_SOURCE_CONTEXT_END_AT_LINE_END	= 1 << 2,
-	GTK_SOURCE_CONTEXT_FIRST_LINE_ONLY	= 1 << 3,
-	GTK_SOURCE_CONTEXT_ONCE_ONLY		= 1 << 4,
-	GTK_SOURCE_CONTEXT_STYLE_INSIDE		= 1 << 5
+	CTK_SOURCE_CONTEXT_EXTEND_PARENT	= 1 << 0,
+	CTK_SOURCE_CONTEXT_END_PARENT		= 1 << 1,
+	CTK_SOURCE_CONTEXT_END_AT_LINE_END	= 1 << 2,
+	CTK_SOURCE_CONTEXT_FIRST_LINE_ONLY	= 1 << 3,
+	CTK_SOURCE_CONTEXT_ONCE_ONLY		= 1 << 4,
+	CTK_SOURCE_CONTEXT_STYLE_INSIDE		= 1 << 5
 } GtkSourceContextFlags;
 
 typedef enum _GtkSourceContextRefOptions {
-	GTK_SOURCE_CONTEXT_IGNORE_STYLE		= 1 << 0,
-	GTK_SOURCE_CONTEXT_OVERRIDE_STYLE	= 1 << 1,
-	GTK_SOURCE_CONTEXT_REF_ORIGINAL		= 1 << 2
+	CTK_SOURCE_CONTEXT_IGNORE_STYLE		= 1 << 0,
+	CTK_SOURCE_CONTEXT_OVERRIDE_STYLE	= 1 << 1,
+	CTK_SOURCE_CONTEXT_REF_ORIGINAL		= 1 << 2
 } GtkSourceContextRefOptions;
 
 G_GNUC_INTERNAL
@@ -141,4 +141,4 @@ void			 _ctk_source_context_data_set_escape_char	(GtkSourceContextData	 *data,
 
 G_END_DECLS
 
-#endif /* GTK_SOURCE_CONTEXT_ENGINE_H */
+#endif /* CTK_SOURCE_CONTEXT_ENGINE_H */

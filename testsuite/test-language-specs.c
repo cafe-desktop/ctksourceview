@@ -10,7 +10,7 @@ test_func (gconstpointer data)
 	GtkSourceLanguage *l;
 	GtkSourceBuffer *buffer;
 
-	g_assert_true (GTK_SOURCE_IS_LANGUAGE_MANAGER (lm));
+	g_assert_true (CTK_SOURCE_IS_LANGUAGE_MANAGER (lm));
 	g_assert_nonnull (data);
 
 	if (g_hash_table_contains (skipped, language_id))
@@ -24,7 +24,7 @@ test_func (gconstpointer data)
 	l = ctk_source_language_manager_get_language (lm, language_id);
 	g_assert_nonnull (l);
 
-	buffer = g_object_new (GTK_SOURCE_TYPE_BUFFER,
+	buffer = g_object_new (CTK_SOURCE_TYPE_BUFFER,
 			       "language", l,
 			       "highlight-syntax", TRUE,
 			       NULL);

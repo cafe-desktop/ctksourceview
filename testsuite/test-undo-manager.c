@@ -25,7 +25,7 @@ static void
 insert_text (GtkSourceBuffer *buffer,
 	     const gchar     *text)
 {
-	GtkTextBuffer *text_buffer = GTK_TEXT_BUFFER (buffer);
+	GtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (buffer);
 	GtkTextIter iter;
 
 	ctk_text_buffer_begin_user_action (text_buffer);
@@ -40,12 +40,12 @@ delete_first_line (GtkSourceBuffer *buffer)
 	GtkTextIter start;
 	GtkTextIter end;
 
-	ctk_text_buffer_get_start_iter (GTK_TEXT_BUFFER (buffer), &start);
-	ctk_text_buffer_get_iter_at_line (GTK_TEXT_BUFFER (buffer), &end, 1);
+	ctk_text_buffer_get_start_iter (CTK_TEXT_BUFFER (buffer), &start);
+	ctk_text_buffer_get_iter_at_line (CTK_TEXT_BUFFER (buffer), &end, 1);
 
-	ctk_text_buffer_begin_user_action (GTK_TEXT_BUFFER (buffer));
-	ctk_text_buffer_delete (GTK_TEXT_BUFFER (buffer), &start, &end);
-	ctk_text_buffer_end_user_action (GTK_TEXT_BUFFER (buffer));
+	ctk_text_buffer_begin_user_action (CTK_TEXT_BUFFER (buffer));
+	ctk_text_buffer_delete (CTK_TEXT_BUFFER (buffer), &start, &end);
+	ctk_text_buffer_end_user_action (CTK_TEXT_BUFFER (buffer));
 }
 
 /* If forward is FALSE, the Backspace key is simulated. If forward is TRUE, the
@@ -56,7 +56,7 @@ delete_char_at_offset (GtkSourceBuffer *source_buffer,
 		       gint             offset,
 		       gboolean         forward)
 {
-	GtkTextBuffer *buffer = GTK_TEXT_BUFFER (source_buffer);
+	GtkTextBuffer *buffer = CTK_TEXT_BUFFER (source_buffer);
 	GtkTextIter start;
 	GtkTextIter end;
 
@@ -93,10 +93,10 @@ get_contents (GtkSourceBuffer *buffer)
 	GtkTextIter start;
 	GtkTextIter end;
 
-	ctk_text_buffer_get_start_iter (GTK_TEXT_BUFFER (buffer), &start);
-	ctk_text_buffer_get_end_iter (GTK_TEXT_BUFFER (buffer), &end);
+	ctk_text_buffer_get_start_iter (CTK_TEXT_BUFFER (buffer), &start);
+	ctk_text_buffer_get_end_iter (CTK_TEXT_BUFFER (buffer), &end);
 
-	return ctk_text_buffer_get_text (GTK_TEXT_BUFFER (buffer), &start, &end, TRUE);
+	return ctk_text_buffer_get_text (CTK_TEXT_BUFFER (buffer), &start, &end, TRUE);
 }
 
 static void
@@ -131,10 +131,10 @@ check_max_undo_levels (GtkSourceBuffer *buffer,
 	{
 		if (several_user_actions)
 		{
-			ctk_text_buffer_begin_user_action (GTK_TEXT_BUFFER (buffer));
+			ctk_text_buffer_begin_user_action (CTK_TEXT_BUFFER (buffer));
 			insert_text (buffer, "foobar\n");
 			delete_char_at_offset (buffer, 0, FALSE);
-			ctk_text_buffer_end_user_action (GTK_TEXT_BUFFER (buffer));
+			ctk_text_buffer_end_user_action (CTK_TEXT_BUFFER (buffer));
 		}
 		else
 		{
@@ -267,7 +267,7 @@ test_not_undoable_action (void)
 
 	/* On empty buffer */
 	ctk_source_buffer_begin_not_undoable_action (buffer);
-	ctk_text_buffer_set_text (GTK_TEXT_BUFFER (buffer), "foo\n", -1);
+	ctk_text_buffer_set_text (CTK_TEXT_BUFFER (buffer), "foo\n", -1);
 	ctk_source_buffer_end_not_undoable_action (buffer);
 
 	g_assert_false (ctk_source_buffer_can_undo (buffer));
@@ -275,9 +275,9 @@ test_not_undoable_action (void)
 
 	/* begin_user_action inside */
 	ctk_source_buffer_begin_not_undoable_action (buffer);
-	ctk_text_buffer_begin_user_action (GTK_TEXT_BUFFER (buffer));
-	ctk_text_buffer_insert_at_cursor (GTK_TEXT_BUFFER (buffer), "bar\n", -1);
-	ctk_text_buffer_end_user_action (GTK_TEXT_BUFFER (buffer));
+	ctk_text_buffer_begin_user_action (CTK_TEXT_BUFFER (buffer));
+	ctk_text_buffer_insert_at_cursor (CTK_TEXT_BUFFER (buffer), "bar\n", -1);
+	ctk_text_buffer_end_user_action (CTK_TEXT_BUFFER (buffer));
 	ctk_source_buffer_end_not_undoable_action (buffer);
 
 	g_assert_false (ctk_source_buffer_can_undo (buffer));
@@ -294,7 +294,7 @@ test_not_undoable_action (void)
 	g_assert_true (ctk_source_buffer_can_redo (buffer));
 
 	ctk_source_buffer_begin_not_undoable_action (buffer);
-	ctk_text_buffer_set_text (GTK_TEXT_BUFFER (buffer), "new text\n", -1);
+	ctk_text_buffer_set_text (CTK_TEXT_BUFFER (buffer), "new text\n", -1);
 	ctk_source_buffer_end_not_undoable_action (buffer);
 
 	g_assert_false (ctk_source_buffer_can_undo (buffer));
@@ -334,7 +334,7 @@ test_not_undoable_action (void)
 	g_assert_true (ctk_source_buffer_can_undo (buffer));
 	g_assert_false (ctk_source_buffer_can_redo (buffer));
 
-	ctk_text_buffer_set_text (GTK_TEXT_BUFFER (buffer), "new text\n", -1);
+	ctk_text_buffer_set_text (CTK_TEXT_BUFFER (buffer), "new text\n", -1);
 
 	ctk_source_buffer_end_not_undoable_action (buffer);
 	g_assert_false (ctk_source_buffer_can_undo (buffer));
@@ -521,7 +521,7 @@ static void
 test_several_user_actions (void)
 {
 	GtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
-	GtkTextBuffer *text_buffer = GTK_TEXT_BUFFER (source_buffer);
+	GtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
 	GList *contents_history = g_list_append (NULL, get_contents (source_buffer));
 	GtkTextIter iter;
 
@@ -587,7 +587,7 @@ test_modified (void)
 	GtkTextBuffer *text_buffer;
 
 	source_buffer = ctk_source_buffer_new (NULL);
-	text_buffer = GTK_TEXT_BUFFER (source_buffer);
+	text_buffer = CTK_TEXT_BUFFER (source_buffer);
 	ctk_source_buffer_set_max_undo_levels (source_buffer, -1);
 
 	ctk_text_buffer_set_modified (text_buffer, FALSE);
@@ -616,7 +616,7 @@ test_modified (void)
 
 	/* Inside not undoable action. */
 	source_buffer = ctk_source_buffer_new (NULL);
-	text_buffer = GTK_TEXT_BUFFER (source_buffer);
+	text_buffer = CTK_TEXT_BUFFER (source_buffer);
 	ctk_source_buffer_set_max_undo_levels (source_buffer, -1);
 
 	ctk_text_buffer_set_modified (text_buffer, TRUE);
@@ -656,7 +656,7 @@ test_empty_user_actions (void)
 	GList *contents_history = NULL;
 
 	source_buffer = ctk_source_buffer_new (NULL);
-	text_buffer = GTK_TEXT_BUFFER (source_buffer);
+	text_buffer = CTK_TEXT_BUFFER (source_buffer);
 	ctk_source_buffer_set_max_undo_levels (source_buffer, -1);
 
 	contents_history = g_list_append (contents_history, get_contents (source_buffer));
@@ -696,7 +696,7 @@ test_bug_672893_selection_restoring (void)
 	GtkTextIter iter;
 
 	source_buffer = ctk_source_buffer_new (NULL);
-	text_buffer = GTK_TEXT_BUFFER (source_buffer);
+	text_buffer = CTK_TEXT_BUFFER (source_buffer);
 	ctk_source_buffer_set_max_undo_levels (source_buffer, -1);
 
 	ctk_text_buffer_set_text (text_buffer, "What if it's just all green cheese.", -1);
@@ -746,7 +746,7 @@ test_mix_user_action_and_not_undoable_action (void)
 	GList *contents_history = NULL;
 
 	source_buffer = ctk_source_buffer_new (NULL);
-	text_buffer = GTK_TEXT_BUFFER (source_buffer);
+	text_buffer = CTK_TEXT_BUFFER (source_buffer);
 
 	ctk_source_buffer_set_max_undo_levels (source_buffer, -1);
 

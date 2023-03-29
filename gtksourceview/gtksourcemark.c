@@ -56,7 +56,7 @@ struct _GtkSourceMarkPrivate
 	gchar *category;
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceMark, ctk_source_mark, GTK_TYPE_TEXT_MARK);
+G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceMark, ctk_source_mark, CTK_TYPE_TEXT_MARK);
 
 static void
 ctk_source_mark_set_property (GObject      *object,
@@ -66,9 +66,9 @@ ctk_source_mark_set_property (GObject      *object,
 {
 	GtkSourceMarkPrivate *priv;
 
-	g_return_if_fail (GTK_SOURCE_IS_MARK (object));
+	g_return_if_fail (CTK_SOURCE_IS_MARK (object));
 
-	priv = GTK_SOURCE_MARK (object)->priv;
+	priv = CTK_SOURCE_MARK (object)->priv;
 
 	switch (prop_id)
 	{
@@ -92,9 +92,9 @@ ctk_source_mark_get_property (GObject    *object,
 {
 	GtkSourceMark *mark;
 
-	g_return_if_fail (GTK_SOURCE_IS_MARK (object));
+	g_return_if_fail (CTK_SOURCE_IS_MARK (object));
 
-	mark = GTK_SOURCE_MARK (object);
+	mark = CTK_SOURCE_MARK (object);
 
 	switch (prop_id)
 	{
@@ -112,7 +112,7 @@ ctk_source_mark_get_property (GObject    *object,
 static void
 ctk_source_mark_finalize (GObject *object)
 {
-	GtkSourceMark *mark = GTK_SOURCE_MARK (object);
+	GtkSourceMark *mark = CTK_SOURCE_MARK (object);
 
 	g_free (mark->priv->category);
 
@@ -177,7 +177,7 @@ ctk_source_mark_new (const gchar *name,
 {
 	g_return_val_if_fail (category != NULL, NULL);
 
-	return GTK_SOURCE_MARK (g_object_new (GTK_SOURCE_TYPE_MARK,
+	return CTK_SOURCE_MARK (g_object_new (CTK_SOURCE_TYPE_MARK,
 	                                      "category", category,
 	                                      "name", name,
 	                                      "left-gravity", TRUE,
@@ -197,7 +197,7 @@ ctk_source_mark_new (const gchar *name,
 const gchar *
 ctk_source_mark_get_category (GtkSourceMark *mark)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_MARK (mark), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_MARK (mark), NULL);
 
 	return mark->priv->category;
 }
@@ -222,16 +222,16 @@ ctk_source_mark_next (GtkSourceMark *mark,
 {
 	GtkTextBuffer *buffer;
 
-	g_return_val_if_fail (GTK_SOURCE_IS_MARK (mark), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_MARK (mark), NULL);
 
-	buffer = ctk_text_mark_get_buffer (GTK_TEXT_MARK (mark));
+	buffer = ctk_text_mark_get_buffer (CTK_TEXT_MARK (mark));
 
 	if (buffer == NULL)
 	{
 		return NULL;
 	}
 
-	return _ctk_source_buffer_source_mark_next (GTK_SOURCE_BUFFER (buffer),
+	return _ctk_source_buffer_source_mark_next (CTK_SOURCE_BUFFER (buffer),
 						    mark,
 						    category);
 }
@@ -256,16 +256,16 @@ ctk_source_mark_prev (GtkSourceMark *mark,
 {
 	GtkTextBuffer *buffer;
 
-	g_return_val_if_fail (GTK_SOURCE_IS_MARK (mark), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_MARK (mark), NULL);
 
-	buffer = ctk_text_mark_get_buffer (GTK_TEXT_MARK (mark));
+	buffer = ctk_text_mark_get_buffer (CTK_TEXT_MARK (mark));
 
 	if (buffer == NULL)
 	{
 		return NULL;
 	}
 
-	return _ctk_source_buffer_source_mark_prev (GTK_SOURCE_BUFFER (buffer),
+	return _ctk_source_buffer_source_mark_prev (CTK_SOURCE_BUFFER (buffer),
 						    mark,
 						    category);
 }

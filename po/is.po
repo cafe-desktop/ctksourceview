@@ -300,8 +300,8 @@ msgstr "Adwaita-dökkt"
 
 #. (itstool) path: style-scheme/_description
 #: Adwaita-dark.style-scheme.xml:22
-msgid "A dark color scheme matching GTK's default theme"
-msgstr "Dökkt litastef sem samsvarar sjálfgefna þema GTK"
+msgid "A dark color scheme matching CTK's default theme"
+msgstr "Dökkt litastef sem samsvarar sjálfgefna þema CTK"
 
 #. (itstool) path: Adwaita.style-scheme.xml/style-scheme@_name
 #: Adwaita.style-scheme.xml:20
@@ -310,8 +310,8 @@ msgstr "Adwaita"
 
 #. (itstool) path: style-scheme/_description
 #: Adwaita.style-scheme.xml:22
-msgid "A color scheme matching GTK's default theme"
-msgstr "Litastef sem samsvarar sjálfgefna þema GTK"
+msgid "A color scheme matching CTK's default theme"
+msgstr "Litastef sem samsvarar sjálfgefna þema CTK"
 
 #. (itstool) path: classic.xml/style-scheme@_name
 #: classic.xml:23

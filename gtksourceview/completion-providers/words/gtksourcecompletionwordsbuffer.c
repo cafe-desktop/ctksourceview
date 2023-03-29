@@ -101,7 +101,7 @@ static void
 ctk_source_completion_words_buffer_dispose (GObject *object)
 {
 	GtkSourceCompletionWordsBuffer *buffer =
-		GTK_SOURCE_COMPLETION_WORDS_BUFFER (object);
+		CTK_SOURCE_COMPLETION_WORDS_BUFFER (object);
 
 	if (buffer->priv->words != NULL)
 	{
@@ -645,10 +645,10 @@ ctk_source_completion_words_buffer_new (GtkSourceCompletionWordsLibrary *library
 {
 	GtkSourceCompletionWordsBuffer *ret;
 
-	g_return_val_if_fail (GTK_SOURCE_IS_COMPLETION_WORDS_LIBRARY (library), NULL);
-	g_return_val_if_fail (GTK_IS_TEXT_BUFFER (buffer), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_WORDS_LIBRARY (library), NULL);
+	g_return_val_if_fail (CTK_IS_TEXT_BUFFER (buffer), NULL);
 
-	ret = g_object_new (GTK_SOURCE_TYPE_COMPLETION_WORDS_BUFFER, NULL);
+	ret = g_object_new (CTK_SOURCE_TYPE_COMPLETION_WORDS_BUFFER, NULL);
 
 	ret->priv->library = g_object_ref (library);
 	ret->priv->buffer = g_object_ref (buffer);
@@ -675,7 +675,7 @@ ctk_source_completion_words_buffer_new (GtkSourceCompletionWordsLibrary *library
 GtkTextBuffer *
 ctk_source_completion_words_buffer_get_buffer (GtkSourceCompletionWordsBuffer *buffer)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_COMPLETION_WORDS_BUFFER (buffer), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_WORDS_BUFFER (buffer), NULL);
 
 	return buffer->priv->buffer;
 }
@@ -684,7 +684,7 @@ void
 ctk_source_completion_words_buffer_set_scan_batch_size (GtkSourceCompletionWordsBuffer *buffer,
 							guint                           size)
 {
-	g_return_if_fail (GTK_SOURCE_IS_COMPLETION_WORDS_BUFFER (buffer));
+	g_return_if_fail (CTK_SOURCE_IS_COMPLETION_WORDS_BUFFER (buffer));
 	g_return_if_fail (size != 0);
 
 	buffer->priv->scan_batch_size = size;
@@ -694,7 +694,7 @@ void
 ctk_source_completion_words_buffer_set_minimum_word_size (GtkSourceCompletionWordsBuffer *buffer,
 							  guint                           size)
 {
-	g_return_if_fail (GTK_SOURCE_IS_COMPLETION_WORDS_BUFFER (buffer));
+	g_return_if_fail (CTK_SOURCE_IS_COMPLETION_WORDS_BUFFER (buffer));
 	g_return_if_fail (size != 0);
 
 	if (buffer->priv->minimum_word_size != size)

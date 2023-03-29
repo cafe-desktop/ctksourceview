@@ -678,14 +678,14 @@ _ctk_source_view_jump_to_iter (GtkTextView       *text_view,
   int current_x_scroll;
   int current_y_scroll;
 
-  g_return_if_fail (GTK_IS_TEXT_VIEW (text_view));
+  g_return_if_fail (CTK_IS_TEXT_VIEW (text_view));
   g_return_if_fail (iter != NULL);
   g_return_if_fail (within_margin >= 0.0 && within_margin <= 0.5);
   g_return_if_fail (xalign >= 0.0 && xalign <= 1.0);
   g_return_if_fail (yalign >= 0.0 && yalign <= 1.0);
 
-  hadj = ctk_scrollable_get_hadjustment (GTK_SCROLLABLE (text_view));
-  vadj = ctk_scrollable_get_vadjustment (GTK_SCROLLABLE (text_view));
+  hadj = ctk_scrollable_get_hadjustment (CTK_SCROLLABLE (text_view));
+  vadj = ctk_scrollable_get_vadjustment (CTK_SCROLLABLE (text_view));
 
   ctk_text_view_get_iter_location (text_view, iter, &rect);
   ctk_text_view_get_visible_rect (text_view, &screen);

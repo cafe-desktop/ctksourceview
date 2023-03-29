@@ -17,8 +17,8 @@
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTK_SOURCE_TYPES_PRIVATE_H
-#define GTK_SOURCE_TYPES_PRIVATE_H
+#ifndef CTK_SOURCE_TYPES_PRIVATE_H
+#define CTK_SOURCE_TYPES_PRIVATE_H
 
 #include <glib.h>
 
@@ -39,11 +39,11 @@ typedef struct _GtkSourceUndoManagerDefault	GtkSourceUndoManagerDefault;
 
 #ifdef _MSC_VER
 /* For Visual Studio, we need to export the symbols used by the unit tests */
-#define GTK_SOURCE_INTERNAL __declspec(dllexport)
+#define CTK_SOURCE_INTERNAL __declspec(dllexport)
 #else
-#define GTK_SOURCE_INTERNAL G_GNUC_INTERNAL
+#define CTK_SOURCE_INTERNAL G_GNUC_INTERNAL
 #endif
 
 G_END_DECLS
 
-#endif /* GTK_SOURCE_TYPES_PRIVATE_H */
+#endif /* CTK_SOURCE_TYPES_PRIVATE_H */

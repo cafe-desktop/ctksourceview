@@ -37,7 +37,7 @@ test_remove_duplicates (void)
 	list = g_slist_prepend (list, (gpointer) utf8);
 
 	/* After: [UTF-8, ISO-8859-15] */
-	list = _ctk_source_encoding_remove_duplicates (list, GTK_SOURCE_ENCODING_DUPLICATES_KEEP_FIRST);
+	list = _ctk_source_encoding_remove_duplicates (list, CTK_SOURCE_ENCODING_DUPLICATES_KEEP_FIRST);
 
 	g_assert_cmpint (2, ==, g_slist_length (list));
 	g_assert_true (list->data == utf8);
@@ -47,7 +47,7 @@ test_remove_duplicates (void)
 	list = g_slist_append (list, (gpointer) utf8);
 
 	/* After: [ISO-8859-15, UTF-8] */
-	list = _ctk_source_encoding_remove_duplicates (list, GTK_SOURCE_ENCODING_DUPLICATES_KEEP_LAST);
+	list = _ctk_source_encoding_remove_duplicates (list, CTK_SOURCE_ENCODING_DUPLICATES_KEEP_LAST);
 
 	g_assert_cmpint (2, ==, g_slist_length (list));
 	g_assert_true (list->data == iso);

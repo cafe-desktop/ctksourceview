@@ -19,10 +19,10 @@
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTK_SOURCE_COMPLETION_H
-#define GTK_SOURCE_COMPLETION_H
+#ifndef CTK_SOURCE_COMPLETION_H
+#define CTK_SOURCE_COMPLETION_H
 
-#if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
+#if !defined (CTK_SOURCE_H_INSIDE) && !defined (CTK_SOURCE_COMPILATION)
 #error "Only <ctksourceview/ctksource.h> can be included directly."
 #endif
 
@@ -34,39 +34,39 @@ G_BEGIN_DECLS
 /*
  * Type checking and casting macros
  */
-#define GTK_SOURCE_TYPE_COMPLETION              (ctk_source_completion_get_type())
-#define GTK_SOURCE_COMPLETION(obj)              (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_SOURCE_TYPE_COMPLETION, GtkSourceCompletion))
-#define GTK_SOURCE_COMPLETION_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST((klass), GTK_SOURCE_TYPE_COMPLETION, GtkSourceCompletionClass))
-#define GTK_SOURCE_IS_COMPLETION(obj)           (G_TYPE_CHECK_INSTANCE_TYPE((obj), GTK_SOURCE_TYPE_COMPLETION))
-#define GTK_SOURCE_IS_COMPLETION_CLASS(klass)   (G_TYPE_CHECK_CLASS_TYPE ((klass), GTK_SOURCE_TYPE_COMPLETION))
-#define GTK_SOURCE_COMPLETION_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS((obj), GTK_SOURCE_TYPE_COMPLETION, GtkSourceCompletionClass))
+#define CTK_SOURCE_TYPE_COMPLETION              (ctk_source_completion_get_type())
+#define CTK_SOURCE_COMPLETION(obj)              (G_TYPE_CHECK_INSTANCE_CAST((obj), CTK_SOURCE_TYPE_COMPLETION, GtkSourceCompletion))
+#define CTK_SOURCE_COMPLETION_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST((klass), CTK_SOURCE_TYPE_COMPLETION, GtkSourceCompletionClass))
+#define CTK_SOURCE_IS_COMPLETION(obj)           (G_TYPE_CHECK_INSTANCE_TYPE((obj), CTK_SOURCE_TYPE_COMPLETION))
+#define CTK_SOURCE_IS_COMPLETION_CLASS(klass)   (G_TYPE_CHECK_CLASS_TYPE ((klass), CTK_SOURCE_TYPE_COMPLETION))
+#define CTK_SOURCE_COMPLETION_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS((obj), CTK_SOURCE_TYPE_COMPLETION, GtkSourceCompletionClass))
 
 /**
- * GTK_SOURCE_COMPLETION_ERROR:
+ * CTK_SOURCE_COMPLETION_ERROR:
  *
  * Error domain for the completion. Errors in this domain will be from the
  * #GtkSourceCompletionError enumeration. See #GError for more information on
  * error domains.
  */
-#define GTK_SOURCE_COMPLETION_ERROR		(ctk_source_completion_error_quark ())
+#define CTK_SOURCE_COMPLETION_ERROR		(ctk_source_completion_error_quark ())
 
 typedef struct _GtkSourceCompletionPrivate GtkSourceCompletionPrivate;
 typedef struct _GtkSourceCompletionClass GtkSourceCompletionClass;
 
 /**
  * GtkSourceCompletionError:
- * @GTK_SOURCE_COMPLETION_ERROR_ALREADY_BOUND: The #GtkSourceCompletionProvider
+ * @CTK_SOURCE_COMPLETION_ERROR_ALREADY_BOUND: The #GtkSourceCompletionProvider
  * is already bound to the #GtkSourceCompletion object.
- * @GTK_SOURCE_COMPLETION_ERROR_NOT_BOUND: The #GtkSourceCompletionProvider is
+ * @CTK_SOURCE_COMPLETION_ERROR_NOT_BOUND: The #GtkSourceCompletionProvider is
  * not bound to the #GtkSourceCompletion object.
  *
- * An error code used with %GTK_SOURCE_COMPLETION_ERROR in a #GError returned
+ * An error code used with %CTK_SOURCE_COMPLETION_ERROR in a #GError returned
  * from a completion-related function.
  */
 typedef enum _GtkSourceCompletionError
 {
-	GTK_SOURCE_COMPLETION_ERROR_ALREADY_BOUND = 0,
-	GTK_SOURCE_COMPLETION_ERROR_NOT_BOUND
+	CTK_SOURCE_COMPLETION_ERROR_ALREADY_BOUND = 0,
+	CTK_SOURCE_COMPLETION_ERROR_NOT_BOUND
 } GtkSourceCompletionError;
 
 struct _GtkSourceCompletion
@@ -100,49 +100,49 @@ struct _GtkSourceCompletionClass
 	gpointer padding[20];
 };
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 GType		 ctk_source_completion_get_type			(void) G_GNUC_CONST;
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 GQuark		 ctk_source_completion_error_quark		(void);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 gboolean	 ctk_source_completion_add_provider		(GtkSourceCompletion           *completion,
 								 GtkSourceCompletionProvider   *provider,
 								 GError                       **error);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 gboolean	 ctk_source_completion_remove_provider		(GtkSourceCompletion           *completion,
 								 GtkSourceCompletionProvider   *provider,
 								 GError                       **error);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 GList		*ctk_source_completion_get_providers		(GtkSourceCompletion           *completion);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 gboolean	 ctk_source_completion_start			(GtkSourceCompletion           *completion,
 								 GList                         *providers,
 								 GtkSourceCompletionContext    *context);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 void		 ctk_source_completion_hide			(GtkSourceCompletion           *completion);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 GtkSourceCompletionInfo *
 		 ctk_source_completion_get_info_window		(GtkSourceCompletion           *completion);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 GtkSourceView	*ctk_source_completion_get_view			(GtkSourceCompletion	       *completion);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 GtkSourceCompletionContext *
 		 ctk_source_completion_create_context		(GtkSourceCompletion           *completion,
 		 						 GtkTextIter                   *position);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 void		 ctk_source_completion_block_interactive	(GtkSourceCompletion           *completion);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 void		 ctk_source_completion_unblock_interactive	(GtkSourceCompletion           *completion);
 
 G_GNUC_INTERNAL
@@ -153,4 +153,4 @@ void		 _ctk_source_completion_add_proposals		(GtkSourceCompletion           *com
 								 gboolean                       finished);
 G_END_DECLS
 
-#endif /* GTK_SOURCE_COMPLETION_H */
+#endif /* CTK_SOURCE_COMPLETION_H */

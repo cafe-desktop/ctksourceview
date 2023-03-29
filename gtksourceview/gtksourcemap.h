@@ -17,10 +17,10 @@
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTK_SOURCE_MAP_H
-#define GTK_SOURCE_MAP_H
+#ifndef CTK_SOURCE_MAP_H
+#define CTK_SOURCE_MAP_H
 
-#if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
+#if !defined (CTK_SOURCE_H_INSIDE) && !defined (CTK_SOURCE_COMPILATION)
 #error "Only <ctksourceview/ctksource.h> can be included directly."
 #endif
 
@@ -30,13 +30,13 @@
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_MAP            (ctk_source_map_get_type())
-#define GTK_SOURCE_MAP(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_MAP, GtkSourceMap))
-#define GTK_SOURCE_MAP_CONST(obj)      (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_MAP, GtkSourceMap const))
-#define GTK_SOURCE_MAP_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass),  GTK_SOURCE_TYPE_MAP, GtkSourceMapClass))
-#define GTK_SOURCE_IS_MAP(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_SOURCE_TYPE_MAP))
-#define GTK_SOURCE_IS_MAP_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass),  GTK_SOURCE_TYPE_MAP))
-#define GTK_SOURCE_MAP_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj),  GTK_SOURCE_TYPE_MAP, GtkSourceMapClass))
+#define CTK_SOURCE_TYPE_MAP            (ctk_source_map_get_type())
+#define CTK_SOURCE_MAP(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_MAP, GtkSourceMap))
+#define CTK_SOURCE_MAP_CONST(obj)      (G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_MAP, GtkSourceMap const))
+#define CTK_SOURCE_MAP_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass),  CTK_SOURCE_TYPE_MAP, GtkSourceMapClass))
+#define CTK_SOURCE_IS_MAP(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CTK_SOURCE_TYPE_MAP))
+#define CTK_SOURCE_IS_MAP_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass),  CTK_SOURCE_TYPE_MAP))
+#define CTK_SOURCE_MAP_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj),  CTK_SOURCE_TYPE_MAP, GtkSourceMapClass))
 
 typedef struct _GtkSourceMapClass GtkSourceMapClass;
 
@@ -52,19 +52,19 @@ struct _GtkSourceMapClass
 	gpointer padding[10];
 };
 
-GTK_SOURCE_AVAILABLE_IN_3_18
+CTK_SOURCE_AVAILABLE_IN_3_18
 GType			 ctk_source_map_get_type	(void);
 
-GTK_SOURCE_AVAILABLE_IN_3_18
+CTK_SOURCE_AVAILABLE_IN_3_18
 GtkWidget		*ctk_source_map_new		(void);
 
-GTK_SOURCE_AVAILABLE_IN_3_18
+CTK_SOURCE_AVAILABLE_IN_3_18
 void			 ctk_source_map_set_view	(GtkSourceMap  *map,
 							 GtkSourceView *view);
 
-GTK_SOURCE_AVAILABLE_IN_3_18
+CTK_SOURCE_AVAILABLE_IN_3_18
 GtkSourceView		*ctk_source_map_get_view	(GtkSourceMap  *map);
 
 G_END_DECLS
 
-#endif /* GTK_SOURCE_MAP_H */
+#endif /* CTK_SOURCE_MAP_H */

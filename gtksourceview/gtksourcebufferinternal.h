@@ -18,8 +18,8 @@
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTK_SOURCE_BUFFER_INTERNAL_H
-#define GTK_SOURCE_BUFFER_INTERNAL_H
+#ifndef CTK_SOURCE_BUFFER_INTERNAL_H
+#define CTK_SOURCE_BUFFER_INTERNAL_H
 
 #include <glib-object.h>
 #include "ctksourcetypes.h"
@@ -27,11 +27,11 @@
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_BUFFER_INTERNAL (_ctk_source_buffer_internal_get_type ())
+#define CTK_SOURCE_TYPE_BUFFER_INTERNAL (_ctk_source_buffer_internal_get_type ())
 
 G_GNUC_INTERNAL
 G_DECLARE_FINAL_TYPE (GtkSourceBufferInternal, _ctk_source_buffer_internal,
-		      GTK_SOURCE, BUFFER_INTERNAL,
+		      CTK_SOURCE, BUFFER_INTERNAL,
 		      GObject)
 
 G_GNUC_INTERNAL
@@ -44,4 +44,4 @@ void		_ctk_source_buffer_internal_emit_search_start		(GtkSourceBufferInternal *b
 
 G_END_DECLS
 
-#endif /* GTK_SOURCE_BUFFER_INTERNAL_H */
+#endif /* CTK_SOURCE_BUFFER_INTERNAL_H */

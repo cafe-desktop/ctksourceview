@@ -401,7 +401,7 @@ sync_found_tag (GtkSourceSearchContext *search)
 
 	if (style == NULL)
 	{
-		style_scheme = ctk_source_buffer_get_style_scheme (GTK_SOURCE_BUFFER (search->priv->buffer));
+		style_scheme = ctk_source_buffer_get_style_scheme (CTK_SOURCE_BUFFER (search->priv->buffer));
 
 		if (style_scheme != NULL)
 		{
@@ -552,11 +552,11 @@ clear_search (GtkSourceSearchContext *search)
 static GtkTextSearchFlags
 get_text_search_flags (GtkSourceSearchContext *search)
 {
-	GtkTextSearchFlags flags = GTK_TEXT_SEARCH_TEXT_ONLY | GTK_TEXT_SEARCH_VISIBLE_ONLY;
+	GtkTextSearchFlags flags = CTK_TEXT_SEARCH_TEXT_ONLY | CTK_TEXT_SEARCH_VISIBLE_ONLY;
 
 	if (!ctk_source_search_settings_get_case_sensitive (search->priv->settings))
 	{
-		flags |= GTK_TEXT_SEARCH_CASE_INSENSITIVE;
+		flags |= CTK_TEXT_SEARCH_CASE_INSENSITIVE;
 	}
 
 	return flags;
@@ -2392,7 +2392,7 @@ update (GtkSourceSearchContext *search)
 	 * _ctk_source_search_context_update_highlight() can be called for the
 	 * visible regions of the buffer.
 	 */
-	buffer_internal = _ctk_source_buffer_internal_get_from_buffer (GTK_SOURCE_BUFFER (search->priv->buffer));
+	buffer_internal = _ctk_source_buffer_internal_get_from_buffer (CTK_SOURCE_BUFFER (search->priv->buffer));
 	_ctk_source_buffer_internal_emit_search_start (buffer_internal, search);
 }
 
@@ -2502,7 +2502,7 @@ set_buffer (GtkSourceSearchContext *search,
 	g_assert (search->priv->buffer == NULL);
 	g_assert (search->priv->tag_table == NULL);
 
-	search->priv->buffer = GTK_TEXT_BUFFER (buffer);
+	search->priv->buffer = CTK_TEXT_BUFFER (buffer);
 
 	g_object_add_weak_pointer (G_OBJECT (buffer),
 				   (gpointer *)&search->priv->buffer);
@@ -2643,7 +2643,7 @@ set_settings (GtkSourceSearchContext  *search,
 static void
 ctk_source_search_context_dispose (GObject *object)
 {
-	GtkSourceSearchContext *search = GTK_SOURCE_SEARCH_CONTEXT (object);
+	GtkSourceSearchContext *search = CTK_SOURCE_SEARCH_CONTEXT (object);
 
 	clear_search (search);
 
@@ -2673,7 +2673,7 @@ ctk_source_search_context_dispose (GObject *object)
 static void
 ctk_source_search_context_finalize (GObject *object)
 {
-	GtkSourceSearchContext *search = GTK_SOURCE_SEARCH_CONTEXT (object);
+	GtkSourceSearchContext *search = CTK_SOURCE_SEARCH_CONTEXT (object);
 
 	if (search->priv->regex != NULL)
 	{
@@ -2693,9 +2693,9 @@ ctk_source_search_context_get_property (GObject    *object,
 {
 	GtkSourceSearchContext *search;
 
-	g_return_if_fail (GTK_SOURCE_IS_SEARCH_CONTEXT (object));
+	g_return_if_fail (CTK_SOURCE_IS_SEARCH_CONTEXT (object));
 
-	search = GTK_SOURCE_SEARCH_CONTEXT (object);
+	search = CTK_SOURCE_SEARCH_CONTEXT (object);
 
 	switch (prop_id)
 	{
@@ -2737,9 +2737,9 @@ ctk_source_search_context_set_property (GObject      *object,
 {
 	GtkSourceSearchContext *search;
 
-	g_return_if_fail (GTK_SOURCE_IS_SEARCH_CONTEXT (object));
+	g_return_if_fail (CTK_SOURCE_IS_SEARCH_CONTEXT (object));
 
-	search = GTK_SOURCE_SEARCH_CONTEXT (object);
+	search = CTK_SOURCE_SEARCH_CONTEXT (object);
 
 	switch (prop_id)
 	{
@@ -2787,7 +2787,7 @@ ctk_source_search_context_class_init (GtkSourceSearchContextClass *klass)
 					 g_param_spec_object ("buffer",
 							      "Buffer",
 							      "The associated GtkSourceBuffer",
-							      GTK_SOURCE_TYPE_BUFFER,
+							      CTK_SOURCE_TYPE_BUFFER,
 							      G_PARAM_READWRITE |
 							      G_PARAM_CONSTRUCT_ONLY |
 							      G_PARAM_STATIC_STRINGS));
@@ -2806,7 +2806,7 @@ ctk_source_search_context_class_init (GtkSourceSearchContextClass *klass)
 					 g_param_spec_object ("settings",
 							      "Settings",
 							      "The associated GtkSourceSearchSettings",
-							      GTK_SOURCE_TYPE_SEARCH_SETTINGS,
+							      CTK_SOURCE_TYPE_SEARCH_SETTINGS,
 							      G_PARAM_READWRITE |
 							      G_PARAM_CONSTRUCT_ONLY |
 							      G_PARAM_STATIC_STRINGS));
@@ -2840,7 +2840,7 @@ ctk_source_search_context_class_init (GtkSourceSearchContextClass *klass)
 					 g_param_spec_object ("match-style",
 							      "Match style",
 							      "The text style for matches",
-							      GTK_SOURCE_TYPE_STYLE,
+							      CTK_SOURCE_TYPE_STYLE,
 							      G_PARAM_READWRITE |
 							      G_PARAM_CONSTRUCT |
 							      G_PARAM_STATIC_STRINGS));
@@ -2908,10 +2908,10 @@ GtkSourceSearchContext *
 ctk_source_search_context_new (GtkSourceBuffer         *buffer,
 			       GtkSourceSearchSettings *settings)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_BUFFER (buffer), NULL);
-	g_return_val_if_fail (settings == NULL || GTK_SOURCE_IS_SEARCH_SETTINGS (settings), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER (buffer), NULL);
+	g_return_val_if_fail (settings == NULL || CTK_SOURCE_IS_SEARCH_SETTINGS (settings), NULL);
 
-	return g_object_new (GTK_SOURCE_TYPE_SEARCH_CONTEXT,
+	return g_object_new (CTK_SOURCE_TYPE_SEARCH_CONTEXT,
 			     "buffer", buffer,
 			     "settings", settings,
 			     NULL);
@@ -2927,9 +2927,9 @@ ctk_source_search_context_new (GtkSourceBuffer         *buffer,
 GtkSourceBuffer *
 ctk_source_search_context_get_buffer (GtkSourceSearchContext *search)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_SEARCH_CONTEXT (search), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_SEARCH_CONTEXT (search), NULL);
 
-	return GTK_SOURCE_BUFFER (search->priv->buffer);
+	return CTK_SOURCE_BUFFER (search->priv->buffer);
 }
 
 /**
@@ -2942,7 +2942,7 @@ ctk_source_search_context_get_buffer (GtkSourceSearchContext *search)
 GtkSourceSearchSettings *
 ctk_source_search_context_get_settings (GtkSourceSearchContext *search)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_SEARCH_CONTEXT (search), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_SEARCH_CONTEXT (search), NULL);
 
 	return search->priv->settings;
 }
@@ -2957,7 +2957,7 @@ ctk_source_search_context_get_settings (GtkSourceSearchContext *search)
 gboolean
 ctk_source_search_context_get_highlight (GtkSourceSearchContext *search)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_SEARCH_CONTEXT (search), FALSE);
+	g_return_val_if_fail (CTK_SOURCE_IS_SEARCH_CONTEXT (search), FALSE);
 
 	return search->priv->highlight;
 }
@@ -2975,7 +2975,7 @@ void
 ctk_source_search_context_set_highlight (GtkSourceSearchContext *search,
 					 gboolean                highlight)
 {
-	g_return_if_fail (GTK_SOURCE_IS_SEARCH_CONTEXT (search));
+	g_return_if_fail (CTK_SOURCE_IS_SEARCH_CONTEXT (search));
 
 	highlight = highlight != FALSE;
 
@@ -2999,7 +2999,7 @@ ctk_source_search_context_set_highlight (GtkSourceSearchContext *search,
 GtkSourceStyle *
 ctk_source_search_context_get_match_style (GtkSourceSearchContext *search)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_SEARCH_CONTEXT (search), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_SEARCH_CONTEXT (search), NULL);
 
 	return search->priv->match_style;
 }
@@ -3020,8 +3020,8 @@ void
 ctk_source_search_context_set_match_style (GtkSourceSearchContext *search,
 					   GtkSourceStyle         *match_style)
 {
-	g_return_if_fail (GTK_SOURCE_IS_SEARCH_CONTEXT (search));
-	g_return_if_fail (match_style == NULL || GTK_SOURCE_IS_STYLE (match_style));
+	g_return_if_fail (CTK_SOURCE_IS_SEARCH_CONTEXT (search));
+	g_return_if_fail (match_style == NULL || CTK_SOURCE_IS_STYLE (match_style));
 
 	if (search->priv->match_style == match_style)
 	{
@@ -3059,7 +3059,7 @@ ctk_source_search_context_set_match_style (GtkSourceSearchContext *search,
 GError *
 ctk_source_search_context_get_regex_error (GtkSourceSearchContext *search)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_SEARCH_CONTEXT (search), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_SEARCH_CONTEXT (search), NULL);
 
 	if (search->priv->regex_error == NULL)
 	{
@@ -3083,7 +3083,7 @@ ctk_source_search_context_get_regex_error (GtkSourceSearchContext *search)
 gint
 ctk_source_search_context_get_occurrences_count (GtkSourceSearchContext *search)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_SEARCH_CONTEXT (search), -1);
+	g_return_val_if_fail (CTK_SOURCE_IS_SEARCH_CONTEXT (search), -1);
 
 	if (!ctk_source_region_is_empty (search->priv->scan_region))
 	{
@@ -3123,7 +3123,7 @@ ctk_source_search_context_get_occurrence_position (GtkSourceSearchContext *searc
 	GtkSourceRegion *region;
 	gboolean empty;
 
-	g_return_val_if_fail (GTK_SOURCE_IS_SEARCH_CONTEXT (search), -1);
+	g_return_val_if_fail (CTK_SOURCE_IS_SEARCH_CONTEXT (search), -1);
 	g_return_val_if_fail (match_start != NULL, -1);
 	g_return_val_if_fail (match_end != NULL, -1);
 
@@ -3232,7 +3232,7 @@ ctk_source_search_context_forward (GtkSourceSearchContext *search,
 	GtkTextIter m_end;
 	gboolean found;
 
-	g_return_val_if_fail (GTK_SOURCE_IS_SEARCH_CONTEXT (search), FALSE);
+	g_return_val_if_fail (CTK_SOURCE_IS_SEARCH_CONTEXT (search), FALSE);
 	g_return_val_if_fail (iter != NULL, FALSE);
 
 	if (has_wrapped_around != NULL)
@@ -3301,7 +3301,7 @@ ctk_source_search_context_forward_async (GtkSourceSearchContext *search,
 					 GAsyncReadyCallback     callback,
 					 gpointer                user_data)
 {
-	g_return_if_fail (GTK_SOURCE_IS_SEARCH_CONTEXT (search));
+	g_return_if_fail (CTK_SOURCE_IS_SEARCH_CONTEXT (search));
 	g_return_if_fail (iter != NULL);
 
 	if (search->priv->buffer == NULL)
@@ -3345,7 +3345,7 @@ ctk_source_search_context_forward_finish (GtkSourceSearchContext  *search,
 	ForwardBackwardData *data;
 	gboolean found;
 
-	g_return_val_if_fail (GTK_SOURCE_IS_SEARCH_CONTEXT (search), FALSE);
+	g_return_val_if_fail (CTK_SOURCE_IS_SEARCH_CONTEXT (search), FALSE);
 
 	if (has_wrapped_around != NULL)
 	{
@@ -3428,7 +3428,7 @@ ctk_source_search_context_backward (GtkSourceSearchContext *search,
 	GtkTextIter m_end;
 	gboolean found;
 
-	g_return_val_if_fail (GTK_SOURCE_IS_SEARCH_CONTEXT (search), FALSE);
+	g_return_val_if_fail (CTK_SOURCE_IS_SEARCH_CONTEXT (search), FALSE);
 	g_return_val_if_fail (iter != NULL, FALSE);
 
 	if (has_wrapped_around != NULL)
@@ -3498,7 +3498,7 @@ ctk_source_search_context_backward_async (GtkSourceSearchContext *search,
 					  GAsyncReadyCallback     callback,
 					  gpointer                user_data)
 {
-	g_return_if_fail (GTK_SOURCE_IS_SEARCH_CONTEXT (search));
+	g_return_if_fail (CTK_SOURCE_IS_SEARCH_CONTEXT (search));
 	g_return_if_fail (iter != NULL);
 
 	if (search->priv->buffer == NULL)
@@ -3679,7 +3679,7 @@ ctk_source_search_context_replace (GtkSourceSearchContext  *search,
 	GtkTextMark *start_mark;
 	gboolean replaced = FALSE;
 
-	g_return_val_if_fail (GTK_SOURCE_IS_SEARCH_CONTEXT (search), FALSE);
+	g_return_val_if_fail (CTK_SOURCE_IS_SEARCH_CONTEXT (search), FALSE);
 	g_return_val_if_fail (match_start != NULL, FALSE);
 	g_return_val_if_fail (match_end != NULL, FALSE);
 	g_return_val_if_fail (replace != NULL, FALSE);
@@ -3758,7 +3758,7 @@ ctk_source_search_context_replace_all (GtkSourceSearchContext  *search,
 	gboolean highlight_matching_brackets;
 	gboolean has_regex_references = FALSE;
 
-	g_return_val_if_fail (GTK_SOURCE_IS_SEARCH_CONTEXT (search), 0);
+	g_return_val_if_fail (CTK_SOURCE_IS_SEARCH_CONTEXT (search), 0);
 	g_return_val_if_fail (replace != NULL, 0);
 	g_return_val_if_fail (error == NULL || *error == NULL, 0);
 
@@ -3794,12 +3794,12 @@ ctk_source_search_context_replace_all (GtkSourceSearchContext  *search,
 	g_signal_handlers_block_by_func (search->priv->buffer, delete_range_after_cb, search);
 
 	highlight_matching_brackets =
-		ctk_source_buffer_get_highlight_matching_brackets (GTK_SOURCE_BUFFER (search->priv->buffer));
+		ctk_source_buffer_get_highlight_matching_brackets (CTK_SOURCE_BUFFER (search->priv->buffer));
 
-	ctk_source_buffer_set_highlight_matching_brackets (GTK_SOURCE_BUFFER (search->priv->buffer),
+	ctk_source_buffer_set_highlight_matching_brackets (CTK_SOURCE_BUFFER (search->priv->buffer),
 							   FALSE);
 
-	_ctk_source_buffer_save_and_clear_selection (GTK_SOURCE_BUFFER (search->priv->buffer));
+	_ctk_source_buffer_save_and_clear_selection (CTK_SOURCE_BUFFER (search->priv->buffer));
 
 	ctk_text_buffer_get_start_iter (search->priv->buffer, &iter);
 
@@ -3826,9 +3826,9 @@ ctk_source_search_context_replace_all (GtkSourceSearchContext  *search,
 
 	ctk_text_buffer_end_user_action (search->priv->buffer);
 
-	_ctk_source_buffer_restore_selection (GTK_SOURCE_BUFFER (search->priv->buffer));
+	_ctk_source_buffer_restore_selection (CTK_SOURCE_BUFFER (search->priv->buffer));
 
-	ctk_source_buffer_set_highlight_matching_brackets (GTK_SOURCE_BUFFER (search->priv->buffer),
+	ctk_source_buffer_set_highlight_matching_brackets (CTK_SOURCE_BUFFER (search->priv->buffer),
 							   highlight_matching_brackets);
 
 	g_signal_handlers_unblock_by_func (search->priv->buffer, insert_text_before_cb, search);
@@ -3850,7 +3850,7 @@ _ctk_source_search_context_update_highlight (GtkSourceSearchContext *search,
 {
 	GtkSourceRegion *region_to_highlight = NULL;
 
-	g_return_if_fail (GTK_SOURCE_IS_SEARCH_CONTEXT (search));
+	g_return_if_fail (CTK_SOURCE_IS_SEARCH_CONTEXT (search));
 	g_return_if_fail (start != NULL);
 	g_return_if_fail (end != NULL);
 

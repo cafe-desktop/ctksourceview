@@ -67,7 +67,7 @@ ctk_source_style_scheme_manager_set_property (GObject 	   *object,
 {
 	GtkSourceStyleSchemeManager *sm;
 
-	sm = GTK_SOURCE_STYLE_SCHEME_MANAGER (object);
+	sm = CTK_SOURCE_STYLE_SCHEME_MANAGER (object);
 
 	switch (prop_id)
 	{
@@ -92,7 +92,7 @@ ctk_source_style_scheme_manager_get_property (GObject    *object,
 {
 	GtkSourceStyleSchemeManager *sm;
 
-	sm = GTK_SOURCE_STYLE_SCHEME_MANAGER (object);
+	sm = CTK_SOURCE_STYLE_SCHEME_MANAGER (object);
 
 	switch (prop_id)
 	{
@@ -132,7 +132,7 @@ ctk_source_style_scheme_manager_finalize (GObject *object)
 {
 	GtkSourceStyleSchemeManager *mgr;
 
-	mgr = GTK_SOURCE_STYLE_SCHEME_MANAGER (object);
+	mgr = CTK_SOURCE_STYLE_SCHEME_MANAGER (object);
 
 	free_schemes (mgr);
 
@@ -188,7 +188,7 @@ ctk_source_style_scheme_manager_init (GtkSourceStyleSchemeManager *mgr)
 GtkSourceStyleSchemeManager *
 ctk_source_style_scheme_manager_new (void)
 {
-	return g_object_new (GTK_SOURCE_TYPE_STYLE_SCHEME_MANAGER, NULL);
+	return g_object_new (CTK_SOURCE_TYPE_STYLE_SCHEME_MANAGER, NULL);
 }
 
 /**
@@ -418,7 +418,7 @@ ctk_source_style_scheme_manager_set_search_path (GtkSourceStyleSchemeManager  *m
 {
 	gchar **tmp;
 
-	g_return_if_fail (GTK_SOURCE_IS_STYLE_SCHEME_MANAGER (manager));
+	g_return_if_fail (CTK_SOURCE_IS_STYLE_SCHEME_MANAGER (manager));
 
 	tmp = manager->priv->search_path;
 
@@ -447,7 +447,7 @@ ctk_source_style_scheme_manager_append_search_path (GtkSourceStyleSchemeManager 
 {
 	guint len = 0;
 
-	g_return_if_fail (GTK_SOURCE_IS_STYLE_SCHEME_MANAGER (manager));
+	g_return_if_fail (CTK_SOURCE_IS_STYLE_SCHEME_MANAGER (manager));
 	g_return_if_fail (path != NULL);
 
 	if (manager->priv->search_path == NULL)
@@ -483,7 +483,7 @@ ctk_source_style_scheme_manager_prepend_search_path (GtkSourceStyleSchemeManager
 	guint len = 0;
 	gchar **new_search_path;
 
-	g_return_if_fail (GTK_SOURCE_IS_STYLE_SCHEME_MANAGER (manager));
+	g_return_if_fail (CTK_SOURCE_IS_STYLE_SCHEME_MANAGER (manager));
 	g_return_if_fail (path != NULL);
 
 	if (manager->priv->search_path == NULL)
@@ -517,7 +517,7 @@ ctk_source_style_scheme_manager_prepend_search_path (GtkSourceStyleSchemeManager
 const gchar * const *
 ctk_source_style_scheme_manager_get_search_path (GtkSourceStyleSchemeManager *manager)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_STYLE_SCHEME_MANAGER (manager), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_STYLE_SCHEME_MANAGER (manager), NULL);
 
 	if (manager->priv->search_path == NULL)
 		manager->priv->search_path = _ctk_source_utils_get_default_dirs (STYLES_DIR);
@@ -536,7 +536,7 @@ ctk_source_style_scheme_manager_get_search_path (GtkSourceStyleSchemeManager *ma
 void
 ctk_source_style_scheme_manager_force_rescan (GtkSourceStyleSchemeManager *manager)
 {
-	g_return_if_fail (GTK_SOURCE_IS_STYLE_SCHEME_MANAGER (manager));
+	g_return_if_fail (CTK_SOURCE_IS_STYLE_SCHEME_MANAGER (manager));
 
 	manager->priv->need_reload = TRUE;
 
@@ -558,7 +558,7 @@ ctk_source_style_scheme_manager_force_rescan (GtkSourceStyleSchemeManager *manag
 const gchar * const *
 ctk_source_style_scheme_manager_get_scheme_ids (GtkSourceStyleSchemeManager *manager)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_STYLE_SCHEME_MANAGER (manager), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_STYLE_SCHEME_MANAGER (manager), NULL);
 
 	reload_if_needed (manager);
 
@@ -579,7 +579,7 @@ GtkSourceStyleScheme *
 ctk_source_style_scheme_manager_get_scheme (GtkSourceStyleSchemeManager *manager,
 					    const gchar                 *scheme_id)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_STYLE_SCHEME_MANAGER (manager), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_STYLE_SCHEME_MANAGER (manager), NULL);
 	g_return_val_if_fail (scheme_id != NULL, NULL);
 
 	reload_if_needed (manager);

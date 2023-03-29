@@ -189,7 +189,7 @@ G_DEFINE_TYPE_WITH_CODE (GtkSourceUndoManagerDefault,
 			 ctk_source_undo_manager_default,
 			 G_TYPE_OBJECT,
 			 G_ADD_PRIVATE (GtkSourceUndoManagerDefault)
-                         G_IMPLEMENT_INTERFACE (GTK_SOURCE_TYPE_UNDO_MANAGER,
+                         G_IMPLEMENT_INTERFACE (CTK_SOURCE_TYPE_UNDO_MANAGER,
                                                 ctk_source_undo_manager_iface_init))
 
 /* Utility functions */
@@ -264,13 +264,13 @@ update_can_undo_can_redo (GtkSourceUndoManagerDefault *manager)
 	if (manager->priv->can_undo != can_undo)
 	{
 		manager->priv->can_undo = can_undo;
-		ctk_source_undo_manager_can_undo_changed (GTK_SOURCE_UNDO_MANAGER (manager));
+		ctk_source_undo_manager_can_undo_changed (CTK_SOURCE_UNDO_MANAGER (manager));
 	}
 
 	if (manager->priv->can_redo != can_redo)
 	{
 		manager->priv->can_redo = can_redo;
-		ctk_source_undo_manager_can_redo_changed (GTK_SOURCE_UNDO_MANAGER (manager));
+		ctk_source_undo_manager_can_redo_changed (CTK_SOURCE_UNDO_MANAGER (manager));
 	}
 }
 
@@ -1277,7 +1277,7 @@ ctk_source_undo_manager_default_set_property (GObject      *object,
                                               const GValue *value,
                                               GParamSpec   *pspec)
 {
-	GtkSourceUndoManagerDefault *manager = GTK_SOURCE_UNDO_MANAGER_DEFAULT (object);
+	GtkSourceUndoManagerDefault *manager = CTK_SOURCE_UNDO_MANAGER_DEFAULT (object);
 
 	switch (prop_id)
 	{
@@ -1301,7 +1301,7 @@ ctk_source_undo_manager_default_get_property (GObject    *object,
                                               GValue     *value,
                                               GParamSpec *pspec)
 {
-	GtkSourceUndoManagerDefault *manager = GTK_SOURCE_UNDO_MANAGER_DEFAULT (object);
+	GtkSourceUndoManagerDefault *manager = CTK_SOURCE_UNDO_MANAGER_DEFAULT (object);
 
 	switch (prop_id)
 	{
@@ -1322,7 +1322,7 @@ ctk_source_undo_manager_default_get_property (GObject    *object,
 static void
 ctk_source_undo_manager_default_dispose (GObject *object)
 {
-	GtkSourceUndoManagerDefault *manager = GTK_SOURCE_UNDO_MANAGER_DEFAULT (object);
+	GtkSourceUndoManagerDefault *manager = CTK_SOURCE_UNDO_MANAGER_DEFAULT (object);
 
 	if (manager->priv->buffer != NULL)
 	{
@@ -1338,7 +1338,7 @@ ctk_source_undo_manager_default_dispose (GObject *object)
 static void
 ctk_source_undo_manager_default_finalize (GObject *object)
 {
-	GtkSourceUndoManagerDefault *manager = GTK_SOURCE_UNDO_MANAGER_DEFAULT (object);
+	GtkSourceUndoManagerDefault *manager = CTK_SOURCE_UNDO_MANAGER_DEFAULT (object);
 
 	g_queue_free_full (manager->priv->action_groups,
 			   (GDestroyNotify) action_group_free);
@@ -1363,7 +1363,7 @@ ctk_source_undo_manager_default_class_init (GtkSourceUndoManagerDefaultClass *kl
 	                                 g_param_spec_object ("buffer",
 	                                                      "Buffer",
 	                                                      "The text buffer to add undo support on",
-	                                                      GTK_TYPE_TEXT_BUFFER,
+	                                                      CTK_TYPE_TEXT_BUFFER,
 	                                                      G_PARAM_READWRITE |
 							      G_PARAM_CONSTRUCT_ONLY |
 							      G_PARAM_STATIC_STRINGS));
@@ -1394,14 +1394,14 @@ ctk_source_undo_manager_default_init (GtkSourceUndoManagerDefault *manager)
 static gboolean
 ctk_source_undo_manager_can_undo_impl (GtkSourceUndoManager *undo_manager)
 {
-	GtkSourceUndoManagerDefault *manager = GTK_SOURCE_UNDO_MANAGER_DEFAULT (undo_manager);
+	GtkSourceUndoManagerDefault *manager = CTK_SOURCE_UNDO_MANAGER_DEFAULT (undo_manager);
 	return manager->priv->can_undo;
 }
 
 static gboolean
 ctk_source_undo_manager_can_redo_impl (GtkSourceUndoManager *undo_manager)
 {
-	GtkSourceUndoManagerDefault *manager = GTK_SOURCE_UNDO_MANAGER_DEFAULT (undo_manager);
+	GtkSourceUndoManagerDefault *manager = CTK_SOURCE_UNDO_MANAGER_DEFAULT (undo_manager);
 	return manager->priv->can_redo;
 }
 
@@ -1426,7 +1426,7 @@ restore_modified_state (GtkSourceUndoManagerDefault *manager,
 static void
 ctk_source_undo_manager_undo_impl (GtkSourceUndoManager *undo_manager)
 {
-	GtkSourceUndoManagerDefault *manager = GTK_SOURCE_UNDO_MANAGER_DEFAULT (undo_manager);
+	GtkSourceUndoManagerDefault *manager = CTK_SOURCE_UNDO_MANAGER_DEFAULT (undo_manager);
 	GList *old_location;
 	GList *new_location;
 	ActionGroup *group;
@@ -1476,7 +1476,7 @@ ctk_source_undo_manager_undo_impl (GtkSourceUndoManager *undo_manager)
 static void
 ctk_source_undo_manager_redo_impl (GtkSourceUndoManager *undo_manager)
 {
-	GtkSourceUndoManagerDefault *manager = GTK_SOURCE_UNDO_MANAGER_DEFAULT (undo_manager);
+	GtkSourceUndoManagerDefault *manager = CTK_SOURCE_UNDO_MANAGER_DEFAULT (undo_manager);
 	GList *old_location;
 	GList *new_location;
 	ActionGroup *group;
@@ -1525,7 +1525,7 @@ ctk_source_undo_manager_redo_impl (GtkSourceUndoManager *undo_manager)
 static void
 ctk_source_undo_manager_begin_not_undoable_action_impl (GtkSourceUndoManager *undo_manager)
 {
-	GtkSourceUndoManagerDefault *manager = GTK_SOURCE_UNDO_MANAGER_DEFAULT (undo_manager);
+	GtkSourceUndoManagerDefault *manager = CTK_SOURCE_UNDO_MANAGER_DEFAULT (undo_manager);
 	manager->priv->running_not_undoable_actions++;
 
 	if (manager->priv->running_not_undoable_actions == 1)
@@ -1537,7 +1537,7 @@ ctk_source_undo_manager_begin_not_undoable_action_impl (GtkSourceUndoManager *un
 static void
 ctk_source_undo_manager_end_not_undoable_action_impl (GtkSourceUndoManager *undo_manager)
 {
-	GtkSourceUndoManagerDefault *manager = GTK_SOURCE_UNDO_MANAGER_DEFAULT (undo_manager);
+	GtkSourceUndoManagerDefault *manager = CTK_SOURCE_UNDO_MANAGER_DEFAULT (undo_manager);
 
 	g_return_if_fail (manager->priv->running_not_undoable_actions > 0);
 
@@ -1568,7 +1568,7 @@ void
 ctk_source_undo_manager_default_set_max_undo_levels (GtkSourceUndoManagerDefault *manager,
                                                      gint                         max_undo_levels)
 {
-	g_return_if_fail (GTK_SOURCE_IS_UNDO_MANAGER_DEFAULT (manager));
+	g_return_if_fail (CTK_SOURCE_IS_UNDO_MANAGER_DEFAULT (manager));
 	g_return_if_fail (max_undo_levels >= -1);
 
 	if (manager->priv->max_undo_levels != max_undo_levels)

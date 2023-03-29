@@ -18,8 +18,8 @@
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTK_SOURCE_STYLE_PRIVATE_H
-#define GTK_SOURCE_STYLE_PRIVATE_H
+#ifndef CTK_SOURCE_STYLE_PRIVATE_H
+#define CTK_SOURCE_STYLE_PRIVATE_H
 
 #include <ctk/ctk.h>
 
@@ -30,19 +30,19 @@ G_BEGIN_DECLS
  * application overrides. And we need enough room for
  * GtkSourceMap to be able to override the style priority.
  */
-#define GTK_SOURCE_STYLE_PROVIDER_PRIORITY (GTK_STYLE_PROVIDER_PRIORITY_APPLICATION-2)
+#define CTK_SOURCE_STYLE_PROVIDER_PRIORITY (CTK_STYLE_PROVIDER_PRIORITY_APPLICATION-2)
 
 enum
 {
-	GTK_SOURCE_STYLE_USE_LINE_BACKGROUND = 1 << 0,	/*< nick=use_line_background >*/
-	GTK_SOURCE_STYLE_USE_BACKGROUND      = 1 << 1,	/*< nick=use_background >*/
-	GTK_SOURCE_STYLE_USE_FOREGROUND      = 1 << 2,	/*< nick=use_foreground >*/
-	GTK_SOURCE_STYLE_USE_ITALIC          = 1 << 3,	/*< nick=use_italic >*/
-	GTK_SOURCE_STYLE_USE_BOLD            = 1 << 4,	/*< nick=use_bold >*/
-	GTK_SOURCE_STYLE_USE_UNDERLINE       = 1 << 5,	/*< nick=use_underline >*/
-	GTK_SOURCE_STYLE_USE_STRIKETHROUGH   = 1 << 6,	/*< nick=use_strikethrough >*/
-	GTK_SOURCE_STYLE_USE_SCALE           = 1 << 7,	/*< nick=use_scale >*/
-	GTK_SOURCE_STYLE_USE_UNDERLINE_COLOR = 1 << 8	/*< nick=use_underline_color >*/
+	CTK_SOURCE_STYLE_USE_LINE_BACKGROUND = 1 << 0,	/*< nick=use_line_background >*/
+	CTK_SOURCE_STYLE_USE_BACKGROUND      = 1 << 1,	/*< nick=use_background >*/
+	CTK_SOURCE_STYLE_USE_FOREGROUND      = 1 << 2,	/*< nick=use_foreground >*/
+	CTK_SOURCE_STYLE_USE_ITALIC          = 1 << 3,	/*< nick=use_italic >*/
+	CTK_SOURCE_STYLE_USE_BOLD            = 1 << 4,	/*< nick=use_bold >*/
+	CTK_SOURCE_STYLE_USE_UNDERLINE       = 1 << 5,	/*< nick=use_underline >*/
+	CTK_SOURCE_STYLE_USE_STRIKETHROUGH   = 1 << 6,	/*< nick=use_strikethrough >*/
+	CTK_SOURCE_STYLE_USE_SCALE           = 1 << 7,	/*< nick=use_scale >*/
+	CTK_SOURCE_STYLE_USE_UNDERLINE_COLOR = 1 << 8	/*< nick=use_underline_color >*/
 };
 
 struct _GtkSourceStyle
@@ -68,4 +68,4 @@ struct _GtkSourceStyle
 
 G_END_DECLS
 
-#endif  /* GTK_SOURCE_STYLE_PRIVATE_H */
+#endif  /* CTK_SOURCE_STYLE_PRIVATE_H */

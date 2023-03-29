@@ -78,8 +78,8 @@ ctksourceview_docs_xml = configure_file(
 
 reference_scan_args = [
   '--rebuild-types',
-  '--ignore-decorators=GTK_SOURCE_DEPRECATED\w*\s*\([^)]*\)|GTK_SOURCE_DEPRECATED\w*|GTK_SOURCE_AVAILABLE\w*|_GTK_SOURCE_EXTERN',
-  '--deprecated-guards=GTKSOURCEVIEW_DISABLE_DEPRECATED',
+  '--ignore-decorators=CTK_SOURCE_DEPRECATED\w*\s*\([^)]*\)|CTK_SOURCE_DEPRECATED\w*|CTK_SOURCE_AVAILABLE\w*|_CTK_SOURCE_EXTERN',
+  '--deprecated-guards=CTKSOURCEVIEW_DISABLE_DEPRECATED',
   '--ignore-headers=' + ' '.join(reference_private_h),
 ]
 

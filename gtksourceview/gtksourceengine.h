@@ -18,8 +18,8 @@
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTK_SOURCE_ENGINE_H
-#define GTK_SOURCE_ENGINE_H
+#ifndef CTK_SOURCE_ENGINE_H
+#define CTK_SOURCE_ENGINE_H
 
 #include <ctk/ctk.h>
 #include "ctksourcetypes.h"
@@ -27,10 +27,10 @@
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_ENGINE               (_ctk_source_engine_get_type ())
-#define GTK_SOURCE_ENGINE(obj)               (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_ENGINE, GtkSourceEngine))
-#define GTK_SOURCE_IS_ENGINE(obj)            (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_SOURCE_TYPE_ENGINE))
-#define GTK_SOURCE_ENGINE_GET_INTERFACE(obj) (G_TYPE_INSTANCE_GET_INTERFACE ((obj), GTK_SOURCE_TYPE_ENGINE, GtkSourceEngineInterface))
+#define CTK_SOURCE_TYPE_ENGINE               (_ctk_source_engine_get_type ())
+#define CTK_SOURCE_ENGINE(obj)               (G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_ENGINE, GtkSourceEngine))
+#define CTK_SOURCE_IS_ENGINE(obj)            (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CTK_SOURCE_TYPE_ENGINE))
+#define CTK_SOURCE_ENGINE_GET_INTERFACE(obj) (G_TYPE_INSTANCE_GET_INTERFACE ((obj), CTK_SOURCE_TYPE_ENGINE, GtkSourceEngineInterface))
 
 typedef struct _GtkSourceEngineInterface GtkSourceEngineInterface;
 
@@ -86,4 +86,4 @@ void        _ctk_source_engine_set_style_scheme	(GtkSourceEngine      *engine,
 
 G_END_DECLS
 
-#endif /* GTK_SOURCE_ENGINE_H */
+#endif /* CTK_SOURCE_ENGINE_H */

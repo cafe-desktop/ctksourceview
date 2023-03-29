@@ -47,7 +47,7 @@ G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceCompletionWordsLibrary, ctk_source_completi
 static void
 ctk_source_completion_words_library_finalize (GObject *object)
 {
-	GtkSourceCompletionWordsLibrary *library = GTK_SOURCE_COMPLETION_WORDS_LIBRARY (object);
+	GtkSourceCompletionWordsLibrary *library = CTK_SOURCE_COMPLETION_WORDS_LIBRARY (object);
 
 	g_sequence_free (library->priv->store);
 
@@ -89,7 +89,7 @@ ctk_source_completion_words_library_init (GtkSourceCompletionWordsLibrary *self)
 GtkSourceCompletionWordsLibrary *
 ctk_source_completion_words_library_new (void)
 {
-	return g_object_new (GTK_SOURCE_TYPE_COMPLETION_WORDS_LIBRARY, NULL);
+	return g_object_new (CTK_SOURCE_TYPE_COMPLETION_WORDS_LIBRARY, NULL);
 }
 
 static gint
@@ -145,7 +145,7 @@ ctk_source_completion_words_library_get_proposal (GSequenceIter *iter)
 		return NULL;
 	}
 
-	return GTK_SOURCE_COMPLETION_WORDS_PROPOSAL (g_sequence_get (iter));
+	return CTK_SOURCE_COMPLETION_WORDS_PROPOSAL (g_sequence_get (iter));
 }
 
 /* Find the first item in the library with the prefix equal to @word.
@@ -159,7 +159,7 @@ ctk_source_completion_words_library_find_first (GtkSourceCompletionWordsLibrary 
 	GtkSourceCompletionWordsProposal *proposal;
 	GSequenceIter *iter;
 
-	g_return_val_if_fail (GTK_SOURCE_IS_COMPLETION_WORDS_LIBRARY (library), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_WORDS_LIBRARY (library), NULL);
 	g_return_val_if_fail (word != NULL, NULL);
 
 	if (len == -1)
@@ -219,8 +219,8 @@ GSequenceIter *
 ctk_source_completion_words_library_find (GtkSourceCompletionWordsLibrary  *library,
 					  GtkSourceCompletionWordsProposal *proposal)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_COMPLETION_WORDS_LIBRARY (library), NULL);
-	g_return_val_if_fail (GTK_SOURCE_IS_COMPLETION_WORDS_PROPOSAL (proposal), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_WORDS_LIBRARY (library), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_WORDS_PROPOSAL (proposal), NULL);
 
 	return g_sequence_lookup (library->priv->store,
 				  proposal,
@@ -248,7 +248,7 @@ ctk_source_completion_words_library_add_word (GtkSourceCompletionWordsLibrary *l
 	GtkSourceCompletionWordsProposal *proposal;
 	GSequenceIter *iter;
 
-	g_return_val_if_fail (GTK_SOURCE_IS_COMPLETION_WORDS_LIBRARY (library), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_WORDS_LIBRARY (library), NULL);
 	g_return_val_if_fail (word != NULL, NULL);
 
 	/* Check if word already exists */
@@ -292,8 +292,8 @@ void
 ctk_source_completion_words_library_remove_word (GtkSourceCompletionWordsLibrary  *library,
                                                  GtkSourceCompletionWordsProposal *proposal)
 {
-	g_return_if_fail (GTK_SOURCE_IS_COMPLETION_WORDS_LIBRARY (library));
-	g_return_if_fail (GTK_SOURCE_IS_COMPLETION_WORDS_PROPOSAL (proposal));
+	g_return_if_fail (CTK_SOURCE_IS_COMPLETION_WORDS_LIBRARY (library));
+	g_return_if_fail (CTK_SOURCE_IS_COMPLETION_WORDS_PROPOSAL (proposal));
 
 	ctk_source_completion_words_proposal_unuse (proposal);
 }
@@ -301,7 +301,7 @@ ctk_source_completion_words_library_remove_word (GtkSourceCompletionWordsLibrary
 void
 ctk_source_completion_words_library_lock (GtkSourceCompletionWordsLibrary *library)
 {
-	g_return_if_fail (GTK_SOURCE_IS_COMPLETION_WORDS_LIBRARY (library));
+	g_return_if_fail (CTK_SOURCE_IS_COMPLETION_WORDS_LIBRARY (library));
 
 	library->priv->locked = TRUE;
 	g_signal_emit (library, signals[LOCK], 0);
@@ -310,7 +310,7 @@ ctk_source_completion_words_library_lock (GtkSourceCompletionWordsLibrary *libra
 void
 ctk_source_completion_words_library_unlock (GtkSourceCompletionWordsLibrary *library)
 {
-	g_return_if_fail (GTK_SOURCE_IS_COMPLETION_WORDS_LIBRARY (library));
+	g_return_if_fail (CTK_SOURCE_IS_COMPLETION_WORDS_LIBRARY (library));
 
 	library->priv->locked = FALSE;
 	g_signal_emit (library, signals[UNLOCK], 0);
@@ -319,7 +319,7 @@ ctk_source_completion_words_library_unlock (GtkSourceCompletionWordsLibrary *lib
 gboolean
 ctk_source_completion_words_library_is_locked (GtkSourceCompletionWordsLibrary *library)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_COMPLETION_WORDS_LIBRARY (library), TRUE);
+	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_WORDS_LIBRARY (library), TRUE);
 
 	return library->priv->locked;
 }
