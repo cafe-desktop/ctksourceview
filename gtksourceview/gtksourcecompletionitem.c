@@ -314,7 +314,7 @@ ctk_source_completion_item_class_init (CtkSourceCompletionItemClass *klass)
 					 g_param_spec_object ("icon",
 							      "Icon",
 							      "",
-							      GDK_TYPE_PIXBUF,
+							      CDK_TYPE_PIXBUF,
 							      G_PARAM_READWRITE |
 							      G_PARAM_STATIC_STRINGS));
 
@@ -467,7 +467,7 @@ ctk_source_completion_item_set_icon (CtkSourceCompletionItem *item,
 				     GdkPixbuf               *icon)
 {
 	g_return_if_fail (CTK_SOURCE_IS_COMPLETION_ITEM (item));
-	g_return_if_fail (icon == NULL || GDK_IS_PIXBUF (icon));
+	g_return_if_fail (icon == NULL || CDK_IS_PIXBUF (icon));
 
 	if (g_set_object (&item->priv->icon, icon))
 	{

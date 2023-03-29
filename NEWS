@@ -903,7 +903,7 @@ News in 3.3.2
 News in 3.3.1
 -------------
 * Change IgeMacIntegration to CtkOSXApplication
-* Allow for multiple GDK backends
+* Allow for multiple CDK backends
 * Sort schemes alphabetically
 * Sort the languages alphabetically
 * Misc bugfixes

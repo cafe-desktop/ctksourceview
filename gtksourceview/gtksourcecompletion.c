@@ -1286,7 +1286,7 @@ view_key_press_event_cb (CtkSourceView       *view,
 			 CtkSourceCompletion *completion)
 {
 	static gboolean mnemonic_keyval_set = FALSE;
-	static guint mnemonic_keyval = GDK_KEY_VoidSymbol;
+	static guint mnemonic_keyval = CDK_KEY_VoidSymbol;
 	GdkModifierType mod;
 	CtkBindingSet *binding_set;
 
@@ -1310,7 +1310,7 @@ view_key_press_event_cb (CtkSourceView       *view,
 	mod = ctk_accelerator_get_default_mod_mask () & event->state;
 
 	/* Handle info button mnemonic */
-	if ((mod & GDK_MOD1_MASK) != 0 &&
+	if ((mod & CDK_MOD1_MASK) != 0 &&
 	    event->keyval == mnemonic_keyval &&
 	    ctk_widget_get_sensitive (CTK_WIDGET (completion->priv->info_button)))
 	{
@@ -1319,10 +1319,10 @@ view_key_press_event_cb (CtkSourceView       *view,
 		return TRUE;
 	}
 
-	if ((mod & GDK_MOD1_MASK) != 0 &&
-	    GDK_KEY_0 <= event->keyval && event->keyval <= GDK_KEY_9)
+	if ((mod & CDK_MOD1_MASK) != 0 &&
+	    CDK_KEY_0 <= event->keyval && event->keyval <= CDK_KEY_9)
 	{
-		if (activate_by_accelerator (completion, event->keyval - GDK_KEY_0))
+		if (activate_by_accelerator (completion, event->keyval - CDK_KEY_0))
 		{
 			return TRUE;
 		}
@@ -2624,7 +2624,7 @@ ctk_source_completion_class_init (CtkSourceCompletionClass *klass)
 	binding_set = ctk_binding_set_by_class (klass);
 
 	ctk_binding_entry_add_signal (binding_set,
-				      GDK_KEY_Down,
+				      CDK_KEY_Down,
 				      0,
 				      "move-cursor",
 				      2,
@@ -2632,7 +2632,7 @@ ctk_source_completion_class_init (CtkSourceCompletionClass *klass)
 				      G_TYPE_INT, 1);
 
 	ctk_binding_entry_add_signal (binding_set,
-				      GDK_KEY_Page_Down,
+				      CDK_KEY_Page_Down,
 				      0,
 				      "move-cursor",
 				      2,
@@ -2640,7 +2640,7 @@ ctk_source_completion_class_init (CtkSourceCompletionClass *klass)
 				      G_TYPE_INT, 1);
 
 	ctk_binding_entry_add_signal (binding_set,
-				      GDK_KEY_Up,
+				      CDK_KEY_Up,
 				      0,
 				      "move-cursor",
 				      2,
@@ -2648,7 +2648,7 @@ ctk_source_completion_class_init (CtkSourceCompletionClass *klass)
 				      G_TYPE_INT, -1);
 
 	ctk_binding_entry_add_signal (binding_set,
-				      GDK_KEY_Page_Up,
+				      CDK_KEY_Page_Up,
 				      0,
 				      "move-cursor",
 				      2,
@@ -2656,7 +2656,7 @@ ctk_source_completion_class_init (CtkSourceCompletionClass *klass)
 				      G_TYPE_INT, -1);
 
 	ctk_binding_entry_add_signal (binding_set,
-				      GDK_KEY_Home,
+				      CDK_KEY_Home,
 				      0,
 				      "move-cursor",
 				      2,
@@ -2664,7 +2664,7 @@ ctk_source_completion_class_init (CtkSourceCompletionClass *klass)
 				      G_TYPE_INT, -1);
 
 	ctk_binding_entry_add_signal (binding_set,
-				      GDK_KEY_End,
+				      CDK_KEY_End,
 				      0,
 				      "move-cursor",
 				      2,
@@ -2672,50 +2672,50 @@ ctk_source_completion_class_init (CtkSourceCompletionClass *klass)
 				      G_TYPE_INT, 1);
 
 	ctk_binding_entry_add_signal (binding_set,
-				      GDK_KEY_Escape,
+				      CDK_KEY_Escape,
 				      0,
 				      "hide",
 				      0);
 
 	ctk_binding_entry_add_signal (binding_set,
-				      GDK_KEY_Return,
+				      CDK_KEY_Return,
 				      0,
 				      "activate-proposal",
 				      0);
 
 	ctk_binding_entry_add_signal (binding_set,
-				      GDK_KEY_Tab,
+				      CDK_KEY_Tab,
 				      0,
 				      "activate-proposal",
 				      0);
 
 	ctk_binding_entry_add_signal (binding_set,
-				      GDK_KEY_Left,
-				      GDK_CONTROL_MASK,
+				      CDK_KEY_Left,
+				      CDK_CONTROL_MASK,
 				      "move-page",
 				      2,
 				      CTK_TYPE_SCROLL_STEP, CTK_SCROLL_STEPS,
 				      G_TYPE_INT, -1);
 
 	ctk_binding_entry_add_signal (binding_set,
-				      GDK_KEY_Right,
-				      GDK_CONTROL_MASK,
+				      CDK_KEY_Right,
+				      CDK_CONTROL_MASK,
 				      "move-page",
 				      2,
 				      CTK_TYPE_SCROLL_STEP, CTK_SCROLL_STEPS,
 				      G_TYPE_INT, 1);
 
 	ctk_binding_entry_add_signal (binding_set,
-				      GDK_KEY_Home,
-				      GDK_CONTROL_MASK,
+				      CDK_KEY_Home,
+				      CDK_CONTROL_MASK,
 				      "move-page",
 				      2,
 				      CTK_TYPE_SCROLL_STEP, CTK_SCROLL_ENDS,
 				      G_TYPE_INT, -1);
 
 	ctk_binding_entry_add_signal (binding_set,
-				      GDK_KEY_End,
-				      GDK_CONTROL_MASK,
+				      CDK_KEY_End,
+				      CDK_CONTROL_MASK,
 				      "move-page",
 				      2,
 				      CTK_TYPE_SCROLL_STEP, CTK_SCROLL_ENDS,

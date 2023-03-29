@@ -312,7 +312,7 @@ ctk_source_gutter_renderer_pixbuf_class_init (CtkSourceGutterRendererPixbufClass
 	                                 g_param_spec_object ("pixbuf",
 	                                                      "Pixbuf",
 	                                                      "The pixbuf",
-	                                                      GDK_TYPE_PIXBUF,
+	                                                      CDK_TYPE_PIXBUF,
 	                                                      G_PARAM_READWRITE));
 
 	g_object_class_install_property (object_class,
@@ -364,7 +364,7 @@ ctk_source_gutter_renderer_pixbuf_set_pixbuf (CtkSourceGutterRendererPixbuf *ren
                                               GdkPixbuf                     *pixbuf)
 {
 	g_return_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER_PIXBUF (renderer));
-	g_return_if_fail (renderer == NULL || GDK_IS_PIXBUF (pixbuf));
+	g_return_if_fail (renderer == NULL || CDK_IS_PIXBUF (pixbuf));
 
 	set_pixbuf (renderer, pixbuf);
 }

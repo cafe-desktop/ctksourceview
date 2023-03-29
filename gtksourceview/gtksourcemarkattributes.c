@@ -262,7 +262,7 @@ ctk_source_mark_attributes_class_init (CtkSourceMarkAttributesClass *klass)
 	                                 g_param_spec_boxed ("background",
 	                                                     "Background",
 	                                                     "The background",
-	                                                     GDK_TYPE_RGBA,
+	                                                     CDK_TYPE_RGBA,
 	                                                     G_PARAM_READWRITE |
 							     G_PARAM_STATIC_STRINGS));
 
@@ -276,7 +276,7 @@ ctk_source_mark_attributes_class_init (CtkSourceMarkAttributesClass *klass)
 	                                 g_param_spec_object ("pixbuf",
 	                                                      "Pixbuf",
 	                                                      "The pixbuf",
-	                                                      GDK_TYPE_PIXBUF,
+	                                                      CDK_TYPE_PIXBUF,
 	                                                      G_PARAM_READWRITE |
 							      G_PARAM_STATIC_STRINGS));
 

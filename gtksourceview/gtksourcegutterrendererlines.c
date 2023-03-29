@@ -386,18 +386,18 @@ gutter_renderer_activate (CtkSourceGutterRenderer *renderer,
 
 	lines = CTK_SOURCE_GUTTER_RENDERER_LINES (renderer);
 
-	if (event->type == GDK_BUTTON_PRESS && (event->button.button == 1))
+	if (event->type == CDK_BUTTON_PRESS && (event->button.button == 1))
 	{
 		CtkTextBuffer *buffer;
 
 		buffer = get_buffer (lines);
 
-		if ((event->button.state & GDK_CONTROL_MASK) != 0)
+		if ((event->button.state & CDK_CONTROL_MASK) != 0)
 		{
 			/* Single click + Ctrl -> select the line */
 			select_line (lines, iter);
 		}
-		else if ((event->button.state & GDK_SHIFT_MASK) != 0)
+		else if ((event->button.state & CDK_SHIFT_MASK) != 0)
 		{
 			/* Single click + Shift -> extended current
 			   selection to include the clicked line */
@@ -408,7 +408,7 @@ gutter_renderer_activate (CtkSourceGutterRenderer *renderer,
 			ctk_text_buffer_place_cursor (buffer, iter);
 		}
 	}
-	else if (event->type == GDK_2BUTTON_PRESS && (event->button.button == 1))
+	else if (event->type == CDK_2BUTTON_PRESS && (event->button.button == 1))
 	{
 		select_line (lines, iter);
 	}

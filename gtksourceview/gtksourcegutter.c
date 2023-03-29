@@ -1471,7 +1471,7 @@ on_view_button_press_event (CtkSourceView    *view,
 		return FALSE;
 	}
 
-	if (event->type != GDK_BUTTON_PRESS)
+	if (event->type != CDK_BUTTON_PRESS)
 	{
 		return FALSE;
 	}
