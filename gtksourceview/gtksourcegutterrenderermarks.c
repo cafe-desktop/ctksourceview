@@ -153,7 +153,7 @@ composite_marks (CtkSourceView *view,
 				                      0, 0,
 				                      (gdouble) pixbuf_w / mark_width,
 				                      (gdouble) pixbuf_h / mark_height,
-				                      CDK_INTERP_BILINEAR,
+				                      GDK_INTERP_BILINEAR,
 				                      COMPOSITE_ALPHA);
 			}
 		}
