@@ -1,0 +1,40 @@
+##########################################################
+# THE FOLLOWING LINES IS USED BY docker-build
+##########################################################
+requires:
+  debian:
+    - aptitude
+    - clang-tools
+    - cppcheck
+    - expect #required for unbuffer
+    - gobject-introspection
+    - gtk-doc-tools
+    - intltool
+    - libgtk-3-dev
+    - libgtk-3-doc
+    - libatk1.0-dev
+    - libfribidi-dev
+    - libxml2-dev
+    - libxml2-utils
+    - libgdk-pixbuf2.0-doc
+    - libglib2.0-dev
+    - libglib2.0-doc
+    - libgladeui-dev
+    - libgirepository1.0-dev
+    - libpango1.0-doc
+    - meson
+    - valac
+    - xauth
+    - xvfb
+
+before_scripts:
+  - ./html-cppcheck
+  - ./debrepo-install 'libctk-3-dev gir1.2-ctk-3.0 libctk-3-common libctk-3-0'
+
+build_scripts:
+  - ./before-build
+  - ./make-scanbuild meson
+  - ./after-build
+
+after_scripts:
+  - ./gen-index -l 20
