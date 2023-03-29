@@ -190,7 +190,7 @@ from_pixbuf (CtkSourcePixbufHelper *helper,
 	set_cache (helper, gdk_pixbuf_scale_simple (helper->pixbuf,
 	                                            size,
 	                                            size,
-	                                            CDK_INTERP_BILINEAR));
+	                                            GDK_INTERP_BILINEAR));
 }
 
 static void
