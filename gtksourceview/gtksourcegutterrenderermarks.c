@@ -93,12 +93,12 @@ measure_line_height (CtkSourceView *view)
 	return height - 2;
 }
 
-static CdkPixbuf *
+static GdkPixbuf *
 composite_marks (CtkSourceView *view,
                  GSList        *marks,
                  gint           size)
 {
-	CdkPixbuf *composite;
+	GdkPixbuf *composite;
 	gint mark_width;
 	gint mark_height;
 
@@ -114,7 +114,7 @@ composite_marks (CtkSourceView *view,
 	{
 		CtkSourceMark *mark;
 		CtkSourceMarkAttributes *attrs;
-		const CdkPixbuf *pixbuf;
+		const GdkPixbuf *pixbuf;
 
 		mark = marks->data;
 		attrs = ctk_source_view_get_mark_attributes (view,
@@ -172,7 +172,7 @@ gutter_renderer_query_data (CtkSourceGutterRenderer      *renderer,
 			    CtkSourceGutterRendererState  state)
 {
 	GSList *marks;
-	CdkPixbuf *pixbuf = NULL;
+	GdkPixbuf *pixbuf = NULL;
 	gint size = 0;
 	CtkSourceView *view;
 	CtkSourceBuffer *buffer;
@@ -222,7 +222,7 @@ set_tooltip_widget_from_marks (CtkSourceView *view,
 		gchar *text;
 		gboolean ismarkup = FALSE;
 		CtkWidget *label;
-		const CdkPixbuf *pixbuf;
+		const GdkPixbuf *pixbuf;
 
 		mark = marks->data;
 		category = ctk_source_mark_get_category (mark);
@@ -283,7 +283,7 @@ set_tooltip_widget_from_marks (CtkSourceView *view,
 		else
 		{
 			CtkWidget *image;
-			CdkPixbuf *copy;
+			GdkPixbuf *copy;
 
 			/* FIXME why a copy is needed? */
 			copy = cdk_pixbuf_copy (pixbuf);

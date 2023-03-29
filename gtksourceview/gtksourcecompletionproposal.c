@@ -39,7 +39,7 @@
  * The label may be specified using plain text or markup by implementing
  * the corresponding get function. Only one of those get functions
  * should return a value different from %NULL.
- * The icon may be specified as a #CdkPixbuf, as an icon name or as a #GIcon by
+ * The icon may be specified as a #GdkPixbuf, as an icon name or as a #GIcon by
  * implementing the corresponding get function. At most one of those get functions
  * should return a value different from %NULL, if they all return %NULL no icon
  * will be used.
@@ -75,7 +75,7 @@ ctk_source_completion_proposal_get_text_default (CtkSourceCompletionProposal *pr
 	return NULL;
 }
 
-static CdkPixbuf *
+static GdkPixbuf *
 ctk_source_completion_proposal_get_icon_default (CtkSourceCompletionProposal *proposal)
 {
 	return NULL;
@@ -216,11 +216,11 @@ ctk_source_completion_proposal_get_text (CtkSourceCompletionProposal *proposal)
  * ctk_source_completion_proposal_get_icon:
  * @proposal: a #CtkSourceCompletionProposal.
  *
- * Gets the #CdkPixbuf for the icon of @proposal.
+ * Gets the #GdkPixbuf for the icon of @proposal.
  *
- * Returns: (nullable) (transfer none): A #CdkPixbuf with the icon of @proposal.
+ * Returns: (nullable) (transfer none): A #GdkPixbuf with the icon of @proposal.
  */
-CdkPixbuf *
+GdkPixbuf *
 ctk_source_completion_proposal_get_icon (CtkSourceCompletionProposal *proposal)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_PROPOSAL (proposal), NULL);

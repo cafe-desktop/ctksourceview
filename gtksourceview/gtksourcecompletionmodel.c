@@ -513,12 +513,12 @@ tree_model_get_value (CtkTreeModel *tree_model,
 		case CTK_SOURCE_COMPLETION_MODEL_COLUMN_ICON:
 			if (is_header (proposal_info))
 			{
-				CdkPixbuf *icon = ctk_source_completion_provider_get_icon (completion_provider);
+				GdkPixbuf *icon = ctk_source_completion_provider_get_icon (completion_provider);
 				g_value_set_object (value, (gpointer)icon);
 			}
 			else
 			{
-				CdkPixbuf *icon = ctk_source_completion_proposal_get_icon (completion_proposal);
+				GdkPixbuf *icon = ctk_source_completion_proposal_get_icon (completion_proposal);
 				g_value_set_object (value, (gpointer)icon);
 			}
 			break;

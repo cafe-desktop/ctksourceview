@@ -148,7 +148,7 @@ set_icon_name (CtkSourceMarkAttributes *attributes,
 
 static void
 set_pixbuf (CtkSourceMarkAttributes *attributes,
-	    const CdkPixbuf         *pixbuf)
+	    const GdkPixbuf         *pixbuf)
 {
 	if (ctk_source_pixbuf_helper_get_pixbuf (attributes->priv->helper) == pixbuf)
 	{
@@ -269,7 +269,7 @@ ctk_source_mark_attributes_class_init (CtkSourceMarkAttributesClass *klass)
 	/**
 	 * CtkSourceMarkAttributes:pixbuf:
 	 *
-	 * A #CdkPixbuf that may be a base of a rendered icon.
+	 * A #GdkPixbuf that may be a base of a rendered icon.
 	 */
 	g_object_class_install_property (object_class,
 	                                 PROP_PIXBUF,
@@ -489,13 +489,13 @@ ctk_source_mark_attributes_get_gicon (CtkSourceMarkAttributes *attributes)
 /**
  * ctk_source_mark_attributes_set_pixbuf:
  * @attributes: a #CtkSourceMarkAttributes.
- * @pixbuf: a #CdkPixbuf to be used.
+ * @pixbuf: a #GdkPixbuf to be used.
  *
  * Sets a pixbuf to be used as a base for rendered icon.
  */
 void
 ctk_source_mark_attributes_set_pixbuf (CtkSourceMarkAttributes *attributes,
-				       const CdkPixbuf         *pixbuf)
+				       const GdkPixbuf         *pixbuf)
 {
 	g_return_if_fail (CTK_SOURCE_IS_MARK_ATTRIBUTES (attributes));
 
@@ -506,13 +506,13 @@ ctk_source_mark_attributes_set_pixbuf (CtkSourceMarkAttributes *attributes,
  * ctk_source_mark_attributes_get_pixbuf:
  * @attributes: a #CtkSourceMarkAttributes.
  *
- * Gets a #CdkPixbuf to be used as a base for rendered icon. Note that the
+ * Gets a #GdkPixbuf to be used as a base for rendered icon. Note that the
  * pixbuf can be %NULL if it wasn't set earlier.
  *
  * Returns: (transfer none): A pixbuf. The pixbuf belongs to @attributes and
  * should not be unreffed.
  */
-const CdkPixbuf *
+const GdkPixbuf *
 ctk_source_mark_attributes_get_pixbuf (CtkSourceMarkAttributes *attributes)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_MARK_ATTRIBUTES (attributes), NULL);
@@ -534,7 +534,7 @@ ctk_source_mark_attributes_get_pixbuf (CtkSourceMarkAttributes *attributes)
  * Returns: (transfer none): A rendered pixbuf. The pixbuf belongs to @attributes
  * and should not be unreffed.
  */
-const CdkPixbuf *
+const GdkPixbuf *
 ctk_source_mark_attributes_render_icon (CtkSourceMarkAttributes *attributes,
 					CtkWidget               *widget,
 					gint                     size)

@@ -40,7 +40,7 @@ struct _CtkSourceCompletionItemPrivate
 	gchar *label;
 	gchar *markup;
 	gchar *text;
-	CdkPixbuf *icon;
+	GdkPixbuf *icon;
 	gchar *icon_name;
 	GIcon *gicon;
 	gchar *info;
@@ -85,7 +85,7 @@ ctk_source_completion_proposal_get_text_impl (CtkSourceCompletionProposal *propo
 	return g_strdup (CTK_SOURCE_COMPLETION_ITEM (proposal)->priv->text);
 }
 
-static CdkPixbuf *
+static GdkPixbuf *
 ctk_source_completion_proposal_get_icon_impl (CtkSourceCompletionProposal *proposal)
 {
 	return CTK_SOURCE_COMPLETION_ITEM (proposal)->priv->icon;
@@ -307,7 +307,7 @@ ctk_source_completion_item_class_init (CtkSourceCompletionItemClass *klass)
 	/**
 	 * CtkSourceCompletionItem:icon:
 	 *
-	 * The #CdkPixbuf for the icon to be shown for this proposal.
+	 * The #GdkPixbuf for the icon to be shown for this proposal.
 	 */
 	g_object_class_install_property (object_class,
 					 PROP_ICON,
@@ -458,13 +458,13 @@ ctk_source_completion_item_set_text (CtkSourceCompletionItem *item,
 /**
  * ctk_source_completion_item_set_icon:
  * @item: a #CtkSourceCompletionItem.
- * @icon: (nullable): the #CdkPixbuf, or %NULL.
+ * @icon: (nullable): the #GdkPixbuf, or %NULL.
  *
  * Since: 3.24
  */
 void
 ctk_source_completion_item_set_icon (CtkSourceCompletionItem *item,
-				     CdkPixbuf               *icon)
+				     GdkPixbuf               *icon)
 {
 	g_return_if_fail (CTK_SOURCE_IS_COMPLETION_ITEM (item));
 	g_return_if_fail (icon == NULL || CDK_IS_PIXBUF (icon));
