@@ -293,7 +293,7 @@ if generate_gir
         install_dir: vapidir,
            packages: [ 'atk',
                        'cdk-3.0',
-		       'cdk-pixbuf-2.0',
+		       'gdk-pixbuf-2.0',
 		       'gio-2.0',
 		       'ctk+-3.0',
 		       'pango',

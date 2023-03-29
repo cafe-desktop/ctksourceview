@@ -15,7 +15,7 @@ requires:
     - libfribidi-dev
     - libxml2-dev
     - libxml2-utils
-    - libcdk-pixbuf2.0-doc
+    - libgdk-pixbuf2.0-doc
     - libglib2.0-dev
     - libglib2.0-doc
     - libgladeui-dev
