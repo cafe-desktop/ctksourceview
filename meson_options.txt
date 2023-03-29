@@ -11,7 +11,7 @@ option('gir',
        description: 'Generate gir data (requires gobject-introspection)')
 
 option('vapi',
-       type: 'boolean', value: true,
+       type: 'boolean', value: false,
        description: 'Generate vapi data (requires vapigen)')
 
 option('gtk_doc',
