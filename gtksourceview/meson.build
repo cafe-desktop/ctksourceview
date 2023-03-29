@@ -267,7 +267,7 @@ if generate_gir
       identifier_prefix: 'CtkSource',
         export_packages: [package_string],
               link_with: ctksource_lib,
-               includes: [ 'Gdk-3.0', 'Ctk-3.0' ],
+               includes: [ 'Cdk-3.0', 'Ctk-3.0' ],
                 install: true,
         install_dir_gir: girdir,
     install_dir_typelib: typelibdir,

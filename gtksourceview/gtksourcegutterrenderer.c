@@ -99,7 +99,7 @@ struct _CtkSourceGutterRendererPrivate
 
 	CtkSourceGutterRendererAlignmentMode alignment_mode;
 
-	GdkRGBA background_color;
+	CdkRGBA background_color;
 
 	guint background_set : 1;
 	guint visible : 1;
@@ -355,7 +355,7 @@ set_background_color_set (CtkSourceGutterRenderer *renderer,
 
 static void
 set_background_color (CtkSourceGutterRenderer *renderer,
-                      const GdkRGBA          *color)
+                      const CdkRGBA          *color)
 {
 	if (!color)
 	{
@@ -473,8 +473,8 @@ ctk_source_gutter_renderer_get_property (GObject    *object,
 static void
 renderer_draw_impl (CtkSourceGutterRenderer      *renderer,
                     cairo_t                      *cr,
-                    GdkRectangle                 *background_area,
-                    GdkRectangle                 *cell_area,
+                    CdkRectangle                 *background_area,
+                    CdkRectangle                 *cell_area,
                     CtkTextIter                  *start,
                     CtkTextIter                  *end,
                     CtkSourceGutterRendererState  state)
@@ -604,7 +604,7 @@ ctk_source_gutter_renderer_class_init (CtkSourceGutterRendererClass *klass)
 	 * CtkSourceGutterRenderer::activate:
 	 * @renderer: the #CtkSourceGutterRenderer who emits the signal
 	 * @iter: a #CtkTextIter
-	 * @area: a #GdkRectangle
+	 * @area: a #CdkRectangle
 	 * @event: the event that caused the activation
 	 *
 	 * The ::activate signal is emitted when the renderer is
@@ -652,7 +652,7 @@ ctk_source_gutter_renderer_class_init (CtkSourceGutterRendererClass *klass)
 	 * CtkSourceGutterRenderer::query-tooltip:
 	 * @renderer: the #CtkSourceGutterRenderer who emits the signal
 	 * @iter: a #CtkTextIter
-	 * @area: a #GdkRectangle
+	 * @area: a #CdkRectangle
 	 * @x: the x position (in window coordinates)
 	 * @y: the y position (in window coordinates)
 	 * @tooltip: a #CtkTooltip
@@ -713,8 +713,8 @@ ctk_source_gutter_renderer_class_init (CtkSourceGutterRendererClass *klass)
 	 * CtkSourceGutterRenderer::query-activatable:
 	 * @renderer: the #CtkSourceGutterRenderer who emits the signal
 	 * @iter: a #CtkTextIter
-	 * @area: a #GdkRectangle
-	 * @event: the #GdkEvent that is causing the activatable query
+	 * @area: a #CdkRectangle
+	 * @event: the #CdkEvent that is causing the activatable query
 	 *
 	 * The ::query-activatable signal is emitted when the renderer
 	 * can possibly be activated.
@@ -822,8 +822,8 @@ ctk_source_gutter_renderer_init (CtkSourceGutterRenderer *self)
  * ctk_source_gutter_renderer_begin:
  * @renderer: a #CtkSourceGutterRenderer
  * @cr: a #cairo_t
- * @background_area: a #GdkRectangle
- * @cell_area: a #GdkRectangle
+ * @background_area: a #CdkRectangle
+ * @cell_area: a #CdkRectangle
  * @start: a #CtkTextIter
  * @end: a #CtkTextIter
  *
@@ -834,8 +834,8 @@ ctk_source_gutter_renderer_init (CtkSourceGutterRenderer *self)
 void
 ctk_source_gutter_renderer_begin (CtkSourceGutterRenderer *renderer,
                                   cairo_t                 *cr,
-                                  GdkRectangle            *background_area,
-                                  GdkRectangle            *cell_area,
+                                  CdkRectangle            *background_area,
+                                  CdkRectangle            *cell_area,
                                   CtkTextIter             *start,
                                   CtkTextIter             *end)
 {
@@ -862,8 +862,8 @@ ctk_source_gutter_renderer_begin (CtkSourceGutterRenderer *renderer,
  * ctk_source_gutter_renderer_draw:
  * @renderer: a #CtkSourceGutterRenderer
  * @cr: the cairo render context
- * @background_area: a #GdkRectangle indicating the total area to be drawn
- * @cell_area: a #GdkRectangle indicating the area to draw content
+ * @background_area: a #CdkRectangle indicating the total area to be drawn
+ * @cell_area: a #CdkRectangle indicating the area to draw content
  * @start: a #CtkTextIter
  * @end: a #CtkTextIter
  * @state: a #CtkSourceGutterRendererState
@@ -885,8 +885,8 @@ ctk_source_gutter_renderer_begin (CtkSourceGutterRenderer *renderer,
 void
 ctk_source_gutter_renderer_draw (CtkSourceGutterRenderer      *renderer,
                                  cairo_t                      *cr,
-                                 GdkRectangle                 *background_area,
-                                 GdkRectangle                 *cell_area,
+                                 CdkRectangle                 *background_area,
+                                 CdkRectangle                 *cell_area,
                                  CtkTextIter                  *start,
                                  CtkTextIter                  *end,
                                  CtkSourceGutterRendererState  state)
@@ -933,7 +933,7 @@ ctk_source_gutter_renderer_end (CtkSourceGutterRenderer *renderer)
  * ctk_source_gutter_renderer_query_activatable:
  * @renderer: a #CtkSourceGutterRenderer
  * @iter: a #CtkTextIter at the start of the line to be activated
- * @area: a #GdkRectangle of the cell area to be activated
+ * @area: a #CdkRectangle of the cell area to be activated
  * @event: the event that triggered the query
  *
  * Get whether the renderer is activatable at the location in @event. This is
@@ -946,8 +946,8 @@ ctk_source_gutter_renderer_end (CtkSourceGutterRenderer *renderer)
 gboolean
 ctk_source_gutter_renderer_query_activatable (CtkSourceGutterRenderer *renderer,
                                               CtkTextIter             *iter,
-                                              GdkRectangle            *area,
-                                              GdkEvent                *event)
+                                              CdkRectangle            *area,
+                                              CdkEvent                *event)
 {
 	gboolean ret;
 
@@ -973,7 +973,7 @@ ctk_source_gutter_renderer_query_activatable (CtkSourceGutterRenderer *renderer,
  * ctk_source_gutter_renderer_activate:
  * @renderer: a #CtkSourceGutterRenderer
  * @iter: a #CtkTextIter at the start of the line where the renderer is activated
- * @area: a #GdkRectangle of the cell area where the renderer is activated
+ * @area: a #CdkRectangle of the cell area where the renderer is activated
  * @event: the event that triggered the activation
  *
  * Emits the #CtkSourceGutterRenderer::activate signal of the renderer. This is
@@ -982,8 +982,8 @@ ctk_source_gutter_renderer_query_activatable (CtkSourceGutterRenderer *renderer,
 void
 ctk_source_gutter_renderer_activate (CtkSourceGutterRenderer *renderer,
                                      CtkTextIter             *iter,
-                                     GdkRectangle            *area,
-                                     GdkEvent                *event)
+                                     CdkRectangle            *area,
+                                     CdkEvent                *event)
 {
 	g_return_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER (renderer));
 	g_return_if_fail (iter != NULL);
@@ -1013,7 +1013,7 @@ ctk_source_gutter_renderer_queue_draw (CtkSourceGutterRenderer *renderer)
  * ctk_source_gutter_renderer_query_tooltip:
  * @renderer: a #CtkSourceGutterRenderer.
  * @iter: a #CtkTextIter.
- * @area: a #GdkRectangle.
+ * @area: a #CdkRectangle.
  * @x: The x position of the tooltip.
  * @y: The y position of the tooltip.
  * @tooltip: a #CtkTooltip.
@@ -1027,7 +1027,7 @@ ctk_source_gutter_renderer_queue_draw (CtkSourceGutterRenderer *renderer)
 gboolean
 ctk_source_gutter_renderer_query_tooltip (CtkSourceGutterRenderer *renderer,
                                           CtkTextIter             *iter,
-                                          GdkRectangle            *area,
+                                          CdkRectangle            *area,
                                           gint                     x,
                                           gint                     y,
                                           CtkTooltip              *tooltip)
@@ -1348,7 +1348,7 @@ ctk_source_gutter_renderer_set_size (CtkSourceGutterRenderer *renderer,
 /**
  * ctk_source_gutter_renderer_get_background:
  * @renderer: a #CtkSourceGutterRenderer
- * @color: (out caller-allocates) (optional): return value for a #GdkRGBA
+ * @color: (out caller-allocates) (optional): return value for a #CdkRGBA
  *
  * Get the background color of the renderer.
  *
@@ -1357,7 +1357,7 @@ ctk_source_gutter_renderer_set_size (CtkSourceGutterRenderer *renderer,
  **/
 gboolean
 ctk_source_gutter_renderer_get_background (CtkSourceGutterRenderer *renderer,
-                                           GdkRGBA                 *color)
+                                           CdkRGBA                 *color)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER (renderer), FALSE);
 
@@ -1372,7 +1372,7 @@ ctk_source_gutter_renderer_get_background (CtkSourceGutterRenderer *renderer,
 /**
  * ctk_source_gutter_renderer_set_background:
  * @renderer: a #CtkSourceGutterRenderer
- * @color: (nullable): a #GdkRGBA or %NULL
+ * @color: (nullable): a #CdkRGBA or %NULL
  *
  * Set the background color of the renderer. If @color is set to %NULL, the
  * renderer will not have a background color.
@@ -1380,7 +1380,7 @@ ctk_source_gutter_renderer_get_background (CtkSourceGutterRenderer *renderer,
  */
 void
 ctk_source_gutter_renderer_set_background (CtkSourceGutterRenderer *renderer,
-                                           const GdkRGBA           *color)
+                                           const CdkRGBA           *color)
 {
 	g_return_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER (renderer));
 

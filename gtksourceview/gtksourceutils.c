@@ -666,8 +666,8 @@ _ctk_source_view_jump_to_iter (CtkTextView       *text_view,
 {
   CtkAdjustment *hadj;
   CtkAdjustment *vadj;
-  GdkRectangle rect;
-  GdkRectangle screen;
+  CdkRectangle rect;
+  CdkRectangle screen;
   int xvalue = 0;
   int yvalue = 0;
   int scroll_dest;

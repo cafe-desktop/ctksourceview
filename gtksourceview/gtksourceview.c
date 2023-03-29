@@ -189,8 +189,8 @@ enum
 struct _CtkSourceViewPrivate
 {
 	CtkSourceStyleScheme *style_scheme;
-	GdkRGBA *right_margin_line_color;
-	GdkRGBA *right_margin_overlay_color;
+	CdkRGBA *right_margin_line_color;
+	CdkRGBA *right_margin_overlay_color;
 
 	CtkSourceSpaceDrawer *space_drawer;
 
@@ -204,7 +204,7 @@ struct _CtkSourceViewPrivate
 	CtkSourceGutterRenderer *line_renderer;
 	CtkSourceGutterRenderer *marks_renderer;
 
-	GdkRGBA current_line_color;
+	CdkRGBA current_line_color;
 
 	CtkSourceCompletion *completion;
 
@@ -214,7 +214,7 @@ struct _CtkSourceViewPrivate
 	gint indent_width;
 	CtkSourceSmartHomeEndType smart_home_end;
 	CtkSourceBackgroundPatternType background_pattern;
-	GdkRGBA background_pattern_color;
+	CdkRGBA background_pattern_color;
 
 	guint tabs_set : 1;
 	guint show_line_numbers : 1;
@@ -293,9 +293,9 @@ static void	ctk_source_view_move_lines		(CtkSourceView     *view,
 static void	ctk_source_view_move_words		(CtkSourceView     *view,
 							 gint               step);
 static gboolean	ctk_source_view_key_press_event		(CtkWidget         *widget,
-							 GdkEventKey       *event);
+							 CdkEventKey       *event);
 static void	view_dnd_drop 				(CtkTextView       *view,
-							 GdkDragContext    *context,
+							 CdkDragContext    *context,
 							 gint               x,
 							 gint               y,
 							 CtkSelectionData  *selection_data,
@@ -774,7 +774,7 @@ ctk_source_view_class_init (CtkSourceViewClass *klass)
 	 * CtkSourceView::line-mark-activated:
 	 * @view: the #CtkSourceView
 	 * @iter: a #CtkTextIter
-	 * @event: the #GdkEvent that activated the event
+	 * @event: the #CdkEvent that activated the event
 	 *
 	 * Emitted when a line mark has been activated (for instance when there
 	 * was a button press in the line marks gutter). You can use @iter to
@@ -1422,7 +1422,7 @@ get_visible_region (CtkTextView *text_view,
 		    CtkTextIter *start,
 		    CtkTextIter *end)
 {
-	GdkRectangle visible_rect;
+	CdkRectangle visible_rect;
 
 	ctk_text_view_get_visible_rect (text_view, &visible_rect);
 
@@ -1654,7 +1654,7 @@ scroll_to_insert (CtkSourceView *view,
 {
 	CtkTextMark *insert;
 	CtkTextIter iter;
-	GdkRectangle visible, location;
+	CdkRectangle visible, location;
 
 	insert = ctk_text_buffer_get_insert (buffer);
 	ctk_text_buffer_get_iter_at_mark (buffer, &iter, insert);
@@ -2337,7 +2337,7 @@ static void
 ctk_source_view_ensure_redrawn_rect_is_highlighted (CtkSourceView *view,
 						    cairo_t       *cr)
 {
-	GdkRectangle clip;
+	CdkRectangle clip;
 	CtkTextIter iter1, iter2;
 
 	if (view->priv->source_buffer == NULL ||
@@ -2449,14 +2449,14 @@ ctk_source_view_paint_line_background (CtkTextView    *text_view,
 				       cairo_t        *cr,
 				       int             y, /* in buffer coordinates */
 				       int             height,
-				       const GdkRGBA  *color)
+				       const CdkRGBA  *color)
 {
 	gdouble x1, y1, x2, y2;
 
 	cairo_save (cr);
 	cairo_clip_extents (cr, &x1, &y1, &x2, &y2);
 
-	cdk_cairo_set_source_rgba (cr, (GdkRGBA *)color);
+	cdk_cairo_set_source_rgba (cr, (CdkRGBA *)color);
 	cairo_set_line_width (cr, 1);
 	cairo_rectangle (cr, x1 + .5, y + .5, x2 - x1 - 1, height - 1);
 	cairo_stroke_preserve (cr);
@@ -2469,7 +2469,7 @@ ctk_source_view_paint_marks_background (CtkSourceView *view,
 					cairo_t       *cr)
 {
 	CtkTextView *text_view;
-	GdkRectangle clip;
+	CdkRectangle clip;
 	GArray *numbers;
 	GArray *pixels;
 	GArray *heights;
@@ -2528,7 +2528,7 @@ ctk_source_view_paint_marks_background (CtkSourceView *view,
 	{
 		gint line_to_paint;
 		GSList *marks;
-		GdkRGBA background;
+		CdkRGBA background;
 		int priority;
 
 		line_to_paint = g_array_index (numbers, gint, i);
@@ -2543,7 +2543,7 @@ ctk_source_view_paint_marks_background (CtkSourceView *view,
 		{
 			CtkSourceMarkAttributes *attrs;
 			gint prio;
-			GdkRGBA bg;
+			CdkRGBA bg;
 
 			attrs = ctk_source_view_get_mark_attributes (view,
 			                                             ctk_source_mark_get_category (marks->data),
@@ -2579,7 +2579,7 @@ static void
 ctk_source_view_paint_right_margin (CtkSourceView *view,
 				    cairo_t       *cr)
 {
-	GdkRectangle clip;
+	CdkRectangle clip;
 	gdouble x;
 
 	CtkTextView *text_view = CTK_TEXT_VIEW (view);
@@ -2665,7 +2665,7 @@ static void
 ctk_source_view_paint_background_pattern_grid (CtkSourceView *view,
 					       cairo_t       *cr)
 {
-	GdkRectangle clip;
+	CdkRectangle clip;
 	gint x, y, x2, y2;
 	PangoContext *context;
 	PangoLayout *layout;
@@ -2998,8 +2998,8 @@ ctk_source_view_get_show_line_marks (CtkSourceView *view)
 static void
 gutter_renderer_marks_activate (CtkSourceGutterRenderer *renderer,
 				CtkTextIter             *iter,
-				const GdkRectangle      *area,
-				GdkEvent                *event,
+				const CdkRectangle      *area,
+				CdkEvent                *event,
 				CtkSourceView           *view)
 {
 	g_signal_emit (view,
@@ -4056,7 +4056,7 @@ do_ctrl_backspace (CtkSourceView *view)
 
 static gboolean
 ctk_source_view_key_press_event (CtkWidget   *widget,
-				 GdkEventKey *event)
+				 CdkEventKey *event)
 {
 	CtkSourceView *view;
 	CtkTextBuffer *buf;
@@ -4325,7 +4325,7 @@ ctk_source_view_set_indent_on_tab (CtkSourceView *view,
 
 static void
 view_dnd_drop (CtkTextView      *view,
-	       GdkDragContext   *context,
+	       CdkDragContext   *context,
 	       gint              x,
 	       gint              y,
 	       CtkSelectionData *selection_data,
@@ -4338,7 +4338,7 @@ view_dnd_drop (CtkTextView      *view,
 
 	if (info == TARGET_COLOR)
 	{
-		GdkRGBA rgba;
+		CdkRGBA rgba;
 		gchar string[] = "#000000";
 		gint buffer_x;
 		gint buffer_y;
@@ -4722,7 +4722,7 @@ update_right_margin_colors (CtkSourceView *view)
 		{
 			gchar *color_str = NULL;
 			gboolean color_set;
-			GdkRGBA color;
+			CdkRGBA color;
 
 			g_object_get (style,
 				      "foreground", &color_str,
@@ -4762,7 +4762,7 @@ update_right_margin_colors (CtkSourceView *view)
 	if (view->priv->right_margin_line_color == NULL)
 	{
 		CtkStyleContext *context;
-		GdkRGBA color;
+		CdkRGBA color;
 
 		context = ctk_widget_get_style_context (widget);
 		ctk_style_context_save (context);

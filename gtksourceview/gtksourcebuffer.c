@@ -247,7 +247,7 @@ static void 	 ctk_source_buffer_real_insert_text 	(CtkTextBuffer           *buff
 							 gint                     len);
 static void	 ctk_source_buffer_real_insert_pixbuf	(CtkTextBuffer           *buffer,
 							 CtkTextIter             *pos,
-							 GdkPixbuf               *pixbuf);
+							 CdkPixbuf               *pixbuf);
 static void	 ctk_source_buffer_real_insert_child_anchor
 							(CtkTextBuffer           *buffer,
 							 CtkTextIter             *pos,
@@ -1178,7 +1178,7 @@ queue_bracket_highlighting_update (CtkSourceBuffer *buffer)
 	 * 50msec errors on the side of "immediate", but without the
 	 * frame stutter.
 	 *
-	 * If we had access to a GdkFrameClock, we might consider using
+	 * If we had access to a CdkFrameClock, we might consider using
 	 * ::update() or ::after-paint() to synchronize this.
 	 */
 	buffer->priv->bracket_highlighting_timeout_id =
@@ -1258,7 +1258,7 @@ ctk_source_buffer_real_insert_text (CtkTextBuffer *buffer,
 static void
 ctk_source_buffer_real_insert_pixbuf (CtkTextBuffer *buffer,
 				      CtkTextIter   *iter,
-				      GdkPixbuf     *pixbuf)
+				      CdkPixbuf     *pixbuf)
 {
 	gint start_offset;
 

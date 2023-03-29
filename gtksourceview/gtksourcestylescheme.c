@@ -387,7 +387,7 @@ ctk_source_style_scheme_get_filename (CtkSourceStyleScheme *scheme)
  */
 static const gchar *
 color_parse (const gchar *color,
-             GdkRGBA     *rgba)
+             CdkRGBA     *rgba)
 {
 	if ((*color == '#') && cdk_rgba_parse (rgba, color + 1))
 	{
@@ -424,7 +424,7 @@ get_color_by_name (CtkSourceStyleScheme *scheme,
 
 	if (name[0] == '#')
 	{
-		GdkRGBA dummy;
+		CdkRGBA dummy;
 
 		color = color_parse (name, &dummy);
 
@@ -620,7 +620,7 @@ _ctk_source_style_scheme_get_draw_spaces_style (CtkSourceStyleScheme *scheme)
 static gboolean
 get_color (CtkSourceStyle *style,
 	   gboolean        foreground,
-	   GdkRGBA        *dest)
+	   CdkRGBA        *dest)
 {
 	const gchar *color;
 	guint mask;
@@ -659,7 +659,7 @@ get_color (CtkSourceStyle *style,
  */
 gboolean
 _ctk_source_style_scheme_get_current_line_color (CtkSourceStyleScheme *scheme,
-						 GdkRGBA              *color)
+						 CdkRGBA              *color)
 {
 	CtkSourceStyle *style;
 
@@ -676,7 +676,7 @@ _ctk_source_style_scheme_get_current_line_color (CtkSourceStyleScheme *scheme,
  */
 gboolean
 _ctk_source_style_scheme_get_background_pattern_color (CtkSourceStyleScheme *scheme,
-                                                       GdkRGBA              *color)
+                                                       CdkRGBA              *color)
 {
 	CtkSourceStyle *style;
 
@@ -694,8 +694,8 @@ get_cursors_css_style (CtkSourceStyleScheme *scheme,
 {
 	CtkSourceStyle *primary_style;
 	CtkSourceStyle *secondary_style;
-	GdkRGBA primary_color = { 0 };
-	GdkRGBA secondary_color = { 0 };
+	CdkRGBA primary_color = { 0 };
+	CdkRGBA secondary_color = { 0 };
 	gboolean primary_color_set;
 	gboolean secondary_color_set;
 	gchar *secondary_color_str;
@@ -728,7 +728,7 @@ get_cursors_css_style (CtkSourceStyleScheme *scheme,
 	if (!secondary_color_set)
 	{
 		CtkStyleContext *context;
-		GdkRGBA *background_color;
+		CdkRGBA *background_color;
 
 		g_assert (primary_color_set);
 
@@ -893,7 +893,7 @@ get_css_color_style (CtkSourceStyle *style,
                      gchar         **bg,
                      gchar         **text)
 {
-	GdkRGBA color;
+	CdkRGBA color;
 
 	if (get_color (style, FALSE, &color))
 	{

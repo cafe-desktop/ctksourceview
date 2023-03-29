@@ -73,7 +73,7 @@ void			 ctk_source_completion_item_set_text		(CtkSourceCompletionItem *item,
 
 CTK_SOURCE_AVAILABLE_IN_3_24
 void			 ctk_source_completion_item_set_icon		(CtkSourceCompletionItem *item,
-									 GdkPixbuf               *icon);
+									 CdkPixbuf               *icon);
 
 CTK_SOURCE_AVAILABLE_IN_3_24
 void			 ctk_source_completion_item_set_icon_name	(CtkSourceCompletionItem *item,

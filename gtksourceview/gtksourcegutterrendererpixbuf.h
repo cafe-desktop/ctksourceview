@@ -67,10 +67,10 @@ CtkSourceGutterRenderer *ctk_source_gutter_renderer_pixbuf_new (void);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
 void         ctk_source_gutter_renderer_pixbuf_set_pixbuf       (CtkSourceGutterRendererPixbuf *renderer,
-                                                                 GdkPixbuf                     *pixbuf);
+                                                                 CdkPixbuf                     *pixbuf);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-GdkPixbuf   *ctk_source_gutter_renderer_pixbuf_get_pixbuf       (CtkSourceGutterRendererPixbuf *renderer);
+CdkPixbuf   *ctk_source_gutter_renderer_pixbuf_get_pixbuf       (CtkSourceGutterRendererPixbuf *renderer);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
 void         ctk_source_gutter_renderer_pixbuf_set_gicon        (CtkSourceGutterRendererPixbuf *renderer,

@@ -108,11 +108,11 @@ CtkSourceStyle          *_ctk_source_style_scheme_get_draw_spaces_style		(CtkSou
 
 G_GNUC_INTERNAL
 gboolean		 _ctk_source_style_scheme_get_current_line_color	(CtkSourceStyleScheme *scheme,
-										 GdkRGBA              *color);
+										 CdkRGBA              *color);
 
 G_GNUC_INTERNAL
 gboolean		 _ctk_source_style_scheme_get_background_pattern_color	(CtkSourceStyleScheme *scheme,
-										 GdkRGBA              *color);
+										 CdkRGBA              *color);
 
 G_END_DECLS
 

@@ -356,7 +356,7 @@ get_iter_pos (CtkTextView *text_view,
               gint        *y,
               gint        *height)
 {
-	GdkRectangle location;
+	CdkRectangle location;
 
 	ctk_text_view_get_iter_location (text_view, iter, &location);
 
@@ -375,8 +375,8 @@ move_to_iter (CtkSourceCompletionInfo *window,
               CtkTextView             *view,
               CtkTextIter             *iter)
 {
-	GdkRectangle position;
-	GdkWindow *cdk_window;
+	CdkRectangle position;
+	CdkWindow *cdk_window;
 	gint x, y;
 	gint line_height;
 
@@ -442,7 +442,7 @@ ctk_source_completion_info_new (void)
  * @iter: (nullable): a #CtkTextIter.
  *
  * Moves the #CtkSourceCompletionInfo to @iter. If @iter is %NULL @info is
- * moved to the cursor position. Moving will respect the #GdkGravity setting
+ * moved to the cursor position. Moving will respect the #CdkGravity setting
  * of the info window and will ensure the line at @iter is not occluded by
  * the window.
  */

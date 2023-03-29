@@ -2221,7 +2221,7 @@ get_iter_attrs (CtkSourcePrintCompositor *compositor,
 
 		if (bg_set)
 		{
-			GdkRGBA *color = NULL;
+			CdkRGBA *color = NULL;
 
 			if (bg != NULL)
 			{
@@ -2237,7 +2237,7 @@ get_iter_attrs (CtkSourcePrintCompositor *compositor,
 
 		if (fg_set)
 		{
-			GdkRGBA *color = NULL;
+			CdkRGBA *color = NULL;
 
 			if (fg != NULL)
 			{

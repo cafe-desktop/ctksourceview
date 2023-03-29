@@ -787,7 +787,7 @@ mark_set_cb (CtkTextBuffer *buffer,
 static void
 line_mark_activated_cb (CtkSourceGutter *gutter,
 			CtkTextIter     *iter,
-			GdkEventButton  *event,
+			CdkEventButton  *event,
 			TestWidget      *self)
 {
 	GSList *mark_list;
@@ -873,7 +873,7 @@ mark_tooltip_func (CtkSourceMarkAttributes *attrs,
 static void
 add_source_mark_attributes (CtkSourceView *view)
 {
-	GdkRGBA color;
+	CdkRGBA color;
 	CtkSourceMarkAttributes *attrs;
 
 	attrs = ctk_source_mark_attributes_new ();

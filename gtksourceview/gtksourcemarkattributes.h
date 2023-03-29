@@ -67,11 +67,11 @@ CtkSourceMarkAttributes *ctk_source_mark_attributes_new (void);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
 void             ctk_source_mark_attributes_set_background      (CtkSourceMarkAttributes *attributes,
-                                                                 const GdkRGBA           *background);
+                                                                 const CdkRGBA           *background);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
 gboolean         ctk_source_mark_attributes_get_background      (CtkSourceMarkAttributes *attributes,
-                                                                 GdkRGBA                 *background);
+                                                                 CdkRGBA                 *background);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
 void             ctk_source_mark_attributes_set_icon_name       (CtkSourceMarkAttributes *attributes,
@@ -89,13 +89,13 @@ GIcon           *ctk_source_mark_attributes_get_gicon           (CtkSourceMarkAt
 
 CTK_SOURCE_AVAILABLE_IN_ALL
 void             ctk_source_mark_attributes_set_pixbuf          (CtkSourceMarkAttributes *attributes,
-                                                                 const GdkPixbuf         *pixbuf);
+                                                                 const CdkPixbuf         *pixbuf);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-const GdkPixbuf *ctk_source_mark_attributes_get_pixbuf          (CtkSourceMarkAttributes *attributes);
+const CdkPixbuf *ctk_source_mark_attributes_get_pixbuf          (CtkSourceMarkAttributes *attributes);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-const GdkPixbuf *ctk_source_mark_attributes_render_icon         (CtkSourceMarkAttributes *attributes,
+const CdkPixbuf *ctk_source_mark_attributes_render_icon         (CtkSourceMarkAttributes *attributes,
                                                                  CtkWidget               *widget,
                                                                  gint                   size);
 

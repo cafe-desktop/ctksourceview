@@ -77,7 +77,7 @@ struct _CtkSourceCompletionProviderIface
 
 	gchar		*(*get_name)       	(CtkSourceCompletionProvider *provider);
 
-	GdkPixbuf	*(*get_icon)       	(CtkSourceCompletionProvider *provider);
+	CdkPixbuf	*(*get_icon)       	(CtkSourceCompletionProvider *provider);
 	const gchar	*(*get_icon_name)   (CtkSourceCompletionProvider *provider);
 	GIcon		*(*get_gicon)       (CtkSourceCompletionProvider *provider);
 
@@ -115,7 +115,7 @@ CTK_SOURCE_AVAILABLE_IN_ALL
 gchar		*ctk_source_completion_provider_get_name	(CtkSourceCompletionProvider *provider);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-GdkPixbuf	*ctk_source_completion_provider_get_icon	(CtkSourceCompletionProvider *provider);
+CdkPixbuf	*ctk_source_completion_provider_get_icon	(CtkSourceCompletionProvider *provider);
 
 CTK_SOURCE_AVAILABLE_IN_3_18
 const gchar	*ctk_source_completion_provider_get_icon_name	(CtkSourceCompletionProvider *provider);

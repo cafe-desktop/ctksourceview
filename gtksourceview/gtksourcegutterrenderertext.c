@@ -55,8 +55,8 @@ enum
 static void
 gutter_renderer_text_begin (CtkSourceGutterRenderer *renderer,
 			    cairo_t                 *cr,
-			    GdkRectangle            *background_area,
-			    GdkRectangle            *cell_area,
+			    CdkRectangle            *background_area,
+			    CdkRectangle            *cell_area,
 			    CtkTextIter             *start,
 			    CtkTextIter             *end)
 {
@@ -81,7 +81,7 @@ gutter_renderer_text_begin (CtkSourceGutterRenderer *renderer,
 
 static void
 center_on (CtkTextView  *view,
-           GdkRectangle *cell_area,
+           CdkRectangle *cell_area,
            CtkTextIter  *iter,
            gint          width,
            gint          height,
@@ -90,7 +90,7 @@ center_on (CtkTextView  *view,
            gint         *x,
            gint         *y)
 {
-	GdkRectangle location;
+	CdkRectangle location;
 
 	ctk_text_view_get_iter_location (view, iter, &location);
 
@@ -101,8 +101,8 @@ center_on (CtkTextView  *view,
 static void
 gutter_renderer_text_draw (CtkSourceGutterRenderer      *renderer,
 			   cairo_t                      *cr,
-			   GdkRectangle                 *background_area,
-			   GdkRectangle                 *cell_area,
+			   CdkRectangle                 *background_area,
+			   CdkRectangle                 *cell_area,
 			   CtkTextIter                  *start,
 			   CtkTextIter                  *end,
 			   CtkSourceGutterRendererState  state)
