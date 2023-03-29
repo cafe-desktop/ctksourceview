@@ -1441,7 +1441,7 @@ msgstr "Imaginarni broj"
 #. (itstool) path: gtk-doc.lang/language@_name
 #: gtk-doc.lang:24
 msgid "gtk-doc"
-msgstr "ctk-dok (gtk-doc)"
+msgstr "gtk-dok (gtk-doc)"
 
 #. (itstool) path: styles/style@_name
 #: gtk-doc.lang:26

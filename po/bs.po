@@ -1519,7 +1519,7 @@ msgstr "Imaginarni broj"
 
 #: ../data/language-specs/gtk-doc.lang.h:2
 msgid "gtk-doc"
-msgstr "ctk-dok"
+msgstr "gtk-dok"
 
 #: ../data/language-specs/gtk-doc.lang.h:3
 msgid "Inline Documentation Section"
