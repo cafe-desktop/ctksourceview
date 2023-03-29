@@ -597,13 +597,13 @@ msgid "Unknown"
 msgstr "Descoñecido"
 
 #. Translators: This is the sorted list of encodings used by
-#. * GtkSourceView for automatic detection of the file encoding. You may
+#. * CtkSourceView for automatic detection of the file encoding. You may
 #. * want to customize it adding encodings that are common in your
 #. * country, for instance the GB18030 encoding for the Chinese
 #. * translation. You may also want to remove the ISO-8859-15 encoding
 #. * (covering English and most Western European languages) if you think
 #. * people in your country will rarely use it.  "CURRENT" is a magic
-#. * value used by GtkSourceView and it represents the encoding for the
+#. * value used by CtkSourceView and it represents the encoding for the
 #. * current locale, so please don't translate the "CURRENT" term.  Only
 #. * recognized encodings are used. See
 #. * https://gitlab.gnome.org/GNOME/ctksourceview/blob/master/ctksourceview/ctksourceencoding.c#L142
@@ -641,14 +641,14 @@ msgstr "O búfer contén caracteres non válidos."
 #. *
 #. * SECTION:language
 #. * @Short_description: Represents a syntax highlighted language
-#. * @Title: GtkSourceLanguage
-#. * @See_also: #GtkSourceLanguageManager
+#. * @Title: CtkSourceLanguage
+#. * @See_also: #CtkSourceLanguageManager
 #. *
-#. * A #GtkSourceLanguage represents a programming or markup language, affecting
+#. * A #CtkSourceLanguage represents a programming or markup language, affecting
 #. * syntax highlighting and [context classes][context-classes].
 #. *
-#. * Use #GtkSourceLanguageManager to obtain a #GtkSourceLanguage instance, and
-#. * ctk_source_buffer_set_language() to apply it to a #GtkSourceBuffer.
+#. * Use #CtkSourceLanguageManager to obtain a #CtkSourceLanguage instance, and
+#. * ctk_source_buffer_set_language() to apply it to a #CtkSourceBuffer.
 #.
 #: ctksourceview/ctksourcelanguage.c:56
 msgid "Others"
@@ -1400,8 +1400,8 @@ msgstr "C_ambiar capitalización"
 #~ msgid "Deprecated"
 #~ msgstr "Obsoleto"
 
-#~ msgid "GtkRC"
-#~ msgstr "GtkRC"
+#~ msgid "CtkRC"
+#~ msgstr "CtkRC"
 
 #~ msgid "Widget State"
 #~ msgstr "Estado do widget"
@@ -2339,8 +2339,8 @@ msgstr "C_ambiar capitalización"
 #~ msgid "Trailing"
 #~ msgstr "Sobrantes"
 
-#~ msgid "GtkSourceView"
-#~ msgstr "GtkSourceView"
+#~ msgid "CtkSourceView"
+#~ msgstr "CtkSourceView"
 
 #~ msgid "Escaped Characters"
 #~ msgstr "Carácteres de escape"
@@ -2367,11 +2367,11 @@ msgstr "C_ambiar capitalización"
 #~ "Suso Baleato <suso.baleato@xunta.es>, 2009.\n"
 #~ "Ignacio Casal Quinteiro <nacho.resa@gmail.com>, 2005, 2006."
 
-#~ msgid "GtkSourceStyleSchemeChooserWidget"
-#~ msgstr "GtkSourceStyleSchemeChooserWidget"
+#~ msgid "CtkSourceStyleSchemeChooserWidget"
+#~ msgstr "CtkSourceStyleSchemeChooserWidget"
 
-#~ msgid "GtkSourceStyleSchemeChooserButton"
-#~ msgstr "GtkSourceStyleSchemeChooserButton"
+#~ msgid "CtkSourceStyleSchemeChooserButton"
+#~ msgstr "CtkSourceStyleSchemeChooserButton"
 
 #~ msgid "Sources"
 #~ msgstr "Orixes"
@@ -2473,8 +2473,8 @@ msgstr "C_ambiar capitalización"
 #~ msgid "Implicit trailing newline"
 #~ msgstr "Seguinte nova liña implícita"
 
-#~ msgid "The GtkSourceView bound to the completion"
-#~ msgstr "O obxecto GtkSourceView ligado ao completado"
+#~ msgid "The CtkSourceView bound to the completion"
+#~ msgstr "O obxecto CtkSourceView ligado ao completado"
 
 #~ msgid "Remember Info Visibility"
 #~ msgstr "Lembrar información de visibilidade"
@@ -2533,8 +2533,8 @@ msgstr "C_ambiar capitalización"
 #~ msgid "Iterator"
 #~ msgstr "Iterador"
 
-#~ msgid "The GtkTextIter at which the completion was invoked"
-#~ msgstr "O GtkTextIter no que se invocou o completado"
+#~ msgid "The CtkTextIter at which the completion was invoked"
+#~ msgstr "O CtkTextIter no que se invocou o completado"
 
 #~ msgid "Label to be shown for this item"
 #~ msgstr "Etiqueta a mostrar para este elemento"
@@ -2566,8 +2566,8 @@ msgstr "C_ambiar capitalización"
 #~ msgid "Flags"
 #~ msgstr "Marcas"
 
-#~ msgid "The gutters' GtkSourceView"
-#~ msgstr "As canles de GtkSourceView"
+#~ msgid "The gutters' CtkSourceView"
+#~ msgstr "As canles de CtkSourceView"
 
 #~ msgid "Window Type"
 #~ msgstr "Tipo de xanela"
@@ -2702,8 +2702,8 @@ msgstr "C_ambiar capitalización"
 #~ msgid "Source Buffer"
 #~ msgstr "O búfer da orixe"
 
-#~ msgid "The GtkSourceBuffer object to print"
-#~ msgstr "O obxecto GtkSourceBuffer que se vai imprimir"
+#~ msgid "The CtkSourceBuffer object to print"
+#~ msgstr "O obxecto CtkSourceBuffer que se vai imprimir"
 
 #~ msgid "Tab Width"
 #~ msgstr "Largura da tabulación"
@@ -2787,14 +2787,14 @@ msgstr "C_ambiar capitalización"
 #~ msgid "Buffer"
 #~ msgstr "Búfer"
 
-#~ msgid "The associated GtkSourceBuffer"
-#~ msgstr "O GtkSourceBuffer asociado"
+#~ msgid "The associated CtkSourceBuffer"
+#~ msgstr "O CtkSourceBuffer asociado"
 
 #~ msgid "Settings"
 #~ msgstr "Preferencias"
 
-#~ msgid "The associated GtkSourceSearchSettings"
-#~ msgstr "O GtkSourceSearchSettings asociado"
+#~ msgid "The associated CtkSourceSearchSettings"
+#~ msgstr "O CtkSourceSearchSettings asociado"
 
 #~ msgid "Highlight"
 #~ msgstr "Realzar"

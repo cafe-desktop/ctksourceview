@@ -1,15 +1,15 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*- */
 /*
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2015 - Université Catholique de Louvain
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -28,20 +28,20 @@
 
 /**
  * SECTION:tag
- * @Short_description: A tag that can be applied to text in a GtkSourceBuffer
- * @Title: GtkSourceTag
- * @See_also: #GtkSourceBuffer
+ * @Short_description: A tag that can be applied to text in a CtkSourceBuffer
+ * @Title: CtkSourceTag
+ * @See_also: #CtkSourceBuffer
  *
- * #GtkSourceTag is a subclass of #GtkTextTag that adds properties useful for
- * the GtkSourceView library.
+ * #CtkSourceTag is a subclass of #CtkTextTag that adds properties useful for
+ * the CtkSourceView library.
  *
- * If, for a certain tag, #GtkTextTag is sufficient, it's better that you create
- * a #GtkTextTag, not a #GtkSourceTag.
+ * If, for a certain tag, #CtkTextTag is sufficient, it's better that you create
+ * a #CtkTextTag, not a #CtkSourceTag.
  */
 
-typedef struct _GtkSourceTagPrivate GtkSourceTagPrivate;
+typedef struct _CtkSourceTagPrivate CtkSourceTagPrivate;
 
-struct _GtkSourceTagPrivate
+struct _CtkSourceTagPrivate
 {
 	guint draw_spaces : 1;
 	guint draw_spaces_set : 1;
@@ -54,7 +54,7 @@ enum
 	PROP_DRAW_SPACES_SET,
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceTag, ctk_source_tag, CTK_TYPE_TEXT_TAG)
+G_DEFINE_TYPE_WITH_PRIVATE (CtkSourceTag, ctk_source_tag, CTK_TYPE_TEXT_TAG)
 
 static void
 ctk_source_tag_get_property (GObject    *object,
@@ -62,7 +62,7 @@ ctk_source_tag_get_property (GObject    *object,
 			     GValue     *value,
 			     GParamSpec *pspec)
 {
-	GtkSourceTagPrivate *priv;
+	CtkSourceTagPrivate *priv;
 
 	priv = ctk_source_tag_get_instance_private (CTK_SOURCE_TAG (object));
 
@@ -88,8 +88,8 @@ ctk_source_tag_set_property (GObject      *object,
 			     const GValue *value,
 			     GParamSpec   *pspec)
 {
-	GtkSourceTag *tag;
-	GtkSourceTagPrivate *priv;
+	CtkSourceTag *tag;
+	CtkSourceTagPrivate *priv;
 	gboolean size_changed = FALSE;
 
 	tag = CTK_SOURCE_TAG (object);
@@ -116,7 +116,7 @@ ctk_source_tag_set_property (GObject      *object,
 }
 
 static void
-ctk_source_tag_class_init (GtkSourceTagClass *klass)
+ctk_source_tag_class_init (CtkSourceTagClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
@@ -124,13 +124,13 @@ ctk_source_tag_class_init (GtkSourceTagClass *klass)
 	object_class->set_property = ctk_source_tag_set_property;
 
 	/**
-	 * GtkSourceTag:draw-spaces:
+	 * CtkSourceTag:draw-spaces:
 	 *
 	 * Whether to draw white spaces. This property takes precedence over the value
-	 * defined by the GtkSourceSpaceDrawer's #GtkSourceSpaceDrawer:matrix property
+	 * defined by the CtkSourceSpaceDrawer's #CtkSourceSpaceDrawer:matrix property
 	 * (only where the tag is applied).
 	 *
-	 * Setting this property also changes #GtkSourceTag:draw-spaces-set to
+	 * Setting this property also changes #CtkSourceTag:draw-spaces-set to
 	 * %TRUE.
 	 *
 	 * Since: 3.20
@@ -145,9 +145,9 @@ ctk_source_tag_class_init (GtkSourceTagClass *klass)
 							       G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceTag:draw-spaces-set:
+	 * CtkSourceTag:draw-spaces-set:
 	 *
-	 * Whether the #GtkSourceTag:draw-spaces property is set and must be
+	 * Whether the #CtkSourceTag:draw-spaces property is set and must be
 	 * taken into account.
 	 *
 	 * Since: 3.20
@@ -163,7 +163,7 @@ ctk_source_tag_class_init (GtkSourceTagClass *klass)
 }
 
 static void
-ctk_source_tag_init (GtkSourceTag *tag)
+ctk_source_tag_init (CtkSourceTag *tag)
 {
 }
 
@@ -171,16 +171,16 @@ ctk_source_tag_init (GtkSourceTag *tag)
  * ctk_source_tag_new:
  * @name: (nullable): tag name, or %NULL.
  *
- * Creates a #GtkSourceTag. Configure the tag using object arguments,
+ * Creates a #CtkSourceTag. Configure the tag using object arguments,
  * i.e. using g_object_set().
  *
  * For usual cases, ctk_source_buffer_create_source_tag() is more convenient to
  * use.
  *
- * Returns: a new #GtkSourceTag.
+ * Returns: a new #CtkSourceTag.
  * Since: 3.20
  */
-GtkTextTag *
+CtkTextTag *
 ctk_source_tag_new (const gchar *name)
 {
 	return g_object_new (CTK_SOURCE_TYPE_TAG,

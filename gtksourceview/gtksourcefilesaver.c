@@ -1,18 +1,18 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*- */
 /*
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2005-2007 - Paolo Borelli and Paolo Maggi
  * Copyright (C) 2007 - Steve Frécinaux
  * Copyright (C) 2008 - Jesse van den Kieboom
  * Copyright (C) 2014, 2016 - Sébastien Wilmet
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -36,11 +36,11 @@
 
 /**
  * SECTION:filesaver
- * @Short_description: Save a GtkSourceBuffer into a file
- * @Title: GtkSourceFileSaver
- * @See_also: #GtkSourceFile, #GtkSourceFileLoader
+ * @Short_description: Save a CtkSourceBuffer into a file
+ * @Title: CtkSourceFileSaver
+ * @See_also: #CtkSourceFile, #CtkSourceFileLoader
  *
- * A #GtkSourceFileSaver object permits to save a #GtkSourceBuffer into a
+ * A #CtkSourceFileSaver object permits to save a #CtkSourceBuffer into a
  * #GFile.
  *
  * A file saver should be used only for one save operation, including errors
@@ -49,7 +49,7 @@
  */
 
 /* The code has been written initially in gedit (GeditDocumentSaver).
- * It uses a GtkSourceBufferInputStream as input, create converter(s) if needed
+ * It uses a CtkSourceBufferInputStream as input, create converter(s) if needed
  * for the encoding and the compression, and write the contents to a
  * GOutputStream (the file).
  */
@@ -76,26 +76,26 @@ enum
 	PROP_FLAGS
 };
 
-struct _GtkSourceFileSaverPrivate
+struct _CtkSourceFileSaverPrivate
 {
-	/* Weak ref to the GtkSourceBuffer. A strong ref could create a
+	/* Weak ref to the CtkSourceBuffer. A strong ref could create a
 	 * reference cycle in an application. For example a subclass of
-	 * GtkSourceBuffer can have a strong ref to the FileSaver.
+	 * CtkSourceBuffer can have a strong ref to the FileSaver.
 	 */
-	GtkSourceBuffer *source_buffer;
+	CtkSourceBuffer *source_buffer;
 
-	/* Weak ref to the GtkSourceFile. A strong ref could create a reference
-	 * cycle in an application. For example a subclass of GtkSourceFile can
+	/* Weak ref to the CtkSourceFile. A strong ref could create a reference
+	 * cycle in an application. For example a subclass of CtkSourceFile can
 	 * have a strong ref to the FileSaver.
 	 */
-	GtkSourceFile *file;
+	CtkSourceFile *file;
 
 	GFile *location;
 
-	const GtkSourceEncoding *encoding;
-	GtkSourceNewlineType newline_type;
-	GtkSourceCompressionType compression_type;
-	GtkSourceFileSaverFlags flags;
+	const CtkSourceEncoding *encoding;
+	CtkSourceNewlineType newline_type;
+	CtkSourceCompressionType compression_type;
+	CtkSourceFileSaverFlags flags;
 
 	GTask *task;
 };
@@ -110,7 +110,7 @@ struct _TaskData
 	 * (2) Sync methods must be used for the input stream, and async
 	 *     methods for the output stream.
 	 */
-	GtkSourceBufferInputStream *input_stream;
+	CtkSourceBufferInputStream *input_stream;
 	GOutputStream *output_stream;
 
 	GFileInfo *info;
@@ -133,7 +133,7 @@ struct _TaskData
 	guint tried_mount : 1;
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceFileSaver, ctk_source_file_saver, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (CtkSourceFileSaver, ctk_source_file_saver, G_TYPE_OBJECT)
 
 static void read_file_chunk (GTask *task);
 static void write_file_chunk (GTask *task);
@@ -174,7 +174,7 @@ ctk_source_file_saver_set_property (GObject      *object,
 				    const GValue *value,
 				    GParamSpec   *pspec)
 {
-	GtkSourceFileSaver *saver = CTK_SOURCE_FILE_SAVER (object);
+	CtkSourceFileSaver *saver = CTK_SOURCE_FILE_SAVER (object);
 
 	switch (prop_id)
 	{
@@ -225,7 +225,7 @@ ctk_source_file_saver_get_property (GObject    *object,
 				    GValue     *value,
 				    GParamSpec *pspec)
 {
-	GtkSourceFileSaver *saver = CTK_SOURCE_FILE_SAVER (object);
+	CtkSourceFileSaver *saver = CTK_SOURCE_FILE_SAVER (object);
 
 	switch (prop_id)
 	{
@@ -266,7 +266,7 @@ ctk_source_file_saver_get_property (GObject    *object,
 static void
 ctk_source_file_saver_dispose (GObject *object)
 {
-	GtkSourceFileSaver *saver = CTK_SOURCE_FILE_SAVER (object);
+	CtkSourceFileSaver *saver = CTK_SOURCE_FILE_SAVER (object);
 
 	if (saver->priv->source_buffer != NULL)
 	{
@@ -293,13 +293,13 @@ ctk_source_file_saver_dispose (GObject *object)
 static void
 ctk_source_file_saver_constructed (GObject *object)
 {
-	GtkSourceFileSaver *saver = CTK_SOURCE_FILE_SAVER (object);
+	CtkSourceFileSaver *saver = CTK_SOURCE_FILE_SAVER (object);
 
 	if (saver->priv->file != NULL)
 	{
-		const GtkSourceEncoding *encoding;
-		GtkSourceNewlineType newline_type;
-		GtkSourceCompressionType compression_type;
+		const CtkSourceEncoding *encoding;
+		CtkSourceNewlineType newline_type;
+		CtkSourceCompressionType compression_type;
 
 		encoding = ctk_source_file_get_encoding (saver->priv->file);
 		ctk_source_file_saver_set_encoding (saver, encoding);
@@ -320,7 +320,7 @@ ctk_source_file_saver_constructed (GObject *object)
 			}
 			else
 			{
-				g_warning ("GtkSourceFileSaver: the GtkSourceFile's location is NULL. "
+				g_warning ("CtkSourceFileSaver: the CtkSourceFile's location is NULL. "
 					   "Use ctk_source_file_saver_new_with_target().");
 			}
 		}
@@ -330,7 +330,7 @@ ctk_source_file_saver_constructed (GObject *object)
 }
 
 static void
-ctk_source_file_saver_class_init (GtkSourceFileSaverClass *klass)
+ctk_source_file_saver_class_init (CtkSourceFileSaverClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
@@ -340,9 +340,9 @@ ctk_source_file_saver_class_init (GtkSourceFileSaverClass *klass)
 	object_class->constructed = ctk_source_file_saver_constructed;
 
 	/**
-	 * GtkSourceFileSaver:buffer:
+	 * CtkSourceFileSaver:buffer:
 	 *
-	 * The #GtkSourceBuffer to save. The #GtkSourceFileSaver object has a
+	 * The #CtkSourceBuffer to save. The #CtkSourceFileSaver object has a
 	 * weak reference to the buffer.
 	 *
 	 * Since: 3.14
@@ -350,7 +350,7 @@ ctk_source_file_saver_class_init (GtkSourceFileSaverClass *klass)
 	g_object_class_install_property (object_class,
 					 PROP_BUFFER,
 					 g_param_spec_object ("buffer",
-							      "GtkSourceBuffer",
+							      "CtkSourceBuffer",
 							      "",
 							      CTK_SOURCE_TYPE_BUFFER,
 							      G_PARAM_READWRITE |
@@ -358,9 +358,9 @@ ctk_source_file_saver_class_init (GtkSourceFileSaverClass *klass)
 							      G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceFileSaver:file:
+	 * CtkSourceFileSaver:file:
 	 *
-	 * The #GtkSourceFile. The #GtkSourceFileSaver object has a weak
+	 * The #CtkSourceFile. The #CtkSourceFileSaver object has a weak
 	 * reference to the file.
 	 *
 	 * Since: 3.14
@@ -368,7 +368,7 @@ ctk_source_file_saver_class_init (GtkSourceFileSaverClass *klass)
 	g_object_class_install_property (object_class,
 					 PROP_FILE,
 					 g_param_spec_object ("file",
-							      "GtkSourceFile",
+							      "CtkSourceFile",
 							      "",
 							      CTK_SOURCE_TYPE_FILE,
 							      G_PARAM_READWRITE |
@@ -376,10 +376,10 @@ ctk_source_file_saver_class_init (GtkSourceFileSaverClass *klass)
 							      G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceFileSaver:location:
+	 * CtkSourceFileSaver:location:
 	 *
 	 * The #GFile where to save the buffer. By default the location is taken
-	 * from the #GtkSourceFile at construction time.
+	 * from the #CtkSourceFile at construction time.
 	 *
 	 * Since: 3.14
 	 */
@@ -394,7 +394,7 @@ ctk_source_file_saver_class_init (GtkSourceFileSaverClass *klass)
 							      G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceFileSaver:encoding:
+	 * CtkSourceFileSaver:encoding:
 	 *
 	 * The file's encoding.
 	 *
@@ -411,7 +411,7 @@ ctk_source_file_saver_class_init (GtkSourceFileSaverClass *klass)
 							     G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceFileSaver:newline-type:
+	 * CtkSourceFileSaver:newline-type:
 	 *
 	 * The newline type.
 	 *
@@ -429,7 +429,7 @@ ctk_source_file_saver_class_init (GtkSourceFileSaverClass *klass)
 							    G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceFileSaver:compression-type:
+	 * CtkSourceFileSaver:compression-type:
 	 *
 	 * The compression type.
 	 *
@@ -447,7 +447,7 @@ ctk_source_file_saver_class_init (GtkSourceFileSaverClass *klass)
 							    G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceFileSaver:flags:
+	 * CtkSourceFileSaver:flags:
 	 *
 	 * File saving flags.
 	 *
@@ -465,7 +465,7 @@ ctk_source_file_saver_class_init (GtkSourceFileSaverClass *klass)
 							     G_PARAM_STATIC_STRINGS));
 
 	/* Due to potential deadlocks when registering types, we need to
-	 * ensure the dependent private class GtkSourceBufferInputStream
+	 * ensure the dependent private class CtkSourceBufferInputStream
 	 * has been registered up front.
 	 *
 	 * See https://bugzilla.gnome.org/show_bug.cgi?id=780216
@@ -474,7 +474,7 @@ ctk_source_file_saver_class_init (GtkSourceFileSaverClass *klass)
 }
 
 static void
-ctk_source_file_saver_init (GtkSourceFileSaver *saver)
+ctk_source_file_saver_init (CtkSourceFileSaver *saver)
 {
 	saver->priv = ctk_source_file_saver_get_instance_private (saver);
 }
@@ -592,7 +592,7 @@ close_output_stream_cb (GObject      *source_object,
 {
 	GOutputStream *output_stream = G_OUTPUT_STREAM (source_object);
 	GTask *task = G_TASK (user_data);
-	GtkSourceFileSaver *saver;
+	CtkSourceFileSaver *saver;
 	GError *error = NULL;
 
 	DEBUG ({
@@ -795,7 +795,7 @@ replace_file_cb (GObject      *source_object,
 {
 	GFile *location = G_FILE (source_object);
 	GTask *task = G_TASK (user_data);
-	GtkSourceFileSaver *saver;
+	CtkSourceFileSaver *saver;
 	TaskData *task_data;
 	GFileOutputStream *file_output_stream;
 	GOutputStream *output_stream;
@@ -888,7 +888,7 @@ replace_file_cb (GObject      *source_object,
 static void
 begin_write (GTask *task)
 {
-	GtkSourceFileSaver *saver;
+	CtkSourceFileSaver *saver;
 	gboolean create_backup;
 
 	saver = g_task_get_source_object (task);
@@ -917,7 +917,7 @@ check_externally_modified_cb (GObject      *source_object,
 {
 	GFile *location = G_FILE (source_object);
 	GTask *task = G_TASK (user_data);
-	GtkSourceFileSaver *saver;
+	CtkSourceFileSaver *saver;
 	TaskData *task_data;
 	GFileInfo *info;
 	GTimeVal old_mtime;
@@ -989,7 +989,7 @@ check_externally_modified_cb (GObject      *source_object,
 static void
 check_externally_modified (GTask *task)
 {
-	GtkSourceFileSaver *saver;
+	CtkSourceFileSaver *saver;
 	gboolean save_as = FALSE;
 
 	saver = g_task_get_source_object (task);
@@ -1055,7 +1055,7 @@ mount_cb (GObject      *source_object,
 static void
 recover_not_mounted (GTask *task)
 {
-	GtkSourceFileSaver *saver;
+	CtkSourceFileSaver *saver;
 	TaskData *task_data;
 	GMountOperation *mount_operation;
 
@@ -1095,21 +1095,21 @@ ctk_source_file_saver_error_quark (void)
 
 /**
  * ctk_source_file_saver_new:
- * @buffer: the #GtkSourceBuffer to save.
- * @file: the #GtkSourceFile.
+ * @buffer: the #CtkSourceBuffer to save.
+ * @file: the #CtkSourceFile.
  *
- * Creates a new #GtkSourceFileSaver object. The @buffer will be saved to the
- * #GtkSourceFile's location.
+ * Creates a new #CtkSourceFileSaver object. The @buffer will be saved to the
+ * #CtkSourceFile's location.
  *
  * This constructor is suitable for a simple "save" operation, when the @file
- * already contains a non-%NULL #GtkSourceFile:location.
+ * already contains a non-%NULL #CtkSourceFile:location.
  *
- * Returns: a new #GtkSourceFileSaver object.
+ * Returns: a new #CtkSourceFileSaver object.
  * Since: 3.14
  */
-GtkSourceFileSaver *
-ctk_source_file_saver_new (GtkSourceBuffer *buffer,
-			   GtkSourceFile   *file)
+CtkSourceFileSaver *
+ctk_source_file_saver_new (CtkSourceBuffer *buffer,
+			   CtkSourceFile   *file)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER (buffer), NULL);
 	g_return_val_if_fail (CTK_SOURCE_IS_FILE (file), NULL);
@@ -1122,24 +1122,24 @@ ctk_source_file_saver_new (GtkSourceBuffer *buffer,
 
 /**
  * ctk_source_file_saver_new_with_target:
- * @buffer: the #GtkSourceBuffer to save.
- * @file: the #GtkSourceFile.
+ * @buffer: the #CtkSourceBuffer to save.
+ * @file: the #CtkSourceFile.
  * @target_location: the #GFile where to save the buffer to.
  *
- * Creates a new #GtkSourceFileSaver object with a target location. When the
+ * Creates a new #CtkSourceFileSaver object with a target location. When the
  * file saving is finished successfully, @target_location is set to the @file's
- * #GtkSourceFile:location property. If an error occurs, the previous valid
- * location is still available in #GtkSourceFile.
+ * #CtkSourceFile:location property. If an error occurs, the previous valid
+ * location is still available in #CtkSourceFile.
  *
  * This constructor is suitable for a "save as" operation, or for saving a new
  * buffer for the first time.
  *
- * Returns: a new #GtkSourceFileSaver object.
+ * Returns: a new #CtkSourceFileSaver object.
  * Since: 3.14
  */
-GtkSourceFileSaver *
-ctk_source_file_saver_new_with_target (GtkSourceBuffer *buffer,
-				       GtkSourceFile   *file,
+CtkSourceFileSaver *
+ctk_source_file_saver_new_with_target (CtkSourceBuffer *buffer,
+				       CtkSourceFile   *file,
 				       GFile           *target_location)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER (buffer), NULL);
@@ -1155,13 +1155,13 @@ ctk_source_file_saver_new_with_target (GtkSourceBuffer *buffer,
 
 /**
  * ctk_source_file_saver_get_buffer:
- * @saver: a #GtkSourceFileSaver.
+ * @saver: a #CtkSourceFileSaver.
  *
- * Returns: (transfer none): the #GtkSourceBuffer to save.
+ * Returns: (transfer none): the #CtkSourceBuffer to save.
  * Since: 3.14
  */
-GtkSourceBuffer *
-ctk_source_file_saver_get_buffer (GtkSourceFileSaver *saver)
+CtkSourceBuffer *
+ctk_source_file_saver_get_buffer (CtkSourceFileSaver *saver)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_FILE_SAVER (saver), NULL);
 
@@ -1170,13 +1170,13 @@ ctk_source_file_saver_get_buffer (GtkSourceFileSaver *saver)
 
 /**
  * ctk_source_file_saver_get_file:
- * @saver: a #GtkSourceFileSaver.
+ * @saver: a #CtkSourceFileSaver.
  *
- * Returns: (transfer none): the #GtkSourceFile.
+ * Returns: (transfer none): the #CtkSourceFile.
  * Since: 3.14
  */
-GtkSourceFile *
-ctk_source_file_saver_get_file (GtkSourceFileSaver *saver)
+CtkSourceFile *
+ctk_source_file_saver_get_file (CtkSourceFileSaver *saver)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_FILE_SAVER (saver), NULL);
 
@@ -1185,13 +1185,13 @@ ctk_source_file_saver_get_file (GtkSourceFileSaver *saver)
 
 /**
  * ctk_source_file_saver_get_location:
- * @saver: a #GtkSourceFileSaver.
+ * @saver: a #CtkSourceFileSaver.
  *
  * Returns: (transfer none): the #GFile where to save the buffer to.
  * Since: 3.14
  */
 GFile *
-ctk_source_file_saver_get_location (GtkSourceFileSaver *saver)
+ctk_source_file_saver_get_location (CtkSourceFileSaver *saver)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_FILE_SAVER (saver), NULL);
 
@@ -1200,17 +1200,17 @@ ctk_source_file_saver_get_location (GtkSourceFileSaver *saver)
 
 /**
  * ctk_source_file_saver_set_encoding:
- * @saver: a #GtkSourceFileSaver.
+ * @saver: a #CtkSourceFileSaver.
  * @encoding: (nullable): the new encoding, or %NULL for UTF-8.
  *
  * Sets the encoding. If @encoding is %NULL, the UTF-8 encoding will be set.
- * By default the encoding is taken from the #GtkSourceFile.
+ * By default the encoding is taken from the #CtkSourceFile.
  *
  * Since: 3.14
  */
 void
-ctk_source_file_saver_set_encoding (GtkSourceFileSaver      *saver,
-				    const GtkSourceEncoding *encoding)
+ctk_source_file_saver_set_encoding (CtkSourceFileSaver      *saver,
+				    const CtkSourceEncoding *encoding)
 {
 	g_return_if_fail (CTK_SOURCE_IS_FILE_SAVER (saver));
 	g_return_if_fail (saver->priv->task == NULL);
@@ -1229,13 +1229,13 @@ ctk_source_file_saver_set_encoding (GtkSourceFileSaver      *saver,
 
 /**
  * ctk_source_file_saver_get_encoding:
- * @saver: a #GtkSourceFileSaver.
+ * @saver: a #CtkSourceFileSaver.
  *
  * Returns: the encoding.
  * Since: 3.14
  */
-const GtkSourceEncoding *
-ctk_source_file_saver_get_encoding (GtkSourceFileSaver *saver)
+const CtkSourceEncoding *
+ctk_source_file_saver_get_encoding (CtkSourceFileSaver *saver)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_FILE_SAVER (saver), NULL);
 
@@ -1244,17 +1244,17 @@ ctk_source_file_saver_get_encoding (GtkSourceFileSaver *saver)
 
 /**
  * ctk_source_file_saver_set_newline_type:
- * @saver: a #GtkSourceFileSaver.
+ * @saver: a #CtkSourceFileSaver.
  * @newline_type: the new newline type.
  *
  * Sets the newline type. By default the newline type is taken from the
- * #GtkSourceFile.
+ * #CtkSourceFile.
  *
  * Since: 3.14
  */
 void
-ctk_source_file_saver_set_newline_type (GtkSourceFileSaver   *saver,
-					GtkSourceNewlineType  newline_type)
+ctk_source_file_saver_set_newline_type (CtkSourceFileSaver   *saver,
+					CtkSourceNewlineType  newline_type)
 {
 	g_return_if_fail (CTK_SOURCE_IS_FILE_SAVER (saver));
 	g_return_if_fail (saver->priv->task == NULL);
@@ -1268,13 +1268,13 @@ ctk_source_file_saver_set_newline_type (GtkSourceFileSaver   *saver,
 
 /**
  * ctk_source_file_saver_get_newline_type:
- * @saver: a #GtkSourceFileSaver.
+ * @saver: a #CtkSourceFileSaver.
  *
  * Returns: the newline type.
  * Since: 3.14
  */
-GtkSourceNewlineType
-ctk_source_file_saver_get_newline_type (GtkSourceFileSaver *saver)
+CtkSourceNewlineType
+ctk_source_file_saver_get_newline_type (CtkSourceFileSaver *saver)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_FILE_SAVER (saver), CTK_SOURCE_NEWLINE_TYPE_DEFAULT);
 
@@ -1283,17 +1283,17 @@ ctk_source_file_saver_get_newline_type (GtkSourceFileSaver *saver)
 
 /**
  * ctk_source_file_saver_set_compression_type:
- * @saver: a #GtkSourceFileSaver.
+ * @saver: a #CtkSourceFileSaver.
  * @compression_type: the new compression type.
  *
  * Sets the compression type. By default the compression type is taken from the
- * #GtkSourceFile.
+ * #CtkSourceFile.
  *
  * Since: 3.14
  */
 void
-ctk_source_file_saver_set_compression_type (GtkSourceFileSaver       *saver,
-					    GtkSourceCompressionType  compression_type)
+ctk_source_file_saver_set_compression_type (CtkSourceFileSaver       *saver,
+					    CtkSourceCompressionType  compression_type)
 {
 	g_return_if_fail (CTK_SOURCE_IS_FILE_SAVER (saver));
 	g_return_if_fail (saver->priv->task == NULL);
@@ -1307,13 +1307,13 @@ ctk_source_file_saver_set_compression_type (GtkSourceFileSaver       *saver,
 
 /**
  * ctk_source_file_saver_get_compression_type:
- * @saver: a #GtkSourceFileSaver.
+ * @saver: a #CtkSourceFileSaver.
  *
  * Returns: the compression type.
  * Since: 3.14
  */
-GtkSourceCompressionType
-ctk_source_file_saver_get_compression_type (GtkSourceFileSaver *saver)
+CtkSourceCompressionType
+ctk_source_file_saver_get_compression_type (CtkSourceFileSaver *saver)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_FILE_SAVER (saver), CTK_SOURCE_COMPRESSION_TYPE_NONE);
 
@@ -1322,14 +1322,14 @@ ctk_source_file_saver_get_compression_type (GtkSourceFileSaver *saver)
 
 /**
  * ctk_source_file_saver_set_flags:
- * @saver: a #GtkSourceFileSaver.
+ * @saver: a #CtkSourceFileSaver.
  * @flags: the new flags.
  *
  * Since: 3.14
  */
 void
-ctk_source_file_saver_set_flags (GtkSourceFileSaver      *saver,
-				 GtkSourceFileSaverFlags  flags)
+ctk_source_file_saver_set_flags (CtkSourceFileSaver      *saver,
+				 CtkSourceFileSaverFlags  flags)
 {
 	g_return_if_fail (CTK_SOURCE_IS_FILE_SAVER (saver));
 	g_return_if_fail (saver->priv->task == NULL);
@@ -1343,13 +1343,13 @@ ctk_source_file_saver_set_flags (GtkSourceFileSaver      *saver,
 
 /**
  * ctk_source_file_saver_get_flags:
- * @saver: a #GtkSourceFileSaver.
+ * @saver: a #CtkSourceFileSaver.
  *
  * Returns: the flags.
  * Since: 3.14
  */
-GtkSourceFileSaverFlags
-ctk_source_file_saver_get_flags (GtkSourceFileSaver *saver)
+CtkSourceFileSaverFlags
+ctk_source_file_saver_get_flags (CtkSourceFileSaver *saver)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_FILE_SAVER (saver), CTK_SOURCE_FILE_SAVER_FLAGS_NONE);
 
@@ -1358,7 +1358,7 @@ ctk_source_file_saver_get_flags (GtkSourceFileSaver *saver)
 
 /**
  * ctk_source_file_saver_save_async:
- * @saver: a #GtkSourceFileSaver.
+ * @saver: a #CtkSourceFileSaver.
  * @io_priority: the I/O priority of the request. E.g. %G_PRIORITY_LOW,
  *   %G_PRIORITY_DEFAULT or %G_PRIORITY_HIGH.
  * @cancellable: (nullable): optional #GCancellable object, %NULL to ignore.
@@ -1382,7 +1382,7 @@ ctk_source_file_saver_get_flags (GtkSourceFileSaver *saver)
  * https://bugzilla.gnome.org/show_bug.cgi?id=616044
  */
 void
-ctk_source_file_saver_save_async (GtkSourceFileSaver     *saver,
+ctk_source_file_saver_save_async (CtkSourceFileSaver     *saver,
 				  gint                    io_priority,
 				  GCancellable           *cancellable,
 				  GFileProgressCallback   progress_callback,
@@ -1447,13 +1447,13 @@ ctk_source_file_saver_save_async (GtkSourceFileSaver     *saver,
 
 /**
  * ctk_source_file_saver_save_finish:
- * @saver: a #GtkSourceFileSaver.
+ * @saver: a #CtkSourceFileSaver.
  * @result: a #GAsyncResult.
  * @error: a #GError, or %NULL.
  *
  * Finishes a file saving started with ctk_source_file_saver_save_async().
  *
- * If the file has been saved successfully, the following #GtkSourceFile
+ * If the file has been saved successfully, the following #CtkSourceFile
  * properties will be updated: the location, the encoding, the newline type and
  * the compression type.
  *
@@ -1464,7 +1464,7 @@ ctk_source_file_saver_save_async (GtkSourceFileSaver     *saver,
  * Since: 3.14
  */
 gboolean
-ctk_source_file_saver_save_finish (GtkSourceFileSaver  *saver,
+ctk_source_file_saver_save_finish (CtkSourceFileSaver  *saver,
 				   GAsyncResult        *result,
 				   GError             **error)
 {

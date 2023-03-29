@@ -1,17 +1,17 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*- */
 /*
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2010 - Krzesimir Nowak
  * Copyright (C) 2012-2015 - Sébastien Wilmet
  * Copyright (C) 2013, 2015 - Paolo Borelli
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -52,7 +52,7 @@ init_default_manager (void)
 
 	if (g_file_test (dir, G_FILE_TEST_IS_DIR))
 	{
-		GtkSourceLanguageManager *lm = ctk_source_language_manager_get_default ();
+		CtkSourceLanguageManager *lm = ctk_source_language_manager_get_default ();
 		gchar *lang_dirs[2] = {dir, NULL};
 
 		ctk_source_language_manager_set_search_path (lm, lang_dirs);
@@ -64,8 +64,8 @@ init_default_manager (void)
 static void
 test_get_buffer (void)
 {
-	GtkWidget *view;
-	GtkSourceBuffer *buffer;
+	CtkWidget *view;
+	CtkSourceBuffer *buffer;
 
 	view = ctk_source_view_new ();
 
@@ -80,7 +80,7 @@ test_get_buffer (void)
 	}
 
 	/* Here we check if notify_buffer recreates the buffer while view is being
-	 * destroyed, which causes assertion failure in GtkTextView's finalize ()
+	 * destroyed, which causes assertion failure in CtkTextView's finalize ()
 	 * function.
 	 * Please see: https://bugzilla.gnome.org/show_bug.cgi?id=634510 */
 	g_object_unref (view);
@@ -89,10 +89,10 @@ test_get_buffer (void)
 static void
 test_get_context_classes (void)
 {
-	GtkSourceLanguageManager *lm;
-	GtkSourceBuffer *buffer;
-	GtkSourceLanguage *lang;
-	GtkTextIter start, end, i;
+	CtkSourceLanguageManager *lm;
+	CtkSourceBuffer *buffer;
+	CtkSourceLanguage *lang;
+	CtkTextIter start, end, i;
 	char **classes;
 
 	/* test plain text */
@@ -133,13 +133,13 @@ test_get_context_classes (void)
 }
 
 static void
-do_test_change_case (GtkSourceBuffer         *buffer,
-		     GtkSourceChangeCaseType  case_type,
+do_test_change_case (CtkSourceBuffer         *buffer,
+		     CtkSourceChangeCaseType  case_type,
 		     const gchar             *text,
 		     const gchar             *expected)
 {
-	GtkTextIter start;
-	GtkTextIter end;
+	CtkTextIter start;
+	CtkTextIter end;
 	gchar *changed;
 	gchar *changed_normalized;
 	gchar *expected_normalized;
@@ -165,7 +165,7 @@ do_test_change_case (GtkSourceBuffer         *buffer,
 static void
 test_change_case (void)
 {
-	GtkSourceBuffer *buffer;
+	CtkSourceBuffer *buffer;
 
 	buffer = ctk_source_buffer_new (NULL);
 
@@ -196,14 +196,14 @@ test_change_case (void)
 }
 
 static void
-do_test_join_lines (GtkSourceBuffer *buffer,
+do_test_join_lines (CtkSourceBuffer *buffer,
 		    const gchar     *text,
 		    const gchar     *expected,
 		    gint             start_offset,
 		    gint             end_offset)
 {
-	GtkTextIter start;
-	GtkTextIter end;
+	CtkTextIter start;
+	CtkTextIter end;
 	gchar *changed;
 
 	ctk_text_buffer_set_text (CTK_TEXT_BUFFER (buffer), text, -1);
@@ -224,7 +224,7 @@ do_test_join_lines (GtkSourceBuffer *buffer,
 static void
 test_join_lines (void)
 {
-	GtkSourceBuffer *buffer;
+	CtkSourceBuffer *buffer;
 
 	buffer = ctk_source_buffer_new (NULL);
 
@@ -243,16 +243,16 @@ test_join_lines (void)
 }
 
 static void
-do_test_sort_lines (GtkSourceBuffer    *buffer,
+do_test_sort_lines (CtkSourceBuffer    *buffer,
 		    const gchar        *text,
 		    const gchar        *expected,
 		    gint                start_offset,
 		    gint                end_offset,
-		    GtkSourceSortFlags  flags,
+		    CtkSourceSortFlags  flags,
 		    gint                column)
 {
-	GtkTextIter start;
-	GtkTextIter end;
+	CtkTextIter start;
+	CtkTextIter end;
 	gchar *changed;
 
 	ctk_text_buffer_set_text (CTK_TEXT_BUFFER (buffer), text, -1);
@@ -273,7 +273,7 @@ do_test_sort_lines (GtkSourceBuffer    *buffer,
 static void
 test_sort_lines (void)
 {
-	GtkSourceBuffer *buffer;
+	CtkSourceBuffer *buffer;
 
 	buffer = ctk_source_buffer_new (NULL);
 
@@ -294,16 +294,16 @@ test_sort_lines (void)
 }
 
 static void
-do_test_move_words (GtkSourceView      *view,
-                    GtkSourceBuffer    *buffer,
+do_test_move_words (CtkSourceView      *view,
+                    CtkSourceBuffer    *buffer,
                     const gchar        *text,
                     const gchar        *expected,
                     gint                start_offset,
                     gint                end_offset,
                     gint                step)
 {
-	GtkTextIter start;
-	GtkTextIter end;
+	CtkTextIter start;
+	CtkTextIter end;
 	gchar *changed;
 
 	ctk_text_buffer_set_text (CTK_TEXT_BUFFER (buffer), text, -1);
@@ -325,8 +325,8 @@ do_test_move_words (GtkSourceView      *view,
 static void
 test_move_words (void)
 {
-	GtkSourceView *view;
-	GtkSourceBuffer *buffer;
+	CtkSourceView *view;
+	CtkSourceBuffer *buffer;
 
 	buffer = ctk_source_buffer_new (NULL);
 	view = g_object_ref_sink (CTK_SOURCE_VIEW (ctk_source_view_new ()));
@@ -344,18 +344,18 @@ test_move_words (void)
 }
 
 static void
-do_test_bracket_matching (GtkSourceBuffer           *source_buffer,
+do_test_bracket_matching (CtkSourceBuffer           *source_buffer,
 			  const gchar               *text,
 			  gint                       offset,
 			  gint                       expected_offset_bracket,
 			  gint                       expected_offset_match,
-			  GtkSourceBracketMatchType  expected_result)
+			  CtkSourceBracketMatchType  expected_result)
 {
-	GtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
-	GtkTextIter iter;
-	GtkTextIter bracket;
-	GtkTextIter bracket_match;
-	GtkSourceBracketMatchType result;
+	CtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
+	CtkTextIter iter;
+	CtkTextIter bracket;
+	CtkTextIter bracket_match;
+	CtkSourceBracketMatchType result;
 
 	ctk_text_buffer_set_text (text_buffer, text, -1);
 
@@ -388,10 +388,10 @@ do_test_bracket_matching (GtkSourceBuffer           *source_buffer,
 static void
 test_bracket_matching (void)
 {
-	GtkSourceBuffer *buffer;
-	GtkSourceLanguageManager *language_manager;
-	GtkSourceLanguage *c_language;
-	GtkTextTagTable *table;
+	CtkSourceBuffer *buffer;
+	CtkSourceLanguageManager *language_manager;
+	CtkSourceLanguage *c_language;
+	CtkTextTagTable *table;
 
 	buffer = ctk_source_buffer_new (NULL);
 

@@ -1,15 +1,15 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*-
  *
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2009 - Jesse van den Kieboom <jessevdk@gnome.org>
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -31,42 +31,42 @@
 G_BEGIN_DECLS
 
 #define CTK_SOURCE_TYPE_COMPLETION_CONTEXT		(ctk_source_completion_context_get_type ())
-#define CTK_SOURCE_COMPLETION_CONTEXT(obj)		(G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_COMPLETION_CONTEXT, GtkSourceCompletionContext))
-#define CTK_SOURCE_COMPLETION_CONTEXT_CLASS(klass)	(G_TYPE_CHECK_CLASS_CAST ((klass), CTK_SOURCE_TYPE_COMPLETION_CONTEXT, GtkSourceCompletionContextClass))
+#define CTK_SOURCE_COMPLETION_CONTEXT(obj)		(G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_COMPLETION_CONTEXT, CtkSourceCompletionContext))
+#define CTK_SOURCE_COMPLETION_CONTEXT_CLASS(klass)	(G_TYPE_CHECK_CLASS_CAST ((klass), CTK_SOURCE_TYPE_COMPLETION_CONTEXT, CtkSourceCompletionContextClass))
 #define CTK_SOURCE_IS_COMPLETION_CONTEXT(obj)		(G_TYPE_CHECK_INSTANCE_TYPE ((obj), CTK_SOURCE_TYPE_COMPLETION_CONTEXT))
 #define CTK_SOURCE_IS_COMPLETION_CONTEXT_CLASS(klass)	(G_TYPE_CHECK_CLASS_TYPE ((klass), CTK_SOURCE_TYPE_COMPLETION_CONTEXT))
-#define CTK_SOURCE_COMPLETION_CONTEXT_GET_CLASS(obj)	(G_TYPE_INSTANCE_GET_CLASS ((obj), CTK_SOURCE_TYPE_COMPLETION_CONTEXT, GtkSourceCompletionContextClass))
+#define CTK_SOURCE_COMPLETION_CONTEXT_GET_CLASS(obj)	(G_TYPE_INSTANCE_GET_CLASS ((obj), CTK_SOURCE_TYPE_COMPLETION_CONTEXT, CtkSourceCompletionContextClass))
 
-typedef struct _GtkSourceCompletionContextClass		GtkSourceCompletionContextClass;
-typedef struct _GtkSourceCompletionContextPrivate	GtkSourceCompletionContextPrivate;
+typedef struct _CtkSourceCompletionContextClass		CtkSourceCompletionContextClass;
+typedef struct _CtkSourceCompletionContextPrivate	CtkSourceCompletionContextPrivate;
 
 /**
- * GtkSourceCompletionActivation:
+ * CtkSourceCompletionActivation:
  * @CTK_SOURCE_COMPLETION_ACTIVATION_NONE: None.
  * @CTK_SOURCE_COMPLETION_ACTIVATION_INTERACTIVE: Interactive activation. By
- * default, it occurs on each insertion in the #GtkTextBuffer. This can be
+ * default, it occurs on each insertion in the #CtkTextBuffer. This can be
  * blocked temporarily with ctk_source_completion_block_interactive().
  * @CTK_SOURCE_COMPLETION_ACTIVATION_USER_REQUESTED: User requested activation.
  * By default, it occurs when the user presses
  * <keycombo><keycap>Control</keycap><keycap>space</keycap></keycombo>.
  */
-typedef enum _GtkSourceCompletionActivation
+typedef enum _CtkSourceCompletionActivation
 {
 	CTK_SOURCE_COMPLETION_ACTIVATION_NONE = 0,
 	CTK_SOURCE_COMPLETION_ACTIVATION_INTERACTIVE = 1 << 0,
 	CTK_SOURCE_COMPLETION_ACTIVATION_USER_REQUESTED = 1 << 1
-} GtkSourceCompletionActivation;
+} CtkSourceCompletionActivation;
 
-struct _GtkSourceCompletionContext {
+struct _CtkSourceCompletionContext {
 	GInitiallyUnowned parent;
 
-	GtkSourceCompletionContextPrivate *priv;
+	CtkSourceCompletionContextPrivate *priv;
 };
 
-struct _GtkSourceCompletionContextClass {
+struct _CtkSourceCompletionContextClass {
 	GInitiallyUnownedClass parent_class;
 
-	void (*cancelled) 	(GtkSourceCompletionContext          *context);
+	void (*cancelled) 	(CtkSourceCompletionContext          *context);
 
 	/* Padding for future expansion */
 	gpointer padding[10];
@@ -76,26 +76,26 @@ CTK_SOURCE_AVAILABLE_IN_ALL
 GType		 ctk_source_completion_context_get_type (void) G_GNUC_CONST;
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-void		 ctk_source_completion_context_add_proposals 	(GtkSourceCompletionContext   *context,
-								 GtkSourceCompletionProvider  *provider,
+void		 ctk_source_completion_context_add_proposals 	(CtkSourceCompletionContext   *context,
+								 CtkSourceCompletionProvider  *provider,
 								 GList                        *proposals,
 								 gboolean                      finished);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-gboolean	 ctk_source_completion_context_get_iter		(GtkSourceCompletionContext   *context,
-								 GtkTextIter                  *iter);
+gboolean	 ctk_source_completion_context_get_iter		(CtkSourceCompletionContext   *context,
+								 CtkTextIter                  *iter);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-GtkSourceCompletionActivation
-		 ctk_source_completion_context_get_activation	(GtkSourceCompletionContext   *context);
+CtkSourceCompletionActivation
+		 ctk_source_completion_context_get_activation	(CtkSourceCompletionContext   *context);
 
 G_GNUC_INTERNAL
-GtkSourceCompletionContext *
-		_ctk_source_completion_context_new		(GtkSourceCompletion          *completion,
-								 GtkTextIter                  *position);
+CtkSourceCompletionContext *
+		_ctk_source_completion_context_new		(CtkSourceCompletion          *completion,
+								 CtkTextIter                  *position);
 
 G_GNUC_INTERNAL
-void		_ctk_source_completion_context_cancel		(GtkSourceCompletionContext   *context);
+void		_ctk_source_completion_context_cancel		(CtkSourceCompletionContext   *context);
 
 G_END_DECLS
 

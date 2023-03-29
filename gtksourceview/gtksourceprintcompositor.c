@@ -1,6 +1,6 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*- *
  *
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2000, 2001 Chema Celorio
  * Copyright (C) 2003  Gustavo Giráldez
@@ -8,12 +8,12 @@
  * Copyright (C) 2001-2007  Paolo Maggi
  * Copyright (C) 2008  Paolo Maggi, Paolo Borelli and Yevgen Muntyan
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -36,20 +36,20 @@
 
 /**
  * SECTION:printcompositor
- * @Short_description: Compose a GtkSourceBuffer for printing
- * @Title: GtkSourcePrintCompositor
+ * @Short_description: Compose a CtkSourceBuffer for printing
+ * @Title: CtkSourcePrintCompositor
  *
- * The #GtkSourcePrintCompositor object is used to compose a #GtkSourceBuffer
+ * The #CtkSourcePrintCompositor object is used to compose a #CtkSourceBuffer
  * for printing. You can set various configuration options to customize the
- * printed output. #GtkSourcePrintCompositor is designed to be used with the
- * high-level printing API of ctk+, i.e. #GtkPrintOperation.
+ * printed output. #CtkSourcePrintCompositor is designed to be used with the
+ * high-level printing API of ctk+, i.e. #CtkPrintOperation.
  *
  * The margins specified in this object are the layout margins: they define the
  * blank space bordering the printed area of the pages. They must not be
  * confused with the "print margins", i.e. the parts of the page that the
- * printer cannot print on, defined in the #GtkPageSetup objects. If the
+ * printer cannot print on, defined in the #CtkPageSetup objects. If the
  * specified layout margins are smaller than the "print margins", the latter
- * ones are used as a fallback by the #GtkSourcePrintCompositor object, so that
+ * ones are used as a fallback by the #CtkSourcePrintCompositor object, so that
  * the printed area is not clipped.
  */
 
@@ -104,13 +104,13 @@ typedef enum _PaginatorState
 	DONE
 } PaginatorState;
 
-struct _GtkSourcePrintCompositorPrivate
+struct _CtkSourcePrintCompositorPrivate
 {
-	GtkSourceBuffer         *buffer;
+	CtkSourceBuffer         *buffer;
 
 	/* Properties */
 	guint			 tab_width;
-	GtkWrapMode		 wrap_mode;
+	CtkWrapMode		 wrap_mode;
 	gboolean                 highlight_syntax;
 	guint                    print_line_numbers;
 
@@ -175,7 +175,7 @@ struct _GtkSourcePrintCompositorPrivate
 
 	PangoLanguage           *language; /* must not be freed */
 
-	GtkTextMark             *pagination_mark;
+	CtkTextMark             *pagination_mark;
 };
 
 enum
@@ -195,13 +195,13 @@ enum
 	PROP_N_PAGES
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (GtkSourcePrintCompositor, ctk_source_print_compositor, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (CtkSourcePrintCompositor, ctk_source_print_compositor, G_TYPE_OBJECT)
 
 #define MM_PER_INCH 25.4
 #define POINTS_PER_INCH 72
 
 static gdouble
-convert_to_mm (gdouble len, GtkUnit unit)
+convert_to_mm (gdouble len, CtkUnit unit)
 {
 	switch (unit)
 	{
@@ -222,7 +222,7 @@ convert_to_mm (gdouble len, GtkUnit unit)
 }
 
 static gdouble
-convert_from_mm (gdouble len, GtkUnit unit)
+convert_from_mm (gdouble len, CtkUnit unit)
 {
 	switch (unit)
 	{
@@ -248,7 +248,7 @@ ctk_source_print_compositor_get_property (GObject    *object,
 					  GValue     *value,
 					  GParamSpec *pspec)
 {
-	GtkSourcePrintCompositor *compositor = CTK_SOURCE_PRINT_COMPOSITOR (object);
+	CtkSourcePrintCompositor *compositor = CTK_SOURCE_PRINT_COMPOSITOR (object);
 
 	switch (prop_id)
 	{
@@ -311,7 +311,7 @@ ctk_source_print_compositor_set_property (GObject      *object,
 					  const GValue *value,
 					  GParamSpec   *pspec)
 {
-	GtkSourcePrintCompositor *compositor = CTK_SOURCE_PRINT_COMPOSITOR (object);
+	CtkSourcePrintCompositor *compositor = CTK_SOURCE_PRINT_COMPOSITOR (object);
 
 	switch (prop_id)
 	{
@@ -366,7 +366,7 @@ ctk_source_print_compositor_set_property (GObject      *object,
 static void
 ctk_source_print_compositor_finalize (GObject *object)
 {
-	GtkSourcePrintCompositor *compositor;
+	CtkSourcePrintCompositor *compositor;
 
 	compositor = CTK_SOURCE_PRINT_COMPOSITOR (object);
 
@@ -409,7 +409,7 @@ ctk_source_print_compositor_finalize (GObject *object)
 static void
 ctk_source_print_compositor_dispose (GObject *object)
 {
-	GtkSourcePrintCompositor *compositor;
+	CtkSourcePrintCompositor *compositor;
 
 	compositor = CTK_SOURCE_PRINT_COMPOSITOR (object);
 
@@ -419,7 +419,7 @@ ctk_source_print_compositor_dispose (GObject *object)
 }
 
 static void
-ctk_source_print_compositor_class_init (GtkSourcePrintCompositorClass *klass)
+ctk_source_print_compositor_class_init (CtkSourcePrintCompositorClass *klass)
 {
 	GObjectClass *object_class;
 
@@ -431,9 +431,9 @@ ctk_source_print_compositor_class_init (GtkSourcePrintCompositorClass *klass)
 	object_class->dispose = ctk_source_print_compositor_dispose;
 
 	/**
-	 * GtkSourcePrintCompositor:buffer:
+	 * CtkSourcePrintCompositor:buffer:
 	 *
-	 * The GtkSourceBuffer object to print.
+	 * The CtkSourceBuffer object to print.
 	 *
 	 * Since: 2.2
 	 */
@@ -441,14 +441,14 @@ ctk_source_print_compositor_class_init (GtkSourcePrintCompositorClass *klass)
 					 PROP_BUFFER,
 					 g_param_spec_object ("buffer",
 							      "Source Buffer",
-							      "The GtkSourceBuffer object to print",
+							      "The CtkSourceBuffer object to print",
 							      CTK_SOURCE_TYPE_BUFFER,
 							      G_PARAM_READWRITE |
 							      G_PARAM_CONSTRUCT_ONLY |
 							      G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourcePrintCompositor:tab-width:
+	 * CtkSourcePrintCompositor:tab-width:
 	 *
 	 * Width of a tab character expressed in spaces.
 	 *
@@ -470,7 +470,7 @@ ctk_source_print_compositor_class_init (GtkSourcePrintCompositorClass *klass)
 
 
 	/**
-	 * GtkSourcePrintCompositor:wrap-mode:
+	 * CtkSourcePrintCompositor:wrap-mode:
 	 *
 	 * Whether to wrap lines never, at word boundaries, or at character boundaries.
 	 *
@@ -490,7 +490,7 @@ ctk_source_print_compositor_class_init (GtkSourcePrintCompositorClass *klass)
 							    G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourcePrintCompositor:highlight-syntax:
+	 * CtkSourcePrintCompositor:highlight-syntax:
 	 *
 	 * Whether to print the document with highlighted syntax.
 	 *
@@ -509,7 +509,7 @@ ctk_source_print_compositor_class_init (GtkSourcePrintCompositorClass *klass)
 							       G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourcePrintCompositor:print-line-numbers:
+	 * CtkSourcePrintCompositor:print-line-numbers:
 	 *
 	 * Interval of printed line numbers. If this property is set to 0 no
 	 * numbers will be printed.  If greater than 0, a number will be
@@ -530,7 +530,7 @@ ctk_source_print_compositor_class_init (GtkSourcePrintCompositorClass *klass)
 							    G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourcePrintCompositor:print-header:
+	 * CtkSourcePrintCompositor:print-header:
 	 *
 	 * Whether to print a header in each page.
 	 *
@@ -553,7 +553,7 @@ ctk_source_print_compositor_class_init (GtkSourcePrintCompositorClass *klass)
 							       G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourcePrintCompositor:print-footer:
+	 * CtkSourcePrintCompositor:print-footer:
 	 *
 	 * Whether to print a footer in each page.
 	 *
@@ -576,7 +576,7 @@ ctk_source_print_compositor_class_init (GtkSourcePrintCompositorClass *klass)
 							       G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourcePrintCompositor:body-font-name:
+	 * CtkSourcePrintCompositor:body-font-name:
 	 *
 	 * Name of the font used for the text body.
 	 *
@@ -599,7 +599,7 @@ ctk_source_print_compositor_class_init (GtkSourcePrintCompositorClass *klass)
 							      G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourcePrintCompositor:line-numbers-font-name:
+	 * CtkSourcePrintCompositor:line-numbers-font-name:
 	 *
 	 * Name of the font used to print line numbers on the left margin.
 	 * If this property is unspecified, the text body font is used.
@@ -623,7 +623,7 @@ ctk_source_print_compositor_class_init (GtkSourcePrintCompositorClass *klass)
 							      G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourcePrintCompositor:header-font-name:
+	 * CtkSourcePrintCompositor:header-font-name:
 	 *
 	 * Name of the font used to print page header.
 	 * If this property is unspecified, the text body font is used.
@@ -647,7 +647,7 @@ ctk_source_print_compositor_class_init (GtkSourcePrintCompositorClass *klass)
 							      G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourcePrintCompositor:footer-font-name:
+	 * CtkSourcePrintCompositor:footer-font-name:
 	 *
 	 * Name of the font used to print page footer.
 	 * If this property is unspecified, the text body font is used.
@@ -671,7 +671,7 @@ ctk_source_print_compositor_class_init (GtkSourcePrintCompositorClass *klass)
 							      G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourcePrintCompositor:n-pages:
+	 * CtkSourcePrintCompositor:n-pages:
 	 *
 	 * The number of pages in the document or <code>-1</code> if the
  	 * document has not been completely paginated.
@@ -689,9 +689,9 @@ ctk_source_print_compositor_class_init (GtkSourcePrintCompositorClass *klass)
 }
 
 static void
-ctk_source_print_compositor_init (GtkSourcePrintCompositor *compositor)
+ctk_source_print_compositor_init (CtkSourcePrintCompositor *compositor)
 {
-	GtkSourcePrintCompositorPrivate *priv;
+	CtkSourcePrintCompositorPrivate *priv;
 
 	priv = ctk_source_print_compositor_get_instance_private (compositor);
 
@@ -752,7 +752,7 @@ ctk_source_print_compositor_init (GtkSourcePrintCompositor *compositor)
 
 /**
  * ctk_source_print_compositor_new:
- * @buffer: the #GtkSourceBuffer to print.
+ * @buffer: the #CtkSourceBuffer to print.
  *
  * Creates a new print compositor that can be used to print @buffer.
  *
@@ -760,8 +760,8 @@ ctk_source_print_compositor_init (GtkSourcePrintCompositor *compositor)
  *
  * Since: 2.2
  **/
-GtkSourcePrintCompositor *
-ctk_source_print_compositor_new (GtkSourceBuffer *buffer)
+CtkSourcePrintCompositor *
+ctk_source_print_compositor_new (CtkSourceBuffer *buffer)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER (buffer), NULL);
 
@@ -772,27 +772,27 @@ ctk_source_print_compositor_new (GtkSourceBuffer *buffer)
 
 /**
  * ctk_source_print_compositor_new_from_view:
- * @view: a #GtkSourceView to get configuration from.
+ * @view: a #CtkSourceView to get configuration from.
  *
  * Creates a new print compositor that can be used to print the buffer
  * associated with @view.
  * This constructor sets some configuration properties to make the
  * printed output match @view as much as possible.  The properties set are
- * #GtkSourcePrintCompositor:tab-width, #GtkSourcePrintCompositor:highlight-syntax,
- * #GtkSourcePrintCompositor:wrap-mode, #GtkSourcePrintCompositor:body-font-name and
- * #GtkSourcePrintCompositor:print-line-numbers.
+ * #CtkSourcePrintCompositor:tab-width, #CtkSourcePrintCompositor:highlight-syntax,
+ * #CtkSourcePrintCompositor:wrap-mode, #CtkSourcePrintCompositor:body-font-name and
+ * #CtkSourcePrintCompositor:print-line-numbers.
  *
  * Return value: a new print compositor object.
  *
  * Since: 2.2
  **/
-GtkSourcePrintCompositor *
-ctk_source_print_compositor_new_from_view (GtkSourceView *view)
+CtkSourcePrintCompositor *
+ctk_source_print_compositor_new_from_view (CtkSourceView *view)
 {
-	GtkSourceBuffer *buffer = NULL;
+	CtkSourceBuffer *buffer = NULL;
 	PangoContext *pango_context;
 	PangoFontDescription* font_desc;
-	GtkSourcePrintCompositor *compositor;
+	CtkSourcePrintCompositor *compositor;
 
 	g_return_val_if_fail (CTK_SOURCE_IS_VIEW (view), NULL);
 	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER (ctk_text_view_get_buffer (CTK_TEXT_VIEW (view))), NULL);
@@ -821,18 +821,18 @@ ctk_source_print_compositor_new_from_view (GtkSourceView *view)
 
 /**
  * ctk_source_print_compositor_get_buffer:
- * @compositor: a #GtkSourcePrintCompositor.
+ * @compositor: a #CtkSourcePrintCompositor.
  *
- * Gets the #GtkSourceBuffer associated with the compositor. The returned
+ * Gets the #CtkSourceBuffer associated with the compositor. The returned
  * object reference is owned by the compositor object and
  * should not be unreferenced.
  *
- * Return value: (transfer none): the #GtkSourceBuffer associated with the compositor.
+ * Return value: (transfer none): the #CtkSourceBuffer associated with the compositor.
  *
  * Since: 2.2
  **/
-GtkSourceBuffer *
-ctk_source_print_compositor_get_buffer (GtkSourcePrintCompositor *compositor)
+CtkSourceBuffer *
+ctk_source_print_compositor_get_buffer (CtkSourcePrintCompositor *compositor)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_PRINT_COMPOSITOR (compositor), NULL);
 
@@ -841,7 +841,7 @@ ctk_source_print_compositor_get_buffer (GtkSourcePrintCompositor *compositor)
 
 /**
  * ctk_source_print_compositor_set_tab_width:
- * @compositor: a #GtkSourcePrintCompositor.
+ * @compositor: a #CtkSourcePrintCompositor.
  * @width: width of tab in characters.
  *
  * Sets the width of tabulation in characters for printed text.
@@ -852,7 +852,7 @@ ctk_source_print_compositor_get_buffer (GtkSourcePrintCompositor *compositor)
  * Since: 2.2
  */
 void
-ctk_source_print_compositor_set_tab_width (GtkSourcePrintCompositor *compositor,
+ctk_source_print_compositor_set_tab_width (CtkSourcePrintCompositor *compositor,
 					   guint                     width)
 {
 	g_return_if_fail (CTK_SOURCE_IS_PRINT_COMPOSITOR (compositor));
@@ -869,7 +869,7 @@ ctk_source_print_compositor_set_tab_width (GtkSourcePrintCompositor *compositor,
 
 /**
  * ctk_source_print_compositor_get_tab_width:
- * @compositor: a #GtkSourcePrintCompositor.
+ * @compositor: a #CtkSourcePrintCompositor.
  *
  * Returns the width of tabulation in characters for printed text.
  *
@@ -878,7 +878,7 @@ ctk_source_print_compositor_set_tab_width (GtkSourcePrintCompositor *compositor,
  * Since: 2.2
  */
 guint
-ctk_source_print_compositor_get_tab_width (GtkSourcePrintCompositor *compositor)
+ctk_source_print_compositor_get_tab_width (CtkSourcePrintCompositor *compositor)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_PRINT_COMPOSITOR (compositor), DEFAULT_TAB_WIDTH);
 
@@ -887,8 +887,8 @@ ctk_source_print_compositor_get_tab_width (GtkSourcePrintCompositor *compositor)
 
 /**
  * ctk_source_print_compositor_set_wrap_mode:
- * @compositor: a #GtkSourcePrintCompositor.
- * @wrap_mode: a #GtkWrapMode.
+ * @compositor: a #CtkSourcePrintCompositor.
+ * @wrap_mode: a #CtkWrapMode.
  *
  * Sets the line wrapping mode for the printed text.
  *
@@ -898,8 +898,8 @@ ctk_source_print_compositor_get_tab_width (GtkSourcePrintCompositor *compositor)
  * Since: 2.2
  */
 void
-ctk_source_print_compositor_set_wrap_mode (GtkSourcePrintCompositor *compositor,
-					   GtkWrapMode               wrap_mode)
+ctk_source_print_compositor_set_wrap_mode (CtkSourcePrintCompositor *compositor,
+					   CtkWrapMode               wrap_mode)
 {
 	g_return_if_fail (CTK_SOURCE_IS_PRINT_COMPOSITOR (compositor));
 	g_return_if_fail (compositor->priv->state == INIT);
@@ -914,7 +914,7 @@ ctk_source_print_compositor_set_wrap_mode (GtkSourcePrintCompositor *compositor,
 
 /**
  * ctk_source_print_compositor_get_wrap_mode:
- * @compositor: a #GtkSourcePrintCompositor.
+ * @compositor: a #CtkSourcePrintCompositor.
  *
  * Gets the line wrapping mode for the printed text.
  *
@@ -922,8 +922,8 @@ ctk_source_print_compositor_set_wrap_mode (GtkSourcePrintCompositor *compositor,
  *
  * Since: 2.2
  */
-GtkWrapMode
-ctk_source_print_compositor_get_wrap_mode (GtkSourcePrintCompositor *compositor)
+CtkWrapMode
+ctk_source_print_compositor_get_wrap_mode (CtkSourcePrintCompositor *compositor)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_PRINT_COMPOSITOR (compositor), CTK_WRAP_NONE);
 
@@ -932,7 +932,7 @@ ctk_source_print_compositor_get_wrap_mode (GtkSourcePrintCompositor *compositor)
 
 /**
  * ctk_source_print_compositor_set_highlight_syntax:
- * @compositor: a #GtkSourcePrintCompositor.
+ * @compositor: a #CtkSourcePrintCompositor.
  * @highlight: whether syntax should be highlighted.
  *
  * Sets whether the printed text will be highlighted according to the
@@ -944,7 +944,7 @@ ctk_source_print_compositor_get_wrap_mode (GtkSourcePrintCompositor *compositor)
  * Since: 2.2
  **/
 void
-ctk_source_print_compositor_set_highlight_syntax (GtkSourcePrintCompositor *compositor,
+ctk_source_print_compositor_set_highlight_syntax (CtkSourcePrintCompositor *compositor,
 						  gboolean                  highlight)
 {
 	g_return_if_fail (CTK_SOURCE_IS_PRINT_COMPOSITOR (compositor));
@@ -962,7 +962,7 @@ ctk_source_print_compositor_set_highlight_syntax (GtkSourcePrintCompositor *comp
 
 /**
  * ctk_source_print_compositor_get_highlight_syntax:
- * @compositor: a #GtkSourcePrintCompositor.
+ * @compositor: a #CtkSourcePrintCompositor.
  *
  * Determines whether the printed text will be highlighted according to the
  * buffer rules.  Note that highlighting will happen
@@ -973,7 +973,7 @@ ctk_source_print_compositor_set_highlight_syntax (GtkSourcePrintCompositor *comp
  * Since: 2.2
  **/
 gboolean
-ctk_source_print_compositor_get_highlight_syntax (GtkSourcePrintCompositor *compositor)
+ctk_source_print_compositor_get_highlight_syntax (CtkSourcePrintCompositor *compositor)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_PRINT_COMPOSITOR (compositor), FALSE);
 
@@ -982,7 +982,7 @@ ctk_source_print_compositor_get_highlight_syntax (GtkSourcePrintCompositor *comp
 
 /**
  * ctk_source_print_compositor_set_print_line_numbers:
- * @compositor: a #GtkSourcePrintCompositor.
+ * @compositor: a #CtkSourcePrintCompositor.
  * @interval: interval for printed line numbers.
  *
  * Sets the interval for printed line numbers.  If @interval is 0 no
@@ -997,7 +997,7 @@ ctk_source_print_compositor_get_highlight_syntax (GtkSourcePrintCompositor *comp
  * Since: 2.2
  **/
 void
-ctk_source_print_compositor_set_print_line_numbers (GtkSourcePrintCompositor *compositor,
+ctk_source_print_compositor_set_print_line_numbers (CtkSourcePrintCompositor *compositor,
 						    guint                     interval)
 {
 	g_return_if_fail (CTK_SOURCE_IS_PRINT_COMPOSITOR (compositor));
@@ -1014,7 +1014,7 @@ ctk_source_print_compositor_set_print_line_numbers (GtkSourcePrintCompositor *co
 
 /**
  * ctk_source_print_compositor_set_print_header:
- * @compositor: a #GtkSourcePrintCompositor.
+ * @compositor: a #CtkSourcePrintCompositor.
  * @print: %TRUE if you want the header to be printed.
  *
  * Sets whether you want to print a header in each page.  The
@@ -1031,7 +1031,7 @@ ctk_source_print_compositor_set_print_line_numbers (GtkSourcePrintCompositor *co
  * Since: 2.2
  **/
 void
-ctk_source_print_compositor_set_print_header (GtkSourcePrintCompositor *compositor,
+ctk_source_print_compositor_set_print_header (CtkSourcePrintCompositor *compositor,
 					      gboolean                  print)
 {
 	g_return_if_fail (CTK_SOURCE_IS_PRINT_COMPOSITOR (compositor));
@@ -1049,7 +1049,7 @@ ctk_source_print_compositor_set_print_header (GtkSourcePrintCompositor *composit
 
 /**
  * ctk_source_print_compositor_get_print_header:
- * @compositor: a #GtkSourcePrintCompositor.
+ * @compositor: a #CtkSourcePrintCompositor.
  *
  * Determines if a header is set to be printed for each page.  A
  * header will be printed if this function returns %TRUE
@@ -1061,7 +1061,7 @@ ctk_source_print_compositor_set_print_header (GtkSourcePrintCompositor *composit
  * Since: 2.2
  **/
 gboolean
-ctk_source_print_compositor_get_print_header (GtkSourcePrintCompositor *compositor)
+ctk_source_print_compositor_get_print_header (CtkSourcePrintCompositor *compositor)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_PRINT_COMPOSITOR (compositor), FALSE);
 
@@ -1070,7 +1070,7 @@ ctk_source_print_compositor_get_print_header (GtkSourcePrintCompositor *composit
 
 /**
  * ctk_source_print_compositor_set_print_footer:
- * @compositor: a #GtkSourcePrintCompositor.
+ * @compositor: a #CtkSourcePrintCompositor.
  * @print: %TRUE if you want the footer to be printed.
  *
  * Sets whether you want to print a footer in each page.  The
@@ -1087,7 +1087,7 @@ ctk_source_print_compositor_get_print_header (GtkSourcePrintCompositor *composit
  * Since: 2.2
  **/
 void
-ctk_source_print_compositor_set_print_footer (GtkSourcePrintCompositor *compositor,
+ctk_source_print_compositor_set_print_footer (CtkSourcePrintCompositor *compositor,
 					      gboolean                  print)
 {
 	g_return_if_fail (CTK_SOURCE_IS_PRINT_COMPOSITOR (compositor));
@@ -1105,7 +1105,7 @@ ctk_source_print_compositor_set_print_footer (GtkSourcePrintCompositor *composit
 
 /**
  * ctk_source_print_compositor_get_print_footer:
- * @compositor: a #GtkSourcePrintCompositor.
+ * @compositor: a #CtkSourcePrintCompositor.
  *
  * Determines if a footer is set to be printed for each page.  A
  * footer will be printed if this function returns %TRUE
@@ -1117,7 +1117,7 @@ ctk_source_print_compositor_set_print_footer (GtkSourcePrintCompositor *composit
  * Since: 2.2
  **/
 gboolean
-ctk_source_print_compositor_get_print_footer (GtkSourcePrintCompositor *compositor)
+ctk_source_print_compositor_get_print_footer (CtkSourcePrintCompositor *compositor)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_PRINT_COMPOSITOR (compositor), FALSE);
 
@@ -1126,7 +1126,7 @@ ctk_source_print_compositor_get_print_footer (GtkSourcePrintCompositor *composit
 
 /**
  * ctk_source_print_compositor_set_header_format:
- * @compositor: a #GtkSourcePrintCompositor.
+ * @compositor: a #CtkSourcePrintCompositor.
  * @separator: %TRUE if you want a separator line to be printed.
  * @left: (nullable): a format string to print on the left of the header.
  * @center: (nullable): a format string to print on the center of the header.
@@ -1157,7 +1157,7 @@ ctk_source_print_compositor_get_print_footer (GtkSourcePrintCompositor *composit
  * Since: 2.2
  **/
 void
-ctk_source_print_compositor_set_header_format (GtkSourcePrintCompositor *compositor,
+ctk_source_print_compositor_set_header_format (CtkSourcePrintCompositor *compositor,
 					       gboolean                  separator,
 					       const gchar              *left,
 					       const gchar              *center,
@@ -1180,7 +1180,7 @@ ctk_source_print_compositor_set_header_format (GtkSourcePrintCompositor *composi
 
 /**
  * ctk_source_print_compositor_set_footer_format:
- * @compositor: a #GtkSourcePrintCompositor.
+ * @compositor: a #CtkSourcePrintCompositor.
  * @separator: %TRUE if you want a separator line to be printed.
  * @left: (nullable): a format string to print on the left of the footer.
  * @center: (nullable): a format string to print on the center of the footer.
@@ -1192,7 +1192,7 @@ ctk_source_print_compositor_set_header_format (GtkSourcePrintCompositor *composi
  * Since: 2.2
  **/
 void
-ctk_source_print_compositor_set_footer_format (GtkSourcePrintCompositor *compositor,
+ctk_source_print_compositor_set_footer_format (CtkSourcePrintCompositor *compositor,
 					       gboolean                  separator,
 					       const gchar              *left,
 					       const gchar              *center,
@@ -1215,7 +1215,7 @@ ctk_source_print_compositor_set_footer_format (GtkSourcePrintCompositor *composi
 
 /**
  * ctk_source_print_compositor_get_print_line_numbers:
- * @compositor: a #GtkSourcePrintCompositor.
+ * @compositor: a #CtkSourcePrintCompositor.
  *
  * Returns the interval used for line number printing.  If the
  * value is 0, no line numbers will be printed.  The default value is
@@ -1226,7 +1226,7 @@ ctk_source_print_compositor_set_footer_format (GtkSourcePrintCompositor *composi
  * Since: 2.2
  **/
 guint
-ctk_source_print_compositor_get_print_line_numbers (GtkSourcePrintCompositor *compositor)
+ctk_source_print_compositor_get_print_line_numbers (CtkSourcePrintCompositor *compositor)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_PRINT_COMPOSITOR (compositor), 0);
 
@@ -1234,7 +1234,7 @@ ctk_source_print_compositor_get_print_line_numbers (GtkSourcePrintCompositor *co
 }
 
 static gboolean
-set_font_description_from_name (GtkSourcePrintCompositor  *compositor,
+set_font_description_from_name (CtkSourcePrintCompositor  *compositor,
 				PangoFontDescription     **font,
 				const gchar               *font_name)
 {
@@ -1266,7 +1266,7 @@ set_font_description_from_name (GtkSourcePrintCompositor  *compositor,
 
 /**
  * ctk_source_print_compositor_set_body_font_name:
- * @compositor: a #GtkSourcePrintCompositor.
+ * @compositor: a #CtkSourcePrintCompositor.
  * @font_name: the name of the default font for the body text.
  *
  * Sets the default font for the printed text.
@@ -1282,7 +1282,7 @@ set_font_description_from_name (GtkSourcePrintCompositor  *compositor,
  * Since: 2.2
  */
 void
-ctk_source_print_compositor_set_body_font_name (GtkSourcePrintCompositor *compositor,
+ctk_source_print_compositor_set_body_font_name (CtkSourcePrintCompositor *compositor,
 						const gchar              *font_name)
 {
 	g_return_if_fail (CTK_SOURCE_IS_PRINT_COMPOSITOR (compositor));
@@ -1299,7 +1299,7 @@ ctk_source_print_compositor_set_body_font_name (GtkSourcePrintCompositor *compos
 
 /**
  * ctk_source_print_compositor_get_body_font_name:
- * @compositor: a #GtkSourcePrintCompositor.
+ * @compositor: a #CtkSourcePrintCompositor.
  *
  * Returns the name of the font used to print the text body. The returned string
  * must be freed with g_free().
@@ -1310,7 +1310,7 @@ ctk_source_print_compositor_set_body_font_name (GtkSourcePrintCompositor *compos
  * Since: 2.2
  */
 gchar *
-ctk_source_print_compositor_get_body_font_name (GtkSourcePrintCompositor *compositor)
+ctk_source_print_compositor_get_body_font_name (CtkSourcePrintCompositor *compositor)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_PRINT_COMPOSITOR (compositor), NULL);
 
@@ -1319,7 +1319,7 @@ ctk_source_print_compositor_get_body_font_name (GtkSourcePrintCompositor *compos
 
 /**
  * ctk_source_print_compositor_set_line_numbers_font_name:
- * @compositor: a #GtkSourcePrintCompositor.
+ * @compositor: a #CtkSourcePrintCompositor.
  * @font_name: (nullable): the name of the font for line numbers, or %NULL.
  *
  * Sets the font for printing line numbers on the left margin.  If
@@ -1337,7 +1337,7 @@ ctk_source_print_compositor_get_body_font_name (GtkSourcePrintCompositor *compos
  * Since: 2.2
  */
 void
-ctk_source_print_compositor_set_line_numbers_font_name (GtkSourcePrintCompositor *compositor,
+ctk_source_print_compositor_set_line_numbers_font_name (CtkSourcePrintCompositor *compositor,
 							const gchar              *font_name)
 {
 	g_return_if_fail (CTK_SOURCE_IS_PRINT_COMPOSITOR (compositor));
@@ -1354,7 +1354,7 @@ ctk_source_print_compositor_set_line_numbers_font_name (GtkSourcePrintCompositor
 
 /**
  * ctk_source_print_compositor_get_line_numbers_font_name:
- * @compositor: a #GtkSourcePrintCompositor.
+ * @compositor: a #CtkSourcePrintCompositor.
  *
  * Returns the name of the font used to print line numbers on the left margin.
  * The returned string must be freed with g_free().
@@ -1365,7 +1365,7 @@ ctk_source_print_compositor_set_line_numbers_font_name (GtkSourcePrintCompositor
  * Since: 2.2
  */
 gchar *
-ctk_source_print_compositor_get_line_numbers_font_name (GtkSourcePrintCompositor *compositor)
+ctk_source_print_compositor_get_line_numbers_font_name (CtkSourcePrintCompositor *compositor)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_PRINT_COMPOSITOR (compositor), NULL);
 
@@ -1380,7 +1380,7 @@ ctk_source_print_compositor_get_line_numbers_font_name (GtkSourcePrintCompositor
 
 /**
  * ctk_source_print_compositor_set_header_font_name:
- * @compositor: a #GtkSourcePrintCompositor.
+ * @compositor: a #CtkSourcePrintCompositor.
  * @font_name: (nullable): the name of the font for header text, or %NULL.
  *
  * Sets the font for printing the page header. If
@@ -1398,7 +1398,7 @@ ctk_source_print_compositor_get_line_numbers_font_name (GtkSourcePrintCompositor
  * Since: 2.2
  */
 void
-ctk_source_print_compositor_set_header_font_name (GtkSourcePrintCompositor *compositor,
+ctk_source_print_compositor_set_header_font_name (CtkSourcePrintCompositor *compositor,
 							const gchar              *font_name)
 {
 	g_return_if_fail (CTK_SOURCE_IS_PRINT_COMPOSITOR (compositor));
@@ -1416,7 +1416,7 @@ ctk_source_print_compositor_set_header_font_name (GtkSourcePrintCompositor *comp
 
 /**
  * ctk_source_print_compositor_get_header_font_name:
- * @compositor: a #GtkSourcePrintCompositor.
+ * @compositor: a #CtkSourcePrintCompositor.
  *
  * Returns the name of the font used to print the page header.
  * The returned string must be freed with g_free().
@@ -1427,7 +1427,7 @@ ctk_source_print_compositor_set_header_font_name (GtkSourcePrintCompositor *comp
  * Since: 2.2
  */
 gchar *
-ctk_source_print_compositor_get_header_font_name (GtkSourcePrintCompositor *compositor)
+ctk_source_print_compositor_get_header_font_name (CtkSourcePrintCompositor *compositor)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_PRINT_COMPOSITOR (compositor), NULL);
 
@@ -1442,7 +1442,7 @@ ctk_source_print_compositor_get_header_font_name (GtkSourcePrintCompositor *comp
 
 /**
  * ctk_source_print_compositor_set_footer_font_name:
- * @compositor: a #GtkSourcePrintCompositor.
+ * @compositor: a #CtkSourcePrintCompositor.
  * @font_name: (nullable): the name of the font for the footer text, or %NULL.
  *
  * Sets the font for printing the page footer. If
@@ -1460,7 +1460,7 @@ ctk_source_print_compositor_get_header_font_name (GtkSourcePrintCompositor *comp
  * Since: 2.2
  */
 void
-ctk_source_print_compositor_set_footer_font_name (GtkSourcePrintCompositor *compositor,
+ctk_source_print_compositor_set_footer_font_name (CtkSourcePrintCompositor *compositor,
 						  const gchar              *font_name)
 {
 	g_return_if_fail (CTK_SOURCE_IS_PRINT_COMPOSITOR (compositor));
@@ -1478,7 +1478,7 @@ ctk_source_print_compositor_set_footer_font_name (GtkSourcePrintCompositor *comp
 
 /**
  * ctk_source_print_compositor_get_footer_font_name:
- * @compositor: a #GtkSourcePrintCompositor.
+ * @compositor: a #CtkSourcePrintCompositor.
  *
  * Returns the name of the font used to print the page footer.
  * The returned string must be freed with g_free().
@@ -1489,7 +1489,7 @@ ctk_source_print_compositor_set_footer_font_name (GtkSourcePrintCompositor *comp
  * Since: 2.2
  */
 gchar *
-ctk_source_print_compositor_get_footer_font_name (GtkSourcePrintCompositor *compositor)
+ctk_source_print_compositor_get_footer_font_name (CtkSourcePrintCompositor *compositor)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_PRINT_COMPOSITOR (compositor), NULL);
 
@@ -1504,7 +1504,7 @@ ctk_source_print_compositor_get_footer_font_name (GtkSourcePrintCompositor *comp
 
 /**
  * ctk_source_print_compositor_set_top_margin:
- * @compositor: a #GtkSourcePrintCompositor.
+ * @compositor: a #CtkSourcePrintCompositor.
  * @margin: the new top margin in units of @unit
  * @unit: the units for @margin
  *
@@ -1513,9 +1513,9 @@ ctk_source_print_compositor_get_footer_font_name (GtkSourcePrintCompositor *comp
  * Since: 2.2
  */
 void
-ctk_source_print_compositor_set_top_margin (GtkSourcePrintCompositor *compositor,
+ctk_source_print_compositor_set_top_margin (CtkSourcePrintCompositor *compositor,
 					    gdouble                   margin,
-					    GtkUnit                   unit)
+					    CtkUnit                   unit)
 {
 	g_return_if_fail (CTK_SOURCE_IS_PRINT_COMPOSITOR (compositor));
 
@@ -1524,7 +1524,7 @@ ctk_source_print_compositor_set_top_margin (GtkSourcePrintCompositor *compositor
 
 /**
  * ctk_source_print_compositor_get_top_margin:
- * @compositor: a #GtkSourcePrintCompositor.
+ * @compositor: a #CtkSourcePrintCompositor.
  * @unit: the unit for the return value.
  *
  * Gets the top margin in units of @unit.
@@ -1534,8 +1534,8 @@ ctk_source_print_compositor_set_top_margin (GtkSourcePrintCompositor *compositor
  * Since: 2.2
  */
 gdouble
-ctk_source_print_compositor_get_top_margin (GtkSourcePrintCompositor *compositor,
-					    GtkUnit                   unit)
+ctk_source_print_compositor_get_top_margin (CtkSourcePrintCompositor *compositor,
+					    CtkUnit                   unit)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_PRINT_COMPOSITOR (compositor), 0);
 
@@ -1544,7 +1544,7 @@ ctk_source_print_compositor_get_top_margin (GtkSourcePrintCompositor *compositor
 
 /**
  * ctk_source_print_compositor_set_bottom_margin:
- * @compositor: a #GtkSourcePrintCompositor.
+ * @compositor: a #CtkSourcePrintCompositor.
  * @margin: the new bottom margin in units of @unit.
  * @unit: the units for @margin.
  *
@@ -1553,9 +1553,9 @@ ctk_source_print_compositor_get_top_margin (GtkSourcePrintCompositor *compositor
  * Since: 2.2
  */
 void
-ctk_source_print_compositor_set_bottom_margin (GtkSourcePrintCompositor *compositor,
+ctk_source_print_compositor_set_bottom_margin (CtkSourcePrintCompositor *compositor,
 					       gdouble                   margin,
-					       GtkUnit                   unit)
+					       CtkUnit                   unit)
 {
 	g_return_if_fail (CTK_SOURCE_IS_PRINT_COMPOSITOR (compositor));
 
@@ -1564,7 +1564,7 @@ ctk_source_print_compositor_set_bottom_margin (GtkSourcePrintCompositor *composi
 
 /**
  * ctk_source_print_compositor_get_bottom_margin:
- * @compositor: a #GtkSourcePrintCompositor.
+ * @compositor: a #CtkSourcePrintCompositor.
  * @unit: the unit for the return value.
  *
  * Gets the bottom margin in units of @unit.
@@ -1574,8 +1574,8 @@ ctk_source_print_compositor_set_bottom_margin (GtkSourcePrintCompositor *composi
  * Since: 2.2
  */
 gdouble
-ctk_source_print_compositor_get_bottom_margin (GtkSourcePrintCompositor *compositor,
-					       GtkUnit                   unit)
+ctk_source_print_compositor_get_bottom_margin (CtkSourcePrintCompositor *compositor,
+					       CtkUnit                   unit)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_PRINT_COMPOSITOR (compositor), 0);
 
@@ -1584,7 +1584,7 @@ ctk_source_print_compositor_get_bottom_margin (GtkSourcePrintCompositor *composi
 
 /**
  * ctk_source_print_compositor_set_left_margin:
- * @compositor: a #GtkSourcePrintCompositor.
+ * @compositor: a #CtkSourcePrintCompositor.
  * @margin: the new left margin in units of @unit.
  * @unit: the units for @margin.
  *
@@ -1593,9 +1593,9 @@ ctk_source_print_compositor_get_bottom_margin (GtkSourcePrintCompositor *composi
  * Since: 2.2
  */
 void
-ctk_source_print_compositor_set_left_margin (GtkSourcePrintCompositor *compositor,
+ctk_source_print_compositor_set_left_margin (CtkSourcePrintCompositor *compositor,
 					     gdouble                   margin,
-					     GtkUnit                   unit)
+					     CtkUnit                   unit)
 {
 	g_return_if_fail (CTK_SOURCE_IS_PRINT_COMPOSITOR (compositor));
 
@@ -1604,7 +1604,7 @@ ctk_source_print_compositor_set_left_margin (GtkSourcePrintCompositor *composito
 
 /**
  * ctk_source_print_compositor_get_left_margin:
- * @compositor: a #GtkSourcePrintCompositor.
+ * @compositor: a #CtkSourcePrintCompositor.
  * @unit: the unit for the return value.
  *
  * Gets the left margin in units of @unit.
@@ -1614,8 +1614,8 @@ ctk_source_print_compositor_set_left_margin (GtkSourcePrintCompositor *composito
  * Since: 2.2
  */
 gdouble
-ctk_source_print_compositor_get_left_margin (GtkSourcePrintCompositor *compositor,
-					     GtkUnit                   unit)
+ctk_source_print_compositor_get_left_margin (CtkSourcePrintCompositor *compositor,
+					     CtkUnit                   unit)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_PRINT_COMPOSITOR (compositor), 0);
 
@@ -1624,7 +1624,7 @@ ctk_source_print_compositor_get_left_margin (GtkSourcePrintCompositor *composito
 
 /**
  * ctk_source_print_compositor_set_right_margin:
- * @compositor: a #GtkSourcePrintCompositor.
+ * @compositor: a #CtkSourcePrintCompositor.
  * @margin: the new right margin in units of @unit.
  * @unit: the units for @margin.
  *
@@ -1633,9 +1633,9 @@ ctk_source_print_compositor_get_left_margin (GtkSourcePrintCompositor *composito
  * Since: 2.2
  */
 void
-ctk_source_print_compositor_set_right_margin (GtkSourcePrintCompositor *compositor,
+ctk_source_print_compositor_set_right_margin (CtkSourcePrintCompositor *compositor,
 					      gdouble                   margin,
-					      GtkUnit                   unit)
+					      CtkUnit                   unit)
 {
 	g_return_if_fail (CTK_SOURCE_IS_PRINT_COMPOSITOR (compositor));
 
@@ -1644,7 +1644,7 @@ ctk_source_print_compositor_set_right_margin (GtkSourcePrintCompositor *composit
 
 /**
  * ctk_source_print_compositor_get_right_margin:
- * @compositor: a #GtkSourcePrintCompositor.
+ * @compositor: a #CtkSourcePrintCompositor.
  * @unit: the unit for the return value.
  *
  * Gets the right margin in units of @unit.
@@ -1654,8 +1654,8 @@ ctk_source_print_compositor_set_right_margin (GtkSourcePrintCompositor *composit
  * Since: 2.2
  */
 gdouble
-ctk_source_print_compositor_get_right_margin (GtkSourcePrintCompositor *compositor,
-					      GtkUnit                   unit)
+ctk_source_print_compositor_get_right_margin (CtkSourcePrintCompositor *compositor,
+					      CtkUnit                   unit)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_PRINT_COMPOSITOR (compositor), 0);
 
@@ -1664,7 +1664,7 @@ ctk_source_print_compositor_get_right_margin (GtkSourcePrintCompositor *composit
 
 /**
  * ctk_source_print_compositor_get_n_pages:
- * @compositor: a #GtkSourcePrintCompositor.
+ * @compositor: a #CtkSourcePrintCompositor.
  *
  * Returns the number of pages in the document or <code>-1</code> if the
  * document has not been completely paginated.
@@ -1675,7 +1675,7 @@ ctk_source_print_compositor_get_right_margin (GtkSourcePrintCompositor *composit
  * Since: 2.2
  */
 gint
-ctk_source_print_compositor_get_n_pages	(GtkSourcePrintCompositor *compositor)
+ctk_source_print_compositor_get_n_pages	(CtkSourcePrintCompositor *compositor)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_PRINT_COMPOSITOR (compositor), -1);
 
@@ -1688,7 +1688,7 @@ ctk_source_print_compositor_get_n_pages	(GtkSourcePrintCompositor *compositor)
 /* utility functions to deal with coordinates (returns) */
 
 static gdouble
-get_text_x (GtkSourcePrintCompositor *compositor)
+get_text_x (CtkSourcePrintCompositor *compositor)
 {
 	gdouble x;
 
@@ -1701,7 +1701,7 @@ get_text_x (GtkSourcePrintCompositor *compositor)
 }
 
 static gdouble
-get_text_y (GtkSourcePrintCompositor *compositor)
+get_text_y (CtkSourcePrintCompositor *compositor)
 {
 	gdouble y;
 
@@ -1711,7 +1711,7 @@ get_text_y (GtkSourcePrintCompositor *compositor)
 }
 
 static gdouble
-get_line_numbers_x (GtkSourcePrintCompositor *compositor)
+get_line_numbers_x (CtkSourcePrintCompositor *compositor)
 {
 	gdouble x;
 
@@ -1721,7 +1721,7 @@ get_line_numbers_x (GtkSourcePrintCompositor *compositor)
 }
 
 static gdouble
-get_text_width (GtkSourcePrintCompositor *compositor)
+get_text_width (CtkSourcePrintCompositor *compositor)
 {
 	gdouble w;
 
@@ -1741,7 +1741,7 @@ get_text_width (GtkSourcePrintCompositor *compositor)
 }
 
 static gdouble
-get_text_height (GtkSourcePrintCompositor *compositor)
+get_text_height (CtkSourcePrintCompositor *compositor)
 {
 	double h;
 
@@ -1760,7 +1760,7 @@ get_text_height (GtkSourcePrintCompositor *compositor)
 }
 
 static gboolean
-is_header_to_print (GtkSourcePrintCompositor *compositor)
+is_header_to_print (CtkSourcePrintCompositor *compositor)
 {
 	return (compositor->priv->print_header &&
 	       ((compositor->priv->header_format_left != NULL) ||
@@ -1769,7 +1769,7 @@ is_header_to_print (GtkSourcePrintCompositor *compositor)
 }
 
 static gboolean
-is_footer_to_print (GtkSourcePrintCompositor *compositor)
+is_footer_to_print (CtkSourcePrintCompositor *compositor)
 {
 	return (compositor->priv->print_footer &&
 	       ((compositor->priv->footer_format_left != NULL) ||
@@ -1778,7 +1778,7 @@ is_footer_to_print (GtkSourcePrintCompositor *compositor)
 }
 
 static void
-set_layout_tab_width (GtkSourcePrintCompositor *compositor,
+set_layout_tab_width (CtkSourcePrintCompositor *compositor,
 		      PangoLayout              *layout)
 {
 	gchar *str;
@@ -1807,8 +1807,8 @@ set_layout_tab_width (GtkSourcePrintCompositor *compositor,
 }
 
 static void
-setup_pango_layouts (GtkSourcePrintCompositor *compositor,
-		     GtkPrintContext          *context)
+setup_pango_layouts (CtkSourcePrintCompositor *compositor,
+		     CtkPrintContext          *context)
 {
 	PangoLayout *layout;
 
@@ -1890,7 +1890,7 @@ setup_pango_layouts (GtkSourcePrintCompositor *compositor,
 }
 
 static gchar *
-evaluate_format_string (GtkSourcePrintCompositor *compositor,
+evaluate_format_string (CtkSourcePrintCompositor *compositor,
 			const gchar              *format)
 {
 	GDateTime *now;
@@ -1965,8 +1965,8 @@ get_n_digits (guint n)
 }
 
 static void
-calculate_line_numbers_layout_size (GtkSourcePrintCompositor *compositor,
-				    GtkPrintContext          *context)
+calculate_line_numbers_layout_size (CtkSourcePrintCompositor *compositor,
+				    CtkPrintContext          *context)
 {
 	gint line_count;
 	gint n_digits;
@@ -2010,8 +2010,8 @@ calculate_line_numbers_layout_size (GtkSourcePrintCompositor *compositor,
 }
 
 static gdouble
-calculate_header_footer_height (GtkSourcePrintCompositor *compositor,
-		                GtkPrintContext          *context,
+calculate_header_footer_height (CtkSourcePrintCompositor *compositor,
+		                CtkPrintContext          *context,
 		                PangoFontDescription     *font,
 		                gdouble                  *d)
 {
@@ -2040,8 +2040,8 @@ calculate_header_footer_height (GtkSourcePrintCompositor *compositor,
 }
 
 static void
-calculate_header_height (GtkSourcePrintCompositor *compositor,
-		         GtkPrintContext          *context)
+calculate_header_height (CtkSourcePrintCompositor *compositor,
+		         CtkPrintContext          *context)
 {
 	if (!is_header_to_print(compositor))
 	{
@@ -2071,8 +2071,8 @@ calculate_header_height (GtkSourcePrintCompositor *compositor,
 }
 
 static void
-calculate_footer_height (GtkSourcePrintCompositor *compositor,
-		         GtkPrintContext          *context)
+calculate_footer_height (CtkSourcePrintCompositor *compositor,
+		         CtkPrintContext          *context)
 {
 	if (!is_footer_to_print (compositor))
 	{
@@ -2104,10 +2104,10 @@ calculate_footer_height (GtkSourcePrintCompositor *compositor,
 }
 
 static void
-calculate_page_size_and_margins (GtkSourcePrintCompositor *compositor,
-			         GtkPrintContext          *context)
+calculate_page_size_and_margins (CtkSourcePrintCompositor *compositor,
+			         CtkPrintContext          *context)
 {
-	GtkPageSetup *page_setup;
+	CtkPageSetup *page_setup;
 
 	/* calculate_line_numbers_layout_size and calculate_header_footer_height
 	   functions must be called before calculate_page_size_and_margins */
@@ -2120,7 +2120,7 @@ calculate_page_size_and_margins (GtkSourcePrintCompositor *compositor,
 	compositor->priv->page_margin_top = ctk_page_setup_get_top_margin (page_setup, CTK_UNIT_POINTS);
 	compositor->priv->page_margin_left = ctk_page_setup_get_left_margin (page_setup, CTK_UNIT_POINTS);
 
-	/* Calculate real margins: the margins specified in the GtkPageSetup object are the "print margins".
+	/* Calculate real margins: the margins specified in the CtkPageSetup object are the "print margins".
 	   they are used to determine the minimal size for the layout margins. */
 	compositor->priv->real_margin_top = MAX (compositor->priv->page_margin_top,
 						 convert_from_mm (compositor->priv->margin_top, CTK_UNIT_POINTS));
@@ -2171,10 +2171,10 @@ calculate_page_size_and_margins (GtkSourcePrintCompositor *compositor,
  * For now we special case bracket matches.
  */
 static gboolean
-ignore_tag (GtkSourcePrintCompositor *compositor,
-            GtkTextTag               *tag)
+ignore_tag (CtkSourcePrintCompositor *compositor,
+            CtkTextTag               *tag)
 {
-	GtkTextTag *bm_tag;
+	CtkTextTag *bm_tag;
 
 	bm_tag = _ctk_source_buffer_get_bracket_match_tag (compositor->priv->buffer);
 	if ((bm_tag != NULL) && (tag == bm_tag))
@@ -2184,9 +2184,9 @@ ignore_tag (GtkSourcePrintCompositor *compositor,
 }
 
 static GSList *
-get_iter_attrs (GtkSourcePrintCompositor *compositor,
-		GtkTextIter              *iter,
-		GtkTextIter              *limit)
+get_iter_attrs (CtkSourcePrintCompositor *compositor,
+		CtkTextIter              *iter,
+		CtkTextIter              *limit)
 {
 	GSList *attrs = NULL;
 	GSList *tags;
@@ -2201,7 +2201,7 @@ get_iter_attrs (GtkSourcePrintCompositor *compositor,
 
 	while (tags)
 	{
-		GtkTextTag *tag;
+		CtkTextTag *tag;
 		gboolean bg_set, fg_set, style_set, ul_set, weight_set, st_set;
 
 		tag = tags->data;
@@ -2320,9 +2320,9 @@ is_empty_line (const gchar *text)
 }
 
 static void
-layout_paragraph (GtkSourcePrintCompositor *compositor,
-		  GtkTextIter              *start,
-		  GtkTextIter              *end)
+layout_paragraph (CtkSourcePrintCompositor *compositor,
+		  CtkTextIter              *start,
+		  CtkTextIter              *end)
 {
 	gchar *text;
 
@@ -2346,7 +2346,7 @@ layout_paragraph (GtkSourcePrintCompositor *compositor,
 	if (compositor->priv->highlight_syntax)
 	{
 		PangoAttrList *attr_list = NULL;
-		GtkTextIter segm_start, segm_end;
+		CtkTextIter segm_start, segm_end;
 		int start_index;
 
 		/* Make sure it is highlighted even if it was not shown yet */
@@ -2397,7 +2397,7 @@ layout_paragraph (GtkSourcePrintCompositor *compositor,
 }
 
 static gboolean
-line_is_numbered (GtkSourcePrintCompositor *compositor,
+line_is_numbered (CtkSourcePrintCompositor *compositor,
 		  gint                      line_number)
 {
 	return (compositor->priv->print_line_numbers > 0) &&
@@ -2405,7 +2405,7 @@ line_is_numbered (GtkSourcePrintCompositor *compositor,
 }
 
 static void
-set_pango_layouts_width (GtkSourcePrintCompositor *compositor)
+set_pango_layouts_width (CtkSourcePrintCompositor *compositor)
 {
 	g_return_if_fail (compositor->priv->layout != NULL);
 	pango_layout_set_width (compositor->priv->layout,
@@ -2425,8 +2425,8 @@ set_pango_layouts_width (GtkSourcePrintCompositor *compositor)
 
 /**
  * ctk_source_print_compositor_paginate:
- * @compositor: a #GtkSourcePrintCompositor.
- * @context: the #GtkPrintContext whose parameters (e.g. paper size, print margins, etc.)
+ * @compositor: a #CtkSourcePrintCompositor.
+ * @context: the #CtkPrintContext whose parameters (e.g. paper size, print margins, etc.)
  * are used by the the @compositor to paginate the document.
  *
  * Paginate the document associated with the @compositor.
@@ -2437,18 +2437,18 @@ set_pango_layouts_width (GtkSourcePrintCompositor *compositor)
  * must be invoked multiple times.
  * It returns %TRUE if the document has been completely paginated, otherwise it returns %FALSE.
  *
- * This method has been designed to be invoked in the handler of the #GtkPrintOperation::paginate signal,
+ * This method has been designed to be invoked in the handler of the #CtkPrintOperation::paginate signal,
  * as shown in the following example:
  *
  * <informalexample><programlisting>
- * // Signal handler for the GtkPrintOperation::paginate signal
+ * // Signal handler for the CtkPrintOperation::paginate signal
  *
  * static gboolean
- * paginate (GtkPrintOperation *operation,
- *           GtkPrintContext   *context,
+ * paginate (CtkPrintOperation *operation,
+ *           CtkPrintContext   *context,
  *           gpointer           user_data)
  * {
- *     GtkSourcePrintCompositor *compositor;
+ *     CtkSourcePrintCompositor *compositor;
  *
  *     compositor = CTK_SOURCE_PRINT_COMPOSITOR (user_data);
  *
@@ -2467,18 +2467,18 @@ set_pango_layouts_width (GtkSourcePrintCompositor *compositor)
  * </programlisting></informalexample>
  *
  * If you don't need to do pagination in chunks, you can simply do it all in the
- * #GtkPrintOperation::begin-print handler, and set the number of pages from there, like
+ * #CtkPrintOperation::begin-print handler, and set the number of pages from there, like
  * in the following example:
  *
  * <informalexample><programlisting>
- * // Signal handler for the GtkPrintOperation::begin-print signal
+ * // Signal handler for the CtkPrintOperation::begin-print signal
  *
  * static void
- * begin_print (GtkPrintOperation *operation,
- *              GtkPrintContext   *context,
+ * begin_print (CtkPrintOperation *operation,
+ *              CtkPrintContext   *context,
  *              gpointer           user_data)
  * {
- *     GtkSourcePrintCompositor *compositor;
+ *     CtkSourcePrintCompositor *compositor;
  *     gint n_pages;
  *
  *     compositor = CTK_SOURCE_PRINT_COMPOSITOR (user_data);
@@ -2495,10 +2495,10 @@ set_pango_layouts_width (GtkSourcePrintCompositor *compositor)
  * Since: 2.2
  */
 gboolean
-ctk_source_print_compositor_paginate (GtkSourcePrintCompositor *compositor,
-				      GtkPrintContext          *context)
+ctk_source_print_compositor_paginate (CtkSourcePrintCompositor *compositor,
+				      CtkPrintContext          *context)
 {
-	GtkTextIter start, end;
+	CtkTextIter start, end;
 	gint page_start_offset;
 	double text_height;
 	double cur_height;
@@ -2577,7 +2577,7 @@ ctk_source_print_compositor_paginate (GtkSourcePrintCompositor *compositor,
 	while (!done && (pages_count < PAGINATION_CHUNK_SIZE))
 	{
 		gint line_number;
-		GtkTextIter line_end;
+		CtkTextIter line_end;
 		gdouble line_height;
 
 		line_number = ctk_text_iter_get_line (&start);
@@ -2712,7 +2712,7 @@ ctk_source_print_compositor_paginate (GtkSourcePrintCompositor *compositor,
 			for (i = 0; i < compositor->priv->pages->len; i += 1)
 			{
 				gint offset;
-				GtkTextIter iter;
+				CtkTextIter iter;
 
 				offset = g_array_index (compositor->priv->pages, int, i);
 				ctk_text_buffer_get_iter_at_offset (CTK_TEXT_BUFFER (compositor->priv->buffer), &iter, offset);
@@ -2736,7 +2736,7 @@ ctk_source_print_compositor_paginate (GtkSourcePrintCompositor *compositor,
 
 /**
  * ctk_source_print_compositor_get_pagination_progress:
- * @compositor: a #GtkSourcePrintCompositor.
+ * @compositor: a #CtkSourcePrintCompositor.
  *
  * Returns the current fraction of the document pagination that has been completed.
  *
@@ -2745,9 +2745,9 @@ ctk_source_print_compositor_paginate (GtkSourcePrintCompositor *compositor,
  * Since: 2.2
  */
 gdouble
-ctk_source_print_compositor_get_pagination_progress (GtkSourcePrintCompositor *compositor)
+ctk_source_print_compositor_get_pagination_progress (CtkSourcePrintCompositor *compositor)
 {
-	GtkTextIter current;
+	CtkTextIter current;
 	gint char_count;
 
 	g_return_val_if_fail (CTK_SOURCE_IS_PRINT_COMPOSITOR (compositor), 0.0);
@@ -2772,7 +2772,7 @@ ctk_source_print_compositor_get_pagination_progress (GtkSourcePrintCompositor *c
 }
 
 static void
-print_header_string (GtkSourcePrintCompositor *compositor,
+print_header_string (CtkSourcePrintCompositor *compositor,
 		     cairo_t                  *cr,
 		     PangoAlignment            alignment,
 		     const gchar              *format)
@@ -2848,7 +2848,7 @@ print_header_string (GtkSourcePrintCompositor *compositor,
 }
 
 static void
-print_header (GtkSourcePrintCompositor *compositor,
+print_header (CtkSourcePrintCompositor *compositor,
 	      cairo_t                  *cr)
 {
 	pango_cairo_update_layout (cr, compositor->priv->header_layout);
@@ -2892,7 +2892,7 @@ print_header (GtkSourcePrintCompositor *compositor,
 }
 
 static void
-print_footer_string (GtkSourcePrintCompositor *compositor,
+print_footer_string (CtkSourcePrintCompositor *compositor,
 		     cairo_t                  *cr,
 		     PangoAlignment            alignment,
 		     const gchar              *format)
@@ -2965,7 +2965,7 @@ print_footer_string (GtkSourcePrintCompositor *compositor,
 }
 
 static void
-print_footer (GtkSourcePrintCompositor *compositor,
+print_footer (CtkSourcePrintCompositor *compositor,
 	      cairo_t                  *cr)
 {
 	pango_cairo_update_layout (cr, compositor->priv->footer_layout);
@@ -3011,26 +3011,26 @@ print_footer (GtkSourcePrintCompositor *compositor,
 
 /**
  * ctk_source_print_compositor_draw_page:
- * @compositor: a #GtkSourcePrintCompositor.
- * @context: the #GtkPrintContext encapsulating the context information that is required when
+ * @compositor: a #CtkSourcePrintCompositor.
+ * @context: the #CtkPrintContext encapsulating the context information that is required when
  *           drawing the page for printing.
  * @page_nr: the number of the page to print.
  *
  * Draw page @page_nr for printing on the the Cairo context encapsuled in @context.
  *
- * This method has been designed to be called in the handler of the #GtkPrintOperation::draw_page signal
+ * This method has been designed to be called in the handler of the #CtkPrintOperation::draw_page signal
  * as shown in the following example:
  *
  * <informalexample><programlisting>
- * // Signal handler for the GtkPrintOperation::draw_page signal
+ * // Signal handler for the CtkPrintOperation::draw_page signal
  *
  * static void
- * draw_page (GtkPrintOperation *operation,
- *            GtkPrintContext   *context,
+ * draw_page (CtkPrintOperation *operation,
+ *            CtkPrintContext   *context,
  *            gint               page_nr,
  *            gpointer           user_data)
  * {
- *     GtkSourcePrintCompositor *compositor;
+ *     CtkSourcePrintCompositor *compositor;
  *
  *     compositor = CTK_SOURCE_PRINT_COMPOSITOR (user_data);
  *
@@ -3041,12 +3041,12 @@ print_footer (GtkSourcePrintCompositor *compositor,
  * </programlisting></informalexample>
  */
 void
-ctk_source_print_compositor_draw_page (GtkSourcePrintCompositor *compositor,
-				       GtkPrintContext          *context,
+ctk_source_print_compositor_draw_page (CtkSourcePrintCompositor *compositor,
+				       CtkPrintContext          *context,
 				       gint                      page_nr)
 {
 	cairo_t *cr;
-	GtkTextIter start, end;
+	CtkTextIter start, end;
 	gint offset;
 	double x, y, ln_x;
 
@@ -3145,7 +3145,7 @@ ctk_source_print_compositor_draw_page (GtkSourcePrintCompositor *compositor,
 
 	while (ctk_text_iter_compare (&start, &end) < 0)
 	{
-		GtkTextIter line_end;
+		CtkTextIter line_end;
 		gint line_number;
 		double line_height;
 		double baseline_offset;

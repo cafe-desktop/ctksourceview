@@ -1,16 +1,16 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*-
  *
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2003  Gustavo Giráldez
  * Copyright (C) 2007-2008  Paolo Maggi, Paolo Borelli and Yevgen Muntyan
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -32,23 +32,23 @@
 G_BEGIN_DECLS
 
 #define CTK_SOURCE_TYPE_PRINT_COMPOSITOR            (ctk_source_print_compositor_get_type ())
-#define CTK_SOURCE_PRINT_COMPOSITOR(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_PRINT_COMPOSITOR, GtkSourcePrintCompositor))
-#define CTK_SOURCE_PRINT_COMPOSITOR_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), CTK_SOURCE_TYPE_PRINT_COMPOSITOR, GtkSourcePrintCompositorClass))
+#define CTK_SOURCE_PRINT_COMPOSITOR(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_PRINT_COMPOSITOR, CtkSourcePrintCompositor))
+#define CTK_SOURCE_PRINT_COMPOSITOR_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), CTK_SOURCE_TYPE_PRINT_COMPOSITOR, CtkSourcePrintCompositorClass))
 #define CTK_SOURCE_IS_PRINT_COMPOSITOR(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CTK_SOURCE_TYPE_PRINT_COMPOSITOR))
 #define CTK_SOURCE_IS_PRINT_COMPOSITOR_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), CTK_SOURCE_TYPE_PRINT_COMPOSITOR))
-#define CTK_SOURCE_PRINT_COMPOSITOR_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), CTK_SOURCE_TYPE_PRINT_COMPOSITOR, GtkSourcePrintCompositorClass))
+#define CTK_SOURCE_PRINT_COMPOSITOR_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), CTK_SOURCE_TYPE_PRINT_COMPOSITOR, CtkSourcePrintCompositorClass))
 
-typedef struct _GtkSourcePrintCompositorClass    GtkSourcePrintCompositorClass;
-typedef struct _GtkSourcePrintCompositorPrivate  GtkSourcePrintCompositorPrivate;
+typedef struct _CtkSourcePrintCompositorClass    CtkSourcePrintCompositorClass;
+typedef struct _CtkSourcePrintCompositorPrivate  CtkSourcePrintCompositorPrivate;
 
-struct _GtkSourcePrintCompositor
+struct _CtkSourcePrintCompositor
 {
 	GObject parent_instance;
 
-	GtkSourcePrintCompositorPrivate *priv;
+	CtkSourcePrintCompositorPrivate *priv;
 };
 
-struct _GtkSourcePrintCompositorClass
+struct _CtkSourcePrintCompositorClass
 {
 	GObjectClass parent_class;
 
@@ -61,161 +61,161 @@ GType			  ctk_source_print_compositor_get_type		(void) G_GNUC_CONST;
 
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-GtkSourcePrintCompositor *ctk_source_print_compositor_new		(GtkSourceBuffer          *buffer);
+CtkSourcePrintCompositor *ctk_source_print_compositor_new		(CtkSourceBuffer          *buffer);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-GtkSourcePrintCompositor *ctk_source_print_compositor_new_from_view	(GtkSourceView            *view);
+CtkSourcePrintCompositor *ctk_source_print_compositor_new_from_view	(CtkSourceView            *view);
 
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-GtkSourceBuffer   	 *ctk_source_print_compositor_get_buffer	(GtkSourcePrintCompositor *compositor);
+CtkSourceBuffer   	 *ctk_source_print_compositor_get_buffer	(CtkSourcePrintCompositor *compositor);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-void			  ctk_source_print_compositor_set_tab_width	(GtkSourcePrintCompositor *compositor,
+void			  ctk_source_print_compositor_set_tab_width	(CtkSourcePrintCompositor *compositor,
 									 guint                     width);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-guint			  ctk_source_print_compositor_get_tab_width	(GtkSourcePrintCompositor *compositor);
+guint			  ctk_source_print_compositor_get_tab_width	(CtkSourcePrintCompositor *compositor);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-void			  ctk_source_print_compositor_set_wrap_mode	(GtkSourcePrintCompositor *compositor,
-									 GtkWrapMode               wrap_mode);
+void			  ctk_source_print_compositor_set_wrap_mode	(CtkSourcePrintCompositor *compositor,
+									 CtkWrapMode               wrap_mode);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-GtkWrapMode		  ctk_source_print_compositor_get_wrap_mode	(GtkSourcePrintCompositor *compositor);
+CtkWrapMode		  ctk_source_print_compositor_get_wrap_mode	(CtkSourcePrintCompositor *compositor);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
 void			  ctk_source_print_compositor_set_highlight_syntax
-									(GtkSourcePrintCompositor *compositor,
+									(CtkSourcePrintCompositor *compositor,
 									 gboolean                  highlight);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
 gboolean		  ctk_source_print_compositor_get_highlight_syntax
-									(GtkSourcePrintCompositor *compositor);
+									(CtkSourcePrintCompositor *compositor);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
 void			  ctk_source_print_compositor_set_print_line_numbers
-									(GtkSourcePrintCompositor *compositor,
+									(CtkSourcePrintCompositor *compositor,
 									 guint                     interval);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
 guint			  ctk_source_print_compositor_get_print_line_numbers
-									(GtkSourcePrintCompositor *compositor);
+									(CtkSourcePrintCompositor *compositor);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
 void			  ctk_source_print_compositor_set_body_font_name
-									(GtkSourcePrintCompositor *compositor,
+									(CtkSourcePrintCompositor *compositor,
 									 const gchar              *font_name);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
 gchar			 *ctk_source_print_compositor_get_body_font_name
-									(GtkSourcePrintCompositor *compositor);
+									(CtkSourcePrintCompositor *compositor);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
 void			  ctk_source_print_compositor_set_line_numbers_font_name
-									(GtkSourcePrintCompositor *compositor,
+									(CtkSourcePrintCompositor *compositor,
 									 const gchar              *font_name);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
 gchar			 *ctk_source_print_compositor_get_line_numbers_font_name
-									(GtkSourcePrintCompositor *compositor);
+									(CtkSourcePrintCompositor *compositor);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
 void			  ctk_source_print_compositor_set_header_font_name
-									(GtkSourcePrintCompositor *compositor,
+									(CtkSourcePrintCompositor *compositor,
 									 const gchar              *font_name);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
 gchar			 *ctk_source_print_compositor_get_header_font_name
-									(GtkSourcePrintCompositor *compositor);
+									(CtkSourcePrintCompositor *compositor);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
 void			  ctk_source_print_compositor_set_footer_font_name
-									(GtkSourcePrintCompositor *compositor,
+									(CtkSourcePrintCompositor *compositor,
 									 const gchar              *font_name);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
 gchar			 *ctk_source_print_compositor_get_footer_font_name
-									(GtkSourcePrintCompositor *compositor);
+									(CtkSourcePrintCompositor *compositor);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-gdouble			  ctk_source_print_compositor_get_top_margin	(GtkSourcePrintCompositor *compositor,
-									 GtkUnit                   unit);
+gdouble			  ctk_source_print_compositor_get_top_margin	(CtkSourcePrintCompositor *compositor,
+									 CtkUnit                   unit);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-void			  ctk_source_print_compositor_set_top_margin	(GtkSourcePrintCompositor *compositor,
+void			  ctk_source_print_compositor_set_top_margin	(CtkSourcePrintCompositor *compositor,
 									 gdouble                   margin,
-									 GtkUnit                   unit);
+									 CtkUnit                   unit);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-gdouble			  ctk_source_print_compositor_get_bottom_margin	(GtkSourcePrintCompositor *compositor,
-									 GtkUnit                   unit);
+gdouble			  ctk_source_print_compositor_get_bottom_margin	(CtkSourcePrintCompositor *compositor,
+									 CtkUnit                   unit);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-void			  ctk_source_print_compositor_set_bottom_margin	(GtkSourcePrintCompositor *compositor,
+void			  ctk_source_print_compositor_set_bottom_margin	(CtkSourcePrintCompositor *compositor,
 									 gdouble                   margin,
-									 GtkUnit                   unit);
+									 CtkUnit                   unit);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-gdouble			  ctk_source_print_compositor_get_left_margin	(GtkSourcePrintCompositor *compositor,
-									 GtkUnit                   unit);
+gdouble			  ctk_source_print_compositor_get_left_margin	(CtkSourcePrintCompositor *compositor,
+									 CtkUnit                   unit);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-void			  ctk_source_print_compositor_set_left_margin	(GtkSourcePrintCompositor *compositor,
+void			  ctk_source_print_compositor_set_left_margin	(CtkSourcePrintCompositor *compositor,
 									 gdouble                   margin,
-									 GtkUnit                   unit);
+									 CtkUnit                   unit);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-gdouble			  ctk_source_print_compositor_get_right_margin	(GtkSourcePrintCompositor *compositor,
-									 GtkUnit                   unit);
+gdouble			  ctk_source_print_compositor_get_right_margin	(CtkSourcePrintCompositor *compositor,
+									 CtkUnit                   unit);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-void			  ctk_source_print_compositor_set_right_margin	(GtkSourcePrintCompositor *compositor,
+void			  ctk_source_print_compositor_set_right_margin	(CtkSourcePrintCompositor *compositor,
 									 gdouble                   margin,
-									 GtkUnit                   unit);
+									 CtkUnit                   unit);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-void			  ctk_source_print_compositor_set_print_header	(GtkSourcePrintCompositor *compositor,
+void			  ctk_source_print_compositor_set_print_header	(CtkSourcePrintCompositor *compositor,
 									 gboolean                  print);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-gboolean		  ctk_source_print_compositor_get_print_header	(GtkSourcePrintCompositor *compositor);
+gboolean		  ctk_source_print_compositor_get_print_header	(CtkSourcePrintCompositor *compositor);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-void			  ctk_source_print_compositor_set_print_footer	(GtkSourcePrintCompositor *compositor,
+void			  ctk_source_print_compositor_set_print_footer	(CtkSourcePrintCompositor *compositor,
 									 gboolean                  print);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-gboolean		  ctk_source_print_compositor_get_print_footer	(GtkSourcePrintCompositor *compositor);
+gboolean		  ctk_source_print_compositor_get_print_footer	(CtkSourcePrintCompositor *compositor);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-void			  ctk_source_print_compositor_set_header_format	(GtkSourcePrintCompositor *compositor,
+void			  ctk_source_print_compositor_set_header_format	(CtkSourcePrintCompositor *compositor,
 									 gboolean                  separator,
 									 const gchar              *left,
 									 const gchar              *center,
 									 const gchar              *right);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-void			  ctk_source_print_compositor_set_footer_format	(GtkSourcePrintCompositor *compositor,
+void			  ctk_source_print_compositor_set_footer_format	(CtkSourcePrintCompositor *compositor,
 									 gboolean                  separator,
 									 const gchar              *left,
 									 const gchar              *center,
 									 const gchar              *right);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-gint			  ctk_source_print_compositor_get_n_pages	(GtkSourcePrintCompositor *compositor);
+gint			  ctk_source_print_compositor_get_n_pages	(CtkSourcePrintCompositor *compositor);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-gboolean		  ctk_source_print_compositor_paginate		(GtkSourcePrintCompositor *compositor,
-									 GtkPrintContext          *context);
+gboolean		  ctk_source_print_compositor_paginate		(CtkSourcePrintCompositor *compositor,
+									 CtkPrintContext          *context);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
 gdouble			  ctk_source_print_compositor_get_pagination_progress
-									(GtkSourcePrintCompositor *compositor);
+									(CtkSourcePrintCompositor *compositor);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-void			  ctk_source_print_compositor_draw_page		(GtkSourcePrintCompositor *compositor,
-									 GtkPrintContext          *context,
+void			  ctk_source_print_compositor_draw_page		(CtkSourcePrintCompositor *compositor,
+									 CtkPrintContext          *context,
 									 gint                      page_nr);
 
 G_END_DECLS

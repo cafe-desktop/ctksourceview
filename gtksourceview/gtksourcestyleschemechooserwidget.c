@@ -1,22 +1,22 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*-
  *
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2014 - Christian Hergert
  * Copyright (C) 2014 - Ignacio Casal Quinteiro
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public License
- * along with GtkSourceView. If not, see <http://www.gnu.org/licenses/>.
+ * along with CtkSourceView. If not, see <http://www.gnu.org/licenses/>.
  */
 
 #ifdef HAVE_CONFIG_H
@@ -35,10 +35,10 @@
 /**
  * SECTION:styleschemechooserwidget
  * @Short_description: A widget for choosing style schemes
- * @Title: GtkSourceStyleSchemeChooserWidget
- * @See_also: #GtkSourceStyleSchemeChooserButton
+ * @Title: CtkSourceStyleSchemeChooserWidget
+ * @See_also: #CtkSourceStyleSchemeChooserButton
  *
- * The #GtkSourceStyleSchemeChooserWidget widget lets the user select a
+ * The #CtkSourceStyleSchemeChooserWidget widget lets the user select a
  * style scheme. By default, the chooser presents a predefined list
  * of style schemes.
  *
@@ -52,16 +52,16 @@
 
 typedef struct
 {
-	GtkListBox *list_box;
-	GtkSourceStyleScheme *scheme;
-} GtkSourceStyleSchemeChooserWidgetPrivate;
+	CtkListBox *list_box;
+	CtkSourceStyleScheme *scheme;
+} CtkSourceStyleSchemeChooserWidgetPrivate;
 
-static void ctk_source_style_scheme_chooser_widget_style_scheme_chooser_interface_init (GtkSourceStyleSchemeChooserInterface *iface);
+static void ctk_source_style_scheme_chooser_widget_style_scheme_chooser_interface_init (CtkSourceStyleSchemeChooserInterface *iface);
 
-G_DEFINE_TYPE_WITH_CODE (GtkSourceStyleSchemeChooserWidget,
+G_DEFINE_TYPE_WITH_CODE (CtkSourceStyleSchemeChooserWidget,
                          ctk_source_style_scheme_chooser_widget,
                          CTK_TYPE_BIN,
-                         G_ADD_PRIVATE (GtkSourceStyleSchemeChooserWidget)
+                         G_ADD_PRIVATE (CtkSourceStyleSchemeChooserWidget)
                          G_IMPLEMENT_INTERFACE (CTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER,
                                                 ctk_source_style_scheme_chooser_widget_style_scheme_chooser_interface_init))
 
@@ -76,8 +76,8 @@ enum
 static void
 ctk_source_style_scheme_chooser_widget_dispose (GObject *object)
 {
-	GtkSourceStyleSchemeChooserWidget *widget = CTK_SOURCE_STYLE_SCHEME_CHOOSER_WIDGET (object);
-	GtkSourceStyleSchemeChooserWidgetPrivate *priv = GET_PRIV (widget);
+	CtkSourceStyleSchemeChooserWidget *widget = CTK_SOURCE_STYLE_SCHEME_CHOOSER_WIDGET (object);
+	CtkSourceStyleSchemeChooserWidgetPrivate *priv = GET_PRIV (widget);
 
 	g_clear_object (&priv->scheme);
 
@@ -121,7 +121,7 @@ ctk_source_style_scheme_chooser_widget_set_property (GObject      *object,
 }
 
 static void
-ctk_source_style_scheme_chooser_widget_class_init (GtkSourceStyleSchemeChooserWidgetClass *klass)
+ctk_source_style_scheme_chooser_widget_class_init (CtkSourceStyleSchemeChooserWidgetClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
@@ -132,15 +132,15 @@ ctk_source_style_scheme_chooser_widget_class_init (GtkSourceStyleSchemeChooserWi
 	g_object_class_override_property (object_class, PROP_STYLE_SCHEME, "style-scheme");
 }
 
-static GtkWidget *
-make_row (GtkSourceStyleScheme *scheme,
-          GtkSourceLanguage    *language)
+static CtkWidget *
+make_row (CtkSourceStyleScheme *scheme,
+          CtkSourceLanguage    *language)
 {
-	GtkWidget *row;
+	CtkWidget *row;
 	AtkObject *accessible;
-	GtkWidget *event;
-	GtkSourceBuffer *buffer;
-	GtkWidget *view;
+	CtkWidget *event;
+	CtkSourceBuffer *buffer;
+	CtkWidget *view;
 	gchar *text;
 
 	row = ctk_list_box_row_new ();
@@ -182,15 +182,15 @@ make_row (GtkSourceStyleScheme *scheme,
 }
 
 static void
-on_row_selected (GtkListBox                        *list_box,
-                 GtkListBoxRow                     *row,
-                 GtkSourceStyleSchemeChooserWidget *widget)
+on_row_selected (CtkListBox                        *list_box,
+                 CtkListBoxRow                     *row,
+                 CtkSourceStyleSchemeChooserWidget *widget)
 {
-	GtkSourceStyleSchemeChooserWidgetPrivate *priv = GET_PRIV (widget);
+	CtkSourceStyleSchemeChooserWidgetPrivate *priv = GET_PRIV (widget);
 
 	if (row != NULL)
 	{
-		GtkSourceStyleScheme *scheme;
+		CtkSourceStyleScheme *scheme;
 
 		scheme = g_object_get_data (G_OBJECT (row), "scheme");
 
@@ -202,19 +202,19 @@ on_row_selected (GtkListBox                        *list_box,
 }
 
 static void
-destroy_child_cb (GtkWidget *widget,
+destroy_child_cb (CtkWidget *widget,
 		  gpointer   data)
 {
 	ctk_widget_destroy (widget);
 }
 
 static void
-ctk_source_style_scheme_chooser_widget_populate (GtkSourceStyleSchemeChooserWidget *widget)
+ctk_source_style_scheme_chooser_widget_populate (CtkSourceStyleSchemeChooserWidget *widget)
 {
-	GtkSourceStyleSchemeChooserWidgetPrivate *priv = GET_PRIV (widget);
-	GtkSourceLanguageManager *lm;
-	GtkSourceLanguage *lang;
-	GtkSourceStyleSchemeManager *manager;
+	CtkSourceStyleSchemeChooserWidgetPrivate *priv = GET_PRIV (widget);
+	CtkSourceLanguageManager *lm;
+	CtkSourceLanguage *lang;
+	CtkSourceStyleSchemeManager *manager;
 	const gchar * const *scheme_ids;
 	guint i;
 	gboolean row_selected = FALSE;
@@ -233,8 +233,8 @@ ctk_source_style_scheme_chooser_widget_populate (GtkSourceStyleSchemeChooserWidg
 
 	for (i = 0; scheme_ids [i]; i++)
 	{
-		GtkWidget *row;
-		GtkSourceStyleScheme *scheme;
+		CtkWidget *row;
+		CtkSourceStyleScheme *scheme;
 
 		scheme = ctk_source_style_scheme_manager_get_scheme (manager, scheme_ids [i]);
 		row = make_row (scheme, lang);
@@ -259,18 +259,18 @@ ctk_source_style_scheme_chooser_widget_populate (GtkSourceStyleSchemeChooserWidg
 }
 
 static void
-on_scheme_ids_changed (GtkSourceStyleSchemeManager       *manager,
+on_scheme_ids_changed (CtkSourceStyleSchemeManager       *manager,
                        GParamSpec                        *pspec,
-                       GtkSourceStyleSchemeChooserWidget *widget)
+                       CtkSourceStyleSchemeChooserWidget *widget)
 {
 	ctk_source_style_scheme_chooser_widget_populate (widget);
 }
 
 static void
-ctk_source_style_scheme_chooser_widget_init (GtkSourceStyleSchemeChooserWidget *widget)
+ctk_source_style_scheme_chooser_widget_init (CtkSourceStyleSchemeChooserWidget *widget)
 {
-	GtkSourceStyleSchemeChooserWidgetPrivate *priv = GET_PRIV (widget);
-	GtkSourceStyleSchemeManager *manager;
+	CtkSourceStyleSchemeChooserWidgetPrivate *priv = GET_PRIV (widget);
+	CtkSourceStyleSchemeManager *manager;
 
 	priv->list_box = CTK_LIST_BOX (ctk_list_box_new ());
 	ctk_list_box_set_selection_mode (priv->list_box, CTK_SELECTION_BROWSE);
@@ -294,21 +294,21 @@ ctk_source_style_scheme_chooser_widget_init (GtkSourceStyleSchemeChooserWidget *
 	                  widget);
 }
 
-static GtkSourceStyleScheme *
-ctk_source_style_scheme_chooser_widget_get_style_scheme (GtkSourceStyleSchemeChooser *chooser)
+static CtkSourceStyleScheme *
+ctk_source_style_scheme_chooser_widget_get_style_scheme (CtkSourceStyleSchemeChooser *chooser)
 {
-	GtkSourceStyleSchemeChooserWidget *widget = CTK_SOURCE_STYLE_SCHEME_CHOOSER_WIDGET (chooser);
-	GtkSourceStyleSchemeChooserWidgetPrivate *priv = GET_PRIV (widget);
+	CtkSourceStyleSchemeChooserWidget *widget = CTK_SOURCE_STYLE_SCHEME_CHOOSER_WIDGET (chooser);
+	CtkSourceStyleSchemeChooserWidgetPrivate *priv = GET_PRIV (widget);
 
 	return priv->scheme;
 }
 
 static void
-ctk_source_style_scheme_chooser_widget_set_style_scheme (GtkSourceStyleSchemeChooser *chooser,
-                                                         GtkSourceStyleScheme        *scheme)
+ctk_source_style_scheme_chooser_widget_set_style_scheme (CtkSourceStyleSchemeChooser *chooser,
+                                                         CtkSourceStyleScheme        *scheme)
 {
-	GtkSourceStyleSchemeChooserWidget *widget = CTK_SOURCE_STYLE_SCHEME_CHOOSER_WIDGET (chooser);
-	GtkSourceStyleSchemeChooserWidgetPrivate *priv = GET_PRIV (widget);
+	CtkSourceStyleSchemeChooserWidget *widget = CTK_SOURCE_STYLE_SCHEME_CHOOSER_WIDGET (chooser);
+	CtkSourceStyleSchemeChooserWidgetPrivate *priv = GET_PRIV (widget);
 
 	if (g_set_object (&priv->scheme, scheme))
 	{
@@ -319,8 +319,8 @@ ctk_source_style_scheme_chooser_widget_set_style_scheme (GtkSourceStyleSchemeCho
 
 		for (l = children; l != NULL; l = g_list_next (l))
 		{
-			GtkListBoxRow *row = l->data;
-			GtkSourceStyleScheme *cur;
+			CtkListBoxRow *row = l->data;
+			CtkSourceStyleScheme *cur;
 
 			cur = g_object_get_data (G_OBJECT (row), "scheme");
 
@@ -340,7 +340,7 @@ ctk_source_style_scheme_chooser_widget_set_style_scheme (GtkSourceStyleSchemeCho
 }
 
 static void
-ctk_source_style_scheme_chooser_widget_style_scheme_chooser_interface_init (GtkSourceStyleSchemeChooserInterface *iface)
+ctk_source_style_scheme_chooser_widget_style_scheme_chooser_interface_init (CtkSourceStyleSchemeChooserInterface *iface)
 {
 	iface->get_style_scheme = ctk_source_style_scheme_chooser_widget_get_style_scheme;
 	iface->set_style_scheme = ctk_source_style_scheme_chooser_widget_set_style_scheme;
@@ -349,13 +349,13 @@ ctk_source_style_scheme_chooser_widget_style_scheme_chooser_interface_init (GtkS
 /**
  * ctk_source_style_scheme_chooser_widget_new:
  *
- * Creates a new #GtkSourceStyleSchemeChooserWidget.
+ * Creates a new #CtkSourceStyleSchemeChooserWidget.
  *
- * Returns: a new  #GtkSourceStyleSchemeChooserWidget.
+ * Returns: a new  #CtkSourceStyleSchemeChooserWidget.
  *
  * Since: 3.16
  */
-GtkWidget *
+CtkWidget *
 ctk_source_style_scheme_chooser_widget_new (void)
 {
 	return g_object_new (CTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER_WIDGET, NULL);

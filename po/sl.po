@@ -550,13 +550,13 @@ msgid "Unknown"
 msgstr "Neznano"
 
 #. Translators: This is the sorted list of encodings used by
-#. * GtkSourceView for automatic detection of the file encoding. You may
+#. * CtkSourceView for automatic detection of the file encoding. You may
 #. * want to customize it adding encodings that are common in your
 #. * country, for instance the GB18030 encoding for the Chinese
 #. * translation. You may also want to remove the ISO-8859-15 encoding
 #. * (covering English and most Western European languages) if you think
 #. * people in your country will rarely use it.  "CURRENT" is a magic
-#. * value used by GtkSourceView and it represents the encoding for the
+#. * value used by CtkSourceView and it represents the encoding for the
 #. * current locale, so please don't translate the "CURRENT" term.  Only
 #. * recognized encodings are used. See
 #. * https://gitlab.gnome.org/GNOME/ctksourceview/blob/master/ctksourceview/ctksourceencoding.c#L142
@@ -594,14 +594,14 @@ msgstr "Medpomnilnik vsebuje neveljavne znake."
 #. *
 #. * SECTION:language
 #. * @Short_description: Represents a syntax highlighted language
-#. * @Title: GtkSourceLanguage
-#. * @See_also: #GtkSourceLanguageManager
+#. * @Title: CtkSourceLanguage
+#. * @See_also: #CtkSourceLanguageManager
 #. *
-#. * A #GtkSourceLanguage represents a programming or markup language, affecting
+#. * A #CtkSourceLanguage represents a programming or markup language, affecting
 #. * syntax highlighting and [context classes][context-classes].
 #. *
-#. * Use #GtkSourceLanguageManager to obtain a #GtkSourceLanguage instance, and
-#. * ctk_source_buffer_set_language() to apply it to a #GtkSourceBuffer.
+#. * Use #CtkSourceLanguageManager to obtain a #CtkSourceLanguage instance, and
+#. * ctk_source_buffer_set_language() to apply it to a #CtkSourceBuffer.
 #.
 #: ctksourceview/ctksourcelanguage.c:56
 msgid "Others"
@@ -1355,8 +1355,8 @@ msgstr "Spreme_ni velikost črk"
 #~ msgid "Deprecated"
 #~ msgstr "Opuščeno"
 
-#~ msgid "GtkRC"
-#~ msgstr "GtkRC"
+#~ msgid "CtkRC"
+#~ msgstr "CtkRC"
 
 #~ msgid "Widget State"
 #~ msgstr "Stanje gradnika"
@@ -2318,8 +2318,8 @@ msgstr "Spreme_ni velikost črk"
 #~ msgid "The Pango font description to use."
 #~ msgstr "Opis pisave Pango za uporabo."
 
-#~ msgid "GtkSourceView"
-#~ msgstr "GtkSourceView"
+#~ msgid "CtkSourceView"
+#~ msgstr "CtkSourceView"
 
 #~ msgctxt "Object"
 #~ msgid "Name"
@@ -2418,8 +2418,8 @@ msgstr "Spreme_ni velikost črk"
 #~ msgid "Implicit trailing newline"
 #~ msgstr "Zagotovi končno novo vrstico"
 
-#~ msgid "The GtkSourceView bound to the completion"
-#~ msgstr "Vez GtkSourceView z dopolnjevanjem"
+#~ msgid "The CtkSourceView bound to the completion"
+#~ msgstr "Vez CtkSourceView z dopolnjevanjem"
 
 #~ msgid "Remember Info Visibility"
 #~ msgstr "Zapomni si podrobnosti vidnosti"
@@ -2473,8 +2473,8 @@ msgstr "Spreme_ni velikost črk"
 #~ msgid "Iterator"
 #~ msgstr "Ponavljalnik"
 
-#~ msgid "The GtkTextIter at which the completion was invoked"
-#~ msgstr "GtkTextIter pri katerem se je prikazala možnost dopolnjevanja."
+#~ msgid "The CtkTextIter at which the completion was invoked"
+#~ msgstr "CtkTextIter pri katerem se je prikazala možnost dopolnjevanja."
 
 #~ msgid "Label to be shown for this item"
 #~ msgstr "Oznaka tega predmeta"
@@ -2506,8 +2506,8 @@ msgstr "Spreme_ni velikost črk"
 #~ msgid "Flags"
 #~ msgstr "Zastavice"
 
-#~ msgid "The gutters' GtkSourceView"
-#~ msgstr "GtkSourceView žlebov"
+#~ msgid "The gutters' CtkSourceView"
+#~ msgstr "CtkSourceView žlebov"
 
 #~ msgid "Window Type"
 #~ msgstr "Vrsta okna"
@@ -2640,8 +2640,8 @@ msgstr "Spreme_ni velikost črk"
 #~ msgid "Source Buffer"
 #~ msgstr "Medpomnilnik vira"
 
-#~ msgid "The GtkSourceBuffer object to print"
-#~ msgstr "Predmet GtkSourceBuffer za tiskanje"
+#~ msgid "The CtkSourceBuffer object to print"
+#~ msgstr "Predmet CtkSourceBuffer za tiskanje"
 
 #~ msgid "Tab Width"
 #~ msgstr "Širina tabulatorja"

@@ -2,10 +2,10 @@
 
 <SECTION>
 <FILE>buffer</FILE>
-GtkSourceBuffer
-GtkSourceBracketMatchType
-GtkSourceChangeCaseType
-GtkSourceSortFlags
+CtkSourceBuffer
+CtkSourceBracketMatchType
+CtkSourceChangeCaseType
+CtkSourceSortFlags
 ctk_source_buffer_new
 ctk_source_buffer_new_with_language
 ctk_source_buffer_create_source_tag
@@ -49,14 +49,14 @@ ctk_source_buffer_sort_lines
 ctk_source_buffer_set_implicit_trailing_newline
 ctk_source_buffer_get_implicit_trailing_newline
 <SUBSECTION Standard>
-GtkSourceBufferClass
+CtkSourceBufferClass
 CTK_SOURCE_IS_BUFFER
 CTK_SOURCE_IS_BUFFER_CLASS
 CTK_SOURCE_BUFFER
 CTK_SOURCE_BUFFER_CLASS
 CTK_SOURCE_BUFFER_GET_CLASS
 CTK_SOURCE_TYPE_BUFFER
-GtkSourceBufferPrivate
+CtkSourceBufferPrivate
 ctk_source_buffer_get_type
 CTK_SOURCE_TYPE_BRACKET_MATCH_TYPE
 ctk_source_bracket_match_type_get_type
@@ -68,9 +68,9 @@ ctk_source_sort_flags_get_type
 
 <SECTION>
 <FILE>completion</FILE>
-GtkSourceCompletion
+CtkSourceCompletion
 CTK_SOURCE_COMPLETION_ERROR
-GtkSourceCompletionError
+CtkSourceCompletionError
 <SUBSECTION>
 ctk_source_completion_add_provider
 ctk_source_completion_remove_provider
@@ -89,8 +89,8 @@ CTK_SOURCE_COMPLETION
 CTK_SOURCE_COMPLETION_CLASS
 CTK_SOURCE_COMPLETION_GET_CLASS
 CTK_SOURCE_TYPE_COMPLETION
-GtkSourceCompletionPrivate
-GtkSourceCompletionClass
+CtkSourceCompletionPrivate
+CtkSourceCompletionClass
 ctk_source_completion_get_type
 ctk_source_completion_error_quark
 CTK_SOURCE_TYPE_COMPLETION_ERROR
@@ -99,8 +99,8 @@ ctk_source_completion_error_get_type
 
 <SECTION>
 <FILE>completioncontext</FILE>
-GtkSourceCompletionActivation
-GtkSourceCompletionContext
+CtkSourceCompletionActivation
+CtkSourceCompletionContext
 ctk_source_completion_context_add_proposals
 ctk_source_completion_context_get_iter
 ctk_source_completion_context_get_activation
@@ -111,16 +111,16 @@ CTK_SOURCE_COMPLETION_CONTEXT
 CTK_SOURCE_COMPLETION_CONTEXT_CLASS
 CTK_SOURCE_COMPLETION_CONTEXT_GET_CLASS
 CTK_SOURCE_TYPE_COMPLETION_CONTEXT
-GtkSourceCompletionContextPrivate
+CtkSourceCompletionContextPrivate
 ctk_source_completion_context_get_type
-GtkSourceCompletionContextClass
+CtkSourceCompletionContextClass
 CTK_SOURCE_TYPE_COMPLETION_ACTIVATION
 ctk_source_completion_activation_get_type
 </SECTION>
 
 <SECTION>
 <FILE>completioninfo</FILE>
-GtkSourceCompletionInfo
+CtkSourceCompletionInfo
 ctk_source_completion_info_new
 ctk_source_completion_info_move_to_iter
 <SUBSECTION Standard>
@@ -130,14 +130,14 @@ CTK_SOURCE_COMPLETION_INFO
 CTK_SOURCE_COMPLETION_INFO_CLASS
 CTK_SOURCE_COMPLETION_INFO_GET_CLASS
 CTK_SOURCE_TYPE_COMPLETION_INFO
-GtkSourceCompletionInfoPrivate
+CtkSourceCompletionInfoPrivate
 ctk_source_completion_info_get_type
-GtkSourceCompletionInfoClass
+CtkSourceCompletionInfoClass
 </SECTION>
 
 <SECTION>
 <FILE>completionitem</FILE>
-GtkSourceCompletionItem
+CtkSourceCompletionItem
 ctk_source_completion_item_new
 ctk_source_completion_item_set_label
 ctk_source_completion_item_set_markup
@@ -154,14 +154,14 @@ CTK_SOURCE_COMPLETION_ITEM_CLASS
 CTK_SOURCE_COMPLETION_ITEM_GET_CLASS
 CTK_SOURCE_TYPE_COMPLETION_ITEM
 ctk_source_completion_item_get_type
-GtkSourceCompletionItemClass
-GtkSourceCompletionItemPrivate
+CtkSourceCompletionItemClass
+CtkSourceCompletionItemPrivate
 </SECTION>
 
 <SECTION>
 <FILE>completionproposal</FILE>
-GtkSourceCompletionProposal
-GtkSourceCompletionProposalIface
+CtkSourceCompletionProposal
+CtkSourceCompletionProposalIface
 ctk_source_completion_proposal_get_label
 ctk_source_completion_proposal_get_markup
 ctk_source_completion_proposal_get_text
@@ -182,8 +182,8 @@ ctk_source_completion_proposal_get_type
 
 <SECTION>
 <FILE>completionprovider</FILE>
-GtkSourceCompletionProvider
-GtkSourceCompletionProviderIface
+CtkSourceCompletionProvider
+CtkSourceCompletionProviderIface
 ctk_source_completion_provider_get_name
 ctk_source_completion_provider_get_icon
 ctk_source_completion_provider_get_icon_name
@@ -207,7 +207,7 @@ ctk_source_completion_provider_get_type
 
 <SECTION>
 <FILE>completionwords</FILE>
-GtkSourceCompletionWords
+CtkSourceCompletionWords
 ctk_source_completion_words_new
 ctk_source_completion_words_register
 ctk_source_completion_words_unregister
@@ -218,14 +218,14 @@ CTK_SOURCE_COMPLETION_WORDS_GET_CLASS
 CTK_SOURCE_IS_COMPLETION_WORDS
 CTK_SOURCE_IS_COMPLETION_WORDS_CLASS
 CTK_SOURCE_TYPE_COMPLETION_WORDS
-GtkSourceCompletionWordsClass
-GtkSourceCompletionWordsPrivate
+CtkSourceCompletionWordsClass
+CtkSourceCompletionWordsPrivate
 ctk_source_completion_words_get_type
 </SECTION>
 
 <SECTION>
 <FILE>encoding</FILE>
-GtkSourceEncoding
+CtkSourceEncoding
 <SUBSECTION>
 ctk_source_encoding_get_utf8
 ctk_source_encoding_get_current
@@ -244,11 +244,11 @@ ctk_source_encoding_get_type
 
 <SECTION>
 <FILE>file</FILE>
-GtkSourceFile
-GtkSourceNewlineType
+CtkSourceFile
+CtkSourceNewlineType
 CTK_SOURCE_NEWLINE_TYPE_DEFAULT
-GtkSourceCompressionType
-GtkSourceMountOperationFactory
+CtkSourceCompressionType
+CtkSourceMountOperationFactory
 <SUBSECTION>
 ctk_source_file_new
 ctk_source_file_get_location
@@ -269,8 +269,8 @@ CTK_SOURCE_FILE_GET_CLASS
 CTK_SOURCE_IS_FILE
 CTK_SOURCE_IS_FILE_CLASS
 CTK_SOURCE_TYPE_FILE
-GtkSourceFileClass
-GtkSourceFilePrivate
+CtkSourceFileClass
+CtkSourceFilePrivate
 ctk_source_file_get_type
 CTK_SOURCE_TYPE_COMPRESSION_TYPE
 ctk_source_compression_type_get_type
@@ -280,9 +280,9 @@ ctk_source_newline_type_get_type
 
 <SECTION>
 <FILE>fileloader</FILE>
-GtkSourceFileLoader
+CtkSourceFileLoader
 CTK_SOURCE_FILE_LOADER_ERROR
-GtkSourceFileLoaderError
+CtkSourceFileLoaderError
 <SUBSECTION>
 ctk_source_file_loader_new
 ctk_source_file_loader_new_from_stream
@@ -303,8 +303,8 @@ CTK_SOURCE_FILE_LOADER_GET_CLASS
 CTK_SOURCE_IS_FILE_LOADER
 CTK_SOURCE_IS_FILE_LOADER_CLASS
 CTK_SOURCE_TYPE_FILE_LOADER
-GtkSourceFileLoaderClass
-GtkSourceFileLoaderPrivate
+CtkSourceFileLoaderClass
+CtkSourceFileLoaderPrivate
 ctk_source_file_loader_get_type
 ctk_source_file_loader_error_quark
 CTK_SOURCE_TYPE_FILE_LOADER_ERROR
@@ -313,10 +313,10 @@ ctk_source_file_loader_error_get_type
 
 <SECTION>
 <FILE>filesaver</FILE>
-GtkSourceFileSaver
+CtkSourceFileSaver
 CTK_SOURCE_FILE_SAVER_ERROR
-GtkSourceFileSaverError
-GtkSourceFileSaverFlags
+CtkSourceFileSaverError
+CtkSourceFileSaverFlags
 <SUBSECTION>
 ctk_source_file_saver_new
 ctk_source_file_saver_new_with_target
@@ -340,8 +340,8 @@ CTK_SOURCE_FILE_SAVER_GET_CLASS
 CTK_SOURCE_IS_FILE_SAVER
 CTK_SOURCE_IS_FILE_SAVER_CLASS
 CTK_SOURCE_TYPE_FILE_SAVER
-GtkSourceFileSaverClass
-GtkSourceFileSaverPrivate
+CtkSourceFileSaverClass
+CtkSourceFileSaverPrivate
 ctk_source_file_saver_get_type
 ctk_source_file_saver_error_quark
 CTK_SOURCE_TYPE_FILE_SAVER_ERROR
@@ -352,7 +352,7 @@ ctk_source_file_saver_flags_get_type
 
 <SECTION>
 <FILE>gutter</FILE>
-GtkSourceGutter
+CtkSourceGutter
 ctk_source_gutter_get_view
 ctk_source_gutter_get_window_type
 ctk_source_gutter_insert
@@ -361,22 +361,22 @@ ctk_source_gutter_remove
 ctk_source_gutter_queue_draw
 ctk_source_gutter_get_renderer_at_pos
 <SUBSECTION Standard>
-GtkSourceGutterClass
+CtkSourceGutterClass
 CTK_SOURCE_IS_GUTTER
 CTK_SOURCE_IS_GUTTER_CLASS
 CTK_SOURCE_GUTTER
 CTK_SOURCE_GUTTER_CLASS
 CTK_SOURCE_GUTTER_GET_CLASS
 CTK_SOURCE_TYPE_GUTTER
-GtkSourceGutterPrivate
+CtkSourceGutterPrivate
 ctk_source_gutter_get_type
 </SECTION>
 
 <SECTION>
 <FILE>gutterrenderer</FILE>
-GtkSourceGutterRenderer
-GtkSourceGutterRendererState
-GtkSourceGutterRendererAlignmentMode
+CtkSourceGutterRenderer
+CtkSourceGutterRendererState
+CtkSourceGutterRendererAlignmentMode
 ctk_source_gutter_renderer_begin
 ctk_source_gutter_renderer_draw
 ctk_source_gutter_renderer_end
@@ -400,7 +400,7 @@ ctk_source_gutter_renderer_query_data
 ctk_source_gutter_renderer_query_tooltip
 ctk_source_gutter_renderer_queue_draw
 <SUBSECTION Standard>
-GtkSourceGutterRendererClass
+CtkSourceGutterRendererClass
 CTK_SOURCE_IS_GUTTER_RENDERER
 CTK_SOURCE_IS_GUTTER_RENDERER_CLASS
 CTK_SOURCE_GUTTER_RENDERER
@@ -408,7 +408,7 @@ CTK_SOURCE_GUTTER_RENDERER_CONST
 CTK_SOURCE_GUTTER_RENDERER_CLASS
 CTK_SOURCE_GUTTER_RENDERER_GET_CLASS
 CTK_SOURCE_TYPE_GUTTER_RENDERER
-GtkSourceGutterRendererPrivate
+CtkSourceGutterRendererPrivate
 ctk_source_gutter_renderer_get_type
 CTK_SOURCE_TYPE_GUTTER_RENDERER_ALIGNMENT_MODE
 ctk_source_gutter_renderer_alignment_mode_get_type
@@ -418,7 +418,7 @@ ctk_source_gutter_renderer_state_get_type
 
 <SECTION>
 <FILE>gutterrendererpixbuf</FILE>
-GtkSourceGutterRendererPixbuf
+CtkSourceGutterRendererPixbuf
 ctk_source_gutter_renderer_pixbuf_new
 ctk_source_gutter_renderer_pixbuf_set_pixbuf
 ctk_source_gutter_renderer_pixbuf_get_pixbuf
@@ -427,7 +427,7 @@ ctk_source_gutter_renderer_pixbuf_get_gicon
 ctk_source_gutter_renderer_pixbuf_set_icon_name
 ctk_source_gutter_renderer_pixbuf_get_icon_name
 <SUBSECTION Standard>
-GtkSourceGutterRendererPixbufClass
+CtkSourceGutterRendererPixbufClass
 CTK_SOURCE_IS_GUTTER_RENDERER_PIXBUF
 CTK_SOURCE_IS_GUTTER_RENDERER_PIXBUF_CLASS
 CTK_SOURCE_GUTTER_RENDERER_PIXBUF
@@ -435,20 +435,20 @@ CTK_SOURCE_GUTTER_RENDERER_PIXBUF_CONST
 CTK_SOURCE_GUTTER_RENDERER_PIXBUF_CLASS
 CTK_SOURCE_GUTTER_RENDERER_PIXBUF_GET_CLASS
 CTK_SOURCE_TYPE_GUTTER_RENDERER_PIXBUF
-GtkSourceGutterRendererPixbufPrivate
+CtkSourceGutterRendererPixbufPrivate
 ctk_source_gutter_renderer_pixbuf_get_type
 </SECTION>
 
 <SECTION>
 <FILE>gutterrenderertext</FILE>
-GtkSourceGutterRendererText
+CtkSourceGutterRendererText
 ctk_source_gutter_renderer_text_new
 ctk_source_gutter_renderer_text_set_markup
 ctk_source_gutter_renderer_text_set_text
 ctk_source_gutter_renderer_text_measure
 ctk_source_gutter_renderer_text_measure_markup
 <SUBSECTION Standard>
-GtkSourceGutterRendererTextClass
+CtkSourceGutterRendererTextClass
 CTK_SOURCE_IS_GUTTER_RENDERER_TEXT
 CTK_SOURCE_IS_GUTTER_RENDERER_TEXT_CLASS
 CTK_SOURCE_GUTTER_RENDERER_TEXT
@@ -456,20 +456,20 @@ CTK_SOURCE_GUTTER_RENDERER_TEXT_CONST
 CTK_SOURCE_GUTTER_RENDERER_TEXT_CLASS
 CTK_SOURCE_GUTTER_RENDERER_TEXT_GET_CLASS
 CTK_SOURCE_TYPE_GUTTER_RENDERER_TEXT
-GtkSourceGutterRendererTextPrivate
+CtkSourceGutterRendererTextPrivate
 ctk_source_gutter_renderer_text_get_type
 </SECTION>
 
 <SECTION>
 <FILE>init</FILE>
-<TITLE>GtkSourceView Initialization and Finalization</TITLE>
+<TITLE>CtkSourceView Initialization and Finalization</TITLE>
 ctk_source_init
 ctk_source_finalize
 </SECTION>
 
 <SECTION>
 <FILE>language</FILE>
-GtkSourceLanguage
+CtkSourceLanguage
 ctk_source_language_get_id
 ctk_source_language_get_name
 ctk_source_language_get_section
@@ -481,20 +481,20 @@ ctk_source_language_get_style_name
 ctk_source_language_get_style_ids
 ctk_source_language_get_style_fallback
 <SUBSECTION Standard>
-GtkSourceLanguageClass
+CtkSourceLanguageClass
 CTK_SOURCE_IS_LANGUAGE
 CTK_SOURCE_IS_LANGUAGE_CLASS
 CTK_SOURCE_LANGUAGE
 CTK_SOURCE_LANGUAGE_CLASS
 CTK_SOURCE_LANGUAGE_GET_CLASS
 CTK_SOURCE_TYPE_LANGUAGE
-GtkSourceLanguagePrivate
+CtkSourceLanguagePrivate
 ctk_source_language_get_type
 </SECTION>
 
 <SECTION>
 <FILE>languagemanager</FILE>
-GtkSourceLanguageManager
+CtkSourceLanguageManager
 ctk_source_language_manager_new
 ctk_source_language_manager_get_default
 ctk_source_language_manager_set_search_path
@@ -503,25 +503,25 @@ ctk_source_language_manager_get_language_ids
 ctk_source_language_manager_get_language
 ctk_source_language_manager_guess_language
 <SUBSECTION Standard>
-GtkSourceLanguageManagerClass
+CtkSourceLanguageManagerClass
 CTK_SOURCE_IS_LANGUAGE_MANAGER
 CTK_SOURCE_IS_LANGUAGE_MANAGER_CLASS
 CTK_SOURCE_LANGUAGE_MANAGER
 CTK_SOURCE_LANGUAGE_MANAGER_CLASS
 CTK_SOURCE_LANGUAGE_MANAGER_GET_CLASS
 CTK_SOURCE_TYPE_LANGUAGE_MANAGER
-GtkSourceLanguageManagerPrivate
+CtkSourceLanguageManagerPrivate
 ctk_source_language_manager_get_type
 </SECTION>
 
 <SECTION>
 <FILE>map</FILE>
-GtkSourceMap
+CtkSourceMap
 ctk_source_map_new
 ctk_source_map_set_view
 ctk_source_map_get_view
 <SUBSECTION Standard>
-GtkSourceMapClass
+CtkSourceMapClass
 CTK_SOURCE_IS_MAP
 CTK_SOURCE_IS_MAP_CLASS
 CTK_SOURCE_MAP
@@ -534,14 +534,14 @@ ctk_source_map_get_type
 
 <SECTION>
 <FILE>mark</FILE>
-GtkSourceMark
+CtkSourceMark
 ctk_source_mark_new
 ctk_source_mark_get_category
 ctk_source_mark_next
 ctk_source_mark_prev
 <SUBSECTION Standard>
-GtkSourceMarkClass
-GtkSourceMarkPrivate
+CtkSourceMarkClass
+CtkSourceMarkPrivate
 CTK_SOURCE_IS_MARK
 CTK_SOURCE_IS_MARK_CLASS
 CTK_SOURCE_MARK
@@ -553,7 +553,7 @@ ctk_source_mark_get_type
 
 <SECTION>
 <FILE>markattributes</FILE>
-GtkSourceMarkAttributes
+CtkSourceMarkAttributes
 ctk_source_mark_attributes_new
 ctk_source_mark_attributes_set_background
 ctk_source_mark_attributes_get_background
@@ -567,20 +567,20 @@ ctk_source_mark_attributes_render_icon
 ctk_source_mark_attributes_get_tooltip_text
 ctk_source_mark_attributes_get_tooltip_markup
 <SUBSECTION Standard>
-GtkSourceMarkAttributesClass
+CtkSourceMarkAttributesClass
 CTK_SOURCE_IS_MARK_ATTRIBUTES
 CTK_SOURCE_IS_MARK_ATTRIBUTES_CLASS
 CTK_SOURCE_MARK_ATTRIBUTES
 CTK_SOURCE_MARK_ATTRIBUTES_CLASS
 CTK_SOURCE_MARK_ATTRIBUTES_GET_CLASS
 CTK_SOURCE_TYPE_MARK_ATTRIBUTES
-GtkSourceMarkAttributesPrivate
+CtkSourceMarkAttributesPrivate
 ctk_source_mark_attributes_get_type
 </SECTION>
 
 <SECTION>
 <FILE>printcompositor</FILE>
-GtkSourcePrintCompositor
+CtkSourcePrintCompositor
 ctk_source_print_compositor_new
 ctk_source_print_compositor_new_from_view
 ctk_source_print_compositor_get_buffer
@@ -626,14 +626,14 @@ ctk_source_print_compositor_get_type
 CTK_SOURCE_PRINT_COMPOSITOR_CLASS
 CTK_SOURCE_IS_PRINT_COMPOSITOR_CLASS
 CTK_SOURCE_PRINT_COMPOSITOR_GET_CLASS
-GtkSourcePrintCompositorPrivate
-GtkSourcePrintCompositorClass
+CtkSourcePrintCompositorPrivate
+CtkSourcePrintCompositorClass
 </SECTION>
 
 <SECTION>
 <FILE>region</FILE>
-GtkSourceRegion
-GtkSourceRegionIter
+CtkSourceRegion
+CtkSourceRegionIter
 ctk_source_region_new
 ctk_source_region_get_buffer
 ctk_source_region_add_subregion
@@ -651,12 +651,12 @@ ctk_source_region_iter_get_subregion
 ctk_source_region_to_string
 <SUBSECTION Standard>
 CTK_SOURCE_TYPE_REGION
-GtkSourceRegionClass
+CtkSourceRegionClass
 </SECTION>
 
 <SECTION>
 <FILE>searchcontext</FILE>
-GtkSourceSearchContext
+CtkSourceSearchContext
 ctk_source_search_context_new
 ctk_source_search_context_get_buffer
 ctk_source_search_context_get_settings
@@ -682,14 +682,14 @@ CTK_SOURCE_SEARCH_CONTEXT
 CTK_SOURCE_SEARCH_CONTEXT_CLASS
 CTK_SOURCE_SEARCH_CONTEXT_GET_CLASS
 CTK_SOURCE_TYPE_SEARCH_CONTEXT
-GtkSourceSearchContextClass
-GtkSourceSearchContextPrivate
+CtkSourceSearchContextClass
+CtkSourceSearchContextPrivate
 ctk_source_search_context_get_type
 </SECTION>
 
 <SECTION>
 <FILE>searchsettings</FILE>
-GtkSourceSearchSettings
+CtkSourceSearchSettings
 ctk_source_search_settings_new
 ctk_source_search_settings_get_search_text
 ctk_source_search_settings_set_search_text
@@ -708,16 +708,16 @@ CTK_SOURCE_SEARCH_SETTINGS
 CTK_SOURCE_SEARCH_SETTINGS_CLASS
 CTK_SOURCE_SEARCH_SETTINGS_GET_CLASS
 CTK_SOURCE_TYPE_SEARCH_SETTINGS
-GtkSourceSearchSettingsClass
-GtkSourceSearchSettingsPrivate
+CtkSourceSearchSettingsClass
+CtkSourceSearchSettingsPrivate
 ctk_source_search_settings_get_type
 </SECTION>
 
 <SECTION>
 <FILE>spacedrawer</FILE>
-GtkSourceSpaceDrawer
-GtkSourceSpaceTypeFlags
-GtkSourceSpaceLocationFlags
+CtkSourceSpaceDrawer
+CtkSourceSpaceTypeFlags
+CtkSourceSpaceLocationFlags
 ctk_source_space_drawer_new
 ctk_source_space_drawer_set_types_for_locations
 ctk_source_space_drawer_get_types_for_locations
@@ -733,8 +733,8 @@ CTK_SOURCE_SPACE_DRAWER
 CTK_SOURCE_SPACE_DRAWER_CLASS
 CTK_SOURCE_SPACE_DRAWER_GET_CLASS
 CTK_SOURCE_TYPE_SPACE_DRAWER
-GtkSourceSpaceDrawerClass
-GtkSourceSpaceDrawerPrivate
+CtkSourceSpaceDrawerClass
+CtkSourceSpaceDrawerPrivate
 ctk_source_space_drawer_get_type
 CTK_SOURCE_TYPE_SPACE_LOCATION_FLAGS
 CTK_SOURCE_TYPE_SPACE_TYPE_FLAGS
@@ -744,11 +744,11 @@ ctk_source_space_type_flags_get_type
 
 <SECTION>
 <FILE>style</FILE>
-GtkSourceStyle
+CtkSourceStyle
 ctk_source_style_copy
 ctk_source_style_apply
 <SUBSECTION Standard>
-GtkSourceStyleClass
+CtkSourceStyleClass
 CTK_SOURCE_TYPE_STYLE
 CTK_SOURCE_IS_STYLE
 CTK_SOURCE_IS_STYLE_CLASS
@@ -760,7 +760,7 @@ ctk_source_style_get_type
 
 <SECTION>
 <FILE>stylescheme</FILE>
-GtkSourceStyleScheme
+CtkSourceStyleScheme
 ctk_source_style_scheme_get_id
 ctk_source_style_scheme_get_name
 ctk_source_style_scheme_get_description
@@ -768,24 +768,24 @@ ctk_source_style_scheme_get_authors
 ctk_source_style_scheme_get_filename
 ctk_source_style_scheme_get_style
 <SUBSECTION Standard>
-GtkSourceStyleSchemeClass
+CtkSourceStyleSchemeClass
 CTK_SOURCE_IS_STYLE_SCHEME
 CTK_SOURCE_IS_STYLE_SCHEME_CLASS
 CTK_SOURCE_STYLE_SCHEME
 CTK_SOURCE_STYLE_SCHEME_CLASS
 CTK_SOURCE_STYLE_SCHEME_GET_CLASS
 CTK_SOURCE_TYPE_STYLE_SCHEME
-GtkSourceStyleSchemePrivate
+CtkSourceStyleSchemePrivate
 ctk_source_style_scheme_get_type
 </SECTION>
 
 <SECTION>
 <FILE>styleschemechooser</FILE>
-GtkSourceStyleSchemeChooser
+CtkSourceStyleSchemeChooser
 ctk_source_style_scheme_chooser_get_style_scheme
 ctk_source_style_scheme_chooser_set_style_scheme
 <SUBSECTION Standard>
-GtkSourceStyleSchemeChooserInterface
+CtkSourceStyleSchemeChooserInterface
 CTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER
 CTK_SOURCE_STYLE_SCHEME_CHOOSER
 CTK_SOURCE_IS_STYLE_SCHEME_CHOOSER
@@ -795,10 +795,10 @@ ctk_source_style_scheme_chooser_get_type
 
 <SECTION>
 <FILE>styleschemechooserbutton</FILE>
-GtkSourceStyleSchemeChooserButton
+CtkSourceStyleSchemeChooserButton
 ctk_source_style_scheme_chooser_button_new
 <SUBSECTION Standard>
-GtkSourceStyleSchemeChooserButtonClass
+CtkSourceStyleSchemeChooserButtonClass
 CTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER_BUTTON
 CTK_SOURCE_STYLE_SCHEME_CHOOSER_BUTTON
 CTK_SOURCE_STYLE_SCHEME_CHOOSER_BUTTON_CONST
@@ -811,10 +811,10 @@ ctk_source_style_scheme_chooser_button_get_type
 
 <SECTION>
 <FILE>styleschemechooserwidget</FILE>
-GtkSourceStyleSchemeChooserWidget
+CtkSourceStyleSchemeChooserWidget
 ctk_source_style_scheme_chooser_widget_new
 <SUBSECTION Standard>
-GtkSourceStyleSchemeChooserWidgetClass
+CtkSourceStyleSchemeChooserWidgetClass
 CTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER_WIDGET
 CTK_SOURCE_STYLE_SCHEME_CHOOSER_WIDGET
 CTK_SOURCE_STYLE_SCHEME_CHOOSER_WIDGET_CONST
@@ -827,7 +827,7 @@ ctk_source_style_scheme_chooser_widget_get_type
 
 <SECTION>
 <FILE>styleschememanager</FILE>
-GtkSourceStyleSchemeManager
+CtkSourceStyleSchemeManager
 ctk_source_style_scheme_manager_new
 ctk_source_style_scheme_manager_get_default
 ctk_source_style_scheme_manager_set_search_path
@@ -838,7 +838,7 @@ ctk_source_style_scheme_manager_get_scheme_ids
 ctk_source_style_scheme_manager_get_scheme
 ctk_source_style_scheme_manager_force_rescan
 <SUBSECTION Standard>
-GtkSourceStyleSchemeManagerClass
+CtkSourceStyleSchemeManagerClass
 CTK_SOURCE_IS_STYLE_SCHEME_MANAGER
 CTK_SOURCE_IS_STYLE_SCHEME_MANAGER_CLASS
 CTK_SOURCE_STYLE_SCHEME_MANAGER
@@ -846,21 +846,21 @@ CTK_SOURCE_STYLE_SCHEME_MANAGER_CLASS
 CTK_SOURCE_STYLE_SCHEME_MANAGER_GET_CLASS
 CTK_SOURCE_TYPE_STYLE_SCHEME_MANAGER
 ctk_source_style_scheme_manager_get_type
-GtkSourceStyleSchemeManagerPrivate
+CtkSourceStyleSchemeManagerPrivate
 </SECTION>
 
 <SECTION>
 <FILE>tag</FILE>
-GtkSourceTag
+CtkSourceTag
 ctk_source_tag_new
 <SUBSECTION Standard>
 CTK_SOURCE_TYPE_TAG
-GtkSourceTagClass
+CtkSourceTagClass
 </SECTION>
 
 <SECTION>
 <FILE>undomanager</FILE>
-GtkSourceUndoManager
+CtkSourceUndoManager
 ctk_source_undo_manager_can_undo
 ctk_source_undo_manager_can_redo
 ctk_source_undo_manager_undo
@@ -870,7 +870,7 @@ ctk_source_undo_manager_end_not_undoable_action
 ctk_source_undo_manager_can_undo_changed
 ctk_source_undo_manager_can_redo_changed
 <SUBSECTION Standard>
-GtkSourceUndoManagerIface
+CtkSourceUndoManagerIface
 CTK_SOURCE_UNDO_MANAGER
 CTK_SOURCE_IS_UNDO_MANAGER
 CTK_SOURCE_TYPE_UNDO_MANAGER
@@ -916,10 +916,10 @@ CTK_SOURCE_VERSION_MAX_ALLOWED
 
 <SECTION>
 <FILE>view</FILE>
-GtkSourceView
-GtkSourceSmartHomeEndType
-GtkSourceViewGutterPosition
-GtkSourceBackgroundPatternType
+CtkSourceView
+CtkSourceSmartHomeEndType
+CtkSourceViewGutterPosition
+CtkSourceBackgroundPatternType
 ctk_source_view_new
 ctk_source_view_new_with_buffer
 ctk_source_view_get_completion
@@ -957,14 +957,14 @@ ctk_source_view_get_show_line_marks
 ctk_source_view_set_background_pattern
 ctk_source_view_get_background_pattern
 <SUBSECTION Standard>
-GtkSourceViewClass
+CtkSourceViewClass
 CTK_SOURCE_IS_VIEW
 CTK_SOURCE_IS_VIEW_CLASS
 CTK_SOURCE_VIEW
 CTK_SOURCE_VIEW_CLASS
 CTK_SOURCE_VIEW_GET_CLASS
 CTK_SOURCE_TYPE_VIEW
-GtkSourceViewPrivate
+CtkSourceViewPrivate
 ctk_source_view_get_type
 CTK_SOURCE_TYPE_BACKGROUND_PATTERN_TYPE
 ctk_source_background_pattern_type_get_type

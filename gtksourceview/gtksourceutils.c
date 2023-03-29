@@ -1,18 +1,18 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*- */
 /*
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2005 - Paolo Borelli
  * Copyright (C) 2007 - Gustavo Giráldez
  * Copyright (C) 2007 - Paolo Maggi
  * Copyright (C) 2013, 2017 - Sébastien Wilmet <swilmet@gnome.org>
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -23,7 +23,7 @@
 
 /**
  * SECTION:utils
- * @title: GtkSourceUtils
+ * @title: CtkSourceUtils
  * @short_description: Utility functions
  *
  * Utility functions.
@@ -140,7 +140,7 @@ ctk_source_utils_unescape_search_text (const gchar *text)
  *
  * For a regular expression search, use g_regex_escape_string() instead.
  *
- * One possible use case is to take the #GtkTextBuffer's selection and put it in a
+ * One possible use case is to take the #CtkTextBuffer's selection and put it in a
  * search entry. The selection can contain tabulations, newlines, etc. So it's
  * better to escape those special characters to better fit in the search entry.
  *
@@ -654,18 +654,18 @@ _ctk_source_utils_int_to_string (guint         value,
  * the updates are so fast the scrolling animation makes it feel very delayed.
  *
  * Many parts of this function were taken from ctk_text_view_scroll_to_iter ()
- * https://developer.gnome.org/ctk3/stable/GtkTextView.html#ctk-text-view-scroll-to-iter
+ * https://developer.gnome.org/ctk3/stable/CtkTextView.html#ctk-text-view-scroll-to-iter
  */
 void
-_ctk_source_view_jump_to_iter (GtkTextView       *text_view,
-                               const GtkTextIter *iter,
+_ctk_source_view_jump_to_iter (CtkTextView       *text_view,
+                               const CtkTextIter *iter,
                                double             within_margin,
                                gboolean           use_align,
                                double             xalign,
                                double             yalign)
 {
-  GtkAdjustment *hadj;
-  GtkAdjustment *vadj;
+  CtkAdjustment *hadj;
+  CtkAdjustment *vadj;
   GdkRectangle rect;
   GdkRectangle screen;
   int xvalue = 0;

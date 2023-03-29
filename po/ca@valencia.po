@@ -1532,8 +1532,8 @@ msgstr "Desaconsellat"
 
 #. (itstool) path: ctkrc.lang/language@_name
 #: ctkrc.lang:25
-msgid "GtkRC"
-msgstr "GtkRC"
+msgid "CtkRC"
+msgstr "CtkRC"
 
 #. (itstool) path: styles/style@_name
 #: ctkrc.lang:38
@@ -2801,14 +2801,14 @@ msgstr "Definició de variable"
 #. *
 #. * SECTION:language
 #. * @Short_description: Represents a syntax highlighted language
-#. * @Title: GtkSourceLanguage
-#. * @See_also: #GtkSourceLanguageManager
+#. * @Title: CtkSourceLanguage
+#. * @See_also: #CtkSourceLanguageManager
 #. *
-#. * A #GtkSourceLanguage represents a programming or markup language, affecting
+#. * A #CtkSourceLanguage represents a programming or markup language, affecting
 #. * syntax highlighting and [context classes][context-classes].
 #. *
-#. * Use #GtkSourceLanguageManager to obtain a #GtkSourceLanguage instance, and
-#. * ctk_source_buffer_set_language() to apply it to a #GtkSourceBuffer.
+#. * Use #CtkSourceLanguageManager to obtain a #CtkSourceLanguage instance, and
+#. * ctk_source_buffer_set_language() to apply it to a #CtkSourceBuffer.
 #.
 #: sh.lang:39 texinfo.lang:35 ctksourceview/ctksourcelanguage.c:56
 msgid "Others"
@@ -3360,13 +3360,13 @@ msgid "Unknown"
 msgstr "Desconeguda"
 
 #. Translators: This is the sorted list of encodings used by
-#. * GtkSourceView for automatic detection of the file encoding. You may
+#. * CtkSourceView for automatic detection of the file encoding. You may
 #. * want to customize it adding encodings that are common in your
 #. * country, for instance the GB18030 encoding for the Chinese
 #. * translation. You may also want to remove the ISO-8859-15 encoding
 #. * (covering English and most Western European languages) if you think
 #. * people in your country will rarely use it.  "CURRENT" is a magic
-#. * value used by GtkSourceView and it represents the encoding for the
+#. * value used by CtkSourceView and it represents the encoding for the
 #. * current locale, so please don't translate the "CURRENT" term.  Only
 #. * recognized encodings are used. See
 #. * https://git.gnome.org/browse/ctksourceview/tree/ctksourceview/ctksourceencoding.c#n147
@@ -3456,8 +3456,8 @@ msgstr "Majúscules/minúscules del _títol"
 msgid "C_hange Case"
 msgstr "Ca_nvia les majúscules/minúscules"
 
-#~ msgid "GtkSourceView"
-#~ msgstr "GtkSourceView"
+#~ msgid "CtkSourceView"
+#~ msgstr "CtkSourceView"
 
 #~ msgid "Escaped Characters"
 #~ msgstr "Caràcters d'escapada"
@@ -3562,8 +3562,8 @@ msgstr "Ca_nvia les majúscules/minúscules"
 #~ msgid "View"
 #~ msgstr "Visualitza"
 
-#~ msgid "The GtkSourceView bound to the completion"
-#~ msgstr "El GtkSourceView vinculat a la compleció"
+#~ msgid "The CtkSourceView bound to the completion"
+#~ msgstr "El CtkSourceView vinculat a la compleció"
 
 #~ msgid "Remember Info Visibility"
 #~ msgstr "Recorda la informació de visibilitat"
@@ -3624,8 +3624,8 @@ msgstr "Ca_nvia les majúscules/minúscules"
 #~ msgid "Iterator"
 #~ msgstr "Iterador"
 
-#~ msgid "The GtkTextIter at which the completion was invoked"
-#~ msgstr "El GtkTextIter on es va invocar la compleció"
+#~ msgid "The CtkTextIter at which the completion was invoked"
+#~ msgstr "El CtkTextIter on es va invocar la compleció"
 
 #~ msgid "Label to be shown for this item"
 #~ msgstr "L'etiqueta que s'ha de mostrar per a aquest element"
@@ -3657,8 +3657,8 @@ msgstr "Ca_nvia les majúscules/minúscules"
 #~ msgid "Flags"
 #~ msgstr "Senyaladors"
 
-#~ msgid "The gutters' GtkSourceView"
-#~ msgstr "Les entranyes del GtkSourceView"
+#~ msgid "The gutters' CtkSourceView"
+#~ msgstr "Les entranyes del CtkSourceView"
 
 #~ msgid "Window Type"
 #~ msgstr "Tipus de finestra"
@@ -3793,8 +3793,8 @@ msgstr "Ca_nvia les majúscules/minúscules"
 #~ msgid "Source Buffer"
 #~ msgstr "Memòria intermèdia del codi font"
 
-#~ msgid "The GtkSourceBuffer object to print"
-#~ msgstr "L'objecte GtkSourceBuffer a imprimir"
+#~ msgid "The CtkSourceBuffer object to print"
+#~ msgstr "L'objecte CtkSourceBuffer a imprimir"
 
 #~ msgid "Tab Width"
 #~ msgstr "Amplada de tabulació"
@@ -3880,14 +3880,14 @@ msgstr "Ca_nvia les majúscules/minúscules"
 #~ msgid "Buffer"
 #~ msgstr "Memòria intermèdia"
 
-#~ msgid "The associated GtkSourceBuffer"
-#~ msgstr "El GtkSourceView associat"
+#~ msgid "The associated CtkSourceBuffer"
+#~ msgstr "El CtkSourceView associat"
 
 #~ msgid "Settings"
 #~ msgstr "Paràmetres"
 
-#~ msgid "The associated GtkSourceSearchSettings"
-#~ msgstr "Els GtkSourceSearchSettings associats"
+#~ msgid "The associated CtkSourceSearchSettings"
+#~ msgstr "Els CtkSourceSearchSettings associats"
 
 #~ msgid "Highlight"
 #~ msgstr "Ressalta"

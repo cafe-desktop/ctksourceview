@@ -1,6 +1,6 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*- */
 /*
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2008, 2011, 2016 - Paolo Borelli <pborelli@gnome.org>
  * Copyright (C) 2008, 2010 - Ignacio Casal Quinteiro <icq@gnome.org>
@@ -9,12 +9,12 @@
  * Copyright (C) 2015, 2016 - Sébastien Wilmet <swilmet@gnome.org>
  * Copyright (C) 2016 - Christian Hergert <christian@hergert.me>
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -39,25 +39,25 @@
 /**
  * SECTION:spacedrawer
  * @Short_description: Represent white space characters with symbols
- * @Title: GtkSourceSpaceDrawer
- * @See_also: #GtkSourceView
+ * @Title: CtkSourceSpaceDrawer
+ * @See_also: #CtkSourceView
  *
- * #GtkSourceSpaceDrawer provides a way to visualize white spaces, by drawing
+ * #CtkSourceSpaceDrawer provides a way to visualize white spaces, by drawing
  * symbols.
  *
- * Call ctk_source_view_get_space_drawer() to get the #GtkSourceSpaceDrawer
- * instance of a certain #GtkSourceView.
+ * Call ctk_source_view_get_space_drawer() to get the #CtkSourceSpaceDrawer
+ * instance of a certain #CtkSourceView.
  *
  * By default, no white spaces are drawn because the
- * #GtkSourceSpaceDrawer:enable-matrix is %FALSE.
+ * #CtkSourceSpaceDrawer:enable-matrix is %FALSE.
  *
  * To draw white spaces, ctk_source_space_drawer_set_types_for_locations() can
- * be called to set the #GtkSourceSpaceDrawer:matrix property (by default all
+ * be called to set the #CtkSourceSpaceDrawer:matrix property (by default all
  * space types are enabled at all locations). Then call
  * ctk_source_space_drawer_set_enable_matrix().
  *
- * For a finer-grained method, there is also the GtkSourceTag's
- * #GtkSourceTag:draw-spaces property.
+ * For a finer-grained method, there is also the CtkSourceTag's
+ * #CtkSourceTag:draw-spaces property.
  *
  * # Example
  *
@@ -95,9 +95,9 @@
 */
 #undef ENABLE_PROFILE
 
-struct _GtkSourceSpaceDrawerPrivate
+struct _CtkSourceSpaceDrawerPrivate
 {
-	GtkSourceSpaceTypeFlags *matrix;
+	CtkSourceSpaceTypeFlags *matrix;
 	GdkRGBA *color;
 	guint enable_matrix : 1;
 };
@@ -112,7 +112,7 @@ enum
 
 static GParamSpec *properties[N_PROPERTIES];
 
-G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceSpaceDrawer, ctk_source_space_drawer, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (CtkSourceSpaceDrawer, ctk_source_space_drawer, G_TYPE_OBJECT)
 
 static gint
 get_number_of_locations (void)
@@ -156,7 +156,7 @@ get_default_matrix (void)
 }
 
 static gboolean
-is_zero_matrix (GtkSourceSpaceDrawer *drawer)
+is_zero_matrix (CtkSourceSpaceDrawer *drawer)
 {
 	gint num_locations;
 	gint i;
@@ -175,7 +175,7 @@ is_zero_matrix (GtkSourceSpaceDrawer *drawer)
 }
 
 static void
-set_zero_matrix (GtkSourceSpaceDrawer *drawer)
+set_zero_matrix (CtkSourceSpaceDrawer *drawer)
 {
 	gint num_locations;
 	gint i;
@@ -199,11 +199,11 @@ set_zero_matrix (GtkSourceSpaceDrawer *drawer)
 }
 
 /* AND */
-static GtkSourceSpaceTypeFlags
-get_types_at_all_locations (GtkSourceSpaceDrawer        *drawer,
-			    GtkSourceSpaceLocationFlags  locations)
+static CtkSourceSpaceTypeFlags
+get_types_at_all_locations (CtkSourceSpaceDrawer        *drawer,
+			    CtkSourceSpaceLocationFlags  locations)
 {
-	GtkSourceSpaceTypeFlags ret = CTK_SOURCE_SPACE_TYPE_ALL;
+	CtkSourceSpaceTypeFlags ret = CTK_SOURCE_SPACE_TYPE_ALL;
 	gint index;
 	gint num_locations;
 	gboolean found;
@@ -228,11 +228,11 @@ get_types_at_all_locations (GtkSourceSpaceDrawer        *drawer,
 }
 
 /* OR */
-static GtkSourceSpaceTypeFlags
-get_types_at_any_locations (GtkSourceSpaceDrawer        *drawer,
-			    GtkSourceSpaceLocationFlags  locations)
+static CtkSourceSpaceTypeFlags
+get_types_at_any_locations (CtkSourceSpaceDrawer        *drawer,
+			    CtkSourceSpaceLocationFlags  locations)
 {
-	GtkSourceSpaceTypeFlags ret = CTK_SOURCE_SPACE_TYPE_NONE;
+	CtkSourceSpaceTypeFlags ret = CTK_SOURCE_SPACE_TYPE_NONE;
 	gint index;
 	gint num_locations;
 
@@ -259,7 +259,7 @@ ctk_source_space_drawer_get_property (GObject    *object,
 				      GValue     *value,
 				      GParamSpec *pspec)
 {
-	GtkSourceSpaceDrawer *drawer = CTK_SOURCE_SPACE_DRAWER (object);
+	CtkSourceSpaceDrawer *drawer = CTK_SOURCE_SPACE_DRAWER (object);
 
 	switch (prop_id)
 	{
@@ -283,7 +283,7 @@ ctk_source_space_drawer_set_property (GObject      *object,
 				      const GValue *value,
 				      GParamSpec   *pspec)
 {
-	GtkSourceSpaceDrawer *drawer = CTK_SOURCE_SPACE_DRAWER (object);
+	CtkSourceSpaceDrawer *drawer = CTK_SOURCE_SPACE_DRAWER (object);
 
 	switch (prop_id)
 	{
@@ -304,7 +304,7 @@ ctk_source_space_drawer_set_property (GObject      *object,
 static void
 ctk_source_space_drawer_finalize (GObject *object)
 {
-	GtkSourceSpaceDrawer *drawer = CTK_SOURCE_SPACE_DRAWER (object);
+	CtkSourceSpaceDrawer *drawer = CTK_SOURCE_SPACE_DRAWER (object);
 
 	g_free (drawer->priv->matrix);
 
@@ -317,7 +317,7 @@ ctk_source_space_drawer_finalize (GObject *object)
 }
 
 static void
-ctk_source_space_drawer_class_init (GtkSourceSpaceDrawerClass *klass)
+ctk_source_space_drawer_class_init (CtkSourceSpaceDrawerClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
@@ -326,9 +326,9 @@ ctk_source_space_drawer_class_init (GtkSourceSpaceDrawerClass *klass)
 	object_class->finalize = ctk_source_space_drawer_finalize;
 
 	/**
-	 * GtkSourceSpaceDrawer:enable-matrix:
+	 * CtkSourceSpaceDrawer:enable-matrix:
 	 *
-	 * Whether the #GtkSourceSpaceDrawer:matrix property is enabled.
+	 * Whether the #CtkSourceSpaceDrawer:matrix property is enabled.
 	 *
 	 * Since: 3.24
 	 */
@@ -342,14 +342,14 @@ ctk_source_space_drawer_class_init (GtkSourceSpaceDrawerClass *klass)
 				      G_PARAM_STATIC_STRINGS);
 
 	/**
-	 * GtkSourceSpaceDrawer:matrix:
+	 * CtkSourceSpaceDrawer:matrix:
 	 *
 	 * The :matrix property is a #GVariant property to specify where and
 	 * what kind of white spaces to draw.
 	 *
 	 * The #GVariant is of type `"au"`, an array of unsigned integers. Each
-	 * integer is a combination of #GtkSourceSpaceTypeFlags. There is one
-	 * integer for each #GtkSourceSpaceLocationFlags, in the same order as
+	 * integer is a combination of #CtkSourceSpaceTypeFlags. There is one
+	 * integer for each #CtkSourceSpaceLocationFlags, in the same order as
 	 * they are defined in the enum (%CTK_SOURCE_SPACE_LOCATION_NONE and
 	 * %CTK_SOURCE_SPACE_LOCATION_ALL are not taken into account).
 	 *
@@ -374,23 +374,23 @@ ctk_source_space_drawer_class_init (GtkSourceSpaceDrawerClass *klass)
 }
 
 static void
-ctk_source_space_drawer_init (GtkSourceSpaceDrawer *drawer)
+ctk_source_space_drawer_init (CtkSourceSpaceDrawer *drawer)
 {
 	drawer->priv = ctk_source_space_drawer_get_instance_private (drawer);
 
-	drawer->priv->matrix = g_new0 (GtkSourceSpaceTypeFlags, get_number_of_locations ());
+	drawer->priv->matrix = g_new0 (CtkSourceSpaceTypeFlags, get_number_of_locations ());
 }
 
 /**
  * ctk_source_space_drawer_new:
  *
- * Creates a new #GtkSourceSpaceDrawer object. Useful for storing space drawing
- * settings independently of a #GtkSourceView.
+ * Creates a new #CtkSourceSpaceDrawer object. Useful for storing space drawing
+ * settings independently of a #CtkSourceView.
  *
- * Returns: a new #GtkSourceSpaceDrawer.
+ * Returns: a new #CtkSourceSpaceDrawer.
  * Since: 3.24
  */
-GtkSourceSpaceDrawer *
+CtkSourceSpaceDrawer *
 ctk_source_space_drawer_new (void)
 {
 	return g_object_new (CTK_SOURCE_TYPE_SPACE_DRAWER, NULL);
@@ -398,24 +398,24 @@ ctk_source_space_drawer_new (void)
 
 /**
  * ctk_source_space_drawer_get_types_for_locations:
- * @drawer: a #GtkSourceSpaceDrawer.
- * @locations: one or several #GtkSourceSpaceLocationFlags.
+ * @drawer: a #CtkSourceSpaceDrawer.
+ * @locations: one or several #CtkSourceSpaceLocationFlags.
  *
  * If only one location is specified, this function returns what kind of
  * white spaces are drawn at that location. The value is retrieved from the
- * #GtkSourceSpaceDrawer:matrix property.
+ * #CtkSourceSpaceDrawer:matrix property.
  *
  * If several locations are specified, this function returns the logical AND for
  * those locations. Which means that if a certain kind of white space is present
  * in the return value, then that kind of white space is drawn at all the
  * specified @locations.
  *
- * Returns: a combination of #GtkSourceSpaceTypeFlags.
+ * Returns: a combination of #CtkSourceSpaceTypeFlags.
  * Since: 3.24
  */
-GtkSourceSpaceTypeFlags
-ctk_source_space_drawer_get_types_for_locations (GtkSourceSpaceDrawer        *drawer,
-						 GtkSourceSpaceLocationFlags  locations)
+CtkSourceSpaceTypeFlags
+ctk_source_space_drawer_get_types_for_locations (CtkSourceSpaceDrawer        *drawer,
+						 CtkSourceSpaceLocationFlags  locations)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_SPACE_DRAWER (drawer), CTK_SOURCE_SPACE_TYPE_NONE);
 
@@ -424,19 +424,19 @@ ctk_source_space_drawer_get_types_for_locations (GtkSourceSpaceDrawer        *dr
 
 /**
  * ctk_source_space_drawer_set_types_for_locations:
- * @drawer: a #GtkSourceSpaceDrawer.
- * @locations: one or several #GtkSourceSpaceLocationFlags.
- * @types: a combination of #GtkSourceSpaceTypeFlags.
+ * @drawer: a #CtkSourceSpaceDrawer.
+ * @locations: one or several #CtkSourceSpaceLocationFlags.
+ * @types: a combination of #CtkSourceSpaceTypeFlags.
  *
- * Modifies the #GtkSourceSpaceDrawer:matrix property at the specified
+ * Modifies the #CtkSourceSpaceDrawer:matrix property at the specified
  * @locations.
  *
  * Since: 3.24
  */
 void
-ctk_source_space_drawer_set_types_for_locations (GtkSourceSpaceDrawer        *drawer,
-						 GtkSourceSpaceLocationFlags  locations,
-						 GtkSourceSpaceTypeFlags      types)
+ctk_source_space_drawer_set_types_for_locations (CtkSourceSpaceDrawer        *drawer,
+						 CtkSourceSpaceLocationFlags  locations,
+						 CtkSourceSpaceTypeFlags      types)
 {
 	gint index;
 	gint num_locations;
@@ -468,20 +468,20 @@ ctk_source_space_drawer_set_types_for_locations (GtkSourceSpaceDrawer        *dr
 
 /**
  * ctk_source_space_drawer_get_matrix:
- * @drawer: a #GtkSourceSpaceDrawer.
+ * @drawer: a #CtkSourceSpaceDrawer.
  *
- * Gets the value of the #GtkSourceSpaceDrawer:matrix property, as a #GVariant.
+ * Gets the value of the #CtkSourceSpaceDrawer:matrix property, as a #GVariant.
  * An empty array can be returned in case the matrix is a zero matrix.
  *
  * The ctk_source_space_drawer_get_types_for_locations() function may be more
  * convenient to use.
  *
- * Returns: the #GtkSourceSpaceDrawer:matrix value as a new floating #GVariant
+ * Returns: the #CtkSourceSpaceDrawer:matrix value as a new floating #GVariant
  *   instance.
  * Since: 3.24
  */
 GVariant *
-ctk_source_space_drawer_get_matrix (GtkSourceSpaceDrawer *drawer)
+ctk_source_space_drawer_get_matrix (CtkSourceSpaceDrawer *drawer)
 {
 	GVariantBuilder builder;
 	gint num_locations;
@@ -512,10 +512,10 @@ ctk_source_space_drawer_get_matrix (GtkSourceSpaceDrawer *drawer)
 
 /**
  * ctk_source_space_drawer_set_matrix:
- * @drawer: a #GtkSourceSpaceDrawer.
+ * @drawer: a #CtkSourceSpaceDrawer.
  * @matrix: (transfer floating) (nullable): the new matrix value, or %NULL.
  *
- * Sets a new value to the #GtkSourceSpaceDrawer:matrix property, as a
+ * Sets a new value to the #CtkSourceSpaceDrawer:matrix property, as a
  * #GVariant. If @matrix is %NULL, then an empty array is set.
  *
  * If @matrix is floating, it is consumed.
@@ -526,7 +526,7 @@ ctk_source_space_drawer_get_matrix (GtkSourceSpaceDrawer *drawer)
  * Since: 3.24
  */
 void
-ctk_source_space_drawer_set_matrix (GtkSourceSpaceDrawer *drawer,
+ctk_source_space_drawer_set_matrix (CtkSourceSpaceDrawer *drawer,
 				    GVariant             *matrix)
 {
 	gint num_locations;
@@ -596,13 +596,13 @@ ctk_source_space_drawer_set_matrix (GtkSourceSpaceDrawer *drawer,
 
 /**
  * ctk_source_space_drawer_get_enable_matrix:
- * @drawer: a #GtkSourceSpaceDrawer.
+ * @drawer: a #CtkSourceSpaceDrawer.
  *
- * Returns: whether the #GtkSourceSpaceDrawer:matrix property is enabled.
+ * Returns: whether the #CtkSourceSpaceDrawer:matrix property is enabled.
  * Since: 3.24
  */
 gboolean
-ctk_source_space_drawer_get_enable_matrix (GtkSourceSpaceDrawer *drawer)
+ctk_source_space_drawer_get_enable_matrix (CtkSourceSpaceDrawer *drawer)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_SPACE_DRAWER (drawer), FALSE);
 
@@ -611,15 +611,15 @@ ctk_source_space_drawer_get_enable_matrix (GtkSourceSpaceDrawer *drawer)
 
 /**
  * ctk_source_space_drawer_set_enable_matrix:
- * @drawer: a #GtkSourceSpaceDrawer.
+ * @drawer: a #CtkSourceSpaceDrawer.
  * @enable_matrix: the new value.
  *
- * Sets whether the #GtkSourceSpaceDrawer:matrix property is enabled.
+ * Sets whether the #CtkSourceSpaceDrawer:matrix property is enabled.
  *
  * Since: 3.24
  */
 void
-ctk_source_space_drawer_set_enable_matrix (GtkSourceSpaceDrawer *drawer,
+ctk_source_space_drawer_set_enable_matrix (CtkSourceSpaceDrawer *drawer,
 					   gboolean              enable_matrix)
 {
 	g_return_if_fail (CTK_SOURCE_IS_SPACE_DRAWER (drawer));
@@ -652,15 +652,15 @@ matrix_set_mapping (const GValue       *value,
 
 /**
  * ctk_source_space_drawer_bind_matrix_setting:
- * @drawer: a #GtkSourceSpaceDrawer object.
+ * @drawer: a #CtkSourceSpaceDrawer object.
  * @settings: a #GSettings object.
  * @key: the @settings key to bind.
  * @flags: flags for the binding.
  *
- * Binds the #GtkSourceSpaceDrawer:matrix property to a #GSettings key.
+ * Binds the #CtkSourceSpaceDrawer:matrix property to a #GSettings key.
  *
  * The #GSettings key must be of the same type as the
- * #GtkSourceSpaceDrawer:matrix property, that is, `"au"`.
+ * #CtkSourceSpaceDrawer:matrix property, that is, `"au"`.
  *
  * The g_settings_bind() function cannot be used, because the default GIO
  * mapping functions don't support #GVariant properties (maybe it will be
@@ -670,7 +670,7 @@ matrix_set_mapping (const GValue       *value,
  * Since: 3.24
  */
 void
-ctk_source_space_drawer_bind_matrix_setting (GtkSourceSpaceDrawer *drawer,
+ctk_source_space_drawer_bind_matrix_setting (CtkSourceSpaceDrawer *drawer,
 					     GSettings            *settings,
 					     const gchar          *key,
 					     GSettingsBindFlags    flags)
@@ -700,11 +700,11 @@ ctk_source_space_drawer_bind_matrix_setting (GtkSourceSpaceDrawer *drawer,
 }
 
 void
-_ctk_source_space_drawer_update_color (GtkSourceSpaceDrawer *drawer,
-				       GtkSourceView        *view)
+_ctk_source_space_drawer_update_color (CtkSourceSpaceDrawer *drawer,
+				       CtkSourceView        *view)
 {
-	GtkSourceBuffer *buffer;
-	GtkSourceStyleScheme *style_scheme;
+	CtkSourceBuffer *buffer;
+	CtkSourceStyleScheme *style_scheme;
 
 	g_return_if_fail (CTK_SOURCE_IS_SPACE_DRAWER (drawer));
 	g_return_if_fail (CTK_SOURCE_IS_VIEW (view));
@@ -720,7 +720,7 @@ _ctk_source_space_drawer_update_color (GtkSourceSpaceDrawer *drawer,
 
 	if (style_scheme != NULL)
 	{
-		GtkSourceStyle *style;
+		CtkSourceStyle *style;
 
 		style = _ctk_source_style_scheme_get_draw_spaces_style (style_scheme);
 
@@ -748,7 +748,7 @@ _ctk_source_space_drawer_update_color (GtkSourceSpaceDrawer *drawer,
 
 	if (drawer->priv->color == NULL)
 	{
-		GtkStyleContext *context;
+		CtkStyleContext *context;
 		GdkRGBA color;
 
 		context = ctk_widget_get_style_context (CTK_WIDGET (view));
@@ -788,11 +788,11 @@ is_space (gunichar ch)
 }
 
 static gboolean
-is_newline (const GtkTextIter *iter)
+is_newline (const CtkTextIter *iter)
 {
 	if (ctk_text_iter_is_end (iter))
 	{
-		GtkSourceBuffer *buffer;
+		CtkSourceBuffer *buffer;
 
 		buffer = CTK_SOURCE_BUFFER (ctk_text_iter_get_buffer (iter));
 
@@ -921,8 +921,8 @@ draw_nbsp_at_pos (cairo_t      *cr,
 }
 
 static void
-draw_whitespace_at_iter (GtkTextView *text_view,
-			 GtkTextIter *iter,
+draw_whitespace_at_iter (CtkTextView *text_view,
+			 CtkTextIter *iter,
 			 cairo_t     *cr)
 {
 	gunichar ch;
@@ -959,7 +959,7 @@ draw_whitespace_at_iter (GtkTextView *text_view,
 }
 
 static void
-space_needs_drawing_according_to_tag (const GtkTextIter *iter,
+space_needs_drawing_according_to_tag (const CtkTextIter *iter,
 				      gboolean          *has_tag,
 				      gboolean          *needs_drawing)
 {
@@ -974,7 +974,7 @@ space_needs_drawing_according_to_tag (const GtkTextIter *iter,
 
 	for (l = tags; l != NULL; l = l->next)
 	{
-		GtkTextTag *tag = l->data;
+		CtkTextTag *tag = l->data;
 
 		if (CTK_SOURCE_IS_TAG (tag))
 		{
@@ -998,12 +998,12 @@ space_needs_drawing_according_to_tag (const GtkTextIter *iter,
 	g_slist_free (tags);
 }
 
-static GtkSourceSpaceLocationFlags
-get_iter_locations (const GtkTextIter *iter,
-		    const GtkTextIter *leading_end,
-		    const GtkTextIter *trailing_start)
+static CtkSourceSpaceLocationFlags
+get_iter_locations (const CtkTextIter *iter,
+		    const CtkTextIter *leading_end,
+		    const CtkTextIter *trailing_start)
 {
-	GtkSourceSpaceLocationFlags iter_locations = CTK_SOURCE_SPACE_LOCATION_NONE;
+	CtkSourceSpaceLocationFlags iter_locations = CTK_SOURCE_SPACE_LOCATION_NONE;
 
 	if (ctk_text_iter_compare (iter, leading_end) < 0)
 	{
@@ -1024,8 +1024,8 @@ get_iter_locations (const GtkTextIter *iter,
 	return iter_locations;
 }
 
-static GtkSourceSpaceTypeFlags
-get_iter_space_type (const GtkTextIter *iter)
+static CtkSourceSpaceTypeFlags
+get_iter_space_type (const CtkTextIter *iter)
 {
 	gunichar ch;
 
@@ -1052,14 +1052,14 @@ get_iter_space_type (const GtkTextIter *iter)
 }
 
 static gboolean
-space_needs_drawing_according_to_matrix (GtkSourceSpaceDrawer *drawer,
-					 const GtkTextIter    *iter,
-					 const GtkTextIter    *leading_end,
-					 const GtkTextIter    *trailing_start)
+space_needs_drawing_according_to_matrix (CtkSourceSpaceDrawer *drawer,
+					 const CtkTextIter    *iter,
+					 const CtkTextIter    *leading_end,
+					 const CtkTextIter    *trailing_start)
 {
-	GtkSourceSpaceLocationFlags iter_locations;
-	GtkSourceSpaceTypeFlags iter_space_type;
-	GtkSourceSpaceTypeFlags allowed_space_types;
+	CtkSourceSpaceLocationFlags iter_locations;
+	CtkSourceSpaceTypeFlags iter_space_type;
+	CtkSourceSpaceTypeFlags allowed_space_types;
 
 	iter_locations = get_iter_locations (iter, leading_end, trailing_start);
 	iter_space_type = get_iter_space_type (iter);
@@ -1069,15 +1069,15 @@ space_needs_drawing_according_to_matrix (GtkSourceSpaceDrawer *drawer,
 }
 
 static gboolean
-space_needs_drawing (GtkSourceSpaceDrawer *drawer,
-		     const GtkTextIter    *iter,
-		     const GtkTextIter    *leading_end,
-		     const GtkTextIter    *trailing_start)
+space_needs_drawing (CtkSourceSpaceDrawer *drawer,
+		     const CtkTextIter    *iter,
+		     const CtkTextIter    *leading_end,
+		     const CtkTextIter    *trailing_start)
 {
 	gboolean has_tag;
 	gboolean needs_drawing;
 
-	/* Check the GtkSourceTag:draw-spaces property (higher priority) */
+	/* Check the CtkSourceTag:draw-spaces property (higher priority) */
 	space_needs_drawing_according_to_tag (iter, &has_tag, &needs_drawing);
 	if (has_tag)
 	{
@@ -1090,9 +1090,9 @@ space_needs_drawing (GtkSourceSpaceDrawer *drawer,
 }
 
 static void
-get_line_end (GtkTextView       *text_view,
-	      const GtkTextIter *start_iter,
-	      GtkTextIter       *line_end,
+get_line_end (CtkTextView       *text_view,
+	      const CtkTextIter *start_iter,
+	      CtkTextIter       *line_end,
 	      gint               max_x,
 	      gint               max_y,
 	      gboolean           is_wrapping)
@@ -1144,23 +1144,23 @@ get_line_end (GtkTextView       *text_view,
 }
 
 void
-_ctk_source_space_drawer_draw (GtkSourceSpaceDrawer *drawer,
-			       GtkSourceView        *view,
+_ctk_source_space_drawer_draw (CtkSourceSpaceDrawer *drawer,
+			       CtkSourceView        *view,
 			       cairo_t              *cr)
 {
-	GtkTextView *text_view;
-	GtkTextBuffer *buffer;
+	CtkTextView *text_view;
+	CtkTextBuffer *buffer;
 	GdkRectangle clip;
 	gint min_x;
 	gint min_y;
 	gint max_x;
 	gint max_y;
-	GtkTextIter start;
-	GtkTextIter end;
-	GtkTextIter iter;
-	GtkTextIter leading_end;
-	GtkTextIter trailing_start;
-	GtkTextIter line_end;
+	CtkTextIter start;
+	CtkTextIter end;
+	CtkTextIter iter;
+	CtkTextIter leading_end;
+	CtkTextIter trailing_start;
+	CtkTextIter line_end;
 	gboolean is_wrapping;
 
 #ifdef ENABLE_PROFILE
@@ -1179,7 +1179,7 @@ _ctk_source_space_drawer_draw (GtkSourceSpaceDrawer *drawer,
 
 	if (drawer->priv->color == NULL)
 	{
-		g_warning ("GtkSourceSpaceDrawer: color not set.");
+		g_warning ("CtkSourceSpaceDrawer: color not set.");
 		return;
 	}
 
@@ -1239,7 +1239,7 @@ _ctk_source_space_drawer_draw (GtkSourceSpaceDrawer *drawer,
 
 		if (ctk_text_iter_compare (&iter, &line_end) > 0)
 		{
-			GtkTextIter next_iter = iter;
+			CtkTextIter next_iter = iter;
 
 			/* Move to the first iter in the exposed area of the
 			 * next line.

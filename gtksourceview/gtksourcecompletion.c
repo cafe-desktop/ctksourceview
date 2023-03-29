@@ -1,17 +1,17 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*- */
 /*
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2007 -2009 Jesús Barbero Rodríguez <chuchiperriman@gmail.com>
  * Copyright (C) 2009 - Jesse van den Kieboom <jessevdk@gnome.org>
  * Copyright (C) 2013 - Sébastien Wilmet <swilmet@gnome.org>
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -22,7 +22,7 @@
 
 /**
  * SECTION:completion
- * @title: GtkSourceCompletion
+ * @title: CtkSourceCompletion
  * @short_description: Main Completion Object
  *
  * The completion system helps the user when he/she writes some text,
@@ -32,13 +32,13 @@
  * documentation), that is displayed when the "Details" button is
  * clicked.
  *
- * Proposals are created via a #GtkSourceCompletionProvider. There can
+ * Proposals are created via a #CtkSourceCompletionProvider. There can
  * be for example a provider to complete words (see
- * #GtkSourceCompletionWords), another provider for the completion of
+ * #CtkSourceCompletionWords), another provider for the completion of
  * function names, etc. To add a provider, call
  * ctk_source_completion_add_provider().
  *
- * When the completion is activated, a #GtkSourceCompletionContext object is
+ * When the completion is activated, a #CtkSourceCompletionContext object is
  * created. The providers are asked whether they match the context, with
  * ctk_source_completion_provider_match(). If a provider doesn't match the
  * context, it will not be visible in the completion window. On the
@@ -47,44 +47,44 @@
  *
  * When several providers match, they are all shown in the completion
  * window, but one can switch between providers: see the
- * #GtkSourceCompletion::move-page signal. It is also possible to
+ * #CtkSourceCompletion::move-page signal. It is also possible to
  * activate the first proposals with key bindings, see the
- * #GtkSourceCompletion:accelerators property.
+ * #CtkSourceCompletion:accelerators property.
  *
- * The #GtkSourceCompletionProposal interface represents a proposal.
- * The #GtkSourceCompletionItem class is a simple implementation of this
+ * The #CtkSourceCompletionProposal interface represents a proposal.
+ * The #CtkSourceCompletionItem class is a simple implementation of this
  * interface.
  *
  * If a proposal contains extra information (see
  * ctk_source_completion_provider_get_info_widget()), it will be
- * displayed in a #GtkSourceCompletionInfo window, which appears when
+ * displayed in a #CtkSourceCompletionInfo window, which appears when
  * the "Details" button is clicked.
  *
- * A #GtkSourceCompletionInfo window can also be used to display
+ * A #CtkSourceCompletionInfo window can also be used to display
  * calltips. When no proposals are available, it can be useful to
  * display extra information like a function prototype (number of
  * parameters, types of parameters, etc).
  *
- * Each #GtkSourceView object is associated with a #GtkSourceCompletion
+ * Each #CtkSourceView object is associated with a #CtkSourceCompletion
  * instance. This instance can be obtained with
- * ctk_source_view_get_completion(). The #GtkSourceView class contains also the
- * #GtkSourceView::show-completion signal.
+ * ctk_source_view_get_completion(). The #CtkSourceView class contains also the
+ * #CtkSourceView::show-completion signal.
  *
- * A same #GtkSourceCompletionProvider object can be used for several
- * #GtkSourceCompletion's.
+ * A same #CtkSourceCompletionProvider object can be used for several
+ * #CtkSourceCompletion's.
  *
- * # GtkSourceCompletion as GtkBuildable
+ * # CtkSourceCompletion as CtkBuildable
  *
- * The GtkSourceCompletion implementation of the #GtkBuildable interface exposes
+ * The CtkSourceCompletion implementation of the #CtkBuildable interface exposes
  * the info window object (see ctk_source_completion_get_info_window()) with the
  * internal-child "info_window".
  *
- * An example of a UI definition fragment with GtkSourceCompletion:
+ * An example of a UI definition fragment with CtkSourceCompletion:
  * |[
- * <object class="GtkSourceCompletion">
+ * <object class="CtkSourceCompletion">
  *   <property name="select_on_show">False</property>
  *   <child internal-child="info_window">
- *     <object class="GtkSourceCompletionInfo">
+ *     <object class="CtkSourceCompletionInfo">
  *       <property name="border_width">6</property>
  *     </object>
  *   </child>
@@ -93,8 +93,8 @@
  */
 
 /* Idea to improve the code: use a composite widget template. This class is not
- * a GtkWidget, so some refactoring needs to be done, to have a subclass of
- * GtkSourceCompletionInfo for the main completion window.
+ * a CtkWidget, so some refactoring needs to be done, to have a subclass of
+ * CtkSourceCompletionInfo for the main completion window.
  */
 
 #ifdef HAVE_CONFIG_H
@@ -142,47 +142,47 @@ enum
 	PROP_PROPOSAL_PAGE_SIZE
 };
 
-struct _GtkSourceCompletionPrivate
+struct _CtkSourceCompletionPrivate
 {
-	GtkSourceCompletionInfo *main_window;
-	GtkSourceCompletionInfo *info_window;
+	CtkSourceCompletionInfo *main_window;
+	CtkSourceCompletionInfo *info_window;
 
 	/* Bottom bar, containing the "Details" button and the selection image
 	 * and label. */
-	GtkWidget *bottom_bar;
+	CtkWidget *bottom_bar;
 
 	/* Image and label in the bottom bar, on the right, for showing which
 	 * provider(s) are selected. */
-	GtkImage *selection_image;
-	GtkLabel *selection_label;
+	CtkImage *selection_image;
+	CtkLabel *selection_label;
 
 	/* The default widget for the info window */
-	GtkLabel *default_info;
+	CtkLabel *default_info;
 
 	/* The "Details" button, for showing the info window */
-	GtkToggleButton *info_button;
+	CtkToggleButton *info_button;
 
 	/* List of proposals */
-	GtkTreeView *tree_view_proposals;
+	CtkTreeView *tree_view_proposals;
 
-	GtkCellRenderer *cell_renderer_proposal;
+	CtkCellRenderer *cell_renderer_proposal;
 
 	/* Completion management */
 
-	GtkSourceCompletionModel *model_proposals;
+	CtkSourceCompletionModel *model_proposals;
 
 	GList *providers;
 
-	GtkSourceCompletionContext *context;
+	CtkSourceCompletionContext *context;
 	GList *active_providers;
 	GList *running_providers;
 
 	guint show_timed_out_id;
 
-	GtkTextBuffer *buffer;
+	CtkTextBuffer *buffer;
 
 	GList *auto_completion_selection;
-	GtkSourceCompletionContext *auto_completion_context;
+	CtkSourceCompletionContext *auto_completion_context;
 
 	/* Number of times the interactive completion is blocked */
 	guint block_interactive_num;
@@ -192,7 +192,7 @@ struct _GtkSourceCompletionPrivate
 	/* Weak reference to the view. You must check if view != NULL before
 	 * using it.
 	 */
-	GtkSourceView *view;
+	CtkSourceView *view;
 	guint num_accelerators;
 	guint auto_complete_delay;
 	guint proposal_page_size;
@@ -206,19 +206,19 @@ struct _GtkSourceCompletionPrivate
 
 static guint signals[N_SIGNALS];
 
-static void	ctk_source_completion_buildable_interface_init (GtkBuildableIface *iface);
+static void	ctk_source_completion_buildable_interface_init (CtkBuildableIface *iface);
 
-G_DEFINE_TYPE_WITH_CODE (GtkSourceCompletion, ctk_source_completion, G_TYPE_OBJECT,
-			 G_ADD_PRIVATE (GtkSourceCompletion)
+G_DEFINE_TYPE_WITH_CODE (CtkSourceCompletion, ctk_source_completion, G_TYPE_OBJECT,
+			 G_ADD_PRIVATE (CtkSourceCompletion)
 			 G_IMPLEMENT_INTERFACE (CTK_TYPE_BUILDABLE,
 						ctk_source_completion_buildable_interface_init))
 
 static void
-scroll_to_iter (GtkSourceCompletion *completion,
-                GtkTreeIter         *iter)
+scroll_to_iter (CtkSourceCompletion *completion,
+                CtkTreeIter         *iter)
 {
-	GtkTreePath *path;
-	GtkTreeIter prev_iter = *iter;
+	CtkTreePath *path;
+	CtkTreeIter prev_iter = *iter;
 
 	path = ctk_tree_model_get_path (CTK_TREE_MODEL (completion->priv->model_proposals),
 					iter);
@@ -251,12 +251,12 @@ scroll_to_iter (GtkSourceCompletion *completion,
  * Call g_object_unref() on @provider and @proposal when no longer needed.
  */
 static gboolean
-get_selected_proposal (GtkSourceCompletion          *completion,
-		       GtkSourceCompletionProvider **provider,
-		       GtkSourceCompletionProposal **proposal)
+get_selected_proposal (CtkSourceCompletion          *completion,
+		       CtkSourceCompletionProvider **provider,
+		       CtkSourceCompletionProposal **proposal)
 {
-	GtkTreeIter iter;
-	GtkTreeSelection *selection;
+	CtkTreeIter iter;
+	CtkTreeSelection *selection;
 
 	selection = ctk_tree_view_get_selection (completion->priv->tree_view_proposals);
 
@@ -289,10 +289,10 @@ get_selected_proposal (GtkSourceCompletion          *completion,
 
 /* Returns %TRUE if the first proposal is selected. */
 static gboolean
-check_first_selected (GtkSourceCompletion *completion)
+check_first_selected (CtkSourceCompletion *completion)
 {
-	GtkTreeSelection *selection;
-	GtkTreeIter iter;
+	CtkTreeSelection *selection;
+	CtkTreeIter iter;
 
 	if (get_selected_proposal (completion, NULL, NULL) ||
 	    !completion->priv->select_on_show)
@@ -313,8 +313,8 @@ check_first_selected (GtkSourceCompletion *completion)
 }
 
 static void
-get_iter_at_insert (GtkSourceCompletion *completion,
-                    GtkTextIter         *iter)
+get_iter_at_insert (CtkSourceCompletion *completion,
+                    CtkTextIter         *iter)
 {
 	ctk_text_buffer_get_iter_at_mark (completion->priv->buffer,
 	                                  iter,
@@ -323,9 +323,9 @@ get_iter_at_insert (GtkSourceCompletion *completion,
 
 static GList *
 select_providers (GList                      *providers,
-                  GtkSourceCompletionContext *context)
+                  CtkSourceCompletionContext *context)
 {
-	GtkTextIter context_iter;
+	CtkTextIter context_iter;
 	GList *selection = NULL;
 	GList *l;
 
@@ -336,7 +336,7 @@ select_providers (GList                      *providers,
 
 	for (l = providers; l != NULL; l = l->next)
 	{
-		GtkSourceCompletionProvider *provider = l->data;
+		CtkSourceCompletionProvider *provider = l->data;
 
 		gboolean good_activation = (ctk_source_completion_provider_get_activation (provider) &
 					    ctk_source_completion_context_get_activation (context)) != 0;
@@ -352,14 +352,14 @@ select_providers (GList                      *providers,
 }
 
 static gint
-minimum_auto_complete_delay (GtkSourceCompletion *completion,
+minimum_auto_complete_delay (CtkSourceCompletion *completion,
                              GList               *providers)
 {
 	gint min_delay = completion->priv->auto_complete_delay;
 
 	while (providers != NULL)
 	{
-		GtkSourceCompletionProvider *provider = providers->data;
+		CtkSourceCompletionProvider *provider = providers->data;
 		gint delay = ctk_source_completion_provider_get_interactive_delay (provider);
 
 		if (0 <= delay && delay < min_delay)
@@ -374,7 +374,7 @@ minimum_auto_complete_delay (GtkSourceCompletion *completion,
 }
 
 static void
-reset_completion (GtkSourceCompletion *completion)
+reset_completion (CtkSourceCompletion *completion)
 {
 	if (completion->priv->show_timed_out_id != 0)
 	{
@@ -413,9 +413,9 @@ is_separator (const gunichar ch)
  * end position.
  */
 static void
-get_word_iter (GtkTextBuffer *buffer,
-	       GtkTextIter   *start_word,
-	       GtkTextIter   *end_word)
+get_word_iter (CtkTextBuffer *buffer,
+	       CtkTextIter   *start_word,
+	       CtkTextIter   *end_word)
 {
 	ctk_text_buffer_get_iter_at_mark (buffer,
 	                                  end_word,
@@ -436,11 +436,11 @@ get_word_iter (GtkTextBuffer *buffer,
 }
 
 static void
-replace_current_word (GtkTextBuffer *buffer,
+replace_current_word (CtkTextBuffer *buffer,
 		      const gchar   *new_text)
 {
-	GtkTextIter word_start;
-	GtkTextIter word_end;
+	CtkTextIter word_start;
+	CtkTextIter word_end;
 
 	get_word_iter (buffer, &word_start, &word_end);
 
@@ -457,11 +457,11 @@ replace_current_word (GtkTextBuffer *buffer,
 }
 
 static void
-update_window_position (GtkSourceCompletion *completion)
+update_window_position (CtkSourceCompletion *completion)
 {
-	GtkSourceCompletionProvider *provider;
-	GtkSourceCompletionProposal *proposal;
-	GtkTextIter iter;
+	CtkSourceCompletionProvider *provider;
+	CtkSourceCompletionProposal *proposal;
+	CtkTextIter iter;
 	gboolean iter_set = FALSE;
 
 	if (completion->priv->view == NULL)
@@ -483,7 +483,7 @@ update_window_position (GtkSourceCompletion *completion)
 
 	if (get_selected_proposal (completion, &provider, &proposal))
 	{
-		GtkTextIter context_iter;
+		CtkTextIter context_iter;
 		gboolean valid_context;
 
 		valid_context = ctk_source_completion_context_get_iter (completion->priv->context,
@@ -504,7 +504,7 @@ update_window_position (GtkSourceCompletion *completion)
 
 	if (!iter_set)
 	{
-		GtkTextIter end_word;
+		CtkTextIter end_word;
 		get_word_iter (completion->priv->buffer, &iter, &end_word);
 	}
 
@@ -514,10 +514,10 @@ update_window_position (GtkSourceCompletion *completion)
 }
 
 static void
-set_info_widget (GtkSourceCompletion *completion,
-		 GtkWidget           *new_widget)
+set_info_widget (CtkSourceCompletion *completion,
+		 CtkWidget           *new_widget)
 {
-	GtkWidget *cur_widget = ctk_bin_get_child (CTK_BIN (completion->priv->info_window));
+	CtkWidget *cur_widget = ctk_bin_get_child (CTK_BIN (completion->priv->info_window));
 
 	if (cur_widget == new_widget)
 	{
@@ -533,11 +533,11 @@ set_info_widget (GtkSourceCompletion *completion,
 }
 
 static void
-update_proposal_info_state (GtkSourceCompletion *completion)
+update_proposal_info_state (CtkSourceCompletion *completion)
 {
-	GtkSourceCompletionProvider *provider = NULL;
-	GtkSourceCompletionProposal *proposal = NULL;
-	GtkWidget *info_widget;
+	CtkSourceCompletionProvider *provider = NULL;
+	CtkSourceCompletionProposal *proposal = NULL;
+	CtkWidget *info_widget;
 
 	if (!get_selected_proposal (completion, &provider, &proposal))
 	{
@@ -579,7 +579,7 @@ update_proposal_info_state (GtkSourceCompletion *completion)
 }
 
 static void
-update_info_window_visibility (GtkSourceCompletion *completion)
+update_info_window_visibility (CtkSourceCompletion *completion)
 {
 	if (ctk_widget_get_sensitive (CTK_WIDGET (completion->priv->info_button)) &&
 	    ctk_toggle_button_get_active (completion->priv->info_button))
@@ -593,14 +593,14 @@ update_info_window_visibility (GtkSourceCompletion *completion)
 }
 
 static void
-update_proposal_info (GtkSourceCompletion *completion)
+update_proposal_info (CtkSourceCompletion *completion)
 {
 	update_proposal_info_state (completion);
 	update_info_window_visibility (completion);
 }
 
 static void
-ctk_source_completion_show_default (GtkSourceCompletion *completion)
+ctk_source_completion_show_default (CtkSourceCompletion *completion)
 {
 	if (completion->priv->view == NULL)
 	{
@@ -625,18 +625,18 @@ ctk_source_completion_show_default (GtkSourceCompletion *completion)
 }
 
 static void
-ctk_source_completion_hide_default (GtkSourceCompletion *completion)
+ctk_source_completion_hide_default (CtkSourceCompletion *completion)
 {
 	ctk_widget_hide (CTK_WIDGET (completion->priv->info_window));
 	ctk_widget_hide (CTK_WIDGET (completion->priv->main_window));
 }
 
 static void
-ctk_source_completion_proposals_size_allocate (GtkSourceCompletion *completion,
-					       GtkAllocation       *allocation,
-					       GtkWidget           *widget)
+ctk_source_completion_proposals_size_allocate (CtkSourceCompletion *completion,
+					       CtkAllocation       *allocation,
+					       CtkWidget           *widget)
 {
-	GtkTreeViewColumn *column;
+	CtkTreeViewColumn *column;
 	gint cell_offset = 0;
 	gint column_offset;
 	gint focus_padding;
@@ -678,12 +678,12 @@ ctk_source_completion_proposals_size_allocate (GtkSourceCompletion *completion,
 }
 
 static void
-ctk_source_completion_activate_proposal (GtkSourceCompletion *completion)
+ctk_source_completion_activate_proposal (CtkSourceCompletion *completion)
 {
-	GtkSourceCompletionProvider *provider = NULL;
-	GtkSourceCompletionProposal *proposal = NULL;
-	GtkTextIter insert_iter;
-	GtkTextIter context_iter;
+	CtkSourceCompletionProvider *provider = NULL;
+	CtkSourceCompletionProposal *proposal = NULL;
+	CtkTextIter insert_iter;
+	CtkTextIter context_iter;
 	gboolean valid_context;
 	gboolean activated;
 
@@ -709,7 +709,7 @@ ctk_source_completion_activate_proposal (GtkSourceCompletion *completion)
 
 	if (!activated && valid_context)
 	{
-		GtkTextIter start_iter;
+		CtkTextIter start_iter;
 		gchar *text = ctk_source_completion_proposal_get_text (proposal);
 
 		gboolean has_start = ctk_source_completion_provider_get_start_iter (provider,
@@ -741,7 +741,7 @@ ctk_source_completion_activate_proposal (GtkSourceCompletion *completion)
 }
 
 static void
-update_info_position (GtkSourceCompletion *completion)
+update_info_position (CtkSourceCompletion *completion)
 {
 	GdkDisplay *display;
 	GdkMonitor *monitor;
@@ -773,8 +773,8 @@ update_info_position (GtkSourceCompletion *completion)
 	ctk_window_move (CTK_WINDOW (completion->priv->info_window), x, y);
 }
 
-static GtkSourceCompletionProvider *
-get_visible_provider (GtkSourceCompletion *completion)
+static CtkSourceCompletionProvider *
+get_visible_provider (CtkSourceCompletion *completion)
 {
 	GList *visible = ctk_source_completion_model_get_visible_providers (completion->priv->model_proposals);
 
@@ -789,12 +789,12 @@ get_visible_provider (GtkSourceCompletion *completion)
 }
 
 static void
-get_num_visible_providers (GtkSourceCompletion *completion,
+get_num_visible_providers (CtkSourceCompletion *completion,
                            guint               *num,
                            guint               *current)
 {
 	GList *providers = ctk_source_completion_model_get_providers (completion->priv->model_proposals);
-	GtkSourceCompletionProvider *visible = get_visible_provider (completion);
+	CtkSourceCompletionProvider *visible = get_visible_provider (completion);
 
 	*num = g_list_length (providers);
 	*current = 0;
@@ -811,13 +811,13 @@ get_num_visible_providers (GtkSourceCompletion *completion,
 }
 
 static void
-update_selection_label (GtkSourceCompletion *completion)
+update_selection_label (CtkSourceCompletion *completion)
 {
 	guint pos;
 	guint num;
 	gchar *name;
 	gchar *selection_text;
-	GtkSourceCompletionProvider *visible;
+	CtkSourceCompletionProvider *visible;
 
 	get_num_visible_providers (completion, &num, &pos);
 
@@ -858,11 +858,11 @@ update_selection_label (GtkSourceCompletion *completion)
 }
 
 static gboolean
-get_next_iter (GtkSourceCompletion *completion,
+get_next_iter (CtkSourceCompletion *completion,
 	       gint                 num,
-	       GtkTreeIter         *iter)
+	       CtkTreeIter         *iter)
 {
-	GtkTreeSelection *selection;
+	CtkTreeSelection *selection;
 	gboolean has_selection;
 
 	selection = ctk_tree_view_get_selection (completion->priv->tree_view_proposals);
@@ -889,11 +889,11 @@ get_next_iter (GtkSourceCompletion *completion,
 }
 
 static gboolean
-get_previous_iter (GtkSourceCompletion *completion,
+get_previous_iter (CtkSourceCompletion *completion,
 		   gint                 num,
-		   GtkTreeIter         *iter)
+		   CtkTreeIter         *iter)
 {
-	GtkTreeSelection *selection;
+	CtkTreeSelection *selection;
 	gboolean has_selection;
 
 	selection = ctk_tree_view_get_selection (completion->priv->tree_view_proposals);
@@ -921,11 +921,11 @@ get_previous_iter (GtkSourceCompletion *completion,
 }
 
 static void
-ctk_source_completion_move_cursor (GtkSourceCompletion *completion,
-                                   GtkScrollStep        step,
+ctk_source_completion_move_cursor (CtkSourceCompletion *completion,
+                                   CtkScrollStep        step,
                                    gint                 num)
 {
-	GtkTreeIter iter;
+	CtkTreeIter iter;
 	gboolean ok;
 
 	if (step == CTK_SCROLL_ENDS)
@@ -960,7 +960,7 @@ ctk_source_completion_move_cursor (GtkSourceCompletion *completion,
 
 	if (ok)
 	{
-		GtkTreeSelection *selection;
+		CtkTreeSelection *selection;
 
 		selection = ctk_tree_view_get_selection (completion->priv->tree_view_proposals);
 		ctk_tree_selection_select_iter (selection, &iter);
@@ -970,7 +970,7 @@ ctk_source_completion_move_cursor (GtkSourceCompletion *completion,
 }
 
 static GList *
-get_last_provider (GtkSourceCompletion *completion)
+get_last_provider (CtkSourceCompletion *completion)
 {
 	GList *providers = ctk_source_completion_model_get_providers (completion->priv->model_proposals);
 	GList *ret;
@@ -1034,7 +1034,7 @@ providers_cycle_backward (GList *all_providers,
 }
 
 static GList *
-get_next_provider (GtkSourceCompletion *completion,
+get_next_provider (CtkSourceCompletion *completion,
 		   gint                 num)
 {
 	GList *providers;
@@ -1071,7 +1071,7 @@ get_next_provider (GtkSourceCompletion *completion,
 }
 
 static GList *
-get_previous_provider (GtkSourceCompletion *completion,
+get_previous_provider (CtkSourceCompletion *completion,
 		       gint                 num)
 {
 	GList *providers;
@@ -1108,8 +1108,8 @@ get_previous_provider (GtkSourceCompletion *completion,
 }
 
 static void
-ctk_source_completion_move_page (GtkSourceCompletion *completion,
-                                 GtkScrollStep        step,
+ctk_source_completion_move_page (CtkSourceCompletion *completion,
+                                 CtkScrollStep        step,
                                  gint                 num)
 {
 	GList *visible_providers = NULL;
@@ -1159,10 +1159,10 @@ ctk_source_completion_move_page (GtkSourceCompletion *completion,
 
 /* Begins at 0. Returns -1 if no accelerators available for @iter. */
 static gint
-get_accel_at_iter (GtkSourceCompletion *completion,
-                   GtkTreeIter         *iter)
+get_accel_at_iter (CtkSourceCompletion *completion,
+                   CtkTreeIter         *iter)
 {
-	GtkTreeIter it;
+	CtkTreeIter it;
 	guint accel;
 
 	if (ctk_source_completion_model_iter_is_header (completion->priv->model_proposals, iter))
@@ -1194,11 +1194,11 @@ get_accel_at_iter (GtkSourceCompletion *completion,
 }
 
 static void
-render_proposal_accelerator_func (GtkTreeViewColumn   *column,
-                                  GtkCellRenderer     *cell,
-                                  GtkTreeModel        *model,
-                                  GtkTreeIter         *iter,
-                                  GtkSourceCompletion *completion)
+render_proposal_accelerator_func (CtkTreeViewColumn   *column,
+                                  CtkCellRenderer     *cell,
+                                  CtkTreeModel        *model,
+                                  CtkTreeIter         *iter,
+                                  CtkSourceCompletion *completion)
 {
 	gint accel = get_accel_at_iter (completion, iter);
 	gchar *text = NULL;
@@ -1213,11 +1213,11 @@ render_proposal_accelerator_func (GtkTreeViewColumn   *column,
 }
 
 static gboolean
-activate_by_accelerator (GtkSourceCompletion *completion,
+activate_by_accelerator (CtkSourceCompletion *completion,
                          gint                 num)
 {
-	GtkTreeSelection *selection;
-	GtkTreeIter iter;
+	CtkTreeSelection *selection;
+	CtkTreeIter iter;
 	gint i;
 
 	if (completion->priv->num_accelerators == 0)
@@ -1253,8 +1253,8 @@ activate_by_accelerator (GtkSourceCompletion *completion,
 }
 
 static void
-selection_changed_cb (GtkTreeSelection    *selection,
-		      GtkSourceCompletion *completion)
+selection_changed_cb (CtkTreeSelection    *selection,
+		      CtkSourceCompletion *completion)
 {
 	update_proposal_info (completion);
 
@@ -1265,30 +1265,30 @@ selection_changed_cb (GtkTreeSelection    *selection,
 }
 
 static gboolean
-ctk_source_completion_configure_event (GtkWidget           *widget,
+ctk_source_completion_configure_event (CtkWidget           *widget,
                                        GdkEventConfigure   *event,
-                                       GtkSourceCompletion *completion)
+                                       CtkSourceCompletion *completion)
 {
 	update_info_position (completion);
 	return FALSE;
 }
 
 static gboolean
-hide_completion_cb (GtkSourceCompletion *completion)
+hide_completion_cb (CtkSourceCompletion *completion)
 {
 	ctk_source_completion_hide (completion);
 	return FALSE;
 }
 
 static gboolean
-view_key_press_event_cb (GtkSourceView       *view,
+view_key_press_event_cb (CtkSourceView       *view,
 			 GdkEventKey         *event,
-			 GtkSourceCompletion *completion)
+			 CtkSourceCompletion *completion)
 {
 	static gboolean mnemonic_keyval_set = FALSE;
 	static guint mnemonic_keyval = GDK_KEY_VoidSymbol;
 	GdkModifierType mod;
-	GtkBindingSet *binding_set;
+	CtkBindingSet *binding_set;
 
 	if (!ctk_widget_get_visible (CTK_WIDGET (completion->priv->main_window)))
 	{
@@ -1298,7 +1298,7 @@ view_key_press_event_cb (GtkSourceView       *view,
 	if (G_UNLIKELY (!mnemonic_keyval_set))
 	{
 		const gchar *label_text = ctk_button_get_label (CTK_BUTTON (completion->priv->info_button));
-		GtkWidget *label = ctk_label_new_with_mnemonic (label_text);
+		CtkWidget *label = ctk_label_new_with_mnemonic (label_text);
 		g_object_ref_sink (label);
 
 		mnemonic_keyval = ctk_label_get_mnemonic_keyval (CTK_LABEL (label));
@@ -1342,10 +1342,10 @@ view_key_press_event_cb (GtkSourceView       *view,
 }
 
 static void
-buffer_mark_set_cb (GtkTextBuffer       *buffer,
-                    GtkTextIter         *iter,
-                    GtkTextMark         *mark,
-                    GtkSourceCompletion *completion)
+buffer_mark_set_cb (CtkTextBuffer       *buffer,
+                    CtkTextIter         *iter,
+                    CtkTextMark         *mark,
+                    CtkSourceCompletion *completion)
 {
 	if (mark == ctk_text_buffer_get_insert (buffer))
 	{
@@ -1356,14 +1356,14 @@ buffer_mark_set_cb (GtkTextBuffer       *buffer,
 static void
 update_transient_for_info (GObject             *window,
                            GParamSpec          *spec,
-                           GtkSourceCompletion *completion)
+                           CtkSourceCompletion *completion)
 {
 	ctk_window_set_transient_for (CTK_WINDOW (completion->priv->info_window),
 				      ctk_window_get_transient_for (CTK_WINDOW (completion->priv->main_window)));
 }
 
 static void
-replace_model (GtkSourceCompletion *completion)
+replace_model (CtkSourceCompletion *completion)
 {
 	if (completion->priv->model_proposals != NULL)
 	{
@@ -1378,17 +1378,17 @@ replace_model (GtkSourceCompletion *completion)
 
 /* Takes ownership of @providers and @context. */
 static void
-update_completion (GtkSourceCompletion        *completion,
+update_completion (CtkSourceCompletion        *completion,
                    GList                      *providers,
-                   GtkSourceCompletionContext *context)
+                   CtkSourceCompletionContext *context)
 {
 	GList *item;
-	GtkTextIter context_iter;
+	CtkTextIter context_iter;
 	gboolean valid_context;
 
 	/* Copy the parameters, because they can be freed by reset_completion(). */
 	GList *providers_copy = g_list_copy (providers);
-	GtkSourceCompletionContext *context_copy = g_object_ref_sink (context);
+	CtkSourceCompletionContext *context_copy = g_object_ref_sink (context);
 
 	/* Make sure to first cancel any running completion */
 	reset_completion (completion);
@@ -1409,7 +1409,7 @@ update_completion (GtkSourceCompletion        *completion,
 	{
 		for (item = providers_copy; item != NULL; item = g_list_next (item))
 		{
-			GtkSourceCompletionProvider *provider = item->data;
+			CtkSourceCompletionProvider *provider = item->data;
 			ctk_source_completion_provider_populate (provider, context_copy);
 		}
 	}
@@ -1418,12 +1418,12 @@ update_completion (GtkSourceCompletion        *completion,
 }
 
 static gboolean
-auto_completion_final (GtkSourceCompletion *completion)
+auto_completion_final (CtkSourceCompletion *completion)
 {
 	/* Store and set to NULL because update_completion will cancel the last
 	   completion, which will also remove the timeout source which in turn
 	   would free these guys */
-	GtkSourceCompletionContext *context = completion->priv->auto_completion_context;
+	CtkSourceCompletionContext *context = completion->priv->auto_completion_context;
 	GList *selection = completion->priv->auto_completion_selection;
 
 	completion->priv->auto_completion_context = NULL;
@@ -1437,7 +1437,7 @@ auto_completion_final (GtkSourceCompletion *completion)
 }
 
 static void
-auto_completion_destroy (GtkSourceCompletion *completion)
+auto_completion_destroy (CtkSourceCompletion *completion)
 {
 	if (completion->priv->auto_completion_context != NULL)
 	{
@@ -1450,10 +1450,10 @@ auto_completion_destroy (GtkSourceCompletion *completion)
 }
 
 static void
-start_interactive_completion (GtkSourceCompletion *completion,
-			      GtkTextIter         *iter)
+start_interactive_completion (CtkSourceCompletion *completion,
+			      CtkTextIter         *iter)
 {
-	GtkSourceCompletionContext *context;
+	CtkSourceCompletionContext *context;
 	GList *providers;
 	gint delay;
 
@@ -1493,8 +1493,8 @@ start_interactive_completion (GtkSourceCompletion *completion,
 }
 
 static void
-update_active_completion (GtkSourceCompletion *completion,
-			  GtkTextIter         *new_iter)
+update_active_completion (CtkSourceCompletion *completion,
+			  CtkTextIter         *new_iter)
 {
 	GList *selected_providers;
 
@@ -1522,10 +1522,10 @@ update_active_completion (GtkSourceCompletion *completion,
 }
 
 static void
-buffer_delete_range_cb (GtkTextBuffer       *buffer,
-                        GtkTextIter         *start,
-                        GtkTextIter         *end,
-                        GtkSourceCompletion *completion)
+buffer_delete_range_cb (CtkTextBuffer       *buffer,
+                        CtkTextIter         *start,
+                        CtkTextIter         *end,
+                        CtkSourceCompletion *completion)
 {
 	if (completion->priv->context != NULL)
 	{
@@ -1534,11 +1534,11 @@ buffer_delete_range_cb (GtkTextBuffer       *buffer,
 }
 
 static void
-buffer_insert_text_cb (GtkTextBuffer       *buffer,
-                       GtkTextIter         *location,
+buffer_insert_text_cb (CtkTextBuffer       *buffer,
+                       CtkTextIter         *location,
                        gchar               *text,
                        gint                 len,
-                       GtkSourceCompletion *completion)
+                       CtkSourceCompletion *completion)
 {
 	if (completion->priv->context != NULL)
 	{
@@ -1551,7 +1551,7 @@ buffer_insert_text_cb (GtkTextBuffer       *buffer,
 }
 
 static void
-update_bottom_bar_visibility (GtkSourceCompletion *completion)
+update_bottom_bar_visibility (CtkSourceCompletion *completion)
 {
 	GList *providers;
 	guint nb_providers;
@@ -1577,8 +1577,8 @@ update_bottom_bar_visibility (GtkSourceCompletion *completion)
 }
 
 static void
-style_context_changed (GtkStyleContext     *style_context,
-		       GtkSourceCompletion *completion)
+style_context_changed (CtkStyleContext     *style_context,
+		       CtkSourceCompletion *completion)
 {
 	PangoFontDescription *font_desc = NULL;
 
@@ -1615,8 +1615,8 @@ style_context_changed (GtkStyleContext     *style_context,
 }
 
 static void
-populating_done (GtkSourceCompletion        *completion,
-                 GtkSourceCompletionContext *context)
+populating_done (CtkSourceCompletion        *completion,
+                 CtkSourceCompletionContext *context)
 {
 	if (ctk_source_completion_model_is_empty (completion->priv->model_proposals, TRUE))
 	{
@@ -1648,7 +1648,7 @@ populating_done (GtkSourceCompletion        *completion,
 static void
 ctk_source_completion_dispose (GObject *object)
 {
-	GtkSourceCompletion *completion = CTK_SOURCE_COMPLETION (object);
+	CtkSourceCompletion *completion = CTK_SOURCE_COMPLETION (object);
 
 	reset_completion (completion);
 
@@ -1689,7 +1689,7 @@ ctk_source_completion_dispose (GObject *object)
  * to keep the signal handler blocked on the new buffer.
  */
 static void
-block_interactive (GtkSourceCompletion *completion)
+block_interactive (CtkSourceCompletion *completion)
 {
 	g_signal_handlers_block_by_func (completion->priv->buffer,
 					 buffer_insert_text_cb,
@@ -1701,9 +1701,9 @@ block_interactive (GtkSourceCompletion *completion)
 }
 
 static void
-connect_buffer (GtkSourceCompletion *completion)
+connect_buffer (CtkSourceCompletion *completion)
 {
-	GtkTextBuffer *new_buffer = NULL;
+	CtkTextBuffer *new_buffer = NULL;
 
 	if (completion->priv->view != NULL)
 	{
@@ -1800,8 +1800,8 @@ connect_buffer (GtkSourceCompletion *completion)
 }
 
 static void
-connect_view (GtkSourceCompletion *completion,
-	      GtkSourceView       *view)
+connect_view (CtkSourceCompletion *completion,
+	      CtkSourceView       *view)
 {
 	g_assert (completion->priv->view == NULL);
 	completion->priv->view = view;
@@ -1854,7 +1854,7 @@ ctk_source_completion_get_property (GObject    *object,
 				    GValue     *value,
 				    GParamSpec *pspec)
 {
-	GtkSourceCompletion *completion;
+	CtkSourceCompletion *completion;
 
 	g_return_if_fail (CTK_SOURCE_IS_COMPLETION (object));
 
@@ -1901,7 +1901,7 @@ ctk_source_completion_set_property (GObject      *object,
 				    const GValue *value,
 				    GParamSpec   *pspec)
 {
-	GtkSourceCompletion *completion;
+	CtkSourceCompletion *completion;
 
 	g_return_if_fail (CTK_SOURCE_IS_COMPLETION (object));
 
@@ -1949,13 +1949,13 @@ ctk_source_completion_set_property (GObject      *object,
 }
 
 static gboolean
-selection_func (GtkTreeSelection    *selection,
-                GtkTreeModel        *model,
-                GtkTreePath         *path,
+selection_func (CtkTreeSelection    *selection,
+                CtkTreeModel        *model,
+                CtkTreePath         *path,
                 gboolean             path_currently_selected,
-                GtkSourceCompletion *completion)
+                CtkSourceCompletion *completion)
 {
-	GtkTreeIter iter;
+	CtkTreeIter iter;
 
 	ctk_tree_model_get_iter (model, &iter, path);
 
@@ -1973,18 +1973,18 @@ selection_func (GtkTreeSelection    *selection,
 }
 
 static void
-accelerators_notify_cb (GtkSourceCompletion *completion,
+accelerators_notify_cb (CtkSourceCompletion *completion,
 			GParamSpec          *pspec,
-			GtkTreeViewColumn   *column)
+			CtkTreeViewColumn   *column)
 {
 	ctk_tree_view_column_set_visible (column, completion->priv->num_accelerators > 0);
 }
 
 static void
-cell_icon_func (GtkTreeViewColumn *column,
-                GtkCellRenderer   *cell,
-                GtkTreeModel      *model,
-                GtkTreeIter       *iter,
+cell_icon_func (CtkTreeViewColumn *column,
+                CtkCellRenderer   *cell,
+                CtkTreeModel      *model,
+                CtkTreeIter       *iter,
                 gpointer           data)
 {
 	GdkPixbuf *pixbuf;
@@ -2026,13 +2026,13 @@ cell_icon_func (GtkTreeViewColumn *column,
 }
 
 static void
-init_tree_view (GtkSourceCompletion *completion,
-		GtkBuilder          *builder)
+init_tree_view (CtkSourceCompletion *completion,
+		CtkBuilder          *builder)
 {
-	GtkTreeSelection *selection;
-	GtkTreeViewColumn *column;
-	GtkCellRenderer *cell_renderer;
-	GtkStyleContext *style_context;
+	CtkTreeSelection *selection;
+	CtkTreeViewColumn *column;
+	CtkCellRenderer *cell_renderer;
+	CtkStyleContext *style_context;
 	GdkRGBA* background_color = NULL;
 	GdkRGBA foreground_color;
 
@@ -2053,7 +2053,7 @@ init_tree_view (GtkSourceCompletion *completion,
 	selection = ctk_tree_view_get_selection (completion->priv->tree_view_proposals);
 
 	ctk_tree_selection_set_select_function (selection,
-	                                        (GtkTreeSelectionFunc)selection_func,
+	                                        (CtkTreeSelectionFunc)selection_func,
 	                                        completion,
 	                                        NULL);
 
@@ -2142,7 +2142,7 @@ init_tree_view (GtkSourceCompletion *completion,
 
 	ctk_tree_view_column_set_cell_data_func (column,
 	                                         cell_renderer,
-	                                         (GtkTreeCellDataFunc)render_proposal_accelerator_func,
+	                                         (CtkTreeCellDataFunc)render_proposal_accelerator_func,
 	                                         completion,
 	                                         NULL);
 
@@ -2156,8 +2156,8 @@ init_tree_view (GtkSourceCompletion *completion,
 }
 
 static void
-init_main_window (GtkSourceCompletion *completion,
-		  GtkBuilder          *builder)
+init_main_window (CtkSourceCompletion *completion,
+		  CtkBuilder          *builder)
 {
 	if (completion->priv->view == NULL)
 	{
@@ -2202,7 +2202,7 @@ init_main_window (GtkSourceCompletion *completion,
 }
 
 static void
-init_info_window (GtkSourceCompletion *completion)
+init_info_window (CtkSourceCompletion *completion)
 {
 	completion->priv->info_window = ctk_source_completion_info_new ();
 	g_object_ref_sink (completion->priv->info_window);
@@ -2224,9 +2224,9 @@ init_info_window (GtkSourceCompletion *completion)
 }
 
 static void
-connect_style_context (GtkSourceCompletion *completion)
+connect_style_context (CtkSourceCompletion *completion)
 {
-	GtkStyleContext *style_context;
+	CtkStyleContext *style_context;
 
 	if (completion->priv->view == NULL)
 	{
@@ -2247,15 +2247,15 @@ connect_style_context (GtkSourceCompletion *completion)
 static void
 ctk_source_completion_constructed (GObject *object)
 {
-	GtkSourceCompletion *completion = CTK_SOURCE_COMPLETION (object);
+	CtkSourceCompletion *completion = CTK_SOURCE_COMPLETION (object);
 	GError *error = NULL;
-	GtkBuilder *builder = ctk_builder_new ();
-	GtkSourceCompletionContainer *container = _ctk_source_completion_container_new ();
+	CtkBuilder *builder = ctk_builder_new ();
+	CtkSourceCompletionContainer *container = _ctk_source_completion_container_new ();
 	g_object_ref_sink (container);
 
 	ctk_builder_set_translation_domain (builder, GETTEXT_PACKAGE);
 
-	/* GtkSourceCompletionContainer is a private type. */
+	/* CtkSourceCompletionContainer is a private type. */
 	ctk_builder_expose_object (builder, "completion_container", G_OBJECT (container));
 
 	ctk_builder_add_from_resource (builder,
@@ -2279,10 +2279,10 @@ ctk_source_completion_constructed (GObject *object)
 }
 
 static void
-ctk_source_completion_class_init (GtkSourceCompletionClass *klass)
+ctk_source_completion_class_init (CtkSourceCompletionClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
-	GtkBindingSet *binding_set;
+	CtkBindingSet *binding_set;
 
 	object_class->get_property = ctk_source_completion_get_property;
 	object_class->set_property = ctk_source_completion_set_property;
@@ -2297,22 +2297,22 @@ ctk_source_completion_class_init (GtkSourceCompletionClass *klass)
 	klass->activate_proposal = ctk_source_completion_activate_proposal;
 
 	/**
-	 * GtkSourceCompletion:view:
+	 * CtkSourceCompletion:view:
 	 *
-	 * The #GtkSourceView bound to the completion object.
+	 * The #CtkSourceView bound to the completion object.
 	 */
 	g_object_class_install_property (object_class,
 					 PROP_VIEW,
 					 g_param_spec_object ("view",
 							      "View",
-							      "The GtkSourceView bound to the completion",
+							      "The CtkSourceView bound to the completion",
 							      CTK_SOURCE_TYPE_VIEW,
 							      G_PARAM_READWRITE |
 							      G_PARAM_CONSTRUCT_ONLY |
 							      G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceCompletion:remember-info-visibility:
+	 * CtkSourceCompletion:remember-info-visibility:
 	 *
 	 * Determines whether the visibility of the info window should be
 	 * saved when the completion is hidden, and restored when the completion
@@ -2328,7 +2328,7 @@ ctk_source_completion_class_init (GtkSourceCompletionClass *klass)
 							       G_PARAM_CONSTRUCT |
 							       G_PARAM_STATIC_STRINGS));
 	/**
-	 * GtkSourceCompletion:select-on-show:
+	 * CtkSourceCompletion:select-on-show:
 	 *
 	 * Determines whether the first proposal should be selected when the
 	 * completion is first shown.
@@ -2344,7 +2344,7 @@ ctk_source_completion_class_init (GtkSourceCompletionClass *klass)
 							       G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceCompletion:show-headers:
+	 * CtkSourceCompletion:show-headers:
 	 *
 	 * Determines whether provider headers should be shown in the proposal
 	 * list. It can be useful to disable when there is only one provider.
@@ -2360,7 +2360,7 @@ ctk_source_completion_class_init (GtkSourceCompletionClass *klass)
 							       G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceCompletion:show-icons:
+	 * CtkSourceCompletion:show-icons:
 	 *
 	 * Determines whether provider and proposal icons should be shown in
 	 * the completion popup.
@@ -2376,7 +2376,7 @@ ctk_source_completion_class_init (GtkSourceCompletionClass *klass)
 							       G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceCompletion:accelerators:
+	 * CtkSourceCompletion:accelerators:
 	 *
 	 * Number of keyboard accelerators to show for the first proposals. For
 	 * example, to activate the first proposal, the user can press
@@ -2395,7 +2395,7 @@ ctk_source_completion_class_init (GtkSourceCompletionClass *klass)
 							    G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceCompletion:auto-complete-delay:
+	 * CtkSourceCompletion:auto-complete-delay:
 	 *
 	 * Determines the popup delay (in milliseconds) at which the completion
 	 * will be shown for interactive completion.
@@ -2413,11 +2413,11 @@ ctk_source_completion_class_init (GtkSourceCompletionClass *klass)
 							    G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceCompletion:provider-page-size:
+	 * CtkSourceCompletion:provider-page-size:
 	 *
 	 * The scroll page size of the provider pages in the completion window.
 	 *
-	 * See the #GtkSourceCompletion::move-page signal.
+	 * See the #CtkSourceCompletion::move-page signal.
 	 */
 	g_object_class_install_property (object_class,
 	                                 PROP_PROVIDER_PAGE_SIZE,
@@ -2432,7 +2432,7 @@ ctk_source_completion_class_init (GtkSourceCompletionClass *klass)
 							    G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceCompletion:proposal-page-size:
+	 * CtkSourceCompletion:proposal-page-size:
 	 *
 	 * The scroll page size of the proposals in the completion window. In
 	 * other words, when <keycap>PageDown</keycap> or
@@ -2440,7 +2440,7 @@ ctk_source_completion_class_init (GtkSourceCompletionClass *klass)
 	 * proposal becomes the one which is located one page size backward or
 	 * forward.
 	 *
-	 * See also the #GtkSourceCompletion::move-cursor signal.
+	 * See also the #CtkSourceCompletion::move-cursor signal.
 	 */
 	g_object_class_install_property (object_class,
 	                                 PROP_PROPOSAL_PAGE_SIZE,
@@ -2455,8 +2455,8 @@ ctk_source_completion_class_init (GtkSourceCompletionClass *klass)
 							    G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceCompletion::show:
-	 * @completion: The #GtkSourceCompletion who emits the signal
+	 * CtkSourceCompletion::show:
+	 * @completion: The #CtkSourceCompletion who emits the signal
 	 *
 	 * Emitted when the completion window is shown. The default handler
 	 * will actually show the window.
@@ -2465,7 +2465,7 @@ ctk_source_completion_class_init (GtkSourceCompletionClass *klass)
 		g_signal_new ("show",
 			      G_TYPE_FROM_CLASS (klass),
 			      G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
-			      G_STRUCT_OFFSET (GtkSourceCompletionClass, show),
+			      G_STRUCT_OFFSET (CtkSourceCompletionClass, show),
 			      NULL, NULL,
 			      g_cclosure_marshal_VOID__VOID,
 			      G_TYPE_NONE, 0);
@@ -2475,8 +2475,8 @@ ctk_source_completion_class_init (GtkSourceCompletionClass *klass)
 
 
 	/**
-	 * GtkSourceCompletion::hide:
-	 * @completion: The #GtkSourceCompletion who emits the signal
+	 * CtkSourceCompletion::hide:
+	 * @completion: The #CtkSourceCompletion who emits the signal
 	 *
 	 * Emitted when the completion window is hidden. The default handler
 	 * will actually hide the window.
@@ -2485,7 +2485,7 @@ ctk_source_completion_class_init (GtkSourceCompletionClass *klass)
 		g_signal_new ("hide",
 			      G_TYPE_FROM_CLASS (klass),
 			      G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
-			      G_STRUCT_OFFSET (GtkSourceCompletionClass, hide),
+			      G_STRUCT_OFFSET (CtkSourceCompletionClass, hide),
 			      NULL, NULL,
 			      g_cclosure_marshal_VOID__VOID,
 			      G_TYPE_NONE, 0);
@@ -2494,9 +2494,9 @@ ctk_source_completion_class_init (GtkSourceCompletionClass *klass)
 	                            g_cclosure_marshal_VOID__VOIDv);
 
 	/**
-	 * GtkSourceCompletion::populate-context:
-	 * @completion: The #GtkSourceCompletion who emits the signal
-	 * @context: The #GtkSourceCompletionContext for the current completion
+	 * CtkSourceCompletion::populate-context:
+	 * @completion: The #CtkSourceCompletion who emits the signal
+	 * @context: The #CtkSourceCompletionContext for the current completion
 	 *
 	 * Emitted just before starting to populate the completion with providers.
 	 * You can use this signal to add additional attributes in the context.
@@ -2505,7 +2505,7 @@ ctk_source_completion_class_init (GtkSourceCompletionClass *klass)
 		g_signal_new ("populate-context",
 		              G_TYPE_FROM_CLASS (klass),
 		              G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
-		              G_STRUCT_OFFSET (GtkSourceCompletionClass, populate_context),
+		              G_STRUCT_OFFSET (CtkSourceCompletionClass, populate_context),
 		              NULL, NULL,
 		              g_cclosure_marshal_VOID__OBJECT,
 		              G_TYPE_NONE,
@@ -2518,12 +2518,12 @@ ctk_source_completion_class_init (GtkSourceCompletionClass *klass)
 	/* Actions */
 
 	/**
-	 * GtkSourceCompletion::move-cursor:
-	 * @completion: The #GtkSourceCompletion who emits the signal
-	 * @step: The #GtkScrollStep by which to move the cursor
+	 * CtkSourceCompletion::move-cursor:
+	 * @completion: The #CtkSourceCompletion who emits the signal
+	 * @step: The #CtkScrollStep by which to move the cursor
 	 * @num: The amount of steps to move the cursor
 	 *
-	 * The #GtkSourceCompletion::move-cursor signal is a keybinding
+	 * The #CtkSourceCompletion::move-cursor signal is a keybinding
 	 * signal which gets emitted when the user initiates a cursor
 	 * movement.
 	 *
@@ -2533,7 +2533,7 @@ ctk_source_completion_class_init (GtkSourceCompletionClass *klass)
 	 * normal behavior expected by those keys.
 	 *
 	 * When @step is equal to %CTK_SCROLL_PAGES, the page size is defined by
-	 * the #GtkSourceCompletion:proposal-page-size property. It is used for
+	 * the #CtkSourceCompletion:proposal-page-size property. It is used for
 	 * the <keycap>PageDown</keycap> and <keycap>PageUp</keycap> keys.
 	 *
 	 * Applications should not connect to it, but may emit it with
@@ -2544,7 +2544,7 @@ ctk_source_completion_class_init (GtkSourceCompletionClass *klass)
 		g_signal_new ("move-cursor",
 			      G_TYPE_FROM_CLASS (klass),
 			      G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
-			      G_STRUCT_OFFSET (GtkSourceCompletionClass, move_cursor),
+			      G_STRUCT_OFFSET (CtkSourceCompletionClass, move_cursor),
 			      NULL, NULL,
 			      _ctk_source_marshal_VOID__ENUM_INT,
 			      G_TYPE_NONE,
@@ -2556,12 +2556,12 @@ ctk_source_completion_class_init (GtkSourceCompletionClass *klass)
 	                            _ctk_source_marshal_VOID__ENUM_INTv);
 
 	/**
-	 * GtkSourceCompletion::move-page:
-	 * @completion: The #GtkSourceCompletion who emits the signal
-	 * @step: The #GtkScrollStep by which to move the page
+	 * CtkSourceCompletion::move-page:
+	 * @completion: The #CtkSourceCompletion who emits the signal
+	 * @step: The #CtkScrollStep by which to move the page
 	 * @num: The amount of steps to move the page
 	 *
-	 * The #GtkSourceCompletion::move-page signal is a keybinding
+	 * The #CtkSourceCompletion::move-page signal is a keybinding
 	 * signal which gets emitted when the user initiates a page
 	 * movement (i.e. switches between provider pages).
 	 *
@@ -2575,7 +2575,7 @@ ctk_source_completion_class_init (GtkSourceCompletionClass *klass)
 	 * is for going to the last provider.
 	 *
 	 * When @step is equal to #CTK_SCROLL_PAGES, the page size is defined by
-	 * the #GtkSourceCompletion:provider-page-size property.
+	 * the #CtkSourceCompletion:provider-page-size property.
 	 *
 	 * Applications should not connect to it, but may emit it with
 	 * g_signal_emit_by_name() if they need to control the page selection
@@ -2585,7 +2585,7 @@ ctk_source_completion_class_init (GtkSourceCompletionClass *klass)
 		g_signal_new ("move-page",
 			      G_TYPE_FROM_CLASS (klass),
 			      G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
-			      G_STRUCT_OFFSET (GtkSourceCompletionClass, move_page),
+			      G_STRUCT_OFFSET (CtkSourceCompletionClass, move_page),
 			      NULL, NULL,
 			      _ctk_source_marshal_VOID__ENUM_INT,
 			      G_TYPE_NONE,
@@ -2597,10 +2597,10 @@ ctk_source_completion_class_init (GtkSourceCompletionClass *klass)
 	                            _ctk_source_marshal_VOID__ENUM_INTv);
 
 	/**
-	 * GtkSourceCompletion::activate-proposal:
-	 * @completion: The #GtkSourceCompletion who emits the signal
+	 * CtkSourceCompletion::activate-proposal:
+	 * @completion: The #CtkSourceCompletion who emits the signal
 	 *
-	 * The #GtkSourceCompletion::activate-proposal signal is a
+	 * The #CtkSourceCompletion::activate-proposal signal is a
 	 * keybinding signal which gets emitted when the user initiates
 	 * a proposal activation.
 	 *
@@ -2612,7 +2612,7 @@ ctk_source_completion_class_init (GtkSourceCompletionClass *klass)
 		g_signal_new ("activate-proposal",
 			      G_TYPE_FROM_CLASS (klass),
 			      G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
-			      G_STRUCT_OFFSET (GtkSourceCompletionClass, activate_proposal),
+			      G_STRUCT_OFFSET (CtkSourceCompletionClass, activate_proposal),
 			      NULL, NULL,
 			      g_cclosure_marshal_VOID__VOID,
 			      G_TYPE_NONE, 0);
@@ -2725,17 +2725,17 @@ ctk_source_completion_class_init (GtkSourceCompletionClass *klass)
 }
 
 static void
-ctk_source_completion_init (GtkSourceCompletion *completion)
+ctk_source_completion_init (CtkSourceCompletion *completion)
 {
 	completion->priv = ctk_source_completion_get_instance_private (completion);
 }
 
 static GObject *
-ctk_source_completion_buildable_get_internal_child (GtkBuildable *buildable,
-						    GtkBuilder   *builder,
+ctk_source_completion_buildable_get_internal_child (CtkBuildable *buildable,
+						    CtkBuilder   *builder,
 						    const gchar  *childname)
 {
-	GtkSourceCompletion *completion = CTK_SOURCE_COMPLETION (buildable);
+	CtkSourceCompletion *completion = CTK_SOURCE_COMPLETION (buildable);
 
 	if (g_strcmp0 (childname, "info_window") == 0)
 	{
@@ -2746,15 +2746,15 @@ ctk_source_completion_buildable_get_internal_child (GtkBuildable *buildable,
 }
 
 static void
-ctk_source_completion_buildable_interface_init (GtkBuildableIface *iface)
+ctk_source_completion_buildable_interface_init (CtkBuildableIface *iface)
 {
 	iface->get_internal_child = ctk_source_completion_buildable_get_internal_child;
 }
 
 void
-_ctk_source_completion_add_proposals (GtkSourceCompletion         *completion,
-                                      GtkSourceCompletionContext  *context,
-                                      GtkSourceCompletionProvider *provider,
+_ctk_source_completion_add_proposals (CtkSourceCompletion         *completion,
+                                      CtkSourceCompletionContext  *context,
+                                      CtkSourceCompletionProvider *provider,
                                       GList                       *proposals,
                                       gboolean                     finished)
 {
@@ -2788,17 +2788,17 @@ _ctk_source_completion_add_proposals (GtkSourceCompletion         *completion,
 
 /**
  * ctk_source_completion_start:
- * @completion: a #GtkSourceCompletion.
- * @providers: (element-type GtkSource.CompletionProvider) (nullable):
- * a list of #GtkSourceCompletionProvider, or %NULL.
- * @context: (transfer floating): The #GtkSourceCompletionContext
+ * @completion: a #CtkSourceCompletion.
+ * @providers: (element-type CtkSource.CompletionProvider) (nullable):
+ * a list of #CtkSourceCompletionProvider, or %NULL.
+ * @context: (transfer floating): The #CtkSourceCompletionContext
  * with which to start the completion.
  *
- * Starts a new completion with the specified #GtkSourceCompletionContext and
+ * Starts a new completion with the specified #CtkSourceCompletionContext and
  * a list of potential candidate providers for completion.
  *
  * It can be convenient for showing a completion on-the-fly, without the need to
- * add or remove providers to the #GtkSourceCompletion.
+ * add or remove providers to the #CtkSourceCompletion.
  *
  * Another solution is to add providers with
  * ctk_source_completion_add_provider(), and implement
@@ -2807,9 +2807,9 @@ _ctk_source_completion_add_proposals (GtkSourceCompletion         *completion,
  * Returns: %TRUE if it was possible to the show completion window.
  */
 gboolean
-ctk_source_completion_start (GtkSourceCompletion        *completion,
+ctk_source_completion_start (CtkSourceCompletion        *completion,
 			     GList                      *providers,
-			     GtkSourceCompletionContext *context)
+			     CtkSourceCompletionContext *context)
 {
 	GList *selected_providers;
 
@@ -2857,16 +2857,16 @@ ctk_source_completion_start (GtkSourceCompletion        *completion,
 
 /**
  * ctk_source_completion_get_providers:
- * @completion: a #GtkSourceCompletion.
+ * @completion: a #CtkSourceCompletion.
  *
  * Get list of providers registered on @completion. The returned list is owned
  * by the completion and should not be freed.
  *
- * Returns: (element-type GtkSource.CompletionProvider) (transfer none):
- * list of #GtkSourceCompletionProvider.
+ * Returns: (element-type CtkSource.CompletionProvider) (transfer none):
+ * list of #CtkSourceCompletionProvider.
  */
 GList *
-ctk_source_completion_get_providers (GtkSourceCompletion *completion)
+ctk_source_completion_get_providers (CtkSourceCompletion *completion)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION (completion), NULL);
 	return completion->priv->providers;
@@ -2887,14 +2887,14 @@ ctk_source_completion_error_quark (void)
 
 /**
  * ctk_source_completion_new:
- * @view: a #GtkSourceView.
+ * @view: a #CtkSourceView.
  *
- * Creates a new #GtkSourceCompletion associated with @view.
+ * Creates a new #CtkSourceCompletion associated with @view.
  *
- * Returns: a new #GtkSourceCompletion.
+ * Returns: a new #CtkSourceCompletion.
  */
-GtkSourceCompletion *
-ctk_source_completion_new (GtkSourceView *view)
+CtkSourceCompletion *
+ctk_source_completion_new (CtkSourceView *view)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_VIEW (view), NULL);
 
@@ -2905,11 +2905,11 @@ ctk_source_completion_new (GtkSourceView *view)
 
 /**
  * ctk_source_completion_add_provider:
- * @completion: a #GtkSourceCompletion.
- * @provider: a #GtkSourceCompletionProvider.
+ * @completion: a #CtkSourceCompletion.
+ * @provider: a #CtkSourceCompletionProvider.
  * @error: a #GError.
  *
- * Add a new #GtkSourceCompletionProvider to the completion object. This will
+ * Add a new #CtkSourceCompletionProvider to the completion object. This will
  * add a reference @provider, so make sure to unref your own copy when you
  * no longer need it.
  *
@@ -2917,8 +2917,8 @@ ctk_source_completion_new (GtkSourceView *view)
  *          is provided, it will be set with the error and %FALSE is returned.
  */
 gboolean
-ctk_source_completion_add_provider (GtkSourceCompletion          *completion,
-				    GtkSourceCompletionProvider  *provider,
+ctk_source_completion_add_provider (CtkSourceCompletion          *completion,
+				    CtkSourceCompletionProvider  *provider,
 				    GError                      **error)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION (completion), FALSE);
@@ -2950,8 +2950,8 @@ ctk_source_completion_add_provider (GtkSourceCompletion          *completion,
 
 /**
  * ctk_source_completion_remove_provider:
- * @completion: a #GtkSourceCompletion.
- * @provider: a #GtkSourceCompletionProvider.
+ * @completion: a #CtkSourceCompletion.
+ * @provider: a #CtkSourceCompletionProvider.
  * @error: a #GError.
  *
  * Remove @provider from the completion.
@@ -2960,8 +2960,8 @@ ctk_source_completion_add_provider (GtkSourceCompletion          *completion,
  *          is provided, it will be set with the error and %FALSE is returned.
  */
 gboolean
-ctk_source_completion_remove_provider (GtkSourceCompletion          *completion,
-				       GtkSourceCompletionProvider  *provider,
+ctk_source_completion_remove_provider (CtkSourceCompletion          *completion,
+				       CtkSourceCompletionProvider  *provider,
 				       GError                      **error)
 {
 	GList *item;
@@ -2998,12 +2998,12 @@ ctk_source_completion_remove_provider (GtkSourceCompletion          *completion,
 
 /**
  * ctk_source_completion_hide:
- * @completion: a #GtkSourceCompletion.
+ * @completion: a #CtkSourceCompletion.
  *
  * Hides the completion if it is active (visible).
  */
 void
-ctk_source_completion_hide (GtkSourceCompletion *completion)
+ctk_source_completion_hide (CtkSourceCompletion *completion)
 {
 	g_return_if_fail (CTK_SOURCE_IS_COMPLETION (completion));
 
@@ -3017,16 +3017,16 @@ ctk_source_completion_hide (GtkSourceCompletion *completion)
 
 /**
  * ctk_source_completion_get_info_window:
- * @completion: a #GtkSourceCompletion.
+ * @completion: a #CtkSourceCompletion.
  *
  * The info widget is the window where the completion displays optional extra
  * information of the proposal.
  *
- * Returns: (transfer none): The #GtkSourceCompletionInfo window
+ * Returns: (transfer none): The #CtkSourceCompletionInfo window
  *                           associated with @completion.
  */
-GtkSourceCompletionInfo *
-ctk_source_completion_get_info_window (GtkSourceCompletion *completion)
+CtkSourceCompletionInfo *
+ctk_source_completion_get_info_window (CtkSourceCompletion *completion)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION (completion), NULL);
 
@@ -3035,16 +3035,16 @@ ctk_source_completion_get_info_window (GtkSourceCompletion *completion)
 
 /**
  * ctk_source_completion_get_view:
- * @completion: a #GtkSourceCompletion.
+ * @completion: a #CtkSourceCompletion.
  *
- * The #GtkSourceView associated with @completion, or %NULL if the view has been
+ * The #CtkSourceView associated with @completion, or %NULL if the view has been
  * destroyed.
  *
- * Returns: (nullable) (transfer none): The #GtkSourceView associated with
+ * Returns: (nullable) (transfer none): The #CtkSourceView associated with
  * @completion, or %NULL.
  */
-GtkSourceView *
-ctk_source_completion_get_view (GtkSourceCompletion *completion)
+CtkSourceView *
+ctk_source_completion_get_view (CtkSourceCompletion *completion)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION (completion), NULL);
 
@@ -3053,23 +3053,23 @@ ctk_source_completion_get_view (GtkSourceCompletion *completion)
 
 /**
  * ctk_source_completion_create_context:
- * @completion: a #GtkSourceCompletion.
- * @position: (nullable): a #GtkTextIter, or %NULL.
+ * @completion: a #CtkSourceCompletion.
+ * @position: (nullable): a #CtkTextIter, or %NULL.
  *
- * Create a new #GtkSourceCompletionContext for @completion. The position where
+ * Create a new #CtkSourceCompletionContext for @completion. The position where
  * the completion occurs can be specified by @position. If @position is %NULL,
  * the current cursor position will be used.
  *
- * Returns: (transfer floating): a new #GtkSourceCompletionContext.
+ * Returns: (transfer floating): a new #CtkSourceCompletionContext.
  * The reference being returned is a 'floating' reference,
  * so if you invoke ctk_source_completion_start() with this context
  * you don't need to unref it.
  */
-GtkSourceCompletionContext *
-ctk_source_completion_create_context (GtkSourceCompletion *completion,
-                                      GtkTextIter         *position)
+CtkSourceCompletionContext *
+ctk_source_completion_create_context (CtkSourceCompletion *completion,
+                                      CtkTextIter         *position)
 {
-	GtkTextIter iter;
+	CtkTextIter iter;
 
 	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION (completion), NULL);
 
@@ -3092,7 +3092,7 @@ ctk_source_completion_create_context (GtkSourceCompletion *completion,
 
 /**
  * ctk_source_completion_block_interactive:
- * @completion: a #GtkSourceCompletion.
+ * @completion: a #CtkSourceCompletion.
  *
  * Block interactive completion. This can be used to disable interactive
  * completion when inserting or deleting text from the buffer associated with
@@ -3104,7 +3104,7 @@ ctk_source_completion_create_context (GtkSourceCompletion *completion,
  * has been called the same number of times.
  */
 void
-ctk_source_completion_block_interactive (GtkSourceCompletion *completion)
+ctk_source_completion_block_interactive (CtkSourceCompletion *completion)
 {
 	g_return_if_fail (CTK_SOURCE_IS_COMPLETION (completion));
 
@@ -3123,14 +3123,14 @@ ctk_source_completion_block_interactive (GtkSourceCompletion *completion)
 
 /**
  * ctk_source_completion_unblock_interactive:
- * @completion: a #GtkSourceCompletion.
+ * @completion: a #CtkSourceCompletion.
  *
  * Unblock interactive completion. This can be used after using
  * ctk_source_completion_block_interactive() to enable interactive completion
  * again.
  */
 void
-ctk_source_completion_unblock_interactive (GtkSourceCompletion *completion)
+ctk_source_completion_unblock_interactive (CtkSourceCompletion *completion)
 {
 	g_return_if_fail (CTK_SOURCE_IS_COMPLETION (completion));
 

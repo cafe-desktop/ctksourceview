@@ -1,15 +1,15 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*- */
 /*
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2009 - Emmanuel Rodriguez
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -24,9 +24,9 @@
 static void
 test_buffer_ref (void)
 {
-	GtkSourcePrintCompositor *compositor;
-	GtkSourceBuffer *buffer = NULL;
-	GtkSourceBuffer *buffer_original = NULL;
+	CtkSourcePrintCompositor *compositor;
+	CtkSourceBuffer *buffer = NULL;
+	CtkSourceBuffer *buffer_original = NULL;
 
 	buffer_original = ctk_source_buffer_new (NULL);
 
@@ -42,9 +42,9 @@ test_buffer_ref (void)
 static void
 test_buffer_view_ref (void)
 {
-	GtkSourcePrintCompositor *compositor;
-	GtkWidget *view = NULL;
-	GtkSourceBuffer *buffer = NULL;
+	CtkSourcePrintCompositor *compositor;
+	CtkWidget *view = NULL;
+	CtkSourceBuffer *buffer = NULL;
 
 	view = ctk_source_view_new ();
 	compositor = ctk_source_print_compositor_new_from_view (CTK_SOURCE_VIEW (view));

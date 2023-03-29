@@ -83,8 +83,8 @@ msgid "Source Buffer"
 msgstr "Mənbə Buferi"
 
 #: ctksourceview/ctksourceprintjob.c:273
-msgid "GtkSourceBuffer object to print"
-msgstr "Çap ediləcək GtkSourceBuffer obyekti"
+msgid "CtkSourceBuffer object to print"
+msgstr "Çap ediləcək CtkSourceBuffer obyekti"
 
 #: ctksourceview/ctksourceprintjob.c:279 ctksourceview/ctksourceview.c:222
 #: ctksourceview/ctksourceview.c:223
@@ -1479,7 +1479,7 @@ msgid "Reserved Constant"
 msgstr ""
 
 #: ctksourceview/language-specs/ctkrc.lang.h:3
-msgid "GtkRC"
+msgid "CtkRC"
 msgstr ""
 
 #: ctksourceview/language-specs/ctkrc.lang.h:4

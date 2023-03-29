@@ -47,8 +47,8 @@ msgid "Disabled"
 msgstr "Desactiváu"
 
 #: ../data/glade/ctksourceview.xml.in.h:7
-msgid "GtkSourceView"
-msgstr "GtkSourceView"
+msgid "CtkSourceView"
+msgstr "CtkSourceView"
 
 #: ../data/glade/ctksourceview.xml.in.h:8
 msgid "Leading"
@@ -655,13 +655,13 @@ msgstr "Nome"
 #. *
 #. * SECTION:language
 #. * @Short_description: Object representing a syntax highlighted language
-#. * @Title: GtkSourceLanguage
-#. * @See_also: #GtkSourceLanguageManager
+#. * @Title: CtkSourceLanguage
+#. * @See_also: #CtkSourceLanguageManager
 #. *
-#. * #GtkSourceLanguage encapsulates syntax and highlighting styles for a
-#. * particular language. Use #GtkSourceLanguageManager to obtain a
-#. * #GtkSourceLanguage instance, and ctk_source_buffer_set_language() to apply it
-#. * to a #GtkSourceBuffer.
+#. * #CtkSourceLanguage encapsulates syntax and highlighting styles for a
+#. * particular language. Use #CtkSourceLanguageManager to obtain a
+#. * #CtkSourceLanguage instance, and ctk_source_buffer_set_language() to apply it
+#. * to a #CtkSourceBuffer.
 #.
 #: ../data/language-specs/changelog.lang.h:8
 #: ../data/language-specs/cmake.lang.h:7 ../data/language-specs/css.lang.h:12
@@ -1308,8 +1308,8 @@ msgid "ctk-doc"
 msgstr "ctk-doc"
 
 #: ../data/language-specs/ctkrc.lang.h:5
-msgid "GtkRC"
-msgstr "GtkRC"
+msgid "CtkRC"
+msgstr "CtkRC"
 
 #: ../data/language-specs/ctkrc.lang.h:6
 msgid "Include directive"
@@ -2282,7 +2282,7 @@ msgstr "Nivel máximu de desfacer"
 msgid "Number of undo levels for the buffer"
 msgstr "Númberu de niveles de desfacer pal búfer"
 
-#. Translators: throughout GtkSourceView "language" stands
+#. Translators: throughout CtkSourceView "language" stands
 #. * for "programming language", not "spoken language"
 #: ../ctksourceview/ctksourcebuffer.c:275
 msgid "Language"
@@ -2332,8 +2332,8 @@ msgid "View"
 msgstr "Ver"
 
 #: ../ctksourceview/ctksourcecompletion.c:2225
-msgid "The GtkSourceView bound to the completion"
-msgstr "La GtkSourceView vinculada col completáu"
+msgid "The CtkSourceView bound to the completion"
+msgstr "La CtkSourceView vinculada col completáu"
 
 #: ../ctksourceview/ctksourcecompletion.c:2240
 msgid "Remember Info Visibility"
@@ -2417,14 +2417,14 @@ msgstr "Completáu"
 msgid "The completion object to which the context belongs"
 msgstr "L'oxetu de completáu al que pertenez el contestu"
 
-#. Translators: The GtkTextIter at which the completion was invoked
+#. Translators: The CtkTextIter at which the completion was invoked
 #: ../ctksourceview/ctksourcecompletioncontext.c:247
 msgid "Iterator"
 msgstr "Iterador"
 
 #: ../ctksourceview/ctksourcecompletioncontext.c:248
-msgid "The GtkTextIter at which the completion was invoked"
-msgstr "El GtkTextIter nel que s'invocó'l completáu"
+msgid "The CtkTextIter at which the completion was invoked"
+msgstr "El CtkTextIter nel que s'invocó'l completáu"
 
 #: ../ctksourceview/ctksourcecompletioncontext.c:260
 msgid "Activation"
@@ -2528,8 +2528,8 @@ msgid "Missing main language definition (id = \"%s\".)"
 msgstr "Falta la definición de llinguax principal (id = «%s».)"
 
 #: ../ctksourceview/ctksourcegutter.c:548
-msgid "The gutters' GtkSourceView"
-msgstr "Les canales de GtkSourceView"
+msgid "The gutters' CtkSourceView"
+msgstr "Les canales de CtkSourceView"
 
 #: ../ctksourceview/ctksourcegutter.c:560
 #: ../ctksourceview/ctksourcegutterrenderer.c:703
@@ -2735,8 +2735,8 @@ msgid "Source Buffer"
 msgstr "Búfer del fonte"
 
 #: ../ctksourceview/ctksourceprintcompositor.c:443
-msgid "The GtkSourceBuffer object to print"
-msgstr "L'oxetu GtkSourceBuffer pa imprentar"
+msgid "The CtkSourceBuffer object to print"
+msgstr "L'oxetu CtkSourceBuffer pa imprentar"
 
 #: ../ctksourceview/ctksourceprintcompositor.c:460
 #: ../ctksourceview/ctksourceview.c:344

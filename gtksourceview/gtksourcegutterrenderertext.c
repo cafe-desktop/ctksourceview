@@ -1,15 +1,15 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*-
  *
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2010 - Jesse van den Kieboom
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -27,14 +27,14 @@
 /**
  * SECTION:gutterrenderertext
  * @Short_description: Renders text in the gutter
- * @Title: GtkSourceGutterRendererText
- * @See_also: #GtkSourceGutterRenderer, #GtkSourceGutter
+ * @Title: CtkSourceGutterRendererText
+ * @See_also: #CtkSourceGutterRenderer, #CtkSourceGutter
  *
- * A #GtkSourceGutterRendererText can be used to render text in a cell of
- * #GtkSourceGutter.
+ * A #CtkSourceGutterRendererText can be used to render text in a cell of
+ * #CtkSourceGutter.
  */
 
-struct _GtkSourceGutterRendererTextPrivate
+struct _CtkSourceGutterRendererTextPrivate
 {
 	gchar *text;
 
@@ -43,7 +43,7 @@ struct _GtkSourceGutterRendererTextPrivate
 	guint is_markup : 1;
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceGutterRendererText, ctk_source_gutter_renderer_text, CTK_SOURCE_TYPE_GUTTER_RENDERER)
+G_DEFINE_TYPE_WITH_PRIVATE (CtkSourceGutterRendererText, ctk_source_gutter_renderer_text, CTK_SOURCE_TYPE_GUTTER_RENDERER)
 
 enum
 {
@@ -53,15 +53,15 @@ enum
 };
 
 static void
-gutter_renderer_text_begin (GtkSourceGutterRenderer *renderer,
+gutter_renderer_text_begin (CtkSourceGutterRenderer *renderer,
 			    cairo_t                 *cr,
 			    GdkRectangle            *background_area,
 			    GdkRectangle            *cell_area,
-			    GtkTextIter             *start,
-			    GtkTextIter             *end)
+			    CtkTextIter             *start,
+			    CtkTextIter             *end)
 {
-	GtkSourceGutterRendererText *text = CTK_SOURCE_GUTTER_RENDERER_TEXT (renderer);
-	GtkTextView *view;
+	CtkSourceGutterRendererText *text = CTK_SOURCE_GUTTER_RENDERER_TEXT (renderer);
+	CtkTextView *view;
 
 	view = ctk_source_gutter_renderer_get_view (renderer);
 
@@ -80,9 +80,9 @@ gutter_renderer_text_begin (GtkSourceGutterRenderer *renderer,
 }
 
 static void
-center_on (GtkTextView  *view,
+center_on (CtkTextView  *view,
            GdkRectangle *cell_area,
-           GtkTextIter  *iter,
+           CtkTextIter  *iter,
            gint          width,
            gint          height,
            gfloat        xalign,
@@ -99,24 +99,24 @@ center_on (GtkTextView  *view,
 }
 
 static void
-gutter_renderer_text_draw (GtkSourceGutterRenderer      *renderer,
+gutter_renderer_text_draw (CtkSourceGutterRenderer      *renderer,
 			   cairo_t                      *cr,
 			   GdkRectangle                 *background_area,
 			   GdkRectangle                 *cell_area,
-			   GtkTextIter                  *start,
-			   GtkTextIter                  *end,
-			   GtkSourceGutterRendererState  state)
+			   CtkTextIter                  *start,
+			   CtkTextIter                  *end,
+			   CtkSourceGutterRendererState  state)
 {
-	GtkSourceGutterRendererText *text = CTK_SOURCE_GUTTER_RENDERER_TEXT (renderer);
-	GtkTextView *view;
+	CtkSourceGutterRendererText *text = CTK_SOURCE_GUTTER_RENDERER_TEXT (renderer);
+	CtkTextView *view;
 	gint width;
 	gint height;
 	gfloat xalign;
 	gfloat yalign;
-	GtkSourceGutterRendererAlignmentMode mode;
+	CtkSourceGutterRendererAlignmentMode mode;
 	gint x = 0;
 	gint y = 0;
-	GtkStyleContext *context;
+	CtkStyleContext *context;
 
 	/* Chain up to draw background */
 	if (CTK_SOURCE_GUTTER_RENDERER_CLASS (ctk_source_gutter_renderer_text_parent_class)->draw != NULL)
@@ -201,9 +201,9 @@ gutter_renderer_text_draw (GtkSourceGutterRenderer      *renderer,
 }
 
 static void
-gutter_renderer_text_end (GtkSourceGutterRenderer *renderer)
+gutter_renderer_text_end (CtkSourceGutterRenderer *renderer)
 {
-	GtkSourceGutterRendererText *text = CTK_SOURCE_GUTTER_RENDERER_TEXT (renderer);
+	CtkSourceGutterRendererText *text = CTK_SOURCE_GUTTER_RENDERER_TEXT (renderer);
 
 	g_clear_object (&text->priv->cached_layout);
 
@@ -214,13 +214,13 @@ gutter_renderer_text_end (GtkSourceGutterRenderer *renderer)
 }
 
 static void
-measure_text (GtkSourceGutterRendererText *renderer,
+measure_text (CtkSourceGutterRendererText *renderer,
               const gchar                 *markup,
               const gchar                 *text,
               gint                        *width,
               gint                        *height)
 {
-	GtkTextView *view;
+	CtkTextView *view;
 	PangoLayout *layout;
 
 	view = ctk_source_gutter_renderer_get_view (CTK_SOURCE_GUTTER_RENDERER (renderer));
@@ -243,7 +243,7 @@ measure_text (GtkSourceGutterRendererText *renderer,
 
 /**
  * ctk_source_gutter_renderer_text_measure:
- * @renderer: a #GtkSourceGutterRendererText.
+ * @renderer: a #CtkSourceGutterRendererText.
  * @text: the text to measure.
  * @width: (out) (optional): location to store the width of the text in pixels,
  *   or %NULL.
@@ -251,10 +251,10 @@ measure_text (GtkSourceGutterRendererText *renderer,
  *   pixels, or %NULL.
  *
  * Measures the text provided using the pango layout used by the
- * #GtkSourceGutterRendererText.
+ * #CtkSourceGutterRendererText.
  */
 void
-ctk_source_gutter_renderer_text_measure (GtkSourceGutterRendererText *renderer,
+ctk_source_gutter_renderer_text_measure (CtkSourceGutterRendererText *renderer,
                                          const gchar                 *text,
                                          gint                        *width,
                                          gint                        *height)
@@ -267,7 +267,7 @@ ctk_source_gutter_renderer_text_measure (GtkSourceGutterRendererText *renderer,
 
 /**
  * ctk_source_gutter_renderer_text_measure_markup:
- * @renderer: a #GtkSourceGutterRendererText.
+ * @renderer: a #CtkSourceGutterRendererText.
  * @markup: the pango markup to measure.
  * @width: (out) (optional): location to store the width of the text in pixels,
  *   or %NULL.
@@ -275,10 +275,10 @@ ctk_source_gutter_renderer_text_measure (GtkSourceGutterRendererText *renderer,
  *   pixels, or %NULL.
  *
  * Measures the pango markup provided using the pango layout used by the
- * #GtkSourceGutterRendererText.
+ * #CtkSourceGutterRendererText.
  */
 void
-ctk_source_gutter_renderer_text_measure_markup (GtkSourceGutterRendererText *renderer,
+ctk_source_gutter_renderer_text_measure_markup (CtkSourceGutterRendererText *renderer,
                                                 const gchar                 *markup,
                                                 gint                        *width,
                                                 gint                        *height)
@@ -292,7 +292,7 @@ ctk_source_gutter_renderer_text_measure_markup (GtkSourceGutterRendererText *ren
 static void
 ctk_source_gutter_renderer_text_finalize (GObject *object)
 {
-	GtkSourceGutterRendererText *renderer = CTK_SOURCE_GUTTER_RENDERER_TEXT (object);
+	CtkSourceGutterRendererText *renderer = CTK_SOURCE_GUTTER_RENDERER_TEXT (object);
 
 	g_free (renderer->priv->text);
 	g_clear_object (&renderer->priv->cached_layout);
@@ -301,7 +301,7 @@ ctk_source_gutter_renderer_text_finalize (GObject *object)
 }
 
 static void
-set_text (GtkSourceGutterRendererText *renderer,
+set_text (CtkSourceGutterRendererText *renderer,
           const gchar                 *text,
           gint                         length,
           gboolean                     is_markup)
@@ -318,7 +318,7 @@ ctk_source_gutter_renderer_text_set_property (GObject      *object,
                                               const GValue *value,
                                               GParamSpec   *pspec)
 {
-	GtkSourceGutterRendererText *renderer;
+	CtkSourceGutterRendererText *renderer;
 
 	renderer = CTK_SOURCE_GUTTER_RENDERER_TEXT (object);
 
@@ -342,7 +342,7 @@ ctk_source_gutter_renderer_text_get_property (GObject    *object,
                                               GValue     *value,
                                               GParamSpec *pspec)
 {
-	GtkSourceGutterRendererText *renderer;
+	CtkSourceGutterRendererText *renderer;
 
 	renderer = CTK_SOURCE_GUTTER_RENDERER_TEXT (object);
 
@@ -361,10 +361,10 @@ ctk_source_gutter_renderer_text_get_property (GObject    *object,
 }
 
 static void
-ctk_source_gutter_renderer_text_class_init (GtkSourceGutterRendererTextClass *klass)
+ctk_source_gutter_renderer_text_class_init (CtkSourceGutterRendererTextClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
-	GtkSourceGutterRendererClass *renderer_class = CTK_SOURCE_GUTTER_RENDERER_CLASS (klass);
+	CtkSourceGutterRendererClass *renderer_class = CTK_SOURCE_GUTTER_RENDERER_CLASS (klass);
 
 	object_class->finalize = ctk_source_gutter_renderer_text_finalize;
 
@@ -393,7 +393,7 @@ ctk_source_gutter_renderer_text_class_init (GtkSourceGutterRendererTextClass *kl
 }
 
 static void
-ctk_source_gutter_renderer_text_init (GtkSourceGutterRendererText *self)
+ctk_source_gutter_renderer_text_init (CtkSourceGutterRendererText *self)
 {
 	self->priv = ctk_source_gutter_renderer_text_get_instance_private (self);
 
@@ -403,19 +403,19 @@ ctk_source_gutter_renderer_text_init (GtkSourceGutterRendererText *self)
 /**
  * ctk_source_gutter_renderer_text_new:
  *
- * Create a new #GtkSourceGutterRendererText.
+ * Create a new #CtkSourceGutterRendererText.
  *
- * Returns: (transfer full): A #GtkSourceGutterRenderer
+ * Returns: (transfer full): A #CtkSourceGutterRenderer
  *
  **/
-GtkSourceGutterRenderer *
+CtkSourceGutterRenderer *
 ctk_source_gutter_renderer_text_new (void)
 {
 	return g_object_new (CTK_SOURCE_TYPE_GUTTER_RENDERER_TEXT, NULL);
 }
 
 void
-ctk_source_gutter_renderer_text_set_markup (GtkSourceGutterRendererText *renderer,
+ctk_source_gutter_renderer_text_set_markup (CtkSourceGutterRendererText *renderer,
                                             const gchar                 *markup,
                                             gint                         length)
 {
@@ -425,7 +425,7 @@ ctk_source_gutter_renderer_text_set_markup (GtkSourceGutterRendererText *rendere
 }
 
 void
-ctk_source_gutter_renderer_text_set_text (GtkSourceGutterRendererText *renderer,
+ctk_source_gutter_renderer_text_set_text (CtkSourceGutterRendererText *renderer,
                                           const gchar                 *text,
                                           gint                         length)
 {

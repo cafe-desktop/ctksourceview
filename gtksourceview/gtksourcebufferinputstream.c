@@ -1,16 +1,16 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*- */
 /*
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2010 - Ignacio Casal Quinteiro
  * Copyright (C) 2014 - Sébastien Wilmet <swilmet@gnome.org>
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -30,19 +30,19 @@
 #include "ctksource-enumtypes.h"
 
 /* NOTE: never use async methods on this stream, the stream is just
- * a wrapper around GtkTextBuffer api so that we can use GIO Stream
- * methods, but the underlying code operates on a GtkTextBuffer, so
+ * a wrapper around CtkTextBuffer api so that we can use GIO Stream
+ * methods, but the underlying code operates on a CtkTextBuffer, so
  * there is no I/O involved and should be accessed only by the main
  * thread.
  */
 
-struct _GtkSourceBufferInputStreamPrivate
+struct _CtkSourceBufferInputStreamPrivate
 {
-	GtkTextBuffer *buffer;
-	GtkTextMark *pos;
+	CtkTextBuffer *buffer;
+	CtkTextMark *pos;
 	gint bytes_partial;
 
-	GtkSourceNewlineType newline_type;
+	CtkSourceNewlineType newline_type;
 
 	guint newline_added : 1;
 	guint is_initialized : 1;
@@ -57,10 +57,10 @@ enum
 	PROP_ADD_TRAILING_NEWLINE
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceBufferInputStream, _ctk_source_buffer_input_stream, G_TYPE_INPUT_STREAM);
+G_DEFINE_TYPE_WITH_PRIVATE (CtkSourceBufferInputStream, _ctk_source_buffer_input_stream, G_TYPE_INPUT_STREAM);
 
 static gsize
-get_new_line_size (GtkSourceBufferInputStream *stream)
+get_new_line_size (CtkSourceBufferInputStream *stream)
 {
 	switch (stream->priv->newline_type)
 	{
@@ -80,7 +80,7 @@ get_new_line_size (GtkSourceBufferInputStream *stream)
 }
 
 static const gchar *
-get_new_line (GtkSourceBufferInputStream *stream)
+get_new_line (CtkSourceBufferInputStream *stream)
 {
 	switch (stream->priv->newline_type)
 	{
@@ -102,11 +102,11 @@ get_new_line (GtkSourceBufferInputStream *stream)
 }
 
 static gsize
-read_line (GtkSourceBufferInputStream *stream,
+read_line (CtkSourceBufferInputStream *stream,
 	   gchar                      *outbuf,
 	   gsize                       space_left)
 {
-	GtkTextIter start, next, end;
+	CtkTextIter start, next, end;
 	gchar *buf;
 	gint bytes; /* int since it's what iter_get_offset returns */
 	gsize bytes_to_write, newline_size, read;
@@ -234,8 +234,8 @@ _ctk_source_buffer_input_stream_read (GInputStream  *input_stream,
 				      GCancellable  *cancellable,
 				      GError       **error)
 {
-	GtkSourceBufferInputStream *stream;
-	GtkTextIter iter;
+	CtkSourceBufferInputStream *stream;
+	CtkTextIter iter;
 	gssize space_left, read, n;
 
 	stream = CTK_SOURCE_BUFFER_INPUT_STREAM (input_stream);
@@ -315,7 +315,7 @@ _ctk_source_buffer_input_stream_close (GInputStream  *input_stream,
 				       GCancellable  *cancellable,
 				       GError       **error)
 {
-	GtkSourceBufferInputStream *stream = CTK_SOURCE_BUFFER_INPUT_STREAM (input_stream);
+	CtkSourceBufferInputStream *stream = CTK_SOURCE_BUFFER_INPUT_STREAM (input_stream);
 
 	stream->priv->newline_added = FALSE;
 
@@ -334,7 +334,7 @@ _ctk_source_buffer_input_stream_set_property (GObject      *object,
 					      const GValue *value,
 					      GParamSpec   *pspec)
 {
-	GtkSourceBufferInputStream *stream = CTK_SOURCE_BUFFER_INPUT_STREAM (object);
+	CtkSourceBufferInputStream *stream = CTK_SOURCE_BUFFER_INPUT_STREAM (object);
 
 	switch (prop_id)
 	{
@@ -363,7 +363,7 @@ _ctk_source_buffer_input_stream_get_property (GObject    *object,
 					  GValue     *value,
 					  GParamSpec *pspec)
 {
-	GtkSourceBufferInputStream *stream = CTK_SOURCE_BUFFER_INPUT_STREAM (object);
+	CtkSourceBufferInputStream *stream = CTK_SOURCE_BUFFER_INPUT_STREAM (object);
 
 	switch (prop_id)
 	{
@@ -388,7 +388,7 @@ _ctk_source_buffer_input_stream_get_property (GObject    *object,
 static void
 _ctk_source_buffer_input_stream_dispose (GObject *object)
 {
-	GtkSourceBufferInputStream *stream = CTK_SOURCE_BUFFER_INPUT_STREAM (object);
+	CtkSourceBufferInputStream *stream = CTK_SOURCE_BUFFER_INPUT_STREAM (object);
 
 	g_clear_object (&stream->priv->buffer);
 
@@ -396,7 +396,7 @@ _ctk_source_buffer_input_stream_dispose (GObject *object)
 }
 
 static void
-_ctk_source_buffer_input_stream_class_init (GtkSourceBufferInputStreamClass *klass)
+_ctk_source_buffer_input_stream_class_init (CtkSourceBufferInputStreamClass *klass)
 {
 	GObjectClass *gobject_class = G_OBJECT_CLASS (klass);
 	GInputStreamClass *stream_class = G_INPUT_STREAM_CLASS (klass);
@@ -411,7 +411,7 @@ _ctk_source_buffer_input_stream_class_init (GtkSourceBufferInputStreamClass *kla
 	g_object_class_install_property (gobject_class,
 					 PROP_BUFFER,
 					 g_param_spec_object ("buffer",
-							      "GtkTextBuffer",
+							      "CtkTextBuffer",
 							      "",
 							      CTK_TYPE_TEXT_BUFFER,
 							      G_PARAM_READWRITE |
@@ -419,7 +419,7 @@ _ctk_source_buffer_input_stream_class_init (GtkSourceBufferInputStreamClass *kla
 							      G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceBufferInputStream:newline-type:
+	 * CtkSourceBufferInputStream:newline-type:
 	 *
 	 * The :newline-type property determines what is considered
 	 * as a line ending when reading complete lines from the stream.
@@ -436,7 +436,7 @@ _ctk_source_buffer_input_stream_class_init (GtkSourceBufferInputStreamClass *kla
 							    G_PARAM_CONSTRUCT_ONLY));
 
 	/**
-	 * GtkSourceBufferInputStream:add-trailing-newline:
+	 * CtkSourceBufferInputStream:add-trailing-newline:
 	 *
 	 * The :add-trailing-newline property specifies whether or not to
 	 * add a trailing newline when reading the buffer.
@@ -453,22 +453,22 @@ _ctk_source_buffer_input_stream_class_init (GtkSourceBufferInputStreamClass *kla
 }
 
 static void
-_ctk_source_buffer_input_stream_init (GtkSourceBufferInputStream *stream)
+_ctk_source_buffer_input_stream_init (CtkSourceBufferInputStream *stream)
 {
 	stream->priv = _ctk_source_buffer_input_stream_get_instance_private (stream);
 }
 
 /**
  * _ctk_source_buffer_input_stream_new:
- * @buffer: a #GtkTextBuffer
+ * @buffer: a #CtkTextBuffer
  *
  * Reads the data from @buffer.
  *
  * Returns: a new input stream to read @buffer
  */
-GtkSourceBufferInputStream *
-_ctk_source_buffer_input_stream_new (GtkTextBuffer        *buffer,
-				     GtkSourceNewlineType  type,
+CtkSourceBufferInputStream *
+_ctk_source_buffer_input_stream_new (CtkTextBuffer        *buffer,
+				     CtkSourceNewlineType  type,
 				     gboolean              add_trailing_newline)
 {
 	g_return_val_if_fail (CTK_IS_TEXT_BUFFER (buffer), NULL);
@@ -481,7 +481,7 @@ _ctk_source_buffer_input_stream_new (GtkTextBuffer        *buffer,
 }
 
 gsize
-_ctk_source_buffer_input_stream_get_total_size (GtkSourceBufferInputStream *stream)
+_ctk_source_buffer_input_stream_get_total_size (CtkSourceBufferInputStream *stream)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER_INPUT_STREAM (stream), 0);
 
@@ -494,7 +494,7 @@ _ctk_source_buffer_input_stream_get_total_size (GtkSourceBufferInputStream *stre
 }
 
 gsize
-_ctk_source_buffer_input_stream_tell (GtkSourceBufferInputStream *stream)
+_ctk_source_buffer_input_stream_tell (CtkSourceBufferInputStream *stream)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER_INPUT_STREAM (stream), 0);
 
@@ -508,7 +508,7 @@ _ctk_source_buffer_input_stream_tell (GtkSourceBufferInputStream *stream)
 	}
 	else
 	{
-		GtkTextIter iter;
+		CtkTextIter iter;
 
 		ctk_text_buffer_get_iter_at_mark (stream->priv->buffer,
 						  &iter,

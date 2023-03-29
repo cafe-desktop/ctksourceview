@@ -194,8 +194,8 @@ msgstr "প্রদর্শন"
 
 # Translated by sadia
 #: ../ctksourceview/ctksourcecompletion.c:2230
-msgid "The GtkSourceView bound to the completion"
-msgstr "GtkSourceBuffer, সম্পূর্ণকরণের জন্য দায়ী "
+msgid "The CtkSourceView bound to the completion"
+msgstr "CtkSourceBuffer, সম্পূর্ণকরণের জন্য দায়ী "
 
 # Translated by sadia
 #: ../ctksourceview/ctksourcecompletion.c:2245
@@ -295,15 +295,15 @@ msgid "The completion object to which the context belongs"
 msgstr "সম্পূর্ণকরণের অবজেক্ট যার সাথে মূল প্রসঙ্গ সম্পর্কিত"
 
 # Translated by sadia
-#. Translators: The GtkTextIter at which the completion was invoked
+#. Translators: The CtkTextIter at which the completion was invoked
 #: ../ctksourceview/ctksourcecompletioncontext.c:258
 msgid "Iterator"
 msgstr "আইটিরেটর"
 
 # Translated by sadia
 #: ../ctksourceview/ctksourcecompletioncontext.c:259
-msgid "The GtkTextIter at which the completion was invoked"
-msgstr "GtkTextIter, যেখানে সম্পূর্ণকরণের জন্য সাহায্য প্রার্থনা করা হয়"
+msgid "The CtkTextIter at which the completion was invoked"
+msgstr "CtkTextIter, যেখানে সম্পূর্ণকরণের জন্য সাহায্য প্রার্থনা করা হয়"
 
 # Translated by sadia
 #: ../ctksourceview/ctksourcecompletioncontext.c:271
@@ -485,8 +485,8 @@ msgstr "ভাষার প্রধান ব্যাখ্যা অনুপ
 
 # Translated by sadia
 #: ../ctksourceview/ctksourcegutter.c:370
-msgid "The gutters' GtkSourceView"
-msgstr "gutter-এর  GtkSourceView"
+msgid "The gutters' CtkSourceView"
+msgstr "gutter-এর  CtkSourceView"
 
 #: ../ctksourceview/ctksourcegutter.c:382
 msgid "Window Type"
@@ -500,13 +500,13 @@ msgstr "gutter-এর পাঠ্য উইন্ডোর ধরণ"
 #. *
 #. * SECTION:language
 #. * @Short_description: Object representing a syntax highlighted language
-#. * @Title: GtkSourceLanguage
-#. * @See_also: #GtkSourceLanguageManager
+#. * @Title: CtkSourceLanguage
+#. * @See_also: #CtkSourceLanguageManager
 #. *
-#. * #GtkSourceLanguage encapsulates syntax and highlighting styles for a
-#. * particular language. Use #GtkSourceLanguageManager to obtain a
-#. * #GtkSourceLanguage instance, and ctk_source_buffer_set_language() to apply it
-#. * to a #GtkSourceBuffer.
+#. * #CtkSourceLanguage encapsulates syntax and highlighting styles for a
+#. * particular language. Use #CtkSourceLanguageManager to obtain a
+#. * #CtkSourceLanguage instance, and ctk_source_buffer_set_language() to apply it
+#. * to a #CtkSourceBuffer.
 #.
 #: ../ctksourceview/ctksourcelanguage.c:54
 #: ../ctksourceview/language-specs/changelog.lang.h:8
@@ -595,8 +595,8 @@ msgid "Source Buffer"
 msgstr "সোর্স বাফার"
 
 #: ../ctksourceview/ctksourceprintcompositor.c:447
-msgid "The GtkSourceBuffer object to print"
-msgstr "মুদ্রণ করার জন্য চিহ্নিত GtkSourceBuffer অবজেক্ট"
+msgid "The CtkSourceBuffer object to print"
+msgstr "মুদ্রণ করার জন্য চিহ্নিত CtkSourceBuffer অবজেক্ট"
 
 #: ../ctksourceview/ctksourceprintcompositor.c:464
 #: ../ctksourceview/ctksourceview.c:362
@@ -2157,8 +2157,8 @@ msgid "ctk-doc"
 msgstr "ctk-doc"
 
 #: ../ctksourceview/language-specs/ctkrc.lang.h:5
-msgid "GtkRC"
-msgstr "GtkRC"
+msgid "CtkRC"
+msgstr "CtkRC"
 
 #: ../ctksourceview/language-specs/ctkrc.lang.h:6
 msgid "Include directive"
@@ -2906,5 +2906,5 @@ msgid "token-type"
 msgstr "টোকেনের-ধরণ"
 
 # Translated by sadia
-#~ msgid "The GtkSourceView"
-#~ msgstr "GtkSourceView"
+#~ msgid "The CtkSourceView"
+#~ msgstr "CtkSourceView"

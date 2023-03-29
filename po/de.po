@@ -1,6 +1,6 @@
-# German GtkSourceView translation.
+# German CtkSourceView translation.
 # Copyright (C) 2002-2005 Free Software Foundation, Inc.
-# This file is distributed under the same license as the GtkSourceView package.
+# This file is distributed under the same license as the CtkSourceView package.
 # Christian Neumair <chris@gnome-de.org>, 2003, 2004.
 # Hendrik Richter <hendrikr@gnome.org>, 2005-2008.
 # Hendrik Brandt <heb@gnome-de.org>, 2007.
@@ -14,7 +14,7 @@
 # To.Ba. <->, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: GtkSourceView master\n"
+"Project-Id-Version: CtkSourceView master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/ctksourceview/issues\n"
 "POT-Creation-Date: 2018-08-07 20:12+0000\n"
 "PO-Revision-Date: 2018-08-08 11:36+0200\n"
@@ -558,13 +558,13 @@ msgid "Unknown"
 msgstr "Unbekannt"
 
 #. Translators: This is the sorted list of encodings used by
-#. * GtkSourceView for automatic detection of the file encoding. You may
+#. * CtkSourceView for automatic detection of the file encoding. You may
 #. * want to customize it adding encodings that are common in your
 #. * country, for instance the GB18030 encoding for the Chinese
 #. * translation. You may also want to remove the ISO-8859-15 encoding
 #. * (covering English and most Western European languages) if you think
 #. * people in your country will rarely use it.  "CURRENT" is a magic
-#. * value used by GtkSourceView and it represents the encoding for the
+#. * value used by CtkSourceView and it represents the encoding for the
 #. * current locale, so please don't translate the "CURRENT" term.  Only
 #. * recognized encodings are used. See
 #. * https://gitlab.gnome.org/GNOME/ctksourceview/blob/master/ctksourceview/ctksourceencoding.c#L142
@@ -602,14 +602,14 @@ msgstr "Der Puffer beinhaltet ungültige Zeichen."
 #. *
 #. * SECTION:language
 #. * @Short_description: Represents a syntax highlighted language
-#. * @Title: GtkSourceLanguage
-#. * @See_also: #GtkSourceLanguageManager
+#. * @Title: CtkSourceLanguage
+#. * @See_also: #CtkSourceLanguageManager
 #. *
-#. * A #GtkSourceLanguage represents a programming or markup language, affecting
+#. * A #CtkSourceLanguage represents a programming or markup language, affecting
 #. * syntax highlighting and [context classes][context-classes].
 #. *
-#. * Use #GtkSourceLanguageManager to obtain a #GtkSourceLanguage instance, and
-#. * ctk_source_buffer_set_language() to apply it to a #GtkSourceBuffer.
+#. * Use #CtkSourceLanguageManager to obtain a #CtkSourceLanguage instance, and
+#. * ctk_source_buffer_set_language() to apply it to a #CtkSourceBuffer.
 #.
 #: ctksourceview/ctksourcelanguage.c:56
 msgid "Others"
@@ -1378,8 +1378,8 @@ msgstr "_Groß-/Kleinschreibung ändern"
 #~ msgid "Deprecated"
 #~ msgstr "Veraltet"
 
-#~ msgid "GtkRC"
-#~ msgstr "GtkRC"
+#~ msgid "CtkRC"
+#~ msgstr "CtkRC"
 
 #~ msgid "Widget State"
 #~ msgstr "Widget-Status"

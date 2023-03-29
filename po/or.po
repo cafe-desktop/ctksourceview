@@ -52,9 +52,9 @@ msgid "Disabled"
 msgstr "ନିଷ୍କ୍ରିୟ କରାଯାଇଛି"
 
 #: ../data/glade/ctksourceview.xml.in.h:6
-#| msgid "The gutters' GtkSourceView"
-msgid "GtkSourceView"
-msgstr "GtkSourceView"
+#| msgid "The gutters' CtkSourceView"
+msgid "CtkSourceView"
+msgstr "CtkSourceView"
 
 #: ../data/glade/ctksourceview.xml.in.h:7
 #| msgid "POD heading"
@@ -572,13 +572,13 @@ msgstr "ନାମ"
 #. *
 #. * SECTION:language
 #. * @Short_description: Object representing a syntax highlighted language
-#. * @Title: GtkSourceLanguage
-#. * @See_also: #GtkSourceLanguageManager
+#. * @Title: CtkSourceLanguage
+#. * @See_also: #CtkSourceLanguageManager
 #. *
-#. * #GtkSourceLanguage encapsulates syntax and highlighting styles for a
-#. * particular language. Use #GtkSourceLanguageManager to obtain a
-#. * #GtkSourceLanguage instance, and ctk_source_buffer_set_language() to apply it
-#. * to a #GtkSourceBuffer.
+#. * #CtkSourceLanguage encapsulates syntax and highlighting styles for a
+#. * particular language. Use #CtkSourceLanguageManager to obtain a
+#. * #CtkSourceLanguage instance, and ctk_source_buffer_set_language() to apply it
+#. * to a #CtkSourceBuffer.
 #.
 #: ../data/language-specs/changelog.lang.h:8
 #: ../data/language-specs/cmake.lang.h:7 ../data/language-specs/css.lang.h:10
@@ -1223,8 +1223,8 @@ msgid "ctk-doc"
 msgstr "ctk-doc"
 
 #: ../data/language-specs/ctkrc.lang.h:5
-msgid "GtkRC"
-msgstr "GtkRC"
+msgid "CtkRC"
+msgstr "CtkRC"
 
 #: ../data/language-specs/ctkrc.lang.h:6
 msgid "Include directive"
@@ -2080,7 +2080,7 @@ msgstr "ସର୍ବାଧିକ ପଦକ୍ଷେପ ବାତିଲ ସ୍ତ
 msgid "Number of undo levels for the buffer"
 msgstr "ବଫର ପାଇଁ ପଦକ୍ଷେପ ବାତିଲ ସଂଖ୍ୟା"
 
-#. Translators: throughout GtkSourceView "language" stands
+#. Translators: throughout CtkSourceView "language" stands
 #. * for "programming language", not "spoken language"
 #: ../ctksourceview/ctksourcebuffer.c:264
 msgid "Language"
@@ -2131,9 +2131,9 @@ msgstr "ଦୃଶ୍ଯ"
 
 #: ../ctksourceview/ctksourcecompletion.c:2233
 #, fuzzy
-#| msgid "The GtkSourceBuffer object to print"
-msgid "The GtkSourceView bound to the completion"
-msgstr "ମୁଦ୍ରଣ କରିବାକୁ ଥିବା GtkSourceBuffer ବସ୍ତୁ"
+#| msgid "The CtkSourceBuffer object to print"
+msgid "The CtkSourceView bound to the completion"
+msgstr "ମୁଦ୍ରଣ କରିବାକୁ ଥିବା CtkSourceBuffer ବସ୍ତୁ"
 
 #: ../ctksourceview/ctksourcecompletion.c:2248
 msgid "Remember Info Visibility"
@@ -2222,7 +2222,7 @@ msgstr "ବିକଳ୍ପ"
 msgid "The completion object to which the context belongs"
 msgstr ""
 
-#. Translators: The GtkTextIter at which the completion was invoked
+#. Translators: The CtkTextIter at which the completion was invoked
 #: ../ctksourceview/ctksourcecompletioncontext.c:258
 #, fuzzy
 #| msgid "Operator"
@@ -2230,7 +2230,7 @@ msgid "Iterator"
 msgstr "ଚାଳକ"
 
 #: ../ctksourceview/ctksourcecompletioncontext.c:259
-msgid "The GtkTextIter at which the completion was invoked"
+msgid "The CtkTextIter at which the completion was invoked"
 msgstr ""
 
 #: ../ctksourceview/ctksourcecompletioncontext.c:271
@@ -2373,8 +2373,8 @@ msgid "Missing main language definition (id = \"%s\".)"
 msgstr "ଅନୁପସ୍ଥିତ ପ୍ରଧାନ ଭାଷା ବ୍ୟାଖ୍ୟା (id = \"%s\".)"
 
 #: ../ctksourceview/ctksourcegutter.c:369
-msgid "The gutters' GtkSourceView"
-msgstr "ନାଳୀର GtkSourceView"
+msgid "The gutters' CtkSourceView"
+msgstr "ନାଳୀର CtkSourceView"
 
 #: ../ctksourceview/ctksourcegutter.c:381
 msgid "Window Type"
@@ -2448,8 +2448,8 @@ msgid "Source Buffer"
 msgstr "ଉତ୍ସ ବଫର"
 
 #: ../ctksourceview/ctksourceprintcompositor.c:446
-msgid "The GtkSourceBuffer object to print"
-msgstr "ମୁଦ୍ରଣ କରିବାକୁ ଥିବା GtkSourceBuffer ବସ୍ତୁ"
+msgid "The CtkSourceBuffer object to print"
+msgstr "ମୁଦ୍ରଣ କରିବାକୁ ଥିବା CtkSourceBuffer ବସ୍ତୁ"
 
 #: ../ctksourceview/ctksourceprintcompositor.c:463
 #: ../ctksourceview/ctksourceview.c:366
@@ -2775,13 +2775,13 @@ msgstr "ମନୋଜ କୁମାର ଗିରି"
 
 
 #. Translators: This is the sorted list of encodings used by
-#. * GtkSourceView for automatic detection of the file encoding. You may
+#. * CtkSourceView for automatic detection of the file encoding. You may
 #. * want to customize it adding encodings that are common in your
 #. * country, for instance the GB18030 encoding for the Chinese
 #. * translation. You may also want to remove the ISO-8859-15 encoding
 #. * (covering English and most Western European languages) if you think
 #. * people in your country will rarely use it.  "CURRENT" is a magic
-#. * value used by GtkSourceView and it represents the encoding for the
+#. * value used by CtkSourceView and it represents the encoding for the
 #. * current locale, so please don't translate the "CURRENT" term.  Only
 #. * recognized encodings are used. See
 #. * https://git.gnome.org/browse/ctksourceview/tree/ctksourceview/ctksourceencoding.c#n147

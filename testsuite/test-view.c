@@ -1,15 +1,15 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*- */
 /*
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2017 - Sébastien Wilmet
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -21,10 +21,10 @@
 #include <ctksourceview/ctksource.h>
 
 static gchar *
-get_text (GtkTextBuffer *buffer)
+get_text (CtkTextBuffer *buffer)
 {
-	GtkTextIter start;
-	GtkTextIter end;
+	CtkTextIter start;
+	CtkTextIter end;
 
 	ctk_text_buffer_get_bounds (buffer, &start, &end);
 	return ctk_text_buffer_get_text (buffer, &start, &end, TRUE);
@@ -33,12 +33,12 @@ get_text (GtkTextBuffer *buffer)
 #define N_CASES_INITIAL_SELECTION_FOR_SINGLE_LINE (6)
 
 static void
-set_initial_selection_for_single_line (GtkTextBuffer *buffer,
+set_initial_selection_for_single_line (CtkTextBuffer *buffer,
 				       gint           line_num,
 				       gint           case_num)
 {
-	GtkTextIter start;
-	GtkTextIter end;
+	CtkTextIter start;
+	CtkTextIter end;
 
 	switch (case_num)
 	{
@@ -85,10 +85,10 @@ set_initial_selection_for_single_line (GtkTextBuffer *buffer,
 static void
 test_move_lines__move_single_line (void)
 {
-	GtkSourceView *view;
-	GtkTextBuffer *buffer;
-	GtkTextIter start;
-	GtkTextIter end;
+	CtkSourceView *view;
+	CtkTextBuffer *buffer;
+	CtkTextIter start;
+	CtkTextIter end;
 	gchar *text;
 	gint case_num;
 
@@ -291,13 +291,13 @@ test_move_lines__move_single_line (void)
 #define N_CASES_INITIAL_SELECTION_FOR_SEVERAL_LINES (3)
 
 static void
-set_initial_selection_for_several_lines (GtkTextBuffer *buffer,
+set_initial_selection_for_several_lines (CtkTextBuffer *buffer,
 					 gint           start_line_num,
 					 gint           end_line_num,
 					 gint           case_num)
 {
-	GtkTextIter start;
-	GtkTextIter end;
+	CtkTextIter start;
+	CtkTextIter end;
 
 	switch (case_num)
 	{
@@ -328,10 +328,10 @@ set_initial_selection_for_several_lines (GtkTextBuffer *buffer,
 static void
 test_move_lines__move_several_lines (void)
 {
-	GtkSourceView *view;
-	GtkTextBuffer *buffer;
-	GtkTextIter start;
-	GtkTextIter end;
+	CtkSourceView *view;
+	CtkTextBuffer *buffer;
+	CtkTextIter start;
+	CtkTextIter end;
 	gchar *text;
 	gint case_num;
 

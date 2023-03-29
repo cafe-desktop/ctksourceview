@@ -1211,8 +1211,8 @@ msgid "ctk-doc"
 msgstr "ctk-doc"
 
 #: ../ctksourceview/language-specs/ctkrc.lang.h:5
-msgid "GtkRC"
-msgstr "GtkRC"
+msgid "CtkRC"
+msgstr "CtkRC"
 
 #: ../ctksourceview/language-specs/ctkrc.lang.h:6
 msgid "Include directive"

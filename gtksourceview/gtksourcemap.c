@@ -3,12 +3,12 @@
  * Copyright (C) 2015 Christian Hergert <christian@hergert.me>
  * Copyright (C) 2015 Ignacio Casal Quinteiro <icq@gnome.org>
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -31,23 +31,23 @@
 
 /**
  * SECTION:map
- * @Short_description: Widget that displays a map for a specific #GtkSourceView
- * @Title: GtkSourceMap
- * @See_also: #GtkSourceView
+ * @Short_description: Widget that displays a map for a specific #CtkSourceView
+ * @Title: CtkSourceMap
+ * @See_also: #CtkSourceView
  *
- * #GtkSourceMap is a widget that maps the content of a #GtkSourceView into
+ * #CtkSourceMap is a widget that maps the content of a #CtkSourceView into
  * a smaller view so the user can have a quick overview of the whole document.
  *
- * This works by connecting a #GtkSourceView to to the #GtkSourceMap using
- * the #GtkSourceMap:view property or ctk_source_map_set_view().
+ * This works by connecting a #CtkSourceView to to the #CtkSourceMap using
+ * the #CtkSourceMap:view property or ctk_source_map_set_view().
  *
- * #GtkSourceMap is a #GtkSourceView object. This means that you can add a
- * #GtkSourceGutterRenderer to a gutter in the same way you would for a
- * #GtkSourceView. One example might be a #GtkSourceGutterRenderer that shows
+ * #CtkSourceMap is a #CtkSourceView object. This means that you can add a
+ * #CtkSourceGutterRenderer to a gutter in the same way you would for a
+ * #CtkSourceView. One example might be a #CtkSourceGutterRenderer that shows
  * which lines have changed in the document.
  *
- * Additionally, it is desirable to match the font of the #GtkSourceMap and
- * the #GtkSourceView used for editing. Therefore, #GtkSourceMap:font-desc
+ * Additionally, it is desirable to match the font of the #CtkSourceMap and
+ * the #CtkSourceView used for editing. Therefore, #CtkSourceMap:font-desc
  * should be used to set the target font. You will need to adjust this to the
  * desired font size for the map. A 1pt font generally seems to be an
  * appropriate font size. "Monospace 1" is the default. See
@@ -61,11 +61,11 @@
  * I tried implementing this a few different ways. They are worth noting so
  * that we do not repeat the same mistakes.
  *
- * Originally, I thought using a GtkSourceView to do the rendering was overkill
+ * Originally, I thought using a CtkSourceView to do the rendering was overkill
  * and would likely slow things down too much. But it turns out to have been
  * the best option so far.
  *
- *   - GtkPixelCache support results in very few GtkTextLayout relayout and
+ *   - CtkPixelCache support results in very few CtkTextLayout relayout and
  *     sizing changes. Since the pixel cache renders +/- half a screen outside
  *     the visible range, scrolling is also quite smooth as we very rarely
  *     perform a new ctk_text_layout_draw().
@@ -74,21 +74,21 @@
  *     rendering. When you scale out this car, you increase the number of
  *     layouts to be rendered greatly.
  *
- *   - We can pack GtkSourceGutterRenderer into the child view to provide
+ *   - We can pack CtkSourceGutterRenderer into the child view to provide
  *     additional information. This is quite handy to show information such
  *     as errors, line changes, and anything else that can help the user
  *     quickly jump to the target location.
  *
- * I also tried drawing the contents of the GtkSourceView onto a widget after
+ * I also tried drawing the contents of the CtkSourceView onto a widget after
  * performing a cairo_scale(). This does not help us much because we ignore
  * pixel cache when cair_scale is not 1-to-1. This results in layout
  * invalidation and worst case render paths.
  *
  * I also tried rendering the scrubber (overlay box) during the
- * GtkTextView::draw_layer() vfunc. The problem with this approach is that
+ * CtkTextView::draw_layer() vfunc. The problem with this approach is that
  * the scrubber contents are actually pixel cached. So every time the scrubber
- * moves we have to invalidate the GtkTextLayout and redraw cached contents.
- * Where as drawing in the GtkTextView::draw() vfunc, after the pixel cache
+ * moves we have to invalidate the CtkTextLayout and redraw cached contents.
+ * Where as drawing in the CtkTextView::draw() vfunc, after the pixel cache
  * contents have been drawn results in only a composite blend, not
  * invalidating any of the pixel cached text layouts.
  *
@@ -99,7 +99,7 @@
  * embedding fonts in the application, so it is at least possible to bundle
  * our own font as a resource.
  *
- * By default we use a 1pt Monospace font. However, if the Gtksourcemap:font-desc
+ * By default we use a 1pt Monospace font. However, if the Ctksourcemap:font-desc
  * property is set, we will use that instead.
  *
  * We do not render the background grid as it requires a bunch of
@@ -107,7 +107,7 @@
  * color background.
  *
  * The width of the view is determined by the
- * #GtkSourceView:right-margin-position. We cache the width of a
+ * #CtkSourceView:right-margin-position. We cache the width of a
  * single "X" character and multiple that by the right-margin-position.
  * That becomes our size-request width.
  *
@@ -125,7 +125,7 @@ typedef struct
 	 * By default, we use "Monospace 1pt". However, most text editing
 	 * applications will have a custom font, so we allow them to set
 	 * that here. Generally speaking, you will want to continue using
-	 * a 1pt font, but if they set GtkSourceMap:font-desc, then they
+	 * a 1pt font, but if they set CtkSourceMap:font-desc, then they
 	 * should also shrink the font to the desired size.
 	 *
 	 * For example:
@@ -139,15 +139,15 @@ typedef struct
 	/*
 	 * The easiest way to style the scrubber and the sourceview is
 	 * by using CSS. This is necessary since we can't mess with the
-	 * fonts used in the textbuffer (as one might using GtkTextTag).
+	 * fonts used in the textbuffer (as one might using CtkTextTag).
 	 */
-	GtkCssProvider *css_provider;
+	CtkCssProvider *css_provider;
 
-	/* The GtkSourceView we are providing a map of */
-	GtkSourceView *view;
+	/* The CtkSourceView we are providing a map of */
+	CtkSourceView *view;
 
 	/* A weak pointer to the connected buffer */
-	GtkTextBuffer *buffer;
+	CtkTextBuffer *buffer;
 
 	/* The location of the scrubber in widget coordinate space. */
 	GdkRectangle scrubber_area;
@@ -167,7 +167,7 @@ typedef struct
 
 	/* Denotes if we are in a grab from button press */
 	guint in_press : 1;
-} GtkSourceMapPrivate;
+} CtkSourceMapPrivate;
 
 enum
 {
@@ -177,20 +177,20 @@ enum
 	N_PROPERTIES
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceMap, ctk_source_map, CTK_SOURCE_TYPE_VIEW)
+G_DEFINE_TYPE_WITH_PRIVATE (CtkSourceMap, ctk_source_map, CTK_SOURCE_TYPE_VIEW)
 
 static GParamSpec *properties[N_PROPERTIES];
 
 static void
-update_scrubber_position (GtkSourceMap *map)
+update_scrubber_position (CtkSourceMap *map)
 {
-	GtkSourceMapPrivate *priv;
-	GtkTextIter iter;
+	CtkSourceMapPrivate *priv;
+	CtkTextIter iter;
 	GdkRectangle visible_area;
 	GdkRectangle iter_area;
 	GdkRectangle scrubber_area;
-	GtkAllocation alloc;
-	GtkAllocation view_alloc;
+	CtkAllocation alloc;
+	CtkAllocation view_alloc;
 	gint child_height;
 	gint view_height;
 	gint y;
@@ -253,12 +253,12 @@ update_scrubber_position (GtkSourceMap *map)
 }
 
 static void
-ctk_source_map_rebuild_css (GtkSourceMap *map)
+ctk_source_map_rebuild_css (CtkSourceMap *map)
 {
-	GtkSourceMapPrivate *priv;
-	GtkSourceStyleScheme *style_scheme;
-	GtkSourceStyle *style = NULL;
-	GtkTextBuffer *buffer;
+	CtkSourceMapPrivate *priv;
+	CtkSourceStyleScheme *style_scheme;
+	CtkSourceStyle *style = NULL;
+	CtkTextBuffer *buffer;
 	GString *gstr;
 	gboolean alter_alpha = TRUE;
 	gchar *background = NULL;
@@ -274,7 +274,7 @@ ctk_source_map_rebuild_css (GtkSourceMap *map)
 	 * This is where we calculate the CSS that maps the font for the
 	 * minimap as well as the styling for the scrubber.
 	 *
-	 * The font is calculated from #GtkSourceMap:font-desc. We convert this
+	 * The font is calculated from #CtkSourceMap:font-desc. We convert this
 	 * to CSS using _ctk_source_utils_pango_font_description_to_css(). It
 	 * gets applied to the minimap widget via the CSS style provider which
 	 * we attach to the view in ctk_source_map_init().
@@ -289,7 +289,7 @@ ctk_source_map_rebuild_css (GtkSourceMap *map)
 	 * selected text, we use that with a 0.75 alpha value.
 	 *
 	 * If none of these are met, we take the background from the
-	 * #GtkStyleContext using the deprecated
+	 * #CtkStyleContext using the deprecated
 	 * ctk_style_context_get_background_color(). This is non-ideal, but
 	 * currently required since we cannot indicate that we want to
 	 * alter the alpha for ctk_render_background().
@@ -335,7 +335,7 @@ ctk_source_map_rebuild_css (GtkSourceMap *map)
 
 	if (background == NULL)
 	{
-		GtkStyleContext *context;
+		CtkStyleContext *context;
 		GdkRGBA color;
 
 		/*
@@ -401,11 +401,11 @@ ctk_source_map_rebuild_css (GtkSourceMap *map)
 }
 
 static void
-update_child_vadjustment (GtkSourceMap *map)
+update_child_vadjustment (CtkSourceMap *map)
 {
-	GtkSourceMapPrivate *priv;
-	GtkAdjustment *vadj;
-	GtkAdjustment *child_vadj;
+	CtkSourceMapPrivate *priv;
+	CtkAdjustment *vadj;
+	CtkAdjustment *child_vadj;
 	gdouble value;
 	gdouble upper;
 	gdouble page_size;
@@ -442,34 +442,34 @@ update_child_vadjustment (GtkSourceMap *map)
 }
 
 static void
-view_vadj_value_changed (GtkSourceMap  *map,
-                         GtkAdjustment *vadj)
+view_vadj_value_changed (CtkSourceMap  *map,
+                         CtkAdjustment *vadj)
 {
 	update_child_vadjustment (map);
 	update_scrubber_position (map);
 }
 
 static void
-view_vadj_notify_upper (GtkSourceMap  *map,
+view_vadj_notify_upper (CtkSourceMap  *map,
                         GParamSpec    *pspec,
-                        GtkAdjustment *vadj)
+                        CtkAdjustment *vadj)
 {
 	update_scrubber_position (map);
 }
 
 static void
-buffer_notify_style_scheme (GtkSourceMap  *map,
+buffer_notify_style_scheme (CtkSourceMap  *map,
                             GParamSpec    *pspec,
-                            GtkTextBuffer *buffer)
+                            CtkTextBuffer *buffer)
 {
 	ctk_source_map_rebuild_css (map);
 }
 
 static void
-connect_buffer (GtkSourceMap  *map,
-                GtkTextBuffer *buffer)
+connect_buffer (CtkSourceMap  *map,
+                CtkTextBuffer *buffer)
 {
-	GtkSourceMapPrivate *priv;
+	CtkSourceMapPrivate *priv;
 
 	priv = ctk_source_map_get_instance_private (map);
 
@@ -487,9 +487,9 @@ connect_buffer (GtkSourceMap  *map,
 }
 
 static void
-disconnect_buffer (GtkSourceMap  *map)
+disconnect_buffer (CtkSourceMap  *map)
 {
-	GtkSourceMapPrivate *priv;
+	CtkSourceMapPrivate *priv;
 
 	priv = ctk_source_map_get_instance_private (map);
 
@@ -510,12 +510,12 @@ disconnect_buffer (GtkSourceMap  *map)
 }
 
 static void
-view_notify_buffer (GtkSourceMap  *map,
+view_notify_buffer (CtkSourceMap  *map,
                     GParamSpec    *pspec,
-                    GtkSourceView *view)
+                    CtkSourceView *view)
 {
-	GtkSourceMapPrivate *priv;
-	GtkTextBuffer *buffer;
+	CtkSourceMapPrivate *priv;
+	CtkTextBuffer *buffer;
 
 	priv = ctk_source_map_get_instance_private (map);
 
@@ -533,10 +533,10 @@ view_notify_buffer (GtkSourceMap  *map,
 }
 
 static void
-ctk_source_map_set_font_desc (GtkSourceMap               *map,
+ctk_source_map_set_font_desc (CtkSourceMap               *map,
                               const PangoFontDescription *font_desc)
 {
-	GtkSourceMapPrivate *priv;
+	CtkSourceMapPrivate *priv;
 
 	priv = ctk_source_map_get_instance_private (map);
 
@@ -554,7 +554,7 @@ ctk_source_map_set_font_desc (GtkSourceMap               *map,
 }
 
 static void
-ctk_source_map_set_font_name (GtkSourceMap *map,
+ctk_source_map_set_font_name (CtkSourceMap *map,
                               const gchar  *font_name)
 {
 	PangoFontDescription *font_desc;
@@ -570,12 +570,12 @@ ctk_source_map_set_font_name (GtkSourceMap *map,
 }
 
 static void
-ctk_source_map_get_preferred_width (GtkWidget *widget,
+ctk_source_map_get_preferred_width (CtkWidget *widget,
                                     gint      *mininum_width,
                                     gint      *natural_width)
 {
-	GtkSourceMap *map = CTK_SOURCE_MAP (widget);
-	GtkSourceMapPrivate *priv;
+	CtkSourceMap *map = CTK_SOURCE_MAP (widget);
+	CtkSourceMapPrivate *priv;
 	PangoLayout *layout;
 	gint height;
 	gint width;
@@ -605,12 +605,12 @@ ctk_source_map_get_preferred_width (GtkWidget *widget,
 }
 
 static void
-ctk_source_map_get_preferred_height (GtkWidget *widget,
+ctk_source_map_get_preferred_height (CtkWidget *widget,
                                      gint      *minimum_height,
                                      gint      *natural_height)
 {
-	GtkSourceMap *map = CTK_SOURCE_MAP (widget);
-	GtkSourceMapPrivate *priv;
+	CtkSourceMap *map = CTK_SOURCE_MAP (widget);
+	CtkSourceMapPrivate *priv;
 
 	priv = ctk_source_map_get_instance_private (map);
 
@@ -634,17 +634,17 @@ ctk_source_map_get_preferred_height (GtkWidget *widget,
  * calling this function.
  */
 static void
-scroll_to_child_point (GtkSourceMap   *map,
+scroll_to_child_point (CtkSourceMap   *map,
                        const GdkPoint *point)
 {
-	GtkSourceMapPrivate *priv;
+	CtkSourceMapPrivate *priv;
 
 	priv = ctk_source_map_get_instance_private (map);
 
 	if (priv->view != NULL)
 	{
-		GtkAllocation alloc;
-		GtkTextIter iter;
+		CtkAllocation alloc;
+		CtkTextIter iter;
 
 		ctk_widget_get_allocation (CTK_WIDGET (map), &alloc);
 
@@ -657,10 +657,10 @@ scroll_to_child_point (GtkSourceMap   *map,
 }
 
 static void
-ctk_source_map_size_allocate (GtkWidget     *widget,
-                              GtkAllocation *alloc)
+ctk_source_map_size_allocate (CtkWidget     *widget,
+                              CtkAllocation *alloc)
 {
-	GtkSourceMap *map = CTK_SOURCE_MAP (widget);
+	CtkSourceMap *map = CTK_SOURCE_MAP (widget);
 
 	CTK_WIDGET_CLASS (ctk_source_map_parent_class)->size_allocate (widget, alloc);
 
@@ -668,11 +668,11 @@ ctk_source_map_size_allocate (GtkWidget     *widget,
 }
 
 static void
-connect_view (GtkSourceMap  *map,
-              GtkSourceView *view)
+connect_view (CtkSourceMap  *map,
+              CtkSourceView *view)
 {
-	GtkSourceMapPrivate *priv;
-	GtkAdjustment *vadj;
+	CtkSourceMapPrivate *priv;
+	CtkAdjustment *vadj;
 
 	priv = ctk_source_map_get_instance_private (map);
 
@@ -745,10 +745,10 @@ connect_view (GtkSourceMap  *map,
 }
 
 static void
-disconnect_view (GtkSourceMap *map)
+disconnect_view (CtkSourceMap *map)
 {
-	GtkSourceMapPrivate *priv;
-	GtkAdjustment *vadj;
+	CtkSourceMapPrivate *priv;
+	CtkAdjustment *vadj;
 
 	priv = ctk_source_map_get_instance_private (map);
 
@@ -804,10 +804,10 @@ disconnect_view (GtkSourceMap *map)
 }
 
 static void
-ctk_source_map_destroy (GtkWidget *widget)
+ctk_source_map_destroy (CtkWidget *widget)
 {
-	GtkSourceMap *map = CTK_SOURCE_MAP (widget);
-	GtkSourceMapPrivate *priv;
+	CtkSourceMap *map = CTK_SOURCE_MAP (widget);
+	CtkSourceMapPrivate *priv;
 
 	priv = ctk_source_map_get_instance_private (map);
 
@@ -821,12 +821,12 @@ ctk_source_map_destroy (GtkWidget *widget)
 }
 
 static gboolean
-ctk_source_map_draw (GtkWidget *widget,
+ctk_source_map_draw (CtkWidget *widget,
                      cairo_t   *cr)
 {
-	GtkSourceMap *map = CTK_SOURCE_MAP (widget);
-	GtkSourceMapPrivate *priv;
-	GtkStyleContext *style_context;
+	CtkSourceMap *map = CTK_SOURCE_MAP (widget);
+	CtkSourceMapPrivate *priv;
+	CtkStyleContext *style_context;
 
 	priv = ctk_source_map_get_instance_private (map);
 
@@ -850,8 +850,8 @@ ctk_source_map_get_property (GObject    *object,
                              GValue     *value,
                              GParamSpec *pspec)
 {
-	GtkSourceMap *map = CTK_SOURCE_MAP (object);
-	GtkSourceMapPrivate *priv;
+	CtkSourceMap *map = CTK_SOURCE_MAP (object);
+	CtkSourceMapPrivate *priv;
 
 	priv = ctk_source_map_get_instance_private (map);
 
@@ -876,7 +876,7 @@ ctk_source_map_set_property (GObject      *object,
                              const GValue *value,
                              GParamSpec   *pspec)
 {
-	GtkSourceMap *map = CTK_SOURCE_MAP (object);
+	CtkSourceMap *map = CTK_SOURCE_MAP (object);
 
 	switch (prop_id)
 	{
@@ -894,11 +894,11 @@ ctk_source_map_set_property (GObject      *object,
 }
 
 static gboolean
-ctk_source_map_button_press_event (GtkWidget      *widget,
+ctk_source_map_button_press_event (CtkWidget      *widget,
                                    GdkEventButton *event)
 {
-	GtkSourceMap *map = CTK_SOURCE_MAP (widget);
-	GtkSourceMapPrivate *priv;
+	CtkSourceMap *map = CTK_SOURCE_MAP (widget);
+	CtkSourceMapPrivate *priv;
 	GdkPoint point;
 
 	priv = ctk_source_map_get_instance_private (map);
@@ -921,11 +921,11 @@ ctk_source_map_button_press_event (GtkWidget      *widget,
 }
 
 static gboolean
-ctk_source_map_button_release_event (GtkWidget      *widget,
+ctk_source_map_button_release_event (CtkWidget      *widget,
                                      GdkEventButton *event)
 {
-	GtkSourceMap *map = CTK_SOURCE_MAP (widget);
-	GtkSourceMapPrivate *priv;
+	CtkSourceMap *map = CTK_SOURCE_MAP (widget);
+	CtkSourceMapPrivate *priv;
 
 	priv = ctk_source_map_get_instance_private (map);
 
@@ -938,20 +938,20 @@ ctk_source_map_button_release_event (GtkWidget      *widget,
 
 
 static gboolean
-ctk_source_map_motion_notify_event (GtkWidget      *widget,
+ctk_source_map_motion_notify_event (CtkWidget      *widget,
                                     GdkEventMotion *event)
 {
-	GtkSourceMap *map = CTK_SOURCE_MAP (widget);
-	GtkSourceMapPrivate *priv;
+	CtkSourceMap *map = CTK_SOURCE_MAP (widget);
+	CtkSourceMapPrivate *priv;
 
 	priv = ctk_source_map_get_instance_private (map);
 
 	if (priv->in_press && (priv->view != NULL))
 	{
-		GtkTextBuffer *buffer;
-		GtkAllocation alloc;
+		CtkTextBuffer *buffer;
+		CtkAllocation alloc;
 		GdkRectangle area;
-		GtkTextIter iter;
+		CtkTextIter iter;
 		GdkPoint point;
 		gdouble yratio;
 		gint height;
@@ -979,11 +979,11 @@ ctk_source_map_motion_notify_event (GtkWidget      *widget,
 }
 
 static gboolean
-ctk_source_map_scroll_event (GtkWidget      *widget,
+ctk_source_map_scroll_event (CtkWidget      *widget,
                              GdkEventScroll *event)
 {
-	GtkSourceMap *map = CTK_SOURCE_MAP (widget);
-	GtkSourceMapPrivate *priv;
+	CtkSourceMap *map = CTK_SOURCE_MAP (widget);
+	CtkSourceMapPrivate *priv;
 	static const gint scroll_acceleration = 4;
 
 	priv = ctk_source_map_get_instance_private (map);
@@ -1034,7 +1034,7 @@ ctk_source_map_scroll_event (GtkWidget      *widget,
 }
 
 static void
-set_view_cursor (GtkSourceMap *map)
+set_view_cursor (CtkSourceMap *map)
 {
 	GdkWindow *window;
 
@@ -1047,8 +1047,8 @@ set_view_cursor (GtkSourceMap *map)
 }
 
 static void
-ctk_source_map_state_flags_changed (GtkWidget     *widget,
-                                    GtkStateFlags  flags)
+ctk_source_map_state_flags_changed (CtkWidget     *widget,
+                                    CtkStateFlags  flags)
 {
 	CTK_WIDGET_CLASS (ctk_source_map_parent_class)->state_flags_changed (widget, flags);
 
@@ -1056,7 +1056,7 @@ ctk_source_map_state_flags_changed (GtkWidget     *widget,
 }
 
 static void
-ctk_source_map_realize (GtkWidget *widget)
+ctk_source_map_realize (CtkWidget *widget)
 {
 	CTK_WIDGET_CLASS (ctk_source_map_parent_class)->realize (widget);
 
@@ -1064,11 +1064,11 @@ ctk_source_map_realize (GtkWidget *widget)
 }
 
 static void
-ctk_source_map_show (GtkWidget *widget)
+ctk_source_map_show (CtkWidget *widget)
 {
-	GtkSourceMap *map = CTK_SOURCE_MAP (widget);
-	GtkSourceMapPrivate *priv;
-	GtkAdjustment *vadj;
+	CtkSourceMap *map = CTK_SOURCE_MAP (widget);
+	CtkSourceMapPrivate *priv;
+	CtkAdjustment *vadj;
 
 	CTK_WIDGET_CLASS (ctk_source_map_parent_class)->show (widget);
 
@@ -1087,11 +1087,11 @@ ctk_source_map_show (GtkWidget *widget)
 }
 
 static void
-ctk_source_map_hide (GtkWidget *widget)
+ctk_source_map_hide (CtkWidget *widget)
 {
-	GtkSourceMap *map = CTK_SOURCE_MAP (widget);
-	GtkSourceMapPrivate *priv;
-	GtkAdjustment *vadj;
+	CtkSourceMap *map = CTK_SOURCE_MAP (widget);
+	CtkSourceMapPrivate *priv;
+	CtkAdjustment *vadj;
 
 	CTK_WIDGET_CLASS (ctk_source_map_parent_class)->hide (widget);
 
@@ -1106,10 +1106,10 @@ ctk_source_map_hide (GtkWidget *widget)
 }
 
 static void
-ctk_source_map_class_init (GtkSourceMapClass *klass)
+ctk_source_map_class_init (CtkSourceMapClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
-	GtkWidgetClass *widget_class = CTK_WIDGET_CLASS (klass);
+	CtkWidgetClass *widget_class = CTK_WIDGET_CLASS (klass);
 
 	object_class->get_property = ctk_source_map_get_property;
 	object_class->set_property = ctk_source_map_set_property;
@@ -1146,11 +1146,11 @@ ctk_source_map_class_init (GtkSourceMapClass *klass)
 }
 
 static void
-ctk_source_map_init (GtkSourceMap *map)
+ctk_source_map_init (CtkSourceMap *map)
 {
-	GtkSourceMapPrivate *priv;
-	GtkSourceCompletion *completion;
-	GtkStyleContext *context;
+	CtkSourceMapPrivate *priv;
+	CtkSourceCompletion *completion;
+	CtkStyleContext *context;
 
 	priv = ctk_source_map_get_instance_private (map);
 
@@ -1184,13 +1184,13 @@ ctk_source_map_init (GtkSourceMap *map)
 /**
  * ctk_source_map_new:
  *
- * Creates a new #GtkSourceMap.
+ * Creates a new #CtkSourceMap.
  *
- * Returns: a new #GtkSourceMap.
+ * Returns: a new #CtkSourceMap.
  *
  * Since: 3.18
  */
-GtkWidget *
+CtkWidget *
 ctk_source_map_new (void)
 {
 	return g_object_new (CTK_SOURCE_TYPE_MAP, NULL);
@@ -1198,18 +1198,18 @@ ctk_source_map_new (void)
 
 /**
  * ctk_source_map_set_view:
- * @map: a #GtkSourceMap
- * @view: a #GtkSourceView
+ * @map: a #CtkSourceMap
+ * @view: a #CtkSourceView
  *
  * Sets the view that @map will be doing the mapping to.
  *
  * Since: 3.18
  */
 void
-ctk_source_map_set_view (GtkSourceMap  *map,
-                         GtkSourceView *view)
+ctk_source_map_set_view (CtkSourceMap  *map,
+                         CtkSourceView *view)
 {
-	GtkSourceMapPrivate *priv;
+	CtkSourceMapPrivate *priv;
 
 	g_return_if_fail (CTK_SOURCE_IS_MAP (map));
 	g_return_if_fail (view == NULL || CTK_SOURCE_IS_VIEW (view));
@@ -1236,18 +1236,18 @@ ctk_source_map_set_view (GtkSourceMap  *map,
 
 /**
  * ctk_source_map_get_view:
- * @map: a #GtkSourceMap.
+ * @map: a #CtkSourceMap.
  *
- * Gets the #GtkSourceMap:view property, which is the view this widget is mapping.
+ * Gets the #CtkSourceMap:view property, which is the view this widget is mapping.
  *
- * Returns: (transfer none) (nullable): a #GtkSourceView or %NULL.
+ * Returns: (transfer none) (nullable): a #CtkSourceView or %NULL.
  *
  * Since: 3.18
  */
-GtkSourceView *
-ctk_source_map_get_view (GtkSourceMap *map)
+CtkSourceView *
+ctk_source_map_get_view (CtkSourceMap *map)
 {
-	GtkSourceMapPrivate *priv;
+	CtkSourceMapPrivate *priv;
 
 	g_return_val_if_fail (CTK_SOURCE_IS_MAP (map), NULL);
 

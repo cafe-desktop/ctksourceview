@@ -8,7 +8,7 @@ test_env = [
 ]
 
 testsuite_c_args = [
-  '-DG_LOG_DOMAIN="GtkSourceView"',
+  '-DG_LOG_DOMAIN="CtkSourceView"',
   '-DTOP_SRCDIR="@0@"'.format(srcdir),
   '-UG_DISABLE_ASSERT',
   '-UG_DISABLE_CAST_CHECKS',
@@ -50,7 +50,7 @@ foreach test: testsuite_sources
   # -Wl,Bsymbolic we cannot link against them here. It would cause
   # duplicate type registration which is an error for GObject.
   #
-  # Furthermore, for MSVC we need to link to the main GtkSourceView .lib
+  # Furthermore, for MSVC we need to link to the main CtkSourceView .lib
   # except for test-stylescheme.c, where we must link only to the static core
   # lib.
   #

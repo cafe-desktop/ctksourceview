@@ -1,15 +1,15 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*- */
 /*
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2015 - Paolo Borelli
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -29,7 +29,7 @@
 typedef struct _TestFixture TestFixture;
 
 struct _TestFixture {
-	GtkSourceStyleSchemeManager *manager;
+	CtkSourceStyleSchemeManager *manager;
 };
 
 /* If we are running from the source dir (e.g. during make check)
@@ -99,7 +99,7 @@ compare_strv (const gchar **strv,
 }
 
 static void
-check_scheme (GtkSourceStyleScheme  *scheme,
+check_scheme (CtkSourceStyleScheme  *scheme,
               const gchar           *expected_id,
               const gchar           *expected_name,
               const gchar           *expected_description,
@@ -107,7 +107,7 @@ check_scheme (GtkSourceStyleScheme  *scheme,
               const gchar           *style_id,
               const gchar           *background_rgba)
 {
-	GtkSourceStyle *style;
+	CtkSourceStyle *style;
 
 	g_assert_cmpstr (ctk_source_style_scheme_get_id (scheme), ==, expected_id);
 	g_assert_cmpstr (ctk_source_style_scheme_get_name (scheme), ==, expected_name);
@@ -134,7 +134,7 @@ static void
 test_scheme_properties (TestFixture   *fixture,
                         gconstpointer  data)
 {
-	GtkSourceStyleScheme *scheme;
+	CtkSourceStyleScheme *scheme;
 	const gchar *authors[] = { "Paolo Borelli", "John Doe", NULL};
 
 	scheme = ctk_source_style_scheme_manager_get_scheme (fixture->manager, "test");
@@ -149,7 +149,7 @@ static void
 test_named_color_alpha (TestFixture   *fixture,
                         gconstpointer  data)
 {
-	GtkSourceStyleScheme *scheme;
+	CtkSourceStyleScheme *scheme;
 	GdkRGBA color1, color2;
 	gboolean res;
 

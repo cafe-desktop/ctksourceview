@@ -1,15 +1,15 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*- *
  *
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2009 - Jesse van den Kieboom
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -31,23 +31,23 @@
 G_BEGIN_DECLS
 
 #define CTK_SOURCE_TYPE_GUTTER			(ctk_source_gutter_get_type ())
-#define CTK_SOURCE_GUTTER(obj)			(G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_GUTTER, GtkSourceGutter))
-#define CTK_SOURCE_GUTTER_CLASS(klass)		(G_TYPE_CHECK_CLASS_CAST ((klass), CTK_SOURCE_TYPE_GUTTER, GtkSourceGutterClass))
+#define CTK_SOURCE_GUTTER(obj)			(G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_GUTTER, CtkSourceGutter))
+#define CTK_SOURCE_GUTTER_CLASS(klass)		(G_TYPE_CHECK_CLASS_CAST ((klass), CTK_SOURCE_TYPE_GUTTER, CtkSourceGutterClass))
 #define CTK_SOURCE_IS_GUTTER(obj)		(G_TYPE_CHECK_INSTANCE_TYPE ((obj), CTK_SOURCE_TYPE_GUTTER))
 #define CTK_SOURCE_IS_GUTTER_CLASS(klass)	(G_TYPE_CHECK_CLASS_TYPE ((klass), CTK_SOURCE_TYPE_GUTTER))
-#define CTK_SOURCE_GUTTER_GET_CLASS(obj)	(G_TYPE_INSTANCE_GET_CLASS ((obj), CTK_SOURCE_TYPE_GUTTER, GtkSourceGutterClass))
+#define CTK_SOURCE_GUTTER_GET_CLASS(obj)	(G_TYPE_INSTANCE_GET_CLASS ((obj), CTK_SOURCE_TYPE_GUTTER, CtkSourceGutterClass))
 
-typedef struct _GtkSourceGutterClass	GtkSourceGutterClass;
-typedef struct _GtkSourceGutterPrivate	GtkSourceGutterPrivate;
+typedef struct _CtkSourceGutterClass	CtkSourceGutterClass;
+typedef struct _CtkSourceGutterPrivate	CtkSourceGutterPrivate;
 
-struct _GtkSourceGutter
+struct _CtkSourceGutter
 {
 	GObject parent;
 
-	GtkSourceGutterPrivate *priv;
+	CtkSourceGutterPrivate *priv;
 };
 
-struct _GtkSourceGutterClass
+struct _CtkSourceGutterClass
 {
 	GObjectClass parent_class;
 
@@ -58,33 +58,33 @@ CTK_SOURCE_AVAILABLE_IN_ALL
 GType ctk_source_gutter_get_type 		(void) G_GNUC_CONST;
 
 CTK_SOURCE_AVAILABLE_IN_3_24
-GtkSourceView *
-     ctk_source_gutter_get_view			(GtkSourceGutter         *gutter);
+CtkSourceView *
+     ctk_source_gutter_get_view			(CtkSourceGutter         *gutter);
 
 CTK_SOURCE_AVAILABLE_IN_3_24
-GtkTextWindowType
-     ctk_source_gutter_get_window_type		(GtkSourceGutter         *gutter);
+CtkTextWindowType
+     ctk_source_gutter_get_window_type		(CtkSourceGutter         *gutter);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-gboolean ctk_source_gutter_insert               (GtkSourceGutter         *gutter,
-                                                 GtkSourceGutterRenderer *renderer,
+gboolean ctk_source_gutter_insert               (CtkSourceGutter         *gutter,
+                                                 CtkSourceGutterRenderer *renderer,
                                                  gint                     position);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-void ctk_source_gutter_reorder			(GtkSourceGutter	 *gutter,
-                                                 GtkSourceGutterRenderer *renderer,
+void ctk_source_gutter_reorder			(CtkSourceGutter	 *gutter,
+                                                 CtkSourceGutterRenderer *renderer,
                                                  gint                     position);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-void ctk_source_gutter_remove			(GtkSourceGutter         *gutter,
-                                                 GtkSourceGutterRenderer *renderer);
+void ctk_source_gutter_remove			(CtkSourceGutter         *gutter,
+                                                 CtkSourceGutterRenderer *renderer);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-void ctk_source_gutter_queue_draw		(GtkSourceGutter         *gutter);
+void ctk_source_gutter_queue_draw		(CtkSourceGutter         *gutter);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-GtkSourceGutterRenderer *
-     ctk_source_gutter_get_renderer_at_pos      (GtkSourceGutter         *gutter,
+CtkSourceGutterRenderer *
+     ctk_source_gutter_get_renderer_at_pos      (CtkSourceGutter         *gutter,
                                                  gint                     x,
                                                  gint                     y);
 

@@ -1,18 +1,18 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*- */
 /*
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2005, 2007 - Paolo Maggi
  * Copyrhing (C) 2007 - Steve Frécinaux
  * Copyright (C) 2008 - Jesse van den Kieboom
  * Copyright (C) 2014 - Sébastien Wilmet
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -35,19 +35,19 @@
 G_BEGIN_DECLS
 
 #define CTK_SOURCE_TYPE_FILE_SAVER              (ctk_source_file_saver_get_type())
-#define CTK_SOURCE_FILE_SAVER(obj)              (G_TYPE_CHECK_INSTANCE_CAST((obj), CTK_SOURCE_TYPE_FILE_SAVER, GtkSourceFileSaver))
-#define CTK_SOURCE_FILE_SAVER_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST((klass), CTK_SOURCE_TYPE_FILE_SAVER, GtkSourceFileSaverClass))
+#define CTK_SOURCE_FILE_SAVER(obj)              (G_TYPE_CHECK_INSTANCE_CAST((obj), CTK_SOURCE_TYPE_FILE_SAVER, CtkSourceFileSaver))
+#define CTK_SOURCE_FILE_SAVER_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST((klass), CTK_SOURCE_TYPE_FILE_SAVER, CtkSourceFileSaverClass))
 #define CTK_SOURCE_IS_FILE_SAVER(obj)           (G_TYPE_CHECK_INSTANCE_TYPE((obj), CTK_SOURCE_TYPE_FILE_SAVER))
 #define CTK_SOURCE_IS_FILE_SAVER_CLASS(klass)   (G_TYPE_CHECK_CLASS_TYPE ((klass), CTK_SOURCE_TYPE_FILE_SAVER))
-#define CTK_SOURCE_FILE_SAVER_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS((obj), CTK_SOURCE_TYPE_FILE_SAVER, GtkSourceFileSaverClass))
+#define CTK_SOURCE_FILE_SAVER_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS((obj), CTK_SOURCE_TYPE_FILE_SAVER, CtkSourceFileSaverClass))
 
-typedef struct _GtkSourceFileSaverClass   GtkSourceFileSaverClass;
-typedef struct _GtkSourceFileSaverPrivate GtkSourceFileSaverPrivate;
+typedef struct _CtkSourceFileSaverClass   CtkSourceFileSaverClass;
+typedef struct _CtkSourceFileSaverPrivate CtkSourceFileSaverPrivate;
 
 #define CTK_SOURCE_FILE_SAVER_ERROR ctk_source_file_saver_error_quark ()
 
 /**
- * GtkSourceFileSaverError:
+ * CtkSourceFileSaverError:
  * @CTK_SOURCE_FILE_SAVER_ERROR_INVALID_CHARS: The buffer contains invalid
  *   characters.
  * @CTK_SOURCE_FILE_SAVER_ERROR_EXTERNALLY_MODIFIED: The file is externally
@@ -56,38 +56,38 @@ typedef struct _GtkSourceFileSaverPrivate GtkSourceFileSaverPrivate;
  * An error code used with the %CTK_SOURCE_FILE_SAVER_ERROR domain.
  * Since: 3.14
  */
-typedef enum _GtkSourceFileSaverError
+typedef enum _CtkSourceFileSaverError
 {
 	CTK_SOURCE_FILE_SAVER_ERROR_INVALID_CHARS,
 	CTK_SOURCE_FILE_SAVER_ERROR_EXTERNALLY_MODIFIED
-} GtkSourceFileSaverError;
+} CtkSourceFileSaverError;
 
 /**
- * GtkSourceFileSaverFlags:
+ * CtkSourceFileSaverFlags:
  * @CTK_SOURCE_FILE_SAVER_FLAGS_NONE: No flags.
  * @CTK_SOURCE_FILE_SAVER_FLAGS_IGNORE_INVALID_CHARS: Ignore invalid characters.
  * @CTK_SOURCE_FILE_SAVER_FLAGS_IGNORE_MODIFICATION_TIME: Save file despite external modifications.
  * @CTK_SOURCE_FILE_SAVER_FLAGS_CREATE_BACKUP: Create a backup before saving the file.
  *
- * Flags to define the behavior of a #GtkSourceFileSaver.
+ * Flags to define the behavior of a #CtkSourceFileSaver.
  * Since: 3.14
  */
-typedef enum _GtkSourceFileSaverFlags
+typedef enum _CtkSourceFileSaverFlags
 {
 	CTK_SOURCE_FILE_SAVER_FLAGS_NONE			= 0,
 	CTK_SOURCE_FILE_SAVER_FLAGS_IGNORE_INVALID_CHARS	= 1 << 0,
 	CTK_SOURCE_FILE_SAVER_FLAGS_IGNORE_MODIFICATION_TIME	= 1 << 1,
 	CTK_SOURCE_FILE_SAVER_FLAGS_CREATE_BACKUP		= 1 << 2
-} GtkSourceFileSaverFlags;
+} CtkSourceFileSaverFlags;
 
-struct _GtkSourceFileSaver
+struct _CtkSourceFileSaver
 {
 	GObject object;
 
-	GtkSourceFileSaverPrivate *priv;
+	CtkSourceFileSaverPrivate *priv;
 };
 
-struct _GtkSourceFileSaverClass
+struct _CtkSourceFileSaverClass
 {
 	GObjectClass parent_class;
 
@@ -101,55 +101,55 @@ CTK_SOURCE_AVAILABLE_IN_3_14
 GQuark			 ctk_source_file_saver_error_quark	(void);
 
 CTK_SOURCE_AVAILABLE_IN_3_14
-GtkSourceFileSaver	*ctk_source_file_saver_new		(GtkSourceBuffer          *buffer,
-								 GtkSourceFile            *file);
+CtkSourceFileSaver	*ctk_source_file_saver_new		(CtkSourceBuffer          *buffer,
+								 CtkSourceFile            *file);
 
 CTK_SOURCE_AVAILABLE_IN_3_14
-GtkSourceFileSaver	*ctk_source_file_saver_new_with_target	(GtkSourceBuffer          *buffer,
-								 GtkSourceFile            *file,
+CtkSourceFileSaver	*ctk_source_file_saver_new_with_target	(CtkSourceBuffer          *buffer,
+								 CtkSourceFile            *file,
 								 GFile                    *target_location);
 
 CTK_SOURCE_AVAILABLE_IN_3_14
-GtkSourceBuffer		*ctk_source_file_saver_get_buffer	(GtkSourceFileSaver       *saver);
+CtkSourceBuffer		*ctk_source_file_saver_get_buffer	(CtkSourceFileSaver       *saver);
 
 CTK_SOURCE_AVAILABLE_IN_3_14
-GtkSourceFile		*ctk_source_file_saver_get_file		(GtkSourceFileSaver       *saver);
+CtkSourceFile		*ctk_source_file_saver_get_file		(CtkSourceFileSaver       *saver);
 
 CTK_SOURCE_AVAILABLE_IN_3_14
-GFile			*ctk_source_file_saver_get_location	(GtkSourceFileSaver       *saver);
+GFile			*ctk_source_file_saver_get_location	(CtkSourceFileSaver       *saver);
 
 CTK_SOURCE_AVAILABLE_IN_3_14
-void			 ctk_source_file_saver_set_encoding	(GtkSourceFileSaver       *saver,
-								 const GtkSourceEncoding  *encoding);
+void			 ctk_source_file_saver_set_encoding	(CtkSourceFileSaver       *saver,
+								 const CtkSourceEncoding  *encoding);
 
 CTK_SOURCE_AVAILABLE_IN_3_14
-const GtkSourceEncoding *ctk_source_file_saver_get_encoding	(GtkSourceFileSaver       *saver);
+const CtkSourceEncoding *ctk_source_file_saver_get_encoding	(CtkSourceFileSaver       *saver);
 
 CTK_SOURCE_AVAILABLE_IN_3_14
-void			 ctk_source_file_saver_set_newline_type	(GtkSourceFileSaver       *saver,
-								 GtkSourceNewlineType      newline_type);
+void			 ctk_source_file_saver_set_newline_type	(CtkSourceFileSaver       *saver,
+								 CtkSourceNewlineType      newline_type);
 
 CTK_SOURCE_AVAILABLE_IN_3_14
-GtkSourceNewlineType	 ctk_source_file_saver_get_newline_type	(GtkSourceFileSaver       *saver);
+CtkSourceNewlineType	 ctk_source_file_saver_get_newline_type	(CtkSourceFileSaver       *saver);
 
 CTK_SOURCE_AVAILABLE_IN_3_14
 void			 ctk_source_file_saver_set_compression_type
-								(GtkSourceFileSaver       *saver,
-								 GtkSourceCompressionType  compression_type);
+								(CtkSourceFileSaver       *saver,
+								 CtkSourceCompressionType  compression_type);
 
 CTK_SOURCE_AVAILABLE_IN_3_14
-GtkSourceCompressionType ctk_source_file_saver_get_compression_type
-								(GtkSourceFileSaver       *saver);
+CtkSourceCompressionType ctk_source_file_saver_get_compression_type
+								(CtkSourceFileSaver       *saver);
 
 CTK_SOURCE_AVAILABLE_IN_3_14
-void			 ctk_source_file_saver_set_flags	(GtkSourceFileSaver       *saver,
-								 GtkSourceFileSaverFlags   flags);
+void			 ctk_source_file_saver_set_flags	(CtkSourceFileSaver       *saver,
+								 CtkSourceFileSaverFlags   flags);
 
 CTK_SOURCE_AVAILABLE_IN_3_14
-GtkSourceFileSaverFlags	 ctk_source_file_saver_get_flags	(GtkSourceFileSaver       *saver);
+CtkSourceFileSaverFlags	 ctk_source_file_saver_get_flags	(CtkSourceFileSaver       *saver);
 
 CTK_SOURCE_AVAILABLE_IN_3_14
-void			 ctk_source_file_saver_save_async	(GtkSourceFileSaver       *saver,
+void			 ctk_source_file_saver_save_async	(CtkSourceFileSaver       *saver,
 								 gint                      io_priority,
 								 GCancellable             *cancellable,
 								 GFileProgressCallback     progress_callback,
@@ -159,7 +159,7 @@ void			 ctk_source_file_saver_save_async	(GtkSourceFileSaver       *saver,
 								 gpointer                  user_data);
 
 CTK_SOURCE_AVAILABLE_IN_3_14
-gboolean		 ctk_source_file_saver_save_finish	(GtkSourceFileSaver       *saver,
+gboolean		 ctk_source_file_saver_save_finish	(CtkSourceFileSaver       *saver,
 								 GAsyncResult             *result,
 								 GError                  **error);
 

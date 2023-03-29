@@ -1,15 +1,15 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*- */
 /*
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2016 - Sébastien Wilmet <swilmet@gnome.org>
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -26,7 +26,7 @@
 #define TRAILING_INDEX (2)
 
 static gboolean
-is_zero_matrix (GtkSourceSpaceTypeFlags *matrix)
+is_zero_matrix (CtkSourceSpaceTypeFlags *matrix)
 {
 	gint i;
 
@@ -42,7 +42,7 @@ is_zero_matrix (GtkSourceSpaceTypeFlags *matrix)
 }
 
 static GVariant *
-create_variant_from_matrix (GtkSourceSpaceTypeFlags *matrix)
+create_variant_from_matrix (CtkSourceSpaceTypeFlags *matrix)
 {
 	GVariantBuilder builder;
 	gint i;
@@ -67,10 +67,10 @@ create_variant_from_matrix (GtkSourceSpaceTypeFlags *matrix)
 }
 
 static void
-check_equal_matrix (GtkSourceSpaceDrawer    *drawer,
-		    GtkSourceSpaceTypeFlags *matrix)
+check_equal_matrix (CtkSourceSpaceDrawer    *drawer,
+		    CtkSourceSpaceTypeFlags *matrix)
 {
-	GtkSourceSpaceTypeFlags types;
+	CtkSourceSpaceTypeFlags types;
 	GVariant *my_variant;
 	GVariant *drawer_variant;
 
@@ -114,10 +114,10 @@ check_equal_matrix (GtkSourceSpaceDrawer    *drawer,
 }
 
 static void
-set_matrix (GtkSourceSpaceDrawer    *drawer,
-	    GtkSourceSpaceTypeFlags *matrix)
+set_matrix (CtkSourceSpaceDrawer    *drawer,
+	    CtkSourceSpaceTypeFlags *matrix)
 {
-	GtkSourceSpaceTypeFlags types;
+	CtkSourceSpaceTypeFlags types;
 
 	/* Leading */
 	ctk_source_space_drawer_set_types_for_locations (drawer,
@@ -153,10 +153,10 @@ set_matrix (GtkSourceSpaceDrawer    *drawer,
 static void
 test_matrix_getters_setters (void)
 {
-	GtkSourceView *view;
-	GtkSourceSpaceDrawer *drawer;
-	GtkSourceSpaceTypeFlags matrix[NUM_LOCATIONS];
-	GtkSourceSpaceTypeFlags types;
+	CtkSourceView *view;
+	CtkSourceSpaceDrawer *drawer;
+	CtkSourceSpaceTypeFlags matrix[NUM_LOCATIONS];
+	CtkSourceSpaceTypeFlags types;
 
 	view = CTK_SOURCE_VIEW (ctk_source_view_new ());
 	g_object_ref_sink (view);

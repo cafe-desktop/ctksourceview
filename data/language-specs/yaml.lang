@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- vim: tabstop=2 shiftwidth=2
 
-  yaml.lang basic syntax highlighting of YAML for GtkSourceView
+  yaml.lang basic syntax highlighting of YAML for CtkSourceView
 
   Copyright (C) 2013 Masood Behabadi <masood@dentcat.com>
 

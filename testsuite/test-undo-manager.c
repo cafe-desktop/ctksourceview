@@ -1,15 +1,15 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*- */
 /*
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2013, 2014, 2015 - Sébastien Wilmet <swilmet@gnome.org>
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -22,11 +22,11 @@
 #include <ctksourceview/ctksource.h>
 
 static void
-insert_text (GtkSourceBuffer *buffer,
+insert_text (CtkSourceBuffer *buffer,
 	     const gchar     *text)
 {
-	GtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (buffer);
-	GtkTextIter iter;
+	CtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (buffer);
+	CtkTextIter iter;
 
 	ctk_text_buffer_begin_user_action (text_buffer);
 	ctk_text_buffer_get_end_iter (text_buffer, &iter);
@@ -35,10 +35,10 @@ insert_text (GtkSourceBuffer *buffer,
 }
 
 static void
-delete_first_line (GtkSourceBuffer *buffer)
+delete_first_line (CtkSourceBuffer *buffer)
 {
-	GtkTextIter start;
-	GtkTextIter end;
+	CtkTextIter start;
+	CtkTextIter end;
 
 	ctk_text_buffer_get_start_iter (CTK_TEXT_BUFFER (buffer), &start);
 	ctk_text_buffer_get_iter_at_line (CTK_TEXT_BUFFER (buffer), &end, 1);
@@ -52,13 +52,13 @@ delete_first_line (GtkSourceBuffer *buffer)
  * Delete key is simulated.
  */
 static void
-delete_char_at_offset (GtkSourceBuffer *source_buffer,
+delete_char_at_offset (CtkSourceBuffer *source_buffer,
 		       gint             offset,
 		       gboolean         forward)
 {
-	GtkTextBuffer *buffer = CTK_TEXT_BUFFER (source_buffer);
-	GtkTextIter start;
-	GtkTextIter end;
+	CtkTextBuffer *buffer = CTK_TEXT_BUFFER (source_buffer);
+	CtkTextIter start;
+	CtkTextIter end;
 
 	ctk_text_buffer_get_iter_at_offset (buffer, &start, offset);
 	end = start;
@@ -70,7 +70,7 @@ delete_char_at_offset (GtkSourceBuffer *source_buffer,
 	}
 	else
 	{
-		GtkTextIter start_copy;
+		CtkTextIter start_copy;
 
 		ctk_text_buffer_place_cursor (buffer, &end);
 
@@ -88,10 +88,10 @@ delete_char_at_offset (GtkSourceBuffer *source_buffer,
 }
 
 static gchar *
-get_contents (GtkSourceBuffer *buffer)
+get_contents (CtkSourceBuffer *buffer)
 {
-	GtkTextIter start;
-	GtkTextIter end;
+	CtkTextIter start;
+	CtkTextIter end;
 
 	ctk_text_buffer_get_start_iter (CTK_TEXT_BUFFER (buffer), &start);
 	ctk_text_buffer_get_end_iter (CTK_TEXT_BUFFER (buffer), &end);
@@ -100,7 +100,7 @@ get_contents (GtkSourceBuffer *buffer)
 }
 
 static void
-check_max_undo_levels (GtkSourceBuffer *buffer,
+check_max_undo_levels (CtkSourceBuffer *buffer,
 		       gboolean         several_user_actions)
 {
 	gint max_levels = ctk_source_buffer_get_max_undo_levels (buffer);
@@ -156,7 +156,7 @@ check_max_undo_levels (GtkSourceBuffer *buffer,
 static void
 test_get_set_max_undo_levels (void)
 {
-	GtkSourceBuffer *buffer = ctk_source_buffer_new (NULL);
+	CtkSourceBuffer *buffer = ctk_source_buffer_new (NULL);
 
 	g_assert_cmpint (ctk_source_buffer_get_max_undo_levels (buffer), >=, -1);
 
@@ -172,7 +172,7 @@ test_get_set_max_undo_levels (void)
 static void
 test_single_action (void)
 {
-	GtkSourceBuffer *buffer = ctk_source_buffer_new (NULL);
+	CtkSourceBuffer *buffer = ctk_source_buffer_new (NULL);
 	ctk_source_buffer_set_max_undo_levels (buffer, -1);
 
 	g_assert_false (ctk_source_buffer_can_undo (buffer));
@@ -196,7 +196,7 @@ test_single_action (void)
 static void
 test_lose_redo_actions (void)
 {
-	GtkSourceBuffer *buffer = ctk_source_buffer_new (NULL);
+	CtkSourceBuffer *buffer = ctk_source_buffer_new (NULL);
 	ctk_source_buffer_set_max_undo_levels (buffer, -1);
 
 	insert_text (buffer, "foo\n");
@@ -218,7 +218,7 @@ test_lose_redo_actions (void)
 static void
 test_max_undo_levels (void)
 {
-	GtkSourceBuffer *buffer = ctk_source_buffer_new (NULL);
+	CtkSourceBuffer *buffer = ctk_source_buffer_new (NULL);
 
 	gint min = 0;
 	gint max = 5;
@@ -262,7 +262,7 @@ test_max_undo_levels (void)
 static void
 test_not_undoable_action (void)
 {
-	GtkSourceBuffer *buffer = ctk_source_buffer_new (NULL);
+	CtkSourceBuffer *buffer = ctk_source_buffer_new (NULL);
 	ctk_source_buffer_set_max_undo_levels (buffer, -1);
 
 	/* On empty buffer */
@@ -366,7 +366,7 @@ test_not_undoable_action (void)
 }
 
 static void
-check_contents_history (GtkSourceBuffer *buffer,
+check_contents_history (CtkSourceBuffer *buffer,
 			GList           *contents_history)
 {
 	GList *l;
@@ -415,7 +415,7 @@ check_contents_history (GtkSourceBuffer *buffer,
 static void
 test_contents (void)
 {
-	GtkSourceBuffer *buffer = ctk_source_buffer_new (NULL);
+	CtkSourceBuffer *buffer = ctk_source_buffer_new (NULL);
 	GList *contents_history = g_list_append (NULL, get_contents (buffer));
 
 	ctk_source_buffer_set_max_undo_levels (buffer, -1);
@@ -443,7 +443,7 @@ test_contents (void)
 static void
 test_merge_actions (void)
 {
-	GtkSourceBuffer *buffer = ctk_source_buffer_new (NULL);
+	CtkSourceBuffer *buffer = ctk_source_buffer_new (NULL);
 	GList *contents_history = g_list_append (NULL, get_contents (buffer));
 
 	ctk_source_buffer_set_max_undo_levels (buffer, -1);
@@ -520,10 +520,10 @@ test_merge_actions (void)
 static void
 test_several_user_actions (void)
 {
-	GtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
-	GtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
+	CtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
+	CtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
 	GList *contents_history = g_list_append (NULL, get_contents (source_buffer));
-	GtkTextIter iter;
+	CtkTextIter iter;
 
 	ctk_source_buffer_set_max_undo_levels (source_buffer, -1);
 
@@ -583,8 +583,8 @@ test_several_user_actions (void)
 static void
 test_modified (void)
 {
-	GtkSourceBuffer *source_buffer;
-	GtkTextBuffer *text_buffer;
+	CtkSourceBuffer *source_buffer;
+	CtkTextBuffer *text_buffer;
 
 	source_buffer = ctk_source_buffer_new (NULL);
 	text_buffer = CTK_TEXT_BUFFER (source_buffer);
@@ -636,7 +636,7 @@ test_modified (void)
 }
 
 static void
-empty_user_actions (GtkTextBuffer *text_buffer,
+empty_user_actions (CtkTextBuffer *text_buffer,
 		    gint           count)
 {
 	gint i;
@@ -651,8 +651,8 @@ empty_user_actions (GtkTextBuffer *text_buffer,
 static void
 test_empty_user_actions (void)
 {
-	GtkSourceBuffer *source_buffer;
-	GtkTextBuffer *text_buffer;
+	CtkSourceBuffer *source_buffer;
+	CtkTextBuffer *text_buffer;
 	GList *contents_history = NULL;
 
 	source_buffer = ctk_source_buffer_new (NULL);
@@ -689,11 +689,11 @@ test_empty_user_actions (void)
 static void
 test_bug_672893_selection_restoring (void)
 {
-	GtkSourceBuffer *source_buffer;
-	GtkTextBuffer *text_buffer;
-	GtkTextIter start;
-	GtkTextIter end;
-	GtkTextIter iter;
+	CtkSourceBuffer *source_buffer;
+	CtkTextBuffer *text_buffer;
+	CtkTextIter start;
+	CtkTextIter end;
+	CtkTextIter iter;
 
 	source_buffer = ctk_source_buffer_new (NULL);
 	text_buffer = CTK_TEXT_BUFFER (source_buffer);
@@ -741,8 +741,8 @@ test_bug_672893_selection_restoring (void)
 static void
 test_mix_user_action_and_not_undoable_action (void)
 {
-	GtkSourceBuffer *source_buffer;
-	GtkTextBuffer *text_buffer;
+	CtkSourceBuffer *source_buffer;
+	CtkTextBuffer *text_buffer;
 	GList *contents_history = NULL;
 
 	source_buffer = ctk_source_buffer_new (NULL);

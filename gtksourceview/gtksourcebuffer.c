@@ -1,6 +1,6 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*- */
 /*
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 1999-2002 - Mikael Hermansson <tyan@linux.se>,
  *                           Chris Phelps <chicane@reninet.com> and
@@ -8,12 +8,12 @@
  * Copyright (C) 2003 - Paolo Maggi <paolo.maggi@polito.it> and
  *                      Gustavo Giráldez <gustavo.giraldez@gmx.net>
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -49,19 +49,19 @@
 
 /**
  * SECTION:buffer
- * @Short_description: Subclass of #GtkTextBuffer
- * @Title: GtkSourceBuffer
- * @See_also: #GtkTextBuffer, #GtkSourceView
+ * @Short_description: Subclass of #CtkTextBuffer
+ * @Title: CtkSourceBuffer
+ * @See_also: #CtkTextBuffer, #CtkSourceView
  *
- * A #GtkSourceBuffer object is the model for #GtkSourceView widgets.
- * It extends the #GtkTextBuffer class by adding features useful to display
+ * A #CtkSourceBuffer object is the model for #CtkSourceView widgets.
+ * It extends the #CtkTextBuffer class by adding features useful to display
  * and edit source code such as syntax highlighting and bracket matching. It
  * also implements support for the undo/redo.
  *
- * To create a #GtkSourceBuffer use ctk_source_buffer_new() or
+ * To create a #CtkSourceBuffer use ctk_source_buffer_new() or
  * ctk_source_buffer_new_with_language(). The second form is just a convenience
- * function which allows you to initially set a #GtkSourceLanguage. You can also
- * directly create a #GtkSourceView and get its #GtkSourceBuffer with
+ * function which allows you to initially set a #CtkSourceLanguage. You can also
+ * directly create a #CtkSourceView and get its #CtkSourceBuffer with
  * ctk_text_view_get_buffer().
  *
  * The highlighting is enabled by default, but you can disable it with
@@ -69,10 +69,10 @@
  *
  * # Undo/Redo
  *
- * A custom #GtkSourceUndoManager can be implemented and set with
+ * A custom #CtkSourceUndoManager can be implemented and set with
  * ctk_source_buffer_set_undo_manager(). However the default implementation
  * should be suitable for most uses, so you can use the API provided by
- * #GtkSourceBuffer instead of using #GtkSourceUndoManager. By default, actions
+ * #CtkSourceBuffer instead of using #CtkSourceUndoManager. By default, actions
  * that can be undone or redone are defined as groups of operations between a
  * call to ctk_text_buffer_begin_user_action() and
  * ctk_text_buffer_end_user_action(). In general, this happens whenever the user
@@ -99,7 +99,7 @@
  *
  * It is possible to retrieve some information from the syntax highlighting
  * engine. The default context classes that are applied to regions of a
- * #GtkSourceBuffer:
+ * #CtkSourceBuffer:
  *  - <emphasis>comment</emphasis>: the region delimits a comment;
  *  - <emphasis>no-spell-check</emphasis>: the region should not be spell checked;
  *  - <emphasis>path</emphasis>: the region delimits a path to a file;
@@ -109,21 +109,21 @@
  * since the functions like ctk_source_buffer_iter_has_context_class() take
  * a string parameter as the context class.
  *
- * #GtkSourceBuffer provides an API to access the context classes:
+ * #CtkSourceBuffer provides an API to access the context classes:
  * ctk_source_buffer_iter_has_context_class(),
  * ctk_source_buffer_get_context_classes_at_iter(),
  * ctk_source_buffer_iter_forward_to_context_class_toggle() and
  * ctk_source_buffer_iter_backward_to_context_class_toggle().
  *
- * And the #GtkSourceBuffer::highlight-updated signal permits to be notified
+ * And the #CtkSourceBuffer::highlight-updated signal permits to be notified
  * when a context class region changes.
  *
- * Each context class has also an associated #GtkTextTag with the name
+ * Each context class has also an associated #CtkTextTag with the name
  * <emphasis>ctksourceview:context-classes:&lt;name&gt;</emphasis>. For example to
- * retrieve the #GtkTextTag for the string context class, one can write:
+ * retrieve the #CtkTextTag for the string context class, one can write:
  * |[
- * GtkTextTagTable *tag_table;
- * GtkTextTag *tag;
+ * CtkTextTagTable *tag_table;
+ * CtkTextTag *tag;
  *
  * tag_table = ctk_text_buffer_get_tag_table (buffer);
  * tag = ctk_text_tag_table_lookup (tag_table, "ctksourceview:context-classes:string");
@@ -131,16 +131,16 @@
  *
  * The tag must be used for read-only purposes.
  *
- * Accessing a context class via the associated #GtkTextTag is less
- * convenient than the #GtkSourceBuffer API, because:
+ * Accessing a context class via the associated #CtkTextTag is less
+ * convenient than the #CtkSourceBuffer API, because:
  *  - The tag doesn't always exist, you need to listen to the
- *    #GtkTextTagTable::tag-added and #GtkTextTagTable::tag-removed signals.
- *  - Instead of the #GtkSourceBuffer::highlight-updated signal, you can listen
- *    to the #GtkTextBuffer::apply-tag and #GtkTextBuffer::remove-tag signals.
+ *    #CtkTextTagTable::tag-added and #CtkTextTagTable::tag-removed signals.
+ *  - Instead of the #CtkSourceBuffer::highlight-updated signal, you can listen
+ *    to the #CtkTextBuffer::apply-tag and #CtkTextBuffer::remove-tag signals.
  *
  * A possible use-case for accessing a context class via the associated
- * #GtkTextTag is to read the region but without adding a hard dependency on the
- * GtkSourceView library (for example for a spell-checking library that wants to
+ * #CtkTextTag is to read the region but without adding a hard dependency on the
+ * CtkSourceView library (for example for a spell-checking library that wants to
  * read the no-spell-check region).
  */
 
@@ -192,29 +192,29 @@ enum
 	N_PROPERTIES
 };
 
-struct _GtkSourceBufferPrivate
+struct _CtkSourceBufferPrivate
 {
-	GtkTextTag *bracket_match_tag;
-	GtkSourceBracketMatchType bracket_match_state;
+	CtkTextTag *bracket_match_tag;
+	CtkSourceBracketMatchType bracket_match_state;
 	guint bracket_highlighting_timeout_id;
 
 	/* Hash table: category -> MarksSequence */
 	GHashTable *source_marks;
-	GtkSourceMarksSequence *all_source_marks;
+	CtkSourceMarksSequence *all_source_marks;
 
-	GtkSourceStyleScheme *style_scheme;
-	GtkSourceLanguage *language;
-	GtkSourceEngine *highlight_engine;
+	CtkSourceStyleScheme *style_scheme;
+	CtkSourceLanguage *language;
+	CtkSourceEngine *highlight_engine;
 
-	GtkSourceUndoManager *undo_manager;
+	CtkSourceUndoManager *undo_manager;
 	gint max_undo_levels;
 
-	GtkTextMark *tmp_insert_mark;
-	GtkTextMark *tmp_selection_bound_mark;
+	CtkTextMark *tmp_insert_mark;
+	CtkTextMark *tmp_selection_bound_mark;
 
 	GList *search_contexts;
 
-	GtkTextTag *invalid_char_tag;
+	CtkTextTag *invalid_char_tag;
 
 	guint has_draw_spaces_tag : 1;
 	guint highlight_syntax : 1;
@@ -225,7 +225,7 @@ struct _GtkSourceBufferPrivate
 static guint buffer_signals[N_SIGNALS];
 static GParamSpec *buffer_properties[N_PROPERTIES];
 
-G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceBuffer, ctk_source_buffer, CTK_TYPE_TEXT_BUFFER)
+G_DEFINE_TYPE_WITH_PRIVATE (CtkSourceBuffer, ctk_source_buffer, CTK_TYPE_TEXT_BUFFER)
 
 /* Prototypes */
 static void 	 ctk_source_buffer_dispose		(GObject                 *object);
@@ -237,42 +237,42 @@ static void      ctk_source_buffer_get_property         (GObject                
 							 guint                    prop_id,
 							 GValue                  *value,
 							 GParamSpec              *pspec);
-static void 	 ctk_source_buffer_can_undo_handler 	(GtkSourceUndoManager    *manager,
-							 GtkSourceBuffer         *buffer);
-static void 	 ctk_source_buffer_can_redo_handler	(GtkSourceUndoManager    *manager,
-							 GtkSourceBuffer         *buffer);
-static void 	 ctk_source_buffer_real_insert_text 	(GtkTextBuffer           *buffer,
-							 GtkTextIter             *iter,
+static void 	 ctk_source_buffer_can_undo_handler 	(CtkSourceUndoManager    *manager,
+							 CtkSourceBuffer         *buffer);
+static void 	 ctk_source_buffer_can_redo_handler	(CtkSourceUndoManager    *manager,
+							 CtkSourceBuffer         *buffer);
+static void 	 ctk_source_buffer_real_insert_text 	(CtkTextBuffer           *buffer,
+							 CtkTextIter             *iter,
 							 const gchar             *text,
 							 gint                     len);
-static void	 ctk_source_buffer_real_insert_pixbuf	(GtkTextBuffer           *buffer,
-							 GtkTextIter             *pos,
+static void	 ctk_source_buffer_real_insert_pixbuf	(CtkTextBuffer           *buffer,
+							 CtkTextIter             *pos,
 							 GdkPixbuf               *pixbuf);
 static void	 ctk_source_buffer_real_insert_child_anchor
-							(GtkTextBuffer           *buffer,
-							 GtkTextIter             *pos,
-							 GtkTextChildAnchor      *anchor);
-static void 	 ctk_source_buffer_real_delete_range 	(GtkTextBuffer           *buffer,
-							 GtkTextIter             *iter,
-							 GtkTextIter             *end);
-static void 	 ctk_source_buffer_real_mark_set	(GtkTextBuffer		 *buffer,
-							 const GtkTextIter	 *location,
-							 GtkTextMark		 *mark);
+							(CtkTextBuffer           *buffer,
+							 CtkTextIter             *pos,
+							 CtkTextChildAnchor      *anchor);
+static void 	 ctk_source_buffer_real_delete_range 	(CtkTextBuffer           *buffer,
+							 CtkTextIter             *iter,
+							 CtkTextIter             *end);
+static void 	 ctk_source_buffer_real_mark_set	(CtkTextBuffer		 *buffer,
+							 const CtkTextIter	 *location,
+							 CtkTextMark		 *mark);
 
-static void 	 ctk_source_buffer_real_mark_deleted	(GtkTextBuffer		 *buffer,
-							 GtkTextMark		 *mark);
+static void 	 ctk_source_buffer_real_mark_deleted	(CtkTextBuffer		 *buffer,
+							 CtkTextMark		 *mark);
 
-static void	 ctk_source_buffer_real_undo		(GtkSourceBuffer	 *buffer);
-static void	 ctk_source_buffer_real_redo		(GtkSourceBuffer	 *buffer);
+static void	 ctk_source_buffer_real_undo		(CtkSourceBuffer	 *buffer);
+static void	 ctk_source_buffer_real_redo		(CtkSourceBuffer	 *buffer);
 
 static void	 ctk_source_buffer_real_highlight_updated
-							(GtkSourceBuffer         *buffer,
-							 GtkTextIter             *start,
-							 GtkTextIter             *end);
+							(CtkSourceBuffer         *buffer,
+							 CtkTextIter             *start,
+							 CtkTextIter             *end);
 
 static void
-ctk_source_buffer_check_tag_for_spaces (GtkSourceBuffer *buffer,
-                                        GtkSourceTag    *tag)
+ctk_source_buffer_check_tag_for_spaces (CtkSourceBuffer *buffer,
+                                        CtkSourceTag    *tag)
 {
 	if (!buffer->priv->has_draw_spaces_tag)
 	{
@@ -290,10 +290,10 @@ ctk_source_buffer_check_tag_for_spaces (GtkSourceBuffer *buffer,
 }
 
 static void
-ctk_source_buffer_tag_changed_cb (GtkTextTagTable *table,
-                                  GtkTextTag      *tag,
+ctk_source_buffer_tag_changed_cb (CtkTextTagTable *table,
+                                  CtkTextTag      *tag,
                                   gboolean         size_changed,
-                                  GtkSourceBuffer *buffer)
+                                  CtkSourceBuffer *buffer)
 {
 	if (CTK_SOURCE_IS_TAG (tag))
 	{
@@ -302,9 +302,9 @@ ctk_source_buffer_tag_changed_cb (GtkTextTagTable *table,
 }
 
 static void
-ctk_source_buffer_tag_added_cb (GtkTextTagTable *table,
-                                GtkTextTag      *tag,
-                                GtkSourceBuffer *buffer)
+ctk_source_buffer_tag_added_cb (CtkTextTagTable *table,
+                                CtkTextTag      *tag,
+                                CtkSourceBuffer *buffer)
 {
 	if (CTK_SOURCE_IS_TAG (tag))
 	{
@@ -315,8 +315,8 @@ ctk_source_buffer_tag_added_cb (GtkTextTagTable *table,
 static void
 ctk_source_buffer_constructed (GObject *object)
 {
-	GtkSourceBuffer *buffer = CTK_SOURCE_BUFFER (object);
-	GtkTextTagTable *table;
+	CtkSourceBuffer *buffer = CTK_SOURCE_BUFFER (object);
+	CtkTextTagTable *table;
 
 	if (buffer->priv->undo_manager == NULL)
 	{
@@ -338,10 +338,10 @@ ctk_source_buffer_constructed (GObject *object)
 }
 
 static void
-ctk_source_buffer_class_init (GtkSourceBufferClass *klass)
+ctk_source_buffer_class_init (CtkSourceBufferClass *klass)
 {
 	GObjectClass *object_class;
-	GtkTextBufferClass *text_buffer_class;
+	CtkTextBufferClass *text_buffer_class;
 
 	object_class = G_OBJECT_CLASS (klass);
 	text_buffer_class = CTK_TEXT_BUFFER_CLASS (klass);
@@ -362,7 +362,7 @@ ctk_source_buffer_class_init (GtkSourceBufferClass *klass)
 	klass->redo = ctk_source_buffer_real_redo;
 
 	/**
-	 * GtkSourceBuffer:highlight-syntax:
+	 * CtkSourceBuffer:highlight-syntax:
 	 *
 	 * Whether to highlight syntax in the buffer.
 	 */
@@ -375,7 +375,7 @@ ctk_source_buffer_class_init (GtkSourceBufferClass *klass)
 				      G_PARAM_STATIC_STRINGS);
 
 	/**
-	 * GtkSourceBuffer:highlight-matching-brackets:
+	 * CtkSourceBuffer:highlight-matching-brackets:
 	 *
 	 * Whether to highlight matching brackets in the buffer.
 	 */
@@ -388,7 +388,7 @@ ctk_source_buffer_class_init (GtkSourceBufferClass *klass)
 				      G_PARAM_STATIC_STRINGS);
 
 	/**
-	 * GtkSourceBuffer:max-undo-levels:
+	 * CtkSourceBuffer:max-undo-levels:
 	 *
 	 * Number of undo levels for the buffer. -1 means no limit. This property
 	 * will only affect the default undo manager.
@@ -428,7 +428,7 @@ ctk_source_buffer_class_init (GtkSourceBufferClass *klass)
 				      G_PARAM_STATIC_STRINGS);
 
 	/**
-	 * GtkSourceBuffer:style-scheme:
+	 * CtkSourceBuffer:style-scheme:
 	 *
 	 * Style scheme. It contains styles for syntax highlighting, optionally
 	 * foreground, background, cursor color, current line color, and matching
@@ -452,7 +452,7 @@ ctk_source_buffer_class_init (GtkSourceBufferClass *klass)
 				     G_PARAM_STATIC_STRINGS);
 
 	/**
-	 * GtkSourceBuffer:implicit-trailing-newline:
+	 * CtkSourceBuffer:implicit-trailing-newline:
 	 *
 	 * Whether the buffer has an implicit trailing newline. See
 	 * ctk_source_buffer_set_implicit_trailing_newline().
@@ -471,7 +471,7 @@ ctk_source_buffer_class_init (GtkSourceBufferClass *klass)
 	g_object_class_install_properties (object_class, N_PROPERTIES, buffer_properties);
 
 	/**
-	 * GtkSourceBuffer::highlight-updated:
+	 * CtkSourceBuffer::highlight-updated:
 	 * @buffer: the buffer that received the signal
 	 * @start: the start of the updated region
 	 * @end: the end of the updated region
@@ -496,9 +496,9 @@ ctk_source_buffer_class_init (GtkSourceBufferClass *klass)
 	                            _ctk_source_marshal_VOID__BOXED_BOXEDv);
 
 	/**
-	 * GtkSourceBuffer::source-mark-updated:
+	 * CtkSourceBuffer::source-mark-updated:
 	 * @buffer: the buffer that received the signal
-	 * @mark: the #GtkSourceMark
+	 * @mark: the #CtkSourceMark
 	 *
 	 * The ::source-mark-updated signal is emitted each time
 	 * a mark is added to, moved or removed from the @buffer.
@@ -517,7 +517,7 @@ ctk_source_buffer_class_init (GtkSourceBufferClass *klass)
 	                            g_cclosure_marshal_VOID__OBJECTv);
 
 	/**
-	 * GtkSourceBuffer::undo:
+	 * CtkSourceBuffer::undo:
 	 * @buffer: the buffer that received the signal
 	 *
 	 * The ::undo signal is emitted to undo the last user action which
@@ -527,7 +527,7 @@ ctk_source_buffer_class_init (GtkSourceBufferClass *klass)
 	    g_signal_new ("undo",
 			  G_OBJECT_CLASS_TYPE (object_class),
 			  G_SIGNAL_RUN_LAST,
-			  G_STRUCT_OFFSET (GtkSourceBufferClass, undo),
+			  G_STRUCT_OFFSET (CtkSourceBufferClass, undo),
 			  NULL, NULL,
 			  g_cclosure_marshal_VOID__VOID,
 			  G_TYPE_NONE, 0);
@@ -536,7 +536,7 @@ ctk_source_buffer_class_init (GtkSourceBufferClass *klass)
 	                            g_cclosure_marshal_VOID__VOIDv);
 
 	/**
-	 * GtkSourceBuffer::redo:
+	 * CtkSourceBuffer::redo:
 	 * @buffer: the buffer that received the signal
 	 *
 	 * The ::redo signal is emitted to redo the last undo operation.
@@ -545,7 +545,7 @@ ctk_source_buffer_class_init (GtkSourceBufferClass *klass)
 	    g_signal_new ("redo",
 			  G_OBJECT_CLASS_TYPE (object_class),
 			  G_SIGNAL_RUN_LAST,
-			  G_STRUCT_OFFSET (GtkSourceBufferClass, redo),
+			  G_STRUCT_OFFSET (CtkSourceBufferClass, redo),
 			  NULL, NULL,
 			  g_cclosure_marshal_VOID__VOID,
 			  G_TYPE_NONE, 0);
@@ -554,8 +554,8 @@ ctk_source_buffer_class_init (GtkSourceBufferClass *klass)
 	                            g_cclosure_marshal_VOID__VOIDv);
 
 	/**
-	 * GtkSourceBuffer::bracket-matched:
-	 * @buffer: a #GtkSourceBuffer.
+	 * CtkSourceBuffer::bracket-matched:
+	 * @buffer: a #CtkSourceBuffer.
 	 * @iter: (nullable): if found, the location of the matching bracket.
 	 * @state: state of bracket matching.
 	 *
@@ -566,7 +566,7 @@ ctk_source_buffer_class_init (GtkSourceBufferClass *klass)
 	 * The signal is emitted only when the @state changes, typically when
 	 * the cursor moves.
 	 *
-	 * A use-case for this signal is to show messages in a #GtkStatusbar.
+	 * A use-case for this signal is to show messages in a #CtkStatusbar.
 	 *
 	 * Since: 2.12
 	 */
@@ -574,7 +574,7 @@ ctk_source_buffer_class_init (GtkSourceBufferClass *klass)
 	    g_signal_new ("bracket-matched",
 			  G_OBJECT_CLASS_TYPE (object_class),
 			  G_SIGNAL_RUN_LAST,
-			  G_STRUCT_OFFSET (GtkSourceBufferClass, bracket_matched),
+			  G_STRUCT_OFFSET (CtkSourceBufferClass, bracket_matched),
 			  NULL, NULL,
 			  _ctk_source_marshal_VOID__BOXED_ENUM,
 			  G_TYPE_NONE, 2,
@@ -586,8 +586,8 @@ ctk_source_buffer_class_init (GtkSourceBufferClass *klass)
 }
 
 static void
-set_undo_manager (GtkSourceBuffer      *buffer,
-                  GtkSourceUndoManager *manager)
+set_undo_manager (CtkSourceBuffer      *buffer,
+                  CtkSourceUndoManager *manager)
 {
 	if (manager == buffer->priv->undo_manager)
 	{
@@ -629,7 +629,7 @@ set_undo_manager (GtkSourceBuffer      *buffer,
 }
 
 static void
-search_context_weak_notify_cb (GtkSourceBuffer *buffer,
+search_context_weak_notify_cb (CtkSourceBuffer *buffer,
 			       GObject         *search_context)
 {
 	buffer->priv->search_contexts = g_list_remove (buffer->priv->search_contexts,
@@ -637,9 +637,9 @@ search_context_weak_notify_cb (GtkSourceBuffer *buffer,
 }
 
 static void
-ctk_source_buffer_init (GtkSourceBuffer *buffer)
+ctk_source_buffer_init (CtkSourceBuffer *buffer)
 {
-	GtkSourceBufferPrivate *priv = ctk_source_buffer_get_instance_private (buffer);
+	CtkSourceBufferPrivate *priv = ctk_source_buffer_get_instance_private (buffer);
 
 	buffer->priv = priv;
 
@@ -666,7 +666,7 @@ ctk_source_buffer_init (GtkSourceBuffer *buffer)
 static void
 ctk_source_buffer_dispose (GObject *object)
 {
-	GtkSourceBuffer *buffer = CTK_SOURCE_BUFFER (object);
+	CtkSourceBuffer *buffer = CTK_SOURCE_BUFFER (object);
 	GList *l;
 
 	if (buffer->priv->bracket_highlighting_timeout_id != 0)
@@ -691,7 +691,7 @@ ctk_source_buffer_dispose (GObject *object)
 
 	for (l = buffer->priv->search_contexts; l != NULL; l = l->next)
 	{
-		GtkSourceSearchContext *search_context = l->data;
+		CtkSourceSearchContext *search_context = l->data;
 
 		g_object_weak_unref (G_OBJECT (search_context),
 				     (GWeakNotify)search_context_weak_notify_cb,
@@ -718,7 +718,7 @@ ctk_source_buffer_set_property (GObject      *object,
 				const GValue *value,
 				GParamSpec   *pspec)
 {
-	GtkSourceBuffer *buffer;
+	CtkSourceBuffer *buffer;
 
 	g_return_if_fail (CTK_SOURCE_IS_BUFFER (object));
 
@@ -766,7 +766,7 @@ ctk_source_buffer_get_property (GObject    *object,
 				GValue     *value,
 				GParamSpec *pspec)
 {
-	GtkSourceBuffer *buffer;
+	CtkSourceBuffer *buffer;
 
 	g_return_if_fail (CTK_SOURCE_IS_BUFFER (object));
 
@@ -818,14 +818,14 @@ ctk_source_buffer_get_property (GObject    *object,
 
 /**
  * ctk_source_buffer_new:
- * @table: (nullable): a #GtkTextTagTable, or %NULL to create a new one.
+ * @table: (nullable): a #CtkTextTagTable, or %NULL to create a new one.
  *
  * Creates a new source buffer.
  *
  * Returns: a new source buffer.
  */
-GtkSourceBuffer *
-ctk_source_buffer_new (GtkTextTagTable *table)
+CtkSourceBuffer *
+ctk_source_buffer_new (CtkTextTagTable *table)
 {
 	return g_object_new (CTK_SOURCE_TYPE_BUFFER,
 			     "tag-table", table,
@@ -834,7 +834,7 @@ ctk_source_buffer_new (GtkTextTagTable *table)
 
 /**
  * ctk_source_buffer_new_with_language:
- * @language: a #GtkSourceLanguage.
+ * @language: a #CtkSourceLanguage.
  *
  * Creates a new source buffer using the highlighting patterns in
  * @language.  This is equivalent to creating a new source buffer with
@@ -843,8 +843,8 @@ ctk_source_buffer_new (GtkTextTagTable *table)
  * Returns: a new source buffer which will highlight text
  * according to the highlighting patterns in @language.
  */
-GtkSourceBuffer *
-ctk_source_buffer_new_with_language (GtkSourceLanguage *language)
+CtkSourceBuffer *
+ctk_source_buffer_new_with_language (CtkSourceLanguage *language)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_LANGUAGE (language), NULL);
 
@@ -855,8 +855,8 @@ ctk_source_buffer_new_with_language (GtkSourceLanguage *language)
 }
 
 static void
-ctk_source_buffer_can_undo_handler (GtkSourceUndoManager *manager,
-                                    GtkSourceBuffer      *buffer)
+ctk_source_buffer_can_undo_handler (CtkSourceUndoManager *manager,
+                                    CtkSourceBuffer      *buffer)
 {
 	g_return_if_fail (CTK_SOURCE_IS_BUFFER (buffer));
 
@@ -864,8 +864,8 @@ ctk_source_buffer_can_undo_handler (GtkSourceUndoManager *manager,
 }
 
 static void
-ctk_source_buffer_can_redo_handler (GtkSourceUndoManager *manager,
-                                    GtkSourceBuffer      *buffer)
+ctk_source_buffer_can_redo_handler (CtkSourceUndoManager *manager,
+                                    CtkSourceBuffer      *buffer)
 {
 	g_return_if_fail (CTK_SOURCE_IS_BUFFER (buffer));
 
@@ -873,9 +873,9 @@ ctk_source_buffer_can_redo_handler (GtkSourceUndoManager *manager,
 }
 
 static void
-update_bracket_match_style (GtkSourceBuffer *buffer)
+update_bracket_match_style (CtkSourceBuffer *buffer)
 {
-	GtkSourceStyle *style = NULL;
+	CtkSourceStyle *style = NULL;
 
 	if (buffer->priv->bracket_match_tag == NULL)
 	{
@@ -890,8 +890,8 @@ update_bracket_match_style (GtkSourceBuffer *buffer)
 	ctk_source_style_apply (style, buffer->priv->bracket_match_tag);
 }
 
-static GtkTextTag *
-get_bracket_match_tag (GtkSourceBuffer *buffer)
+static CtkTextTag *
+get_bracket_match_tag (CtkSourceBuffer *buffer)
 {
 	if (buffer->priv->bracket_match_tag == NULL)
 	{
@@ -909,8 +909,8 @@ get_bracket_match_tag (GtkSourceBuffer *buffer)
  * matches. Note that unlike get_bracket_match_tag() it returns NULL
  * if the tag is not set.
  */
-GtkTextTag *
-_ctk_source_buffer_get_bracket_match_tag (GtkSourceBuffer *buffer)
+CtkTextTag *
+_ctk_source_buffer_get_bracket_match_tag (CtkSourceBuffer *buffer)
 {
 	return buffer->priv->bracket_match_tag;
 }
@@ -988,13 +988,13 @@ bracket_pair (gunichar  base_char,
  * the CTK+ inspector.
  */
 static void
-remove_tag_with_minimal_damage (GtkTextBuffer     *buffer,
-                                GtkTextTag        *tag,
-                                const GtkTextIter *begin,
-                                const GtkTextIter *end)
+remove_tag_with_minimal_damage (CtkTextBuffer     *buffer,
+                                CtkTextTag        *tag,
+                                const CtkTextIter *begin,
+                                const CtkTextIter *end)
 {
-	GtkTextIter tag_begin = *begin;
-	GtkTextIter tag_end;
+	CtkTextIter tag_begin = *begin;
+	CtkTextIter tag_end;
 
 	if (!ctk_text_iter_starts_tag (&tag_begin, tag))
 	{
@@ -1057,20 +1057,20 @@ remove_tag_with_minimal_damage (GtkTextBuffer     *buffer,
 }
 
 static void
-update_bracket_highlighting (GtkSourceBuffer *source_buffer)
+update_bracket_highlighting (CtkSourceBuffer *source_buffer)
 {
-	GtkTextBuffer *buffer;
-	GtkTextIter insert_iter;
-	GtkTextIter bracket;
-	GtkTextIter bracket_match;
-	GtkSourceBracketMatchType previous_state;
+	CtkTextBuffer *buffer;
+	CtkTextIter insert_iter;
+	CtkTextIter bracket;
+	CtkTextIter bracket_match;
+	CtkSourceBracketMatchType previous_state;
 
 	buffer = CTK_TEXT_BUFFER (source_buffer);
 
 	if (source_buffer->priv->bracket_match_tag != NULL)
 	{
-		GtkTextIter start;
-		GtkTextIter end;
+		CtkTextIter start;
+		CtkTextIter end;
 
 		ctk_text_buffer_get_bounds (buffer, &start, &end);
 
@@ -1084,7 +1084,7 @@ update_bracket_highlighting (GtkSourceBuffer *source_buffer)
 	{
 		if (source_buffer->priv->bracket_match_tag != NULL)
 		{
-			GtkTextTagTable *table;
+			CtkTextTagTable *table;
 
 			table = ctk_text_buffer_get_tag_table (buffer);
 			ctk_text_tag_table_remove (table, source_buffer->priv->bracket_match_tag);
@@ -1107,7 +1107,7 @@ update_bracket_highlighting (GtkSourceBuffer *source_buffer)
 
 	if (source_buffer->priv->bracket_match_state == CTK_SOURCE_BRACKET_MATCH_FOUND)
 	{
-		GtkTextIter next_iter;
+		CtkTextIter next_iter;
 
 		g_signal_emit (source_buffer,
 			       buffer_signals[BRACKET_MATCHED],
@@ -1148,7 +1148,7 @@ update_bracket_highlighting (GtkSourceBuffer *source_buffer)
 static gboolean
 bracket_highlighting_timeout_cb (gpointer user_data)
 {
-	GtkSourceBuffer *buffer = CTK_SOURCE_BUFFER (user_data);
+	CtkSourceBuffer *buffer = CTK_SOURCE_BUFFER (user_data);
 
 	update_bracket_highlighting (buffer);
 
@@ -1157,7 +1157,7 @@ bracket_highlighting_timeout_cb (gpointer user_data)
 }
 
 static void
-queue_bracket_highlighting_update (GtkSourceBuffer *buffer)
+queue_bracket_highlighting_update (CtkSourceBuffer *buffer)
 {
 	if (buffer->priv->bracket_highlighting_timeout_id != 0)
 	{
@@ -1194,25 +1194,25 @@ queue_bracket_highlighting_update (GtkSourceBuffer *buffer)
  * cursor_moved() is more meaningful.
  */
 static void
-cursor_moved (GtkSourceBuffer *buffer)
+cursor_moved (CtkSourceBuffer *buffer)
 {
 	queue_bracket_highlighting_update (buffer);
 }
 
 static void
-ctk_source_buffer_real_highlight_updated (GtkSourceBuffer *buffer,
-					  GtkTextIter     *start,
-					  GtkTextIter     *end)
+ctk_source_buffer_real_highlight_updated (CtkSourceBuffer *buffer,
+					  CtkTextIter     *start,
+					  CtkTextIter     *end)
 {
 	queue_bracket_highlighting_update (buffer);
 }
 
 static void
-ctk_source_buffer_content_inserted (GtkTextBuffer *buffer,
+ctk_source_buffer_content_inserted (CtkTextBuffer *buffer,
 				    gint           start_offset,
 				    gint           end_offset)
 {
-	GtkSourceBuffer *source_buffer = CTK_SOURCE_BUFFER (buffer);
+	CtkSourceBuffer *source_buffer = CTK_SOURCE_BUFFER (buffer);
 
 	cursor_moved (source_buffer);
 
@@ -1225,8 +1225,8 @@ ctk_source_buffer_content_inserted (GtkTextBuffer *buffer,
 }
 
 static void
-ctk_source_buffer_real_insert_text (GtkTextBuffer *buffer,
-				    GtkTextIter   *iter,
+ctk_source_buffer_real_insert_text (CtkTextBuffer *buffer,
+				    CtkTextIter   *iter,
 				    const gchar   *text,
 				    gint           len)
 {
@@ -1256,8 +1256,8 @@ ctk_source_buffer_real_insert_text (GtkTextBuffer *buffer,
  * of buffer char count must be correct at all times.
  */
 static void
-ctk_source_buffer_real_insert_pixbuf (GtkTextBuffer *buffer,
-				      GtkTextIter   *iter,
+ctk_source_buffer_real_insert_pixbuf (CtkTextBuffer *buffer,
+				      CtkTextIter   *iter,
 				      GdkPixbuf     *pixbuf)
 {
 	gint start_offset;
@@ -1281,9 +1281,9 @@ ctk_source_buffer_real_insert_pixbuf (GtkTextBuffer *buffer,
 }
 
 static void
-ctk_source_buffer_real_insert_child_anchor (GtkTextBuffer      *buffer,
-					    GtkTextIter        *iter,
-					    GtkTextChildAnchor *anchor)
+ctk_source_buffer_real_insert_child_anchor (CtkTextBuffer      *buffer,
+					    CtkTextIter        *iter,
+					    CtkTextChildAnchor *anchor)
 {
 	gint start_offset;
 
@@ -1305,12 +1305,12 @@ ctk_source_buffer_real_insert_child_anchor (GtkTextBuffer      *buffer,
 }
 
 static void
-ctk_source_buffer_real_delete_range (GtkTextBuffer *buffer,
-				     GtkTextIter   *start,
-				     GtkTextIter   *end)
+ctk_source_buffer_real_delete_range (CtkTextBuffer *buffer,
+				     CtkTextIter   *start,
+				     CtkTextIter   *end)
 {
 	gint offset, length;
-	GtkSourceBuffer *source_buffer = CTK_SOURCE_BUFFER (buffer);
+	CtkSourceBuffer *source_buffer = CTK_SOURCE_BUFFER (buffer);
 
 	g_return_if_fail (CTK_SOURCE_IS_BUFFER (buffer));
 	g_return_if_fail (start != NULL);
@@ -1335,8 +1335,8 @@ ctk_source_buffer_real_delete_range (GtkTextBuffer *buffer,
 }
 
 static gint
-get_bracket_matching_context_class_mask (GtkSourceBuffer *buffer,
-					 GtkTextIter     *iter)
+get_bracket_matching_context_class_mask (CtkSourceBuffer *buffer,
+					 CtkTextIter     *iter)
 {
 	gint mask = 0;
 	guint i;
@@ -1366,11 +1366,11 @@ get_bracket_matching_context_class_mask (GtkSourceBuffer *buffer,
 /* Note that we only look BRACKET_MATCHING_CHARS_LIMIT at most.
  * @pos is moved to the bracket match, if found.
  */
-static GtkSourceBracketMatchType
-find_bracket_match_real (GtkSourceBuffer *buffer,
-			 GtkTextIter     *pos)
+static CtkSourceBracketMatchType
+find_bracket_match_real (CtkSourceBuffer *buffer,
+			 CtkTextIter     *pos)
 {
-	GtkTextIter iter;
+	CtkTextIter iter;
 	gunichar base_char;
 	gunichar search_char;
 	gint direction;
@@ -1458,15 +1458,15 @@ find_bracket_match_real (GtkSourceBuffer *buffer,
  * @bracket and @bracket_match are valid only if CTK_SOURCE_BRACKET_MATCH_FOUND
  * is returned. @bracket is set either to @pos or @pos-1.
  */
-GtkSourceBracketMatchType
-_ctk_source_buffer_find_bracket_match (GtkSourceBuffer   *buffer,
-				       const GtkTextIter *pos,
-				       GtkTextIter       *bracket,
-				       GtkTextIter       *bracket_match)
+CtkSourceBracketMatchType
+_ctk_source_buffer_find_bracket_match (CtkSourceBuffer   *buffer,
+				       const CtkTextIter *pos,
+				       CtkTextIter       *bracket,
+				       CtkTextIter       *bracket_match)
 {
-	GtkSourceBracketMatchType result_right;
-	GtkSourceBracketMatchType result_left;
-	GtkTextIter prev;
+	CtkSourceBracketMatchType result_right;
+	CtkSourceBracketMatchType result_left;
+	CtkTextIter prev;
 
 	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER (buffer), CTK_SOURCE_BRACKET_MATCH_NONE);
 	g_return_val_if_fail (pos != NULL, CTK_SOURCE_BRACKET_MATCH_NONE);
@@ -1527,14 +1527,14 @@ _ctk_source_buffer_find_bracket_match (GtkSourceBuffer   *buffer,
 
 /**
  * ctk_source_buffer_can_undo:
- * @buffer: a #GtkSourceBuffer.
+ * @buffer: a #CtkSourceBuffer.
  *
  * Determines whether a source buffer can undo the last action.
  *
  * Returns: %TRUE if it's possible to undo the last action.
  */
 gboolean
-ctk_source_buffer_can_undo (GtkSourceBuffer *buffer)
+ctk_source_buffer_can_undo (CtkSourceBuffer *buffer)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER (buffer), FALSE);
 
@@ -1543,7 +1543,7 @@ ctk_source_buffer_can_undo (GtkSourceBuffer *buffer)
 
 /**
  * ctk_source_buffer_can_redo:
- * @buffer: a #GtkSourceBuffer.
+ * @buffer: a #CtkSourceBuffer.
  *
  * Determines whether a source buffer can redo the last action
  * (i.e. if the last operation was an undo).
@@ -1551,7 +1551,7 @@ ctk_source_buffer_can_undo (GtkSourceBuffer *buffer)
  * Returns: %TRUE if a redo is possible.
  */
 gboolean
-ctk_source_buffer_can_redo (GtkSourceBuffer *buffer)
+ctk_source_buffer_can_redo (CtkSourceBuffer *buffer)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER (buffer), FALSE);
 
@@ -1560,16 +1560,16 @@ ctk_source_buffer_can_redo (GtkSourceBuffer *buffer)
 
 /**
  * ctk_source_buffer_undo:
- * @buffer: a #GtkSourceBuffer.
+ * @buffer: a #CtkSourceBuffer.
  *
  * Undoes the last user action which modified the buffer.  Use
  * ctk_source_buffer_can_undo() to check whether a call to this
  * function will have any effect.
  *
- * This function emits the #GtkSourceBuffer::undo signal.
+ * This function emits the #CtkSourceBuffer::undo signal.
  */
 void
-ctk_source_buffer_undo (GtkSourceBuffer *buffer)
+ctk_source_buffer_undo (CtkSourceBuffer *buffer)
 {
 	g_return_if_fail (CTK_SOURCE_IS_BUFFER (buffer));
 
@@ -1578,15 +1578,15 @@ ctk_source_buffer_undo (GtkSourceBuffer *buffer)
 
 /**
  * ctk_source_buffer_redo:
- * @buffer: a #GtkSourceBuffer.
+ * @buffer: a #CtkSourceBuffer.
  *
  * Redoes the last undo operation.  Use ctk_source_buffer_can_redo()
  * to check whether a call to this function will have any effect.
  *
- * This function emits the #GtkSourceBuffer::redo signal.
+ * This function emits the #CtkSourceBuffer::redo signal.
  */
 void
-ctk_source_buffer_redo (GtkSourceBuffer *buffer)
+ctk_source_buffer_redo (CtkSourceBuffer *buffer)
 {
 	g_return_if_fail (CTK_SOURCE_IS_BUFFER (buffer));
 
@@ -1595,14 +1595,14 @@ ctk_source_buffer_redo (GtkSourceBuffer *buffer)
 
 /**
  * ctk_source_buffer_get_max_undo_levels:
- * @buffer: a #GtkSourceBuffer.
+ * @buffer: a #CtkSourceBuffer.
  *
  * Determines the number of undo levels the buffer will track for buffer edits.
  *
  * Returns: the maximum number of possible undo levels or -1 if no limit is set.
  */
 gint
-ctk_source_buffer_get_max_undo_levels (GtkSourceBuffer *buffer)
+ctk_source_buffer_get_max_undo_levels (CtkSourceBuffer *buffer)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER (buffer), 0);
 
@@ -1611,7 +1611,7 @@ ctk_source_buffer_get_max_undo_levels (GtkSourceBuffer *buffer)
 
 /**
  * ctk_source_buffer_set_max_undo_levels:
- * @buffer: a #GtkSourceBuffer.
+ * @buffer: a #CtkSourceBuffer.
  * @max_undo_levels: the desired maximum number of undo levels.
  *
  * Sets the number of undo levels for user actions the buffer will
@@ -1623,7 +1623,7 @@ ctk_source_buffer_get_max_undo_levels (GtkSourceBuffer *buffer)
  * If @max_undo_levels is 0, the undo/redo is disabled.
  */
 void
-ctk_source_buffer_set_max_undo_levels (GtkSourceBuffer *buffer,
+ctk_source_buffer_set_max_undo_levels (CtkSourceBuffer *buffer,
 				       gint             max_undo_levels)
 {
 	g_return_if_fail (CTK_SOURCE_IS_BUFFER (buffer));
@@ -1645,7 +1645,7 @@ ctk_source_buffer_set_max_undo_levels (GtkSourceBuffer *buffer,
 }
 
 gboolean
-_ctk_source_buffer_is_undo_redo_enabled (GtkSourceBuffer *buffer)
+_ctk_source_buffer_is_undo_redo_enabled (CtkSourceBuffer *buffer)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER (buffer), FALSE);
 
@@ -1665,7 +1665,7 @@ _ctk_source_buffer_is_undo_redo_enabled (GtkSourceBuffer *buffer)
 
 /**
  * ctk_source_buffer_begin_not_undoable_action:
- * @buffer: a #GtkSourceBuffer.
+ * @buffer: a #CtkSourceBuffer.
  *
  * Marks the beginning of a not undoable action on the buffer,
  * disabling the undo manager.  Typically you would call this function
@@ -1676,7 +1676,7 @@ _ctk_source_buffer_is_undo_redo_enabled (GtkSourceBuffer *buffer)
  * ctk_source_buffer_end_not_undoable_action() blocks.
  */
 void
-ctk_source_buffer_begin_not_undoable_action (GtkSourceBuffer *buffer)
+ctk_source_buffer_begin_not_undoable_action (CtkSourceBuffer *buffer)
 {
 	g_return_if_fail (CTK_SOURCE_IS_BUFFER (buffer));
 
@@ -1685,7 +1685,7 @@ ctk_source_buffer_begin_not_undoable_action (GtkSourceBuffer *buffer)
 
 /**
  * ctk_source_buffer_end_not_undoable_action:
- * @buffer: a #GtkSourceBuffer.
+ * @buffer: a #CtkSourceBuffer.
  *
  * Marks the end of a not undoable action on the buffer.  When the
  * last not undoable block is closed through the call to this
@@ -1693,7 +1693,7 @@ ctk_source_buffer_begin_not_undoable_action (GtkSourceBuffer *buffer)
  * is re-enabled.
  */
 void
-ctk_source_buffer_end_not_undoable_action (GtkSourceBuffer *buffer)
+ctk_source_buffer_end_not_undoable_action (CtkSourceBuffer *buffer)
 {
 	g_return_if_fail (CTK_SOURCE_IS_BUFFER (buffer));
 
@@ -1702,7 +1702,7 @@ ctk_source_buffer_end_not_undoable_action (GtkSourceBuffer *buffer)
 
 /**
  * ctk_source_buffer_get_highlight_matching_brackets:
- * @buffer: a #GtkSourceBuffer.
+ * @buffer: a #CtkSourceBuffer.
  *
  * Determines whether bracket match highlighting is activated for the
  * source buffer.
@@ -1711,7 +1711,7 @@ ctk_source_buffer_end_not_undoable_action (GtkSourceBuffer *buffer)
  * brackets.
  */
 gboolean
-ctk_source_buffer_get_highlight_matching_brackets (GtkSourceBuffer *buffer)
+ctk_source_buffer_get_highlight_matching_brackets (CtkSourceBuffer *buffer)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER (buffer), FALSE);
 
@@ -1720,7 +1720,7 @@ ctk_source_buffer_get_highlight_matching_brackets (GtkSourceBuffer *buffer)
 
 /**
  * ctk_source_buffer_set_highlight_matching_brackets:
- * @buffer: a #GtkSourceBuffer.
+ * @buffer: a #CtkSourceBuffer.
  * @highlight: %TRUE if you want matching brackets highlighted.
  *
  * Controls the bracket match highlighting function in the buffer.  If
@@ -1729,7 +1729,7 @@ ctk_source_buffer_get_highlight_matching_brackets (GtkSourceBuffer *buffer)
  * closing bracket character will be highlighted.
  */
 void
-ctk_source_buffer_set_highlight_matching_brackets (GtkSourceBuffer *buffer,
+ctk_source_buffer_set_highlight_matching_brackets (CtkSourceBuffer *buffer,
 						   gboolean         highlight)
 {
 	g_return_if_fail (CTK_SOURCE_IS_BUFFER (buffer));
@@ -1748,7 +1748,7 @@ ctk_source_buffer_set_highlight_matching_brackets (GtkSourceBuffer *buffer,
 
 /**
  * ctk_source_buffer_get_highlight_syntax:
- * @buffer: a #GtkSourceBuffer.
+ * @buffer: a #CtkSourceBuffer.
  *
  * Determines whether syntax highlighting is activated in the source
  * buffer.
@@ -1756,7 +1756,7 @@ ctk_source_buffer_set_highlight_matching_brackets (GtkSourceBuffer *buffer,
  * Returns: %TRUE if syntax highlighting is enabled, %FALSE otherwise.
  */
 gboolean
-ctk_source_buffer_get_highlight_syntax (GtkSourceBuffer *buffer)
+ctk_source_buffer_get_highlight_syntax (CtkSourceBuffer *buffer)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER (buffer), FALSE);
 
@@ -1765,21 +1765,21 @@ ctk_source_buffer_get_highlight_syntax (GtkSourceBuffer *buffer)
 
 /**
  * ctk_source_buffer_set_highlight_syntax:
- * @buffer: a #GtkSourceBuffer.
+ * @buffer: a #CtkSourceBuffer.
  * @highlight: %TRUE to enable syntax highlighting, %FALSE to disable it.
  *
  * Controls whether syntax is highlighted in the buffer.
  *
  * If @highlight is %TRUE, the text will be highlighted according to the syntax
- * patterns specified in the #GtkSourceLanguage set with
+ * patterns specified in the #CtkSourceLanguage set with
  * ctk_source_buffer_set_language().
  *
  * If @highlight is %FALSE, syntax highlighting is disabled and all the
- * #GtkTextTag objects that have been added by the syntax highlighting engine
+ * #CtkTextTag objects that have been added by the syntax highlighting engine
  * are removed from the buffer.
  */
 void
-ctk_source_buffer_set_highlight_syntax (GtkSourceBuffer *buffer,
+ctk_source_buffer_set_highlight_syntax (CtkSourceBuffer *buffer,
 					gboolean         highlight)
 {
 	g_return_if_fail (CTK_SOURCE_IS_BUFFER (buffer));
@@ -1795,20 +1795,20 @@ ctk_source_buffer_set_highlight_syntax (GtkSourceBuffer *buffer,
 
 /**
  * ctk_source_buffer_set_language:
- * @buffer: a #GtkSourceBuffer.
- * @language: (nullable): a #GtkSourceLanguage to set, or %NULL.
+ * @buffer: a #CtkSourceBuffer.
+ * @language: (nullable): a #CtkSourceLanguage to set, or %NULL.
  *
- * Associates a #GtkSourceLanguage with the buffer.
+ * Associates a #CtkSourceLanguage with the buffer.
  *
- * Note that a #GtkSourceLanguage affects not only the syntax highlighting, but
+ * Note that a #CtkSourceLanguage affects not only the syntax highlighting, but
  * also the [context classes][context-classes]. If you want to disable just the
  * syntax highlighting, see ctk_source_buffer_set_highlight_syntax().
  *
  * The buffer holds a reference to @language.
  */
 void
-ctk_source_buffer_set_language (GtkSourceBuffer   *buffer,
-				GtkSourceLanguage *language)
+ctk_source_buffer_set_language (CtkSourceBuffer   *buffer,
+				CtkSourceLanguage *language)
 {
 	g_return_if_fail (CTK_SOURCE_IS_BUFFER (buffer));
 	g_return_if_fail (CTK_SOURCE_IS_LANGUAGE (language) || language == NULL);
@@ -1849,17 +1849,17 @@ ctk_source_buffer_set_language (GtkSourceBuffer   *buffer,
 
 /**
  * ctk_source_buffer_get_language:
- * @buffer: a #GtkSourceBuffer.
+ * @buffer: a #CtkSourceBuffer.
  *
- * Returns the #GtkSourceLanguage associated with the buffer,
+ * Returns the #CtkSourceLanguage associated with the buffer,
  * see ctk_source_buffer_set_language().  The returned object should not be
  * unreferenced by the user.
  *
- * Returns: (nullable) (transfer none): the #GtkSourceLanguage associated
+ * Returns: (nullable) (transfer none): the #CtkSourceLanguage associated
  * with the buffer, or %NULL.
  */
-GtkSourceLanguage *
-ctk_source_buffer_get_language (GtkSourceBuffer *buffer)
+CtkSourceLanguage *
+ctk_source_buffer_get_language (CtkSourceBuffer *buffer)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER (buffer), NULL);
 
@@ -1868,7 +1868,7 @@ ctk_source_buffer_get_language (GtkSourceBuffer *buffer)
 
 /*
  * _ctk_source_buffer_update_syntax_highlight:
- * @buffer: a #GtkSourceBuffer.
+ * @buffer: a #CtkSourceBuffer.
  * @start: start of the area to highlight.
  * @end: end of the area to highlight.
  * @synchronous: whether the area should be highlighted synchronously.
@@ -1876,9 +1876,9 @@ ctk_source_buffer_get_language (GtkSourceBuffer *buffer)
  * Asks the buffer to analyze and highlight given area.
  */
 void
-_ctk_source_buffer_update_syntax_highlight (GtkSourceBuffer   *buffer,
-					    const GtkTextIter *start,
-					    const GtkTextIter *end,
+_ctk_source_buffer_update_syntax_highlight (CtkSourceBuffer   *buffer,
+					    const CtkTextIter *start,
+					    const CtkTextIter *end,
 					    gboolean           synchronous)
 {
 	g_return_if_fail (CTK_SOURCE_IS_BUFFER (buffer));
@@ -1893,9 +1893,9 @@ _ctk_source_buffer_update_syntax_highlight (GtkSourceBuffer   *buffer,
 }
 
 void
-_ctk_source_buffer_update_search_highlight (GtkSourceBuffer   *buffer,
-					    const GtkTextIter *start,
-					    const GtkTextIter *end,
+_ctk_source_buffer_update_search_highlight (CtkSourceBuffer   *buffer,
+					    const CtkTextIter *start,
+					    const CtkTextIter *end,
 					    gboolean           synchronous)
 {
 	GList *l;
@@ -1904,7 +1904,7 @@ _ctk_source_buffer_update_search_highlight (GtkSourceBuffer   *buffer,
 
 	for (l = buffer->priv->search_contexts; l != NULL; l = l->next)
 	{
-		GtkSourceSearchContext *search_context = l->data;
+		CtkSourceSearchContext *search_context = l->data;
 
 		_ctk_source_search_context_update_highlight (search_context,
 							     start,
@@ -1915,7 +1915,7 @@ _ctk_source_buffer_update_search_highlight (GtkSourceBuffer   *buffer,
 
 /**
  * ctk_source_buffer_ensure_highlight:
- * @buffer: a #GtkSourceBuffer.
+ * @buffer: a #CtkSourceBuffer.
  * @start: start of the area to highlight.
  * @end: end of the area to highlight.
  *
@@ -1930,9 +1930,9 @@ _ctk_source_buffer_update_search_highlight (GtkSourceBuffer   *buffer,
  * </note>
  **/
 void
-ctk_source_buffer_ensure_highlight (GtkSourceBuffer   *buffer,
-				    const GtkTextIter *start,
-				    const GtkTextIter *end)
+ctk_source_buffer_ensure_highlight (CtkSourceBuffer   *buffer,
+				    const CtkTextIter *start,
+				    const CtkTextIter *end)
 {
 	_ctk_source_buffer_update_syntax_highlight (buffer, start, end, TRUE);
 	_ctk_source_buffer_update_search_highlight (buffer, start, end, TRUE);
@@ -1940,26 +1940,26 @@ ctk_source_buffer_ensure_highlight (GtkSourceBuffer   *buffer,
 
 /**
  * ctk_source_buffer_set_style_scheme:
- * @buffer: a #GtkSourceBuffer.
- * @scheme: (nullable): a #GtkSourceStyleScheme or %NULL.
+ * @buffer: a #CtkSourceBuffer.
+ * @scheme: (nullable): a #CtkSourceStyleScheme or %NULL.
  *
- * Sets a #GtkSourceStyleScheme to be used by the buffer and the view.
+ * Sets a #CtkSourceStyleScheme to be used by the buffer and the view.
  *
- * Note that a #GtkSourceStyleScheme affects not only the syntax highlighting,
- * but also other #GtkSourceView features such as highlighting the current line,
+ * Note that a #CtkSourceStyleScheme affects not only the syntax highlighting,
+ * but also other #CtkSourceView features such as highlighting the current line,
  * matching brackets, the line numbers, etc.
  *
  * Instead of setting a %NULL @scheme, it is better to disable syntax
  * highlighting with ctk_source_buffer_set_highlight_syntax(), and setting the
- * #GtkSourceStyleScheme with the "classic" or "tango" ID, because those two
+ * #CtkSourceStyleScheme with the "classic" or "tango" ID, because those two
  * style schemes follow more closely the CTK+ theme (for example for the
  * background color).
  *
  * The buffer holds a reference to @scheme.
  */
 void
-ctk_source_buffer_set_style_scheme (GtkSourceBuffer      *buffer,
-				    GtkSourceStyleScheme *scheme)
+ctk_source_buffer_set_style_scheme (CtkSourceBuffer      *buffer,
+				    CtkSourceStyleScheme *scheme)
 {
 	g_return_if_fail (CTK_SOURCE_IS_BUFFER (buffer));
 	g_return_if_fail (CTK_SOURCE_IS_STYLE_SCHEME (scheme) || scheme == NULL);
@@ -1979,17 +1979,17 @@ ctk_source_buffer_set_style_scheme (GtkSourceBuffer      *buffer,
 
 /**
  * ctk_source_buffer_get_style_scheme:
- * @buffer: a #GtkSourceBuffer.
+ * @buffer: a #CtkSourceBuffer.
  *
- * Returns the #GtkSourceStyleScheme associated with the buffer,
+ * Returns the #CtkSourceStyleScheme associated with the buffer,
  * see ctk_source_buffer_set_style_scheme().
  * The returned object should not be unreferenced by the user.
  *
- * Returns: (nullable) (transfer none): the #GtkSourceStyleScheme
+ * Returns: (nullable) (transfer none): the #CtkSourceStyleScheme
  * associated with the buffer, or %NULL.
  */
-GtkSourceStyleScheme *
-ctk_source_buffer_get_style_scheme (GtkSourceBuffer *buffer)
+CtkSourceStyleScheme *
+ctk_source_buffer_get_style_scheme (CtkSourceBuffer *buffer)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER (buffer), NULL);
 
@@ -1997,11 +1997,11 @@ ctk_source_buffer_get_style_scheme (GtkSourceBuffer *buffer)
 }
 
 static void
-add_source_mark (GtkSourceBuffer *buffer,
-		 GtkSourceMark   *mark)
+add_source_mark (CtkSourceBuffer *buffer,
+		 CtkSourceMark   *mark)
 {
 	const gchar *category;
-	GtkSourceMarksSequence *seq;
+	CtkSourceMarksSequence *seq;
 
 	_ctk_source_marks_sequence_add (buffer->priv->all_source_marks,
 					CTK_TEXT_MARK (mark));
@@ -2022,9 +2022,9 @@ add_source_mark (GtkSourceBuffer *buffer,
 }
 
 static void
-ctk_source_buffer_real_mark_set	(GtkTextBuffer     *buffer,
-				 const GtkTextIter *location,
-				 GtkTextMark       *mark)
+ctk_source_buffer_real_mark_set	(CtkTextBuffer     *buffer,
+				 const CtkTextIter *location,
+				 CtkTextMark       *mark)
 {
 	if (CTK_SOURCE_IS_MARK (mark))
 	{
@@ -2042,14 +2042,14 @@ ctk_source_buffer_real_mark_set	(GtkTextBuffer     *buffer,
 }
 
 static void
-ctk_source_buffer_real_mark_deleted (GtkTextBuffer *buffer,
-				     GtkTextMark   *mark)
+ctk_source_buffer_real_mark_deleted (CtkTextBuffer *buffer,
+				     CtkTextMark   *mark)
 {
 	if (CTK_SOURCE_IS_MARK (mark))
 	{
-		GtkSourceBuffer *source_buffer = CTK_SOURCE_BUFFER (buffer);
+		CtkSourceBuffer *source_buffer = CTK_SOURCE_BUFFER (buffer);
 		const gchar *category;
-		GtkSourceMarksSequence *seq;
+		CtkSourceMarksSequence *seq;
 
 		category = ctk_source_mark_get_category (CTK_SOURCE_MARK (mark));
 		seq = g_hash_table_lookup (source_buffer->priv->source_marks, category);
@@ -2069,7 +2069,7 @@ ctk_source_buffer_real_mark_deleted (GtkTextBuffer *buffer,
 }
 
 static void
-ctk_source_buffer_real_undo (GtkSourceBuffer *buffer)
+ctk_source_buffer_real_undo (CtkSourceBuffer *buffer)
 {
 	g_return_if_fail (ctk_source_undo_manager_can_undo (buffer->priv->undo_manager));
 
@@ -2077,7 +2077,7 @@ ctk_source_buffer_real_undo (GtkSourceBuffer *buffer)
 }
 
 static void
-ctk_source_buffer_real_redo (GtkSourceBuffer *buffer)
+ctk_source_buffer_real_redo (CtkSourceBuffer *buffer)
 {
 	g_return_if_fail (ctk_source_undo_manager_can_redo (buffer->priv->undo_manager));
 
@@ -2086,16 +2086,16 @@ ctk_source_buffer_real_redo (GtkSourceBuffer *buffer)
 
 /**
  * ctk_source_buffer_create_source_mark:
- * @buffer: a #GtkSourceBuffer.
+ * @buffer: a #CtkSourceBuffer.
  * @name: (nullable): the name of the mark, or %NULL.
  * @category: a string defining the mark category.
  * @where: location to place the mark.
  *
  * Creates a source mark in the @buffer of category @category.  A source mark is
- * a #GtkTextMark but organised into categories. Depending on the category
+ * a #CtkTextMark but organised into categories. Depending on the category
  * a pixbuf can be specified that will be displayed along the line of the mark.
  *
- * Like a #GtkTextMark, a #GtkSourceMark can be anonymous if the
+ * Like a #CtkTextMark, a #CtkSourceMark can be anonymous if the
  * passed @name is %NULL.  Also, the buffer owns the marks so you
  * shouldn't unreference it.
  *
@@ -2105,17 +2105,17 @@ ctk_source_buffer_real_redo (GtkSourceBuffer *buffer)
  * Typical uses for a source mark are bookmarks, breakpoints, current
  * executing instruction indication in a source file, etc..
  *
- * Returns: (transfer none): a new #GtkSourceMark, owned by the buffer.
+ * Returns: (transfer none): a new #CtkSourceMark, owned by the buffer.
  *
  * Since: 2.2
  */
-GtkSourceMark *
-ctk_source_buffer_create_source_mark (GtkSourceBuffer   *buffer,
+CtkSourceMark *
+ctk_source_buffer_create_source_mark (CtkSourceBuffer   *buffer,
 				      const gchar       *name,
 				      const gchar       *category,
-				      const GtkTextIter *where)
+				      const CtkTextIter *where)
 {
-	GtkSourceMark *mark;
+	CtkSourceMark *mark;
 
 	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER (buffer), NULL);
 	g_return_val_if_fail (category != NULL, NULL);
@@ -2135,8 +2135,8 @@ ctk_source_buffer_create_source_mark (GtkSourceBuffer   *buffer,
 	return mark;
 }
 
-static GtkSourceMarksSequence *
-get_marks_sequence (GtkSourceBuffer *buffer,
+static CtkSourceMarksSequence *
+get_marks_sequence (CtkSourceBuffer *buffer,
 		    const gchar     *category)
 {
 	return category == NULL ?
@@ -2144,13 +2144,13 @@ get_marks_sequence (GtkSourceBuffer *buffer,
 		g_hash_table_lookup (buffer->priv->source_marks, category);
 }
 
-GtkSourceMark *
-_ctk_source_buffer_source_mark_next (GtkSourceBuffer *buffer,
-				     GtkSourceMark   *mark,
+CtkSourceMark *
+_ctk_source_buffer_source_mark_next (CtkSourceBuffer *buffer,
+				     CtkSourceMark   *mark,
 				     const gchar     *category)
 {
-	GtkSourceMarksSequence *seq;
-	GtkTextMark *next_mark;
+	CtkSourceMarksSequence *seq;
+	CtkTextMark *next_mark;
 
 	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER (buffer), NULL);
 
@@ -2166,13 +2166,13 @@ _ctk_source_buffer_source_mark_next (GtkSourceBuffer *buffer,
 	return next_mark == NULL ? NULL : CTK_SOURCE_MARK (next_mark);
 }
 
-GtkSourceMark *
-_ctk_source_buffer_source_mark_prev (GtkSourceBuffer *buffer,
-				     GtkSourceMark   *mark,
+CtkSourceMark *
+_ctk_source_buffer_source_mark_prev (CtkSourceBuffer *buffer,
+				     CtkSourceMark   *mark,
 				     const gchar     *category)
 {
-	GtkSourceMarksSequence *seq;
-	GtkTextMark *prev_mark;
+	CtkSourceMarksSequence *seq;
+	CtkTextMark *prev_mark;
 
 	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER (buffer), NULL);
 
@@ -2190,11 +2190,11 @@ _ctk_source_buffer_source_mark_prev (GtkSourceBuffer *buffer,
 
 /**
  * ctk_source_buffer_forward_iter_to_source_mark:
- * @buffer: a #GtkSourceBuffer.
+ * @buffer: a #CtkSourceBuffer.
  * @iter: (inout): an iterator.
  * @category: (nullable): category to search for, or %NULL
  *
- * Moves @iter to the position of the next #GtkSourceMark of the given
+ * Moves @iter to the position of the next #CtkSourceMark of the given
  * @category. Returns %TRUE if @iter was moved. If @category is NULL, the
  * next source mark can be of any category.
  *
@@ -2203,11 +2203,11 @@ _ctk_source_buffer_source_mark_prev (GtkSourceBuffer *buffer,
  * Since: 2.2
  */
 gboolean
-ctk_source_buffer_forward_iter_to_source_mark (GtkSourceBuffer *buffer,
-					       GtkTextIter     *iter,
+ctk_source_buffer_forward_iter_to_source_mark (CtkSourceBuffer *buffer,
+					       CtkTextIter     *iter,
 					       const gchar     *category)
 {
-	GtkSourceMarksSequence *seq;
+	CtkSourceMarksSequence *seq;
 
 	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER (buffer), FALSE);
 	g_return_val_if_fail (iter != NULL, FALSE);
@@ -2224,11 +2224,11 @@ ctk_source_buffer_forward_iter_to_source_mark (GtkSourceBuffer *buffer,
 
 /**
  * ctk_source_buffer_backward_iter_to_source_mark:
- * @buffer: a #GtkSourceBuffer.
+ * @buffer: a #CtkSourceBuffer.
  * @iter: (inout): an iterator.
  * @category: (nullable): category to search for, or %NULL
  *
- * Moves @iter to the position of the previous #GtkSourceMark of the given
+ * Moves @iter to the position of the previous #CtkSourceMark of the given
  * category. Returns %TRUE if @iter was moved. If @category is NULL, the
  * previous source mark can be of any category.
  *
@@ -2237,11 +2237,11 @@ ctk_source_buffer_forward_iter_to_source_mark (GtkSourceBuffer *buffer,
  * Since: 2.2
  */
 gboolean
-ctk_source_buffer_backward_iter_to_source_mark (GtkSourceBuffer *buffer,
-						GtkTextIter     *iter,
+ctk_source_buffer_backward_iter_to_source_mark (CtkSourceBuffer *buffer,
+						CtkTextIter     *iter,
 						const gchar     *category)
 {
-	GtkSourceMarksSequence *seq;
+	CtkSourceMarksSequence *seq;
 
 	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER (buffer), FALSE);
 	g_return_val_if_fail (iter != NULL, FALSE);
@@ -2258,24 +2258,24 @@ ctk_source_buffer_backward_iter_to_source_mark (GtkSourceBuffer *buffer,
 
 /**
  * ctk_source_buffer_get_source_marks_at_iter:
- * @buffer: a #GtkSourceBuffer.
+ * @buffer: a #CtkSourceBuffer.
  * @iter: an iterator.
  * @category: (nullable): category to search for, or %NULL
  *
  * Returns the list of marks of the given category at @iter. If @category
  * is %NULL it returns all marks at @iter.
  *
- * Returns: (element-type GtkSource.Mark) (transfer container):
+ * Returns: (element-type CtkSource.Mark) (transfer container):
  * a newly allocated #GSList.
  *
  * Since: 2.2
  */
 GSList *
-ctk_source_buffer_get_source_marks_at_iter (GtkSourceBuffer *buffer,
-					    GtkTextIter     *iter,
+ctk_source_buffer_get_source_marks_at_iter (CtkSourceBuffer *buffer,
+					    CtkTextIter     *iter,
 					    const gchar     *category)
 {
-	GtkSourceMarksSequence *seq;
+	CtkSourceMarksSequence *seq;
 
 	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER (buffer), NULL);
 	g_return_val_if_fail (iter != NULL, NULL);
@@ -2292,26 +2292,26 @@ ctk_source_buffer_get_source_marks_at_iter (GtkSourceBuffer *buffer,
 
 /**
  * ctk_source_buffer_get_source_marks_at_line:
- * @buffer: a #GtkSourceBuffer.
+ * @buffer: a #CtkSourceBuffer.
  * @line: a line number.
  * @category: (nullable): category to search for, or %NULL
  *
  * Returns the list of marks of the given category at @line.
  * If @category is %NULL, all marks at @line are returned.
  *
- * Returns: (element-type GtkSource.Mark) (transfer container):
+ * Returns: (element-type CtkSource.Mark) (transfer container):
  * a newly allocated #GSList.
  *
  * Since: 2.2
  */
 GSList *
-ctk_source_buffer_get_source_marks_at_line (GtkSourceBuffer *buffer,
+ctk_source_buffer_get_source_marks_at_line (CtkSourceBuffer *buffer,
 					    gint             line,
 					    const gchar     *category)
 {
-	GtkSourceMarksSequence *seq;
-	GtkTextIter start;
-	GtkTextIter end;
+	CtkSourceMarksSequence *seq;
+	CtkTextIter start;
+	CtkTextIter end;
 
 	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER (buffer), NULL);
 
@@ -2338,9 +2338,9 @@ ctk_source_buffer_get_source_marks_at_line (GtkSourceBuffer *buffer,
 
 /**
  * ctk_source_buffer_remove_source_marks:
- * @buffer: a #GtkSourceBuffer.
- * @start: a #GtkTextIter.
- * @end: a #GtkTextIter.
+ * @buffer: a #CtkSourceBuffer.
+ * @start: a #CtkTextIter.
+ * @end: a #CtkTextIter.
  * @category: (nullable): category to search for, or %NULL.
  *
  * Remove all marks of @category between @start and @end from the buffer.
@@ -2349,12 +2349,12 @@ ctk_source_buffer_get_source_marks_at_line (GtkSourceBuffer *buffer,
  * Since: 2.2
  */
 void
-ctk_source_buffer_remove_source_marks (GtkSourceBuffer   *buffer,
-				       const GtkTextIter *start,
-				       const GtkTextIter *end,
+ctk_source_buffer_remove_source_marks (CtkSourceBuffer   *buffer,
+				       const CtkTextIter *start,
+				       const CtkTextIter *end,
 				       const gchar       *category)
 {
-	GtkSourceMarksSequence *seq;
+	CtkSourceMarksSequence *seq;
 	GSList *list;
 	GSList *l;
 
@@ -2380,7 +2380,7 @@ ctk_source_buffer_remove_source_marks (GtkSourceBuffer   *buffer,
 }
 
 gboolean
-_ctk_source_buffer_has_source_marks (GtkSourceBuffer *buffer)
+_ctk_source_buffer_has_source_marks (CtkSourceBuffer *buffer)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER (buffer), FALSE);
 
@@ -2392,13 +2392,13 @@ _ctk_source_buffer_has_source_marks (GtkSourceBuffer *buffer)
 	return FALSE;
 }
 
-static GtkTextTag *
-get_context_class_tag (GtkSourceBuffer *buffer,
+static CtkTextTag *
+get_context_class_tag (CtkSourceBuffer *buffer,
 		       const gchar     *context_class)
 {
 	gchar *tag_name;
-	GtkTextTagTable *tag_table;
-	GtkTextTag *tag;
+	CtkTextTagTable *tag_table;
+	CtkTextTag *tag;
 
 	tag_name = g_strdup_printf (CONTEXT_CLASSES_PREFIX "%s", context_class);
 
@@ -2411,23 +2411,23 @@ get_context_class_tag (GtkSourceBuffer *buffer,
 
 /**
  * ctk_source_buffer_iter_has_context_class:
- * @buffer: a #GtkSourceBuffer.
- * @iter: a #GtkTextIter.
+ * @buffer: a #CtkSourceBuffer.
+ * @iter: a #CtkTextIter.
  * @context_class: class to search for.
  *
  * Check if the class @context_class is set on @iter.
  *
- * See the #GtkSourceBuffer description for the list of default context classes.
+ * See the #CtkSourceBuffer description for the list of default context classes.
  *
  * Returns: whether @iter has the context class.
  * Since: 2.10
  */
 gboolean
-ctk_source_buffer_iter_has_context_class (GtkSourceBuffer   *buffer,
-                                          const GtkTextIter *iter,
+ctk_source_buffer_iter_has_context_class (CtkSourceBuffer   *buffer,
+                                          const CtkTextIter *iter,
                                           const gchar       *context_class)
 {
-	GtkTextTag *tag;
+	CtkTextTag *tag;
 
 	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER (buffer), FALSE);
 	g_return_val_if_fail (iter != NULL, FALSE);
@@ -2445,12 +2445,12 @@ ctk_source_buffer_iter_has_context_class (GtkSourceBuffer   *buffer,
 
 /**
  * ctk_source_buffer_get_context_classes_at_iter:
- * @buffer: a #GtkSourceBuffer.
- * @iter: a #GtkTextIter.
+ * @buffer: a #CtkSourceBuffer.
+ * @iter: a #CtkTextIter.
  *
  * Get all defined context classes at @iter.
  *
- * See the #GtkSourceBuffer description for the list of default context classes.
+ * See the #CtkSourceBuffer description for the list of default context classes.
  *
  * Returns: (array zero-terminated=1) (transfer full): a new %NULL
  * terminated array of context class names.
@@ -2459,8 +2459,8 @@ ctk_source_buffer_iter_has_context_class (GtkSourceBuffer   *buffer,
  * Since: 2.10
  */
 gchar **
-ctk_source_buffer_get_context_classes_at_iter (GtkSourceBuffer   *buffer,
-                                               const GtkTextIter *iter)
+ctk_source_buffer_get_context_classes_at_iter (CtkSourceBuffer   *buffer,
+                                               const CtkTextIter *iter)
 {
 	const gsize prefix_len = strlen (CONTEXT_CLASSES_PREFIX);
 	GSList *tags;
@@ -2475,7 +2475,7 @@ ctk_source_buffer_get_context_classes_at_iter (GtkSourceBuffer   *buffer,
 
 	for (l = tags; l != NULL; l = l->next)
 	{
-		GtkTextTag *tag = l->data;
+		CtkTextTag *tag = l->data;
 		gchar *tag_name;
 
 		g_object_get (tag, "name", &tag_name, NULL);
@@ -2499,8 +2499,8 @@ ctk_source_buffer_get_context_classes_at_iter (GtkSourceBuffer   *buffer,
 
 /**
  * ctk_source_buffer_iter_forward_to_context_class_toggle:
- * @buffer: a #GtkSourceBuffer.
- * @iter: (inout): a #GtkTextIter.
+ * @buffer: a #CtkSourceBuffer.
+ * @iter: (inout): a #CtkTextIter.
  * @context_class: the context class.
  *
  * Moves forward to the next toggle (on or off) of the context class. If no
@@ -2509,18 +2509,18 @@ ctk_source_buffer_get_context_classes_at_iter (GtkSourceBuffer   *buffer,
  * @iter to the location of the toggle, or to the end of the buffer if no
  * toggle is found.
  *
- * See the #GtkSourceBuffer description for the list of default context classes.
+ * See the #CtkSourceBuffer description for the list of default context classes.
  *
  * Returns: whether we found a context class toggle after @iter
  *
  * Since: 2.10
  */
 gboolean
-ctk_source_buffer_iter_forward_to_context_class_toggle (GtkSourceBuffer *buffer,
-                                                        GtkTextIter     *iter,
+ctk_source_buffer_iter_forward_to_context_class_toggle (CtkSourceBuffer *buffer,
+                                                        CtkTextIter     *iter,
                                                         const gchar     *context_class)
 {
-	GtkTextTag *tag;
+	CtkTextTag *tag;
 
 	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER (buffer), FALSE);
 	g_return_val_if_fail (iter != NULL, FALSE);
@@ -2538,8 +2538,8 @@ ctk_source_buffer_iter_forward_to_context_class_toggle (GtkSourceBuffer *buffer,
 
 /**
  * ctk_source_buffer_iter_backward_to_context_class_toggle:
- * @buffer: a #GtkSourceBuffer.
- * @iter: (inout): a #GtkTextIter.
+ * @buffer: a #CtkSourceBuffer.
+ * @iter: (inout): a #CtkTextIter.
  * @context_class: the context class.
  *
  * Moves backward to the next toggle (on or off) of the context class. If no
@@ -2548,18 +2548,18 @@ ctk_source_buffer_iter_forward_to_context_class_toggle (GtkSourceBuffer *buffer,
  * @iter to the location of the toggle, or to the end of the buffer if no
  * toggle is found.
  *
- * See the #GtkSourceBuffer description for the list of default context classes.
+ * See the #CtkSourceBuffer description for the list of default context classes.
  *
  * Returns: whether we found a context class toggle before @iter
  *
  * Since: 2.10
  */
 gboolean
-ctk_source_buffer_iter_backward_to_context_class_toggle (GtkSourceBuffer *buffer,
-                                                         GtkTextIter     *iter,
+ctk_source_buffer_iter_backward_to_context_class_toggle (CtkSourceBuffer *buffer,
+                                                         CtkTextIter     *iter,
                                                          const gchar     *context_class)
 {
-	GtkTextTag *tag;
+	CtkTextTag *tag;
 
 	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER (buffer), FALSE);
 	g_return_val_if_fail (iter != NULL, FALSE);
@@ -2576,15 +2576,15 @@ ctk_source_buffer_iter_backward_to_context_class_toggle (GtkSourceBuffer *buffer
 }
 
 /*
- * GtkTextView wastes a lot of time tracking the clipboard content if
+ * CtkTextView wastes a lot of time tracking the clipboard content if
  * we do insert/delete operations while there is a selection.
  * These two utilities store the current selection with marks before
  * doing an edit operation and restore it at the end.
  */
 void
-_ctk_source_buffer_save_and_clear_selection (GtkSourceBuffer *buffer)
+_ctk_source_buffer_save_and_clear_selection (CtkSourceBuffer *buffer)
 {
-	GtkTextBuffer *buf;
+	CtkTextBuffer *buf;
 
 	g_return_if_fail (CTK_SOURCE_IS_BUFFER (buffer));
 
@@ -2596,8 +2596,8 @@ _ctk_source_buffer_save_and_clear_selection (GtkSourceBuffer *buffer)
 	 */
 	if (ctk_text_buffer_get_has_selection (CTK_TEXT_BUFFER (buffer)))
 	{
-		GtkTextIter insert_iter;
-		GtkTextIter selection_bound_iter;
+		CtkTextIter insert_iter;
+		CtkTextIter selection_bound_iter;
 
 		g_assert (buffer->priv->tmp_insert_mark == NULL);
 		g_assert (buffer->priv->tmp_selection_bound_mark == NULL);
@@ -2612,16 +2612,16 @@ _ctk_source_buffer_save_and_clear_selection (GtkSourceBuffer *buffer)
 }
 
 void
-_ctk_source_buffer_restore_selection (GtkSourceBuffer *buffer)
+_ctk_source_buffer_restore_selection (CtkSourceBuffer *buffer)
 {
 	g_return_if_fail (CTK_SOURCE_IS_BUFFER (buffer));
 
 	if (buffer->priv->tmp_insert_mark != NULL &&
 	    buffer->priv->tmp_selection_bound_mark != NULL)
 	{
-		GtkTextBuffer *buf;
-		GtkTextIter insert_iter;
-		GtkTextIter selection_bound_iter;
+		CtkTextBuffer *buf;
+		CtkTextIter insert_iter;
+		CtkTextIter selection_bound_iter;
 
 		buf = CTK_TEXT_BUFFER (buffer);
 
@@ -2638,9 +2638,9 @@ _ctk_source_buffer_restore_selection (GtkSourceBuffer *buffer)
 }
 
 static gchar *
-do_lower_case (GtkTextBuffer     *buffer,
-	       const GtkTextIter *start,
-	       const GtkTextIter *end)
+do_lower_case (CtkTextBuffer     *buffer,
+	       const CtkTextIter *start,
+	       const CtkTextIter *end)
 {
 	gchar *text;
 	gchar *new_text;
@@ -2653,9 +2653,9 @@ do_lower_case (GtkTextBuffer     *buffer,
 }
 
 static gchar *
-do_upper_case (GtkTextBuffer     *buffer,
-	       const GtkTextIter *start,
-	       const GtkTextIter *end)
+do_upper_case (CtkTextBuffer     *buffer,
+	       const CtkTextIter *start,
+	       const CtkTextIter *end)
 {
 	gchar *text;
 	gchar *new_text;
@@ -2668,19 +2668,19 @@ do_upper_case (GtkTextBuffer     *buffer,
 }
 
 static gchar *
-do_toggle_case (GtkTextBuffer     *buffer,
-		const GtkTextIter *start,
-		const GtkTextIter *end)
+do_toggle_case (CtkTextBuffer     *buffer,
+		const CtkTextIter *start,
+		const CtkTextIter *end)
 {
 	GString *str;
-	GtkTextIter iter_start;
+	CtkTextIter iter_start;
 
 	str = g_string_new (NULL);
 	iter_start = *start;
 
 	while (!ctk_text_iter_is_end (&iter_start))
 	{
-		GtkTextIter iter_end;
+		CtkTextIter iter_end;
 		gchar *text;
 		gchar *text_down;
 		gchar *text_up;
@@ -2721,19 +2721,19 @@ do_toggle_case (GtkTextBuffer     *buffer,
 }
 
 static gchar *
-do_title_case (GtkTextBuffer     *buffer,
-	       const GtkTextIter *start,
-	       const GtkTextIter *end)
+do_title_case (CtkTextBuffer     *buffer,
+	       const CtkTextIter *start,
+	       const CtkTextIter *end)
 {
 	GString *str;
-	GtkTextIter iter_start;
+	CtkTextIter iter_start;
 
 	str = g_string_new (NULL);
 	iter_start = *start;
 
 	while (!ctk_text_iter_is_end (&iter_start))
 	{
-		GtkTextIter iter_end;
+		CtkTextIter iter_end;
 		gchar *text;
 
 		iter_end = iter_start;
@@ -2793,22 +2793,22 @@ do_title_case (GtkTextBuffer     *buffer,
 
 /**
  * ctk_source_buffer_change_case:
- * @buffer: a #GtkSourceBuffer.
+ * @buffer: a #CtkSourceBuffer.
  * @case_type: how to change the case.
- * @start: a #GtkTextIter.
- * @end: a #GtkTextIter.
+ * @start: a #CtkTextIter.
+ * @end: a #CtkTextIter.
  *
  * Changes the case of the text between the specified iterators.
  *
  * Since: 3.12
  */
 void
-ctk_source_buffer_change_case (GtkSourceBuffer         *buffer,
-                               GtkSourceChangeCaseType  case_type,
-                               GtkTextIter             *start,
-                               GtkTextIter             *end)
+ctk_source_buffer_change_case (CtkSourceBuffer         *buffer,
+                               CtkSourceChangeCaseType  case_type,
+                               CtkTextIter             *start,
+                               CtkTextIter             *end)
 {
-	GtkTextBuffer *text_buffer;
+	CtkTextBuffer *text_buffer;
 	gchar *new_text;
 
 	g_return_if_fail (CTK_SOURCE_IS_BUFFER (buffer));
@@ -2851,7 +2851,7 @@ ctk_source_buffer_change_case (GtkSourceBuffer         *buffer,
 
 /* Move to the end of the line excluding trailing spaces. */
 static void
-move_to_line_text_end(GtkTextIter *iter)
+move_to_line_text_end(CtkTextIter *iter)
 {
 	gint line;
 
@@ -2879,21 +2879,21 @@ move_to_line_text_end(GtkTextIter *iter)
 
 /**
  * ctk_source_buffer_join_lines:
- * @buffer: a #GtkSourceBuffer.
- * @start: a #GtkTextIter.
- * @end: a #GtkTextIter.
+ * @buffer: a #CtkSourceBuffer.
+ * @start: a #CtkTextIter.
+ * @end: a #CtkTextIter.
  *
  * Joins the lines of text between the specified iterators.
  *
  * Since: 3.16
  */
 void
-ctk_source_buffer_join_lines (GtkSourceBuffer *buffer,
-                              GtkTextIter     *start,
-                              GtkTextIter     *end)
+ctk_source_buffer_join_lines (CtkSourceBuffer *buffer,
+                              CtkTextIter     *start,
+                              CtkTextIter     *end)
 {
-	GtkTextBuffer *text_buffer;
-	GtkTextMark *end_mark;
+	CtkTextBuffer *text_buffer;
+	CtkTextMark *end_mark;
 
 	g_return_if_fail (CTK_SOURCE_IS_BUFFER (buffer));
 	g_return_if_fail (start != NULL);
@@ -2915,7 +2915,7 @@ ctk_source_buffer_join_lines (GtkSourceBuffer *buffer,
 
 	while (ctk_text_iter_compare (start, end) < 0)
 	{
-		GtkTextIter iter;
+		CtkTextIter iter;
 		gunichar ch;
 
 		iter = *start;
@@ -2951,10 +2951,10 @@ ctk_source_buffer_join_lines (GtkSourceBuffer *buffer,
 }
 
 static gchar *
-get_line_slice (GtkTextBuffer *buf,
+get_line_slice (CtkTextBuffer *buf,
 		gint           line)
 {
-	GtkTextIter start, end;
+	CtkTextIter start, end;
 
 	ctk_text_buffer_get_iter_at_line (buf, &start, line);
 	end = start;
@@ -2994,10 +2994,10 @@ compare_line_reversed (gconstpointer aptr,
 
 /**
  * ctk_source_buffer_sort_lines:
- * @buffer: a #GtkSourceBuffer.
- * @start: a #GtkTextIter.
- * @end: a #GtkTextIter.
- * @flags: #GtkSourceSortFlags specifying how the sort should behave
+ * @buffer: a #CtkSourceBuffer.
+ * @start: a #CtkTextIter.
+ * @end: a #CtkTextIter.
+ * @flags: #CtkSourceSortFlags specifying how the sort should behave
  * @column: sort considering the text starting at the given column
  *
  * Sort the lines of text between the specified iterators.
@@ -3005,13 +3005,13 @@ compare_line_reversed (gconstpointer aptr,
  * Since: 3.18
  */
 void
-ctk_source_buffer_sort_lines (GtkSourceBuffer    *buffer,
-                              GtkTextIter        *start,
-                              GtkTextIter        *end,
-                              GtkSourceSortFlags  flags,
+ctk_source_buffer_sort_lines (CtkSourceBuffer    *buffer,
+                              CtkTextIter        *start,
+                              CtkTextIter        *end,
+                              CtkSourceSortFlags  flags,
                               gint                column)
 {
-	GtkTextBuffer *text_buffer;
+	CtkTextBuffer *text_buffer;
 	gint start_line;
 	gint end_line;
 	gint num_lines;
@@ -3140,15 +3140,15 @@ ctk_source_buffer_sort_lines (GtkSourceBuffer    *buffer,
 
 /**
  * ctk_source_buffer_set_undo_manager:
- * @buffer: a #GtkSourceBuffer.
- * @manager: (nullable): A #GtkSourceUndoManager or %NULL.
+ * @buffer: a #CtkSourceBuffer.
+ * @manager: (nullable): A #CtkSourceUndoManager or %NULL.
  *
  * Set the buffer undo manager. If @manager is %NULL the default undo manager
  * will be set.
  */
 void
-ctk_source_buffer_set_undo_manager (GtkSourceBuffer      *buffer,
-                                    GtkSourceUndoManager *manager)
+ctk_source_buffer_set_undo_manager (CtkSourceBuffer      *buffer,
+                                    CtkSourceUndoManager *manager)
 {
 	g_return_if_fail (CTK_SOURCE_IS_BUFFER (buffer));
 	g_return_if_fail (manager == NULL || CTK_SOURCE_IS_UNDO_MANAGER (manager));
@@ -3173,17 +3173,17 @@ ctk_source_buffer_set_undo_manager (GtkSourceBuffer      *buffer,
 
 /**
  * ctk_source_buffer_get_undo_manager:
- * @buffer: a #GtkSourceBuffer.
+ * @buffer: a #CtkSourceBuffer.
  *
- * Returns the #GtkSourceUndoManager associated with the buffer,
+ * Returns the #CtkSourceUndoManager associated with the buffer,
  * see ctk_source_buffer_set_undo_manager().  The returned object should not be
  * unreferenced by the user.
  *
- * Returns: (nullable) (transfer none): the #GtkSourceUndoManager associated
+ * Returns: (nullable) (transfer none): the #CtkSourceUndoManager associated
  * with the buffer, or %NULL.
  */
-GtkSourceUndoManager *
-ctk_source_buffer_get_undo_manager (GtkSourceBuffer *buffer)
+CtkSourceUndoManager *
+ctk_source_buffer_get_undo_manager (CtkSourceBuffer *buffer)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER (buffer), NULL);
 
@@ -3191,8 +3191,8 @@ ctk_source_buffer_get_undo_manager (GtkSourceBuffer *buffer)
 }
 
 void
-_ctk_source_buffer_add_search_context (GtkSourceBuffer        *buffer,
-				       GtkSourceSearchContext *search_context)
+_ctk_source_buffer_add_search_context (CtkSourceBuffer        *buffer,
+				       CtkSourceSearchContext *search_context)
 {
 	g_return_if_fail (CTK_SOURCE_IS_BUFFER (buffer));
 	g_return_if_fail (CTK_SOURCE_IS_SEARCH_CONTEXT (search_context));
@@ -3212,11 +3212,11 @@ _ctk_source_buffer_add_search_context (GtkSourceBuffer        *buffer,
 }
 
 static void
-sync_invalid_char_tag (GtkSourceBuffer *buffer,
+sync_invalid_char_tag (CtkSourceBuffer *buffer,
 		       GParamSpec      *pspec,
 		       gpointer         data)
 {
-	GtkSourceStyle *style = NULL;
+	CtkSourceStyle *style = NULL;
 
 	if (buffer->priv->style_scheme != NULL)
 	{
@@ -3227,10 +3227,10 @@ sync_invalid_char_tag (GtkSourceBuffer *buffer,
 }
 
 static void
-text_tag_set_highest_priority (GtkTextTag    *tag,
-			       GtkTextBuffer *buffer)
+text_tag_set_highest_priority (CtkTextTag    *tag,
+			       CtkTextBuffer *buffer)
 {
-	GtkTextTagTable *table;
+	CtkTextTagTable *table;
 	gint n;
 
 	table = ctk_text_buffer_get_tag_table (buffer);
@@ -3239,9 +3239,9 @@ text_tag_set_highest_priority (GtkTextTag    *tag,
 }
 
 void
-_ctk_source_buffer_set_as_invalid_character (GtkSourceBuffer   *buffer,
-					     const GtkTextIter *start,
-					     const GtkTextIter *end)
+_ctk_source_buffer_set_as_invalid_character (CtkSourceBuffer   *buffer,
+					     const CtkTextIter *start,
+					     const CtkTextIter *end)
 {
 	if (buffer->priv->invalid_char_tag == NULL)
 	{
@@ -3270,9 +3270,9 @@ _ctk_source_buffer_set_as_invalid_character (GtkSourceBuffer   *buffer,
 }
 
 gboolean
-_ctk_source_buffer_has_invalid_chars (GtkSourceBuffer *buffer)
+_ctk_source_buffer_has_invalid_chars (CtkSourceBuffer *buffer)
 {
-	GtkTextIter start;
+	CtkTextIter start;
 
 	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER (buffer), FALSE);
 
@@ -3294,19 +3294,19 @@ _ctk_source_buffer_has_invalid_chars (GtkSourceBuffer *buffer)
 
 /**
  * ctk_source_buffer_set_implicit_trailing_newline:
- * @buffer: a #GtkSourceBuffer.
+ * @buffer: a #CtkSourceBuffer.
  * @implicit_trailing_newline: the new value.
  *
  * Sets whether the @buffer has an implicit trailing newline.
  *
- * If an explicit trailing newline is present in a #GtkTextBuffer, #GtkTextView
+ * If an explicit trailing newline is present in a #CtkTextBuffer, #CtkTextView
  * shows it as an empty line. This is generally not what the user expects.
  *
  * If @implicit_trailing_newline is %TRUE (the default value):
- *  - when a #GtkSourceFileLoader loads the content of a file into the @buffer,
+ *  - when a #CtkSourceFileLoader loads the content of a file into the @buffer,
  *    the trailing newline (if present in the file) is not inserted into the
  *    @buffer.
- *  - when a #GtkSourceFileSaver saves the content of the @buffer into a file, a
+ *  - when a #CtkSourceFileSaver saves the content of the @buffer into a file, a
  *    trailing newline is added to the file.
  *
  * On the other hand, if @implicit_trailing_newline is %FALSE, the file's
@@ -3316,7 +3316,7 @@ _ctk_source_buffer_has_invalid_chars (GtkSourceBuffer *buffer)
  * Since: 3.14
  */
 void
-ctk_source_buffer_set_implicit_trailing_newline (GtkSourceBuffer *buffer,
+ctk_source_buffer_set_implicit_trailing_newline (CtkSourceBuffer *buffer,
 						 gboolean         implicit_trailing_newline)
 {
 	g_return_if_fail (CTK_SOURCE_IS_BUFFER (buffer));
@@ -3332,13 +3332,13 @@ ctk_source_buffer_set_implicit_trailing_newline (GtkSourceBuffer *buffer,
 
 /**
  * ctk_source_buffer_get_implicit_trailing_newline:
- * @buffer: a #GtkSourceBuffer.
+ * @buffer: a #CtkSourceBuffer.
  *
  * Returns: whether the @buffer has an implicit trailing newline.
  * Since: 3.14
  */
 gboolean
-ctk_source_buffer_get_implicit_trailing_newline (GtkSourceBuffer *buffer)
+ctk_source_buffer_get_implicit_trailing_newline (CtkSourceBuffer *buffer)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER (buffer), TRUE);
 
@@ -3347,15 +3347,15 @@ ctk_source_buffer_get_implicit_trailing_newline (GtkSourceBuffer *buffer)
 
 /**
  * ctk_source_buffer_create_source_tag:
- * @buffer: a #GtkSourceBuffer
+ * @buffer: a #CtkSourceBuffer
  * @tag_name: (nullable): name of the new tag, or %NULL
  * @first_property_name: (nullable): name of first property to set, or %NULL
  * @...: %NULL-terminated list of property names and values
  *
  * In short, this is the same function as ctk_text_buffer_create_tag(), but
- * instead of creating a #GtkTextTag, this function creates a #GtkSourceTag.
+ * instead of creating a #CtkTextTag, this function creates a #CtkSourceTag.
  *
- * This function creates a #GtkSourceTag and adds it to the tag table for
+ * This function creates a #CtkSourceTag and adds it to the tag table for
  * @buffer.  Equivalent to calling ctk_text_tag_new() and then adding the tag to
  * the buffer’s tag table. The returned tag is owned by the buffer’s tag table,
  * so the ref count will be equal to one.
@@ -3368,17 +3368,17 @@ ctk_source_buffer_get_implicit_trailing_newline (GtkSourceBuffer *buffer)
  * The @first_property_name argument and subsequent arguments are a list
  * of properties to set on the tag, as with g_object_set().
  *
- * Returns: (transfer none): a new #GtkSourceTag.
+ * Returns: (transfer none): a new #CtkSourceTag.
  * Since: 3.20
  */
-GtkTextTag *
-ctk_source_buffer_create_source_tag (GtkSourceBuffer *buffer,
+CtkTextTag *
+ctk_source_buffer_create_source_tag (CtkSourceBuffer *buffer,
 				     const gchar     *tag_name,
 				     const gchar     *first_property_name,
 				     ...)
 {
-	GtkTextTag *tag;
-	GtkTextTagTable *table;
+	CtkTextTag *tag;
+	CtkTextTagTable *table;
 	va_list list;
 
 	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER (buffer), NULL);
@@ -3405,7 +3405,7 @@ ctk_source_buffer_create_source_tag (GtkSourceBuffer *buffer,
 }
 
 gboolean
-_ctk_source_buffer_has_spaces_tag (GtkSourceBuffer *buffer)
+_ctk_source_buffer_has_spaces_tag (CtkSourceBuffer *buffer)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_BUFFER (buffer), FALSE);
 

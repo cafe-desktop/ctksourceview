@@ -1485,8 +1485,8 @@ msgstr "Zastarelo"
 
 #. (itstool) path: ctkrc.lang/language@_name
 #: ctkrc.lang:24
-msgid "GtkRC"
-msgstr "GtkRC (GtkRC)"
+msgid "CtkRC"
+msgstr "CtkRC (CtkRC)"
 
 #. (itstool) path: styles/style@_name
 #: ctkrc.lang:37
@@ -2762,14 +2762,14 @@ msgstr "Definicija promenljive"
 #. *
 #. * SECTION:language
 #. * @Short_description: Represents a syntax highlighted language
-#. * @Title: GtkSourceLanguage
-#. * @See_also: #GtkSourceLanguageManager
+#. * @Title: CtkSourceLanguage
+#. * @See_also: #CtkSourceLanguageManager
 #. *
-#. * A #GtkSourceLanguage represents a programming or markup language, affecting
+#. * A #CtkSourceLanguage represents a programming or markup language, affecting
 #. * syntax highlighting and [context classes][context-classes].
 #. *
-#. * Use #GtkSourceLanguageManager to obtain a #GtkSourceLanguage instance, and
-#. * ctk_source_buffer_set_language() to apply it to a #GtkSourceBuffer.
+#. * Use #CtkSourceLanguageManager to obtain a #CtkSourceLanguage instance, and
+#. * ctk_source_buffer_set_language() to apply it to a #CtkSourceBuffer.
 #.
 #: sh.lang:38 texinfo.lang:34 ctksourceview/ctksourcelanguage.c:55
 msgid "Others"
@@ -3349,13 +3349,13 @@ msgid "Unknown"
 msgstr "nepoznato"
 
 #. Translators: This is the sorted list of encodings used by
-#. * GtkSourceView for automatic detection of the file encoding. You may
+#. * CtkSourceView for automatic detection of the file encoding. You may
 #. * want to customize it adding encodings that are common in your
 #. * country, for instance the GB18030 encoding for the Chinese
 #. * translation. You may also want to remove the ISO-8859-15 encoding
 #. * (covering English and most Western European languages) if you think
 #. * people in your country will rarely use it.  "CURRENT" is a magic
-#. * value used by GtkSourceView and it represents the encoding for the
+#. * value used by CtkSourceView and it represents the encoding for the
 #. * current locale, so please don't translate the "CURRENT" term.  Only
 #. * recognized encodings are used. See
 #. * https://git.gnome.org/browse/ctksourceview/tree/ctksourceview/ctksourceencoding.c#n147
@@ -3482,8 +3482,8 @@ msgstr "_Izmeni veličinu slova"
 #~ "\n"
 #~ "http://prevod.org — prevod na srpski jezik."
 
-#~ msgid "GtkSourceView"
-#~ msgstr "Pregled Gtk izvora"
+#~ msgid "CtkSourceView"
+#~ msgstr "Pregled Ctk izvora"
 
 #~| msgid "Source"
 #~ msgid "Sources"
@@ -3589,8 +3589,8 @@ msgstr "_Izmeni veličinu slova"
 #~ msgid "View"
 #~ msgstr "Pregled"
 
-#~ msgid "The GtkSourceView bound to the completion"
-#~ msgstr "Pregled Gtk izvora privezan na ovo dopunjavanje"
+#~ msgid "The CtkSourceView bound to the completion"
+#~ msgstr "Pregled Ctk izvora privezan na ovo dopunjavanje"
 
 #~ msgid "Remember Info Visibility"
 #~ msgstr "Zapamti vidljivost podataka"
@@ -3645,8 +3645,8 @@ msgstr "_Izmeni veličinu slova"
 #~ msgid "Iterator"
 #~ msgstr "Operator"
 
-#~ msgid "The GtkTextIter at which the completion was invoked"
-#~ msgstr "GtkTekstIter na koji se poziva dopunjavanje"
+#~ msgid "The CtkTextIter at which the completion was invoked"
+#~ msgstr "CtkTekstIter na koji se poziva dopunjavanje"
 
 #~ msgid "Label to be shown for this item"
 #~ msgstr "Oznaka koja se prikazuje za ovu stavku"
@@ -3680,8 +3680,8 @@ msgstr "_Izmeni veličinu slova"
 #~ msgid "Flags"
 #~ msgstr "Oznake"
 
-#~ msgid "The gutters' GtkSourceView"
-#~ msgstr "Dno pregleda Gtk izvora"
+#~ msgid "The gutters' CtkSourceView"
+#~ msgstr "Dno pregleda Ctk izvora"
 
 #~ msgid "Window Type"
 #~ msgstr "Vrsta prozora"
@@ -3816,8 +3816,8 @@ msgstr "_Izmeni veličinu slova"
 #~ msgid "Source Buffer"
 #~ msgstr "Međumemorija izvora"
 
-#~ msgid "The GtkSourceBuffer object to print"
-#~ msgstr "Objekat međumemorije Gtk izvora za štampu"
+#~ msgid "The CtkSourceBuffer object to print"
+#~ msgstr "Objekat međumemorije Ctk izvora za štampu"
 
 #~ msgid "Tab Width"
 #~ msgstr "Širina tabulatora"
@@ -3897,14 +3897,14 @@ msgstr "_Izmeni veličinu slova"
 #~ msgid "Buffer"
 #~ msgstr "Priručna memorija"
 
-#~ msgid "The associated GtkSourceBuffer"
-#~ msgstr "Pridružena međumemorija Gtk izvora"
+#~ msgid "The associated CtkSourceBuffer"
+#~ msgstr "Pridružena međumemorija Ctk izvora"
 
 #~ msgid "Settings"
 #~ msgstr "Podešavanja"
 
-#~ msgid "The associated GtkSourceSearchSettings"
-#~ msgstr "Pridružena podešavanja pretrage Gtk izvora"
+#~ msgid "The associated CtkSourceSearchSettings"
+#~ msgstr "Pridružena podešavanja pretrage Ctk izvora"
 
 #~ msgid "Highlight"
 #~ msgstr "Istakni"

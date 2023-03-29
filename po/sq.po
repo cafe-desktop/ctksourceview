@@ -82,8 +82,8 @@ msgid "Source Buffer"
 msgstr "Buffer i buruesit"
 
 #: ../ctksourceview/ctksourceprintjob.c:274
-msgid "GtkSourceBuffer object to print"
-msgstr "Objekti GtkSourceBuffer që duhet printuar"
+msgid "CtkSourceBuffer object to print"
+msgstr "Objekti CtkSourceBuffer që duhet printuar"
 
 #: ../ctksourceview/ctksourceprintjob.c:280
 #: ../ctksourceview/ctksourceview.c:235 ../ctksourceview/ctksourceview.c:236
@@ -929,8 +929,8 @@ msgid "Double Quoted String"
 msgstr "Vlerë e dyfishe kuotuar"
 
 #: ../ctksourceview/language-specs/ctkrc.lang.h:3
-msgid "GtkRC"
-msgstr "GtkRC"
+msgid "CtkRC"
+msgstr "CtkRC"
 
 #: ../ctksourceview/language-specs/ctkrc.lang.h:4
 msgid "Include Directive"

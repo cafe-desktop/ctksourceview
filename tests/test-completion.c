@@ -1,16 +1,16 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*-
  *
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2007 - Jesús Barbero Rodríguez <chuchiperriman@gmail.com>
  * Copyright (C) 2013 - Sébastien Wilmet <swilmet@gnome.org>
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -25,7 +25,7 @@
 typedef struct _TestProvider TestProvider;
 typedef struct _TestProviderClass TestProviderClass;
 
-static GtkSourceCompletionWords *word_provider;
+static CtkSourceCompletionWords *word_provider;
 static TestProvider *fixed_provider;
 static TestProvider *random_provider;
 
@@ -52,7 +52,7 @@ struct _TestProviderClass
 	GObjectClass parent_class;
 };
 
-static void test_provider_iface_init (GtkSourceCompletionProviderIface *iface);
+static void test_provider_iface_init (CtkSourceCompletionProviderIface *iface);
 GType test_provider_get_type (void);
 
 G_DEFINE_TYPE_WITH_CODE (TestProvider,
@@ -62,13 +62,13 @@ G_DEFINE_TYPE_WITH_CODE (TestProvider,
 				 		test_provider_iface_init))
 
 static gchar *
-test_provider_get_name (GtkSourceCompletionProvider *provider)
+test_provider_get_name (CtkSourceCompletionProvider *provider)
 {
 	return g_strdup (((TestProvider *)provider)->name);
 }
 
 static gint
-test_provider_get_priority (GtkSourceCompletionProvider *provider)
+test_provider_get_priority (CtkSourceCompletionProvider *provider)
 {
 	return ((TestProvider *)provider)->priority;
 }
@@ -91,8 +91,8 @@ select_random_proposals (GList *all_proposals)
 }
 
 static void
-test_provider_populate (GtkSourceCompletionProvider *completion_provider,
-                        GtkSourceCompletionContext  *context)
+test_provider_populate (CtkSourceCompletionProvider *completion_provider,
+                        CtkSourceCompletionContext  *context)
 {
 	TestProvider *provider = (TestProvider *)completion_provider;
 	GList *proposals;
@@ -113,7 +113,7 @@ test_provider_populate (GtkSourceCompletionProvider *completion_provider,
 }
 
 static GdkPixbuf *
-test_provider_get_icon (GtkSourceCompletionProvider *provider)
+test_provider_get_icon (CtkSourceCompletionProvider *provider)
 {
 	TestProvider *tp = (TestProvider *)provider;
 
@@ -121,7 +121,7 @@ test_provider_get_icon (GtkSourceCompletionProvider *provider)
 }
 
 static void
-test_provider_iface_init (GtkSourceCompletionProviderIface *iface)
+test_provider_iface_init (CtkSourceCompletionProviderIface *iface)
 {
 	iface->get_name = test_provider_get_name;
 	iface->populate = test_provider_populate;
@@ -167,7 +167,7 @@ test_provider_class_init (TestProviderClass *klass)
 static void
 test_provider_init (TestProvider *self)
 {
-	GtkIconTheme *theme;
+	CtkIconTheme *theme;
 	GIcon *icon;
 	GIcon *emblem_icon;
 	GEmblem *emblem;
@@ -190,7 +190,7 @@ static void
 test_provider_set_fixed (TestProvider *provider,
 			 gint          nb_proposals)
 {
-	GtkSourceCompletionItem *item;
+	CtkSourceCompletionItem *item;
 	GList *proposals = NULL;
 	gint i;
 
@@ -244,7 +244,7 @@ test_provider_set_random (TestProvider *provider,
 
 	for (i = 0; i < nb_proposals; i++)
 	{
-		GtkSourceCompletionItem *item;
+		CtkSourceCompletionItem *item;
 		gchar *padding = g_strnfill ((i * 3) % 10, 'o');
 		gchar *name = g_strdup_printf ("Propo%ssal %d", padding, i);
 
@@ -263,9 +263,9 @@ test_provider_set_random (TestProvider *provider,
 }
 
 static void
-add_remove_provider (GtkToggleButton             *button,
-		     GtkSourceCompletion         *completion,
-		     GtkSourceCompletionProvider *provider)
+add_remove_provider (CtkToggleButton             *button,
+		     CtkSourceCompletion         *completion,
+		     CtkSourceCompletionProvider *provider)
 {
 	g_return_if_fail (provider != NULL);
 
@@ -280,8 +280,8 @@ add_remove_provider (GtkToggleButton             *button,
 }
 
 static void
-enable_word_provider_toggled_cb (GtkToggleButton     *button,
-				 GtkSourceCompletion *completion)
+enable_word_provider_toggled_cb (CtkToggleButton     *button,
+				 CtkSourceCompletion *completion)
 {
 	add_remove_provider (button,
 			     completion,
@@ -289,8 +289,8 @@ enable_word_provider_toggled_cb (GtkToggleButton     *button,
 }
 
 static void
-enable_fixed_provider_toggled_cb (GtkToggleButton     *button,
-				  GtkSourceCompletion *completion)
+enable_fixed_provider_toggled_cb (CtkToggleButton     *button,
+				  CtkSourceCompletion *completion)
 {
 	add_remove_provider (button,
 			     completion,
@@ -298,8 +298,8 @@ enable_fixed_provider_toggled_cb (GtkToggleButton     *button,
 }
 
 static void
-enable_random_provider_toggled_cb (GtkToggleButton     *button,
-				   GtkSourceCompletion *completion)
+enable_random_provider_toggled_cb (CtkToggleButton     *button,
+				   CtkSourceCompletion *completion)
 {
 	add_remove_provider (button,
 			     completion,
@@ -307,7 +307,7 @@ enable_random_provider_toggled_cb (GtkToggleButton     *button,
 }
 
 static void
-nb_proposals_changed_cb (GtkSpinButton *spin_button,
+nb_proposals_changed_cb (CtkSpinButton *spin_button,
 			 TestProvider  *provider)
 {
 	gint nb_proposals = ctk_spin_button_get_value_as_int (spin_button);
@@ -323,8 +323,8 @@ nb_proposals_changed_cb (GtkSpinButton *spin_button,
 }
 
 static void
-create_completion (GtkSourceView       *source_view,
-		   GtkSourceCompletion *completion)
+create_completion (CtkSourceView       *source_view,
+		   CtkSourceCompletion *completion)
 {
 	/* Words completion provider */
 	word_provider = ctk_source_completion_words_new (NULL, NULL);
@@ -362,20 +362,20 @@ create_completion (GtkSourceView       *source_view,
 static void
 create_window (void)
 {
-	GtkBuilder *builder;
+	CtkBuilder *builder;
 	GError *error = NULL;
-	GtkWindow *window;
-	GtkSourceView *source_view;
-	GtkSourceCompletion *completion;
-	GtkCheckButton *remember_info_visibility;
-	GtkCheckButton *select_on_show;
-	GtkCheckButton *show_headers;
-	GtkCheckButton *show_icons;
-	GtkCheckButton *enable_word_provider;
-	GtkCheckButton *enable_fixed_provider;
-	GtkCheckButton *enable_random_provider;
-	GtkSpinButton *nb_fixed_proposals;
-	GtkSpinButton *nb_random_proposals;
+	CtkWindow *window;
+	CtkSourceView *source_view;
+	CtkSourceCompletion *completion;
+	CtkCheckButton *remember_info_visibility;
+	CtkCheckButton *select_on_show;
+	CtkCheckButton *show_headers;
+	CtkCheckButton *show_icons;
+	CtkCheckButton *enable_word_provider;
+	CtkCheckButton *enable_fixed_provider;
+	CtkCheckButton *enable_random_provider;
+	CtkSpinButton *nb_fixed_proposals;
+	CtkSpinButton *nb_random_proposals;
 
 	builder = ctk_builder_new ();
 

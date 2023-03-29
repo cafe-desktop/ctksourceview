@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-# Convert from UltraEdit syntax definition file format to GtkSourceView's .lang
+# Convert from UltraEdit syntax definition file format to CtkSourceView's .lang
 
 use strict;
 
@@ -177,7 +177,7 @@ sub parse_language_line
 	    $block_comment_off = $argument;
 	}
 	elsif ($part eq "Escape Char") {
-	    # Not yet supported in GtkSourceView
+	    # Not yet supported in CtkSourceView
 	    $escape_char = $argument;
 	}
 	elsif ($part eq "String Chars") {

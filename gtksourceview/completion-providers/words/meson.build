@@ -1,7 +1,7 @@
 completionwords_c_args = [
   '-DHAVE_CONFIG_H',
   '-DCTK_SOURCE_COMPILATION',
-  '-DG_LOG_DOMAIN="GtkSourceView"',
+  '-DG_LOG_DOMAIN="CtkSourceView"',
 ]
 
 completionwords_public_h = [

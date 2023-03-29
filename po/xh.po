@@ -85,8 +85,8 @@ msgid "Source Buffer"
 msgstr "Umthombo wesigcini sethutyana"
 
 #: ../ctksourceview/ctksourceprintjob.c:273
-msgid "GtkSourceBuffer object to print"
-msgstr "I-GtkSourceBuffer yomba wokushicilelwa"
+msgid "CtkSourceBuffer object to print"
+msgstr "I-CtkSourceBuffer yomba wokushicilelwa"
 
 #: ../ctksourceview/ctksourceprintjob.c:279
 #: ../ctksourceview/ctksourceview.c:222 ../ctksourceview/ctksourceview.c:223
@@ -1486,8 +1486,8 @@ msgid "Reserved Constant"
 msgstr "Inani elingaguqukiyo Eligciniweyo"
 
 #: ../ctksourceview/language-specs/ctkrc.lang.h:3
-msgid "GtkRC"
-msgstr "I-GtkRC"
+msgid "CtkRC"
+msgstr "I-CtkRC"
 
 #: ../ctksourceview/language-specs/ctkrc.lang.h:4
 msgid "Include Directive"

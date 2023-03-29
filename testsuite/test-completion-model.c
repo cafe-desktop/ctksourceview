@@ -1,14 +1,14 @@
 /*
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2013 - Sébastien Wilmet <swilmet@gnome.org>
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -42,7 +42,7 @@ struct _TestProviderClass
 
 GType test_provider_get_type (void);
 
-static void test_provider_iface_init (GtkSourceCompletionProviderIface *iface);
+static void test_provider_iface_init (CtkSourceCompletionProviderIface *iface);
 
 G_DEFINE_TYPE_WITH_CODE (TestProvider,
 			 test_provider,
@@ -51,19 +51,19 @@ G_DEFINE_TYPE_WITH_CODE (TestProvider,
 						test_provider_iface_init));
 
 static gchar *
-test_provider_get_name (GtkSourceCompletionProvider *provider)
+test_provider_get_name (CtkSourceCompletionProvider *provider)
 {
 	return g_strdup ("Hobbits");
 }
 
 static gint
-test_provider_get_priority (GtkSourceCompletionProvider *provider)
+test_provider_get_priority (CtkSourceCompletionProvider *provider)
 {
 	return ((TestProvider *)provider)->priority;
 }
 
 static void
-test_provider_iface_init (GtkSourceCompletionProviderIface *iface)
+test_provider_iface_init (CtkSourceCompletionProviderIface *iface)
 {
 	iface->get_name = test_provider_get_name;
 	iface->get_priority = test_provider_get_priority;
@@ -92,7 +92,7 @@ test_provider_new (void)
 static GList *
 create_proposals (void)
 {
-	GtkSourceCompletionItem *item;
+	CtkSourceCompletionItem *item;
 	GList *list = NULL;
 
 	item = ctk_source_completion_item_new ();
@@ -133,7 +133,7 @@ create_providers (GList **all_providers,
 }
 
 static void
-populate_model (GtkSourceCompletionModel *model,
+populate_model (CtkSourceCompletionModel *model,
 		GList                    *all_providers,
 		GList                    *all_list_proposals)
 {
@@ -174,15 +174,15 @@ free_providers (GList *all_providers,
  * the position specified by @iter.
  */
 static void
-check_provider (GtkSourceCompletionModel    *model,
-		GtkSourceCompletionProvider *provider,
+check_provider (CtkSourceCompletionModel    *model,
+		CtkSourceCompletionProvider *provider,
 		GList                       *list_proposals,
 		gboolean                     is_header_visible,
-		GtkTreeIter                 *iter)
+		CtkTreeIter                 *iter)
 
 {
-	GtkSourceCompletionProposal *proposal_get = NULL;
-	GtkSourceCompletionProvider *provider_get = NULL;
+	CtkSourceCompletionProposal *proposal_get = NULL;
+	CtkSourceCompletionProvider *provider_get = NULL;
 	GList *cur_proposal = NULL;
 
 	/* Check the header */
@@ -227,12 +227,12 @@ check_provider (GtkSourceCompletionModel    *model,
 
 /* Check the full contents of a CompletionModel. */
 static void
-check_all_providers (GtkSourceCompletionModel *model,
+check_all_providers (CtkSourceCompletionModel *model,
 		     GList                    *all_providers,
 		     GList                    *all_list_proposals,
 		     gboolean                  is_header_visible)
 {
-	GtkTreeIter iter;
+	CtkTreeIter iter;
 	GList *cur_provider = NULL;
 	GList *cur_list_proposals = NULL;
 
@@ -264,7 +264,7 @@ check_all_providers (GtkSourceCompletionModel *model,
 }
 
 static void
-check_all_providers_with_and_without_headers (GtkSourceCompletionModel *model,
+check_all_providers_with_and_without_headers (CtkSourceCompletionModel *model,
 					      GList                    *all_providers,
 					      GList                    *all_list_proposals)
 {
@@ -305,7 +305,7 @@ same_list_contents (GList *list1, GList *list2)
 static void
 test_is_empty (void)
 {
-	GtkSourceCompletionModel *model;
+	CtkSourceCompletionModel *model;
 	TestProvider *provider;
 	GList *list_providers = NULL;
 	GList *list_proposals = NULL;
@@ -345,7 +345,7 @@ test_is_empty (void)
 static void
 test_get_visible_providers (void)
 {
-	GtkSourceCompletionModel *model;
+	CtkSourceCompletionModel *model;
 	TestProvider *provider;
 	GList *list_providers = NULL;
 	GList *visible_providers = NULL;
@@ -372,7 +372,7 @@ test_get_visible_providers (void)
 static void
 test_simple_populate (void)
 {
-	GtkSourceCompletionModel *model;
+	CtkSourceCompletionModel *model;
 	GList *all_providers = NULL;
 	GList *all_list_proposals = NULL;
 
@@ -389,7 +389,7 @@ test_simple_populate (void)
 static void
 test_set_visible_providers (void)
 {
-	GtkSourceCompletionModel *model;
+	CtkSourceCompletionModel *model;
 	GList *all_providers = NULL;
 	GList *all_list_proposals = NULL;
 	GList *subset_providers = NULL;
@@ -444,13 +444,13 @@ test_set_visible_providers (void)
 static void
 test_populate_several_batches (void)
 {
-	GtkSourceCompletionModel *model = ctk_source_completion_model_new ();
-	GtkSourceCompletionProvider *provider = CTK_SOURCE_COMPLETION_PROVIDER (test_provider_new ());
+	CtkSourceCompletionModel *model = ctk_source_completion_model_new ();
+	CtkSourceCompletionProvider *provider = CTK_SOURCE_COMPLETION_PROVIDER (test_provider_new ());
 	GList *list_providers = g_list_append (NULL, provider);
 	GList *first_proposals = create_proposals ();
 	GList *second_proposals = create_proposals ();
 	GList *all_proposals;
-	GtkTreeIter iter;
+	CtkTreeIter iter;
 
 	ctk_source_completion_model_set_show_headers (model, TRUE);
 
@@ -482,7 +482,7 @@ test_populate_several_batches (void)
 static void
 test_get_providers (void)
 {
-	GtkSourceCompletionModel *model = ctk_source_completion_model_new ();
+	CtkSourceCompletionModel *model = ctk_source_completion_model_new ();
 	GList *all_providers = NULL;
 	GList *all_list_proposals = NULL;
 	GList *providers_get = NULL;
@@ -505,13 +505,13 @@ test_get_providers (void)
 static void
 test_iters_impl (gboolean show_headers)
 {
-	GtkSourceCompletionModel *model = ctk_source_completion_model_new ();
+	CtkSourceCompletionModel *model = ctk_source_completion_model_new ();
 	GList *all_providers = NULL;
 	GList *all_list_proposals = NULL;
-	GtkTreeIter first_iter;
-	GtkTreeIter last_iter;
-	GtkTreeIter other_iter;
-	GtkTreePath *path = NULL;
+	CtkTreeIter first_iter;
+	CtkTreeIter last_iter;
+	CtkTreeIter other_iter;
+	CtkTreePath *path = NULL;
 	gint nb_items;
 	gint *indices;
 
@@ -570,12 +570,12 @@ test_iters (void)
 }
 
 static void
-on_row_changed (GtkTreeModel                *model,
-		GtkTreePath                 *path,
-		GtkTreeIter                 *iter,
-		GtkSourceCompletionProposal *proposal)
+on_row_changed (CtkTreeModel                *model,
+		CtkTreePath                 *path,
+		CtkTreeIter                 *iter,
+		CtkSourceCompletionProposal *proposal)
 {
-	GtkSourceCompletionProposal *row_proposal = NULL;
+	CtkSourceCompletionProposal *row_proposal = NULL;
 
 	ctk_tree_model_get (model, iter,
 			    CTK_SOURCE_COMPLETION_MODEL_COLUMN_PROPOSAL, &row_proposal,
@@ -588,10 +588,10 @@ on_row_changed (GtkTreeModel                *model,
 static void
 test_row_changed (void)
 {
-	GtkSourceCompletionModel *model = ctk_source_completion_model_new ();
+	CtkSourceCompletionModel *model = ctk_source_completion_model_new ();
 	TestProvider *provider = test_provider_new ();
 	GList *proposals = create_proposals ();
-	GtkSourceCompletionProposal *proposal = proposals->data;
+	CtkSourceCompletionProposal *proposal = proposals->data;
 
 	ctk_source_completion_model_add_proposals (model,
 						   CTK_SOURCE_COMPLETION_PROVIDER (provider),

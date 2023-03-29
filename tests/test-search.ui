@@ -2,42 +2,42 @@
 <interface>
   <!-- interface-requires ctk+ 3.10 -->
   <!-- interface-requires ctksourceview 3.0 -->
-  <object class="GtkImage" id="image1">
+  <object class="CtkImage" id="image1">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="icon_name">go-up</property>
     <property name="icon_size">1</property>
   </object>
-  <object class="GtkImage" id="image2">
+  <object class="CtkImage" id="image2">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="icon_name">go-down</property>
     <property name="icon_size">1</property>
   </object>
-  <object class="GtkImage" id="image3">
+  <object class="CtkImage" id="image3">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="icon_name">edit-find-replace</property>
     <property name="icon_size">1</property>
   </object>
-  <object class="GtkImage" id="image4">
+  <object class="CtkImage" id="image4">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="icon_name">edit-find-replace</property>
     <property name="icon_size">1</property>
   </object>
-  <template class="TestSearch" parent="GtkGrid">
+  <template class="TestSearch" parent="CtkGrid">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="border_width">6</property>
     <property name="row_spacing">6</property>
     <child>
-      <object class="GtkScrolledWindow" id="scrolledwindow1">
+      <object class="CtkScrolledWindow" id="scrolledwindow1">
         <property name="visible">True</property>
         <property name="can_focus">True</property>
         <property name="shadow_type">in</property>
         <child>
-          <object class="GtkSourceView" id="source_view">
+          <object class="CtkSourceView" id="source_view">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="has_tooltip">True</property>
@@ -57,13 +57,13 @@
       </packing>
     </child>
     <child>
-      <object class="GtkGrid" id="grid2">
+      <object class="CtkGrid" id="grid2">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="row_spacing">6</property>
         <property name="column_spacing">6</property>
         <child>
-          <object class="GtkLabel" id="label1">
+          <object class="CtkLabel" id="label1">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">start</property>
@@ -80,7 +80,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkSearchEntry" id="search_entry">
+          <object class="CtkSearchEntry" id="search_entry">
             <property name="width_request">300</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
@@ -98,7 +98,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkLabel" id="label_occurrences">
+          <object class="CtkLabel" id="label_occurrences">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">start</property>
@@ -112,7 +112,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton" id="button_previous">
+          <object class="CtkButton" id="button_previous">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
@@ -128,7 +128,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton" id="button_next">
+          <object class="CtkButton" id="button_next">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
@@ -144,7 +144,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkLabel" id="label_regex_error">
+          <object class="CtkLabel" id="label_regex_error">
             <property name="can_focus">False</property>
             <property name="halign">start</property>
             <property name="label">Regex search error</property>
@@ -174,11 +174,11 @@
       </packing>
     </child>
     <child>
-      <object class="GtkGrid" id="grid3">
+      <object class="CtkGrid" id="grid3">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <child>
-          <object class="GtkCheckButton" id="checkbutton_match_case">
+          <object class="CtkCheckButton" id="checkbutton_match_case">
             <property name="label">Match case</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
@@ -194,7 +194,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkCheckButton" id="checkbutton_at_word_boundaries">
+          <object class="CtkCheckButton" id="checkbutton_at_word_boundaries">
             <property name="label">At word boundaries</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
@@ -210,7 +210,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkCheckButton" id="checkbutton_wrap_around">
+          <object class="CtkCheckButton" id="checkbutton_wrap_around">
             <property name="label">Wrap around</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
@@ -226,7 +226,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkCheckButton" id="checkbutton_highlight">
+          <object class="CtkCheckButton" id="checkbutton_highlight">
             <property name="label">Highlight search occurrences</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
@@ -243,7 +243,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkCheckButton" id="checkbutton_regex">
+          <object class="CtkCheckButton" id="checkbutton_regex">
             <property name="label">Regex</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
@@ -267,12 +267,12 @@
       </packing>
     </child>
     <child>
-      <object class="GtkGrid" id="grid4">
+      <object class="CtkGrid" id="grid4">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="column_spacing">6</property>
         <child>
-          <object class="GtkLabel" id="label2">
+          <object class="CtkLabel" id="label2">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">start</property>
@@ -289,7 +289,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkEntry" id="replace_entry">
+          <object class="CtkEntry" id="replace_entry">
             <property name="width_request">300</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
@@ -302,7 +302,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton" id="button_replace">
+          <object class="CtkButton" id="button_replace">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
@@ -317,7 +317,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton" id="button_replace_all">
+          <object class="CtkButton" id="button_replace_all">
             <property name="label">All</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>

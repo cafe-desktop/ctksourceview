@@ -1,16 +1,16 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*-
  *
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2010 - Jesse van den Kieboom
  * Copyright (C) 2010 - Krzesimir Nowak
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -31,11 +31,11 @@
 /**
  * SECTION:markattributes
  * @short_description: The source mark attributes object
- * @title: GtkSourceMarkAttributes
- * @see_also: #GtkSourceMark
+ * @title: CtkSourceMarkAttributes
+ * @see_also: #CtkSourceMark
  *
- * #GtkSourceMarkAttributes is an object specifying attributes used by
- * a #GtkSourceView to visually show lines marked with #GtkSourceMark<!-- -->s
+ * #CtkSourceMarkAttributes is an object specifying attributes used by
+ * a #CtkSourceView to visually show lines marked with #CtkSourceMark<!-- -->s
  * of a specific category. It allows you to define a background color of a line,
  * an icon shown in gutter and tooltips.
  *
@@ -72,21 +72,21 @@
  * value, but it is just not used when rendering the proper icon.
  *
  * To provide meaningful tooltips for a given mark of a category, you should
- * connect to #GtkSourceMarkAttributes::query-tooltip-text or
- * #GtkSourceMarkAttributes::query-tooltip-markup where the latter
+ * connect to #CtkSourceMarkAttributes::query-tooltip-text or
+ * #CtkSourceMarkAttributes::query-tooltip-markup where the latter
  * takes precedence.
  */
 
-struct _GtkSourceMarkAttributesPrivate
+struct _CtkSourceMarkAttributesPrivate
 {
 	GdkRGBA background;
 
-	GtkSourcePixbufHelper *helper;
+	CtkSourcePixbufHelper *helper;
 
 	guint background_set : 1;
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceMarkAttributes, ctk_source_mark_attributes, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (CtkSourceMarkAttributes, ctk_source_mark_attributes, G_TYPE_OBJECT)
 
 enum
 {
@@ -109,7 +109,7 @@ static guint signals[N_SIGNALS];
 static void
 ctk_source_mark_attributes_finalize (GObject *object)
 {
-	GtkSourceMarkAttributes *attributes = CTK_SOURCE_MARK_ATTRIBUTES (object);
+	CtkSourceMarkAttributes *attributes = CTK_SOURCE_MARK_ATTRIBUTES (object);
 
 	ctk_source_pixbuf_helper_free (attributes->priv->helper);
 
@@ -117,7 +117,7 @@ ctk_source_mark_attributes_finalize (GObject *object)
 }
 
 static void
-set_background (GtkSourceMarkAttributes *attributes,
+set_background (CtkSourceMarkAttributes *attributes,
 		const GdkRGBA           *color)
 {
 	if (color)
@@ -131,7 +131,7 @@ set_background (GtkSourceMarkAttributes *attributes,
 }
 
 static void
-set_icon_name (GtkSourceMarkAttributes *attributes,
+set_icon_name (CtkSourceMarkAttributes *attributes,
 	       const gchar             *icon_name)
 {
 	if (g_strcmp0 (ctk_source_pixbuf_helper_get_icon_name (attributes->priv->helper),
@@ -147,7 +147,7 @@ set_icon_name (GtkSourceMarkAttributes *attributes,
 }
 
 static void
-set_pixbuf (GtkSourceMarkAttributes *attributes,
+set_pixbuf (CtkSourceMarkAttributes *attributes,
 	    const GdkPixbuf         *pixbuf)
 {
 	if (ctk_source_pixbuf_helper_get_pixbuf (attributes->priv->helper) == pixbuf)
@@ -162,7 +162,7 @@ set_pixbuf (GtkSourceMarkAttributes *attributes,
 }
 
 static void
-set_gicon (GtkSourceMarkAttributes *attributes,
+set_gicon (CtkSourceMarkAttributes *attributes,
 	   GIcon                   *gicon)
 {
 	if (ctk_source_pixbuf_helper_get_gicon (attributes->priv->helper) == gicon)
@@ -182,7 +182,7 @@ ctk_source_mark_attributes_set_property (GObject      *object,
 					 const GValue *value,
 					 GParamSpec   *pspec)
 {
-	GtkSourceMarkAttributes *self = CTK_SOURCE_MARK_ATTRIBUTES (object);
+	CtkSourceMarkAttributes *self = CTK_SOURCE_MARK_ATTRIBUTES (object);
 
 	switch (prop_id)
 	{
@@ -210,7 +210,7 @@ ctk_source_mark_attributes_get_property (GObject    *object,
 					 GValue     *value,
 					 GParamSpec *pspec)
 {
-	GtkSourceMarkAttributes *self = CTK_SOURCE_MARK_ATTRIBUTES (object);
+	CtkSourceMarkAttributes *self = CTK_SOURCE_MARK_ATTRIBUTES (object);
 
 	switch (prop_id)
 	{
@@ -243,7 +243,7 @@ ctk_source_mark_attributes_get_property (GObject    *object,
 }
 
 static void
-ctk_source_mark_attributes_class_init (GtkSourceMarkAttributesClass *klass)
+ctk_source_mark_attributes_class_init (CtkSourceMarkAttributesClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
@@ -253,7 +253,7 @@ ctk_source_mark_attributes_class_init (GtkSourceMarkAttributesClass *klass)
 	object_class->set_property = ctk_source_mark_attributes_set_property;
 
 	/**
-	 * GtkSourceMarkAttributes:background:
+	 * CtkSourceMarkAttributes:background:
 	 *
 	 * A color used for background of a line.
 	 */
@@ -267,7 +267,7 @@ ctk_source_mark_attributes_class_init (GtkSourceMarkAttributesClass *klass)
 							     G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceMarkAttributes:pixbuf:
+	 * CtkSourceMarkAttributes:pixbuf:
 	 *
 	 * A #GdkPixbuf that may be a base of a rendered icon.
 	 */
@@ -281,7 +281,7 @@ ctk_source_mark_attributes_class_init (GtkSourceMarkAttributesClass *klass)
 							      G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceMarkAttributes:icon-name:
+	 * CtkSourceMarkAttributes:icon-name:
 	 *
 	 * An icon name that may be a base of a rendered icon.
 	 */
@@ -295,7 +295,7 @@ ctk_source_mark_attributes_class_init (GtkSourceMarkAttributesClass *klass)
 							      G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceMarkAttributes:gicon:
+	 * CtkSourceMarkAttributes:gicon:
 	 *
 	 * A #GIcon that may be a base of a rendered icon.
 	 */
@@ -309,9 +309,9 @@ ctk_source_mark_attributes_class_init (GtkSourceMarkAttributesClass *klass)
 							      G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceMarkAttributes::query-tooltip-text:
-	 * @attributes: The #GtkSourceMarkAttributes which emits the signal.
-	 * @mark: The #GtkSourceMark.
+	 * CtkSourceMarkAttributes::query-tooltip-text:
+	 * @attributes: The #CtkSourceMarkAttributes which emits the signal.
+	 * @mark: The #CtkSourceMark.
 	 *
 	 * The code should connect to this signal to provide a tooltip for given
 	 * @mark. The tooltip should be just a plain text.
@@ -334,9 +334,9 @@ ctk_source_mark_attributes_class_init (GtkSourceMarkAttributesClass *klass)
 	                            _ctk_source_marshal_STRING__OBJECTv);
 
 	/**
-	 * GtkSourceMarkAttributes::query-tooltip-markup:
-	 * @attributes: The #GtkSourceMarkAttributes which emits the signal.
-	 * @mark: The #GtkSourceMark.
+	 * CtkSourceMarkAttributes::query-tooltip-markup:
+	 * @attributes: The #CtkSourceMarkAttributes which emits the signal.
+	 * @mark: The #CtkSourceMark.
 	 *
 	 * The code should connect to this signal to provide a tooltip for given
 	 * @mark. The tooltip can contain a markup.
@@ -360,7 +360,7 @@ ctk_source_mark_attributes_class_init (GtkSourceMarkAttributesClass *klass)
 }
 
 static void
-ctk_source_mark_attributes_init (GtkSourceMarkAttributes *self)
+ctk_source_mark_attributes_init (CtkSourceMarkAttributes *self)
 {
 	self->priv = ctk_source_mark_attributes_get_instance_private (self);
 
@@ -374,7 +374,7 @@ ctk_source_mark_attributes_init (GtkSourceMarkAttributes *self)
  *
  * Returns: (transfer full): a new source mark attributes.
  */
-GtkSourceMarkAttributes *
+CtkSourceMarkAttributes *
 ctk_source_mark_attributes_new (void)
 {
 	return g_object_new (CTK_SOURCE_TYPE_MARK_ATTRIBUTES, NULL);
@@ -382,13 +382,13 @@ ctk_source_mark_attributes_new (void)
 
 /**
  * ctk_source_mark_attributes_set_background:
- * @attributes: a #GtkSourceMarkAttributes.
+ * @attributes: a #CtkSourceMarkAttributes.
  * @background: a #GdkRGBA.
  *
  * Sets background color to the one given in @background.
  */
 void
-ctk_source_mark_attributes_set_background (GtkSourceMarkAttributes *attributes,
+ctk_source_mark_attributes_set_background (CtkSourceMarkAttributes *attributes,
 					   const GdkRGBA           *background)
 {
 	g_return_if_fail (CTK_SOURCE_IS_MARK_ATTRIBUTES (attributes));
@@ -398,7 +398,7 @@ ctk_source_mark_attributes_set_background (GtkSourceMarkAttributes *attributes,
 
 /**
  * ctk_source_mark_attributes_get_background:
- * @attributes: a #GtkSourceMarkAttributes.
+ * @attributes: a #CtkSourceMarkAttributes.
  * @background: (out caller-allocates): a #GdkRGBA.
  *
  * Stores background color in @background.
@@ -406,7 +406,7 @@ ctk_source_mark_attributes_set_background (GtkSourceMarkAttributes *attributes,
  * Returns: whether background color for @attributes was set.
  */
 gboolean
-ctk_source_mark_attributes_get_background (GtkSourceMarkAttributes *attributes,
+ctk_source_mark_attributes_get_background (CtkSourceMarkAttributes *attributes,
 					   GdkRGBA                 *background)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_MARK_ATTRIBUTES (attributes), FALSE);
@@ -420,13 +420,13 @@ ctk_source_mark_attributes_get_background (GtkSourceMarkAttributes *attributes,
 
 /**
  * ctk_source_mark_attributes_set_icon_name:
- * @attributes: a #GtkSourceMarkAttributes.
+ * @attributes: a #CtkSourceMarkAttributes.
  * @icon_name: name of an icon to be used.
  *
  * Sets a name of an icon to be used as a base for rendered icon.
  */
 void
-ctk_source_mark_attributes_set_icon_name (GtkSourceMarkAttributes *attributes,
+ctk_source_mark_attributes_set_icon_name (CtkSourceMarkAttributes *attributes,
 					  const gchar             *icon_name)
 {
 	g_return_if_fail (CTK_SOURCE_IS_MARK_ATTRIBUTES (attributes));
@@ -436,7 +436,7 @@ ctk_source_mark_attributes_set_icon_name (GtkSourceMarkAttributes *attributes,
 
 /**
  * ctk_source_mark_attributes_get_icon_name:
- * @attributes: a #GtkSourceMarkAttributes.
+ * @attributes: a #CtkSourceMarkAttributes.
  *
  * Gets a name of an icon to be used as a base for rendered icon. Note that the
  * icon name can be %NULL if it wasn't set earlier.
@@ -445,7 +445,7 @@ ctk_source_mark_attributes_set_icon_name (GtkSourceMarkAttributes *attributes,
  * should not be freed.
  */
 const gchar *
-ctk_source_mark_attributes_get_icon_name (GtkSourceMarkAttributes *attributes)
+ctk_source_mark_attributes_get_icon_name (CtkSourceMarkAttributes *attributes)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_MARK_ATTRIBUTES (attributes), NULL);
 
@@ -454,13 +454,13 @@ ctk_source_mark_attributes_get_icon_name (GtkSourceMarkAttributes *attributes)
 
 /**
  * ctk_source_mark_attributes_set_gicon:
- * @attributes: a #GtkSourceMarkAttributes.
+ * @attributes: a #CtkSourceMarkAttributes.
  * @gicon: a #GIcon to be used.
  *
  * Sets an icon to be used as a base for rendered icon.
  */
 void
-ctk_source_mark_attributes_set_gicon (GtkSourceMarkAttributes *attributes,
+ctk_source_mark_attributes_set_gicon (CtkSourceMarkAttributes *attributes,
 				      GIcon                   *gicon)
 {
 	g_return_if_fail (CTK_SOURCE_IS_MARK_ATTRIBUTES (attributes));
@@ -470,7 +470,7 @@ ctk_source_mark_attributes_set_gicon (GtkSourceMarkAttributes *attributes,
 
 /**
  * ctk_source_mark_attributes_get_gicon:
- * @attributes: a #GtkSourceMarkAttributes.
+ * @attributes: a #CtkSourceMarkAttributes.
  *
  * Gets a #GIcon to be used as a base for rendered icon. Note that the icon can
  * be %NULL if it wasn't set earlier.
@@ -479,7 +479,7 @@ ctk_source_mark_attributes_set_gicon (GtkSourceMarkAttributes *attributes,
  * not be unreffed.
  */
 GIcon *
-ctk_source_mark_attributes_get_gicon (GtkSourceMarkAttributes *attributes)
+ctk_source_mark_attributes_get_gicon (CtkSourceMarkAttributes *attributes)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_MARK_ATTRIBUTES (attributes), NULL);
 
@@ -488,13 +488,13 @@ ctk_source_mark_attributes_get_gicon (GtkSourceMarkAttributes *attributes)
 
 /**
  * ctk_source_mark_attributes_set_pixbuf:
- * @attributes: a #GtkSourceMarkAttributes.
+ * @attributes: a #CtkSourceMarkAttributes.
  * @pixbuf: a #GdkPixbuf to be used.
  *
  * Sets a pixbuf to be used as a base for rendered icon.
  */
 void
-ctk_source_mark_attributes_set_pixbuf (GtkSourceMarkAttributes *attributes,
+ctk_source_mark_attributes_set_pixbuf (CtkSourceMarkAttributes *attributes,
 				       const GdkPixbuf         *pixbuf)
 {
 	g_return_if_fail (CTK_SOURCE_IS_MARK_ATTRIBUTES (attributes));
@@ -504,7 +504,7 @@ ctk_source_mark_attributes_set_pixbuf (GtkSourceMarkAttributes *attributes,
 
 /**
  * ctk_source_mark_attributes_get_pixbuf:
- * @attributes: a #GtkSourceMarkAttributes.
+ * @attributes: a #CtkSourceMarkAttributes.
  *
  * Gets a #GdkPixbuf to be used as a base for rendered icon. Note that the
  * pixbuf can be %NULL if it wasn't set earlier.
@@ -513,7 +513,7 @@ ctk_source_mark_attributes_set_pixbuf (GtkSourceMarkAttributes *attributes,
  * should not be unreffed.
  */
 const GdkPixbuf *
-ctk_source_mark_attributes_get_pixbuf (GtkSourceMarkAttributes *attributes)
+ctk_source_mark_attributes_get_pixbuf (CtkSourceMarkAttributes *attributes)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_MARK_ATTRIBUTES (attributes), NULL);
 
@@ -522,7 +522,7 @@ ctk_source_mark_attributes_get_pixbuf (GtkSourceMarkAttributes *attributes)
 
 /**
  * ctk_source_mark_attributes_render_icon:
- * @attributes: a #GtkSourceMarkAttributes.
+ * @attributes: a #CtkSourceMarkAttributes.
  * @widget: widget of which style settings may be used.
  * @size: size of the rendered icon.
  *
@@ -535,8 +535,8 @@ ctk_source_mark_attributes_get_pixbuf (GtkSourceMarkAttributes *attributes)
  * and should not be unreffed.
  */
 const GdkPixbuf *
-ctk_source_mark_attributes_render_icon (GtkSourceMarkAttributes *attributes,
-					GtkWidget               *widget,
+ctk_source_mark_attributes_render_icon (CtkSourceMarkAttributes *attributes,
+					CtkWidget               *widget,
 					gint                     size)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_MARK_ATTRIBUTES (attributes), NULL);
@@ -550,19 +550,19 @@ ctk_source_mark_attributes_render_icon (GtkSourceMarkAttributes *attributes,
 
 /**
  * ctk_source_mark_attributes_get_tooltip_text:
- * @attributes: a #GtkSourceMarkAttributes.
- * @mark: a #GtkSourceMark.
+ * @attributes: a #CtkSourceMarkAttributes.
+ * @mark: a #CtkSourceMark.
  *
  * Queries for a tooltip by emitting
- * a #GtkSourceMarkAttributes::query-tooltip-text signal. The tooltip is a plain
+ * a #CtkSourceMarkAttributes::query-tooltip-text signal. The tooltip is a plain
  * text.
  *
  * Returns: (transfer full): A tooltip. The returned string should be freed by
  * using g_free() when done with it.
  */
 gchar *
-ctk_source_mark_attributes_get_tooltip_text (GtkSourceMarkAttributes *attributes,
-					     GtkSourceMark           *mark)
+ctk_source_mark_attributes_get_tooltip_text (CtkSourceMarkAttributes *attributes,
+					     CtkSourceMark           *mark)
 {
 	gchar *ret;
 
@@ -577,19 +577,19 @@ ctk_source_mark_attributes_get_tooltip_text (GtkSourceMarkAttributes *attributes
 
 /**
  * ctk_source_mark_attributes_get_tooltip_markup:
- * @attributes: a #GtkSourceMarkAttributes.
- * @mark: a #GtkSourceMark.
+ * @attributes: a #CtkSourceMarkAttributes.
+ * @mark: a #CtkSourceMark.
  *
  * Queries for a tooltip by emitting
- * a #GtkSourceMarkAttributes::query-tooltip-markup signal. The tooltip may contain
+ * a #CtkSourceMarkAttributes::query-tooltip-markup signal. The tooltip may contain
  * a markup.
  *
  * Returns: (transfer full): A tooltip. The returned string should be freed by
  * using g_free() when done with it.
  */
 gchar *
-ctk_source_mark_attributes_get_tooltip_markup (GtkSourceMarkAttributes *attributes,
-					       GtkSourceMark           *mark)
+ctk_source_mark_attributes_get_tooltip_markup (CtkSourceMarkAttributes *attributes,
+					       CtkSourceMark           *mark)
 {
 	gchar *ret;
 

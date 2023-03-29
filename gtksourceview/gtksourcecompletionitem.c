@@ -1,16 +1,16 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*-
  *
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2009 - Jesse van den Kieboom <jessevdk@gnome.org>
  * Copyright (C) 2016 - Sébastien Wilmet <swilmet@gnome.org>
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -21,11 +21,11 @@
 
 /**
  * SECTION:completionitem
- * @title: GtkSourceCompletionItem
- * @short_description: Simple implementation of GtkSourceCompletionProposal
+ * @title: CtkSourceCompletionItem
+ * @short_description: Simple implementation of CtkSourceCompletionProposal
  *
- * The #GtkSourceCompletionItem class is a simple implementation of the
- * #GtkSourceCompletionProposal interface.
+ * The #CtkSourceCompletionItem class is a simple implementation of the
+ * #CtkSourceCompletionProposal interface.
  */
 
 #ifdef HAVE_CONFIG_H
@@ -35,7 +35,7 @@
 #include "ctksourcecompletionitem.h"
 #include "ctksourcecompletionproposal.h"
 
-struct _GtkSourceCompletionItemPrivate
+struct _CtkSourceCompletionItemPrivate
 {
 	gchar *label;
 	gchar *markup;
@@ -60,51 +60,51 @@ enum
 
 static void ctk_source_completion_proposal_iface_init (gpointer g_iface, gpointer iface_data);
 
-G_DEFINE_TYPE_WITH_CODE (GtkSourceCompletionItem,
+G_DEFINE_TYPE_WITH_CODE (CtkSourceCompletionItem,
 			 ctk_source_completion_item,
 			 G_TYPE_OBJECT,
-			 G_ADD_PRIVATE (GtkSourceCompletionItem)
+			 G_ADD_PRIVATE (CtkSourceCompletionItem)
 			 G_IMPLEMENT_INTERFACE (CTK_SOURCE_TYPE_COMPLETION_PROPOSAL,
 			 			ctk_source_completion_proposal_iface_init))
 
 static gchar *
-ctk_source_completion_proposal_get_label_impl (GtkSourceCompletionProposal *proposal)
+ctk_source_completion_proposal_get_label_impl (CtkSourceCompletionProposal *proposal)
 {
 	return g_strdup (CTK_SOURCE_COMPLETION_ITEM (proposal)->priv->label);
 }
 
 static gchar *
-ctk_source_completion_proposal_get_markup_impl (GtkSourceCompletionProposal *proposal)
+ctk_source_completion_proposal_get_markup_impl (CtkSourceCompletionProposal *proposal)
 {
 	return g_strdup (CTK_SOURCE_COMPLETION_ITEM (proposal)->priv->markup);
 }
 
 static gchar *
-ctk_source_completion_proposal_get_text_impl (GtkSourceCompletionProposal *proposal)
+ctk_source_completion_proposal_get_text_impl (CtkSourceCompletionProposal *proposal)
 {
 	return g_strdup (CTK_SOURCE_COMPLETION_ITEM (proposal)->priv->text);
 }
 
 static GdkPixbuf *
-ctk_source_completion_proposal_get_icon_impl (GtkSourceCompletionProposal *proposal)
+ctk_source_completion_proposal_get_icon_impl (CtkSourceCompletionProposal *proposal)
 {
 	return CTK_SOURCE_COMPLETION_ITEM (proposal)->priv->icon;
 }
 
 static const gchar *
-ctk_source_completion_proposal_get_icon_name_impl (GtkSourceCompletionProposal *proposal)
+ctk_source_completion_proposal_get_icon_name_impl (CtkSourceCompletionProposal *proposal)
 {
 	return CTK_SOURCE_COMPLETION_ITEM (proposal)->priv->icon_name;
 }
 
 static GIcon *
-ctk_source_completion_proposal_get_gicon_impl (GtkSourceCompletionProposal *proposal)
+ctk_source_completion_proposal_get_gicon_impl (CtkSourceCompletionProposal *proposal)
 {
 	return CTK_SOURCE_COMPLETION_ITEM (proposal)->priv->gicon;
 }
 
 static gchar *
-ctk_source_completion_proposal_get_info_impl (GtkSourceCompletionProposal *proposal)
+ctk_source_completion_proposal_get_info_impl (CtkSourceCompletionProposal *proposal)
 {
 	return g_strdup (CTK_SOURCE_COMPLETION_ITEM (proposal)->priv->info);
 }
@@ -113,7 +113,7 @@ static void
 ctk_source_completion_proposal_iface_init (gpointer g_iface,
 					   gpointer iface_data)
 {
-	GtkSourceCompletionProposalIface *iface = g_iface;
+	CtkSourceCompletionProposalIface *iface = g_iface;
 
 	/* Interface data getter implementations */
 	iface->get_label = ctk_source_completion_proposal_get_label_impl;
@@ -128,7 +128,7 @@ ctk_source_completion_proposal_iface_init (gpointer g_iface,
 static void
 ctk_source_completion_item_dispose (GObject *object)
 {
-	GtkSourceCompletionItem *item = CTK_SOURCE_COMPLETION_ITEM (object);
+	CtkSourceCompletionItem *item = CTK_SOURCE_COMPLETION_ITEM (object);
 
 	g_clear_object (&item->priv->icon);
 	g_clear_object (&item->priv->gicon);
@@ -139,7 +139,7 @@ ctk_source_completion_item_dispose (GObject *object)
 static void
 ctk_source_completion_item_finalize (GObject *object)
 {
-	GtkSourceCompletionItem *item = CTK_SOURCE_COMPLETION_ITEM (object);
+	CtkSourceCompletionItem *item = CTK_SOURCE_COMPLETION_ITEM (object);
 
 	g_free (item->priv->label);
 	g_free (item->priv->markup);
@@ -156,7 +156,7 @@ ctk_source_completion_item_get_property (GObject    *object,
 					 GValue     *value,
 					 GParamSpec *pspec)
 {
-	GtkSourceCompletionItem *item;
+	CtkSourceCompletionItem *item;
 
 	g_return_if_fail (CTK_SOURCE_IS_COMPLETION_ITEM (object));
 
@@ -199,7 +199,7 @@ ctk_source_completion_item_get_property (GObject    *object,
 }
 
 static void
-emit_changed (GtkSourceCompletionItem *item)
+emit_changed (CtkSourceCompletionItem *item)
 {
 	ctk_source_completion_proposal_changed (CTK_SOURCE_COMPLETION_PROPOSAL (item));
 }
@@ -210,7 +210,7 @@ ctk_source_completion_item_set_property (GObject      *object,
 					 const GValue *value,
 					 GParamSpec   *pspec)
 {
-	GtkSourceCompletionItem *item;
+	CtkSourceCompletionItem *item;
 
 	g_return_if_fail (CTK_SOURCE_IS_COMPLETION_ITEM (object));
 
@@ -253,7 +253,7 @@ ctk_source_completion_item_set_property (GObject      *object,
 }
 
 static void
-ctk_source_completion_item_class_init (GtkSourceCompletionItemClass *klass)
+ctk_source_completion_item_class_init (CtkSourceCompletionItemClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
@@ -263,7 +263,7 @@ ctk_source_completion_item_class_init (GtkSourceCompletionItemClass *klass)
 	object_class->set_property = ctk_source_completion_item_set_property;
 
 	/**
-	 * GtkSourceCompletionItem:label:
+	 * CtkSourceCompletionItem:label:
 	 *
 	 * Label to be shown for this proposal.
 	 */
@@ -277,7 +277,7 @@ ctk_source_completion_item_class_init (GtkSourceCompletionItemClass *klass)
 							      G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceCompletionItem:markup:
+	 * CtkSourceCompletionItem:markup:
 	 *
 	 * Label with markup to be shown for this proposal.
 	 */
@@ -291,7 +291,7 @@ ctk_source_completion_item_class_init (GtkSourceCompletionItemClass *klass)
 							      G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceCompletionItem:text:
+	 * CtkSourceCompletionItem:text:
 	 *
 	 * Proposal text.
 	 */
@@ -305,7 +305,7 @@ ctk_source_completion_item_class_init (GtkSourceCompletionItemClass *klass)
 							      G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceCompletionItem:icon:
+	 * CtkSourceCompletionItem:icon:
 	 *
 	 * The #GdkPixbuf for the icon to be shown for this proposal.
 	 */
@@ -319,7 +319,7 @@ ctk_source_completion_item_class_init (GtkSourceCompletionItemClass *klass)
 							      G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceCompletionItem:icon-name:
+	 * CtkSourceCompletionItem:icon-name:
 	 *
 	 * The icon name for the icon to be shown for this proposal.
 	 *
@@ -335,7 +335,7 @@ ctk_source_completion_item_class_init (GtkSourceCompletionItemClass *klass)
 							      G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceCompletionItem:gicon:
+	 * CtkSourceCompletionItem:gicon:
 	 *
 	 * The #GIcon for the icon to be shown for this proposal.
 	 *
@@ -351,7 +351,7 @@ ctk_source_completion_item_class_init (GtkSourceCompletionItemClass *klass)
 							      G_PARAM_STATIC_STRINGS));
 
 	/**
-	 * GtkSourceCompletionItem:info:
+	 * CtkSourceCompletionItem:info:
 	 *
 	 * Optional extra information to be shown for this proposal.
 	 */
@@ -366,7 +366,7 @@ ctk_source_completion_item_class_init (GtkSourceCompletionItemClass *klass)
 }
 
 static void
-ctk_source_completion_item_init (GtkSourceCompletionItem *item)
+ctk_source_completion_item_init (CtkSourceCompletionItem *item)
 {
 	item->priv = ctk_source_completion_item_get_instance_private (item);
 }
@@ -374,13 +374,13 @@ ctk_source_completion_item_init (GtkSourceCompletionItem *item)
 /**
  * ctk_source_completion_item_new:
  *
- * Creates a new #GtkSourceCompletionItem. The desired properties need to be set
+ * Creates a new #CtkSourceCompletionItem. The desired properties need to be set
  * afterwards.
  *
- * Returns: (transfer full): a new #GtkSourceCompletionItem.
+ * Returns: (transfer full): a new #CtkSourceCompletionItem.
  * Since: 4.0
  */
-GtkSourceCompletionItem *
+CtkSourceCompletionItem *
 ctk_source_completion_item_new (void)
 {
 	return g_object_new (CTK_SOURCE_TYPE_COMPLETION_ITEM, NULL);
@@ -388,13 +388,13 @@ ctk_source_completion_item_new (void)
 
 /**
  * ctk_source_completion_item_set_label:
- * @item: a #GtkSourceCompletionItem.
+ * @item: a #CtkSourceCompletionItem.
  * @label: (nullable): the label, or %NULL.
  *
  * Since: 3.24
  */
 void
-ctk_source_completion_item_set_label (GtkSourceCompletionItem *item,
+ctk_source_completion_item_set_label (CtkSourceCompletionItem *item,
 				      const gchar             *label)
 {
 	g_return_if_fail (CTK_SOURCE_IS_COMPLETION_ITEM (item));
@@ -411,13 +411,13 @@ ctk_source_completion_item_set_label (GtkSourceCompletionItem *item,
 
 /**
  * ctk_source_completion_item_set_markup:
- * @item: a #GtkSourceCompletionItem.
+ * @item: a #CtkSourceCompletionItem.
  * @markup: (nullable): the markup, or %NULL.
  *
  * Since: 3.24
  */
 void
-ctk_source_completion_item_set_markup (GtkSourceCompletionItem *item,
+ctk_source_completion_item_set_markup (CtkSourceCompletionItem *item,
 				       const gchar             *markup)
 {
 	g_return_if_fail (CTK_SOURCE_IS_COMPLETION_ITEM (item));
@@ -434,13 +434,13 @@ ctk_source_completion_item_set_markup (GtkSourceCompletionItem *item,
 
 /**
  * ctk_source_completion_item_set_text:
- * @item: a #GtkSourceCompletionItem.
+ * @item: a #CtkSourceCompletionItem.
  * @text: (nullable): the text, or %NULL.
  *
  * Since: 3.24
  */
 void
-ctk_source_completion_item_set_text (GtkSourceCompletionItem *item,
+ctk_source_completion_item_set_text (CtkSourceCompletionItem *item,
 				     const gchar             *text)
 {
 	g_return_if_fail (CTK_SOURCE_IS_COMPLETION_ITEM (item));
@@ -457,13 +457,13 @@ ctk_source_completion_item_set_text (GtkSourceCompletionItem *item,
 
 /**
  * ctk_source_completion_item_set_icon:
- * @item: a #GtkSourceCompletionItem.
+ * @item: a #CtkSourceCompletionItem.
  * @icon: (nullable): the #GdkPixbuf, or %NULL.
  *
  * Since: 3.24
  */
 void
-ctk_source_completion_item_set_icon (GtkSourceCompletionItem *item,
+ctk_source_completion_item_set_icon (CtkSourceCompletionItem *item,
 				     GdkPixbuf               *icon)
 {
 	g_return_if_fail (CTK_SOURCE_IS_COMPLETION_ITEM (item));
@@ -478,13 +478,13 @@ ctk_source_completion_item_set_icon (GtkSourceCompletionItem *item,
 
 /**
  * ctk_source_completion_item_set_icon_name:
- * @item: a #GtkSourceCompletionItem.
+ * @item: a #CtkSourceCompletionItem.
  * @icon_name: (nullable): the icon name, or %NULL.
  *
  * Since: 3.24
  */
 void
-ctk_source_completion_item_set_icon_name (GtkSourceCompletionItem *item,
+ctk_source_completion_item_set_icon_name (CtkSourceCompletionItem *item,
 					  const gchar             *icon_name)
 {
 	g_return_if_fail (CTK_SOURCE_IS_COMPLETION_ITEM (item));
@@ -501,13 +501,13 @@ ctk_source_completion_item_set_icon_name (GtkSourceCompletionItem *item,
 
 /**
  * ctk_source_completion_item_set_gicon:
- * @item: a #GtkSourceCompletionItem.
+ * @item: a #CtkSourceCompletionItem.
  * @gicon: (nullable): the #GIcon, or %NULL.
  *
  * Since: 3.24
  */
 void
-ctk_source_completion_item_set_gicon (GtkSourceCompletionItem *item,
+ctk_source_completion_item_set_gicon (CtkSourceCompletionItem *item,
 				      GIcon                   *gicon)
 {
 	g_return_if_fail (CTK_SOURCE_IS_COMPLETION_ITEM (item));
@@ -522,13 +522,13 @@ ctk_source_completion_item_set_gicon (GtkSourceCompletionItem *item,
 
 /**
  * ctk_source_completion_item_set_info:
- * @item: a #GtkSourceCompletionItem.
+ * @item: a #CtkSourceCompletionItem.
  * @info: (nullable): the info, or %NULL.
  *
  * Since: 3.24
  */
 void
-ctk_source_completion_item_set_info (GtkSourceCompletionItem *item,
+ctk_source_completion_item_set_info (CtkSourceCompletionItem *item,
 				     const gchar             *info)
 {
 	g_return_if_fail (CTK_SOURCE_IS_COMPLETION_ITEM (item));

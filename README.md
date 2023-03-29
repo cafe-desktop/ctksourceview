@@ -1,15 +1,15 @@
-GtkSourceView
+CtkSourceView
 =============
 
-GtkSourceView is a GNOME library that extends GtkTextView, the standard CTK+
-widget for multiline text editing. GtkSourceView adds support for syntax
+CtkSourceView is a GNOME library that extends CtkTextView, the standard CTK+
+widget for multiline text editing. CtkSourceView adds support for syntax
 highlighting, undo/redo, file loading and saving, search and replace, a
 completion system, printing, displaying line numbers, and other features
 typical of a source code editor.
 
-The GtkSourceView library is free software and is released under the terms of
+The CtkSourceView library is free software and is released under the terms of
 the GNU Lesser General Public License, see the 'COPYING' file for more details.
-The official web site is https://wiki.gnome.org/Projects/GtkSourceView.
+The official web site is https://wiki.gnome.org/Projects/CtkSourceView.
 
 Dependencies
 ------------
@@ -33,7 +33,7 @@ Simple install procedure from a tarball:
 
 See the file 'INSTALL' for more detailed information.
 
-To build the latest version of GtkSourceView plus its dependencies from Git,
+To build the latest version of CtkSourceView plus its dependencies from Git,
 [Jhbuild](https://wiki.gnome.org/Projects/Jhbuild) is recommended.
 
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
- This file is part of GtkSourceView
+ This file is part of CtkSourceView
 
  Copyright (C) 2005-2007 Marco Barisione <barisione@gmail.com>
  Copyright (C) 2005-2007 Emanuele Aina
@@ -22,7 +22,7 @@
 -->
 <!--
   This file describes the XML format used for syntax highlight
-  descriptions for the GtkSourceView 1.x library.
+  descriptions for the CtkSourceView 1.x library.
   
   .lang files are XML files which describe how to highlight syntax;
   this RNG is used for validation purposes.

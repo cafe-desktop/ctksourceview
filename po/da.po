@@ -570,13 +570,13 @@ msgid "Unknown"
 msgstr "Ukendt"
 
 #. Translators: This is the sorted list of encodings used by
-#. * GtkSourceView for automatic detection of the file encoding. You may
+#. * CtkSourceView for automatic detection of the file encoding. You may
 #. * want to customize it adding encodings that are common in your
 #. * country, for instance the GB18030 encoding for the Chinese
 #. * translation. You may also want to remove the ISO-8859-15 encoding
 #. * (covering English and most Western European languages) if you think
 #. * people in your country will rarely use it.  "CURRENT" is a magic
-#. * value used by GtkSourceView and it represents the encoding for the
+#. * value used by CtkSourceView and it represents the encoding for the
 #. * current locale, so please don't translate the "CURRENT" term.  Only
 #. * recognized encodings are used. See
 #. * https://gitlab.gnome.org/GNOME/ctksourceview/blob/master/ctksourceview/ctksourceencoding.c#L142
@@ -614,14 +614,14 @@ msgstr "Bufferen indeholder ugyldige tegn."
 #. *
 #. * SECTION:language
 #. * @Short_description: Represents a syntax highlighted language
-#. * @Title: GtkSourceLanguage
-#. * @See_also: #GtkSourceLanguageManager
+#. * @Title: CtkSourceLanguage
+#. * @See_also: #CtkSourceLanguageManager
 #. *
-#. * A #GtkSourceLanguage represents a programming or markup language, affecting
+#. * A #CtkSourceLanguage represents a programming or markup language, affecting
 #. * syntax highlighting and [context classes][context-classes].
 #. *
-#. * Use #GtkSourceLanguageManager to obtain a #GtkSourceLanguage instance, and
-#. * ctk_source_buffer_set_language() to apply it to a #GtkSourceBuffer.
+#. * Use #CtkSourceLanguageManager to obtain a #CtkSourceLanguage instance, and
+#. * ctk_source_buffer_set_language() to apply it to a #CtkSourceBuffer.
 #.
 #: ctksourceview/ctksourcelanguage.c:56
 msgid "Others"
@@ -1385,8 +1385,8 @@ msgstr "_Ændr mellem store/små bogstaver"
 #~ msgid "Deprecated"
 #~ msgstr "Deprecieret"
 
-#~ msgid "GtkRC"
-#~ msgstr "GtkRC"
+#~ msgid "CtkRC"
+#~ msgstr "CtkRC"
 
 #~ msgid "Widget State"
 #~ msgstr "Kontrol-tilstand"
@@ -2373,8 +2373,8 @@ msgstr "_Ændr mellem store/små bogstaver"
 #~ msgid "The Pango font description to use."
 #~ msgstr "Pango-skrifttypebeskrivelse som skal anvendes."
 
-#~ msgid "GtkSourceView"
-#~ msgstr "GtkSourceView"
+#~ msgid "CtkSourceView"
+#~ msgstr "CtkSourceView"
 
 #~ msgctxt "Object"
 #~ msgid "Name"
@@ -2477,8 +2477,8 @@ msgstr "_Ændr mellem store/små bogstaver"
 #~ msgid "Implicit trailing newline"
 #~ msgstr "Implicit afsluttende linjeskift"
 
-#~ msgid "The GtkSourceView bound to the completion"
-#~ msgstr "GtkSourceView'et, der er bundet til fuldførelsen"
+#~ msgid "The CtkSourceView bound to the completion"
+#~ msgstr "CtkSourceView'et, der er bundet til fuldførelsen"
 
 #~ msgid "Remember Info Visibility"
 #~ msgstr "Husk synlighed af info"
@@ -2534,8 +2534,8 @@ msgstr "_Ændr mellem store/små bogstaver"
 #~ msgid "Iterator"
 #~ msgstr "Iterator"
 
-#~ msgid "The GtkTextIter at which the completion was invoked"
-#~ msgstr "GtkTextIter-objektet, hvorpå fuldførelsen blev udført"
+#~ msgid "The CtkTextIter at which the completion was invoked"
+#~ msgstr "CtkTextIter-objektet, hvorpå fuldførelsen blev udført"
 
 #~ msgid "Label to be shown for this item"
 #~ msgstr "Etiket, der skal vises for dette element"
@@ -2567,8 +2567,8 @@ msgstr "_Ændr mellem store/små bogstaver"
 #~ msgid "Flags"
 #~ msgstr "Flag"
 
-#~ msgid "The gutters' GtkSourceView"
-#~ msgstr "Sidefeltets GtkSourceView"
+#~ msgid "The gutters' CtkSourceView"
+#~ msgstr "Sidefeltets CtkSourceView"
 
 #~ msgid "Window Type"
 #~ msgstr "Vinduestype"
@@ -2703,8 +2703,8 @@ msgstr "_Ændr mellem store/små bogstaver"
 #~ msgid "Source Buffer"
 #~ msgstr "Kildekodebuffer"
 
-#~ msgid "The GtkSourceBuffer object to print"
-#~ msgstr "GtkSourceBuffer-objekt at skrive ud"
+#~ msgid "The CtkSourceBuffer object to print"
+#~ msgstr "CtkSourceBuffer-objekt at skrive ud"
 
 #~ msgid "Tab Width"
 #~ msgstr "Tabulatorbredde"
@@ -2781,14 +2781,14 @@ msgstr "_Ændr mellem store/små bogstaver"
 #~ msgid "Buffer"
 #~ msgstr "Buffer"
 
-#~ msgid "The associated GtkSourceBuffer"
-#~ msgstr "Den tilknyttede GtkSourceBuffer"
+#~ msgid "The associated CtkSourceBuffer"
+#~ msgstr "Den tilknyttede CtkSourceBuffer"
 
 #~ msgid "Settings"
 #~ msgstr "Indstillinger"
 
-#~ msgid "The associated GtkSourceSearchSettings"
-#~ msgstr "Den tilknyttede GtkSourceSearchSettings"
+#~ msgid "The associated CtkSourceSearchSettings"
+#~ msgstr "Den tilknyttede CtkSourceSearchSettings"
 
 #~ msgid "Highlight"
 #~ msgstr "Fremhævning"

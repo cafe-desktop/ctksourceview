@@ -1,15 +1,15 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*- *
  *
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2016, 2017 - Sébastien Wilmet <swilmet@gnome.org>
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -137,10 +137,10 @@ get_locale_dir (void)
 /**
  * ctk_source_init:
  *
- * Initializes the GtkSourceView library (e.g. for the internationalization).
+ * Initializes the CtkSourceView library (e.g. for the internationalization).
  *
  * This function can be called several times, but is meant to be called at the
- * beginning of main(), before any other GtkSourceView function call.
+ * beginning of main(), before any other CtkSourceView function call.
  *
  * Since: 4.0
  */
@@ -166,7 +166,7 @@ ctk_source_init (void)
 /**
  * ctk_source_finalize:
  *
- * Free the resources allocated by GtkSourceView. For example it unrefs the
+ * Free the resources allocated by CtkSourceView. For example it unrefs the
  * singleton objects.
  *
  * It is not mandatory to call this function, it's just to be friendlier to
@@ -179,7 +179,7 @@ ctk_source_init (void)
 /* Another way is to use a DSO destructor, see gconstructor.h in GLib.
  *
  * The advantage of calling ctk_source_finalize() at the end of main() is that
- * gobject-list [1] correctly reports that all GtkSource* objects have been
+ * gobject-list [1] correctly reports that all CtkSource* objects have been
  * finalized when quitting the application. On the other hand a DSO destructor
  * runs after the gobject-list's last output, so it's much less convenient, see:
  * commit e761de9c2bee90c232875bbc41e6e73e1f63e145
@@ -200,8 +200,8 @@ ctk_source_finalize (void)
 	 */
 	if (!done)
 	{
-		GtkSourceLanguageManager *language_manager;
-		GtkSourceStyleSchemeManager *style_scheme_manager;
+		CtkSourceLanguageManager *language_manager;
+		CtkSourceStyleSchemeManager *style_scheme_manager;
 
 		g_resources_register (ctksourceview_get_resource ());
 

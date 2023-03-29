@@ -1,16 +1,16 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*-
  *
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2010 - Jesse van den Kieboom
  * Copyright (C) 2010 - Krzesimir Nowak
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -32,26 +32,26 @@
 G_BEGIN_DECLS
 
 #define CTK_SOURCE_TYPE_MARK_ATTRIBUTES			(ctk_source_mark_attributes_get_type ())
-#define CTK_SOURCE_MARK_ATTRIBUTES(obj)			(G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_MARK_ATTRIBUTES, GtkSourceMarkAttributes))
-#define CTK_SOURCE_MARK_ATTRIBUTES_CLASS(klass)		(G_TYPE_CHECK_CLASS_CAST ((klass), CTK_SOURCE_TYPE_MARK_ATTRIBUTES, GtkSourceMarkAttributesClass))
+#define CTK_SOURCE_MARK_ATTRIBUTES(obj)			(G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_MARK_ATTRIBUTES, CtkSourceMarkAttributes))
+#define CTK_SOURCE_MARK_ATTRIBUTES_CLASS(klass)		(G_TYPE_CHECK_CLASS_CAST ((klass), CTK_SOURCE_TYPE_MARK_ATTRIBUTES, CtkSourceMarkAttributesClass))
 #define CTK_SOURCE_IS_MARK_ATTRIBUTES(obj)		(G_TYPE_CHECK_INSTANCE_TYPE ((obj), CTK_SOURCE_TYPE_MARK_ATTRIBUTES))
 #define CTK_SOURCE_IS_MARK_ATTRIBUTES_CLASS(klass)	(G_TYPE_CHECK_CLASS_TYPE ((klass), CTK_SOURCE_TYPE_MARK_ATTRIBUTES))
-#define CTK_SOURCE_MARK_ATTRIBUTES_GET_CLASS(obj)	(G_TYPE_INSTANCE_GET_CLASS ((obj), CTK_SOURCE_TYPE_MARK_ATTRIBUTES, GtkSourceMarkAttributesClass))
+#define CTK_SOURCE_MARK_ATTRIBUTES_GET_CLASS(obj)	(G_TYPE_INSTANCE_GET_CLASS ((obj), CTK_SOURCE_TYPE_MARK_ATTRIBUTES, CtkSourceMarkAttributesClass))
 
-typedef struct _GtkSourceMarkAttributesClass	GtkSourceMarkAttributesClass;
-typedef struct _GtkSourceMarkAttributesPrivate	GtkSourceMarkAttributesPrivate;
+typedef struct _CtkSourceMarkAttributesClass	CtkSourceMarkAttributesClass;
+typedef struct _CtkSourceMarkAttributesPrivate	CtkSourceMarkAttributesPrivate;
 
-struct _GtkSourceMarkAttributes
+struct _CtkSourceMarkAttributes
 {
 	/*< private >*/
 	GObject parent;
 
-	GtkSourceMarkAttributesPrivate *priv;
+	CtkSourceMarkAttributesPrivate *priv;
 
 	/*< public >*/
 };
 
-struct _GtkSourceMarkAttributesClass
+struct _CtkSourceMarkAttributesClass
 {
 	/*< private >*/
 	GObjectClass parent_class;
@@ -63,49 +63,49 @@ CTK_SOURCE_AVAILABLE_IN_ALL
 GType ctk_source_mark_attributes_get_type (void) G_GNUC_CONST;
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-GtkSourceMarkAttributes *ctk_source_mark_attributes_new (void);
+CtkSourceMarkAttributes *ctk_source_mark_attributes_new (void);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-void             ctk_source_mark_attributes_set_background      (GtkSourceMarkAttributes *attributes,
+void             ctk_source_mark_attributes_set_background      (CtkSourceMarkAttributes *attributes,
                                                                  const GdkRGBA           *background);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-gboolean         ctk_source_mark_attributes_get_background      (GtkSourceMarkAttributes *attributes,
+gboolean         ctk_source_mark_attributes_get_background      (CtkSourceMarkAttributes *attributes,
                                                                  GdkRGBA                 *background);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-void             ctk_source_mark_attributes_set_icon_name       (GtkSourceMarkAttributes *attributes,
+void             ctk_source_mark_attributes_set_icon_name       (CtkSourceMarkAttributes *attributes,
                                                                  const gchar             *icon_name);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-const gchar     *ctk_source_mark_attributes_get_icon_name       (GtkSourceMarkAttributes *attributes);
+const gchar     *ctk_source_mark_attributes_get_icon_name       (CtkSourceMarkAttributes *attributes);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-void             ctk_source_mark_attributes_set_gicon           (GtkSourceMarkAttributes *attributes,
+void             ctk_source_mark_attributes_set_gicon           (CtkSourceMarkAttributes *attributes,
                                                                  GIcon                   *gicon);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-GIcon           *ctk_source_mark_attributes_get_gicon           (GtkSourceMarkAttributes *attributes);
+GIcon           *ctk_source_mark_attributes_get_gicon           (CtkSourceMarkAttributes *attributes);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-void             ctk_source_mark_attributes_set_pixbuf          (GtkSourceMarkAttributes *attributes,
+void             ctk_source_mark_attributes_set_pixbuf          (CtkSourceMarkAttributes *attributes,
                                                                  const GdkPixbuf         *pixbuf);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-const GdkPixbuf *ctk_source_mark_attributes_get_pixbuf          (GtkSourceMarkAttributes *attributes);
+const GdkPixbuf *ctk_source_mark_attributes_get_pixbuf          (CtkSourceMarkAttributes *attributes);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-const GdkPixbuf *ctk_source_mark_attributes_render_icon         (GtkSourceMarkAttributes *attributes,
-                                                                 GtkWidget               *widget,
+const GdkPixbuf *ctk_source_mark_attributes_render_icon         (CtkSourceMarkAttributes *attributes,
+                                                                 CtkWidget               *widget,
                                                                  gint                   size);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-gchar           *ctk_source_mark_attributes_get_tooltip_text    (GtkSourceMarkAttributes *attributes,
-                                                                 GtkSourceMark           *mark);
+gchar           *ctk_source_mark_attributes_get_tooltip_text    (CtkSourceMarkAttributes *attributes,
+                                                                 CtkSourceMark           *mark);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-gchar           *ctk_source_mark_attributes_get_tooltip_markup  (GtkSourceMarkAttributes *attributes,
-                                                                 GtkSourceMark           *mark);
+gchar           *ctk_source_mark_attributes_get_tooltip_markup  (CtkSourceMarkAttributes *attributes,
+                                                                 CtkSourceMark           *mark);
 
 G_END_DECLS
 

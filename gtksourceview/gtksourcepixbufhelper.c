@@ -1,15 +1,15 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*-
  *
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2010 - Jesse van den Kieboom
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -31,7 +31,7 @@ typedef enum _IconType
 	ICON_TYPE_NAME
 } IconType;
 
-struct _GtkSourcePixbufHelper
+struct _CtkSourcePixbufHelper
 {
 	GdkPixbuf *cached_pixbuf;
 	IconType type;
@@ -41,14 +41,14 @@ struct _GtkSourcePixbufHelper
 	GIcon *gicon;
 };
 
-GtkSourcePixbufHelper *
+CtkSourcePixbufHelper *
 ctk_source_pixbuf_helper_new (void)
 {
-	return g_slice_new0 (GtkSourcePixbufHelper);
+	return g_slice_new0 (CtkSourcePixbufHelper);
 }
 
 void
-ctk_source_pixbuf_helper_free (GtkSourcePixbufHelper *helper)
+ctk_source_pixbuf_helper_free (CtkSourcePixbufHelper *helper)
 {
 	if (helper->pixbuf)
 	{
@@ -67,11 +67,11 @@ ctk_source_pixbuf_helper_free (GtkSourcePixbufHelper *helper)
 
 	g_free (helper->icon_name);
 
-	g_slice_free (GtkSourcePixbufHelper, helper);
+	g_slice_free (CtkSourcePixbufHelper, helper);
 }
 
 static void
-set_cache (GtkSourcePixbufHelper *helper,
+set_cache (CtkSourcePixbufHelper *helper,
            GdkPixbuf             *pixbuf)
 {
 	if (helper->cached_pixbuf)
@@ -87,13 +87,13 @@ set_cache (GtkSourcePixbufHelper *helper,
 }
 
 static void
-clear_cache (GtkSourcePixbufHelper *helper)
+clear_cache (CtkSourcePixbufHelper *helper)
 {
 	set_cache (helper, NULL);
 }
 
 void
-ctk_source_pixbuf_helper_set_pixbuf (GtkSourcePixbufHelper *helper,
+ctk_source_pixbuf_helper_set_pixbuf (CtkSourcePixbufHelper *helper,
                                      const GdkPixbuf       *pixbuf)
 {
 	helper->type = ICON_TYPE_PIXBUF;
@@ -113,13 +113,13 @@ ctk_source_pixbuf_helper_set_pixbuf (GtkSourcePixbufHelper *helper,
 }
 
 GdkPixbuf *
-ctk_source_pixbuf_helper_get_pixbuf (GtkSourcePixbufHelper *helper)
+ctk_source_pixbuf_helper_get_pixbuf (CtkSourcePixbufHelper *helper)
 {
 	return helper->pixbuf;
 }
 
 void
-ctk_source_pixbuf_helper_set_icon_name (GtkSourcePixbufHelper *helper,
+ctk_source_pixbuf_helper_set_icon_name (CtkSourcePixbufHelper *helper,
                                         const gchar           *icon_name)
 {
 	helper->type = ICON_TYPE_NAME;
@@ -135,13 +135,13 @@ ctk_source_pixbuf_helper_set_icon_name (GtkSourcePixbufHelper *helper,
 }
 
 const gchar *
-ctk_source_pixbuf_helper_get_icon_name (GtkSourcePixbufHelper *helper)
+ctk_source_pixbuf_helper_get_icon_name (CtkSourcePixbufHelper *helper)
 {
 	return helper->icon_name;
 }
 
 void
-ctk_source_pixbuf_helper_set_gicon (GtkSourcePixbufHelper *helper,
+ctk_source_pixbuf_helper_set_gicon (CtkSourcePixbufHelper *helper,
                                     GIcon                 *gicon)
 {
 	helper->type = ICON_TYPE_GICON;
@@ -161,14 +161,14 @@ ctk_source_pixbuf_helper_set_gicon (GtkSourcePixbufHelper *helper,
 }
 
 GIcon *
-ctk_source_pixbuf_helper_get_gicon (GtkSourcePixbufHelper *helper)
+ctk_source_pixbuf_helper_get_gicon (CtkSourcePixbufHelper *helper)
 {
 	return helper->gicon;
 }
 
 static void
-from_pixbuf (GtkSourcePixbufHelper *helper,
-             GtkWidget             *widget,
+from_pixbuf (CtkSourcePixbufHelper *helper,
+             CtkWidget             *widget,
              gint                   size)
 {
 	if (helper->pixbuf == NULL)
@@ -194,14 +194,14 @@ from_pixbuf (GtkSourcePixbufHelper *helper,
 }
 
 static void
-from_gicon (GtkSourcePixbufHelper *helper,
-            GtkWidget             *widget,
+from_gicon (CtkSourcePixbufHelper *helper,
+            CtkWidget             *widget,
             gint                   size)
 {
 	GdkScreen *screen;
-	GtkIconTheme *icon_theme;
-	GtkIconInfo *info;
-	GtkIconLookupFlags flags;
+	CtkIconTheme *icon_theme;
+	CtkIconInfo *info;
+	CtkIconLookupFlags flags;
 
 	screen = ctk_widget_get_screen (widget);
 	icon_theme = ctk_icon_theme_get_for_screen (screen);
@@ -220,14 +220,14 @@ from_gicon (GtkSourcePixbufHelper *helper,
 }
 
 static void
-from_name (GtkSourcePixbufHelper *helper,
-           GtkWidget             *widget,
+from_name (CtkSourcePixbufHelper *helper,
+           CtkWidget             *widget,
            gint                   size)
 {
 	GdkScreen *screen;
-	GtkIconTheme *icon_theme;
-	GtkIconInfo *info;
-	GtkIconLookupFlags flags;
+	CtkIconTheme *icon_theme;
+	CtkIconInfo *info;
+	CtkIconLookupFlags flags;
 	gint scale;
 
 	screen = ctk_widget_get_screen (widget);
@@ -248,7 +248,7 @@ from_name (GtkSourcePixbufHelper *helper,
 
 		if (ctk_icon_info_is_symbolic (info))
 		{
-			GtkStyleContext *context;
+			CtkStyleContext *context;
 
 			context = ctk_widget_get_style_context (widget);
 			pixbuf = ctk_icon_info_load_symbolic_for_context (info, context, NULL, NULL);
@@ -263,8 +263,8 @@ from_name (GtkSourcePixbufHelper *helper,
 }
 
 GdkPixbuf *
-ctk_source_pixbuf_helper_render (GtkSourcePixbufHelper *helper,
-                                 GtkWidget             *widget,
+ctk_source_pixbuf_helper_render (CtkSourcePixbufHelper *helper,
+                                 CtkWidget             *widget,
                                  gint                   size)
 {
 	if (helper->cached_pixbuf &&

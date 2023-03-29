@@ -6,7 +6,7 @@
                depends="ctk+"
                book="ctksourceview-@GSV_API_VERSION@">
   <glade-widget-classes>
-    <glade-widget-class name="GtkSourceView" title="GtkSourceView" generic-name="ctksourceview">
+    <glade-widget-class name="CtkSourceView" title="CtkSourceView" generic-name="ctksourceview">
       <properties>
         <property id="auto-indent" default="False" />
         <property id="highlight-current-line" default="False" />
@@ -27,18 +27,18 @@
         <property id="tab-width" default="8" />
       </properties>
     </glade-widget-class>
-    <glade-widget-class name="GtkSourceMap" title="GtkSourceMap" generic-name="ctksourcemap">
+    <glade-widget-class name="CtkSourceMap" title="CtkSourceMap" generic-name="ctksourcemap">
     </glade-widget-class>
-    <glade-widget-class name="GtkSourceStyleSchemeChooserWidget" title="GtkSourceStyleSchemeChooserWidget" generic-name="ctksourcestyleschemechooserwidget">
+    <glade-widget-class name="CtkSourceStyleSchemeChooserWidget" title="CtkSourceStyleSchemeChooserWidget" generic-name="ctksourcestyleschemechooserwidget">
     </glade-widget-class>
-    <glade-widget-class name="GtkSourceStyleSchemeChooserButton" title="GtkSourceStyleSchemeChooserButton" generic-name="ctksourcestyleschemechooserbutton">
+    <glade-widget-class name="CtkSourceStyleSchemeChooserButton" title="CtkSourceStyleSchemeChooserButton" generic-name="ctksourcestyleschemechooserbutton">
     </glade-widget-class>
   </glade-widget-classes>
 
-  <glade-widget-group name="GtkSourceView" title="GtkSourceView">
-    <glade-widget-class-ref name="GtkSourceView" />
-    <glade-widget-class-ref name="GtkSourceMap" />
-    <glade-widget-class-ref name="GtkSourceStyleSchemeChooserWidget" />
-    <glade-widget-class-ref name="GtkSourceStyleSchemeChooserButton" />
+  <glade-widget-group name="CtkSourceView" title="CtkSourceView">
+    <glade-widget-class-ref name="CtkSourceView" />
+    <glade-widget-class-ref name="CtkSourceMap" />
+    <glade-widget-class-ref name="CtkSourceStyleSchemeChooserWidget" />
+    <glade-widget-class-ref name="CtkSourceStyleSchemeChooserButton" />
   </glade-widget-group>
 </glade-catalog>

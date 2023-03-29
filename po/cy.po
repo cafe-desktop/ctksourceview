@@ -86,8 +86,8 @@ msgid "Source Buffer"
 msgstr "Byffer Ffynhonnell"
 
 #: ../ctksourceview/ctksourceprintjob.c:274
-msgid "GtkSourceBuffer object to print"
-msgstr "Y gwrthrych GtkSourceBuffer i'w argraffu"
+msgid "CtkSourceBuffer object to print"
+msgstr "Y gwrthrych CtkSourceBuffer i'w argraffu"
 
 #: ../ctksourceview/ctksourceprintjob.c:280
 #: ../ctksourceview/ctksourceview.c:235 ../ctksourceview/ctksourceview.c:236
@@ -909,8 +909,8 @@ msgid "Double Quoted String"
 msgstr "Llinyn Dyfynodau Dwbl"
 
 #: ../ctksourceview/language-specs/ctkrc.lang.h:3
-msgid "GtkRC"
-msgstr "GtkRC"
+msgid "CtkRC"
+msgstr "CtkRC"
 
 #: ../ctksourceview/language-specs/ctkrc.lang.h:4
 msgid "Include Directive"

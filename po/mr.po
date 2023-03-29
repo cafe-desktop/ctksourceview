@@ -143,8 +143,8 @@ msgid "View"
 msgstr "दृष्य"
 
 #: ../ctksourceview/ctksourcegutter.c:337
-msgid "The gutters' GtkSourceView"
-msgstr "gutters' GtkSourceView"
+msgid "The gutters' CtkSourceView"
+msgstr "gutters' CtkSourceView"
 
 #: ../ctksourceview/ctksourcegutter.c:349
 msgid "Window Type"
@@ -241,8 +241,8 @@ msgid "Source Buffer"
 msgstr "स्त्रोत बफर"
 
 #: ../ctksourceview/ctksourceprintcompositor.c:412
-msgid "The GtkSourceBuffer object to print"
-msgstr "छापण्याकरीताचे GtkSourceBuffer घटक"
+msgid "The CtkSourceBuffer object to print"
+msgstr "छापण्याकरीताचे CtkSourceBuffer घटक"
 
 #: ../ctksourceview/ctksourceprintcompositor.c:429
 #: ../ctksourceview/ctksourceview.c:319
@@ -1597,8 +1597,8 @@ msgid "ctk-doc"
 msgstr "ctk-doc"
 
 #: ../ctksourceview/language-specs/ctkrc.lang.h:5
-msgid "GtkRC"
-msgstr "GtkRC"
+msgid "CtkRC"
+msgstr "CtkRC"
 
 #: ../ctksourceview/language-specs/ctkrc.lang.h:6
 msgid "Include directive"
@@ -2343,13 +2343,13 @@ msgstr "टोकन-प्रकार"
 
 
 #. Translators: This is the sorted list of encodings used by
-#. * GtkSourceView for automatic detection of the file encoding. You may
+#. * CtkSourceView for automatic detection of the file encoding. You may
 #. * want to customize it adding encodings that are common in your
 #. * country, for instance the GB18030 encoding for the Chinese
 #. * translation. You may also want to remove the ISO-8859-15 encoding
 #. * (covering English and most Western European languages) if you think
 #. * people in your country will rarely use it.  "CURRENT" is a magic
-#. * value used by GtkSourceView and it represents the encoding for the
+#. * value used by CtkSourceView and it represents the encoding for the
 #. * current locale, so please don't translate the "CURRENT" term.  Only
 #. * recognized encodings are used. See
 #. * https://git.gnome.org/browse/ctksourceview/tree/ctksourceview/ctksourceencoding.c#n147

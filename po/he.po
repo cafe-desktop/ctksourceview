@@ -593,13 +593,13 @@ msgid "Unknown"
 msgstr "לא ידוע"
 
 #. Translators: This is the sorted list of encodings used by
-#. * GtkSourceView for automatic detection of the file encoding. You may
+#. * CtkSourceView for automatic detection of the file encoding. You may
 #. * want to customize it adding encodings that are common in your
 #. * country, for instance the GB18030 encoding for the Chinese
 #. * translation. You may also want to remove the ISO-8859-15 encoding
 #. * (covering English and most Western European languages) if you think
 #. * people in your country will rarely use it.  "CURRENT" is a magic
-#. * value used by GtkSourceView and it represents the encoding for the
+#. * value used by CtkSourceView and it represents the encoding for the
 #. * current locale, so please don't translate the "CURRENT" term.  Only
 #. * recognized encodings are used. See
 #. * https://gitlab.gnome.org/GNOME/ctksourceview/blob/master/ctksourceview/ctksourceencoding.c#L142
@@ -635,14 +635,14 @@ msgstr "החוצץ מכיל תווים שאינם תקפים."
 #. *
 #. * SECTION:language
 #. * @Short_description: Represents a syntax highlighted language
-#. * @Title: GtkSourceLanguage
-#. * @See_also: #GtkSourceLanguageManager
+#. * @Title: CtkSourceLanguage
+#. * @See_also: #CtkSourceLanguageManager
 #. *
-#. * A #GtkSourceLanguage represents a programming or markup language, affecting
+#. * A #CtkSourceLanguage represents a programming or markup language, affecting
 #. * syntax highlighting and [context classes][context-classes].
 #. *
-#. * Use #GtkSourceLanguageManager to obtain a #GtkSourceLanguage instance, and
-#. * ctk_source_buffer_set_language() to apply it to a #GtkSourceBuffer.
+#. * Use #CtkSourceLanguageManager to obtain a #CtkSourceLanguage instance, and
+#. * ctk_source_buffer_set_language() to apply it to a #CtkSourceBuffer.
 #.
 #: ctksourceview/ctksourcelanguage.c:56
 msgid "Others"
@@ -1404,8 +1404,8 @@ msgstr "_שינוי גודל האותיות"
 #~ msgid "Deprecated"
 #~ msgstr "נפסק"
 
-#~ msgid "GtkRC"
-#~ msgstr "GtkRC"
+#~ msgid "CtkRC"
+#~ msgstr "CtkRC"
 
 #~ msgid "Widget State"
 #~ msgstr "Widget State"
@@ -2295,8 +2295,8 @@ msgstr "_שינוי גודל האותיות"
 #~ msgid "Kate"
 #~ msgstr "‏Kate"
 
-#~ msgid "GtkSourceView"
-#~ msgstr "GtkSourceView"
+#~ msgid "CtkSourceView"
+#~ msgstr "CtkSourceView"
 
 #~ msgid "Escaped Characters"
 #~ msgstr "תווי סליקה"
@@ -2327,11 +2327,11 @@ msgstr "_שינוי גודל האותיות"
 #~ msgid "Sources"
 #~ msgstr "מקורות"
 
-#~ msgid "GtkSourceStyleSchemeChooserWidget"
-#~ msgstr "GtkSourceStyleSchemeChooserWidget"
+#~ msgid "CtkSourceStyleSchemeChooserWidget"
+#~ msgstr "CtkSourceStyleSchemeChooserWidget"
 
-#~ msgid "GtkSourceStyleSchemeChooserButton"
-#~ msgstr "GtkSourceStyleSchemeChooserButton"
+#~ msgid "CtkSourceStyleSchemeChooserButton"
+#~ msgstr "CtkSourceStyleSchemeChooserButton"
 
 #~ msgctxt "Object"
 #~ msgid "Name"
@@ -2430,8 +2430,8 @@ msgstr "_שינוי גודל האותיות"
 #~ msgid "Implicit trailing newline"
 #~ msgstr "Implicit trailing newline"
 
-#~ msgid "The GtkSourceView bound to the completion"
-#~ msgstr "ה־GtkSourceView מחויב להשלמה"
+#~ msgid "The CtkSourceView bound to the completion"
+#~ msgstr "ה־CtkSourceView מחויב להשלמה"
 
 #~ msgid "Remember Info Visibility"
 #~ msgstr "שמירת חזות המידע"
@@ -2488,8 +2488,8 @@ msgstr "_שינוי גודל האותיות"
 #~ msgid "Iterator"
 #~ msgstr "מונה"
 
-#~ msgid "The GtkTextIter at which the completion was invoked"
-#~ msgstr "ה־GtkTextIter שבו ההשלמה נקרא"
+#~ msgid "The CtkTextIter at which the completion was invoked"
+#~ msgstr "ה־CtkTextIter שבו ההשלמה נקרא"
 
 #~ msgid "Label to be shown for this item"
 #~ msgstr "תווית להצגה עבור פריט זה"
@@ -2521,8 +2521,8 @@ msgstr "_שינוי גודל האותיות"
 #~ msgid "Flags"
 #~ msgstr "Flags"
 
-#~ msgid "The gutters' GtkSourceView"
-#~ msgstr "GtkSourceView של הביבים"
+#~ msgid "The gutters' CtkSourceView"
+#~ msgstr "CtkSourceView של הביבים"
 
 #~ msgid "Window Type"
 #~ msgstr "סוג החלון"
@@ -2654,8 +2654,8 @@ msgstr "_שינוי גודל האותיות"
 #~ msgid "Source Buffer"
 #~ msgstr "Source Buffer"
 
-#~ msgid "The GtkSourceBuffer object to print"
-#~ msgstr "The GtkSourceBuffer object to print"
+#~ msgid "The CtkSourceBuffer object to print"
+#~ msgstr "The CtkSourceBuffer object to print"
 
 #~ msgid "Tab Width"
 #~ msgstr "Tab Width"
@@ -2732,14 +2732,14 @@ msgstr "_שינוי גודל האותיות"
 #~ msgid "Buffer"
 #~ msgstr "חוצץ"
 
-#~ msgid "The associated GtkSourceBuffer"
-#~ msgstr "The associated GtkSourceBuffer"
+#~ msgid "The associated CtkSourceBuffer"
+#~ msgstr "The associated CtkSourceBuffer"
 
 #~ msgid "Settings"
 #~ msgstr "הגדרות"
 
-#~ msgid "The associated GtkSourceSearchSettings"
-#~ msgstr "The associated GtkSourceSearchSettings"
+#~ msgid "The associated CtkSourceSearchSettings"
+#~ msgstr "The associated CtkSourceSearchSettings"
 
 #~ msgid "Highlight"
 #~ msgstr "הדגשה"

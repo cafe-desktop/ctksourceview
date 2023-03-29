@@ -1,15 +1,15 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*-
  *
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2003 - Paolo Maggi <paolo.maggi@polito.it>
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -31,24 +31,24 @@
 G_BEGIN_DECLS
 
 #define CTK_SOURCE_TYPE_LANGUAGE		(ctk_source_language_get_type ())
-#define CTK_SOURCE_LANGUAGE(obj)		(G_TYPE_CHECK_INSTANCE_CAST((obj), CTK_SOURCE_TYPE_LANGUAGE, GtkSourceLanguage))
-#define CTK_SOURCE_LANGUAGE_CLASS(klass)	(G_TYPE_CHECK_CLASS_CAST((klass), CTK_SOURCE_TYPE_LANGUAGE, GtkSourceLanguageClass))
+#define CTK_SOURCE_LANGUAGE(obj)		(G_TYPE_CHECK_INSTANCE_CAST((obj), CTK_SOURCE_TYPE_LANGUAGE, CtkSourceLanguage))
+#define CTK_SOURCE_LANGUAGE_CLASS(klass)	(G_TYPE_CHECK_CLASS_CAST((klass), CTK_SOURCE_TYPE_LANGUAGE, CtkSourceLanguageClass))
 #define CTK_SOURCE_IS_LANGUAGE(obj)		(G_TYPE_CHECK_INSTANCE_TYPE((obj), CTK_SOURCE_TYPE_LANGUAGE))
 #define CTK_SOURCE_IS_LANGUAGE_CLASS(klass)	(G_TYPE_CHECK_CLASS_TYPE ((klass), CTK_SOURCE_TYPE_LANGUAGE))
-#define CTK_SOURCE_LANGUAGE_GET_CLASS(obj)      (G_TYPE_INSTANCE_GET_CLASS ((obj), CTK_SOURCE_TYPE_LANGUAGE, GtkSourceLanguageClass))
+#define CTK_SOURCE_LANGUAGE_GET_CLASS(obj)      (G_TYPE_INSTANCE_GET_CLASS ((obj), CTK_SOURCE_TYPE_LANGUAGE, CtkSourceLanguageClass))
 
 
-typedef struct _GtkSourceLanguageClass		GtkSourceLanguageClass;
-typedef struct _GtkSourceLanguagePrivate	GtkSourceLanguagePrivate;
+typedef struct _CtkSourceLanguageClass		CtkSourceLanguageClass;
+typedef struct _CtkSourceLanguagePrivate	CtkSourceLanguagePrivate;
 
-struct _GtkSourceLanguage
+struct _CtkSourceLanguage
 {
 	GObject parent_instance;
 
-	GtkSourceLanguagePrivate *priv;
+	CtkSourceLanguagePrivate *priv;
 };
 
-struct _GtkSourceLanguageClass
+struct _CtkSourceLanguageClass
 {
 	GObjectClass parent_class;
 
@@ -60,36 +60,36 @@ CTK_SOURCE_AVAILABLE_IN_ALL
 GType		  ctk_source_language_get_type 		(void) G_GNUC_CONST;
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-const gchar	 *ctk_source_language_get_id		(GtkSourceLanguage *language);
+const gchar	 *ctk_source_language_get_id		(CtkSourceLanguage *language);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-const gchar	 *ctk_source_language_get_name		(GtkSourceLanguage *language);
+const gchar	 *ctk_source_language_get_name		(CtkSourceLanguage *language);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-const gchar	 *ctk_source_language_get_section	(GtkSourceLanguage *language);
+const gchar	 *ctk_source_language_get_section	(CtkSourceLanguage *language);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-gboolean	  ctk_source_language_get_hidden 	(GtkSourceLanguage *language);
+gboolean	  ctk_source_language_get_hidden 	(CtkSourceLanguage *language);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-const gchar	 *ctk_source_language_get_metadata	(GtkSourceLanguage *language,
+const gchar	 *ctk_source_language_get_metadata	(CtkSourceLanguage *language,
 							 const gchar       *name);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-gchar		**ctk_source_language_get_mime_types	(GtkSourceLanguage *language);
+gchar		**ctk_source_language_get_mime_types	(CtkSourceLanguage *language);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-gchar		**ctk_source_language_get_globs		(GtkSourceLanguage *language);
+gchar		**ctk_source_language_get_globs		(CtkSourceLanguage *language);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-gchar		**ctk_source_language_get_style_ids 	(GtkSourceLanguage *language);
+gchar		**ctk_source_language_get_style_ids 	(CtkSourceLanguage *language);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-const gchar	*ctk_source_language_get_style_name	(GtkSourceLanguage *language,
+const gchar	*ctk_source_language_get_style_name	(CtkSourceLanguage *language,
 							 const gchar       *style_id);
 
 CTK_SOURCE_AVAILABLE_IN_3_4
-const gchar	*ctk_source_language_get_style_fallback	(GtkSourceLanguage *language,
+const gchar	*ctk_source_language_get_style_fallback	(CtkSourceLanguage *language,
 							 const gchar       *style_id);
 
 G_END_DECLS

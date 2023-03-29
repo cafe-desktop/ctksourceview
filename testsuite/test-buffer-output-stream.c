@@ -1,16 +1,16 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*- */
 /*
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2010 - Ignacio Casal Quinteiro
  * Copyright (C) 2014 - Sébastien Wilmet
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -31,15 +31,15 @@ static void
 test_consecutive_write (const gchar          *inbuf,
 			const gchar          *outbuf,
 			gsize                 write_chunk_len,
-			GtkSourceNewlineType  newline_type)
+			CtkSourceNewlineType  newline_type)
 {
-	GtkSourceBuffer *source_buffer;
-	GtkSourceBufferOutputStream *out;
+	CtkSourceBuffer *source_buffer;
+	CtkSourceBufferOutputStream *out;
 	gsize len;
 	gssize n, w;
 	GError *err = NULL;
 	gchar *b;
-	GtkSourceNewlineType type;
+	CtkSourceNewlineType type;
 	GSList *encodings = NULL;
 
 	source_buffer = ctk_source_buffer_new (NULL);
@@ -120,8 +120,8 @@ test_big_char (void)
 static void
 test_boundary (void)
 {
-	GtkSourceBuffer *source_buffer;
-	GtkSourceBufferOutputStream *out;
+	CtkSourceBuffer *source_buffer;
+	CtkSourceBufferOutputStream *out;
 	gint line_count;
 	GError *err = NULL;
 	GSList *encodings = NULL;
@@ -168,8 +168,8 @@ test_invalid_utf8 (void)
 static gchar *
 get_encoded_text (const gchar             *text,
 		  gint                     nread,
-		  const GtkSourceEncoding *to,
-		  const GtkSourceEncoding *from,
+		  const CtkSourceEncoding *to,
+		  const CtkSourceEncoding *from,
 		  gsize                   *bytes_written_aux,
 		  gboolean                 care_about_error)
 {
@@ -245,12 +245,12 @@ do_test (const gchar              *inbuf,
 	 GSList                   *encodings,
 	 gsize                     len,
 	 gsize                     write_chunk_len,
-	 const GtkSourceEncoding **guessed)
+	 const CtkSourceEncoding **guessed)
 {
-	GtkSourceBuffer *source_buffer;
-	GtkSourceBufferOutputStream *out;
+	CtkSourceBuffer *source_buffer;
+	CtkSourceBufferOutputStream *out;
 	GError *err = NULL;
-	GtkTextIter start, end;
+	CtkTextIter start, end;
 	gchar *text;
 	gsize to_write;
 	gssize n, w;
@@ -322,7 +322,7 @@ test_utf8_utf8 (void)
 static void
 test_empty_conversion (void)
 {
-	const GtkSourceEncoding *guessed;
+	const CtkSourceEncoding *guessed;
 	gchar *out;
 	GSList *encodings = NULL;
 
@@ -347,7 +347,7 @@ test_guessed (void)
 	GSList *encs = NULL;
 	gchar *aux, *aux2, *fail;
 	gsize aux_len, fail_len;
-	const GtkSourceEncoding *guessed;
+	const CtkSourceEncoding *guessed;
 
 	aux = get_encoded_text (TEXT_TO_GUESS, -1,
 	                        ctk_source_encoding_get_from_charset ("UTF-16"),

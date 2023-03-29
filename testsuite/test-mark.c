@@ -1,16 +1,16 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*- */
 /*
- * This file is part of GtkSourceView
+ * This file is part of CtkSourceView
  *
  * Copyright (C) 2013 - Paolo Borelli
  * Copyright (C) 2013 - Sébastien Wilmet
  *
- * GtkSourceView is free software; you can redistribute it and/or
+ * CtkSourceView is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * GtkSourceView is distributed in the hope that it will be useful,
+ * CtkSourceView is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -25,7 +25,7 @@
 static void
 test_create (void)
 {
-	GtkSourceMark *m;
+	CtkSourceMark *m;
 
 	m = ctk_source_mark_new ("Mark 1", "test");
 	g_assert_cmpstr ("Mark 1", ==, ctk_text_mark_get_name (CTK_TEXT_MARK (m)));
@@ -39,10 +39,10 @@ test_create (void)
 static void
 test_prev_next (void)
 {
-	GtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
-	GtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
-	GtkSourceMark *mark1, *mark2, *mark3;
-	GtkTextIter iter;
+	CtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
+	CtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
+	CtkSourceMark *mark1, *mark2, *mark3;
+	CtkTextIter iter;
 
 	ctk_text_buffer_set_text (text_buffer, "text", -1);
 
@@ -71,9 +71,9 @@ test_prev_next (void)
 static void
 test_forward_backward_iter (void)
 {
-	GtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
-	GtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
-	GtkTextIter iter;
+	CtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
+	CtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
+	CtkTextIter iter;
 
 	ctk_text_buffer_set_text (text_buffer, "text", -1);
 
@@ -108,10 +108,10 @@ test_forward_backward_iter (void)
 static void
 test_get_source_marks_at_iter (void)
 {
-	GtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
-	GtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
-	GtkSourceMark *mark1, *mark2, *mark3;
-	GtkTextIter iter;
+	CtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
+	CtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
+	CtkSourceMark *mark1, *mark2, *mark3;
+	CtkTextIter iter;
 	GSList *list;
 
 	ctk_text_buffer_set_text (text_buffer, "text", -1);

@@ -552,13 +552,13 @@ msgid "Unknown"
 msgstr "Necunoscută"
 
 #. Translators: This is the sorted list of encodings used by
-#. * GtkSourceView for automatic detection of the file encoding. You may
+#. * CtkSourceView for automatic detection of the file encoding. You may
 #. * want to customize it adding encodings that are common in your
 #. * country, for instance the GB18030 encoding for the Chinese
 #. * translation. You may also want to remove the ISO-8859-15 encoding
 #. * (covering English and most Western European languages) if you think
 #. * people in your country will rarely use it.  "CURRENT" is a magic
-#. * value used by GtkSourceView and it represents the encoding for the
+#. * value used by CtkSourceView and it represents the encoding for the
 #. * current locale, so please don't translate the "CURRENT" term.  Only
 #. * recognized encodings are used. See
 #. * https://gitlab.gnome.org/GNOME/ctksourceview/blob/master/ctksourceview/ctksourceencoding.c#L142
@@ -596,14 +596,14 @@ msgstr "Preîncărcarea conține caractere nevalide."
 #. *
 #. * SECTION:language
 #. * @Short_description: Represents a syntax highlighted language
-#. * @Title: GtkSourceLanguage
-#. * @See_also: #GtkSourceLanguageManager
+#. * @Title: CtkSourceLanguage
+#. * @See_also: #CtkSourceLanguageManager
 #. *
-#. * A #GtkSourceLanguage represents a programming or markup language, affecting
+#. * A #CtkSourceLanguage represents a programming or markup language, affecting
 #. * syntax highlighting and [context classes][context-classes].
 #. *
-#. * Use #GtkSourceLanguageManager to obtain a #GtkSourceLanguage instance, and
-#. * ctk_source_buffer_set_language() to apply it to a #GtkSourceBuffer.
+#. * Use #CtkSourceLanguageManager to obtain a #CtkSourceLanguage instance, and
+#. * ctk_source_buffer_set_language() to apply it to a #CtkSourceBuffer.
 #.
 #: ctksourceview/ctksourcelanguage.c:56
 msgid "Others"
@@ -702,8 +702,8 @@ msgstr "Modifi_că majuscule semnificative"
 #~ msgid "Kate"
 #~ msgstr "Kate"
 
-#~ msgid "GtkSourceView"
-#~ msgstr "GtkSourceView"
+#~ msgid "CtkSourceView"
+#~ msgstr "CtkSourceView"
 
 #~ msgid "Ada"
 #~ msgstr "Ada"
@@ -1235,8 +1235,8 @@ msgstr "Modifi_că majuscule semnificative"
 #~ msgid "ctk-doc"
 #~ msgstr "ctk-doc"
 
-#~ msgid "GtkRC"
-#~ msgstr "GtkRC"
+#~ msgid "CtkRC"
+#~ msgstr "CtkRC"
 
 #~ msgid "Include directive"
 #~ msgstr "Directivă includere"
@@ -1863,8 +1863,8 @@ msgstr "Modifi_că majuscule semnificative"
 #~ msgid "View"
 #~ msgstr "Vizualizare"
 
-#~ msgid "The GtkSourceView bound to the completion"
-#~ msgstr "Obiect GtkSourceBuffer legat în completare"
+#~ msgid "The CtkSourceView bound to the completion"
+#~ msgstr "Obiect CtkSourceBuffer legat în completare"
 
 #~ msgid "Remember Info Visibility"
 #~ msgstr "Ține minte informațiile despre vizibilitate"
@@ -1921,8 +1921,8 @@ msgstr "Modifi_că majuscule semnificative"
 #~ msgid "Iterator"
 #~ msgstr "Iterator"
 
-#~ msgid "The GtkTextIter at which the completion was invoked"
-#~ msgstr "Obiectul GtkTextIter pe care completarea a fost invocată"
+#~ msgid "The CtkTextIter at which the completion was invoked"
+#~ msgstr "Obiectul CtkTextIter pe care completarea a fost invocată"
 
 #~ msgid "Activation"
 #~ msgstr "Activare"
@@ -1951,8 +1951,8 @@ msgstr "Modifi_că majuscule semnificative"
 #~ msgid "Info to be shown for this item"
 #~ msgstr "Informații de afișat pentru acest element"
 
-#~ msgid "The gutters' GtkSourceView"
-#~ msgstr "GtkSourceView-ul rigolei"
+#~ msgid "The gutters' CtkSourceView"
+#~ msgstr "CtkSourceView-ul rigolei"
 
 #~ msgid "Window Type"
 #~ msgstr "Tip fereastră"
@@ -2086,8 +2086,8 @@ msgstr "Modifi_că majuscule semnificative"
 #~ msgid "Source Buffer"
 #~ msgstr "Zona de tampon sursă"
 
-#~ msgid "The GtkSourceBuffer object to print"
-#~ msgstr "Obiect GtkSourceBuffer de tipărit"
+#~ msgid "The CtkSourceBuffer object to print"
+#~ msgstr "Obiect CtkSourceBuffer de tipărit"
 
 #~ msgid "Tab Width"
 #~ msgstr "Lățime tab"
