@@ -88,7 +88,7 @@ struct _ParserState
 	/* Maps style ids to CtkSourceStyleInfo objects.
 	 * Contains all the styles defined in the lang files parsed
 	 * while parsing the main language file. For example, if the main
-	 * language is C, also styles in def.lang, ctk-doc.lang, etc. are
+	 * language is C, also styles in def.lang, gtk-doc.lang, etc. are
 	 * stored in this hash table. For styles defined in language files
 	 * different from the main one, the name is _not_ stored, since it
 	 * is not used in other places of the code. So, if the main language is

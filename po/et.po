@@ -370,7 +370,7 @@ msgid "Defaults"
 msgstr "Vaikeväärtused"
 
 #. A special comment containing documentation like in javadoc or
-#. ctk-doc
+#. gtk-doc
 msgid "Documentation comment"
 msgstr "Dokumenteerimiskommentaar"
 
@@ -681,8 +681,8 @@ msgstr "Alates"
 msgid "Type"
 msgstr "Tüübid"
 
-msgid "ctk-doc"
-msgstr "ctk-doc"
+msgid "gtk-doc"
+msgstr "gtk-doc"
 
 msgid "CtkRC"
 msgstr "CtkRC"

@@ -10,7 +10,7 @@ News in 4.8.3, 2022-03-18
 
 * Adds support for more Pango font-variants
 * Style updates to solarized-dark, solarized-light
-* Language updates to lean, rst, c, ctk-doc, javascript, and json
+* Language updates to lean, rst, c, gtk-doc, javascript, and json
 * Translation updates
 
 News in 4.8.2, 2021-09-03

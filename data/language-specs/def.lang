@@ -40,7 +40,7 @@
     <!-- A shebang: #!/bin/sh -->
     <style id="shebang"             name="Shebang"               map-to="def:comment"/>
     <!-- A special comment containing documentation like in javadoc or
-         ctk-doc -->
+         gtk-doc -->
     <style id="doc-comment"         name="Documentation comment" map-to="def:comment"/>
     <!-- A element inside a documentation comment: @author -->
     <!-- This style doesn't map to anything since it must be used as an additional

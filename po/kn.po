@@ -353,7 +353,7 @@ msgstr "ASP ವಸ್ತು"
 #: ../data/language-specs/cg.lang.h:11 ../data/language-specs/css.lang.h:7
 #: ../data/language-specs/def.lang.h:32 ../data/language-specs/gap.lang.h:4
 #: ../data/language-specs/gdb-log.lang.h:4
-#: ../data/language-specs/ctk-doc.lang.h:3
+#: ../data/language-specs/gtk-doc.lang.h:3
 #: ../data/language-specs/javascript.lang.h:7
 #: ../data/language-specs/lua.lang.h:4 ../data/language-specs/octave.lang.h:6
 #: ../data/language-specs/scheme.lang.h:3
@@ -506,7 +506,7 @@ msgstr "ಕ್ಷೇತ್ರ"
 
 #: ../data/language-specs/bibtex.lang.h:4
 #: ../data/language-specs/docbook.lang.h:5 ../data/language-specs/dtd.lang.h:2
-#: ../data/language-specs/ctk-doc.lang.h:6
+#: ../data/language-specs/gtk-doc.lang.h:6
 #: ../data/language-specs/haddock.lang.h:14
 #: ../data/language-specs/html.lang.h:7 ../data/language-specs/latex.lang.h:6
 #: ../data/language-specs/mallard.lang.h:4 ../data/language-specs/t2t.lang.h:6
@@ -697,7 +697,7 @@ msgstr "CMake"
 #. Any constant
 #: ../data/language-specs/cmake.lang.h:4 ../data/language-specs/cobol.lang.h:3
 #: ../data/language-specs/def.lang.h:15
-#: ../data/language-specs/ctk-doc.lang.h:1
+#: ../data/language-specs/gtk-doc.lang.h:1
 #: ../data/language-specs/libtool.lang.h:2
 #: ../data/language-specs/ruby.lang.h:6
 msgid "Constant"
@@ -812,7 +812,7 @@ msgid "Defaults"
 msgstr "ಡೀಫಾಲ್ಟುಗಳು"
 
 #. A special comment containing documentation like in javadoc or
-#. ctk-doc
+#. gtk-doc
 #: ../data/language-specs/def.lang.h:23
 msgid "Documentation comment"
 msgstr "ದಸ್ತಾವೇಜಿನ ಟಿಪ್ಪಣಿ"
@@ -1221,48 +1221,48 @@ msgstr "ಕಾದಿರಿಸಲಾದ ಕೀಲಿಪದಗಳು"
 msgid "Go"
 msgstr "ಹೋಗು"
 
-#: ../data/language-specs/ctk-doc.lang.h:2
+#: ../data/language-specs/gtk-doc.lang.h:2
 msgid "Deprecated"
 msgstr "ತೆಗೆದು ಹಾಕಲಾಗಿದೆ"
 
-#: ../data/language-specs/ctk-doc.lang.h:4
+#: ../data/language-specs/gtk-doc.lang.h:4
 msgid "Function Name"
 msgstr "ಕ್ರಿಯೆಯ ಹೆಸರು"
 
-#: ../data/language-specs/ctk-doc.lang.h:5
+#: ../data/language-specs/gtk-doc.lang.h:5
 msgid "Inline Documentation Section"
 msgstr "ಸಾಲಿನೊಳಗಿನ ದಸ್ತಾವೇಜಿನ ವಿಭಾಗ"
 
-#: ../data/language-specs/ctk-doc.lang.h:7
+#: ../data/language-specs/gtk-doc.lang.h:7
 msgid "Parameter"
 msgstr "ನಿಯತಾಂಕ"
 
-#: ../data/language-specs/ctk-doc.lang.h:8
+#: ../data/language-specs/gtk-doc.lang.h:8
 msgid "Property Name"
 msgstr "ಗುಣದ ಹೆಸರು"
 
-#: ../data/language-specs/ctk-doc.lang.h:9
+#: ../data/language-specs/gtk-doc.lang.h:9
 msgid "Return"
 msgstr "ಹಿಂದಿರುಗು"
 
-#: ../data/language-specs/ctk-doc.lang.h:10
+#: ../data/language-specs/gtk-doc.lang.h:10
 msgid "Signal Name"
 msgstr "ಸಂಜ್ಞೆಯ ಹೆಸರು"
 
-#: ../data/language-specs/ctk-doc.lang.h:11
+#: ../data/language-specs/gtk-doc.lang.h:11
 msgid "Since"
 msgstr "ಇಂದ"
 
-#: ../data/language-specs/ctk-doc.lang.h:12
+#: ../data/language-specs/gtk-doc.lang.h:12
 #: ../data/language-specs/systemverilog.lang.h:6
 #: ../data/language-specs/verilog.lang.h:14
 #: ../data/language-specs/vhdl.lang.h:10
 msgid "Type"
 msgstr "ಬಗೆ"
 
-#: ../data/language-specs/ctk-doc.lang.h:13
-msgid "ctk-doc"
-msgstr "ctk-doc"
+#: ../data/language-specs/gtk-doc.lang.h:13
+msgid "gtk-doc"
+msgstr "gtk-doc"
 
 #: ../data/language-specs/ctkrc.lang.h:5
 msgid "CtkRC"

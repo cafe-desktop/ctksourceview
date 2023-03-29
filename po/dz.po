@@ -1001,7 +1001,7 @@ msgstr "མཚོན་གྲངས།"
 #. A function name (also: methods for classes)
 #: ../ctksourceview/language-specs/css.lang.h:7
 #: ../ctksourceview/language-specs/def.lang.h:32
-#: ../ctksourceview/language-specs/ctk-doc.lang.h:2
+#: ../ctksourceview/language-specs/gtk-doc.lang.h:2
 #: ../ctksourceview/language-specs/javascript.lang.h:7
 #: ../ctksourceview/language-specs/lua.lang.h:4
 #: ../ctksourceview/language-specs/octave.lang.h:6
@@ -1048,7 +1048,7 @@ msgstr "གོ་དཀའ་བའི་ཨང་ "
 
 #. Any constant
 #: ../ctksourceview/language-specs/def.lang.h:15
-#: ../ctksourceview/language-specs/ctk-doc.lang.h:1
+#: ../ctksourceview/language-specs/gtk-doc.lang.h:1
 #: ../ctksourceview/language-specs/libtool.lang.h:2
 #: ../ctksourceview/language-specs/ruby.lang.h:6
 msgid "Constant"
@@ -1064,7 +1064,7 @@ msgid "Defaults"
 msgstr "སྔོན་སྒྲིག་ཚུ་ "
 
 #. A special comment containing documentation like in javadoc or
-#. ctk-doc
+#. gtk-doc
 #: ../ctksourceview/language-specs/def.lang.h:23
 msgid "Documentation comment"
 msgstr "ཡིག་ཐོག་བཀོད་ནིའི་ བསམ་བཀོད་ "
@@ -1226,7 +1226,7 @@ msgstr "མགོ་ཡིག་རྒྱུ་རྫས་ཚུ་"
 
 #: ../ctksourceview/language-specs/docbook.lang.h:5
 #: ../ctksourceview/language-specs/dtd.lang.h:2
-#: ../ctksourceview/language-specs/ctk-doc.lang.h:5
+#: ../ctksourceview/language-specs/gtk-doc.lang.h:5
 #: ../ctksourceview/language-specs/haddock.lang.h:14
 #: ../ctksourceview/language-specs/html.lang.h:7
 #: ../ctksourceview/language-specs/latex.lang.h:6
@@ -1351,42 +1351,42 @@ msgstr "ཇི་ཨེ་པི་ "
 msgid "Scientific"
 msgstr "ཚན་རིག་གི་ "
 
-#: ../ctksourceview/language-specs/ctk-doc.lang.h:3
+#: ../ctksourceview/language-specs/gtk-doc.lang.h:3
 msgid "Function Name"
 msgstr "ལས་འགན་གྱི་མིང་ "
 
-#: ../ctksourceview/language-specs/ctk-doc.lang.h:4
+#: ../ctksourceview/language-specs/gtk-doc.lang.h:4
 msgid "Inline Documentation Section"
 msgstr "གྱལ་རིམ་ནང་ ཡིག་ཐོག་བཀོད་པའི་ དབྱེ་ཚན་ "
 
-#: ../ctksourceview/language-specs/ctk-doc.lang.h:6
+#: ../ctksourceview/language-specs/gtk-doc.lang.h:6
 msgid "Parameter"
 msgstr "ཚད་བཟུང་"
 
-#: ../ctksourceview/language-specs/ctk-doc.lang.h:7
+#: ../ctksourceview/language-specs/gtk-doc.lang.h:7
 msgid "Property Name"
 msgstr "རྒྱུ་དངོས་ཀྱི་མིང་"
 
-#: ../ctksourceview/language-specs/ctk-doc.lang.h:8
+#: ../ctksourceview/language-specs/gtk-doc.lang.h:8
 msgid "Return"
 msgstr "སླར་ལོག་ "
 
-#: ../ctksourceview/language-specs/ctk-doc.lang.h:9
+#: ../ctksourceview/language-specs/gtk-doc.lang.h:9
 msgid "Signal Name"
 msgstr "བརྡ་རྟགས་ཀྱི་མིང་ "
 
-#: ../ctksourceview/language-specs/ctk-doc.lang.h:10
+#: ../ctksourceview/language-specs/gtk-doc.lang.h:10
 msgid "Since"
 msgstr "ལས་ཚུར་ "
 
-#: ../ctksourceview/language-specs/ctk-doc.lang.h:11
+#: ../ctksourceview/language-specs/gtk-doc.lang.h:11
 #: ../ctksourceview/language-specs/verilog.lang.h:8
 #: ../ctksourceview/language-specs/vhdl.lang.h:10
 msgid "Type"
 msgstr "དབྱེ་བ།"
 
-#: ../ctksourceview/language-specs/ctk-doc.lang.h:12
-msgid "ctk-doc"
+#: ../ctksourceview/language-specs/gtk-doc.lang.h:12
+msgid "gtk-doc"
 msgstr "ཇི་ཊི་ཀེ་ -ཌོཀ་ "
 
 #: ../ctksourceview/language-specs/ctkrc.lang.h:5

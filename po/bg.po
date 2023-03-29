@@ -119,7 +119,7 @@ msgstr "Изходен код"
 #. (itstool) path: erb-html.lang/language@_section
 #. (itstool) path: erb-js.lang/language@_section
 #. (itstool) path: erb.lang/language@_section
-#. (itstool) path: ctk-doc.lang/language@_section
+#. (itstool) path: gtk-doc.lang/language@_section
 #. (itstool) path: haddock.lang/language@_section
 #. (itstool) path: html.lang/language@_section
 #. (itstool) path: jade.lang/language@_section
@@ -137,7 +137,7 @@ msgstr "Изходен код"
 #. (itstool) path: xml.lang/language@_section
 #. (itstool) path: xslt.lang/language@_section
 #: asciidoc.lang:22 bibtex.lang:23 docbook.lang:23 dtd.lang:23 dtl.lang:25
-#: erb-html.lang:20 erb-js.lang:20 erb.lang:20 ctk-doc.lang:24 haddock.lang:23
+#: erb-html.lang:20 erb-js.lang:20 erb.lang:20 gtk-doc.lang:24 haddock.lang:23
 #: html.lang:25 jade.lang:24 jsdoc.lang:23 latex.lang:24 mallard.lang:22
 #: markdown.lang:25 mediawiki.lang:22 mxml.lang:23 rst.lang:22 sweave.lang:24
 #: t2t.lang:23 tera.lang:23 texinfo.lang:24 xml.lang:26 xslt.lang:23
@@ -1561,8 +1561,8 @@ msgstr "-- ВИДИМ БЛОК --"
 #~ msgid "Imaginary number"
 #~ msgstr "Имагинерно число"
 
-#~ msgid "ctk-doc"
-#~ msgstr "ctk-doc"
+#~ msgid "gtk-doc"
+#~ msgstr "gtk-doc"
 
 #~ msgid "Inline Documentation Section"
 #~ msgstr "Вмъкнат раздел с документация"

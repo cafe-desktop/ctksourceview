@@ -844,7 +844,7 @@ msgstr ""
 #: ../ctksourceview/language-specs/css.lang.h:7
 #: ../ctksourceview/language-specs/def.lang.h:32
 #: ../ctksourceview/language-specs/gap.lang.h:4
-#: ../ctksourceview/language-specs/ctk-doc.lang.h:3
+#: ../ctksourceview/language-specs/gtk-doc.lang.h:3
 #: ../ctksourceview/language-specs/javascript.lang.h:7
 #: ../ctksourceview/language-specs/lua.lang.h:4
 #: ../ctksourceview/language-specs/octave.lang.h:6
@@ -1123,7 +1123,7 @@ msgstr ""
 #. Any constant
 #: ../ctksourceview/language-specs/cmake.lang.h:4
 #: ../ctksourceview/language-specs/def.lang.h:15
-#: ../ctksourceview/language-specs/ctk-doc.lang.h:1
+#: ../ctksourceview/language-specs/gtk-doc.lang.h:1
 #: ../ctksourceview/language-specs/libtool.lang.h:2
 #: ../ctksourceview/language-specs/ruby.lang.h:6
 msgid "Constant"
@@ -1222,7 +1222,7 @@ msgid "Defaults"
 msgstr "मूलभूत"
 
 #. A special comment containing documentation like in javadoc or
-#. ctk-doc
+#. gtk-doc
 #: ../ctksourceview/language-specs/def.lang.h:23
 msgid "Documentation comment"
 msgstr ""
@@ -1371,7 +1371,7 @@ msgstr "हेडर तत्व"
 
 #: ../ctksourceview/language-specs/docbook.lang.h:5
 #: ../ctksourceview/language-specs/dtd.lang.h:2
-#: ../ctksourceview/language-specs/ctk-doc.lang.h:6
+#: ../ctksourceview/language-specs/gtk-doc.lang.h:6
 #: ../ctksourceview/language-specs/haddock.lang.h:14
 #: ../ctksourceview/language-specs/html.lang.h:7
 #: ../ctksourceview/language-specs/latex.lang.h:6
@@ -1530,46 +1530,46 @@ msgstr ""
 msgid "Scientific"
 msgstr "वैज्ञानिक"
 
-#: ../ctksourceview/language-specs/ctk-doc.lang.h:2
+#: ../ctksourceview/language-specs/gtk-doc.lang.h:2
 msgid "Deprecated"
 msgstr "पदावनत"
 
-#: ../ctksourceview/language-specs/ctk-doc.lang.h:4
+#: ../ctksourceview/language-specs/gtk-doc.lang.h:4
 msgid "Function Name"
 msgstr ""
 
-#: ../ctksourceview/language-specs/ctk-doc.lang.h:5
+#: ../ctksourceview/language-specs/gtk-doc.lang.h:5
 msgid "Inline Documentation Section"
 msgstr ""
 
-#: ../ctksourceview/language-specs/ctk-doc.lang.h:7
+#: ../ctksourceview/language-specs/gtk-doc.lang.h:7
 msgid "Parameter"
 msgstr ""
 
-#: ../ctksourceview/language-specs/ctk-doc.lang.h:8
+#: ../ctksourceview/language-specs/gtk-doc.lang.h:8
 msgid "Property Name"
 msgstr "गुण नाम"
 
-#: ../ctksourceview/language-specs/ctk-doc.lang.h:9
+#: ../ctksourceview/language-specs/gtk-doc.lang.h:9
 msgid "Return"
 msgstr "वापिस लौटू"
 
-#: ../ctksourceview/language-specs/ctk-doc.lang.h:10
+#: ../ctksourceview/language-specs/gtk-doc.lang.h:10
 msgid "Signal Name"
 msgstr ""
 
-#: ../ctksourceview/language-specs/ctk-doc.lang.h:11
+#: ../ctksourceview/language-specs/gtk-doc.lang.h:11
 msgid "Since"
 msgstr ""
 
-#: ../ctksourceview/language-specs/ctk-doc.lang.h:12
+#: ../ctksourceview/language-specs/gtk-doc.lang.h:12
 #: ../ctksourceview/language-specs/verilog.lang.h:8
 #: ../ctksourceview/language-specs/vhdl.lang.h:10
 msgid "Type"
 msgstr "प्रकार"
 
-#: ../ctksourceview/language-specs/ctk-doc.lang.h:13
-msgid "ctk-doc"
+#: ../ctksourceview/language-specs/gtk-doc.lang.h:13
+msgid "gtk-doc"
 msgstr ""
 
 #: ../ctksourceview/language-specs/ctkrc.lang.h:5

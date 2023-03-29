@@ -1,8 +1,8 @@
 glib_prefix = glib_dep.get_pkgconfig_variable('prefix')
-glib_docpath = join_paths(glib_prefix, 'share', 'ctk-doc', 'html')
+glib_docpath = join_paths(glib_prefix, 'share', 'gtk-doc', 'html')
 
 ctk_prefix = ctk_dep.get_pkgconfig_variable('prefix')
-ctk_docpath = join_paths(ctk_prefix, 'share', 'ctk-doc', 'html')
+ctk_docpath = join_paths(ctk_prefix, 'share', 'gtk-doc', 'html')
 
 reference_private_h = [
   'config.h',
