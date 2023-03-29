@@ -89,13 +89,13 @@ GIcon           *ctk_source_mark_attributes_get_gicon           (CtkSourceMarkAt
 
 CTK_SOURCE_AVAILABLE_IN_ALL
 void             ctk_source_mark_attributes_set_pixbuf          (CtkSourceMarkAttributes *attributes,
-                                                                 const CdkPixbuf         *pixbuf);
+                                                                 const GdkPixbuf         *pixbuf);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-const CdkPixbuf *ctk_source_mark_attributes_get_pixbuf          (CtkSourceMarkAttributes *attributes);
+const GdkPixbuf *ctk_source_mark_attributes_get_pixbuf          (CtkSourceMarkAttributes *attributes);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-const CdkPixbuf *ctk_source_mark_attributes_render_icon         (CtkSourceMarkAttributes *attributes,
+const GdkPixbuf *ctk_source_mark_attributes_render_icon         (CtkSourceMarkAttributes *attributes,
                                                                  CtkWidget               *widget,
                                                                  gint                   size);
 

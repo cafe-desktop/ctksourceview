@@ -1987,7 +1987,7 @@ cell_icon_func (CtkTreeViewColumn *column,
                 CtkTreeIter       *iter,
                 gpointer           data)
 {
-	CdkPixbuf *pixbuf;
+	GdkPixbuf *pixbuf;
 	gchar *icon_name;
 	GIcon *gicon;
 	gboolean set = FALSE;

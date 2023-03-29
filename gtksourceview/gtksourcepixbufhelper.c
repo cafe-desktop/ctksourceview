@@ -33,10 +33,10 @@ typedef enum _IconType
 
 struct _CtkSourcePixbufHelper
 {
-	CdkPixbuf *cached_pixbuf;
+	GdkPixbuf *cached_pixbuf;
 	IconType type;
 
-	CdkPixbuf *pixbuf;
+	GdkPixbuf *pixbuf;
 	gchar *icon_name;
 	GIcon *gicon;
 };
@@ -72,7 +72,7 @@ ctk_source_pixbuf_helper_free (CtkSourcePixbufHelper *helper)
 
 static void
 set_cache (CtkSourcePixbufHelper *helper,
-           CdkPixbuf             *pixbuf)
+           GdkPixbuf             *pixbuf)
 {
 	if (helper->cached_pixbuf)
 	{
@@ -94,7 +94,7 @@ clear_cache (CtkSourcePixbufHelper *helper)
 
 void
 ctk_source_pixbuf_helper_set_pixbuf (CtkSourcePixbufHelper *helper,
-                                     const CdkPixbuf       *pixbuf)
+                                     const GdkPixbuf       *pixbuf)
 {
 	helper->type = ICON_TYPE_PIXBUF;
 
@@ -112,7 +112,7 @@ ctk_source_pixbuf_helper_set_pixbuf (CtkSourcePixbufHelper *helper,
 	clear_cache (helper);
 }
 
-CdkPixbuf *
+GdkPixbuf *
 ctk_source_pixbuf_helper_get_pixbuf (CtkSourcePixbufHelper *helper)
 {
 	return helper->pixbuf;
@@ -244,7 +244,7 @@ from_name (CtkSourcePixbufHelper *helper,
 
 	if (info)
 	{
-		CdkPixbuf *pixbuf;
+		GdkPixbuf *pixbuf;
 
 		if (ctk_icon_info_is_symbolic (info))
 		{
@@ -262,7 +262,7 @@ from_name (CtkSourcePixbufHelper *helper,
 	}
 }
 
-CdkPixbuf *
+GdkPixbuf *
 ctk_source_pixbuf_helper_render (CtkSourcePixbufHelper *helper,
                                  CtkWidget             *widget,
                                  gint                   size)

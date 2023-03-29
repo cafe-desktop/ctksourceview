@@ -99,7 +99,7 @@ gutter_renderer_pixbuf_draw (CtkSourceGutterRenderer      *renderer,
 	gint scale;
 	gint x = 0;
 	gint y = 0;
-	CdkPixbuf *pixbuf;
+	GdkPixbuf *pixbuf;
 	cairo_surface_t *surface;
 
 	/* Chain up to draw background */
@@ -202,7 +202,7 @@ ctk_source_gutter_renderer_pixbuf_finalize (GObject *object)
 
 static void
 set_pixbuf (CtkSourceGutterRendererPixbuf *renderer,
-            CdkPixbuf                     *pixbuf)
+            GdkPixbuf                     *pixbuf)
 {
 	ctk_source_pixbuf_helper_set_pixbuf (renderer->priv->helper,
 	                                     pixbuf);
@@ -361,7 +361,7 @@ ctk_source_gutter_renderer_pixbuf_new (void)
  */
 void
 ctk_source_gutter_renderer_pixbuf_set_pixbuf (CtkSourceGutterRendererPixbuf *renderer,
-                                              CdkPixbuf                     *pixbuf)
+                                              GdkPixbuf                     *pixbuf)
 {
 	g_return_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER_PIXBUF (renderer));
 	g_return_if_fail (renderer == NULL || CDK_IS_PIXBUF (pixbuf));
@@ -376,10 +376,10 @@ ctk_source_gutter_renderer_pixbuf_set_pixbuf (CtkSourceGutterRendererPixbuf *ren
  *
  * Get the pixbuf of the renderer.
  *
- * Returns: (transfer none): a #CdkPixbuf
+ * Returns: (transfer none): a #GdkPixbuf
  *
  **/
-CdkPixbuf *
+GdkPixbuf *
 ctk_source_gutter_renderer_pixbuf_get_pixbuf (CtkSourceGutterRendererPixbuf *renderer)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER_PIXBUF (renderer), NULL);

@@ -61,7 +61,7 @@ enum
 struct _CtkSourceCompletionWordsPrivate
 {
 	gchar *name;
-	CdkPixbuf *icon;
+	GdkPixbuf *icon;
 
 	gchar *word;
 	gint word_len;
@@ -107,7 +107,7 @@ ctk_source_completion_words_get_name (CtkSourceCompletionProvider *self)
 	return g_strdup (CTK_SOURCE_COMPLETION_WORDS (self)->priv->name);
 }
 
-static CdkPixbuf *
+static GdkPixbuf *
 ctk_source_completion_words_get_icon (CtkSourceCompletionProvider *self)
 {
 	return CTK_SOURCE_COMPLETION_WORDS (self)->priv->icon;
@@ -576,7 +576,7 @@ ctk_source_completion_words_init (CtkSourceCompletionWords *self)
  */
 CtkSourceCompletionWords *
 ctk_source_completion_words_new (const gchar *name,
-                                 CdkPixbuf   *icon)
+                                 GdkPixbuf   *icon)
 {
 	return g_object_new (CTK_SOURCE_TYPE_COMPLETION_WORDS,
 	                     "name", name,

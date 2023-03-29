@@ -247,7 +247,7 @@ static void 	 ctk_source_buffer_real_insert_text 	(CtkTextBuffer           *buff
 							 gint                     len);
 static void	 ctk_source_buffer_real_insert_pixbuf	(CtkTextBuffer           *buffer,
 							 CtkTextIter             *pos,
-							 CdkPixbuf               *pixbuf);
+							 GdkPixbuf               *pixbuf);
 static void	 ctk_source_buffer_real_insert_child_anchor
 							(CtkTextBuffer           *buffer,
 							 CtkTextIter             *pos,
@@ -1258,7 +1258,7 @@ ctk_source_buffer_real_insert_text (CtkTextBuffer *buffer,
 static void
 ctk_source_buffer_real_insert_pixbuf (CtkTextBuffer *buffer,
 				      CtkTextIter   *iter,
-				      CdkPixbuf     *pixbuf)
+				      GdkPixbuf     *pixbuf)
 {
 	gint start_offset;
 
