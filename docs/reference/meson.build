@@ -91,7 +91,7 @@ reference_fixxref_args = [
   '--extra-dir=@0@'.format(join_paths(gtk_docpath, 'ctk')),
 ]
 
-gnome.ctkdoc('@0@.0'.format(package_string),
+gnome.gtkdoc('@0@.0'.format(package_string),
            main_xml: join_paths(builddir, '@0@'.format(ctksourceview_docs_xml)),
   gobject_typesfile: 'ctksourceview-4.0.types',
             src_dir: reference_sources,
