@@ -448,7 +448,7 @@ msgstr "ASP"
 #: ../data/language-specs/changelog.lang.h:8
 #: ../data/language-specs/css.lang.h:8 ../data/language-specs/def.lang.h:38
 #: ../data/language-specs/gap.lang.h:6 ../data/language-specs/gdb-log.lang.h:7
-#: ../data/language-specs/ctk-doc.lang.h:10
+#: ../data/language-specs/gtk-doc.lang.h:10
 #: ../data/language-specs/idl-exelis.lang.h:10
 #: ../data/language-specs/javascript.lang.h:9
 #: ../data/language-specs/lua.lang.h:8 ../data/language-specs/scheme.lang.h:7
@@ -600,7 +600,7 @@ msgstr "ئون ئالتىلىك سىستېمىدىكى سان"
 
 #: ../data/language-specs/bibtex.lang.h:1
 #: ../data/language-specs/docbook.lang.h:1 ../data/language-specs/dtd.lang.h:1
-#: ../data/language-specs/ctk-doc.lang.h:1
+#: ../data/language-specs/gtk-doc.lang.h:1
 #: ../data/language-specs/haddock.lang.h:1
 #: ../data/language-specs/html.lang.h:1 ../data/language-specs/latex.lang.h:1
 #: ../data/language-specs/mallard.lang.h:1
@@ -647,7 +647,7 @@ msgid "Import BVI"
 msgstr "BVI نى ئىمپورت قىل"
 
 #: ../data/language-specs/bluespec.lang.h:8
-#: ../data/language-specs/ctk-doc.lang.h:9
+#: ../data/language-specs/gtk-doc.lang.h:9
 #: ../data/language-specs/systemverilog.lang.h:6
 #: ../data/language-specs/verilog.lang.h:13
 #: ../data/language-specs/vhdl.lang.h:7
@@ -847,7 +847,7 @@ msgstr "ئىچكى ئۆزگەرگۈچى"
 #. Any constant
 #: ../data/language-specs/cmake.lang.h:5 ../data/language-specs/cobol.lang.h:7
 #: ../data/language-specs/def.lang.h:13
-#: ../data/language-specs/ctk-doc.lang.h:8
+#: ../data/language-specs/gtk-doc.lang.h:8
 #: ../data/language-specs/libtool.lang.h:3
 #: ../data/language-specs/ruby.lang.h:18
 msgid "Constant"
@@ -958,7 +958,7 @@ msgid "Shebang"
 msgstr "Shebang"
 
 #. A special comment containing documentation like in javadoc or
-#. ctk-doc
+#. gtk-doc
 #: ../data/language-specs/def.lang.h:8
 msgid "Documentation comment"
 msgstr "پۈتۈك ئىزاھاتى"
@@ -1399,39 +1399,39 @@ msgstr "يۆتكەل"
 msgid "Imaginary number"
 msgstr "مەۋھۇم سان"
 
-#: ../data/language-specs/ctk-doc.lang.h:2
-msgid "ctk-doc"
-msgstr "ctk-doc"
+#: ../data/language-specs/gtk-doc.lang.h:2
+msgid "gtk-doc"
+msgstr "gtk-doc"
 
-#: ../data/language-specs/ctk-doc.lang.h:3
+#: ../data/language-specs/gtk-doc.lang.h:3
 msgid "Inline Documentation Section"
 msgstr "ئىچكى پۈتۈك بۆلىكى"
 
-#: ../data/language-specs/ctk-doc.lang.h:4
+#: ../data/language-specs/gtk-doc.lang.h:4
 msgid "Function Name"
 msgstr "فۇنكسىيە ئاتى"
 
-#: ../data/language-specs/ctk-doc.lang.h:5
+#: ../data/language-specs/gtk-doc.lang.h:5
 msgid "Signal Name"
 msgstr "سىگنال ئىسمى"
 
-#: ../data/language-specs/ctk-doc.lang.h:6
+#: ../data/language-specs/gtk-doc.lang.h:6
 msgid "Property Name"
 msgstr "خاسلىق ئاتى"
 
-#: ../data/language-specs/ctk-doc.lang.h:7
+#: ../data/language-specs/gtk-doc.lang.h:7
 msgid "Parameter"
 msgstr "پارامېتىر"
 
-#: ../data/language-specs/ctk-doc.lang.h:11
+#: ../data/language-specs/gtk-doc.lang.h:11
 msgid "Return"
 msgstr "Return"
 
-#: ../data/language-specs/ctk-doc.lang.h:12
+#: ../data/language-specs/gtk-doc.lang.h:12
 msgid "Since"
 msgstr "دىن"
 
-#: ../data/language-specs/ctk-doc.lang.h:13
+#: ../data/language-specs/gtk-doc.lang.h:13
 msgid "Deprecated"
 msgstr "تاشلىۋېتىلگەن"
 

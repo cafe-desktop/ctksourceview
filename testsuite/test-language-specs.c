@@ -71,7 +71,7 @@ main (int   argc,
 	g_hash_table_add (skipped, (char *)"typescript-type-expr");
 	g_hash_table_add (skipped, (char *)"typescript-type-gen");
 	g_hash_table_add (skipped, (char *)"typescript-type-lit");
-	g_hash_table_add (skipped, (char *)"ctk-doc");
+	g_hash_table_add (skipped, (char *)"gtk-doc");
 	g_hash_table_add (skipped, (char *)"testv1");
 
 	strings = g_ptr_array_new_with_free_func (g_free);

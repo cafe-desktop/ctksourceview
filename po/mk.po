@@ -495,7 +495,7 @@ msgstr "ASP објект"
 #: ../data/language-specs/def.lang.h:32
 #: ../data/language-specs/gap.lang.h:4
 #: ../data/language-specs/gdb-log.lang.h:4
-#: ../data/language-specs/ctk-doc.lang.h:3
+#: ../data/language-specs/gtk-doc.lang.h:3
 #: ../data/language-specs/javascript.lang.h:5
 #: ../data/language-specs/lua.lang.h:4
 #: ../data/language-specs/scheme.lang.h:3
@@ -697,7 +697,7 @@ msgstr "Поле"
 #: ../data/language-specs/bibtex.lang.h:4
 #: ../data/language-specs/docbook.lang.h:5
 #: ../data/language-specs/dtd.lang.h:2
-#: ../data/language-specs/ctk-doc.lang.h:6
+#: ../data/language-specs/gtk-doc.lang.h:6
 #: ../data/language-specs/haddock.lang.h:14
 #: ../data/language-specs/html.lang.h:7
 #: ../data/language-specs/latex.lang.h:6
@@ -970,7 +970,7 @@ msgstr "CMake"
 #: ../data/language-specs/cmake.lang.h:4
 #: ../data/language-specs/cobol.lang.h:3
 #: ../data/language-specs/def.lang.h:15
-#: ../data/language-specs/ctk-doc.lang.h:1
+#: ../data/language-specs/gtk-doc.lang.h:1
 #: ../data/language-specs/libtool.lang.h:2
 #: ../data/language-specs/ruby.lang.h:7
 msgid "Constant"
@@ -1111,7 +1111,7 @@ msgid "Defaults"
 msgstr "Стандардно"
 
 #. A special comment containing documentation like in javadoc or
-#. ctk-doc
+#. gtk-doc
 #: ../data/language-specs/def.lang.h:23
 msgid "Documentation comment"
 msgstr "Коментар со документација"
@@ -1543,48 +1543,48 @@ msgstr "Резервирани клучни зборови"
 msgid "Go"
 msgstr "Go"
 
-#: ../data/language-specs/ctk-doc.lang.h:2
+#: ../data/language-specs/gtk-doc.lang.h:2
 msgid "Deprecated"
 msgstr "Застарено"
 
-#: ../data/language-specs/ctk-doc.lang.h:4
+#: ../data/language-specs/gtk-doc.lang.h:4
 msgid "Function Name"
 msgstr "Име на функција"
 
-#: ../data/language-specs/ctk-doc.lang.h:5
+#: ../data/language-specs/gtk-doc.lang.h:5
 msgid "Inline Documentation Section"
 msgstr "Оддел за вметната документација"
 
-#: ../data/language-specs/ctk-doc.lang.h:7
+#: ../data/language-specs/gtk-doc.lang.h:7
 msgid "Parameter"
 msgstr "Параметар"
 
-#: ../data/language-specs/ctk-doc.lang.h:8
+#: ../data/language-specs/gtk-doc.lang.h:8
 msgid "Property Name"
 msgstr "Име на својство"
 
-#: ../data/language-specs/ctk-doc.lang.h:9
+#: ../data/language-specs/gtk-doc.lang.h:9
 msgid "Return"
 msgstr "Врати"
 
-#: ../data/language-specs/ctk-doc.lang.h:10
+#: ../data/language-specs/gtk-doc.lang.h:10
 msgid "Signal Name"
 msgstr "Име на сигнал"
 
-#: ../data/language-specs/ctk-doc.lang.h:11
+#: ../data/language-specs/gtk-doc.lang.h:11
 msgid "Since"
 msgstr "Од"
 
-#: ../data/language-specs/ctk-doc.lang.h:12
+#: ../data/language-specs/gtk-doc.lang.h:12
 #: ../data/language-specs/systemverilog.lang.h:6
 #: ../data/language-specs/verilog.lang.h:14
 #: ../data/language-specs/vhdl.lang.h:10
 msgid "Type"
 msgstr "Тип"
 
-#: ../data/language-specs/ctk-doc.lang.h:13
-msgid "ctk-doc"
-msgstr "ctk-doc"
+#: ../data/language-specs/gtk-doc.lang.h:13
+msgid "gtk-doc"
+msgstr "gtk-doc"
 
 #: ../data/language-specs/ctkrc.lang.h:5
 msgid "CtkRC"

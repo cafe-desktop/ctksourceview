@@ -91,7 +91,7 @@ rm -rf %{buildroot}
 
 %files -n %{lib_name}-devel
 %defattr(-,root,root)
-%doc %{_datadir}/ctk-doc/html/ctksourceview
+%doc %{_datadir}/gtk-doc/html/ctksourceview
 %{_libdir}/*.so
 %attr(644,root,root) %{_libdir}/*.la
 %{_includedir}/*

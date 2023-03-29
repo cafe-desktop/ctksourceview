@@ -21,7 +21,7 @@
 
 -->
 <!-- Copyright (C) 2006-2007 - Yevgen Muntyan <muntyan@tamu.edu> -->
-<language id="ctk-doc" name="ctk-doc" version="2.0" _section="Markup" hidden="true">
+<language id="gtk-doc" name="gtk-doc" version="2.0" _section="Markup" hidden="true">
     <styles>
         <style id="inline-docs-section" name="Inline Documentation Section" map-to="def:doc-comment"/>
         <style id="function-name" name="Function Name" map-to="def:doc-comment-element"/>

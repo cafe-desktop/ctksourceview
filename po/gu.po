@@ -528,7 +528,7 @@ msgstr "શબ્દ"
 #: ../data/language-specs/ansforth94.lang.h:10
 #: ../data/language-specs/cmake.lang.h:5 ../data/language-specs/cobol.lang.h:7
 #: ../data/language-specs/def.lang.h:13
-#: ../data/language-specs/ctk-doc.lang.h:8
+#: ../data/language-specs/gtk-doc.lang.h:8
 #: ../data/language-specs/libtool.lang.h:3
 #: ../data/language-specs/ruby.lang.h:18
 msgid "Constant"
@@ -583,7 +583,7 @@ msgstr "ASP"
 #: ../data/language-specs/changelog.lang.h:9
 #: ../data/language-specs/css.lang.h:8 ../data/language-specs/def.lang.h:38
 #: ../data/language-specs/gap.lang.h:6 ../data/language-specs/gdb-log.lang.h:7
-#: ../data/language-specs/ctk-doc.lang.h:10
+#: ../data/language-specs/gtk-doc.lang.h:10
 #: ../data/language-specs/idl-exelis.lang.h:10
 #: ../data/language-specs/javascript.lang.h:9
 #: ../data/language-specs/llvm.lang.h:6 ../data/language-specs/lua.lang.h:8
@@ -734,7 +734,7 @@ msgstr "હેક્ઝાડેસીમલ નંબર"
 # libgnomecanvas/gnome-canvas-text.c:212
 #: ../data/language-specs/bibtex.lang.h:1
 #: ../data/language-specs/docbook.lang.h:1 ../data/language-specs/dtd.lang.h:1
-#: ../data/language-specs/ctk-doc.lang.h:1
+#: ../data/language-specs/gtk-doc.lang.h:1
 #: ../data/language-specs/haddock.lang.h:1
 #: ../data/language-specs/html.lang.h:1 ../data/language-specs/latex.lang.h:1
 #: ../data/language-specs/mallard.lang.h:1
@@ -792,7 +792,7 @@ msgid "Import BVI"
 msgstr "BVI આયાત કરો"
 
 #: ../data/language-specs/bluespec.lang.h:8
-#: ../data/language-specs/ctk-doc.lang.h:9
+#: ../data/language-specs/gtk-doc.lang.h:9
 #: ../data/language-specs/julia.lang.h:15
 #: ../data/language-specs/systemverilog.lang.h:6
 #: ../data/language-specs/verilog.lang.h:13
@@ -1087,7 +1087,7 @@ msgid "Shebang"
 msgstr "Shebang"
 
 #. A special comment containing documentation like in javadoc or
-#. ctk-doc
+#. gtk-doc
 #: ../data/language-specs/def.lang.h:8
 msgid "Documentation comment"
 msgstr "દસ્તાવેજીકરણ ટિપ્પણી"
@@ -1602,40 +1602,40 @@ msgstr "જાઓ"
 msgid "Imaginary number"
 msgstr "દ્વિઅંકી સંખ્યા"
 
-#: ../data/language-specs/ctk-doc.lang.h:2
-msgid "ctk-doc"
-msgstr "ctk-doc"
+#: ../data/language-specs/gtk-doc.lang.h:2
+msgid "gtk-doc"
+msgstr "gtk-doc"
 
-#: ../data/language-specs/ctk-doc.lang.h:3
+#: ../data/language-specs/gtk-doc.lang.h:3
 msgid "Inline Documentation Section"
 msgstr "આંતરિક દસ્તાવેજીકરણ વિભાગ"
 
-#: ../data/language-specs/ctk-doc.lang.h:4
+#: ../data/language-specs/gtk-doc.lang.h:4
 #: ../data/language-specs/python.lang.h:19
 msgid "Function Name"
 msgstr "વિધેય નામ"
 
-#: ../data/language-specs/ctk-doc.lang.h:5
+#: ../data/language-specs/gtk-doc.lang.h:5
 msgid "Signal Name"
 msgstr "સિગ્નલ નામ"
 
-#: ../data/language-specs/ctk-doc.lang.h:6
+#: ../data/language-specs/gtk-doc.lang.h:6
 msgid "Property Name"
 msgstr "ગુણધર્મ નામ"
 
-#: ../data/language-specs/ctk-doc.lang.h:7
+#: ../data/language-specs/gtk-doc.lang.h:7
 msgid "Parameter"
 msgstr "પરિમાણ"
 
-#: ../data/language-specs/ctk-doc.lang.h:11
+#: ../data/language-specs/gtk-doc.lang.h:11
 msgid "Return"
 msgstr "વળતું"
 
-#: ../data/language-specs/ctk-doc.lang.h:12
+#: ../data/language-specs/gtk-doc.lang.h:12
 msgid "Since"
 msgstr "ત્યારથી"
 
-#: ../data/language-specs/ctk-doc.lang.h:13
+#: ../data/language-specs/gtk-doc.lang.h:13
 msgid "Deprecated"
 msgstr "નાપસંદગી બતાવેલ"
 

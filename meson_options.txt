@@ -16,4 +16,4 @@ option('vapi',
 
 option('ctk_doc',
        type: 'boolean', value: false,
-       description: 'Build reference manual (requires ctk-doc)')
+       description: 'Build reference manual (requires gtk-doc)')

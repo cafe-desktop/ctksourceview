@@ -354,7 +354,7 @@ msgstr "Oxetu ASP"
 #: ../data/language-specs/changelog.lang.h:6
 #: ../data/language-specs/css.lang.h:8 ../data/language-specs/def.lang.h:32
 #: ../data/language-specs/gap.lang.h:4 ../data/language-specs/gdb-log.lang.h:4
-#: ../data/language-specs/ctk-doc.lang.h:3
+#: ../data/language-specs/gtk-doc.lang.h:3
 #: ../data/language-specs/javascript.lang.h:5
 #: ../data/language-specs/lua.lang.h:4 ../data/language-specs/scheme.lang.h:3
 #: ../data/language-specs/scilab.lang.h:4 ../data/language-specs/sh.lang.h:3
@@ -515,7 +515,7 @@ msgstr "Campu"
 
 #: ../data/language-specs/bibtex.lang.h:4
 #: ../data/language-specs/docbook.lang.h:5 ../data/language-specs/dtd.lang.h:2
-#: ../data/language-specs/ctk-doc.lang.h:6
+#: ../data/language-specs/gtk-doc.lang.h:6
 #: ../data/language-specs/haddock.lang.h:14
 #: ../data/language-specs/html.lang.h:7 ../data/language-specs/latex.lang.h:6
 #: ../data/language-specs/mallard.lang.h:4
@@ -736,7 +736,7 @@ msgstr "CMake"
 #. Any constant
 #: ../data/language-specs/cmake.lang.h:4 ../data/language-specs/cobol.lang.h:3
 #: ../data/language-specs/def.lang.h:15
-#: ../data/language-specs/ctk-doc.lang.h:1
+#: ../data/language-specs/gtk-doc.lang.h:1
 #: ../data/language-specs/libtool.lang.h:2
 #: ../data/language-specs/ruby.lang.h:7
 msgid "Constant"
@@ -862,7 +862,7 @@ msgid "Defaults"
 msgstr "Predeterminaos"
 
 #. A special comment containing documentation like in javadoc or
-#. ctk-doc
+#. gtk-doc
 #: ../data/language-specs/def.lang.h:23
 msgid "Documentation comment"
 msgstr "Comentariu de la documentación"
@@ -1264,48 +1264,48 @@ msgstr "Pallabres clave reservaes"
 msgid "Go"
 msgstr "Dir"
 
-#: ../data/language-specs/ctk-doc.lang.h:2
+#: ../data/language-specs/gtk-doc.lang.h:2
 msgid "Deprecated"
 msgstr "Obsoletu"
 
-#: ../data/language-specs/ctk-doc.lang.h:4
+#: ../data/language-specs/gtk-doc.lang.h:4
 msgid "Function Name"
 msgstr "Nome de la función"
 
-#: ../data/language-specs/ctk-doc.lang.h:5
+#: ../data/language-specs/gtk-doc.lang.h:5
 msgid "Inline Documentation Section"
 msgstr "Seición de documentación en llinia"
 
-#: ../data/language-specs/ctk-doc.lang.h:7
+#: ../data/language-specs/gtk-doc.lang.h:7
 msgid "Parameter"
 msgstr "Parámetru"
 
-#: ../data/language-specs/ctk-doc.lang.h:8
+#: ../data/language-specs/gtk-doc.lang.h:8
 msgid "Property Name"
 msgstr "Nome de la propiedá"
 
-#: ../data/language-specs/ctk-doc.lang.h:9
+#: ../data/language-specs/gtk-doc.lang.h:9
 msgid "Return"
 msgstr "Intro"
 
-#: ../data/language-specs/ctk-doc.lang.h:10
+#: ../data/language-specs/gtk-doc.lang.h:10
 msgid "Signal Name"
 msgstr "Nome de la señal"
 
-#: ../data/language-specs/ctk-doc.lang.h:11
+#: ../data/language-specs/gtk-doc.lang.h:11
 msgid "Since"
 msgstr "Dende"
 
-#: ../data/language-specs/ctk-doc.lang.h:12
+#: ../data/language-specs/gtk-doc.lang.h:12
 #: ../data/language-specs/systemverilog.lang.h:6
 #: ../data/language-specs/verilog.lang.h:14
 #: ../data/language-specs/vhdl.lang.h:10
 msgid "Type"
 msgstr "Triba"
 
-#: ../data/language-specs/ctk-doc.lang.h:13
-msgid "ctk-doc"
-msgstr "ctk-doc"
+#: ../data/language-specs/gtk-doc.lang.h:13
+msgid "gtk-doc"
+msgstr "gtk-doc"
 
 #: ../data/language-specs/ctkrc.lang.h:5
 msgid "CtkRC"

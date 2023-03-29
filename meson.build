@@ -56,7 +56,7 @@ vapidir = join_paths(datadir, 'vala', 'vapi')
 mandir = join_paths(prefix, get_option('mandir'))
 testexecdir = join_paths(libexecdir, 'installed-tests', package_string)
 testdatadir = join_paths(datadir, 'installed-tests', package_string)
-docpath = join_paths(datadir, 'ctk-doc', 'html', package_string)
+docpath = join_paths(datadir, 'gtk-doc', 'html', package_string)
 
 # Options
 install_glade_catalog = get_option('glade_catalog')
@@ -108,7 +108,7 @@ else
 endif
 
 if build_ctk_doc
-  ctk_doc_dep = dependency('ctk-doc', version: ctk_doc_req)
+  ctk_doc_dep = dependency('gtk-doc', version: ctk_doc_req)
 else
   ctk_doc_dep = []
 endif

@@ -131,7 +131,7 @@ msgstr "Σενάριο"
 #. (itstool) path: docbook.lang/language@_section
 #. (itstool) path: dtd.lang/language@_section
 #. (itstool) path: dtl.lang/language@_section
-#. (itstool) path: ctk-doc.lang/language@_section
+#. (itstool) path: gtk-doc.lang/language@_section
 #. (itstool) path: haddock.lang/language@_section
 #. (itstool) path: html.lang/language@_section
 #. (itstool) path: jade.lang/language@_section
@@ -147,7 +147,7 @@ msgstr "Σενάριο"
 #. (itstool) path: texinfo.lang/language@_section
 #. (itstool) path: xml.lang/language@_section
 #. (itstool) path: xslt.lang/language@_section
-#: bibtex.lang:23 docbook.lang:23 dtd.lang:23 dtl.lang:25 ctk-doc.lang:24
+#: bibtex.lang:23 docbook.lang:23 dtd.lang:23 dtl.lang:25 gtk-doc.lang:24
 #: haddock.lang:23 html.lang:24 jade.lang:24 latex.lang:24 mallard.lang:22
 #: markdown.lang:25 mediawiki.lang:22 mxml.lang:23 rst.lang:22 sweave.lang:24
 #: t2t.lang:23 tera.lang:23 texinfo.lang:24 xml.lang:25 xslt.lang:23
@@ -1352,8 +1352,8 @@ msgstr "Α_λλαγή κεφαλαίων/πεζών"
 #~ msgid "Imaginary number"
 #~ msgstr "Φανταστικός αριθμός"
 
-#~ msgid "ctk-doc"
-#~ msgstr "ctk-doc"
+#~ msgid "gtk-doc"
+#~ msgstr "gtk-doc"
 
 #~ msgid "Inline Documentation Section"
 #~ msgstr "Ενότητα εμβόλιμης τεκμηρίωσης"

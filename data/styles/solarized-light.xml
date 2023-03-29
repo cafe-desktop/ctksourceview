@@ -127,14 +127,14 @@
   <style name="c:type-keyword"              foreground="yellow"/>
 
   <!-- CTK-DOC Overrides -->
-  <style name="ctk-doc:type"                foreground="yellow"/>
-  <style name="ctk-doc:function"            foreground="blue"/>
-  <style name="ctk-doc:function-name"       bold="true"/>
-  <style name="ctk-doc:property-name"       bold="true"/>
-  <style name="ctk-doc:signal-name"         bold="true"/>
-  <style name="ctk-doc:parameter"           bold="true"/>
-  <style name="ctk-doc:constant"            foreground="cyan"/>
-  <style name="ctk-doc:return"              bold="true"/>
-  <style name="ctk-doc:since"               bold="true"/>
-  <style name="ctk-doc:deprecated"          bold="true"/>
+  <style name="gtk-doc:type"                foreground="yellow"/>
+  <style name="gtk-doc:function"            foreground="blue"/>
+  <style name="gtk-doc:function-name"       bold="true"/>
+  <style name="gtk-doc:property-name"       bold="true"/>
+  <style name="gtk-doc:signal-name"         bold="true"/>
+  <style name="gtk-doc:parameter"           bold="true"/>
+  <style name="gtk-doc:constant"            foreground="cyan"/>
+  <style name="gtk-doc:return"              bold="true"/>
+  <style name="gtk-doc:since"               bold="true"/>
+  <style name="gtk-doc:deprecated"          bold="true"/>
 </style-scheme>

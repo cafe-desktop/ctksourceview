@@ -352,7 +352,7 @@ msgid "Word"
 msgstr ""
 
 #. (itstool) path: styles/style@_name
-#: ansforth94.lang:43 cmake.lang:33 cobol.lang:38 def.lang:52 ctk-doc.lang:31
+#: ansforth94.lang:43 cmake.lang:33 cobol.lang:38 def.lang:52 gtk-doc.lang:31
 #: libtool.lang:31 ruby.lang:49
 msgid "Constant"
 msgstr "Konstanto"
@@ -397,7 +397,7 @@ msgstr ""
 
 #. (itstool) path: styles/style@_name
 #: asp.lang:35 cg.lang:47 changelog.lang:38 css.lang:52 def.lang:80 gap.lang:34
-#: gdb-log.lang:28 ctk-doc.lang:33 idl-exelis.lang:34 javascript.lang:42
+#: gdb-log.lang:28 gtk-doc.lang:33 idl-exelis.lang:34 javascript.lang:42
 #: llvm.lang:32 lua.lang:39 scheme.lang:35 scilab.lang:34 sh.lang:33
 #: sparql.lang:34 sql.lang:35
 msgid "Function"
@@ -533,7 +533,7 @@ msgstr "BibTeX"
 #. (itstool) path: docbook.lang/language@_section
 #. (itstool) path: dtd.lang/language@_section
 #. (itstool) path: dtl.lang/language@_section
-#. (itstool) path: ctk-doc.lang/language@_section
+#. (itstool) path: gtk-doc.lang/language@_section
 #. (itstool) path: haddock.lang/language@_section
 #. (itstool) path: html.lang/language@_section
 #. (itstool) path: jade.lang/language@_section
@@ -548,7 +548,7 @@ msgstr "BibTeX"
 #. (itstool) path: texinfo.lang/language@_section
 #. (itstool) path: xml.lang/language@_section
 #. (itstool) path: xslt.lang/language@_section
-#: bibtex.lang:23 docbook.lang:23 dtd.lang:23 dtl.lang:25 ctk-doc.lang:24
+#: bibtex.lang:23 docbook.lang:23 dtd.lang:23 dtl.lang:25 gtk-doc.lang:24
 #: haddock.lang:23 html.lang:24 jade.lang:24 latex.lang:24 mallard.lang:22
 #: markdown.lang:25 mediawiki.lang:22 mxml.lang:23 rst.lang:22 sweave.lang:24
 #: t2t.lang:23 texinfo.lang:24 xml.lang:25 xslt.lang:23
@@ -592,7 +592,7 @@ msgid "Import BVI"
 msgstr ""
 
 #. (itstool) path: styles/style@_name
-#: bluespec.lang:35 ctk-doc.lang:32 julia.lang:48 systemverilog.lang:33
+#: bluespec.lang:35 gtk-doc.lang:32 julia.lang:48 systemverilog.lang:33
 #: verilog.lang:43 vhdl.lang:35
 msgid "Type"
 msgstr "Tipo"
@@ -1454,48 +1454,48 @@ msgstr "Ek"
 msgid "Imaginary number"
 msgstr ""
 
-#. (itstool) path: ctk-doc.lang/language@_name
-#: ctk-doc.lang:24
-msgid "ctk-doc"
-msgstr "ctk-doc"
+#. (itstool) path: gtk-doc.lang/language@_name
+#: gtk-doc.lang:24
+msgid "gtk-doc"
+msgstr "gtk-doc"
 
 #. (itstool) path: styles/style@_name
-#: ctk-doc.lang:26
+#: gtk-doc.lang:26
 msgid "Inline Documentation Section"
 msgstr ""
 
 #. (itstool) path: styles/style@_name
-#: ctk-doc.lang:27 python.lang:51
+#: gtk-doc.lang:27 python.lang:51
 msgid "Function Name"
 msgstr ""
 
 #. (itstool) path: styles/style@_name
-#: ctk-doc.lang:28
+#: gtk-doc.lang:28
 msgid "Signal Name"
 msgstr ""
 
 #. (itstool) path: styles/style@_name
-#: ctk-doc.lang:29
+#: gtk-doc.lang:29
 msgid "Property Name"
 msgstr ""
 
 #. (itstool) path: styles/style@_name
-#: ctk-doc.lang:30
+#: gtk-doc.lang:30
 msgid "Parameter"
 msgstr "Parametro"
 
 #. (itstool) path: styles/style@_name
-#: ctk-doc.lang:34
+#: gtk-doc.lang:34
 msgid "Return"
 msgstr ""
 
 #. (itstool) path: styles/style@_name
-#: ctk-doc.lang:35
+#: gtk-doc.lang:35
 msgid "Since"
 msgstr "Ekde"
 
 #. (itstool) path: styles/style@_name
-#: ctk-doc.lang:36
+#: gtk-doc.lang:36
 msgid "Deprecated"
 msgstr "Evitinde"
 

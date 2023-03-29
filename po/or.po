@@ -339,7 +339,7 @@ msgstr "ASP ବସ୍ତୁ"
 #: ../data/language-specs/cg.lang.h:11 ../data/language-specs/css.lang.h:7
 #: ../data/language-specs/def.lang.h:32 ../data/language-specs/gap.lang.h:4
 #: ../data/language-specs/gdb-log.lang.h:4
-#: ../data/language-specs/ctk-doc.lang.h:3
+#: ../data/language-specs/gtk-doc.lang.h:3
 #: ../data/language-specs/javascript.lang.h:7
 #: ../data/language-specs/lua.lang.h:4 ../data/language-specs/octave.lang.h:6
 #: ../data/language-specs/scheme.lang.h:3 ../data/language-specs/sh.lang.h:3
@@ -485,7 +485,7 @@ msgstr "କ୍ଷେତ୍ର"
 
 #: ../data/language-specs/bibtex.lang.h:4
 #: ../data/language-specs/docbook.lang.h:5 ../data/language-specs/dtd.lang.h:2
-#: ../data/language-specs/ctk-doc.lang.h:6
+#: ../data/language-specs/gtk-doc.lang.h:6
 #: ../data/language-specs/haddock.lang.h:14
 #: ../data/language-specs/html.lang.h:7 ../data/language-specs/latex.lang.h:6
 #: ../data/language-specs/mallard.lang.h:4 ../data/language-specs/t2t.lang.h:6
@@ -663,7 +663,7 @@ msgstr "CMake"
 
 #. Any constant
 #: ../data/language-specs/cmake.lang.h:4 ../data/language-specs/def.lang.h:15
-#: ../data/language-specs/ctk-doc.lang.h:1
+#: ../data/language-specs/gtk-doc.lang.h:1
 #: ../data/language-specs/libtool.lang.h:2
 #: ../data/language-specs/ruby.lang.h:6
 msgid "Constant"
@@ -768,7 +768,7 @@ msgid "Defaults"
 msgstr "ପୂର୍ବ ନିର୍ଦ୍ଧାରିତ"
 
 #. A special comment containing documentation like in javadoc or
-#. ctk-doc
+#. gtk-doc
 #: ../data/language-specs/def.lang.h:23
 msgid "Documentation comment"
 msgstr "ଦଲିଲକରଣ ଟିପ୍ପଣୀ"
@@ -1180,47 +1180,47 @@ msgstr ""
 msgid "Reserved Keywords"
 msgstr "ସଂରକ୍ଷିତ ସୂଚକ ଶବ୍ଦ"
 
-#: ../data/language-specs/ctk-doc.lang.h:2
+#: ../data/language-specs/gtk-doc.lang.h:2
 msgid "Deprecated"
 msgstr "ଅପସନ୍ଦ"
 
-#: ../data/language-specs/ctk-doc.lang.h:4
+#: ../data/language-specs/gtk-doc.lang.h:4
 msgid "Function Name"
 msgstr "ଫଳନ ନାମ"
 
-#: ../data/language-specs/ctk-doc.lang.h:5
+#: ../data/language-specs/gtk-doc.lang.h:5
 msgid "Inline Documentation Section"
 msgstr "ଇନଲାଇନ ଦଲିଲିକରଣ ବିଭାଗ"
 
-#: ../data/language-specs/ctk-doc.lang.h:7
+#: ../data/language-specs/gtk-doc.lang.h:7
 msgid "Parameter"
 msgstr "ପ୍ରାଚଳ"
 
-#: ../data/language-specs/ctk-doc.lang.h:8
+#: ../data/language-specs/gtk-doc.lang.h:8
 msgid "Property Name"
 msgstr "ଗୁଣଧର୍ମ ନାମ"
 
-#: ../data/language-specs/ctk-doc.lang.h:9
+#: ../data/language-specs/gtk-doc.lang.h:9
 msgid "Return"
 msgstr "ଫେରସ୍ଥ"
 
-#: ../data/language-specs/ctk-doc.lang.h:10
+#: ../data/language-specs/gtk-doc.lang.h:10
 msgid "Signal Name"
 msgstr "ସଂକେତ ନାମ"
 
-#: ../data/language-specs/ctk-doc.lang.h:11
+#: ../data/language-specs/gtk-doc.lang.h:11
 msgid "Since"
 msgstr "ପରଠୁ"
 
-#: ../data/language-specs/ctk-doc.lang.h:12
+#: ../data/language-specs/gtk-doc.lang.h:12
 #: ../data/language-specs/verilog.lang.h:8
 #: ../data/language-specs/vhdl.lang.h:10
 msgid "Type"
 msgstr "ପ୍ରକାର"
 
-#: ../data/language-specs/ctk-doc.lang.h:13
-msgid "ctk-doc"
-msgstr "ctk-doc"
+#: ../data/language-specs/gtk-doc.lang.h:13
+msgid "gtk-doc"
+msgstr "gtk-doc"
 
 #: ../data/language-specs/ctkrc.lang.h:5
 msgid "CtkRC"

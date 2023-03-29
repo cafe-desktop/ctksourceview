@@ -319,7 +319,7 @@ msgstr "𐑤𐑱𐑚𐑩𐑤 𐑑 𐑚𐑰 𐑖𐑴𐑯 𐑓𐑹 𐑞𐑦𐑕 �
 #: ../ctksourceview/language-specs/bibtex.lang.h:4
 #: ../ctksourceview/language-specs/docbook.lang.h:5
 #: ../ctksourceview/language-specs/dtd.lang.h:2
-#: ../ctksourceview/language-specs/ctk-doc.lang.h:6
+#: ../ctksourceview/language-specs/gtk-doc.lang.h:6
 #: ../ctksourceview/language-specs/haddock.lang.h:14
 #: ../ctksourceview/language-specs/html.lang.h:7
 #: ../ctksourceview/language-specs/latex.lang.h:6
@@ -1226,7 +1226,7 @@ msgstr "·𐑨𐑕𐑐 𐑩𐑚𐑡𐑧𐑒𐑑"
 #: ../ctksourceview/language-specs/css.lang.h:7
 #: ../ctksourceview/language-specs/def.lang.h:32
 #: ../ctksourceview/language-specs/gap.lang.h:4
-#: ../ctksourceview/language-specs/ctk-doc.lang.h:3
+#: ../ctksourceview/language-specs/gtk-doc.lang.h:3
 #: ../ctksourceview/language-specs/javascript.lang.h:7
 #: ../ctksourceview/language-specs/lua.lang.h:4
 #: ../ctksourceview/language-specs/octave.lang.h:6
@@ -1567,7 +1567,7 @@ msgstr "CMake"
 #. Any constant
 #: ../ctksourceview/language-specs/cmake.lang.h:4
 #: ../ctksourceview/language-specs/def.lang.h:15
-#: ../ctksourceview/language-specs/ctk-doc.lang.h:1
+#: ../ctksourceview/language-specs/gtk-doc.lang.h:1
 #: ../ctksourceview/language-specs/libtool.lang.h:2
 #: ../ctksourceview/language-specs/ruby.lang.h:6
 msgid "Constant"
@@ -1685,7 +1685,7 @@ msgid "Defaults"
 msgstr "𐑛𐑦𐑓𐑷𐑤𐑑𐑕"
 
 #. A special comment containing documentation like in javadoc or
-#. ctk-doc
+#. gtk-doc
 #: ../ctksourceview/language-specs/def.lang.h:23
 msgid "Documentation comment"
 msgstr "𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑𐑱𐑖𐑩𐑯 𐑒𐑳𐑥𐑥𐑩𐑯𐑑"
@@ -2082,48 +2082,48 @@ msgstr "OpenGL 𐑖𐑱𐑛𐑦𐑙 𐑤𐑨𐑙𐑜𐑢𐑩𐑡"
 msgid "Reserved Keywords"
 msgstr "𐑮𐑦𐑟𐑻𐑝𐑛 𐑒𐑰𐑢𐑻𐑛𐑟"
 
-#: ../ctksourceview/language-specs/ctk-doc.lang.h:2
+#: ../ctksourceview/language-specs/gtk-doc.lang.h:2
 msgid "Deprecated"
 msgstr "𐑛𐑧𐑐𐑮𐑩𐑒𐑱𐑑𐑩𐑛"
 
-#: ../ctksourceview/language-specs/ctk-doc.lang.h:4
+#: ../ctksourceview/language-specs/gtk-doc.lang.h:4
 msgid "Function Name"
 msgstr "𐑓𐑳𐑙𐑒𐑖𐑩𐑯 𐑯𐑱𐑥"
 
 #, fuzzy
-#: ../ctksourceview/language-specs/ctk-doc.lang.h:5
+#: ../ctksourceview/language-specs/gtk-doc.lang.h:5
 msgid "Inline Documentation Section"
 msgstr "Inline 𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑𐑱𐑖𐑩𐑯 𐑕𐑧𐑒𐑖𐑩𐑯"
 
-#: ../ctksourceview/language-specs/ctk-doc.lang.h:7
+#: ../ctksourceview/language-specs/gtk-doc.lang.h:7
 msgid "Parameter"
 msgstr "𐑐𐑼𐑨𐑥𐑩𐑑𐑼"
 
-#: ../ctksourceview/language-specs/ctk-doc.lang.h:8
+#: ../ctksourceview/language-specs/gtk-doc.lang.h:8
 msgid "Property Name"
 msgstr "𐑐𐑮𐑪𐑐𐑼𐑑𐑦 𐑯𐑱𐑥"
 
-#: ../ctksourceview/language-specs/ctk-doc.lang.h:9
+#: ../ctksourceview/language-specs/gtk-doc.lang.h:9
 msgid "Return"
 msgstr "𐑮𐑦𐑑𐑻𐑯"
 
-#: ../ctksourceview/language-specs/ctk-doc.lang.h:10
+#: ../ctksourceview/language-specs/gtk-doc.lang.h:10
 msgid "Signal Name"
 msgstr "𐑕𐑦𐑜𐑯𐑩𐑤 𐑯𐑱𐑥"
 
-#: ../ctksourceview/language-specs/ctk-doc.lang.h:11
+#: ../ctksourceview/language-specs/gtk-doc.lang.h:11
 msgid "Since"
 msgstr "𐑕𐑦𐑯𐑕"
 
-#: ../ctksourceview/language-specs/ctk-doc.lang.h:12
+#: ../ctksourceview/language-specs/gtk-doc.lang.h:12
 #: ../ctksourceview/language-specs/verilog.lang.h:8
 #: ../ctksourceview/language-specs/vhdl.lang.h:10
 msgid "Type"
 msgstr "𐑑𐑲𐑐"
 
 #, fuzzy
-#: ../ctksourceview/language-specs/ctk-doc.lang.h:13
-msgid "ctk-doc"
+#: ../ctksourceview/language-specs/gtk-doc.lang.h:13
+msgid "gtk-doc"
 msgstr "ctk-𐑛𐑭𐑒"
 
 #, fuzzy
