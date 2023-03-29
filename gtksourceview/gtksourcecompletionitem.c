@@ -467,7 +467,7 @@ ctk_source_completion_item_set_icon (CtkSourceCompletionItem *item,
 				     GdkPixbuf               *icon)
 {
 	g_return_if_fail (CTK_SOURCE_IS_COMPLETION_ITEM (item));
-	g_return_if_fail (icon == NULL || CDK_IS_PIXBUF (icon));
+	g_return_if_fail (icon == NULL || GDK_IS_PIXBUF (icon));
 
 	if (g_set_object (&item->priv->icon, icon))
 	{
