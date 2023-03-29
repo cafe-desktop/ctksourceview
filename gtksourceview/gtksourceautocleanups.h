@@ -15,10 +15,10 @@
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTK_SOURCE_AUTOCLEANUPS_H
-#define GTK_SOURCE_AUTOCLEANUPS_H
+#ifndef CTK_SOURCE_AUTOCLEANUPS_H
+#define CTK_SOURCE_AUTOCLEANUPS_H
 
-#if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
+#if !defined (CTK_SOURCE_H_INSIDE) && !defined (CTK_SOURCE_COMPILATION)
 #error "Only <ctksourceview/ctksource.h> can be included directly."
 #endif
 
@@ -60,4 +60,4 @@ G_DEFINE_AUTOPTR_CLEANUP_FUNC(GtkSourceView, g_object_unref)
 
 G_END_DECLS
 
-#endif /* GTK_SOURCE_AUTOCLEANUPS_H */
+#endif /* CTK_SOURCE_AUTOCLEANUPS_H */

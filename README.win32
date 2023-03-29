@@ -16,7 +16,7 @@ Prior to building, you will need the following:
  such a tool.
 
 -GLib 2.48.0 (or later) at this time of writing
--GTK 3.20.0 (or later) at this time of writing
+-CTK 3.20.0 (or later) at this time of writing
 -LibXML2 2.6 (or later) at this time of writing
 -libgladeui 3.9 (or later) at this time of writing [optional]
 -GObject-Introspection 1.42.0 (or later) at this time of writing [optional]

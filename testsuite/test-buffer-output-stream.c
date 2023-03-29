@@ -73,7 +73,7 @@ test_consecutive_write (const gchar          *inbuf,
 	g_assert_cmpstr (outbuf, ==, b);
 	g_free (b);
 
-	g_assert_false (ctk_text_buffer_get_modified (GTK_TEXT_BUFFER (source_buffer)));
+	g_assert_false (ctk_text_buffer_get_modified (CTK_TEXT_BUFFER (source_buffer)));
 
 	g_object_unref (source_buffer);
 	g_object_unref (out);
@@ -82,39 +82,39 @@ test_consecutive_write (const gchar          *inbuf,
 static void
 test_empty (void)
 {
-	test_consecutive_write ("", "", 10, GTK_SOURCE_NEWLINE_TYPE_DEFAULT);
-	test_consecutive_write ("\r\n", "", 10, GTK_SOURCE_NEWLINE_TYPE_CR_LF);
-	test_consecutive_write ("\r", "", 10, GTK_SOURCE_NEWLINE_TYPE_CR);
-	test_consecutive_write ("\n", "", 10, GTK_SOURCE_NEWLINE_TYPE_LF);
+	test_consecutive_write ("", "", 10, CTK_SOURCE_NEWLINE_TYPE_DEFAULT);
+	test_consecutive_write ("\r\n", "", 10, CTK_SOURCE_NEWLINE_TYPE_CR_LF);
+	test_consecutive_write ("\r", "", 10, CTK_SOURCE_NEWLINE_TYPE_CR);
+	test_consecutive_write ("\n", "", 10, CTK_SOURCE_NEWLINE_TYPE_LF);
 }
 
 static void
 test_consecutive (void)
 {
 	test_consecutive_write ("hello\nhow\nare\nyou", "hello\nhow\nare\nyou", 2,
-				GTK_SOURCE_NEWLINE_TYPE_LF);
+				CTK_SOURCE_NEWLINE_TYPE_LF);
 	test_consecutive_write ("hello\rhow\rare\ryou", "hello\rhow\rare\ryou", 2,
-				GTK_SOURCE_NEWLINE_TYPE_CR);
+				CTK_SOURCE_NEWLINE_TYPE_CR);
 	test_consecutive_write ("hello\r\nhow\r\nare\r\nyou", "hello\r\nhow\r\nare\r\nyou", 2,
-				GTK_SOURCE_NEWLINE_TYPE_CR_LF);
+				CTK_SOURCE_NEWLINE_TYPE_CR_LF);
 }
 
 static void
 test_consecutive_tnewline (void)
 {
 	test_consecutive_write ("hello\nhow\nare\nyou\n", "hello\nhow\nare\nyou", 2,
-				GTK_SOURCE_NEWLINE_TYPE_LF);
+				CTK_SOURCE_NEWLINE_TYPE_LF);
 	test_consecutive_write ("hello\rhow\rare\ryou\r", "hello\rhow\rare\ryou", 2,
-				GTK_SOURCE_NEWLINE_TYPE_CR);
+				CTK_SOURCE_NEWLINE_TYPE_CR);
 	test_consecutive_write ("hello\r\nhow\r\nare\r\nyou\r\n", "hello\r\nhow\r\nare\r\nyou", 2,
-				GTK_SOURCE_NEWLINE_TYPE_CR_LF);
+				CTK_SOURCE_NEWLINE_TYPE_CR_LF);
 }
 
 static void
 test_big_char (void)
 {
 	test_consecutive_write ("\343\203\200\343\203\200", "\343\203\200\343\203\200", 2,
-				GTK_SOURCE_NEWLINE_TYPE_LF);
+				CTK_SOURCE_NEWLINE_TYPE_LF);
 }
 
 static void
@@ -136,7 +136,7 @@ test_boundary (void)
 	g_output_stream_flush (G_OUTPUT_STREAM (out), NULL, &err);
 	g_assert_no_error (err);
 
-	line_count = ctk_text_buffer_get_line_count (GTK_TEXT_BUFFER (source_buffer));
+	line_count = ctk_text_buffer_get_line_count (CTK_TEXT_BUFFER (source_buffer));
 
 	g_assert_cmpint (line_count, ==, 2);
 
@@ -152,11 +152,11 @@ static void
 test_invalid_utf8 (void)
 {
 	test_consecutive_write ("foobar\n\xef\xbf\xbe", "foobar\n\\EF\\BF\\BE", 10,
-	                        GTK_SOURCE_NEWLINE_TYPE_LF);
+	                        CTK_SOURCE_NEWLINE_TYPE_LF);
 	test_consecutive_write ("foobar\n\xef\xbf\xbezzzzzz\n", "foobar\n\\EF\\BF\\BEzzzzzz", 10,
-	                        GTK_SOURCE_NEWLINE_TYPE_LF);
+	                        CTK_SOURCE_NEWLINE_TYPE_LF);
 	test_consecutive_write ("\xef\xbf\xbezzzzzz\n", "\\EF\\BF\\BEzzzzzz", 10,
-	                        GTK_SOURCE_NEWLINE_TYPE_LF);
+	                        CTK_SOURCE_NEWLINE_TYPE_LF);
 }
 #endif
 
@@ -288,8 +288,8 @@ do_test (const gchar              *inbuf,
 		*guessed = ctk_source_buffer_output_stream_get_guessed (out);
 	}
 
-	ctk_text_buffer_get_bounds (GTK_TEXT_BUFFER (source_buffer), &start, &end);
-	text = ctk_text_buffer_get_text (GTK_TEXT_BUFFER (source_buffer),
+	ctk_text_buffer_get_bounds (CTK_TEXT_BUFFER (source_buffer), &start, &end);
+	text = ctk_text_buffer_get_text (CTK_TEXT_BUFFER (source_buffer),
 	                                 &start,
 	                                 &end,
 	                                 FALSE);

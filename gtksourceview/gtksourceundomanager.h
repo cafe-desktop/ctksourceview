@@ -20,10 +20,10 @@
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTK_SOURCE_UNDO_MANAGER_H
-#define GTK_SOURCE_UNDO_MANAGER_H
+#ifndef CTK_SOURCE_UNDO_MANAGER_H
+#define CTK_SOURCE_UNDO_MANAGER_H
 
-#if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
+#if !defined (CTK_SOURCE_H_INSIDE) && !defined (CTK_SOURCE_COMPILATION)
 #error "Only <ctksourceview/ctksource.h> can be included directly."
 #endif
 
@@ -32,10 +32,10 @@
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_UNDO_MANAGER                (ctk_source_undo_manager_get_type ())
-#define GTK_SOURCE_UNDO_MANAGER(obj)                (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_UNDO_MANAGER, GtkSourceUndoManager))
-#define GTK_SOURCE_IS_UNDO_MANAGER(obj)             (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_SOURCE_TYPE_UNDO_MANAGER))
-#define GTK_SOURCE_UNDO_MANAGER_GET_INTERFACE(obj)  (G_TYPE_INSTANCE_GET_INTERFACE ((obj), GTK_SOURCE_TYPE_UNDO_MANAGER, GtkSourceUndoManagerIface))
+#define CTK_SOURCE_TYPE_UNDO_MANAGER                (ctk_source_undo_manager_get_type ())
+#define CTK_SOURCE_UNDO_MANAGER(obj)                (G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_UNDO_MANAGER, GtkSourceUndoManager))
+#define CTK_SOURCE_IS_UNDO_MANAGER(obj)             (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CTK_SOURCE_TYPE_UNDO_MANAGER))
+#define CTK_SOURCE_UNDO_MANAGER_GET_INTERFACE(obj)  (G_TYPE_INSTANCE_GET_INTERFACE ((obj), CTK_SOURCE_TYPE_UNDO_MANAGER, GtkSourceUndoManagerIface))
 
 typedef struct _GtkSourceUndoManagerIface      	GtkSourceUndoManagerIface;
 
@@ -58,33 +58,33 @@ struct _GtkSourceUndoManagerIface
 	void     (*can_redo_changed)          (GtkSourceUndoManager *manager);
 };
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 GType     ctk_source_undo_manager_get_type                  (void) G_GNUC_CONST;
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 gboolean  ctk_source_undo_manager_can_undo                  (GtkSourceUndoManager *manager);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 gboolean  ctk_source_undo_manager_can_redo                  (GtkSourceUndoManager *manager);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 void      ctk_source_undo_manager_undo                      (GtkSourceUndoManager *manager);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 void      ctk_source_undo_manager_redo                      (GtkSourceUndoManager *manager);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 void      ctk_source_undo_manager_begin_not_undoable_action (GtkSourceUndoManager *manager);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 void      ctk_source_undo_manager_end_not_undoable_action   (GtkSourceUndoManager *manager);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 void      ctk_source_undo_manager_can_undo_changed          (GtkSourceUndoManager *manager);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 void      ctk_source_undo_manager_can_redo_changed          (GtkSourceUndoManager *manager);
 
 G_END_DECLS
 
-#endif /* GTK_SOURCE_UNDO_MANAGER_H */
+#endif /* CTK_SOURCE_UNDO_MANAGER_H */

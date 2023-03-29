@@ -19,10 +19,10 @@
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTK_SOURCE_REGION_H
-#define GTK_SOURCE_REGION_H
+#ifndef CTK_SOURCE_REGION_H
+#define CTK_SOURCE_REGION_H
 
-#if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
+#if !defined (CTK_SOURCE_H_INSIDE) && !defined (CTK_SOURCE_COMPILATION)
 #error "Only <ctksourceview/ctksource.h> can be included directly."
 #endif
 
@@ -31,11 +31,11 @@
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_REGION (ctk_source_region_get_type ())
+#define CTK_SOURCE_TYPE_REGION (ctk_source_region_get_type ())
 
-GTK_SOURCE_AVAILABLE_IN_3_22
+CTK_SOURCE_AVAILABLE_IN_3_22
 G_DECLARE_DERIVABLE_TYPE (GtkSourceRegion, ctk_source_region,
-			  GTK_SOURCE, REGION,
+			  CTK_SOURCE, REGION,
 			  GObject)
 
 struct _GtkSourceRegionClass
@@ -63,65 +63,65 @@ struct _GtkSourceRegionIter
 	gpointer dummy3;
 };
 
-GTK_SOURCE_AVAILABLE_IN_3_22
+CTK_SOURCE_AVAILABLE_IN_3_22
 GtkSourceRegion *	ctk_source_region_new			(GtkTextBuffer *buffer);
 
-GTK_SOURCE_AVAILABLE_IN_3_22
+CTK_SOURCE_AVAILABLE_IN_3_22
 GtkTextBuffer *		ctk_source_region_get_buffer		(GtkSourceRegion *region);
 
-GTK_SOURCE_AVAILABLE_IN_3_22
+CTK_SOURCE_AVAILABLE_IN_3_22
 void			ctk_source_region_add_subregion		(GtkSourceRegion   *region,
 								 const GtkTextIter *_start,
 								 const GtkTextIter *_end);
 
-GTK_SOURCE_AVAILABLE_IN_3_22
+CTK_SOURCE_AVAILABLE_IN_3_22
 void			ctk_source_region_add_region		(GtkSourceRegion *region,
 								 GtkSourceRegion *region_to_add);
 
-GTK_SOURCE_AVAILABLE_IN_3_22
+CTK_SOURCE_AVAILABLE_IN_3_22
 void			ctk_source_region_subtract_subregion	(GtkSourceRegion   *region,
 								 const GtkTextIter *_start,
 								 const GtkTextIter *_end);
 
-GTK_SOURCE_AVAILABLE_IN_3_22
+CTK_SOURCE_AVAILABLE_IN_3_22
 void			ctk_source_region_subtract_region	(GtkSourceRegion *region,
 								 GtkSourceRegion *region_to_subtract);
 
-GTK_SOURCE_AVAILABLE_IN_3_22
+CTK_SOURCE_AVAILABLE_IN_3_22
 GtkSourceRegion *	ctk_source_region_intersect_subregion	(GtkSourceRegion   *region,
 								 const GtkTextIter *_start,
 								 const GtkTextIter *_end);
 
-GTK_SOURCE_AVAILABLE_IN_3_22
+CTK_SOURCE_AVAILABLE_IN_3_22
 GtkSourceRegion *	ctk_source_region_intersect_region	(GtkSourceRegion *region1,
 								 GtkSourceRegion *region2);
 
-GTK_SOURCE_AVAILABLE_IN_3_22
+CTK_SOURCE_AVAILABLE_IN_3_22
 gboolean		ctk_source_region_is_empty		(GtkSourceRegion *region);
 
-GTK_SOURCE_AVAILABLE_IN_3_22
+CTK_SOURCE_AVAILABLE_IN_3_22
 gboolean		ctk_source_region_get_bounds		(GtkSourceRegion *region,
 								 GtkTextIter     *start,
 								 GtkTextIter     *end);
 
-GTK_SOURCE_AVAILABLE_IN_3_22
+CTK_SOURCE_AVAILABLE_IN_3_22
 void			ctk_source_region_get_start_region_iter	(GtkSourceRegion     *region,
 								 GtkSourceRegionIter *iter);
 
-GTK_SOURCE_AVAILABLE_IN_3_22
+CTK_SOURCE_AVAILABLE_IN_3_22
 gboolean		ctk_source_region_iter_is_end		(GtkSourceRegionIter *iter);
 
-GTK_SOURCE_AVAILABLE_IN_3_22
+CTK_SOURCE_AVAILABLE_IN_3_22
 gboolean		ctk_source_region_iter_next		(GtkSourceRegionIter *iter);
 
-GTK_SOURCE_AVAILABLE_IN_3_22
+CTK_SOURCE_AVAILABLE_IN_3_22
 gboolean		ctk_source_region_iter_get_subregion	(GtkSourceRegionIter *iter,
 								 GtkTextIter         *start,
 								 GtkTextIter         *end);
 
-GTK_SOURCE_AVAILABLE_IN_3_22
+CTK_SOURCE_AVAILABLE_IN_3_22
 gchar *			ctk_source_region_to_string		(GtkSourceRegion *region);
 
 G_END_DECLS
 
-#endif /* GTK_SOURCE_REGION_H */
+#endif /* CTK_SOURCE_REGION_H */

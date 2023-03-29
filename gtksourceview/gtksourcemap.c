@@ -177,7 +177,7 @@ enum
 	N_PROPERTIES
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceMap, ctk_source_map, GTK_SOURCE_TYPE_VIEW)
+G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceMap, ctk_source_map, CTK_SOURCE_TYPE_VIEW)
 
 static GParamSpec *properties[N_PROPERTIES];
 
@@ -202,18 +202,18 @@ update_scrubber_position (GtkSourceMap *map)
 		return;
 	}
 
-	ctk_widget_get_allocation (GTK_WIDGET (priv->view), &view_alloc);
-	ctk_widget_get_allocation (GTK_WIDGET (map), &alloc);
+	ctk_widget_get_allocation (CTK_WIDGET (priv->view), &view_alloc);
+	ctk_widget_get_allocation (CTK_WIDGET (map), &alloc);
 
-	ctk_widget_get_preferred_height (GTK_WIDGET (priv->view), NULL, &view_height);
-	ctk_widget_get_preferred_height (GTK_WIDGET (map), NULL, &child_height);
+	ctk_widget_get_preferred_height (CTK_WIDGET (priv->view), NULL, &view_height);
+	ctk_widget_get_preferred_height (CTK_WIDGET (map), NULL, &child_height);
 
-	ctk_text_view_get_visible_rect (GTK_TEXT_VIEW (priv->view), &visible_area);
-	ctk_text_view_get_iter_at_location (GTK_TEXT_VIEW (priv->view), &iter,
+	ctk_text_view_get_visible_rect (CTK_TEXT_VIEW (priv->view), &visible_area);
+	ctk_text_view_get_iter_at_location (CTK_TEXT_VIEW (priv->view), &iter,
 	                                    visible_area.x, visible_area.y);
-	ctk_text_view_get_iter_location (GTK_TEXT_VIEW (map), &iter, &iter_area);
-	ctk_text_view_buffer_to_window_coords (GTK_TEXT_VIEW (map),
-	                                       GTK_TEXT_WINDOW_WIDGET,
+	ctk_text_view_get_iter_location (CTK_TEXT_VIEW (map), &iter, &iter_area);
+	ctk_text_view_buffer_to_window_coords (CTK_TEXT_VIEW (map),
+	                                       CTK_TEXT_WINDOW_WIDGET,
 	                                       iter_area.x, iter_area.y,
 	                                       NULL, &y);
 
@@ -237,11 +237,11 @@ update_scrubber_position (GtkSourceMap *map)
 		 * fine. However, it actually has a noticible improvement on
 		 * interactivity to simply invalidate the old and new region
 		 * in the widgets primary GdkWindow. Since the window is
-		 * not the GTK_TEXT_WINDOW_TEXT, we don't seem to invalidate
+		 * not the CTK_TEXT_WINDOW_TEXT, we don't seem to invalidate
 		 * the pixel cache. This makes things as interactive as they
 		 * were when drawing the scrubber from a parent widget.
 		 */
-		window = ctk_text_view_get_window (GTK_TEXT_VIEW (map), GTK_TEXT_WINDOW_WIDGET);
+		window = ctk_text_view_get_window (CTK_TEXT_VIEW (map), CTK_TEXT_WINDOW_WIDGET);
 		if (window != NULL)
 		{
 			gdk_window_invalidate_rect (window, &priv->scrubber_area, FALSE);
@@ -307,8 +307,8 @@ ctk_source_map_rebuild_css (GtkSourceMap *map)
 		g_free (css);
 	}
 
-	buffer = ctk_text_view_get_buffer (GTK_TEXT_VIEW (priv->view));
-	style_scheme = ctk_source_buffer_get_style_scheme (GTK_SOURCE_BUFFER (buffer));
+	buffer = ctk_text_view_get_buffer (CTK_TEXT_VIEW (priv->view));
+	style_scheme = ctk_source_buffer_get_style_scheme (CTK_SOURCE_BUFFER (buffer));
 
 	if (style_scheme != NULL)
 	{
@@ -346,10 +346,10 @@ ctk_source_map_rebuild_css (GtkSourceMap *map)
 		 * to render with an alpha.
 		 */
 
-		context = ctk_widget_get_style_context (GTK_WIDGET (priv->view));
+		context = ctk_widget_get_style_context (CTK_WIDGET (priv->view));
 		ctk_style_context_save (context);
 		ctk_style_context_add_class (context, "view");
-		ctk_style_context_set_state (context, GTK_STATE_FLAG_SELECTED);
+		ctk_style_context_set_state (context, CTK_STATE_FLAG_SELECTED);
 		G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
 		ctk_style_context_get_background_color (context,
 							ctk_style_context_get_state (context),
@@ -415,14 +415,14 @@ update_child_vadjustment (GtkSourceMap *map)
 
 	priv = ctk_source_map_get_instance_private (map);
 
-	vadj = ctk_scrollable_get_vadjustment (GTK_SCROLLABLE (priv->view));
+	vadj = ctk_scrollable_get_vadjustment (CTK_SCROLLABLE (priv->view));
 	g_object_get (vadj,
 	              "upper", &upper,
 	              "value", &value,
 	              "page-size", &page_size,
 	              NULL);
 
-	child_vadj = ctk_scrollable_get_vadjustment (GTK_SCROLLABLE (map));
+	child_vadj = ctk_scrollable_get_vadjustment (CTK_SCROLLABLE (map));
 	g_object_get (child_vadj,
 	              "upper", &child_upper,
 	              "page-size", &child_page_size,
@@ -524,7 +524,7 @@ view_notify_buffer (GtkSourceMap  *map,
 		disconnect_buffer (map);
 	}
 
-	buffer = ctk_text_view_get_buffer (GTK_TEXT_VIEW (view));
+	buffer = ctk_text_view_get_buffer (CTK_TEXT_VIEW (view));
 
 	if (buffer != NULL)
 	{
@@ -574,7 +574,7 @@ ctk_source_map_get_preferred_width (GtkWidget *widget,
                                     gint      *mininum_width,
                                     gint      *natural_width)
 {
-	GtkSourceMap *map = GTK_SOURCE_MAP (widget);
+	GtkSourceMap *map = CTK_SOURCE_MAP (widget);
 	GtkSourceMapPrivate *priv;
 	PangoLayout *layout;
 	gint height;
@@ -595,7 +595,7 @@ ctk_source_map_get_preferred_width (GtkWidget *widget,
 	 * rebuilding our CSS since it gets used a bunch and changes
 	 * very little.
 	 */
-	layout = ctk_widget_create_pango_layout (GTK_WIDGET (map), "X");
+	layout = ctk_widget_create_pango_layout (CTK_WIDGET (map), "X");
 	pango_layout_get_pixel_size (layout, &width, &height);
 	g_object_unref (layout);
 
@@ -609,7 +609,7 @@ ctk_source_map_get_preferred_height (GtkWidget *widget,
                                      gint      *minimum_height,
                                      gint      *natural_height)
 {
-	GtkSourceMap *map = GTK_SOURCE_MAP (widget);
+	GtkSourceMap *map = CTK_SOURCE_MAP (widget);
 	GtkSourceMapPrivate *priv;
 
 	priv = ctk_source_map_get_instance_private (map);
@@ -620,7 +620,7 @@ ctk_source_map_get_preferred_height (GtkWidget *widget,
 		return;
 	}
 
-	GTK_WIDGET_CLASS (ctk_source_map_parent_class)->get_preferred_height (widget,
+	CTK_WIDGET_CLASS (ctk_source_map_parent_class)->get_preferred_height (widget,
 	                                                                      minimum_height,
 	                                                                      natural_height);
 
@@ -646,12 +646,12 @@ scroll_to_child_point (GtkSourceMap   *map,
 		GtkAllocation alloc;
 		GtkTextIter iter;
 
-		ctk_widget_get_allocation (GTK_WIDGET (map), &alloc);
+		ctk_widget_get_allocation (CTK_WIDGET (map), &alloc);
 
-		ctk_text_view_get_iter_at_location (GTK_TEXT_VIEW (map),
+		ctk_text_view_get_iter_at_location (CTK_TEXT_VIEW (map),
 		                                    &iter, point->x, point->y);
 
-		_ctk_source_view_jump_to_iter (GTK_TEXT_VIEW (priv->view), &iter,
+		_ctk_source_view_jump_to_iter (CTK_TEXT_VIEW (priv->view), &iter,
 		                               0.0, TRUE, 1.0, 0.5);
 	}
 }
@@ -660,9 +660,9 @@ static void
 ctk_source_map_size_allocate (GtkWidget     *widget,
                               GtkAllocation *alloc)
 {
-	GtkSourceMap *map = GTK_SOURCE_MAP (widget);
+	GtkSourceMap *map = CTK_SOURCE_MAP (widget);
 
-	GTK_WIDGET_CLASS (ctk_source_map_parent_class)->size_allocate (widget, alloc);
+	CTK_WIDGET_CLASS (ctk_source_map_parent_class)->size_allocate (widget, alloc);
 
 	update_scrubber_position (map);
 }
@@ -679,7 +679,7 @@ connect_view (GtkSourceMap  *map,
 	priv->view = view;
 	g_object_add_weak_pointer (G_OBJECT (view), (gpointer *)&priv->view);
 
-	vadj = ctk_scrollable_get_vadjustment (GTK_SCROLLABLE (view));
+	vadj = ctk_scrollable_get_vadjustment (CTK_SCROLLABLE (view));
 
 	priv->buffer_binding =
 		g_object_bind_property (view, "buffer",
@@ -724,18 +724,18 @@ connect_view (GtkSourceMap  *map,
 		                         map,
 		                         G_CONNECT_SWAPPED);
 
-	if ((ctk_widget_get_events (GTK_WIDGET (priv->view)) & GDK_ENTER_NOTIFY_MASK) == 0)
+	if ((ctk_widget_get_events (CTK_WIDGET (priv->view)) & GDK_ENTER_NOTIFY_MASK) == 0)
 	{
-		ctk_widget_add_events (GTK_WIDGET (priv->view), GDK_ENTER_NOTIFY_MASK);
+		ctk_widget_add_events (CTK_WIDGET (priv->view), GDK_ENTER_NOTIFY_MASK);
 	}
 
-	if ((ctk_widget_get_events (GTK_WIDGET (priv->view)) & GDK_LEAVE_NOTIFY_MASK) == 0)
+	if ((ctk_widget_get_events (CTK_WIDGET (priv->view)) & GDK_LEAVE_NOTIFY_MASK) == 0)
 	{
-		ctk_widget_add_events (GTK_WIDGET (priv->view), GDK_LEAVE_NOTIFY_MASK);
+		ctk_widget_add_events (CTK_WIDGET (priv->view), GDK_LEAVE_NOTIFY_MASK);
 	}
 
 	/* If we are not visible, we want to block certain signal handlers */
-	if (!ctk_widget_get_visible (GTK_WIDGET (map)))
+	if (!ctk_widget_get_visible (CTK_WIDGET (map)))
 	{
 		g_signal_handler_block (vadj, priv->view_vadj_value_changed_handler);
 		g_signal_handler_block (vadj, priv->view_vadj_notify_upper_handler);
@@ -789,7 +789,7 @@ disconnect_view (GtkSourceMap *map)
 		priv->view_notify_buffer_handler = 0;
 	}
 
-	vadj = ctk_scrollable_get_vadjustment (GTK_SCROLLABLE (priv->view));
+	vadj = ctk_scrollable_get_vadjustment (CTK_SCROLLABLE (priv->view));
 	if (vadj != NULL)
 	{
 		g_signal_handler_disconnect (vadj, priv->view_vadj_value_changed_handler);
@@ -806,7 +806,7 @@ disconnect_view (GtkSourceMap *map)
 static void
 ctk_source_map_destroy (GtkWidget *widget)
 {
-	GtkSourceMap *map = GTK_SOURCE_MAP (widget);
+	GtkSourceMap *map = CTK_SOURCE_MAP (widget);
 	GtkSourceMapPrivate *priv;
 
 	priv = ctk_source_map_get_instance_private (map);
@@ -817,14 +817,14 @@ ctk_source_map_destroy (GtkWidget *widget)
 	g_clear_object (&priv->css_provider);
 	g_clear_pointer (&priv->font_desc, pango_font_description_free);
 
-	GTK_WIDGET_CLASS (ctk_source_map_parent_class)->destroy (widget);
+	CTK_WIDGET_CLASS (ctk_source_map_parent_class)->destroy (widget);
 }
 
 static gboolean
 ctk_source_map_draw (GtkWidget *widget,
                      cairo_t   *cr)
 {
-	GtkSourceMap *map = GTK_SOURCE_MAP (widget);
+	GtkSourceMap *map = CTK_SOURCE_MAP (widget);
 	GtkSourceMapPrivate *priv;
 	GtkStyleContext *style_context;
 
@@ -832,7 +832,7 @@ ctk_source_map_draw (GtkWidget *widget,
 
 	style_context = ctk_widget_get_style_context (widget);
 
-	GTK_WIDGET_CLASS (ctk_source_map_parent_class)->draw (widget, cr);
+	CTK_WIDGET_CLASS (ctk_source_map_parent_class)->draw (widget, cr);
 
 	ctk_style_context_save (style_context);
 	ctk_style_context_add_class (style_context, "scrubber");
@@ -850,7 +850,7 @@ ctk_source_map_get_property (GObject    *object,
                              GValue     *value,
                              GParamSpec *pspec)
 {
-	GtkSourceMap *map = GTK_SOURCE_MAP (object);
+	GtkSourceMap *map = CTK_SOURCE_MAP (object);
 	GtkSourceMapPrivate *priv;
 
 	priv = ctk_source_map_get_instance_private (map);
@@ -876,7 +876,7 @@ ctk_source_map_set_property (GObject      *object,
                              const GValue *value,
                              GParamSpec   *pspec)
 {
-	GtkSourceMap *map = GTK_SOURCE_MAP (object);
+	GtkSourceMap *map = CTK_SOURCE_MAP (object);
 
 	switch (prop_id)
 	{
@@ -897,7 +897,7 @@ static gboolean
 ctk_source_map_button_press_event (GtkWidget      *widget,
                                    GdkEventButton *event)
 {
-	GtkSourceMap *map = GTK_SOURCE_MAP (widget);
+	GtkSourceMap *map = CTK_SOURCE_MAP (widget);
 	GtkSourceMapPrivate *priv;
 	GdkPoint point;
 
@@ -906,8 +906,8 @@ ctk_source_map_button_press_event (GtkWidget      *widget,
 	point.x = event->x;
 	point.y = event->y;
 
-	ctk_text_view_window_to_buffer_coords (GTK_TEXT_VIEW (map),
-	                                       GTK_TEXT_WINDOW_WIDGET,
+	ctk_text_view_window_to_buffer_coords (CTK_TEXT_VIEW (map),
+	                                       CTK_TEXT_WINDOW_WIDGET,
 	                                       event->x, event->y,
 	                                       &point.x, &point.y);
 
@@ -924,7 +924,7 @@ static gboolean
 ctk_source_map_button_release_event (GtkWidget      *widget,
                                      GdkEventButton *event)
 {
-	GtkSourceMap *map = GTK_SOURCE_MAP (widget);
+	GtkSourceMap *map = CTK_SOURCE_MAP (widget);
 	GtkSourceMapPrivate *priv;
 
 	priv = ctk_source_map_get_instance_private (map);
@@ -941,7 +941,7 @@ static gboolean
 ctk_source_map_motion_notify_event (GtkWidget      *widget,
                                     GdkEventMotion *event)
 {
-	GtkSourceMap *map = GTK_SOURCE_MAP (widget);
+	GtkSourceMap *map = CTK_SOURCE_MAP (widget);
 	GtkSourceMapPrivate *priv;
 
 	priv = ctk_source_map_get_instance_private (map);
@@ -963,9 +963,9 @@ ctk_source_map_motion_notify_event (GtkWidget      *widget,
 			height = MIN (height, alloc.height);
 		}
 
-		buffer = ctk_text_view_get_buffer (GTK_TEXT_VIEW (map));
+		buffer = ctk_text_view_get_buffer (CTK_TEXT_VIEW (map));
 		ctk_text_buffer_get_end_iter (buffer, &iter);
-		ctk_text_view_get_iter_location (GTK_TEXT_VIEW (map), &iter, &area);
+		ctk_text_view_get_iter_location (CTK_TEXT_VIEW (map), &iter, &area);
 
 		yratio = CLAMP (event->y - alloc.y, 0, height) / (gdouble)height;
 
@@ -982,7 +982,7 @@ static gboolean
 ctk_source_map_scroll_event (GtkWidget      *widget,
                              GdkEventScroll *event)
 {
-	GtkSourceMap *map = GTK_SOURCE_MAP (widget);
+	GtkSourceMap *map = CTK_SOURCE_MAP (widget);
 	GtkSourceMapPrivate *priv;
 	static const gint scroll_acceleration = 4;
 
@@ -1025,7 +1025,7 @@ ctk_source_map_scroll_event (GtkWidget      *widget,
 		if (count != 0)
 		{
 			g_signal_emit_by_name (priv->view, "move-viewport",
-			                       GTK_SCROLL_STEPS, count);
+			                       CTK_SCROLL_STEPS, count);
 			return GDK_EVENT_STOP;
 		}
 	}
@@ -1038,8 +1038,8 @@ set_view_cursor (GtkSourceMap *map)
 {
 	GdkWindow *window;
 
-	window = ctk_text_view_get_window (GTK_TEXT_VIEW (map),
-	                                   GTK_TEXT_WINDOW_TEXT);
+	window = ctk_text_view_get_window (CTK_TEXT_VIEW (map),
+	                                   CTK_TEXT_WINDOW_TEXT);
 	if (window != NULL)
 	{
 		gdk_window_set_cursor (window, NULL);
@@ -1050,33 +1050,33 @@ static void
 ctk_source_map_state_flags_changed (GtkWidget     *widget,
                                     GtkStateFlags  flags)
 {
-	GTK_WIDGET_CLASS (ctk_source_map_parent_class)->state_flags_changed (widget, flags);
+	CTK_WIDGET_CLASS (ctk_source_map_parent_class)->state_flags_changed (widget, flags);
 
-	set_view_cursor (GTK_SOURCE_MAP (widget));
+	set_view_cursor (CTK_SOURCE_MAP (widget));
 }
 
 static void
 ctk_source_map_realize (GtkWidget *widget)
 {
-	GTK_WIDGET_CLASS (ctk_source_map_parent_class)->realize (widget);
+	CTK_WIDGET_CLASS (ctk_source_map_parent_class)->realize (widget);
 
-	set_view_cursor (GTK_SOURCE_MAP (widget));
+	set_view_cursor (CTK_SOURCE_MAP (widget));
 }
 
 static void
 ctk_source_map_show (GtkWidget *widget)
 {
-	GtkSourceMap *map = GTK_SOURCE_MAP (widget);
+	GtkSourceMap *map = CTK_SOURCE_MAP (widget);
 	GtkSourceMapPrivate *priv;
 	GtkAdjustment *vadj;
 
-	GTK_WIDGET_CLASS (ctk_source_map_parent_class)->show (widget);
+	CTK_WIDGET_CLASS (ctk_source_map_parent_class)->show (widget);
 
 	priv = ctk_source_map_get_instance_private (map);
 
 	if (priv->view != NULL)
 	{
-		vadj = ctk_scrollable_get_vadjustment (GTK_SCROLLABLE (priv->view));
+		vadj = ctk_scrollable_get_vadjustment (CTK_SCROLLABLE (priv->view));
 
 		g_signal_handler_unblock (vadj, priv->view_vadj_value_changed_handler);
 		g_signal_handler_unblock (vadj, priv->view_vadj_notify_upper_handler);
@@ -1089,17 +1089,17 @@ ctk_source_map_show (GtkWidget *widget)
 static void
 ctk_source_map_hide (GtkWidget *widget)
 {
-	GtkSourceMap *map = GTK_SOURCE_MAP (widget);
+	GtkSourceMap *map = CTK_SOURCE_MAP (widget);
 	GtkSourceMapPrivate *priv;
 	GtkAdjustment *vadj;
 
-	GTK_WIDGET_CLASS (ctk_source_map_parent_class)->hide (widget);
+	CTK_WIDGET_CLASS (ctk_source_map_parent_class)->hide (widget);
 
 	priv = ctk_source_map_get_instance_private (map);
 
 	if (priv->view != NULL)
 	{
-		vadj = ctk_scrollable_get_vadjustment (GTK_SCROLLABLE (priv->view));
+		vadj = ctk_scrollable_get_vadjustment (CTK_SCROLLABLE (priv->view));
 		g_signal_handler_block (vadj, priv->view_vadj_value_changed_handler);
 		g_signal_handler_block (vadj, priv->view_vadj_notify_upper_handler);
 	}
@@ -1109,7 +1109,7 @@ static void
 ctk_source_map_class_init (GtkSourceMapClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
-	GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
+	GtkWidgetClass *widget_class = CTK_WIDGET_CLASS (klass);
 
 	object_class->get_property = ctk_source_map_get_property;
 	object_class->set_property = ctk_source_map_set_property;
@@ -1132,7 +1132,7 @@ ctk_source_map_class_init (GtkSourceMapClass *klass)
 		g_param_spec_object ("view",
 		                     "View",
 		                     "The view this widget is mapping.",
-		                     GTK_SOURCE_TYPE_VIEW,
+		                     CTK_SOURCE_TYPE_VIEW,
 		                     (G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 
 	properties[PROP_FONT_DESC] =
@@ -1156,10 +1156,10 @@ ctk_source_map_init (GtkSourceMap *map)
 
 	priv->css_provider = ctk_css_provider_new ();
 
-	context = ctk_widget_get_style_context (GTK_WIDGET (map));
+	context = ctk_widget_get_style_context (CTK_WIDGET (map));
 	ctk_style_context_add_provider (context,
-	                                GTK_STYLE_PROVIDER (priv->css_provider),
-	                                GTK_SOURCE_STYLE_PROVIDER_PRIORITY + 1);
+	                                CTK_STYLE_PROVIDER (priv->css_provider),
+	                                CTK_SOURCE_STYLE_PROVIDER_PRIORITY + 1);
 
 	g_object_set (map,
 	              "auto-indent", FALSE,
@@ -1173,9 +1173,9 @@ ctk_source_map_init (GtkSourceMap *map)
 	              "visible", TRUE,
 	              NULL);
 
-	ctk_widget_add_events (GTK_WIDGET (map), GDK_SCROLL_MASK);
+	ctk_widget_add_events (CTK_WIDGET (map), GDK_SCROLL_MASK);
 
-	completion = ctk_source_view_get_completion (GTK_SOURCE_VIEW (map));
+	completion = ctk_source_view_get_completion (CTK_SOURCE_VIEW (map));
 	ctk_source_completion_block_interactive (completion);
 
 	ctk_source_map_set_font_name (map, "Monospace 1");
@@ -1193,7 +1193,7 @@ ctk_source_map_init (GtkSourceMap *map)
 GtkWidget *
 ctk_source_map_new (void)
 {
-	return g_object_new (GTK_SOURCE_TYPE_MAP, NULL);
+	return g_object_new (CTK_SOURCE_TYPE_MAP, NULL);
 }
 
 /**
@@ -1211,8 +1211,8 @@ ctk_source_map_set_view (GtkSourceMap  *map,
 {
 	GtkSourceMapPrivate *priv;
 
-	g_return_if_fail (GTK_SOURCE_IS_MAP (map));
-	g_return_if_fail (view == NULL || GTK_SOURCE_IS_VIEW (view));
+	g_return_if_fail (CTK_SOURCE_IS_MAP (map));
+	g_return_if_fail (view == NULL || CTK_SOURCE_IS_VIEW (view));
 
 	priv = ctk_source_map_get_instance_private (map);
 
@@ -1249,7 +1249,7 @@ ctk_source_map_get_view (GtkSourceMap *map)
 {
 	GtkSourceMapPrivate *priv;
 
-	g_return_val_if_fail (GTK_SOURCE_IS_MAP (map), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_MAP (map), NULL);
 
 	priv = ctk_source_map_get_instance_private (map);
 

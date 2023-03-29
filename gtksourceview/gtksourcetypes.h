@@ -17,10 +17,10 @@
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTK_SOURCE_TYPES_H
-#define GTK_SOURCE_TYPES_H
+#ifndef CTK_SOURCE_TYPES_H
+#define CTK_SOURCE_TYPES_H
 
-#if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
+#if !defined (CTK_SOURCE_H_INSIDE) && !defined (CTK_SOURCE_COMPILATION)
 #error "Only <ctksourceview/ctksource.h> can be included directly."
 #endif
 
@@ -70,4 +70,4 @@ typedef struct _GtkSourceView			GtkSourceView;
 
 G_END_DECLS
 
-#endif /* GTK_SOURCE_TYPES_H */
+#endif /* CTK_SOURCE_TYPES_H */

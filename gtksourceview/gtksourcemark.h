@@ -18,10 +18,10 @@
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTKSOURCEMARK_H
-#define GTKSOURCEMARK_H
+#ifndef CTKSOURCEMARK_H
+#define CTKSOURCEMARK_H
 
-#if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
+#if !defined (CTK_SOURCE_H_INSIDE) && !defined (CTK_SOURCE_COMPILATION)
 #error "Only <ctksourceview/ctksource.h> can be included directly."
 #endif
 
@@ -30,12 +30,12 @@
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_MARK             (ctk_source_mark_get_type ())
-#define GTK_SOURCE_MARK(obj)             (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_MARK, GtkSourceMark))
-#define GTK_SOURCE_MARK_CLASS(klass)     (G_TYPE_CHECK_CLASS_CAST ((klass), GTK_SOURCE_TYPE_MARK, GtkSourceMarkClass))
-#define GTK_SOURCE_IS_MARK(obj)          (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_SOURCE_TYPE_MARK))
-#define GTK_SOURCE_IS_MARK_CLASS(klass)  (G_TYPE_CHECK_CLASS_TYPE ((klass), GTK_SOURCE_TYPE_MARK))
-#define GTK_SOURCE_MARK_GET_CLASS(obj)   (G_TYPE_INSTANCE_GET_CLASS ((obj), GTK_SOURCE_TYPE_MARK, GtkSourceMarkClass))
+#define CTK_SOURCE_TYPE_MARK             (ctk_source_mark_get_type ())
+#define CTK_SOURCE_MARK(obj)             (G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_MARK, GtkSourceMark))
+#define CTK_SOURCE_MARK_CLASS(klass)     (G_TYPE_CHECK_CLASS_CAST ((klass), CTK_SOURCE_TYPE_MARK, GtkSourceMarkClass))
+#define CTK_SOURCE_IS_MARK(obj)          (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CTK_SOURCE_TYPE_MARK))
+#define CTK_SOURCE_IS_MARK_CLASS(klass)  (G_TYPE_CHECK_CLASS_TYPE ((klass), CTK_SOURCE_TYPE_MARK))
+#define CTK_SOURCE_MARK_GET_CLASS(obj)   (G_TYPE_INSTANCE_GET_CLASS ((obj), CTK_SOURCE_TYPE_MARK, GtkSourceMarkClass))
 
 typedef struct _GtkSourceMarkClass GtkSourceMarkClass;
 
@@ -56,24 +56,24 @@ struct _GtkSourceMarkClass
 	gpointer padding[10];
 };
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 GType		 ctk_source_mark_get_type (void) G_GNUC_CONST;
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 GtkSourceMark   *ctk_source_mark_new		(const gchar	*name,
 						 const gchar	*category);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 const gchar	*ctk_source_mark_get_category	(GtkSourceMark	*mark);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 GtkSourceMark	*ctk_source_mark_next		(GtkSourceMark	*mark,
 						 const gchar	*category);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 GtkSourceMark	*ctk_source_mark_prev		(GtkSourceMark	*mark,
 						 const gchar	*category);
 
 G_END_DECLS
 
-#endif /* GTKSOURCEMARK_H */
+#endif /* CTKSOURCEMARK_H */

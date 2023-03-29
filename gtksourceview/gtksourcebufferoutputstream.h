@@ -19,8 +19,8 @@
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTK_SOURCE_BUFFER_OUTPUT_STREAM_H
-#define GTK_SOURCE_BUFFER_OUTPUT_STREAM_H
+#ifndef CTK_SOURCE_BUFFER_OUTPUT_STREAM_H
+#define CTK_SOURCE_BUFFER_OUTPUT_STREAM_H
 
 #include <ctk/ctk.h>
 #include "ctksourcetypes.h"
@@ -30,12 +30,12 @@
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_BUFFER_OUTPUT_STREAM		(ctk_source_buffer_output_stream_get_type ())
-#define GTK_SOURCE_BUFFER_OUTPUT_STREAM(obj)		(G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_BUFFER_OUTPUT_STREAM, GtkSourceBufferOutputStream))
-#define GTK_SOURCE_BUFFER_OUTPUT_STREAM_CLASS(klass)	(G_TYPE_CHECK_CLASS_CAST ((klass), GTK_SOURCE_TYPE_BUFFER_OUTPUT_STREAM, GtkSourceBufferOutputStreamClass))
-#define GTK_SOURCE_IS_BUFFER_OUTPUT_STREAM(obj)		(G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_SOURCE_TYPE_BUFFER_OUTPUT_STREAM))
-#define GTK_SOURCE_IS_BUFFER_OUTPUT_STREAM_CLASS(klass)	(G_TYPE_CHECK_CLASS_TYPE ((klass), GTK_SOURCE_TYPE_BUFFER_OUTPUT_STREAM))
-#define GTK_SOURCE_BUFFER_OUTPUT_STREAM_GET_CLASS(obj)	(G_TYPE_INSTANCE_GET_CLASS ((obj), GTK_SOURCE_TYPE_BUFFER_OUTPUT_STREAM, GtkSourceBufferOutputStreamClass))
+#define CTK_SOURCE_TYPE_BUFFER_OUTPUT_STREAM		(ctk_source_buffer_output_stream_get_type ())
+#define CTK_SOURCE_BUFFER_OUTPUT_STREAM(obj)		(G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_BUFFER_OUTPUT_STREAM, GtkSourceBufferOutputStream))
+#define CTK_SOURCE_BUFFER_OUTPUT_STREAM_CLASS(klass)	(G_TYPE_CHECK_CLASS_CAST ((klass), CTK_SOURCE_TYPE_BUFFER_OUTPUT_STREAM, GtkSourceBufferOutputStreamClass))
+#define CTK_SOURCE_IS_BUFFER_OUTPUT_STREAM(obj)		(G_TYPE_CHECK_INSTANCE_TYPE ((obj), CTK_SOURCE_TYPE_BUFFER_OUTPUT_STREAM))
+#define CTK_SOURCE_IS_BUFFER_OUTPUT_STREAM_CLASS(klass)	(G_TYPE_CHECK_CLASS_TYPE ((klass), CTK_SOURCE_TYPE_BUFFER_OUTPUT_STREAM))
+#define CTK_SOURCE_BUFFER_OUTPUT_STREAM_GET_CLASS(obj)	(G_TYPE_INSTANCE_GET_CLASS ((obj), CTK_SOURCE_TYPE_BUFFER_OUTPUT_STREAM, GtkSourceBufferOutputStreamClass))
 
 typedef struct _GtkSourceBufferOutputStreamClass	GtkSourceBufferOutputStreamClass;
 typedef struct _GtkSourceBufferOutputStreamPrivate	GtkSourceBufferOutputStreamPrivate;
@@ -52,26 +52,26 @@ struct _GtkSourceBufferOutputStreamClass
 	GOutputStreamClass parent_class;
 };
 
-GTK_SOURCE_INTERNAL
+CTK_SOURCE_INTERNAL
 GType			 ctk_source_buffer_output_stream_get_type	(void) G_GNUC_CONST;
 
-GTK_SOURCE_INTERNAL
+CTK_SOURCE_INTERNAL
 GtkSourceBufferOutputStream
 			*ctk_source_buffer_output_stream_new		(GtkSourceBuffer             *buffer,
 									 GSList                      *candidate_encodings,
 									 gboolean                     remove_trailing_newline);
 
-GTK_SOURCE_INTERNAL
+CTK_SOURCE_INTERNAL
 GtkSourceNewlineType	 ctk_source_buffer_output_stream_detect_newline_type
 									(GtkSourceBufferOutputStream *stream);
 
-GTK_SOURCE_INTERNAL
+CTK_SOURCE_INTERNAL
 const GtkSourceEncoding	*ctk_source_buffer_output_stream_get_guessed	(GtkSourceBufferOutputStream *stream);
 
-GTK_SOURCE_INTERNAL
+CTK_SOURCE_INTERNAL
 guint			 ctk_source_buffer_output_stream_get_num_fallbacks
 									(GtkSourceBufferOutputStream *stream);
 
 G_END_DECLS
 
-#endif /* GTK_SOURCE_BUFFER_OUTPUT_STREAM_H */
+#endif /* CTK_SOURCE_BUFFER_OUTPUT_STREAM_H */

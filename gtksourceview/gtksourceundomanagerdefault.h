@@ -20,20 +20,20 @@
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTK_SOURCE_UNDO_MANAGER_DEFAULT_H
-#define GTK_SOURCE_UNDO_MANAGER_DEFAULT_H
+#ifndef CTK_SOURCE_UNDO_MANAGER_DEFAULT_H
+#define CTK_SOURCE_UNDO_MANAGER_DEFAULT_H
 
 #include <glib-object.h>
 #include "ctksourcetypes-private.h"
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_UNDO_MANAGER_DEFAULT		(ctk_source_undo_manager_default_get_type ())
-#define GTK_SOURCE_UNDO_MANAGER_DEFAULT(obj)		(G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_SOURCE_TYPE_UNDO_MANAGER_DEFAULT, GtkSourceUndoManagerDefault))
-#define GTK_SOURCE_UNDO_MANAGER_DEFAULT_CLASS(klass)	(G_TYPE_CHECK_CLASS_CAST((klass), GTK_SOURCE_TYPE_UNDO_MANAGER_DEFAULT, GtkSourceUndoManagerDefaultClass))
-#define GTK_SOURCE_IS_UNDO_MANAGER_DEFAULT(obj)		(G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_SOURCE_TYPE_UNDO_MANAGER_DEFAULT))
-#define GTK_SOURCE_IS_UNDO_MANAGER_DEFAULT_CLASS(klass)	(G_TYPE_CHECK_CLASS_TYPE ((klass), GTK_SOURCE_TYPE_UNDO_MANAGER_DEFAULT))
-#define GTK_SOURCE_UNDO_MANAGER_DEFAULT_GET_CLASS(obj)	(G_TYPE_INSTANCE_GET_CLASS ((obj), GTK_SOURCE_TYPE_UNDO_MANAGER_DEFAULT, GtkSourceUndoManagerDefaultClass))
+#define CTK_SOURCE_TYPE_UNDO_MANAGER_DEFAULT		(ctk_source_undo_manager_default_get_type ())
+#define CTK_SOURCE_UNDO_MANAGER_DEFAULT(obj)		(G_TYPE_CHECK_INSTANCE_CAST((obj), CTK_SOURCE_TYPE_UNDO_MANAGER_DEFAULT, GtkSourceUndoManagerDefault))
+#define CTK_SOURCE_UNDO_MANAGER_DEFAULT_CLASS(klass)	(G_TYPE_CHECK_CLASS_CAST((klass), CTK_SOURCE_TYPE_UNDO_MANAGER_DEFAULT, GtkSourceUndoManagerDefaultClass))
+#define CTK_SOURCE_IS_UNDO_MANAGER_DEFAULT(obj)		(G_TYPE_CHECK_INSTANCE_TYPE ((obj), CTK_SOURCE_TYPE_UNDO_MANAGER_DEFAULT))
+#define CTK_SOURCE_IS_UNDO_MANAGER_DEFAULT_CLASS(klass)	(G_TYPE_CHECK_CLASS_TYPE ((klass), CTK_SOURCE_TYPE_UNDO_MANAGER_DEFAULT))
+#define CTK_SOURCE_UNDO_MANAGER_DEFAULT_GET_CLASS(obj)	(G_TYPE_INSTANCE_GET_CLASS ((obj), CTK_SOURCE_TYPE_UNDO_MANAGER_DEFAULT, GtkSourceUndoManagerDefaultClass))
 
 typedef struct _GtkSourceUndoManagerDefaultClass 	GtkSourceUndoManagerDefaultClass;
 typedef struct _GtkSourceUndoManagerDefaultPrivate 	GtkSourceUndoManagerDefaultPrivate;
@@ -59,4 +59,4 @@ void ctk_source_undo_manager_default_set_max_undo_levels (GtkSourceUndoManagerDe
 
 G_END_DECLS
 
-#endif /* GTK_SOURCE_UNDO_MANAGER_DEFAULT_H */
+#endif /* CTK_SOURCE_UNDO_MANAGER_DEFAULT_H */

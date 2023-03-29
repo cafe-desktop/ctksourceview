@@ -43,7 +43,7 @@
   consists of several parts: Autoconf, M4sugar, M4sh, Autoheader, Autoupdate,
   and Autotest, all of which define their own M4 macros. In addition, this file
   also highlights other M4 macros commonly used with Autoconf (those defined by
-  Automake, Libtool, Gettext, and Pkgconfig) and ones used for building GTK
+  Automake, Libtool, Gettext, and Pkgconfig) and ones used for building CTK
   packages (Intltool, Glib, and GConf).
 
   This language definition ironically does _not_ support pure M4 files: M4sugar
@@ -193,7 +193,7 @@
         version_compare|
         warn)|
       AT_DATA|
-      GTK_DOC_CHECK|
+      CTK_DOC_CHECK|
       IT_PROG_INTLTOOL
     </define-regex>
     <define-regex id="macros-ms" extended="true">

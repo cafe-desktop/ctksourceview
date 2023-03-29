@@ -37,7 +37,7 @@
  * (e.g. in GtkSourceView version 3.20.0 this is 3.)
  *
  * This function is in the library, so it represents the GtkSourceView library
- * your code is running against. Contrast with the #GTK_SOURCE_MAJOR_VERSION
+ * your code is running against. Contrast with the #CTK_SOURCE_MAJOR_VERSION
  * macro, which represents the major version of the GtkSourceView headers you
  * have included when compiling your code.
  *
@@ -48,7 +48,7 @@
 guint
 ctk_source_get_major_version (void)
 {
-	return GTK_SOURCE_MAJOR_VERSION;
+	return CTK_SOURCE_MAJOR_VERSION;
 }
 
 /**
@@ -58,7 +58,7 @@ ctk_source_get_major_version (void)
  * (e.g. in GtkSourceView version 3.20.0 this is 20.)
  *
  * This function is in the library, so it represents the GtkSourceView library
- * your code is running against. Contrast with the #GTK_SOURCE_MINOR_VERSION
+ * your code is running against. Contrast with the #CTK_SOURCE_MINOR_VERSION
  * macro, which represents the minor version of the GtkSourceView headers you
  * have included when compiling your code.
  *
@@ -69,7 +69,7 @@ ctk_source_get_major_version (void)
 guint
 ctk_source_get_minor_version (void)
 {
-	return GTK_SOURCE_MINOR_VERSION;
+	return CTK_SOURCE_MINOR_VERSION;
 }
 
 /**
@@ -79,7 +79,7 @@ ctk_source_get_minor_version (void)
  * (e.g. in GtkSourceView version 3.20.0 this is 0.)
  *
  * This function is in the library, so it represents the GtkSourceView library
- * your code is running against. Contrast with the #GTK_SOURCE_MICRO_VERSION
+ * your code is running against. Contrast with the #CTK_SOURCE_MICRO_VERSION
  * macro, which represents the micro version of the GtkSourceView headers you
  * have included when compiling your code.
  *
@@ -90,7 +90,7 @@ ctk_source_get_minor_version (void)
 guint
 ctk_source_get_micro_version (void)
 {
-	return GTK_SOURCE_MICRO_VERSION;
+	return CTK_SOURCE_MICRO_VERSION;
 }
 
 /**
@@ -99,7 +99,7 @@ ctk_source_get_micro_version (void)
  * @minor: the minor version to check
  * @micro: the micro version to check
  *
- * Like GTK_SOURCE_CHECK_VERSION, but the check for ctk_source_check_version is
+ * Like CTK_SOURCE_CHECK_VERSION, but the check for ctk_source_check_version is
  * at runtime instead of compile time. This is useful for compiling
  * against older versions of GtkSourceView, but using features from newer
  * versions.
@@ -114,5 +114,5 @@ ctk_source_check_version (guint major,
                           guint minor,
                           guint micro)
 {
-	return GTK_SOURCE_CHECK_VERSION (major, (int)minor, micro);
+	return CTK_SOURCE_CHECK_VERSION (major, (int)minor, micro);
 }

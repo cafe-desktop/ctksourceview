@@ -18,10 +18,10 @@
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTK_SOURCE_GUTTER_RENDERER_TEXT_H
-#define GTK_SOURCE_GUTTER_RENDERER_TEXT_H
+#ifndef CTK_SOURCE_GUTTER_RENDERER_TEXT_H
+#define CTK_SOURCE_GUTTER_RENDERER_TEXT_H
 
-#if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
+#if !defined (CTK_SOURCE_H_INSIDE) && !defined (CTK_SOURCE_COMPILATION)
 #error "Only <ctksourceview/ctksource.h> can be included directly."
 #endif
 
@@ -30,13 +30,13 @@
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_GUTTER_RENDERER_TEXT		(ctk_source_gutter_renderer_text_get_type ())
-#define GTK_SOURCE_GUTTER_RENDERER_TEXT(obj)		(G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_GUTTER_RENDERER_TEXT, GtkSourceGutterRendererText))
-#define GTK_SOURCE_GUTTER_RENDERER_TEXT_CONST(obj)	(G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_GUTTER_RENDERER_TEXT, GtkSourceGutterRendererText const))
-#define GTK_SOURCE_GUTTER_RENDERER_TEXT_CLASS(klass)	(G_TYPE_CHECK_CLASS_CAST ((klass), GTK_SOURCE_TYPE_GUTTER_RENDERER_TEXT, GtkSourceGutterRendererTextClass))
-#define GTK_SOURCE_IS_GUTTER_RENDERER_TEXT(obj)		(G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_SOURCE_TYPE_GUTTER_RENDERER_TEXT))
-#define GTK_SOURCE_IS_GUTTER_RENDERER_TEXT_CLASS(klass)	(G_TYPE_CHECK_CLASS_TYPE ((klass), GTK_SOURCE_TYPE_GUTTER_RENDERER_TEXT))
-#define GTK_SOURCE_GUTTER_RENDERER_TEXT_GET_CLASS(obj)	(G_TYPE_INSTANCE_GET_CLASS ((obj), GTK_SOURCE_TYPE_GUTTER_RENDERER_TEXT, GtkSourceGutterRendererTextClass))
+#define CTK_SOURCE_TYPE_GUTTER_RENDERER_TEXT		(ctk_source_gutter_renderer_text_get_type ())
+#define CTK_SOURCE_GUTTER_RENDERER_TEXT(obj)		(G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_GUTTER_RENDERER_TEXT, GtkSourceGutterRendererText))
+#define CTK_SOURCE_GUTTER_RENDERER_TEXT_CONST(obj)	(G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_GUTTER_RENDERER_TEXT, GtkSourceGutterRendererText const))
+#define CTK_SOURCE_GUTTER_RENDERER_TEXT_CLASS(klass)	(G_TYPE_CHECK_CLASS_CAST ((klass), CTK_SOURCE_TYPE_GUTTER_RENDERER_TEXT, GtkSourceGutterRendererTextClass))
+#define CTK_SOURCE_IS_GUTTER_RENDERER_TEXT(obj)		(G_TYPE_CHECK_INSTANCE_TYPE ((obj), CTK_SOURCE_TYPE_GUTTER_RENDERER_TEXT))
+#define CTK_SOURCE_IS_GUTTER_RENDERER_TEXT_CLASS(klass)	(G_TYPE_CHECK_CLASS_TYPE ((klass), CTK_SOURCE_TYPE_GUTTER_RENDERER_TEXT))
+#define CTK_SOURCE_GUTTER_RENDERER_TEXT_GET_CLASS(obj)	(G_TYPE_INSTANCE_GET_CLASS ((obj), CTK_SOURCE_TYPE_GUTTER_RENDERER_TEXT, GtkSourceGutterRendererTextClass))
 
 typedef struct _GtkSourceGutterRendererTextClass	GtkSourceGutterRendererTextClass;
 typedef struct _GtkSourceGutterRendererTextPrivate	GtkSourceGutterRendererTextPrivate;
@@ -59,29 +59,29 @@ struct _GtkSourceGutterRendererTextClass
 	gpointer padding[10];
 };
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 GType ctk_source_gutter_renderer_text_get_type (void) G_GNUC_CONST;
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 GtkSourceGutterRenderer *ctk_source_gutter_renderer_text_new (void);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 void ctk_source_gutter_renderer_text_set_markup (GtkSourceGutterRendererText *renderer,
                                                  const gchar                 *markup,
                                                  gint                         length);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 void ctk_source_gutter_renderer_text_set_text (GtkSourceGutterRendererText *renderer,
                                                const gchar                 *text,
                                                gint                         length);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 void ctk_source_gutter_renderer_text_measure (GtkSourceGutterRendererText *renderer,
                                               const gchar                 *text,
                                               gint                        *width,
                                               gint                        *height);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 void ctk_source_gutter_renderer_text_measure_markup (GtkSourceGutterRendererText *renderer,
                                                      const gchar                 *markup,
                                                      gint                        *width,
@@ -89,4 +89,4 @@ void ctk_source_gutter_renderer_text_measure_markup (GtkSourceGutterRendererText
 
 G_END_DECLS
 
-#endif /* GTK_SOURCE_GUTTER_RENDERER_TEXT_H */
+#endif /* CTK_SOURCE_GUTTER_RENDERER_TEXT_H */

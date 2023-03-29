@@ -109,7 +109,7 @@ static guint signals[N_SIGNALS];
 static void
 ctk_source_mark_attributes_finalize (GObject *object)
 {
-	GtkSourceMarkAttributes *attributes = GTK_SOURCE_MARK_ATTRIBUTES (object);
+	GtkSourceMarkAttributes *attributes = CTK_SOURCE_MARK_ATTRIBUTES (object);
 
 	ctk_source_pixbuf_helper_free (attributes->priv->helper);
 
@@ -182,7 +182,7 @@ ctk_source_mark_attributes_set_property (GObject      *object,
 					 const GValue *value,
 					 GParamSpec   *pspec)
 {
-	GtkSourceMarkAttributes *self = GTK_SOURCE_MARK_ATTRIBUTES (object);
+	GtkSourceMarkAttributes *self = CTK_SOURCE_MARK_ATTRIBUTES (object);
 
 	switch (prop_id)
 	{
@@ -210,7 +210,7 @@ ctk_source_mark_attributes_get_property (GObject    *object,
 					 GValue     *value,
 					 GParamSpec *pspec)
 {
-	GtkSourceMarkAttributes *self = GTK_SOURCE_MARK_ATTRIBUTES (object);
+	GtkSourceMarkAttributes *self = CTK_SOURCE_MARK_ATTRIBUTES (object);
 
 	switch (prop_id)
 	{
@@ -328,7 +328,7 @@ ctk_source_mark_attributes_class_init (GtkSourceMarkAttributesClass *klass)
 		              _ctk_source_marshal_STRING__OBJECT,
 		              G_TYPE_STRING,
 		              1,
-		              GTK_SOURCE_TYPE_MARK);
+		              CTK_SOURCE_TYPE_MARK);
 	g_signal_set_va_marshaller (signals[QUERY_TOOLTIP_TEXT],
 	                            G_TYPE_FROM_CLASS (klass),
 	                            _ctk_source_marshal_STRING__OBJECTv);
@@ -353,7 +353,7 @@ ctk_source_mark_attributes_class_init (GtkSourceMarkAttributesClass *klass)
 		              _ctk_source_marshal_STRING__OBJECT,
 		              G_TYPE_STRING,
 		              1,
-		              GTK_SOURCE_TYPE_MARK);
+		              CTK_SOURCE_TYPE_MARK);
 	g_signal_set_va_marshaller (signals[QUERY_TOOLTIP_TEXT],
 	                            G_TYPE_FROM_CLASS (klass),
 	                            _ctk_source_marshal_STRING__OBJECTv);
@@ -377,7 +377,7 @@ ctk_source_mark_attributes_init (GtkSourceMarkAttributes *self)
 GtkSourceMarkAttributes *
 ctk_source_mark_attributes_new (void)
 {
-	return g_object_new (GTK_SOURCE_TYPE_MARK_ATTRIBUTES, NULL);
+	return g_object_new (CTK_SOURCE_TYPE_MARK_ATTRIBUTES, NULL);
 }
 
 /**
@@ -391,7 +391,7 @@ void
 ctk_source_mark_attributes_set_background (GtkSourceMarkAttributes *attributes,
 					   const GdkRGBA           *background)
 {
-	g_return_if_fail (GTK_SOURCE_IS_MARK_ATTRIBUTES (attributes));
+	g_return_if_fail (CTK_SOURCE_IS_MARK_ATTRIBUTES (attributes));
 
 	set_background (attributes, background);
 }
@@ -409,7 +409,7 @@ gboolean
 ctk_source_mark_attributes_get_background (GtkSourceMarkAttributes *attributes,
 					   GdkRGBA                 *background)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_MARK_ATTRIBUTES (attributes), FALSE);
+	g_return_val_if_fail (CTK_SOURCE_IS_MARK_ATTRIBUTES (attributes), FALSE);
 
 	if (background)
 	{
@@ -429,7 +429,7 @@ void
 ctk_source_mark_attributes_set_icon_name (GtkSourceMarkAttributes *attributes,
 					  const gchar             *icon_name)
 {
-	g_return_if_fail (GTK_SOURCE_IS_MARK_ATTRIBUTES (attributes));
+	g_return_if_fail (CTK_SOURCE_IS_MARK_ATTRIBUTES (attributes));
 
 	set_icon_name (attributes, icon_name);
 }
@@ -447,7 +447,7 @@ ctk_source_mark_attributes_set_icon_name (GtkSourceMarkAttributes *attributes,
 const gchar *
 ctk_source_mark_attributes_get_icon_name (GtkSourceMarkAttributes *attributes)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_MARK_ATTRIBUTES (attributes), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_MARK_ATTRIBUTES (attributes), NULL);
 
 	return ctk_source_pixbuf_helper_get_icon_name (attributes->priv->helper);
 }
@@ -463,7 +463,7 @@ void
 ctk_source_mark_attributes_set_gicon (GtkSourceMarkAttributes *attributes,
 				      GIcon                   *gicon)
 {
-	g_return_if_fail (GTK_SOURCE_IS_MARK_ATTRIBUTES (attributes));
+	g_return_if_fail (CTK_SOURCE_IS_MARK_ATTRIBUTES (attributes));
 
 	set_gicon (attributes, gicon);
 }
@@ -481,7 +481,7 @@ ctk_source_mark_attributes_set_gicon (GtkSourceMarkAttributes *attributes,
 GIcon *
 ctk_source_mark_attributes_get_gicon (GtkSourceMarkAttributes *attributes)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_MARK_ATTRIBUTES (attributes), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_MARK_ATTRIBUTES (attributes), NULL);
 
 	return ctk_source_pixbuf_helper_get_gicon (attributes->priv->helper);
 }
@@ -497,7 +497,7 @@ void
 ctk_source_mark_attributes_set_pixbuf (GtkSourceMarkAttributes *attributes,
 				       const GdkPixbuf         *pixbuf)
 {
-	g_return_if_fail (GTK_SOURCE_IS_MARK_ATTRIBUTES (attributes));
+	g_return_if_fail (CTK_SOURCE_IS_MARK_ATTRIBUTES (attributes));
 
 	set_pixbuf (attributes, pixbuf);
 }
@@ -515,7 +515,7 @@ ctk_source_mark_attributes_set_pixbuf (GtkSourceMarkAttributes *attributes,
 const GdkPixbuf *
 ctk_source_mark_attributes_get_pixbuf (GtkSourceMarkAttributes *attributes)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_MARK_ATTRIBUTES (attributes), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_MARK_ATTRIBUTES (attributes), NULL);
 
 	return ctk_source_pixbuf_helper_get_pixbuf (attributes->priv->helper);
 }
@@ -539,8 +539,8 @@ ctk_source_mark_attributes_render_icon (GtkSourceMarkAttributes *attributes,
 					GtkWidget               *widget,
 					gint                     size)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_MARK_ATTRIBUTES (attributes), NULL);
-	g_return_val_if_fail (GTK_IS_WIDGET (widget), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_MARK_ATTRIBUTES (attributes), NULL);
+	g_return_val_if_fail (CTK_IS_WIDGET (widget), NULL);
 	g_return_val_if_fail (size > 0, NULL);
 
 	return ctk_source_pixbuf_helper_render (attributes->priv->helper,
@@ -566,8 +566,8 @@ ctk_source_mark_attributes_get_tooltip_text (GtkSourceMarkAttributes *attributes
 {
 	gchar *ret;
 
-	g_return_val_if_fail (GTK_SOURCE_IS_MARK_ATTRIBUTES (attributes), NULL);
-	g_return_val_if_fail (GTK_SOURCE_IS_MARK (mark), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_MARK_ATTRIBUTES (attributes), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_MARK (mark), NULL);
 
 	ret = NULL;
 	g_signal_emit (attributes, signals[QUERY_TOOLTIP_TEXT], 0, mark, &ret);
@@ -593,8 +593,8 @@ ctk_source_mark_attributes_get_tooltip_markup (GtkSourceMarkAttributes *attribut
 {
 	gchar *ret;
 
-	g_return_val_if_fail (GTK_SOURCE_IS_MARK_ATTRIBUTES (attributes), NULL);
-	g_return_val_if_fail (GTK_SOURCE_IS_MARK (mark), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_MARK_ATTRIBUTES (attributes), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_MARK (mark), NULL);
 
 	ret = NULL;
 	g_signal_emit (attributes, signals[QUERY_TOOLTIP_MARKUP], 0, mark, &ret);

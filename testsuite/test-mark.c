@@ -28,9 +28,9 @@ test_create (void)
 	GtkSourceMark *m;
 
 	m = ctk_source_mark_new ("Mark 1", "test");
-	g_assert_cmpstr ("Mark 1", ==, ctk_text_mark_get_name (GTK_TEXT_MARK (m)));
+	g_assert_cmpstr ("Mark 1", ==, ctk_text_mark_get_name (CTK_TEXT_MARK (m)));
 	g_assert_cmpstr ("test", ==, ctk_source_mark_get_category (m));
-	g_assert_null (ctk_text_mark_get_buffer (GTK_TEXT_MARK (m)));
+	g_assert_null (ctk_text_mark_get_buffer (CTK_TEXT_MARK (m)));
 	g_assert_null (ctk_source_mark_next (m, NULL));
 	g_assert_null (ctk_source_mark_prev (m, NULL));
 	g_object_unref (m);
@@ -40,7 +40,7 @@ static void
 test_prev_next (void)
 {
 	GtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
-	GtkTextBuffer *text_buffer = GTK_TEXT_BUFFER (source_buffer);
+	GtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
 	GtkSourceMark *mark1, *mark2, *mark3;
 	GtkTextIter iter;
 
@@ -72,7 +72,7 @@ static void
 test_forward_backward_iter (void)
 {
 	GtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
-	GtkTextBuffer *text_buffer = GTK_TEXT_BUFFER (source_buffer);
+	GtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
 	GtkTextIter iter;
 
 	ctk_text_buffer_set_text (text_buffer, "text", -1);
@@ -109,7 +109,7 @@ static void
 test_get_source_marks_at_iter (void)
 {
 	GtkSourceBuffer *source_buffer = ctk_source_buffer_new (NULL);
-	GtkTextBuffer *text_buffer = GTK_TEXT_BUFFER (source_buffer);
+	GtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
 	GtkSourceMark *mark1, *mark2, *mark3;
 	GtkTextIter iter;
 	GSList *list;

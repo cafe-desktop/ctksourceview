@@ -20,8 +20,8 @@
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTK_SOURCE_UTILS_PRIVATE_H
-#define GTK_SOURCE_UTILS_PRIVATE_H
+#ifndef CTK_SOURCE_UTILS_PRIVATE_H
+#define CTK_SOURCE_UTILS_PRIVATE_H
 
 #include <ctk/ctk.h>
 
@@ -59,4 +59,4 @@ void _ctk_source_view_jump_to_iter (GtkTextView       *view,
 
 G_END_DECLS
 
-#endif /* GTK_SOURCE_UTILS_PRIVATE_H */
+#endif /* CTK_SOURCE_UTILS_PRIVATE_H */

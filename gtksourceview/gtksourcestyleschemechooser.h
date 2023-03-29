@@ -18,10 +18,10 @@
  * along with GtkSourceView. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTK_SOURCE_STYLE_SCHEME_CHOOSER_H
-#define GTK_SOURCE_STYLE_SCHEME_CHOOSER_H
+#ifndef CTK_SOURCE_STYLE_SCHEME_CHOOSER_H
+#define CTK_SOURCE_STYLE_SCHEME_CHOOSER_H
 
-#if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
+#if !defined (CTK_SOURCE_H_INSIDE) && !defined (CTK_SOURCE_COMPILATION)
 #error "Only <ctksourceview/ctksource.h> can be included directly."
 #endif
 
@@ -30,10 +30,10 @@
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER                  (ctk_source_style_scheme_chooser_get_type ())
-#define GTK_SOURCE_STYLE_SCHEME_CHOOSER(obj)                  (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER, GtkSourceStyleSchemeChooser))
-#define GTK_SOURCE_IS_STYLE_SCHEME_CHOOSER(obj)               (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER))
-#define GTK_SOURCE_STYLE_SCHEME_CHOOSER_GET_IFACE(inst)       (G_TYPE_INSTANCE_GET_INTERFACE ((inst), GTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER, GtkSourceStyleSchemeChooserInterface))
+#define CTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER                  (ctk_source_style_scheme_chooser_get_type ())
+#define CTK_SOURCE_STYLE_SCHEME_CHOOSER(obj)                  (G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER, GtkSourceStyleSchemeChooser))
+#define CTK_SOURCE_IS_STYLE_SCHEME_CHOOSER(obj)               (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER))
+#define CTK_SOURCE_STYLE_SCHEME_CHOOSER_GET_IFACE(inst)       (G_TYPE_INSTANCE_GET_INTERFACE ((inst), CTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER, GtkSourceStyleSchemeChooserInterface))
 
 typedef struct _GtkSourceStyleSchemeChooserInterface GtkSourceStyleSchemeChooserInterface;
 
@@ -51,16 +51,16 @@ struct _GtkSourceStyleSchemeChooserInterface
 	gpointer padding[12];
 };
 
-GTK_SOURCE_AVAILABLE_IN_3_16
+CTK_SOURCE_AVAILABLE_IN_3_16
 GType                     ctk_source_style_scheme_chooser_get_type               (void) G_GNUC_CONST;
 
-GTK_SOURCE_AVAILABLE_IN_3_16
+CTK_SOURCE_AVAILABLE_IN_3_16
 GtkSourceStyleScheme     *ctk_source_style_scheme_chooser_get_style_scheme       (GtkSourceStyleSchemeChooser *chooser);
 
-GTK_SOURCE_AVAILABLE_IN_3_16
+CTK_SOURCE_AVAILABLE_IN_3_16
 void                      ctk_source_style_scheme_chooser_set_style_scheme       (GtkSourceStyleSchemeChooser *chooser,
                                                                                   GtkSourceStyleScheme        *scheme);
 
 G_END_DECLS
 
-#endif /* GTK_SOURCE_STYLE_SCHEME_CHOOSER_H */
+#endif /* CTK_SOURCE_STYLE_SCHEME_CHOOSER_H */

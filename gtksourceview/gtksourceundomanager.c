@@ -165,9 +165,9 @@ ctk_source_undo_manager_default_init (GtkSourceUndoManagerIface *iface)
 gboolean
 ctk_source_undo_manager_can_undo (GtkSourceUndoManager *manager)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_UNDO_MANAGER (manager), FALSE);
+	g_return_val_if_fail (CTK_SOURCE_IS_UNDO_MANAGER (manager), FALSE);
 
-	return GTK_SOURCE_UNDO_MANAGER_GET_INTERFACE (manager)->can_undo (manager);
+	return CTK_SOURCE_UNDO_MANAGER_GET_INTERFACE (manager)->can_undo (manager);
 }
 
 /**
@@ -183,9 +183,9 @@ ctk_source_undo_manager_can_undo (GtkSourceUndoManager *manager)
 gboolean
 ctk_source_undo_manager_can_redo (GtkSourceUndoManager *manager)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_UNDO_MANAGER (manager), FALSE);
+	g_return_val_if_fail (CTK_SOURCE_IS_UNDO_MANAGER (manager), FALSE);
 
-	return GTK_SOURCE_UNDO_MANAGER_GET_INTERFACE (manager)->can_redo (manager);
+	return CTK_SOURCE_UNDO_MANAGER_GET_INTERFACE (manager)->can_redo (manager);
 }
 
 /**
@@ -201,9 +201,9 @@ ctk_source_undo_manager_can_redo (GtkSourceUndoManager *manager)
 void
 ctk_source_undo_manager_undo (GtkSourceUndoManager *manager)
 {
-	g_return_if_fail (GTK_SOURCE_IS_UNDO_MANAGER (manager));
+	g_return_if_fail (CTK_SOURCE_IS_UNDO_MANAGER (manager));
 
-	GTK_SOURCE_UNDO_MANAGER_GET_INTERFACE (manager)->undo (manager);
+	CTK_SOURCE_UNDO_MANAGER_GET_INTERFACE (manager)->undo (manager);
 }
 
 /**
@@ -219,9 +219,9 @@ ctk_source_undo_manager_undo (GtkSourceUndoManager *manager)
 void
 ctk_source_undo_manager_redo (GtkSourceUndoManager *manager)
 {
-	g_return_if_fail (GTK_SOURCE_IS_UNDO_MANAGER (manager));
+	g_return_if_fail (CTK_SOURCE_IS_UNDO_MANAGER (manager));
 
-	GTK_SOURCE_UNDO_MANAGER_GET_INTERFACE (manager)->redo (manager);
+	CTK_SOURCE_UNDO_MANAGER_GET_INTERFACE (manager)->redo (manager);
 }
 
 /**
@@ -237,9 +237,9 @@ ctk_source_undo_manager_redo (GtkSourceUndoManager *manager)
 void
 ctk_source_undo_manager_begin_not_undoable_action (GtkSourceUndoManager *manager)
 {
-	g_return_if_fail (GTK_SOURCE_IS_UNDO_MANAGER (manager));
+	g_return_if_fail (CTK_SOURCE_IS_UNDO_MANAGER (manager));
 
-	GTK_SOURCE_UNDO_MANAGER_GET_INTERFACE (manager)->begin_not_undoable_action (manager);
+	CTK_SOURCE_UNDO_MANAGER_GET_INTERFACE (manager)->begin_not_undoable_action (manager);
 }
 
 /**
@@ -253,9 +253,9 @@ ctk_source_undo_manager_begin_not_undoable_action (GtkSourceUndoManager *manager
 void
 ctk_source_undo_manager_end_not_undoable_action (GtkSourceUndoManager *manager)
 {
-	g_return_if_fail (GTK_SOURCE_IS_UNDO_MANAGER (manager));
+	g_return_if_fail (CTK_SOURCE_IS_UNDO_MANAGER (manager));
 
-	GTK_SOURCE_UNDO_MANAGER_GET_INTERFACE (manager)->end_not_undoable_action (manager);
+	CTK_SOURCE_UNDO_MANAGER_GET_INTERFACE (manager)->end_not_undoable_action (manager);
 }
 
 /**
@@ -269,7 +269,7 @@ ctk_source_undo_manager_end_not_undoable_action (GtkSourceUndoManager *manager)
 void
 ctk_source_undo_manager_can_undo_changed (GtkSourceUndoManager *manager)
 {
-	g_return_if_fail (GTK_SOURCE_IS_UNDO_MANAGER (manager));
+	g_return_if_fail (CTK_SOURCE_IS_UNDO_MANAGER (manager));
 
 	g_signal_emit (manager, signals[CAN_UNDO_CHANGED], 0);
 }
@@ -285,7 +285,7 @@ ctk_source_undo_manager_can_undo_changed (GtkSourceUndoManager *manager)
 void
 ctk_source_undo_manager_can_redo_changed (GtkSourceUndoManager *manager)
 {
-	g_return_if_fail (GTK_SOURCE_IS_UNDO_MANAGER (manager));
+	g_return_if_fail (CTK_SOURCE_IS_UNDO_MANAGER (manager));
 
 	g_signal_emit (manager, signals[CAN_REDO_CHANGED], 0);
 }

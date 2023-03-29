@@ -18,8 +18,8 @@
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTK_SOURCE_SPACE_DRAWER_PRIVATE_H
-#define GTK_SOURCE_SPACE_DRAWER_PRIVATE_H
+#ifndef CTK_SOURCE_SPACE_DRAWER_PRIVATE_H
+#define CTK_SOURCE_SPACE_DRAWER_PRIVATE_H
 
 #include <ctk/ctk.h>
 #include "ctksourcetypes.h"
@@ -27,15 +27,15 @@
 
 G_BEGIN_DECLS
 
-GTK_SOURCE_INTERNAL
+CTK_SOURCE_INTERNAL
 void			_ctk_source_space_drawer_update_color		(GtkSourceSpaceDrawer *drawer,
 									 GtkSourceView        *view);
 
-GTK_SOURCE_INTERNAL
+CTK_SOURCE_INTERNAL
 void			_ctk_source_space_drawer_draw			(GtkSourceSpaceDrawer *drawer,
 									 GtkSourceView        *view,
 									 cairo_t              *cr);
 
 G_END_DECLS
 
-#endif /* GTK_SOURCE_SPACE_DRAWER_PRIVATE_H */
+#endif /* CTK_SOURCE_SPACE_DRAWER_PRIVATE_H */

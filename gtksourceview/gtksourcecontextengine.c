@@ -86,9 +86,9 @@
  */
 #define MAX_TIME_FOR_ONE_LINE		2000
 
-#define GTK_SOURCE_CONTEXT_ENGINE_ERROR (ctk_source_context_engine_error_quark ())
+#define CTK_SOURCE_CONTEXT_ENGINE_ERROR (ctk_source_context_engine_error_quark ())
 
-#define HAS_OPTION(def,opt) (((def)->flags & GTK_SOURCE_CONTEXT_##opt) != 0)
+#define HAS_OPTION(def,opt) (((def)->flags & CTK_SOURCE_CONTEXT_##opt) != 0)
 
 /* Can the context be terminated by ancestor? */
 /* Root context can't be terminated; its child may not be terminated by it;
@@ -134,14 +134,14 @@ typedef struct _InvalidRegion InvalidRegion;
 typedef struct _ContextClassTag ContextClassTag;
 
 typedef enum _GtkSourceContextEngineError {
-	GTK_SOURCE_CONTEXT_ENGINE_ERROR_DUPLICATED_ID = 0,
-	GTK_SOURCE_CONTEXT_ENGINE_ERROR_INVALID_ARGS,
-	GTK_SOURCE_CONTEXT_ENGINE_ERROR_INVALID_PARENT,
-	GTK_SOURCE_CONTEXT_ENGINE_ERROR_INVALID_REF,
-	GTK_SOURCE_CONTEXT_ENGINE_ERROR_INVALID_WHERE,
-	GTK_SOURCE_CONTEXT_ENGINE_ERROR_INVALID_START_REF,
-	GTK_SOURCE_CONTEXT_ENGINE_ERROR_INVALID_STYLE,
-	GTK_SOURCE_CONTEXT_ENGINE_ERROR_BAD_FILE
+	CTK_SOURCE_CONTEXT_ENGINE_ERROR_DUPLICATED_ID = 0,
+	CTK_SOURCE_CONTEXT_ENGINE_ERROR_INVALID_ARGS,
+	CTK_SOURCE_CONTEXT_ENGINE_ERROR_INVALID_PARENT,
+	CTK_SOURCE_CONTEXT_ENGINE_ERROR_INVALID_REF,
+	CTK_SOURCE_CONTEXT_ENGINE_ERROR_INVALID_WHERE,
+	CTK_SOURCE_CONTEXT_ENGINE_ERROR_INVALID_START_REF,
+	CTK_SOURCE_CONTEXT_ENGINE_ERROR_INVALID_STYLE,
+	CTK_SOURCE_CONTEXT_ENGINE_ERROR_BAD_FILE
 } GtkSourceContextEngineError;
 
 typedef enum _ContextType {
@@ -641,7 +641,7 @@ set_tag_style (GtkSourceContextEngine *ce,
 	const char *map_to;
 	int guard = 0;
 
-	g_return_if_fail (GTK_IS_TEXT_TAG (tag));
+	g_return_if_fail (CTK_IS_TEXT_TAG (tag));
 	g_return_if_fail (style_id != NULL);
 
 	ctk_source_style_apply (NULL, tag);
@@ -1954,7 +1954,7 @@ ctk_source_context_engine_text_inserted (GtkSourceEngine *engine,
 					 gint             end_offset)
 {
 	GtkTextIter iter;
-	GtkSourceContextEngine *ce = GTK_SOURCE_CONTEXT_ENGINE (engine);
+	GtkSourceContextEngine *ce = CTK_SOURCE_CONTEXT_ENGINE (engine);
 
 	if (!ce->priv->disabled)
 	{
@@ -2093,7 +2093,7 @@ ctk_source_context_engine_text_deleted (GtkSourceEngine *engine,
 					gint             offset,
 					gint             length)
 {
-	GtkSourceContextEngine *ce = GTK_SOURCE_CONTEXT_ENGINE (engine);
+	GtkSourceContextEngine *ce = CTK_SOURCE_CONTEXT_ENGINE (engine);
 
 	g_return_if_fail (length > 0);
 
@@ -2238,7 +2238,7 @@ ctk_source_context_engine_update_highlight (GtkSourceEngine   *engine,
 {
 	gint invalid_line;
 	gint end_line;
-	GtkSourceContextEngine *ce = GTK_SOURCE_CONTEXT_ENGINE (engine);
+	GtkSourceContextEngine *ce = CTK_SOURCE_CONTEXT_ENGINE (engine);
 
 	if (!ce->priv->highlight || ce->priv->disabled)
 		return;
@@ -2292,7 +2292,7 @@ enable_highlight (GtkSourceContextEngine *ce,
 		return;
 
 	ce->priv->highlight = enable != 0;
-	ctk_text_buffer_get_bounds (GTK_TEXT_BUFFER (ce->priv->buffer),
+	ctk_text_buffer_get_bounds (CTK_TEXT_BUFFER (ce->priv->buffer),
 				    &start, &end);
 
 	if (enable)
@@ -2431,7 +2431,7 @@ G_DEFINE_TYPE_WITH_CODE (GtkSourceContextEngine,
 			 _ctk_source_context_engine,
 			 G_TYPE_OBJECT,
 			 G_ADD_PRIVATE (GtkSourceContextEngine)
-			 G_IMPLEMENT_INTERFACE (GTK_SOURCE_TYPE_ENGINE,
+			 G_IMPLEMENT_INTERFACE (CTK_SOURCE_TYPE_ENGINE,
 						_ctk_source_engine_interface_init))
 
 static GQuark
@@ -2507,9 +2507,9 @@ static void
 ctk_source_context_engine_attach_buffer (GtkSourceEngine *engine,
 					 GtkTextBuffer   *buffer)
 {
-	GtkSourceContextEngine *ce = GTK_SOURCE_CONTEXT_ENGINE (engine);
+	GtkSourceContextEngine *ce = CTK_SOURCE_CONTEXT_ENGINE (engine);
 
-	g_return_if_fail (!buffer || GTK_IS_TEXT_BUFFER (buffer));
+	g_return_if_fail (!buffer || CTK_IS_TEXT_BUFFER (buffer));
 
 	if (ce->priv->buffer == buffer)
 		return;
@@ -2623,7 +2623,7 @@ disable_syntax_analysis (GtkSourceContextEngine *ce)
 	if (!ce->priv->disabled)
 	{
 		ce->priv->disabled = TRUE;
-		ctk_source_context_engine_attach_buffer (GTK_SOURCE_ENGINE (ce), NULL);
+		ctk_source_context_engine_attach_buffer (CTK_SOURCE_ENGINE (ce), NULL);
 		/* FIXME maybe emit some signal here? */
 	}
 }
@@ -2654,10 +2654,10 @@ ctk_source_context_engine_set_style_scheme (GtkSourceEngine      *engine,
 {
 	GtkSourceContextEngine *ce;
 
-	g_return_if_fail (GTK_SOURCE_IS_CONTEXT_ENGINE (engine));
-	g_return_if_fail (GTK_SOURCE_IS_STYLE_SCHEME (scheme) || scheme == NULL);
+	g_return_if_fail (CTK_SOURCE_IS_CONTEXT_ENGINE (engine));
+	g_return_if_fail (CTK_SOURCE_IS_STYLE_SCHEME (scheme) || scheme == NULL);
 
-	ce = GTK_SOURCE_CONTEXT_ENGINE (engine);
+	ce = CTK_SOURCE_CONTEXT_ENGINE (engine);
 
 	if (g_set_object (&ce->priv->style_scheme, scheme))
 	{
@@ -2668,14 +2668,14 @@ ctk_source_context_engine_set_style_scheme (GtkSourceEngine      *engine,
 static void
 ctk_source_context_engine_finalize (GObject *object)
 {
-	GtkSourceContextEngine *ce = GTK_SOURCE_CONTEXT_ENGINE (object);
+	GtkSourceContextEngine *ce = CTK_SOURCE_CONTEXT_ENGINE (object);
 
 	if (ce->priv->buffer != NULL)
 	{
 		g_critical ("finalizing engine with attached buffer");
 		/* Disconnect the buffer (if there is one), which destroys almost
 		 * everything. */
-		ctk_source_context_engine_attach_buffer (GTK_SOURCE_ENGINE (ce), NULL);
+		ctk_source_context_engine_attach_buffer (CTK_SOURCE_ENGINE (ce), NULL);
 	}
 
 	g_assert (!ce->priv->tags);
@@ -2734,7 +2734,7 @@ _ctk_source_context_engine_new (GtkSourceContextData *ctx_data)
 	g_return_val_if_fail (ctx_data != NULL, NULL);
 	g_return_val_if_fail (ctx_data->lang != NULL, NULL);
 
-	ce = g_object_new (GTK_SOURCE_TYPE_CONTEXT_ENGINE, NULL);
+	ce = g_object_new (CTK_SOURCE_TYPE_CONTEXT_ENGINE, NULL);
 	ce->priv->ctx_data = _ctk_source_context_data_ref (ctx_data);
 
 	return ce;
@@ -2752,7 +2752,7 @@ _ctk_source_context_data_new (GtkSourceLanguage *lang)
 {
 	GtkSourceContextData *ctx_data;
 
-	g_return_val_if_fail (GTK_SOURCE_IS_LANGUAGE (lang), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_LANGUAGE (lang), NULL);
 
 	ctx_data = g_slice_new (GtkSourceContextData);
 	ctx_data->ref_count = 1;
@@ -5719,8 +5719,8 @@ context_definition_new (const gchar            *id,
 	if (unresolved_error)
 	{
 		g_set_error (error,
-			     GTK_SOURCE_CONTEXT_ENGINE_ERROR,
-			     GTK_SOURCE_CONTEXT_ENGINE_ERROR_INVALID_START_REF,
+			     CTK_SOURCE_CONTEXT_ENGINE_ERROR,
+			     CTK_SOURCE_CONTEXT_ENGINE_ERROR_INVALID_START_REF,
 			     _("context “%s” cannot contain a \\%%{...@start} command"),
 			     id);
 		regex_error = TRUE;
@@ -5882,8 +5882,8 @@ _ctk_source_context_data_define_context (GtkSourceContextData   *ctx_data,
 	if (ctk_source_context_data_lookup (ctx_data, id) != NULL)
 	{
 		g_set_error (error,
-			     GTK_SOURCE_CONTEXT_ENGINE_ERROR,
-			     GTK_SOURCE_CONTEXT_ENGINE_ERROR_DUPLICATED_ID,
+			     CTK_SOURCE_CONTEXT_ENGINE_ERROR,
+			     CTK_SOURCE_CONTEXT_ENGINE_ERROR_DUPLICATED_ID,
 			     _("duplicated context id “%s”"), id);
 		return FALSE;
 	}
@@ -5910,8 +5910,8 @@ _ctk_source_context_data_define_context (GtkSourceContextData   *ctx_data,
 	if (wrong_args)
 	{
 		g_set_error (error,
-			     GTK_SOURCE_CONTEXT_ENGINE_ERROR,
-			     GTK_SOURCE_CONTEXT_ENGINE_ERROR_INVALID_ARGS,
+			     CTK_SOURCE_CONTEXT_ENGINE_ERROR,
+			     CTK_SOURCE_CONTEXT_ENGINE_ERROR_INVALID_ARGS,
 			     /* do not translate, parser should take care of this */
 			     "insufficient or redundant arguments creating "
 			     "the context '%s'", id);
@@ -5972,8 +5972,8 @@ _ctk_source_context_data_add_sub_pattern (GtkSourceContextData  *ctx_data,
 	if (ctk_source_context_data_lookup (ctx_data, id) != NULL)
 	{
 		g_set_error (error,
-			     GTK_SOURCE_CONTEXT_ENGINE_ERROR,
-			     GTK_SOURCE_CONTEXT_ENGINE_ERROR_DUPLICATED_ID,
+			     CTK_SOURCE_CONTEXT_ENGINE_ERROR,
+			     CTK_SOURCE_CONTEXT_ENGINE_ERROR_DUPLICATED_ID,
 			     _("duplicated context id “%s”"), id);
 		return FALSE;
 	}
@@ -5999,8 +5999,8 @@ _ctk_source_context_data_add_sub_pattern (GtkSourceContextData  *ctx_data,
 	if (where_num == (SubPatternWhere) -1)
 	{
 		g_set_error (error,
-			     GTK_SOURCE_CONTEXT_ENGINE_ERROR,
-			     GTK_SOURCE_CONTEXT_ENGINE_ERROR_INVALID_WHERE,
+			     CTK_SOURCE_CONTEXT_ENGINE_ERROR,
+			     CTK_SOURCE_CONTEXT_ENGINE_ERROR_INVALID_WHERE,
 			     /* do not translate, parent takes care of this */
 			     "invalid location ('%s') for sub pattern '%s'",
 			     where, id);
@@ -6073,8 +6073,8 @@ _ctk_source_context_data_add_ref (GtkSourceContextData        *ctx_data,
 	if (parent->type != CONTEXT_TYPE_CONTAINER)
 	{
 		g_set_error (error,
-			     GTK_SOURCE_CONTEXT_ENGINE_ERROR,
-			     GTK_SOURCE_CONTEXT_ENGINE_ERROR_INVALID_PARENT,
+			     CTK_SOURCE_CONTEXT_ENGINE_ERROR,
+			     CTK_SOURCE_CONTEXT_ENGINE_ERROR_INVALID_PARENT,
 			     /* do not translate, parent takes care of this */
 			     "invalid parent type for the context '%s'",
 			     ref_id);
@@ -6084,21 +6084,21 @@ _ctk_source_context_data_add_ref (GtkSourceContextData        *ctx_data,
 	if (ref != NULL && context_is_pure_container (ref))
 		all = TRUE;
 
-	if (all && (options & (GTK_SOURCE_CONTEXT_IGNORE_STYLE | GTK_SOURCE_CONTEXT_OVERRIDE_STYLE)))
+	if (all && (options & (CTK_SOURCE_CONTEXT_IGNORE_STYLE | CTK_SOURCE_CONTEXT_OVERRIDE_STYLE)))
 	{
-		g_set_error (error, GTK_SOURCE_CONTEXT_ENGINE_ERROR,
-			     GTK_SOURCE_CONTEXT_ENGINE_ERROR_INVALID_STYLE,
+		g_set_error (error, CTK_SOURCE_CONTEXT_ENGINE_ERROR,
+			     CTK_SOURCE_CONTEXT_ENGINE_ERROR_INVALID_STYLE,
 			     _("style override used with wildcard context reference"
 			       " in language “%s” in ref “%s”"),
 			     ctx_data->lang->priv->id, ref_id);
 		return FALSE;
 	}
 
-	if (options & (GTK_SOURCE_CONTEXT_IGNORE_STYLE | GTK_SOURCE_CONTEXT_OVERRIDE_STYLE))
+	if (options & (CTK_SOURCE_CONTEXT_IGNORE_STYLE | CTK_SOURCE_CONTEXT_OVERRIDE_STYLE))
 		override_style = TRUE;
 
 	definition_child_new (parent, ref_id, style, override_style, all,
-			      (options & GTK_SOURCE_CONTEXT_REF_ORIGINAL) != 0);
+			      (options & CTK_SOURCE_CONTEXT_REF_ORIGINAL) != 0);
 
 	return TRUE;
 }
@@ -6146,8 +6146,8 @@ resolve_reference (G_GNUC_UNUSED const gchar *id,
 			{
 				if (child_def->override_style)
 				{
-					g_set_error (&data->error, GTK_SOURCE_CONTEXT_ENGINE_ERROR,
-						     GTK_SOURCE_CONTEXT_ENGINE_ERROR_INVALID_STYLE,
+					g_set_error (&data->error, CTK_SOURCE_CONTEXT_ENGINE_ERROR,
+						     CTK_SOURCE_CONTEXT_ENGINE_ERROR_INVALID_STYLE,
 						     _("style override used with wildcard context reference"
 						       " in language “%s” in ref “%s”"),
 						     data->ctx_data->lang->priv->id, ref->id);
@@ -6160,8 +6160,8 @@ resolve_reference (G_GNUC_UNUSED const gchar *id,
 		}
 		else
 		{
-			g_set_error (&data->error, GTK_SOURCE_CONTEXT_ENGINE_ERROR,
-				     GTK_SOURCE_CONTEXT_ENGINE_ERROR_INVALID_REF,
+			g_set_error (&data->error, CTK_SOURCE_CONTEXT_ENGINE_ERROR,
+				     CTK_SOURCE_CONTEXT_ENGINE_ERROR_INVALID_REF,
 				     _("invalid context reference “%s”"), child_def->u.id);
 		}
 	}
@@ -6179,8 +6179,8 @@ process_replace (GtkSourceContextData  *ctx_data,
 
 	if (to_replace == NULL)
 	{
-		g_set_error (error, GTK_SOURCE_CONTEXT_ENGINE_ERROR,
-			     GTK_SOURCE_CONTEXT_ENGINE_ERROR_INVALID_REF,
+		g_set_error (error, CTK_SOURCE_CONTEXT_ENGINE_ERROR,
+			     CTK_SOURCE_CONTEXT_ENGINE_ERROR_INVALID_REF,
 			     _("unknown context “%s”"), id);
 		return FALSE;
 	}
@@ -6189,8 +6189,8 @@ process_replace (GtkSourceContextData  *ctx_data,
 
 	if (new == NULL)
 	{
-		g_set_error (error, GTK_SOURCE_CONTEXT_ENGINE_ERROR,
-			     GTK_SOURCE_CONTEXT_ENGINE_ERROR_INVALID_REF,
+		g_set_error (error, CTK_SOURCE_CONTEXT_ENGINE_ERROR,
+			     CTK_SOURCE_CONTEXT_ENGINE_ERROR_INVALID_REF,
 			     _("unknown context “%s”"), replace_with);
 		return FALSE;
 	}
@@ -6288,8 +6288,8 @@ _ctk_source_context_data_finish_parse (GtkSourceContextData  *ctx_data,
 
 	if (main_definition == NULL)
 	{
-		g_set_error (error, GTK_SOURCE_CONTEXT_ENGINE_ERROR,
-			     GTK_SOURCE_CONTEXT_ENGINE_ERROR_BAD_FILE,
+		g_set_error (error, CTK_SOURCE_CONTEXT_ENGINE_ERROR,
+			     CTK_SOURCE_CONTEXT_ENGINE_ERROR_BAD_FILE,
 			     _("Missing main language "
 			       "definition (id = \"%s\".)"),
 			     ctx_data->lang->priv->id);
@@ -6366,7 +6366,7 @@ _ctk_source_context_data_set_escape_char (GtkSourceContextData *ctx_data,
 
 	if (!_ctk_source_context_data_define_context (ctx_data, "ctk-source-context-engine-escape",
 						      NULL, pattern, NULL, NULL, NULL, NULL,
-						      GTK_SOURCE_CONTEXT_EXTEND_PARENT,
+						      CTK_SOURCE_CONTEXT_EXTEND_PARENT,
 						      &error))
 		goto out;
 
@@ -6375,7 +6375,7 @@ _ctk_source_context_data_set_escape_char (GtkSourceContextData *ctx_data,
 
 	if (!_ctk_source_context_data_define_context (ctx_data, "ctk-source-context-engine-line-escape",
 						      NULL, NULL, pattern, "^", NULL, NULL,
-						      GTK_SOURCE_CONTEXT_EXTEND_PARENT,
+						      CTK_SOURCE_CONTEXT_EXTEND_PARENT,
 						      &error))
 		goto out;
 

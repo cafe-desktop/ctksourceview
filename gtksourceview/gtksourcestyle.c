@@ -241,8 +241,8 @@ ctk_source_style_init (GtkSourceStyle *style)
 	style->line_background = NULL;
 }
 
-#define SET_MASK(style,name) (style)->mask |= (GTK_SOURCE_STYLE_USE_##name)
-#define UNSET_MASK(style,name) (style)->mask &= (GTK_SOURCE_STYLE_USE_##name)
+#define SET_MASK(style,name) (style)->mask |= (CTK_SOURCE_STYLE_USE_##name)
+#define UNSET_MASK(style,name) (style)->mask &= (CTK_SOURCE_STYLE_USE_##name)
 
 #define MODIFY_MASK(style,value,name)		\
 G_STMT_START {					\
@@ -253,7 +253,7 @@ G_STMT_START {					\
 } G_STMT_END
 
 #define GET_MASK(style,value,name)		\
-	g_value_set_boolean (value, ((style)->mask & GTK_SOURCE_STYLE_USE_##name) != 0)
+	g_value_set_boolean (value, ((style)->mask & CTK_SOURCE_STYLE_USE_##name) != 0)
 
 static void
 ctk_source_style_set_property (GObject      *object,
@@ -261,7 +261,7 @@ ctk_source_style_set_property (GObject      *object,
 			       const GValue *value,
 			       GParamSpec   *pspec)
 {
-	GtkSourceStyle *style = GTK_SOURCE_STYLE (object);
+	GtkSourceStyle *style = CTK_SOURCE_STYLE (object);
 	const gchar *string;
 
 	switch (prop_id)
@@ -404,7 +404,7 @@ ctk_source_style_get_property (GObject      *object,
 			       GValue       *value,
 			       GParamSpec   *pspec)
 {
-	GtkSourceStyle *style = GTK_SOURCE_STYLE (object);
+	GtkSourceStyle *style = CTK_SOURCE_STYLE (object);
 
 	switch (prop_id)
 	{
@@ -505,7 +505,7 @@ ctk_source_style_copy (const GtkSourceStyle *style)
 
 	g_return_val_if_fail (style != NULL, NULL);
 
-	copy = g_object_new (GTK_SOURCE_TYPE_STYLE, NULL);
+	copy = g_object_new (CTK_SOURCE_TYPE_STYLE, NULL);
 
 	copy->foreground = style->foreground;
 	copy->background = style->background;
@@ -540,13 +540,13 @@ void
 ctk_source_style_apply (const GtkSourceStyle *style,
 			GtkTextTag           *tag)
 {
-	g_return_if_fail (GTK_IS_TEXT_TAG (tag));
+	g_return_if_fail (CTK_IS_TEXT_TAG (tag));
 
 	if (style != NULL)
 	{
 		g_object_freeze_notify (G_OBJECT (tag));
 
-		if (style->mask & GTK_SOURCE_STYLE_USE_BACKGROUND)
+		if (style->mask & CTK_SOURCE_STYLE_USE_BACKGROUND)
 		{
 			g_object_set (tag, "background", style->background, NULL);
 		}
@@ -555,7 +555,7 @@ ctk_source_style_apply (const GtkSourceStyle *style,
 			g_object_set (tag, "background-set", FALSE, NULL);
 		}
 
-		if (style->mask & GTK_SOURCE_STYLE_USE_FOREGROUND)
+		if (style->mask & CTK_SOURCE_STYLE_USE_FOREGROUND)
 		{
 			g_object_set (tag, "foreground", style->foreground, NULL);
 		}
@@ -564,7 +564,7 @@ ctk_source_style_apply (const GtkSourceStyle *style,
 			g_object_set (tag, "foreground-set", FALSE, NULL);
 		}
 
-		if (style->mask & GTK_SOURCE_STYLE_USE_LINE_BACKGROUND)
+		if (style->mask & CTK_SOURCE_STYLE_USE_LINE_BACKGROUND)
 		{
 			g_object_set (tag, "paragraph-background", style->line_background, NULL);
 		}
@@ -573,7 +573,7 @@ ctk_source_style_apply (const GtkSourceStyle *style,
 			g_object_set (tag, "paragraph-background-set", FALSE, NULL);
 		}
 
-		if (style->mask & GTK_SOURCE_STYLE_USE_ITALIC)
+		if (style->mask & CTK_SOURCE_STYLE_USE_ITALIC)
 		{
 			g_object_set (tag, "style", style->italic ? PANGO_STYLE_ITALIC : PANGO_STYLE_NORMAL, NULL);
 		}
@@ -582,7 +582,7 @@ ctk_source_style_apply (const GtkSourceStyle *style,
 			g_object_set (tag, "style-set", FALSE, NULL);
 		}
 
-		if (style->mask & GTK_SOURCE_STYLE_USE_BOLD)
+		if (style->mask & CTK_SOURCE_STYLE_USE_BOLD)
 		{
 			g_object_set (tag, "weight", style->bold ? PANGO_WEIGHT_BOLD : PANGO_WEIGHT_NORMAL, NULL);
 		}
@@ -591,7 +591,7 @@ ctk_source_style_apply (const GtkSourceStyle *style,
 			g_object_set (tag, "weight-set", FALSE, NULL);
 		}
 
-		if (style->mask & GTK_SOURCE_STYLE_USE_UNDERLINE)
+		if (style->mask & CTK_SOURCE_STYLE_USE_UNDERLINE)
 		{
 			g_object_set (tag, "underline", style->underline, NULL);
 		}
@@ -600,7 +600,7 @@ ctk_source_style_apply (const GtkSourceStyle *style,
 			g_object_set (tag, "underline-set", FALSE, NULL);
 		}
 
-		if (style->mask & GTK_SOURCE_STYLE_USE_UNDERLINE_COLOR)
+		if (style->mask & CTK_SOURCE_STYLE_USE_UNDERLINE_COLOR)
 		{
 			GdkRGBA underline_rgba;
 
@@ -612,7 +612,7 @@ ctk_source_style_apply (const GtkSourceStyle *style,
 			g_object_set (tag, "underline-rgba-set", FALSE, NULL);
 		}
 
-		if (style->mask & GTK_SOURCE_STYLE_USE_STRIKETHROUGH)
+		if (style->mask & CTK_SOURCE_STYLE_USE_STRIKETHROUGH)
 		{
 			g_object_set (tag, "strikethrough", style->strikethrough != 0, NULL);
 		}
@@ -621,7 +621,7 @@ ctk_source_style_apply (const GtkSourceStyle *style,
 			g_object_set (tag, "strikethrough-set", FALSE, NULL);
 		}
 
-		if (style->mask & GTK_SOURCE_STYLE_USE_SCALE)
+		if (style->mask & CTK_SOURCE_STYLE_USE_SCALE)
 		{
 			if (g_ascii_strcasecmp (style->scale, "large") == 0)
 			{

@@ -39,7 +39,7 @@ News in 4.8.0, 2020-09-12
 
 News in 4.7.90, 2020-08-07
 --------------------------
-* Bump GTK requirement to 3.24 for gdk_window_move_to_rect()
+* Bump CTK requirement to 3.24 for gdk_window_move_to_rect()
 * Use gdk_window_move_to_rect() to more reliably position completion windows
 * erb.lang: initial support for ERB
 * javascript.lang, typescript.lang: various correctness and performance
@@ -70,7 +70,7 @@ News in 4.5.91, 2020-02-14
 * Removed use of g_assert() in favor of alternatives in unit tests so
   distribution unit testing is more reliable
 * Robustness improvements in internal GtkTextIter movements
-* Style scheme improvements for recent GTK 3 theme styling changes
+* Style scheme improvements for recent CTK 3 theme styling changes
 * Build system improvements to support -Bsymbolic, -Wl,-z,relro,
   -Wl,-z,now and -Wl,-z,defs
 * Build improvements for Windows, FreeBSD, and macOS
@@ -116,8 +116,8 @@ News in 4.3.92, 2019-09-04
 * Improvements to the syntax highlighting of: CSS, Gradle, HTML, C, PHP,
   YAML, and Grovvy.
 * Performance improvements in line number drawing.
-* GtkSourceView now requires GTK 3.22 or newer.
-* GtkSourceView no longer uses many deprecated APIs from GTK.
+* GtkSourceView now requires CTK 3.22 or newer.
+* GtkSourceView no longer uses many deprecated APIs from CTK.
 * GtkSourceView now uses fribidi directly to determine bidriectional
   direction for cursors.
 * GtkSourceView now relies on GObject for correct marsharllers as well
@@ -247,7 +247,7 @@ News in 3.99.3
 --------------
 
 This is an intermediate version towards GtkSourceView 4.0. GtkSourceView 4.0
-will still depend on GTK+ 3, but the release date is not yet determined. See
+will still depend on CTK+ 3, but the release date is not yet determined. See
 the roadmap for more details:
 https://wiki.gnome.org/Projects/GtkSourceView/RoadMap
 
@@ -264,7 +264,7 @@ News in 3.99.2
 --------------
 
 This is an intermediate version towards GtkSourceView 4.0. GtkSourceView 4.0
-will still depend on GTK+ 3, but the release date is not yet determined.
+will still depend on CTK+ 3, but the release date is not yet determined.
 
 * ctk_source_completion_item_new2() has been renamed to
   ctk_source_completion_item_new().
@@ -284,7 +284,7 @@ News in 3.99.1
 --------------
 
 This is an intermediate version towards GtkSourceView 4.0. GtkSourceView 4.0
-will still depend on GTK+ 3, but the release date is not yet determined.
+will still depend on CTK+ 3, but the release date is not yet determined.
 
 * All the deprecated APIs have been removed.
 * Only <ctksourceview/ctksource.h> can be included directly. There were already
@@ -330,11 +330,11 @@ News in 3.23.90
 News in 3.23.2
 --------------
 
-This version still uses GTK+ 3. A GtkSourceView 3.24 version is planned (still
-depending on GTK+ 3), which will be released at the same time as GNOME 3.24 in
+This version still uses CTK+ 3. A GtkSourceView 3.24 version is planned (still
+depending on CTK+ 3), which will be released at the same time as GNOME 3.24 in
 March 2017.
 
-* Docs: add an introduction with the pkg-config name and which GTK+ version is
+* Docs: add an introduction with the pkg-config name and which CTK+ version is
   used.
 * Build fixes on MS Windows.
 * New syntax highlighting definition files for: ABNF and HAXE.
@@ -345,8 +345,8 @@ March 2017.
 News in 3.23.1
 --------------
 
-This version still uses GTK+ 3. A GtkSourceView 3.24 version is planned (still
-depending on GTK+ 3), but the release date is not yet determined.
+This version still uses CTK+ 3. A GtkSourceView 3.24 version is planned (still
+depending on CTK+ 3), but the release date is not yet determined.
 
 * New class: GtkSourceSpaceDrawer with a matrix property to combine space types
   vs locations. The old white space drawing API has been deprecated.
@@ -441,8 +441,8 @@ News in 3.20.0
 --------------
 * Improvements to the syntax highlighting of: CSS, JavaScript, protobuf, Vala,
   imagej, Python 3 and BibTeX
-* Adapt code to use GTK_TEXT_VIEW_LAYER_BELOW_TEXT and
-  GTK_TEXT_VIEW_LAYER_ABOVE_TEXT
+* Adapt code to use CTK_TEXT_VIEW_LAYER_BELOW_TEXT and
+  CTK_TEXT_VIEW_LAYER_ABOVE_TEXT
 * Add a "sourceview" CSS class to all GtkSourceView's
 * Fixes to the MSVC build system
 * Various other small fixes and improvements
@@ -450,7 +450,7 @@ News in 3.20.0
 
 News in 3.19.4
 --------------
-* CSS fixes to track GTK+ changes
+* CSS fixes to track CTK+ changes
 * Fix completion popup on Wayland
 * MSVC build projects
 * Misc bug fixes
@@ -458,14 +458,14 @@ News in 3.19.4
 
 News in 3.19.3
 --------------
-* Many fixes to track GTK+ changes
+* Many fixes to track CTK+ changes
 * Rework symbol visibility handling
 * Other small improvements
 * Translation updates
 
 News in 3.19.2
 --------------
-* Some CSS adjustments to track GTK+ changes
+* Some CSS adjustments to track CTK+ changes
 * Add API to get the GtkSourceView version
 * Other small improvements
 * Translation update
@@ -552,7 +552,7 @@ News in 3.16.1
 * Update CMake language spec
 * Add a "path" class for contexts with a file name
 * Performance improvements for groups of text insertions/deletions
-* Fix bug with symbolic icons and dark GTK+ theme
+* Fix bug with symbolic icons and dark CTK+ theme
 * Translation updates
 
 News in 3.16.0
@@ -978,7 +978,7 @@ News in 3.0.0
 
 News in 2.91.9
 -------------
-* Use the GTK_SOURCE_ prefix also for all the macros
+* Use the CTK_SOURCE_ prefix also for all the macros
 * Updated translations
 
 News in 2.91.8

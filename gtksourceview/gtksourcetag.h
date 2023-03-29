@@ -20,10 +20,10 @@
  * Author: Sébastien Wilmet
  */
 
-#ifndef GTK_SOURCE_TAG_H
-#define GTK_SOURCE_TAG_H
+#ifndef CTK_SOURCE_TAG_H
+#define CTK_SOURCE_TAG_H
 
-#if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
+#if !defined (CTK_SOURCE_H_INSIDE) && !defined (CTK_SOURCE_COMPILATION)
 #error "Only <ctksourceview/ctksource.h> can be included directly."
 #endif
 
@@ -32,11 +32,11 @@
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_TAG (ctk_source_tag_get_type ())
+#define CTK_SOURCE_TYPE_TAG (ctk_source_tag_get_type ())
 
-GTK_SOURCE_AVAILABLE_IN_3_20
+CTK_SOURCE_AVAILABLE_IN_3_20
 G_DECLARE_DERIVABLE_TYPE (GtkSourceTag, ctk_source_tag,
-			  GTK_SOURCE, TAG,
+			  CTK_SOURCE, TAG,
 			  GtkTextTag)
 
 struct _GtkSourceTagClass
@@ -46,9 +46,9 @@ struct _GtkSourceTagClass
 	gpointer padding[10];
 };
 
-GTK_SOURCE_AVAILABLE_IN_3_20
+CTK_SOURCE_AVAILABLE_IN_3_20
 GtkTextTag *	ctk_source_tag_new		(const gchar *name);
 
 G_END_DECLS
 
-#endif /* GTK_SOURCE_TAG_H */
+#endif /* CTK_SOURCE_TAG_H */

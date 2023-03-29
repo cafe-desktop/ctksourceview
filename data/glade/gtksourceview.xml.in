@@ -18,10 +18,10 @@
         <property id="show-right-margin" default="False" />
         <property id="smart-home-end" default="Disabled">
           <displayable-values>
-            <value id="GTK_SOURCE_SMART_HOME_END_DISABLED" name="Disabled" />
-            <value id="GTK_SOURCE_SMART_HOME_END_BEFORE" name="Before" />
-            <value id="GTK_SOURCE_SMART_HOME_END_AFTER" name="After" />
-            <value id="GTK_SOURCE_SMART_HOME_END_ALWAYS" name="Always" />
+            <value id="CTK_SOURCE_SMART_HOME_END_DISABLED" name="Disabled" />
+            <value id="CTK_SOURCE_SMART_HOME_END_BEFORE" name="Before" />
+            <value id="CTK_SOURCE_SMART_HOME_END_AFTER" name="After" />
+            <value id="CTK_SOURCE_SMART_HOME_END_ALWAYS" name="Always" />
           </displayable-values>
         </property>
         <property id="tab-width" default="8" />

@@ -446,7 +446,7 @@ msgstr "コンテキスト“%s”には \\%%{...@start} コマンドを格納�
 msgid "duplicated context id “%s”"
 msgstr "コンテキスト ID “%s”が重複しています"
 
-# GTK_SOURCE_CONTEXT_IGNORE_STYLE または  GTK_SOURCE_CONTEXT_OVERRIDE_STYLE が設定されている時のエラー。
+# CTK_SOURCE_CONTEXT_IGNORE_STYLE または  CTK_SOURCE_CONTEXT_OVERRIDE_STYLE が設定されている時のエラー。
 #: ctksourceview/ctksourcecontextengine.c:6089
 #: ctksourceview/ctksourcecontextengine.c:6149
 #, c-format
@@ -724,7 +724,7 @@ msgstr "大文字/小文字を変更(_H)"
 #~ msgid "Non Breaking Whitespace"
 #~ msgstr "開業されない空白"
 
-# GTK_SOURCE_DRAW_SPACES_LEADING なので、行頭の空間とした。
+# CTK_SOURCE_DRAW_SPACES_LEADING なので、行頭の空間とした。
 #~ msgid "Leading"
 #~ msgstr "行頭の空間"
 

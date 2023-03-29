@@ -17,10 +17,10 @@
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTK_SOURCE_INIT_H
-#define GTK_SOURCE_INIT_H
+#ifndef CTK_SOURCE_INIT_H
+#define CTK_SOURCE_INIT_H
 
-#if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
+#if !defined (CTK_SOURCE_H_INSIDE) && !defined (CTK_SOURCE_COMPILATION)
 #error "Only <ctksourceview/ctksource.h> can be included directly."
 #endif
 
@@ -29,12 +29,12 @@
 
 G_BEGIN_DECLS
 
-GTK_SOURCE_AVAILABLE_IN_4_0
+CTK_SOURCE_AVAILABLE_IN_4_0
 void	ctk_source_init		(void);
 
-GTK_SOURCE_AVAILABLE_IN_4_0
+CTK_SOURCE_AVAILABLE_IN_4_0
 void	ctk_source_finalize	(void);
 
 G_END_DECLS
 
-#endif /* GTK_SOURCE_INIT_H */
+#endif /* CTK_SOURCE_INIT_H */

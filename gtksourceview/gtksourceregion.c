@@ -223,7 +223,7 @@ ctk_source_region_get_property (GObject    *object,
 				GValue     *value,
 				GParamSpec *pspec)
 {
-	GtkSourceRegion *region = GTK_SOURCE_REGION (object);
+	GtkSourceRegion *region = CTK_SOURCE_REGION (object);
 
 	switch (prop_id)
 	{
@@ -243,7 +243,7 @@ ctk_source_region_set_property (GObject      *object,
 				const GValue *value,
 				GParamSpec   *pspec)
 {
-	GtkSourceRegionPrivate *priv = ctk_source_region_get_instance_private (GTK_SOURCE_REGION (object));
+	GtkSourceRegionPrivate *priv = ctk_source_region_get_instance_private (CTK_SOURCE_REGION (object));
 
 	switch (prop_id)
 	{
@@ -263,7 +263,7 @@ ctk_source_region_set_property (GObject      *object,
 static void
 ctk_source_region_dispose (GObject *object)
 {
-	GtkSourceRegionPrivate *priv = ctk_source_region_get_instance_private (GTK_SOURCE_REGION (object));
+	GtkSourceRegionPrivate *priv = ctk_source_region_get_instance_private (CTK_SOURCE_REGION (object));
 
 	while (priv->subregions != NULL)
 	{
@@ -311,7 +311,7 @@ ctk_source_region_class_init (GtkSourceRegionClass *klass)
 		g_param_spec_object ("buffer",
 				     "Buffer",
 				     "",
-				     GTK_TYPE_TEXT_BUFFER,
+				     CTK_TYPE_TEXT_BUFFER,
 				     G_PARAM_READWRITE |
 				     G_PARAM_CONSTRUCT_ONLY |
 				     G_PARAM_STATIC_STRINGS);
@@ -334,9 +334,9 @@ ctk_source_region_init (GtkSourceRegion *region)
 GtkSourceRegion *
 ctk_source_region_new (GtkTextBuffer *buffer)
 {
-	g_return_val_if_fail (GTK_IS_TEXT_BUFFER (buffer), NULL);
+	g_return_val_if_fail (CTK_IS_TEXT_BUFFER (buffer), NULL);
 
-	return g_object_new (GTK_SOURCE_TYPE_REGION,
+	return g_object_new (CTK_SOURCE_TYPE_REGION,
 			     "buffer", buffer,
 			     NULL);
 }
@@ -353,7 +353,7 @@ ctk_source_region_get_buffer (GtkSourceRegion *region)
 {
 	GtkSourceRegionPrivate *priv;
 
-	g_return_val_if_fail (GTK_SOURCE_IS_REGION (region), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_REGION (region), NULL);
 
 	priv = ctk_source_region_get_instance_private (region);
 	return priv->buffer;
@@ -420,7 +420,7 @@ ctk_source_region_add_subregion (GtkSourceRegion   *region,
 	GtkTextIter start;
 	GtkTextIter end;
 
-	g_return_if_fail (GTK_SOURCE_IS_REGION (region));
+	g_return_if_fail (CTK_SOURCE_IS_REGION (region));
 	g_return_if_fail (_start != NULL);
 	g_return_if_fail (_end != NULL);
 
@@ -540,8 +540,8 @@ ctk_source_region_add_region (GtkSourceRegion *region,
 	GtkTextBuffer *region_buffer;
 	GtkTextBuffer *region_to_add_buffer;
 
-	g_return_if_fail (GTK_SOURCE_IS_REGION (region));
-	g_return_if_fail (region_to_add == NULL || GTK_SOURCE_IS_REGION (region_to_add));
+	g_return_if_fail (CTK_SOURCE_IS_REGION (region));
+	g_return_if_fail (region_to_add == NULL || CTK_SOURCE_IS_REGION (region_to_add));
 
 	if (region_to_add == NULL)
 	{
@@ -607,7 +607,7 @@ ctk_source_region_subtract_subregion (GtkSourceRegion   *region,
 	GtkTextIter start;
 	GtkTextIter end;
 
-	g_return_if_fail (GTK_SOURCE_IS_REGION (region));
+	g_return_if_fail (CTK_SOURCE_IS_REGION (region));
 	g_return_if_fail (_start != NULL);
 	g_return_if_fail (_end != NULL);
 
@@ -772,8 +772,8 @@ ctk_source_region_subtract_region (GtkSourceRegion *region,
 	GtkTextBuffer *region_to_subtract_buffer;
 	GtkSourceRegionIter iter;
 
-	g_return_if_fail (GTK_SOURCE_IS_REGION (region));
-	g_return_if_fail (region_to_subtract == NULL || GTK_SOURCE_IS_REGION (region_to_subtract));
+	g_return_if_fail (CTK_SOURCE_IS_REGION (region));
+	g_return_if_fail (region_to_subtract == NULL || CTK_SOURCE_IS_REGION (region_to_subtract));
 
 	region_buffer = ctk_source_region_get_buffer (region);
 	region_to_subtract_buffer = ctk_source_region_get_buffer (region_to_subtract);
@@ -879,7 +879,7 @@ ctk_source_region_get_bounds (GtkSourceRegion *region,
 {
 	GtkSourceRegionPrivate *priv;
 
-	g_return_val_if_fail (GTK_SOURCE_IS_REGION (region), FALSE);
+	g_return_val_if_fail (CTK_SOURCE_IS_REGION (region), FALSE);
 
 	priv = ctk_source_region_get_instance_private (region);
 
@@ -938,7 +938,7 @@ ctk_source_region_intersect_subregion (GtkSourceRegion   *region,
 	GtkTextIter start;
 	GtkTextIter end;
 
-	g_return_val_if_fail (GTK_SOURCE_IS_REGION (region), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_REGION (region), NULL);
 	g_return_val_if_fail (_start != NULL, NULL);
 	g_return_val_if_fail (_end != NULL, NULL);
 
@@ -1100,8 +1100,8 @@ ctk_source_region_intersect_region (GtkSourceRegion *region1,
 	GtkSourceRegion *full_intersect = NULL;
 	GtkSourceRegionIter region2_iter;
 
-	g_return_val_if_fail (region1 == NULL || GTK_SOURCE_IS_REGION (region1), NULL);
-	g_return_val_if_fail (region2 == NULL || GTK_SOURCE_IS_REGION (region2), NULL);
+	g_return_val_if_fail (region1 == NULL || CTK_SOURCE_IS_REGION (region1), NULL);
+	g_return_val_if_fail (region2 == NULL || CTK_SOURCE_IS_REGION (region2), NULL);
 
 	if (region1 == NULL && region2 == NULL)
 	{
@@ -1202,7 +1202,7 @@ ctk_source_region_get_start_region_iter (GtkSourceRegion     *region,
 	GtkSourceRegionPrivate *priv;
 	GtkSourceRegionIterReal *real;
 
-	g_return_if_fail (GTK_SOURCE_IS_REGION (region));
+	g_return_if_fail (CTK_SOURCE_IS_REGION (region));
 	g_return_if_fail (iter != NULL);
 
 	priv = ctk_source_region_get_instance_private (region);
@@ -1338,7 +1338,7 @@ ctk_source_region_to_string (GtkSourceRegion *region)
 	GString *string;
 	GList *l;
 
-	g_return_val_if_fail (GTK_SOURCE_IS_REGION (region), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_REGION (region), NULL);
 
 	priv = ctk_source_region_get_instance_private (region);
 

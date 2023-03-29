@@ -47,7 +47,7 @@ static void test_provider_iface_init (GtkSourceCompletionProviderIface *iface);
 G_DEFINE_TYPE_WITH_CODE (TestProvider,
 			 test_provider,
 			 G_TYPE_OBJECT,
-			 G_IMPLEMENT_INTERFACE (GTK_SOURCE_TYPE_COMPLETION_PROVIDER,
+			 G_IMPLEMENT_INTERFACE (CTK_SOURCE_TYPE_COMPLETION_PROVIDER,
 						test_provider_iface_init));
 
 static gchar *
@@ -147,7 +147,7 @@ populate_model (GtkSourceCompletionModel *model,
 	     cur_list_proposals = g_list_next (cur_list_proposals))
 	{
 		ctk_source_completion_model_add_proposals (model,
-							   GTK_SOURCE_COMPLETION_PROVIDER (cur_provider->data),
+							   CTK_SOURCE_COMPLETION_PROVIDER (cur_provider->data),
 							   cur_list_proposals->data);
 	}
 }
@@ -191,14 +191,14 @@ check_provider (GtkSourceCompletionModel    *model,
 	{
 		g_assert_true (ctk_source_completion_model_iter_is_header (model, iter));
 
-		ctk_tree_model_get (GTK_TREE_MODEL (model), iter,
-				    GTK_SOURCE_COMPLETION_MODEL_COLUMN_PROPOSAL, &proposal_get,
-				    GTK_SOURCE_COMPLETION_MODEL_COLUMN_PROVIDER, &provider_get,
+		ctk_tree_model_get (CTK_TREE_MODEL (model), iter,
+				    CTK_SOURCE_COMPLETION_MODEL_COLUMN_PROPOSAL, &proposal_get,
+				    CTK_SOURCE_COMPLETION_MODEL_COLUMN_PROVIDER, &provider_get,
 				    -1);
 
 		g_assert_null (proposal_get);
 		g_assert_true (provider_get == provider);
-		g_assert_true (ctk_tree_model_iter_next (GTK_TREE_MODEL (model), iter));
+		g_assert_true (ctk_tree_model_iter_next (CTK_TREE_MODEL (model), iter));
 	}
 
 	/* Check the proposals */
@@ -206,9 +206,9 @@ check_provider (GtkSourceCompletionModel    *model,
 	cur_proposal = list_proposals;
 	while (TRUE)
 	{
-		ctk_tree_model_get (GTK_TREE_MODEL (model), iter,
-				    GTK_SOURCE_COMPLETION_MODEL_COLUMN_PROPOSAL, &proposal_get,
-				    GTK_SOURCE_COMPLETION_MODEL_COLUMN_PROVIDER, &provider_get,
+		ctk_tree_model_get (CTK_TREE_MODEL (model), iter,
+				    CTK_SOURCE_COMPLETION_MODEL_COLUMN_PROPOSAL, &proposal_get,
+				    CTK_SOURCE_COMPLETION_MODEL_COLUMN_PROVIDER, &provider_get,
 				    -1);
 
 		g_assert_true (proposal_get == cur_proposal->data);
@@ -221,7 +221,7 @@ check_provider (GtkSourceCompletionModel    *model,
 			break;
 		}
 
-		g_assert_true (ctk_tree_model_iter_next (GTK_TREE_MODEL (model), iter));
+		g_assert_true (ctk_tree_model_iter_next (CTK_TREE_MODEL (model), iter));
 	}
 }
 
@@ -236,14 +236,14 @@ check_all_providers (GtkSourceCompletionModel *model,
 	GList *cur_provider = NULL;
 	GList *cur_list_proposals = NULL;
 
-	g_assert_true (ctk_tree_model_get_iter_first (GTK_TREE_MODEL (model), &iter));
+	g_assert_true (ctk_tree_model_get_iter_first (CTK_TREE_MODEL (model), &iter));
 
 	cur_provider = all_providers;
 	cur_list_proposals = all_list_proposals;
 	while (TRUE)
 	{
 		check_provider (model,
-				GTK_SOURCE_COMPLETION_PROVIDER (cur_provider->data),
+				CTK_SOURCE_COMPLETION_PROVIDER (cur_provider->data),
 				cur_list_proposals->data,
 				is_header_visible,
 				&iter);
@@ -257,10 +257,10 @@ check_all_providers (GtkSourceCompletionModel *model,
 			break;
 		}
 
-		g_assert_true (ctk_tree_model_iter_next (GTK_TREE_MODEL (model), &iter));
+		g_assert_true (ctk_tree_model_iter_next (CTK_TREE_MODEL (model), &iter));
 	}
 
-	g_assert_true (!ctk_tree_model_iter_next (GTK_TREE_MODEL (model), &iter));
+	g_assert_true (!ctk_tree_model_iter_next (CTK_TREE_MODEL (model), &iter));
 }
 
 static void
@@ -323,7 +323,7 @@ test_is_empty (void)
 	list_proposals = create_proposals ();
 
 	ctk_source_completion_model_add_proposals (model,
-						   GTK_SOURCE_COMPLETION_PROVIDER (provider),
+						   CTK_SOURCE_COMPLETION_PROVIDER (provider),
 						   list_proposals);
 
 	g_assert_false (ctk_source_completion_model_is_empty (model, FALSE));
@@ -445,7 +445,7 @@ static void
 test_populate_several_batches (void)
 {
 	GtkSourceCompletionModel *model = ctk_source_completion_model_new ();
-	GtkSourceCompletionProvider *provider = GTK_SOURCE_COMPLETION_PROVIDER (test_provider_new ());
+	GtkSourceCompletionProvider *provider = CTK_SOURCE_COMPLETION_PROVIDER (test_provider_new ());
 	GList *list_providers = g_list_append (NULL, provider);
 	GList *first_proposals = create_proposals ();
 	GList *second_proposals = create_proposals ();
@@ -457,9 +457,9 @@ test_populate_several_batches (void)
 	/* First batch */
 	ctk_source_completion_model_add_proposals (model, provider, first_proposals);
 
-	g_assert_true (ctk_tree_model_get_iter_first (GTK_TREE_MODEL (model), &iter));
+	g_assert_true (ctk_tree_model_get_iter_first (CTK_TREE_MODEL (model), &iter));
 	check_provider (model, provider, first_proposals, TRUE, &iter);
-	g_assert_false (ctk_tree_model_iter_next (GTK_TREE_MODEL (model), &iter));
+	g_assert_false (ctk_tree_model_iter_next (CTK_TREE_MODEL (model), &iter));
 
 	/* Second batch */
 	ctk_source_completion_model_add_proposals (model, provider, second_proposals);
@@ -467,9 +467,9 @@ test_populate_several_batches (void)
 	all_proposals = g_list_copy (first_proposals);
 	all_proposals = g_list_concat (all_proposals, g_list_copy (second_proposals));
 
-	g_assert_true (ctk_tree_model_get_iter_first (GTK_TREE_MODEL (model), &iter));
+	g_assert_true (ctk_tree_model_get_iter_first (CTK_TREE_MODEL (model), &iter));
 	check_provider (model, provider, all_proposals, TRUE, &iter);
-	g_assert_false (ctk_tree_model_iter_next (GTK_TREE_MODEL (model), &iter));
+	g_assert_false (ctk_tree_model_iter_next (CTK_TREE_MODEL (model), &iter));
 
 	g_object_unref (model);
 	g_object_unref (provider);
@@ -526,9 +526,9 @@ test_iters_impl (gboolean show_headers)
 	g_assert_true (ctk_source_completion_model_last_proposal (model, &last_iter));
 
 	/* Get the last proposal by another means, and compare it */
-	nb_items = ctk_tree_model_iter_n_children (GTK_TREE_MODEL (model), NULL);
+	nb_items = ctk_tree_model_iter_n_children (CTK_TREE_MODEL (model), NULL);
 
-	g_assert_true (ctk_tree_model_iter_nth_child (GTK_TREE_MODEL (model),
+	g_assert_true (ctk_tree_model_iter_nth_child (CTK_TREE_MODEL (model),
 	                                              &other_iter,
 	                                              NULL,
 	                                              nb_items - 1));
@@ -536,26 +536,26 @@ test_iters_impl (gboolean show_headers)
 	g_assert_true (ctk_source_completion_model_iter_equal (model, &last_iter, &other_iter));
 
 	/* Test get_path() */
-	path = ctk_tree_model_get_path (GTK_TREE_MODEL (model), &last_iter);
+	path = ctk_tree_model_get_path (CTK_TREE_MODEL (model), &last_iter);
 	indices = ctk_tree_path_get_indices (path);
 	g_assert_cmpint (indices[0], ==, nb_items - 1);
 
 	/* Test iter_previous() */
 	while (ctk_source_completion_model_iter_previous (model, &other_iter));
 
-	g_assert_true (ctk_tree_model_get_iter_first (GTK_TREE_MODEL (model), &first_iter));
+	g_assert_true (ctk_tree_model_get_iter_first (CTK_TREE_MODEL (model), &first_iter));
 	g_assert_true (ctk_source_completion_model_iter_equal (model, &first_iter, &other_iter));
 
 	/* Test iter_children() */
-	g_assert_true (ctk_tree_model_iter_children (GTK_TREE_MODEL (model), &other_iter, NULL));
+	g_assert_true (ctk_tree_model_iter_children (CTK_TREE_MODEL (model), &other_iter, NULL));
 	g_assert_true (ctk_source_completion_model_iter_equal (model, &first_iter, &other_iter));
-	g_assert_false (ctk_tree_model_iter_children (GTK_TREE_MODEL (model), &other_iter, &first_iter));
+	g_assert_false (ctk_tree_model_iter_children (CTK_TREE_MODEL (model), &other_iter, &first_iter));
 
 	/* Test iter_has_child() */
-	g_assert_false (ctk_tree_model_iter_has_child (GTK_TREE_MODEL (model), &first_iter));
+	g_assert_false (ctk_tree_model_iter_has_child (CTK_TREE_MODEL (model), &first_iter));
 
 	/* Test iter_parent() */
-	g_assert_false (ctk_tree_model_iter_parent (GTK_TREE_MODEL (model), &other_iter, &first_iter));
+	g_assert_false (ctk_tree_model_iter_parent (CTK_TREE_MODEL (model), &other_iter, &first_iter));
 
 	g_object_unref (model);
 	free_providers (all_providers, all_list_proposals);
@@ -578,7 +578,7 @@ on_row_changed (GtkTreeModel                *model,
 	GtkSourceCompletionProposal *row_proposal = NULL;
 
 	ctk_tree_model_get (model, iter,
-			    GTK_SOURCE_COMPLETION_MODEL_COLUMN_PROPOSAL, &row_proposal,
+			    CTK_SOURCE_COMPLETION_MODEL_COLUMN_PROPOSAL, &row_proposal,
 			    -1);
 
 	/* Make sure that the signal was emitted for the good row. */
@@ -594,7 +594,7 @@ test_row_changed (void)
 	GtkSourceCompletionProposal *proposal = proposals->data;
 
 	ctk_source_completion_model_add_proposals (model,
-						   GTK_SOURCE_COMPLETION_PROVIDER (provider),
+						   CTK_SOURCE_COMPLETION_PROVIDER (provider),
 						   proposals);
 
 	g_signal_connect (model,

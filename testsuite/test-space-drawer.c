@@ -74,13 +74,13 @@ check_equal_matrix (GtkSourceSpaceDrawer    *drawer,
 	GVariant *my_variant;
 	GVariant *drawer_variant;
 
-	types = ctk_source_space_drawer_get_types_for_locations (drawer, GTK_SOURCE_SPACE_LOCATION_LEADING);
+	types = ctk_source_space_drawer_get_types_for_locations (drawer, CTK_SOURCE_SPACE_LOCATION_LEADING);
 	g_assert_cmpint (types, ==, matrix[LEADING_INDEX]);
 
-	types = ctk_source_space_drawer_get_types_for_locations (drawer, GTK_SOURCE_SPACE_LOCATION_INSIDE_TEXT);
+	types = ctk_source_space_drawer_get_types_for_locations (drawer, CTK_SOURCE_SPACE_LOCATION_INSIDE_TEXT);
 	g_assert_cmpint (types, ==, matrix[INSIDE_TEXT_INDEX]);
 
-	types = ctk_source_space_drawer_get_types_for_locations (drawer, GTK_SOURCE_SPACE_LOCATION_TRAILING);
+	types = ctk_source_space_drawer_get_types_for_locations (drawer, CTK_SOURCE_SPACE_LOCATION_TRAILING);
 	g_assert_cmpint (types, ==, matrix[TRAILING_INDEX]);
 
 	/* Check variants */
@@ -89,8 +89,8 @@ check_equal_matrix (GtkSourceSpaceDrawer    *drawer,
 	g_assert_true (g_variant_equal (my_variant, drawer_variant));
 
 	ctk_source_space_drawer_set_types_for_locations (drawer,
-							 GTK_SOURCE_SPACE_LOCATION_ALL,
-							 GTK_SOURCE_SPACE_TYPE_NONE);
+							 CTK_SOURCE_SPACE_LOCATION_ALL,
+							 CTK_SOURCE_SPACE_TYPE_NONE);
 	ctk_source_space_drawer_set_matrix (drawer, my_variant);
 	g_variant_ref_sink (drawer_variant);
 	g_variant_unref (drawer_variant);
@@ -103,13 +103,13 @@ check_equal_matrix (GtkSourceSpaceDrawer    *drawer,
 	g_variant_ref_sink (drawer_variant);
 	g_variant_unref (drawer_variant);
 
-	types = ctk_source_space_drawer_get_types_for_locations (drawer, GTK_SOURCE_SPACE_LOCATION_LEADING);
+	types = ctk_source_space_drawer_get_types_for_locations (drawer, CTK_SOURCE_SPACE_LOCATION_LEADING);
 	g_assert_cmpint (types, ==, matrix[LEADING_INDEX]);
 
-	types = ctk_source_space_drawer_get_types_for_locations (drawer, GTK_SOURCE_SPACE_LOCATION_INSIDE_TEXT);
+	types = ctk_source_space_drawer_get_types_for_locations (drawer, CTK_SOURCE_SPACE_LOCATION_INSIDE_TEXT);
 	g_assert_cmpint (types, ==, matrix[INSIDE_TEXT_INDEX]);
 
-	types = ctk_source_space_drawer_get_types_for_locations (drawer, GTK_SOURCE_SPACE_LOCATION_TRAILING);
+	types = ctk_source_space_drawer_get_types_for_locations (drawer, CTK_SOURCE_SPACE_LOCATION_TRAILING);
 	g_assert_cmpint (types, ==, matrix[TRAILING_INDEX]);
 }
 
@@ -121,26 +121,26 @@ set_matrix (GtkSourceSpaceDrawer    *drawer,
 
 	/* Leading */
 	ctk_source_space_drawer_set_types_for_locations (drawer,
-							 GTK_SOURCE_SPACE_LOCATION_LEADING,
+							 CTK_SOURCE_SPACE_LOCATION_LEADING,
 							 matrix[LEADING_INDEX]);
 
-	types = ctk_source_space_drawer_get_types_for_locations (drawer, GTK_SOURCE_SPACE_LOCATION_LEADING);
+	types = ctk_source_space_drawer_get_types_for_locations (drawer, CTK_SOURCE_SPACE_LOCATION_LEADING);
 	g_assert_cmpint (types, ==, matrix[LEADING_INDEX]);
 
 	/* Inside text */
 	ctk_source_space_drawer_set_types_for_locations (drawer,
-							 GTK_SOURCE_SPACE_LOCATION_INSIDE_TEXT,
+							 CTK_SOURCE_SPACE_LOCATION_INSIDE_TEXT,
 							 matrix[INSIDE_TEXT_INDEX]);
 
-	types = ctk_source_space_drawer_get_types_for_locations (drawer, GTK_SOURCE_SPACE_LOCATION_INSIDE_TEXT);
+	types = ctk_source_space_drawer_get_types_for_locations (drawer, CTK_SOURCE_SPACE_LOCATION_INSIDE_TEXT);
 	g_assert_cmpint (types, ==, matrix[INSIDE_TEXT_INDEX]);
 
 	/* Trailing */
 	ctk_source_space_drawer_set_types_for_locations (drawer,
-							 GTK_SOURCE_SPACE_LOCATION_TRAILING,
+							 CTK_SOURCE_SPACE_LOCATION_TRAILING,
 							 matrix[TRAILING_INDEX]);
 
-	types = ctk_source_space_drawer_get_types_for_locations (drawer, GTK_SOURCE_SPACE_LOCATION_TRAILING);
+	types = ctk_source_space_drawer_get_types_for_locations (drawer, CTK_SOURCE_SPACE_LOCATION_TRAILING);
 	g_assert_cmpint (types, ==, matrix[TRAILING_INDEX]);
 
 	/* Check all */
@@ -158,15 +158,15 @@ test_matrix_getters_setters (void)
 	GtkSourceSpaceTypeFlags matrix[NUM_LOCATIONS];
 	GtkSourceSpaceTypeFlags types;
 
-	view = GTK_SOURCE_VIEW (ctk_source_view_new ());
+	view = CTK_SOURCE_VIEW (ctk_source_view_new ());
 	g_object_ref_sink (view);
 
 	drawer = ctk_source_view_get_space_drawer (view);
 
 	/* Default value */
-	matrix[LEADING_INDEX] = GTK_SOURCE_SPACE_TYPE_ALL;
-	matrix[INSIDE_TEXT_INDEX] = GTK_SOURCE_SPACE_TYPE_ALL;
-	matrix[TRAILING_INDEX] = GTK_SOURCE_SPACE_TYPE_ALL;
+	matrix[LEADING_INDEX] = CTK_SOURCE_SPACE_TYPE_ALL;
+	matrix[INSIDE_TEXT_INDEX] = CTK_SOURCE_SPACE_TYPE_ALL;
+	matrix[TRAILING_INDEX] = CTK_SOURCE_SPACE_TYPE_ALL;
 	check_equal_matrix (drawer, matrix);
 
 	/* Set each location separately */
@@ -175,13 +175,13 @@ test_matrix_getters_setters (void)
 	matrix[INSIDE_TEXT_INDEX] = 0;
 	set_matrix (drawer, matrix);
 
-	matrix[TRAILING_INDEX] = GTK_SOURCE_SPACE_TYPE_NBSP;
+	matrix[TRAILING_INDEX] = CTK_SOURCE_SPACE_TYPE_NBSP;
 	set_matrix (drawer, matrix);
 
 	/* Reset to 0 all at once */
 	ctk_source_space_drawer_set_types_for_locations (drawer,
-							 GTK_SOURCE_SPACE_LOCATION_ALL,
-							 GTK_SOURCE_SPACE_TYPE_NONE);
+							 CTK_SOURCE_SPACE_LOCATION_ALL,
+							 CTK_SOURCE_SPACE_TYPE_NONE);
 
 	matrix[LEADING_INDEX] = 0;
 	matrix[INSIDE_TEXT_INDEX] = 0;
@@ -190,46 +190,46 @@ test_matrix_getters_setters (void)
 
 	/* Set leading and trailing at once */
 	ctk_source_space_drawer_set_types_for_locations (drawer,
-							 GTK_SOURCE_SPACE_LOCATION_LEADING |
-							 GTK_SOURCE_SPACE_LOCATION_TRAILING,
-							 GTK_SOURCE_SPACE_TYPE_TAB);
+							 CTK_SOURCE_SPACE_LOCATION_LEADING |
+							 CTK_SOURCE_SPACE_LOCATION_TRAILING,
+							 CTK_SOURCE_SPACE_TYPE_TAB);
 
-	matrix[LEADING_INDEX] = GTK_SOURCE_SPACE_TYPE_TAB;
-	matrix[TRAILING_INDEX] = GTK_SOURCE_SPACE_TYPE_TAB;
+	matrix[LEADING_INDEX] = CTK_SOURCE_SPACE_TYPE_TAB;
+	matrix[TRAILING_INDEX] = CTK_SOURCE_SPACE_TYPE_TAB;
 	check_equal_matrix (drawer, matrix);
 
 	/* Enable all at once */
 	ctk_source_space_drawer_set_types_for_locations (drawer,
-							 GTK_SOURCE_SPACE_LOCATION_ALL,
-							 GTK_SOURCE_SPACE_TYPE_ALL);
+							 CTK_SOURCE_SPACE_LOCATION_ALL,
+							 CTK_SOURCE_SPACE_TYPE_ALL);
 
-	matrix[LEADING_INDEX] = GTK_SOURCE_SPACE_TYPE_ALL;
-	matrix[INSIDE_TEXT_INDEX] = GTK_SOURCE_SPACE_TYPE_ALL;
-	matrix[TRAILING_INDEX] = GTK_SOURCE_SPACE_TYPE_ALL;
+	matrix[LEADING_INDEX] = CTK_SOURCE_SPACE_TYPE_ALL;
+	matrix[INSIDE_TEXT_INDEX] = CTK_SOURCE_SPACE_TYPE_ALL;
+	matrix[TRAILING_INDEX] = CTK_SOURCE_SPACE_TYPE_ALL;
 	check_equal_matrix (drawer, matrix);
 
 	/* Get several locations at once */
-	matrix[LEADING_INDEX] = GTK_SOURCE_SPACE_TYPE_NBSP | GTK_SOURCE_SPACE_TYPE_TAB;
-	matrix[INSIDE_TEXT_INDEX] = GTK_SOURCE_SPACE_TYPE_NBSP;
-	matrix[TRAILING_INDEX] = GTK_SOURCE_SPACE_TYPE_ALL;
+	matrix[LEADING_INDEX] = CTK_SOURCE_SPACE_TYPE_NBSP | CTK_SOURCE_SPACE_TYPE_TAB;
+	matrix[INSIDE_TEXT_INDEX] = CTK_SOURCE_SPACE_TYPE_NBSP;
+	matrix[TRAILING_INDEX] = CTK_SOURCE_SPACE_TYPE_ALL;
 	set_matrix (drawer, matrix);
 
-	types = ctk_source_space_drawer_get_types_for_locations (drawer, GTK_SOURCE_SPACE_LOCATION_ALL);
-	g_assert_cmpint (types, ==, GTK_SOURCE_SPACE_TYPE_NBSP);
+	types = ctk_source_space_drawer_get_types_for_locations (drawer, CTK_SOURCE_SPACE_LOCATION_ALL);
+	g_assert_cmpint (types, ==, CTK_SOURCE_SPACE_TYPE_NBSP);
 
 	types = ctk_source_space_drawer_get_types_for_locations (drawer,
-								 GTK_SOURCE_SPACE_LOCATION_LEADING |
-								 GTK_SOURCE_SPACE_LOCATION_TRAILING);
-	g_assert_cmpint (types, ==, GTK_SOURCE_SPACE_TYPE_NBSP | GTK_SOURCE_SPACE_TYPE_TAB);
+								 CTK_SOURCE_SPACE_LOCATION_LEADING |
+								 CTK_SOURCE_SPACE_LOCATION_TRAILING);
+	g_assert_cmpint (types, ==, CTK_SOURCE_SPACE_TYPE_NBSP | CTK_SOURCE_SPACE_TYPE_TAB);
 
 	/* Set at none locations */
 	ctk_source_space_drawer_set_types_for_locations (drawer,
-							 GTK_SOURCE_SPACE_LOCATION_NONE,
-							 GTK_SOURCE_SPACE_TYPE_ALL);
+							 CTK_SOURCE_SPACE_LOCATION_NONE,
+							 CTK_SOURCE_SPACE_TYPE_ALL);
 	check_equal_matrix (drawer, matrix);
 
 	/* Get at none locations */
-	types = ctk_source_space_drawer_get_types_for_locations (drawer, GTK_SOURCE_SPACE_LOCATION_NONE);
+	types = ctk_source_space_drawer_get_types_for_locations (drawer, CTK_SOURCE_SPACE_LOCATION_NONE);
 	g_assert_cmpint (types, ==, 0);
 
 	g_object_unref (view);

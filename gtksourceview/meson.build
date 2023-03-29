@@ -107,7 +107,7 @@ core_private_c = files([
 
 core_c_args = [
   '-DHAVE_CONFIG_H',
-  '-DGTK_SOURCE_COMPILATION',
+  '-DCTK_SOURCE_COMPILATION',
   '-DG_LOG_DOMAIN="GtkSourceView"',
 ]
 
@@ -139,11 +139,11 @@ ctksourceview_include_dirs = [rootdir, ctksourceview_extra_include_dirs]
 
 core_enums_header = '''
 
-#if defined (GTK_SOURCE_COMPILATION) && defined (HAVE_CONFIG_H)
+#if defined (CTK_SOURCE_COMPILATION) && defined (HAVE_CONFIG_H)
 # include <config.h>
 #endif
 
-#if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
+#if !defined (CTK_SOURCE_H_INSIDE) && !defined (CTK_SOURCE_COMPILATION)
 # error "Only <ctksourceview/ctksource.h> can be included directly."
 #endif
 
@@ -155,15 +155,15 @@ core_enums = gnome.mkenums_simple('ctksource-enumtypes',
   identifier_prefix: 'GtkSource',
       symbol_prefix: 'ctk_source',
       header_prefix: core_enums_header,
-          decorator: 'GTK_SOURCE_ENUM_EXTERN',
+          decorator: 'CTK_SOURCE_ENUM_EXTERN',
      install_header: true,
         install_dir: join_paths(pkgincludedir, 'ctksourceview'),
 )
 
 version_h = configuration_data()
-version_h.set('GTK_SOURCE_MAJOR_VERSION', version_major)
-version_h.set('GTK_SOURCE_MINOR_VERSION', version_minor)
-version_h.set('GTK_SOURCE_MICRO_VERSION', version_micro)
+version_h.set('CTK_SOURCE_MAJOR_VERSION', version_major)
+version_h.set('CTK_SOURCE_MINOR_VERSION', version_minor)
+version_h.set('CTK_SOURCE_MICRO_VERSION', version_micro)
 
 ctksourceversion_h = configure_file(
           input: 'ctksourceversion.h.in',

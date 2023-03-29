@@ -115,7 +115,7 @@ check_scheme (GtkSourceStyleScheme  *scheme,
 	compare_strv ((const gchar **)ctk_source_style_scheme_get_authors (scheme), expected_authors);
 
 	style = ctk_source_style_scheme_get_style (scheme, style_id);
-	g_assert_true (GTK_SOURCE_IS_STYLE (style));
+	g_assert_true (CTK_SOURCE_IS_STYLE (style));
 
 	if (background_rgba != NULL)
 	{

@@ -18,10 +18,10 @@
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTK_SOURCE_STYLE_SCHEME_MANAGER_H
-#define GTK_SOURCE_STYLE_SCHEME_MANAGER_H
+#ifndef CTK_SOURCE_STYLE_SCHEME_MANAGER_H
+#define CTK_SOURCE_STYLE_SCHEME_MANAGER_H
 
-#if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
+#if !defined (CTK_SOURCE_H_INSIDE) && !defined (CTK_SOURCE_COMPILATION)
 #error "Only <ctksourceview/ctksource.h> can be included directly."
 #endif
 
@@ -30,12 +30,12 @@
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_STYLE_SCHEME_MANAGER		(ctk_source_style_scheme_manager_get_type ())
-#define GTK_SOURCE_STYLE_SCHEME_MANAGER(obj)		(G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_SOURCE_TYPE_STYLE_SCHEME_MANAGER, GtkSourceStyleSchemeManager))
-#define GTK_SOURCE_STYLE_SCHEME_MANAGER_CLASS(klass)	(G_TYPE_CHECK_CLASS_CAST((klass), GTK_SOURCE_TYPE_STYLE_SCHEME_MANAGER, GtkSourceStyleSchemeManagerClass))
-#define GTK_SOURCE_IS_STYLE_SCHEME_MANAGER(obj)		(G_TYPE_CHECK_INSTANCE_TYPE((obj), GTK_SOURCE_TYPE_STYLE_SCHEME_MANAGER))
-#define GTK_SOURCE_IS_STYLE_SCHEME_MANAGER_CLASS(klass)	(G_TYPE_CHECK_CLASS_TYPE ((klass), GTK_SOURCE_TYPE_STYLE_SCHEME_MANAGER))
-#define GTK_SOURCE_STYLE_SCHEME_MANAGER_GET_CLASS(obj)	(G_TYPE_INSTANCE_GET_CLASS((obj), GTK_SOURCE_TYPE_STYLE_SCHEME_MANAGER, GtkSourceStyleSchemeManagerClass))
+#define CTK_SOURCE_TYPE_STYLE_SCHEME_MANAGER		(ctk_source_style_scheme_manager_get_type ())
+#define CTK_SOURCE_STYLE_SCHEME_MANAGER(obj)		(G_TYPE_CHECK_INSTANCE_CAST((obj), CTK_SOURCE_TYPE_STYLE_SCHEME_MANAGER, GtkSourceStyleSchemeManager))
+#define CTK_SOURCE_STYLE_SCHEME_MANAGER_CLASS(klass)	(G_TYPE_CHECK_CLASS_CAST((klass), CTK_SOURCE_TYPE_STYLE_SCHEME_MANAGER, GtkSourceStyleSchemeManagerClass))
+#define CTK_SOURCE_IS_STYLE_SCHEME_MANAGER(obj)		(G_TYPE_CHECK_INSTANCE_TYPE((obj), CTK_SOURCE_TYPE_STYLE_SCHEME_MANAGER))
+#define CTK_SOURCE_IS_STYLE_SCHEME_MANAGER_CLASS(klass)	(G_TYPE_CHECK_CLASS_TYPE ((klass), CTK_SOURCE_TYPE_STYLE_SCHEME_MANAGER))
+#define CTK_SOURCE_STYLE_SCHEME_MANAGER_GET_CLASS(obj)	(G_TYPE_INSTANCE_GET_CLASS((obj), CTK_SOURCE_TYPE_STYLE_SCHEME_MANAGER, GtkSourceStyleSchemeManagerClass))
 
 typedef struct _GtkSourceStyleSchemeManagerClass	GtkSourceStyleSchemeManagerClass;
 typedef struct _GtkSourceStyleSchemeManagerPrivate	GtkSourceStyleSchemeManagerPrivate;
@@ -55,39 +55,39 @@ struct _GtkSourceStyleSchemeManagerClass
 	gpointer padding[10];
 };
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 GType			 ctk_source_style_scheme_manager_get_type		(void) G_GNUC_CONST;
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 GtkSourceStyleSchemeManager *
 			 ctk_source_style_scheme_manager_new			(void);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 GtkSourceStyleSchemeManager *
 			 ctk_source_style_scheme_manager_get_default		(void);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 void			 ctk_source_style_scheme_manager_set_search_path	(GtkSourceStyleSchemeManager	*manager,
 						    				 gchar			       **path);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 void 			 ctk_source_style_scheme_manager_append_search_path	(GtkSourceStyleSchemeManager	*manager,
 						    				 const gchar			*path);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 void 			 ctk_source_style_scheme_manager_prepend_search_path	(GtkSourceStyleSchemeManager	*manager,
 						    				 const gchar			*path);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 const gchar * const *	 ctk_source_style_scheme_manager_get_search_path	(GtkSourceStyleSchemeManager	*manager);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 void			 ctk_source_style_scheme_manager_force_rescan		(GtkSourceStyleSchemeManager	*manager);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 const gchar * const *	 ctk_source_style_scheme_manager_get_scheme_ids		(GtkSourceStyleSchemeManager	*manager);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 GtkSourceStyleScheme	*ctk_source_style_scheme_manager_get_scheme		(GtkSourceStyleSchemeManager	*manager,
 										 const gchar			*scheme_id);
 
@@ -97,4 +97,4 @@ GtkSourceStyleSchemeManager *
 
 G_END_DECLS
 
-#endif /* GTK_SOURCE_STYLE_SCHEME_MANAGER_H */
+#endif /* CTK_SOURCE_STYLE_SCHEME_MANAGER_H */

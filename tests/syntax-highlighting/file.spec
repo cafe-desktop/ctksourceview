@@ -43,7 +43,7 @@ GtkSourceView specializes these features for a code editor.
 
 %package -n %{lib_name}-devel
 Summary:        Libraries and include files for GtkSourceView
-Group:          Development/GNOME and GTK+
+Group:          Development/GNOME and CTK+
 Requires:       %{lib_name} = %{version}
 Provides:	%{name}-devel = %{version}-%{release}
 Provides:	lib%{name}-devel = %{version}-%{release}

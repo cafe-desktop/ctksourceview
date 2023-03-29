@@ -69,10 +69,10 @@ test_get_buffer (void)
 
 	view = ctk_source_view_new ();
 
-	buffer = GTK_SOURCE_BUFFER (ctk_text_view_get_buffer (GTK_TEXT_VIEW (view)));
+	buffer = CTK_SOURCE_BUFFER (ctk_text_view_get_buffer (CTK_TEXT_VIEW (view)));
 
 	g_assert_nonnull (buffer);
-	g_assert_true (GTK_SOURCE_IS_BUFFER (buffer));
+	g_assert_true (CTK_SOURCE_IS_BUFFER (buffer));
 
 	if (g_object_is_floating (view))
 	{
@@ -97,11 +97,11 @@ test_get_context_classes (void)
 
 	/* test plain text */
 	buffer = ctk_source_buffer_new (NULL);
-	ctk_text_buffer_set_text (GTK_TEXT_BUFFER (buffer), "some text", -1);
-	ctk_text_buffer_get_bounds (GTK_TEXT_BUFFER (buffer), &start, &end);
+	ctk_text_buffer_set_text (CTK_TEXT_BUFFER (buffer), "some text", -1);
+	ctk_text_buffer_get_bounds (CTK_TEXT_BUFFER (buffer), &start, &end);
 	ctk_source_buffer_ensure_highlight (buffer, &start, &end);
 
-	ctk_text_buffer_get_start_iter (GTK_TEXT_BUFFER (buffer), &i);
+	ctk_text_buffer_get_start_iter (CTK_TEXT_BUFFER (buffer), &i);
 	classes = ctk_source_buffer_get_context_classes_at_iter (buffer, &i);
 	g_assert_cmpuint (g_strv_length (classes), ==, 0);
 	g_strfreev (classes);
@@ -111,19 +111,19 @@ test_get_context_classes (void)
 	/* test C */
 	lm = ctk_source_language_manager_get_default ();
 	lang = ctk_source_language_manager_get_language (lm, "c");
-	g_assert_true (GTK_SOURCE_IS_LANGUAGE (lang));
+	g_assert_true (CTK_SOURCE_IS_LANGUAGE (lang));
 	buffer = ctk_source_buffer_new_with_language (lang);
-	ctk_text_buffer_set_text (GTK_TEXT_BUFFER (buffer), c_snippet, -1);
-	ctk_text_buffer_get_bounds (GTK_TEXT_BUFFER (buffer), &start, &end);
+	ctk_text_buffer_set_text (CTK_TEXT_BUFFER (buffer), c_snippet, -1);
+	ctk_text_buffer_get_bounds (CTK_TEXT_BUFFER (buffer), &start, &end);
 	ctk_source_buffer_ensure_highlight (buffer, &start, &end);
 
-	ctk_text_buffer_get_start_iter (GTK_TEXT_BUFFER (buffer), &i);
+	ctk_text_buffer_get_start_iter (CTK_TEXT_BUFFER (buffer), &i);
 	classes = ctk_source_buffer_get_context_classes_at_iter (buffer, &i);
 	g_assert_cmpuint (g_strv_length (classes), ==, 1);
 	g_assert_cmpstr (classes[0], ==, "no-spell-check");
 	g_strfreev (classes);
 
-	ctk_text_buffer_get_iter_at_line_offset (GTK_TEXT_BUFFER (buffer), &i, 2, 5);
+	ctk_text_buffer_get_iter_at_line_offset (CTK_TEXT_BUFFER (buffer), &i, 2, 5);
 	classes = ctk_source_buffer_get_context_classes_at_iter (buffer, &i);
 	g_assert_cmpuint (g_strv_length (classes), ==, 1);
 	g_assert_cmpstr (classes[0], ==, "comment");
@@ -144,13 +144,13 @@ do_test_change_case (GtkSourceBuffer         *buffer,
 	gchar *changed_normalized;
 	gchar *expected_normalized;
 
-	ctk_text_buffer_set_text (GTK_TEXT_BUFFER (buffer), text, -1);
+	ctk_text_buffer_set_text (CTK_TEXT_BUFFER (buffer), text, -1);
 
-	ctk_text_buffer_get_bounds (GTK_TEXT_BUFFER (buffer), &start, &end);
+	ctk_text_buffer_get_bounds (CTK_TEXT_BUFFER (buffer), &start, &end);
 	ctk_source_buffer_change_case (buffer, case_type, &start, &end);
 
-	ctk_text_buffer_get_bounds (GTK_TEXT_BUFFER (buffer), &start, &end);
-	changed = ctk_text_buffer_get_text (GTK_TEXT_BUFFER (buffer), &start, &end, TRUE);
+	ctk_text_buffer_get_bounds (CTK_TEXT_BUFFER (buffer), &start, &end);
+	changed = ctk_text_buffer_get_text (CTK_TEXT_BUFFER (buffer), &start, &end, TRUE);
 
 	changed_normalized = g_utf8_normalize (changed, -1, G_NORMALIZE_DEFAULT);
 	expected_normalized = g_utf8_normalize (expected, -1, G_NORMALIZE_DEFAULT);
@@ -169,28 +169,28 @@ test_change_case (void)
 
 	buffer = ctk_source_buffer_new (NULL);
 
-	do_test_change_case (buffer, GTK_SOURCE_CHANGE_CASE_LOWER, "some TEXT", "some text");
-	do_test_change_case (buffer, GTK_SOURCE_CHANGE_CASE_UPPER, "some TEXT", "SOME TEXT");
-	do_test_change_case (buffer, GTK_SOURCE_CHANGE_CASE_TOGGLE, "some TEXT", "SOME text");
-	do_test_change_case (buffer, GTK_SOURCE_CHANGE_CASE_TITLE, "some TEXT", "Some Text");
+	do_test_change_case (buffer, CTK_SOURCE_CHANGE_CASE_LOWER, "some TEXT", "some text");
+	do_test_change_case (buffer, CTK_SOURCE_CHANGE_CASE_UPPER, "some TEXT", "SOME TEXT");
+	do_test_change_case (buffer, CTK_SOURCE_CHANGE_CASE_TOGGLE, "some TEXT", "SOME text");
+	do_test_change_case (buffer, CTK_SOURCE_CHANGE_CASE_TITLE, "some TEXT", "Some Text");
 
 	/* https://bugzilla.gnome.org/show_bug.cgi?id=416390 */
-	do_test_change_case (buffer, GTK_SOURCE_CHANGE_CASE_LOWER, "T̈OME", "ẗome");
-	do_test_change_case (buffer, GTK_SOURCE_CHANGE_CASE_UPPER, "ẗome", "T̈OME");
-	do_test_change_case (buffer, GTK_SOURCE_CHANGE_CASE_TOGGLE, "ẗome", "T̈OME");
-	do_test_change_case (buffer, GTK_SOURCE_CHANGE_CASE_TOGGLE, "T̈OME", "ẗome");
-	do_test_change_case (buffer, GTK_SOURCE_CHANGE_CASE_TITLE, "ẗome", "T̈ome");
+	do_test_change_case (buffer, CTK_SOURCE_CHANGE_CASE_LOWER, "T̈OME", "ẗome");
+	do_test_change_case (buffer, CTK_SOURCE_CHANGE_CASE_UPPER, "ẗome", "T̈OME");
+	do_test_change_case (buffer, CTK_SOURCE_CHANGE_CASE_TOGGLE, "ẗome", "T̈OME");
+	do_test_change_case (buffer, CTK_SOURCE_CHANGE_CASE_TOGGLE, "T̈OME", "ẗome");
+	do_test_change_case (buffer, CTK_SOURCE_CHANGE_CASE_TITLE, "ẗome", "T̈ome");
 
 	/* test g_unichar_totitle */
-	do_test_change_case (buffer, GTK_SOURCE_CHANGE_CASE_LOWER, "\307\261adzíki", "\307\263adzíki");
-	do_test_change_case (buffer, GTK_SOURCE_CHANGE_CASE_LOWER, "\307\262adzíki", "\307\263adzíki");
-	do_test_change_case (buffer, GTK_SOURCE_CHANGE_CASE_LOWER, "\307\263adzíki", "\307\263adzíki");
-	do_test_change_case (buffer, GTK_SOURCE_CHANGE_CASE_UPPER, "\307\263adzíki", "\307\261ADZÍKI");
-	do_test_change_case (buffer, GTK_SOURCE_CHANGE_CASE_UPPER, "\307\262adzíki", "\307\261ADZÍKI");
-	do_test_change_case (buffer, GTK_SOURCE_CHANGE_CASE_TOGGLE, "\307\263adzíki", "\307\261ADZÍKI");
-	do_test_change_case (buffer, GTK_SOURCE_CHANGE_CASE_TITLE, "\307\263adzíki", "\307\262adzíki");
-	do_test_change_case (buffer, GTK_SOURCE_CHANGE_CASE_TITLE, "\307\261ADZÍKI", "\307\262adzíki");
-	do_test_change_case (buffer, GTK_SOURCE_CHANGE_CASE_TITLE, "\307\262ADZÍKI", "\307\262adzíki");
+	do_test_change_case (buffer, CTK_SOURCE_CHANGE_CASE_LOWER, "\307\261adzíki", "\307\263adzíki");
+	do_test_change_case (buffer, CTK_SOURCE_CHANGE_CASE_LOWER, "\307\262adzíki", "\307\263adzíki");
+	do_test_change_case (buffer, CTK_SOURCE_CHANGE_CASE_LOWER, "\307\263adzíki", "\307\263adzíki");
+	do_test_change_case (buffer, CTK_SOURCE_CHANGE_CASE_UPPER, "\307\263adzíki", "\307\261ADZÍKI");
+	do_test_change_case (buffer, CTK_SOURCE_CHANGE_CASE_UPPER, "\307\262adzíki", "\307\261ADZÍKI");
+	do_test_change_case (buffer, CTK_SOURCE_CHANGE_CASE_TOGGLE, "\307\263adzíki", "\307\261ADZÍKI");
+	do_test_change_case (buffer, CTK_SOURCE_CHANGE_CASE_TITLE, "\307\263adzíki", "\307\262adzíki");
+	do_test_change_case (buffer, CTK_SOURCE_CHANGE_CASE_TITLE, "\307\261ADZÍKI", "\307\262adzíki");
+	do_test_change_case (buffer, CTK_SOURCE_CHANGE_CASE_TITLE, "\307\262ADZÍKI", "\307\262adzíki");
 
 	g_object_unref (buffer);
 }
@@ -206,15 +206,15 @@ do_test_join_lines (GtkSourceBuffer *buffer,
 	GtkTextIter end;
 	gchar *changed;
 
-	ctk_text_buffer_set_text (GTK_TEXT_BUFFER (buffer), text, -1);
+	ctk_text_buffer_set_text (CTK_TEXT_BUFFER (buffer), text, -1);
 
-	ctk_text_buffer_get_iter_at_offset (GTK_TEXT_BUFFER (buffer), &start, start_offset);
-	ctk_text_buffer_get_iter_at_offset (GTK_TEXT_BUFFER (buffer), &end, end_offset);
+	ctk_text_buffer_get_iter_at_offset (CTK_TEXT_BUFFER (buffer), &start, start_offset);
+	ctk_text_buffer_get_iter_at_offset (CTK_TEXT_BUFFER (buffer), &end, end_offset);
 
 	ctk_source_buffer_join_lines (buffer, &start, &end);
 
-	ctk_text_buffer_get_bounds (GTK_TEXT_BUFFER (buffer), &start, &end);
-	changed = ctk_text_buffer_get_text (GTK_TEXT_BUFFER (buffer), &start, &end, TRUE);
+	ctk_text_buffer_get_bounds (CTK_TEXT_BUFFER (buffer), &start, &end);
+	changed = ctk_text_buffer_get_text (CTK_TEXT_BUFFER (buffer), &start, &end, TRUE);
 
 	g_assert_cmpstr (changed, ==, expected);
 
@@ -255,15 +255,15 @@ do_test_sort_lines (GtkSourceBuffer    *buffer,
 	GtkTextIter end;
 	gchar *changed;
 
-	ctk_text_buffer_set_text (GTK_TEXT_BUFFER (buffer), text, -1);
+	ctk_text_buffer_set_text (CTK_TEXT_BUFFER (buffer), text, -1);
 
-	ctk_text_buffer_get_iter_at_offset (GTK_TEXT_BUFFER (buffer), &start, start_offset);
-	ctk_text_buffer_get_iter_at_offset (GTK_TEXT_BUFFER (buffer), &end, end_offset);
+	ctk_text_buffer_get_iter_at_offset (CTK_TEXT_BUFFER (buffer), &start, start_offset);
+	ctk_text_buffer_get_iter_at_offset (CTK_TEXT_BUFFER (buffer), &end, end_offset);
 
 	ctk_source_buffer_sort_lines (buffer, &start, &end, flags, column);
 
-	ctk_text_buffer_get_bounds (GTK_TEXT_BUFFER (buffer), &start, &end);
-	changed = ctk_text_buffer_get_text (GTK_TEXT_BUFFER (buffer), &start, &end, TRUE);
+	ctk_text_buffer_get_bounds (CTK_TEXT_BUFFER (buffer), &start, &end);
+	changed = ctk_text_buffer_get_text (CTK_TEXT_BUFFER (buffer), &start, &end, TRUE);
 
 	g_assert_cmpstr (changed, ==, expected);
 
@@ -284,9 +284,9 @@ test_sort_lines (void)
 	do_test_sort_lines (buffer, "ccc\nbbb\naaa\n", "bbb\nccc\naaa\n", 0, 7, 0, 0);
 	do_test_sort_lines (buffer, "ccc\nbbb\naaa\n", "bbb\nccc\naaa\n", 0, 8, 0, 0);
 	do_test_sort_lines (buffer, "ccc\nbbb\naaa\n", "aaa\nbbb\nccc\n", 0, 9, 0, 0);
-	do_test_sort_lines (buffer, "aaa\nbbb\n", "bbb\naaa\n", 0, -1, GTK_SOURCE_SORT_FLAGS_REVERSE_ORDER, 0);
-	do_test_sort_lines (buffer, "aaa\nbbb\naaa\n", "aaa\nbbb\n", 0, -1, GTK_SOURCE_SORT_FLAGS_REMOVE_DUPLICATES, 0);
-	do_test_sort_lines (buffer, "bbb\naaa\nCCC\n", "CCC\naaa\nbbb\n", 0, -1, GTK_SOURCE_SORT_FLAGS_CASE_SENSITIVE, 0);
+	do_test_sort_lines (buffer, "aaa\nbbb\n", "bbb\naaa\n", 0, -1, CTK_SOURCE_SORT_FLAGS_REVERSE_ORDER, 0);
+	do_test_sort_lines (buffer, "aaa\nbbb\naaa\n", "aaa\nbbb\n", 0, -1, CTK_SOURCE_SORT_FLAGS_REMOVE_DUPLICATES, 0);
+	do_test_sort_lines (buffer, "bbb\naaa\nCCC\n", "CCC\naaa\nbbb\n", 0, -1, CTK_SOURCE_SORT_FLAGS_CASE_SENSITIVE, 0);
 	do_test_sort_lines (buffer, "aaabbb\nbbbaaa\n", "bbbaaa\naaabbb\n", 0, -1, 0, 3);
 	do_test_sort_lines (buffer, "abcdefghijk\n", "abcdefghijk\n", 2, 6, 0, 0);
 
@@ -306,16 +306,16 @@ do_test_move_words (GtkSourceView      *view,
 	GtkTextIter end;
 	gchar *changed;
 
-	ctk_text_buffer_set_text (GTK_TEXT_BUFFER (buffer), text, -1);
+	ctk_text_buffer_set_text (CTK_TEXT_BUFFER (buffer), text, -1);
 
-	ctk_text_buffer_get_iter_at_offset (GTK_TEXT_BUFFER (buffer), &start, start_offset);
-	ctk_text_buffer_get_iter_at_offset (GTK_TEXT_BUFFER (buffer), &end, end_offset);
-	ctk_text_buffer_select_range (GTK_TEXT_BUFFER (buffer), &start, &end);
+	ctk_text_buffer_get_iter_at_offset (CTK_TEXT_BUFFER (buffer), &start, start_offset);
+	ctk_text_buffer_get_iter_at_offset (CTK_TEXT_BUFFER (buffer), &end, end_offset);
+	ctk_text_buffer_select_range (CTK_TEXT_BUFFER (buffer), &start, &end);
 
 	g_signal_emit_by_name (view, "move-words", step);
 
-	ctk_text_buffer_get_bounds (GTK_TEXT_BUFFER (buffer), &start, &end);
-	changed = ctk_text_buffer_get_text (GTK_TEXT_BUFFER (buffer), &start, &end, TRUE);
+	ctk_text_buffer_get_bounds (CTK_TEXT_BUFFER (buffer), &start, &end);
+	changed = ctk_text_buffer_get_text (CTK_TEXT_BUFFER (buffer), &start, &end, TRUE);
 
 	g_assert_cmpstr (changed, ==, expected);
 
@@ -329,9 +329,9 @@ test_move_words (void)
 	GtkSourceBuffer *buffer;
 
 	buffer = ctk_source_buffer_new (NULL);
-	view = g_object_ref_sink (GTK_SOURCE_VIEW (ctk_source_view_new ()));
+	view = g_object_ref_sink (CTK_SOURCE_VIEW (ctk_source_view_new ()));
 
-	ctk_text_view_set_buffer (GTK_TEXT_VIEW (view), GTK_TEXT_BUFFER (buffer));
+	ctk_text_view_set_buffer (CTK_TEXT_VIEW (view), CTK_TEXT_BUFFER (buffer));
 
 	do_test_move_words (view, buffer, "a > b", "a b >", 2, 3, 1);
 	do_test_move_words (view, buffer, "a>b", "ab>", 1, 2, 1);
@@ -351,7 +351,7 @@ do_test_bracket_matching (GtkSourceBuffer           *source_buffer,
 			  gint                       expected_offset_match,
 			  GtkSourceBracketMatchType  expected_result)
 {
-	GtkTextBuffer *text_buffer = GTK_TEXT_BUFFER (source_buffer);
+	GtkTextBuffer *text_buffer = CTK_TEXT_BUFFER (source_buffer);
 	GtkTextIter iter;
 	GtkTextIter bracket;
 	GtkTextIter bracket_match;
@@ -372,7 +372,7 @@ do_test_bracket_matching (GtkSourceBuffer           *source_buffer,
 							&bracket_match);
 	g_assert_cmpint (result, ==, expected_result);
 
-	if (result == GTK_SOURCE_BRACKET_MATCH_FOUND)
+	if (result == CTK_SOURCE_BRACKET_MATCH_FOUND)
 	{
 		gint offset_bracket;
 		gint offset_match;
@@ -402,66 +402,66 @@ test_bracket_matching (void)
 
 	/* Basics */
 
-	do_test_bracket_matching (buffer, "(ab)", 0, 0, 3, GTK_SOURCE_BRACKET_MATCH_FOUND);
-	do_test_bracket_matching (buffer, "(ab)", 1, 0, 3, GTK_SOURCE_BRACKET_MATCH_FOUND);
-	do_test_bracket_matching (buffer, "(ab)", 2, -1, -1, GTK_SOURCE_BRACKET_MATCH_NONE);
-	do_test_bracket_matching (buffer, "(ab)", 3, 3, 0, GTK_SOURCE_BRACKET_MATCH_FOUND);
-	do_test_bracket_matching (buffer, "(ab)", 4, 3, 0, GTK_SOURCE_BRACKET_MATCH_FOUND);
+	do_test_bracket_matching (buffer, "(ab)", 0, 0, 3, CTK_SOURCE_BRACKET_MATCH_FOUND);
+	do_test_bracket_matching (buffer, "(ab)", 1, 0, 3, CTK_SOURCE_BRACKET_MATCH_FOUND);
+	do_test_bracket_matching (buffer, "(ab)", 2, -1, -1, CTK_SOURCE_BRACKET_MATCH_NONE);
+	do_test_bracket_matching (buffer, "(ab)", 3, 3, 0, CTK_SOURCE_BRACKET_MATCH_FOUND);
+	do_test_bracket_matching (buffer, "(ab)", 4, 3, 0, CTK_SOURCE_BRACKET_MATCH_FOUND);
 
-	do_test_bracket_matching (buffer, "(ab))", 0, 0, 3, GTK_SOURCE_BRACKET_MATCH_FOUND);
-	do_test_bracket_matching (buffer, "(ab))", 1, 0, 3, GTK_SOURCE_BRACKET_MATCH_FOUND);
-	do_test_bracket_matching (buffer, "(ab))", 2, -1, -1, GTK_SOURCE_BRACKET_MATCH_NONE);
-	do_test_bracket_matching (buffer, "(ab))", 3, 3, 0, GTK_SOURCE_BRACKET_MATCH_FOUND);
-	do_test_bracket_matching (buffer, "(ab))", 4, 3, 0, GTK_SOURCE_BRACKET_MATCH_FOUND);
-	do_test_bracket_matching (buffer, "(ab))", 5, -1, -1, GTK_SOURCE_BRACKET_MATCH_NOT_FOUND);
+	do_test_bracket_matching (buffer, "(ab))", 0, 0, 3, CTK_SOURCE_BRACKET_MATCH_FOUND);
+	do_test_bracket_matching (buffer, "(ab))", 1, 0, 3, CTK_SOURCE_BRACKET_MATCH_FOUND);
+	do_test_bracket_matching (buffer, "(ab))", 2, -1, -1, CTK_SOURCE_BRACKET_MATCH_NONE);
+	do_test_bracket_matching (buffer, "(ab))", 3, 3, 0, CTK_SOURCE_BRACKET_MATCH_FOUND);
+	do_test_bracket_matching (buffer, "(ab))", 4, 3, 0, CTK_SOURCE_BRACKET_MATCH_FOUND);
+	do_test_bracket_matching (buffer, "(ab))", 5, -1, -1, CTK_SOURCE_BRACKET_MATCH_NOT_FOUND);
 
-	do_test_bracket_matching (buffer, "((ab)", 0, -1, -1, GTK_SOURCE_BRACKET_MATCH_NOT_FOUND);
-	do_test_bracket_matching (buffer, "((ab)", 1, 1, 4, GTK_SOURCE_BRACKET_MATCH_FOUND);
-	do_test_bracket_matching (buffer, "((ab)", 2, 1, 4, GTK_SOURCE_BRACKET_MATCH_FOUND);
-	do_test_bracket_matching (buffer, "((ab)", 3, -1, -1, GTK_SOURCE_BRACKET_MATCH_NONE);
-	do_test_bracket_matching (buffer, "((ab)", 4, 4, 1, GTK_SOURCE_BRACKET_MATCH_FOUND);
-	do_test_bracket_matching (buffer, "((ab)", 5, 4, 1, GTK_SOURCE_BRACKET_MATCH_FOUND);
+	do_test_bracket_matching (buffer, "((ab)", 0, -1, -1, CTK_SOURCE_BRACKET_MATCH_NOT_FOUND);
+	do_test_bracket_matching (buffer, "((ab)", 1, 1, 4, CTK_SOURCE_BRACKET_MATCH_FOUND);
+	do_test_bracket_matching (buffer, "((ab)", 2, 1, 4, CTK_SOURCE_BRACKET_MATCH_FOUND);
+	do_test_bracket_matching (buffer, "((ab)", 3, -1, -1, CTK_SOURCE_BRACKET_MATCH_NONE);
+	do_test_bracket_matching (buffer, "((ab)", 4, 4, 1, CTK_SOURCE_BRACKET_MATCH_FOUND);
+	do_test_bracket_matching (buffer, "((ab)", 5, 4, 1, CTK_SOURCE_BRACKET_MATCH_FOUND);
 
 	/* String context class */
 
-	do_test_bracket_matching (buffer, "(\"(ab))\")", 0, 0, 8, GTK_SOURCE_BRACKET_MATCH_FOUND);
-	do_test_bracket_matching (buffer, "(\"(ab))\")", 1, 0, 8, GTK_SOURCE_BRACKET_MATCH_FOUND);
-	do_test_bracket_matching (buffer, "(\"(ab))\")", 2, 2, 5, GTK_SOURCE_BRACKET_MATCH_FOUND);
-	do_test_bracket_matching (buffer, "(\"(ab))\")", 3, 2, 5, GTK_SOURCE_BRACKET_MATCH_FOUND);
-	do_test_bracket_matching (buffer, "(\"(ab))\")", 4, -1, -1, GTK_SOURCE_BRACKET_MATCH_NONE);
-	do_test_bracket_matching (buffer, "(\"(ab))\")", 5, 5, 2, GTK_SOURCE_BRACKET_MATCH_FOUND);
-	do_test_bracket_matching (buffer, "(\"(ab))\")", 6, 5, 2, GTK_SOURCE_BRACKET_MATCH_FOUND);
-	do_test_bracket_matching (buffer, "(\"(ab))\")", 7, -1, -1, GTK_SOURCE_BRACKET_MATCH_NOT_FOUND);
-	do_test_bracket_matching (buffer, "(\"(ab))\")", 8, 8, 0, GTK_SOURCE_BRACKET_MATCH_FOUND);
-	do_test_bracket_matching (buffer, "(\"(ab))\")", 9, 8, 0, GTK_SOURCE_BRACKET_MATCH_FOUND);
+	do_test_bracket_matching (buffer, "(\"(ab))\")", 0, 0, 8, CTK_SOURCE_BRACKET_MATCH_FOUND);
+	do_test_bracket_matching (buffer, "(\"(ab))\")", 1, 0, 8, CTK_SOURCE_BRACKET_MATCH_FOUND);
+	do_test_bracket_matching (buffer, "(\"(ab))\")", 2, 2, 5, CTK_SOURCE_BRACKET_MATCH_FOUND);
+	do_test_bracket_matching (buffer, "(\"(ab))\")", 3, 2, 5, CTK_SOURCE_BRACKET_MATCH_FOUND);
+	do_test_bracket_matching (buffer, "(\"(ab))\")", 4, -1, -1, CTK_SOURCE_BRACKET_MATCH_NONE);
+	do_test_bracket_matching (buffer, "(\"(ab))\")", 5, 5, 2, CTK_SOURCE_BRACKET_MATCH_FOUND);
+	do_test_bracket_matching (buffer, "(\"(ab))\")", 6, 5, 2, CTK_SOURCE_BRACKET_MATCH_FOUND);
+	do_test_bracket_matching (buffer, "(\"(ab))\")", 7, -1, -1, CTK_SOURCE_BRACKET_MATCH_NOT_FOUND);
+	do_test_bracket_matching (buffer, "(\"(ab))\")", 8, 8, 0, CTK_SOURCE_BRACKET_MATCH_FOUND);
+	do_test_bracket_matching (buffer, "(\"(ab))\")", 9, 8, 0, CTK_SOURCE_BRACKET_MATCH_FOUND);
 
-	do_test_bracket_matching (buffer, "((\"(ab))\")", 0, -1, -1, GTK_SOURCE_BRACKET_MATCH_NOT_FOUND);
+	do_test_bracket_matching (buffer, "((\"(ab))\")", 0, -1, -1, CTK_SOURCE_BRACKET_MATCH_NOT_FOUND);
 
-	do_test_bracket_matching (buffer, "\"(\"a\")\"", 0, -1, -1, GTK_SOURCE_BRACKET_MATCH_NONE);
-	do_test_bracket_matching (buffer, "\"(\"a\")\"", 1, -1, -1, GTK_SOURCE_BRACKET_MATCH_NOT_FOUND);
-	do_test_bracket_matching (buffer, "\"(\"a\")\"", 2, -1, -1, GTK_SOURCE_BRACKET_MATCH_NOT_FOUND);
-	do_test_bracket_matching (buffer, "\"(\"a\")\"", 3, -1, -1, GTK_SOURCE_BRACKET_MATCH_NONE);
-	do_test_bracket_matching (buffer, "\"(\"a\")\"", 4, -1, -1, GTK_SOURCE_BRACKET_MATCH_NONE);
-	do_test_bracket_matching (buffer, "\"(\"a\")\"", 5, -1, -1, GTK_SOURCE_BRACKET_MATCH_NOT_FOUND);
-	do_test_bracket_matching (buffer, "\"(\"a\")\"", 6, -1, -1, GTK_SOURCE_BRACKET_MATCH_NOT_FOUND);
-	do_test_bracket_matching (buffer, "\"(\"a\")\"", 7, -1, -1, GTK_SOURCE_BRACKET_MATCH_NONE);
+	do_test_bracket_matching (buffer, "\"(\"a\")\"", 0, -1, -1, CTK_SOURCE_BRACKET_MATCH_NONE);
+	do_test_bracket_matching (buffer, "\"(\"a\")\"", 1, -1, -1, CTK_SOURCE_BRACKET_MATCH_NOT_FOUND);
+	do_test_bracket_matching (buffer, "\"(\"a\")\"", 2, -1, -1, CTK_SOURCE_BRACKET_MATCH_NOT_FOUND);
+	do_test_bracket_matching (buffer, "\"(\"a\")\"", 3, -1, -1, CTK_SOURCE_BRACKET_MATCH_NONE);
+	do_test_bracket_matching (buffer, "\"(\"a\")\"", 4, -1, -1, CTK_SOURCE_BRACKET_MATCH_NONE);
+	do_test_bracket_matching (buffer, "\"(\"a\")\"", 5, -1, -1, CTK_SOURCE_BRACKET_MATCH_NOT_FOUND);
+	do_test_bracket_matching (buffer, "\"(\"a\")\"", 6, -1, -1, CTK_SOURCE_BRACKET_MATCH_NOT_FOUND);
+	do_test_bracket_matching (buffer, "\"(\"a\")\"", 7, -1, -1, CTK_SOURCE_BRACKET_MATCH_NONE);
 
 	/* Comment context class */
 
-	do_test_bracket_matching (buffer, "/*(*/ /*)*/", 2, -1, -1, GTK_SOURCE_BRACKET_MATCH_NOT_FOUND);
-	do_test_bracket_matching (buffer, "/*(*/ /*)*/", 8, -1, -1, GTK_SOURCE_BRACKET_MATCH_NOT_FOUND);
+	do_test_bracket_matching (buffer, "/*(*/ /*)*/", 2, -1, -1, CTK_SOURCE_BRACKET_MATCH_NOT_FOUND);
+	do_test_bracket_matching (buffer, "/*(*/ /*)*/", 8, -1, -1, CTK_SOURCE_BRACKET_MATCH_NOT_FOUND);
 
 	/* Direct changes: string -> comment -> string */
-	do_test_bracket_matching (buffer, "\"(\"/*a*/\")\"", 1, -1, -1, GTK_SOURCE_BRACKET_MATCH_NOT_FOUND);
-	do_test_bracket_matching (buffer, "\"(\"/*a*/\")\"", 9, -1, -1, GTK_SOURCE_BRACKET_MATCH_NOT_FOUND);
+	do_test_bracket_matching (buffer, "\"(\"/*a*/\")\"", 1, -1, -1, CTK_SOURCE_BRACKET_MATCH_NOT_FOUND);
+	do_test_bracket_matching (buffer, "\"(\"/*a*/\")\"", 9, -1, -1, CTK_SOURCE_BRACKET_MATCH_NOT_FOUND);
 
 	/* Direct changes: comment -> string -> comment */
-	do_test_bracket_matching (buffer, "/*(*/\"a\"/*)*/", 2, -1, -1, GTK_SOURCE_BRACKET_MATCH_NOT_FOUND);
-	do_test_bracket_matching (buffer, "/*(*/\"a\"/*)*/", 10, -1, -1, GTK_SOURCE_BRACKET_MATCH_NOT_FOUND);
+	do_test_bracket_matching (buffer, "/*(*/\"a\"/*)*/", 2, -1, -1, CTK_SOURCE_BRACKET_MATCH_NOT_FOUND);
+	do_test_bracket_matching (buffer, "/*(*/\"a\"/*)*/", 10, -1, -1, CTK_SOURCE_BRACKET_MATCH_NOT_FOUND);
 
 	/* Single char in C */
-	do_test_bracket_matching (buffer, "'(' ')'", 1, -1, -1, GTK_SOURCE_BRACKET_MATCH_NOT_FOUND);
-	do_test_bracket_matching (buffer, "'(' ')'", 5, -1, -1, GTK_SOURCE_BRACKET_MATCH_NOT_FOUND);
+	do_test_bracket_matching (buffer, "'(' ')'", 1, -1, -1, CTK_SOURCE_BRACKET_MATCH_NOT_FOUND);
+	do_test_bracket_matching (buffer, "'(' ')'", 5, -1, -1, CTK_SOURCE_BRACKET_MATCH_NOT_FOUND);
 
 	g_object_unref (buffer);
 
@@ -471,13 +471,13 @@ test_bracket_matching (void)
 	 */
 	table = ctk_text_tag_table_new ();
 
-	buffer = g_object_new (GTK_SOURCE_TYPE_BUFFER,
+	buffer = g_object_new (CTK_SOURCE_TYPE_BUFFER,
 			       "highlight-matching-brackets", FALSE,
 			       "tag-table", table,
 			       NULL);
 	g_object_unref (buffer);
 
-	buffer = g_object_new (GTK_SOURCE_TYPE_BUFFER,
+	buffer = g_object_new (CTK_SOURCE_TYPE_BUFFER,
 			       "highlight-matching-brackets", TRUE,
 			       "tag-table", table,
 			       NULL);

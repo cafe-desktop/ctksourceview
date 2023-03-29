@@ -1,5 +1,5 @@
-# Vietnamese translation for GTK Source View.
-# Bản dịch tiếng Việt dành cho GTK Source View.
+# Vietnamese translation for CTK Source View.
+# Bản dịch tiếng Việt dành cho CTK Source View.
 # Copyright © 2016 GNOME i18n Project for Vietnamese.
 # Nguyễn Thái Ngọc Duy <pclouds@gmail.com>, 2002,2007,2011-2013.
 # Clytie Siddall <clytie@riverland.net.au>, 2005-2009.
@@ -1455,7 +1455,7 @@ msgstr "Số ảo"
 #. (itstool) path: ctk-doc.lang/language@_name
 #: ctk-doc.lang:25
 msgid "ctk-doc"
-msgstr "tài liệu GTK"
+msgstr "tài liệu CTK"
 
 #. (itstool) path: styles/style@_name
 #: ctk-doc.lang:27

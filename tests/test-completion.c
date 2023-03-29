@@ -58,7 +58,7 @@ GType test_provider_get_type (void);
 G_DEFINE_TYPE_WITH_CODE (TestProvider,
 			 test_provider,
 			 G_TYPE_OBJECT,
-			 G_IMPLEMENT_INTERFACE (GTK_SOURCE_TYPE_COMPLETION_PROVIDER,
+			 G_IMPLEMENT_INTERFACE (CTK_SOURCE_TYPE_COMPLETION_PROVIDER,
 				 		test_provider_iface_init))
 
 static gchar *
@@ -285,7 +285,7 @@ enable_word_provider_toggled_cb (GtkToggleButton     *button,
 {
 	add_remove_provider (button,
 			     completion,
-			     GTK_SOURCE_COMPLETION_PROVIDER (word_provider));
+			     CTK_SOURCE_COMPLETION_PROVIDER (word_provider));
 }
 
 static void
@@ -294,7 +294,7 @@ enable_fixed_provider_toggled_cb (GtkToggleButton     *button,
 {
 	add_remove_provider (button,
 			     completion,
-			     GTK_SOURCE_COMPLETION_PROVIDER (fixed_provider));
+			     CTK_SOURCE_COMPLETION_PROVIDER (fixed_provider));
 }
 
 static void
@@ -303,7 +303,7 @@ enable_random_provider_toggled_cb (GtkToggleButton     *button,
 {
 	add_remove_provider (button,
 			     completion,
-			     GTK_SOURCE_COMPLETION_PROVIDER (random_provider));
+			     CTK_SOURCE_COMPLETION_PROVIDER (random_provider));
 }
 
 static void
@@ -330,10 +330,10 @@ create_completion (GtkSourceView       *source_view,
 	word_provider = ctk_source_completion_words_new (NULL, NULL);
 
 	ctk_source_completion_words_register (word_provider,
-	                                      ctk_text_view_get_buffer (GTK_TEXT_VIEW (source_view)));
+	                                      ctk_text_view_get_buffer (CTK_TEXT_VIEW (source_view)));
 
 	ctk_source_completion_add_provider (completion,
-	                                    GTK_SOURCE_COMPLETION_PROVIDER (word_provider),
+	                                    CTK_SOURCE_COMPLETION_PROVIDER (word_provider),
 	                                    NULL);
 
 	g_object_set (word_provider, "priority", 10, NULL);
@@ -345,7 +345,7 @@ create_completion (GtkSourceView       *source_view,
 	fixed_provider->name = g_strdup ("Fixed Provider");
 
 	ctk_source_completion_add_provider (completion,
-	                                    GTK_SOURCE_COMPLETION_PROVIDER (fixed_provider),
+	                                    CTK_SOURCE_COMPLETION_PROVIDER (fixed_provider),
 	                                    NULL);
 
 	/* Random provider: the proposals vary on each populate */
@@ -355,7 +355,7 @@ create_completion (GtkSourceView       *source_view,
 	random_provider->name = g_strdup ("Random Provider");
 
 	ctk_source_completion_add_provider (completion,
-	                                    GTK_SOURCE_COMPLETION_PROVIDER (random_provider),
+	                                    CTK_SOURCE_COMPLETION_PROVIDER (random_provider),
 	                                    NULL);
 }
 
@@ -388,17 +388,17 @@ create_window (void)
 		g_error ("Impossible to load test-completion.ui: %s", error->message);
 	}
 
-	window = GTK_WINDOW (ctk_builder_get_object (builder, "window"));
-	source_view = GTK_SOURCE_VIEW (ctk_builder_get_object (builder, "source_view"));
-	remember_info_visibility = GTK_CHECK_BUTTON (ctk_builder_get_object (builder, "checkbutton_remember_info_visibility"));
-	select_on_show = GTK_CHECK_BUTTON (ctk_builder_get_object (builder, "checkbutton_select_on_show"));
-	show_headers = GTK_CHECK_BUTTON (ctk_builder_get_object (builder, "checkbutton_show_headers"));
-	show_icons = GTK_CHECK_BUTTON (ctk_builder_get_object (builder, "checkbutton_show_icons"));
-	enable_word_provider = GTK_CHECK_BUTTON (ctk_builder_get_object (builder, "checkbutton_word_provider"));
-	enable_fixed_provider = GTK_CHECK_BUTTON (ctk_builder_get_object (builder, "checkbutton_fixed_provider"));
-	enable_random_provider = GTK_CHECK_BUTTON (ctk_builder_get_object (builder, "checkbutton_random_provider"));
-	nb_fixed_proposals = GTK_SPIN_BUTTON (ctk_builder_get_object (builder, "spinbutton_nb_fixed_proposals"));
-	nb_random_proposals = GTK_SPIN_BUTTON (ctk_builder_get_object (builder, "spinbutton_nb_random_proposals"));
+	window = CTK_WINDOW (ctk_builder_get_object (builder, "window"));
+	source_view = CTK_SOURCE_VIEW (ctk_builder_get_object (builder, "source_view"));
+	remember_info_visibility = CTK_CHECK_BUTTON (ctk_builder_get_object (builder, "checkbutton_remember_info_visibility"));
+	select_on_show = CTK_CHECK_BUTTON (ctk_builder_get_object (builder, "checkbutton_select_on_show"));
+	show_headers = CTK_CHECK_BUTTON (ctk_builder_get_object (builder, "checkbutton_show_headers"));
+	show_icons = CTK_CHECK_BUTTON (ctk_builder_get_object (builder, "checkbutton_show_icons"));
+	enable_word_provider = CTK_CHECK_BUTTON (ctk_builder_get_object (builder, "checkbutton_word_provider"));
+	enable_fixed_provider = CTK_CHECK_BUTTON (ctk_builder_get_object (builder, "checkbutton_fixed_provider"));
+	enable_random_provider = CTK_CHECK_BUTTON (ctk_builder_get_object (builder, "checkbutton_random_provider"));
+	nb_fixed_proposals = CTK_SPIN_BUTTON (ctk_builder_get_object (builder, "spinbutton_nb_fixed_proposals"));
+	nb_random_proposals = CTK_SPIN_BUTTON (ctk_builder_get_object (builder, "spinbutton_nb_random_proposals"));
 
 	completion = ctk_source_view_get_completion (source_view);
 

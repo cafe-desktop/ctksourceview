@@ -1,10 +1,10 @@
-# MALAGASY TRANSLATION OF GTKSOURCEVIEW.
+# MALAGASY TRANSLATION OF CTKSOURCEVIEW.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Thierry Randrianiriana <randrianiriana@gmail.com>, 2006.
 msgid ""
 msgstr ""
-"Project-Id-Version: GTKSOURCEVIEW 2.16\n"
+"Project-Id-Version: CTKSOURCEVIEW 2.16\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-07-25 09:42+0200\n"
 "PO-Revision-Date: 2006-08-04 22:04+0300\n"

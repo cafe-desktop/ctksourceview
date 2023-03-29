@@ -84,9 +84,9 @@ ctk_source_file_get_property (GObject    *object,
 {
 	GtkSourceFile *file;
 
-	g_return_if_fail (GTK_SOURCE_IS_FILE (object));
+	g_return_if_fail (CTK_SOURCE_IS_FILE (object));
 
-	file = GTK_SOURCE_FILE (object);
+	file = CTK_SOURCE_FILE (object);
 
 	switch (prop_id)
 	{
@@ -124,9 +124,9 @@ ctk_source_file_set_property (GObject      *object,
 {
 	GtkSourceFile *file;
 
-	g_return_if_fail (GTK_SOURCE_IS_FILE (object));
+	g_return_if_fail (CTK_SOURCE_IS_FILE (object));
 
-	file = GTK_SOURCE_FILE (object);
+	file = CTK_SOURCE_FILE (object);
 
 	switch (prop_id)
 	{
@@ -143,7 +143,7 @@ ctk_source_file_set_property (GObject      *object,
 static void
 ctk_source_file_dispose (GObject *object)
 {
-	GtkSourceFile *file = GTK_SOURCE_FILE (object);
+	GtkSourceFile *file = CTK_SOURCE_FILE (object);
 
 	g_clear_object (&file->priv->location);
 
@@ -195,7 +195,7 @@ ctk_source_file_class_init (GtkSourceFileClass *klass)
 					 g_param_spec_boxed ("encoding",
 							     "Encoding",
 							     "",
-							     GTK_SOURCE_TYPE_ENCODING,
+							     CTK_SOURCE_TYPE_ENCODING,
 							     G_PARAM_READABLE |
 							     G_PARAM_STATIC_STRINGS));
 
@@ -211,8 +211,8 @@ ctk_source_file_class_init (GtkSourceFileClass *klass)
 					 g_param_spec_enum ("newline-type",
 							    "Newline type",
 							    "",
-							    GTK_SOURCE_TYPE_NEWLINE_TYPE,
-							    GTK_SOURCE_NEWLINE_TYPE_LF,
+							    CTK_SOURCE_TYPE_NEWLINE_TYPE,
+							    CTK_SOURCE_NEWLINE_TYPE_LF,
 							    G_PARAM_READABLE |
 							    G_PARAM_STATIC_STRINGS));
 
@@ -228,8 +228,8 @@ ctk_source_file_class_init (GtkSourceFileClass *klass)
 					 g_param_spec_enum ("compression-type",
 							    "Compression type",
 							    "",
-							    GTK_SOURCE_TYPE_COMPRESSION_TYPE,
-							    GTK_SOURCE_COMPRESSION_TYPE_NONE,
+							    CTK_SOURCE_TYPE_COMPRESSION_TYPE,
+							    CTK_SOURCE_COMPRESSION_TYPE_NONE,
 							    G_PARAM_READABLE |
 							    G_PARAM_STATIC_STRINGS));
 
@@ -257,8 +257,8 @@ ctk_source_file_init (GtkSourceFile *file)
 	file->priv = ctk_source_file_get_instance_private (file);
 
 	file->priv->encoding = NULL;
-	file->priv->newline_type = GTK_SOURCE_NEWLINE_TYPE_LF;
-	file->priv->compression_type = GTK_SOURCE_COMPRESSION_TYPE_NONE;
+	file->priv->newline_type = CTK_SOURCE_NEWLINE_TYPE_LF;
+	file->priv->compression_type = CTK_SOURCE_COMPRESSION_TYPE_NONE;
 }
 
 /**
@@ -270,7 +270,7 @@ ctk_source_file_init (GtkSourceFile *file)
 GtkSourceFile *
 ctk_source_file_new (void)
 {
-	return g_object_new (GTK_SOURCE_TYPE_FILE, NULL);
+	return g_object_new (CTK_SOURCE_TYPE_FILE, NULL);
 }
 
 /**
@@ -286,7 +286,7 @@ void
 ctk_source_file_set_location (GtkSourceFile *file,
 			      GFile         *location)
 {
-	g_return_if_fail (GTK_SOURCE_IS_FILE (file));
+	g_return_if_fail (CTK_SOURCE_IS_FILE (file));
 	g_return_if_fail (location == NULL || G_IS_FILE (location));
 
 	if (g_set_object (&file->priv->location, location))
@@ -311,7 +311,7 @@ ctk_source_file_set_location (GtkSourceFile *file,
 GFile *
 ctk_source_file_get_location (GtkSourceFile *file)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_FILE (file), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_FILE (file), NULL);
 
 	return file->priv->location;
 }
@@ -320,7 +320,7 @@ void
 _ctk_source_file_set_encoding (GtkSourceFile           *file,
 			       const GtkSourceEncoding *encoding)
 {
-	g_return_if_fail (GTK_SOURCE_IS_FILE (file));
+	g_return_if_fail (CTK_SOURCE_IS_FILE (file));
 
 	if (file->priv->encoding != encoding)
 	{
@@ -342,7 +342,7 @@ _ctk_source_file_set_encoding (GtkSourceFile           *file,
 const GtkSourceEncoding *
 ctk_source_file_get_encoding (GtkSourceFile *file)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_FILE (file), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_FILE (file), NULL);
 
 	return file->priv->encoding;
 }
@@ -351,7 +351,7 @@ void
 _ctk_source_file_set_newline_type (GtkSourceFile        *file,
 				   GtkSourceNewlineType  newline_type)
 {
-	g_return_if_fail (GTK_SOURCE_IS_FILE (file));
+	g_return_if_fail (CTK_SOURCE_IS_FILE (file));
 
 	if (file->priv->newline_type != newline_type)
 	{
@@ -370,7 +370,7 @@ _ctk_source_file_set_newline_type (GtkSourceFile        *file,
 GtkSourceNewlineType
 ctk_source_file_get_newline_type (GtkSourceFile *file)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_FILE (file), GTK_SOURCE_NEWLINE_TYPE_DEFAULT);
+	g_return_val_if_fail (CTK_SOURCE_IS_FILE (file), CTK_SOURCE_NEWLINE_TYPE_DEFAULT);
 
 	return file->priv->newline_type;
 }
@@ -379,7 +379,7 @@ void
 _ctk_source_file_set_compression_type (GtkSourceFile            *file,
 				       GtkSourceCompressionType  compression_type)
 {
-	g_return_if_fail (GTK_SOURCE_IS_FILE (file));
+	g_return_if_fail (CTK_SOURCE_IS_FILE (file));
 
 	if (file->priv->compression_type != compression_type)
 	{
@@ -398,7 +398,7 @@ _ctk_source_file_set_compression_type (GtkSourceFile            *file,
 GtkSourceCompressionType
 ctk_source_file_get_compression_type (GtkSourceFile *file)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_FILE (file), GTK_SOURCE_COMPRESSION_TYPE_NONE);
+	g_return_val_if_fail (CTK_SOURCE_IS_FILE (file), CTK_SOURCE_COMPRESSION_TYPE_NONE);
 
 	return file->priv->compression_type;
 }
@@ -427,7 +427,7 @@ ctk_source_file_set_mount_operation_factory (GtkSourceFile                  *fil
 					     gpointer                        user_data,
 					     GDestroyNotify                  notify)
 {
-	g_return_if_fail (GTK_SOURCE_IS_FILE (file));
+	g_return_if_fail (CTK_SOURCE_IS_FILE (file));
 
 	if (file->priv->mount_operation_notify != NULL)
 	{
@@ -458,7 +458,7 @@ _ctk_source_file_get_modification_time (GtkSourceFile *file,
 		return FALSE;
 	}
 
-	g_return_val_if_fail (GTK_SOURCE_IS_FILE (file), FALSE);
+	g_return_val_if_fail (CTK_SOURCE_IS_FILE (file), FALSE);
 
 	if (file->priv->modification_time_set)
 	{
@@ -474,7 +474,7 @@ _ctk_source_file_set_modification_time (GtkSourceFile *file,
 {
 	if (file != NULL)
 	{
-		g_return_if_fail (GTK_SOURCE_IS_FILE (file));
+		g_return_if_fail (CTK_SOURCE_IS_FILE (file));
 
 		file->priv->modification_time = modification_time;
 		file->priv->modification_time_set = TRUE;
@@ -494,7 +494,7 @@ _ctk_source_file_set_modification_time (GtkSourceFile *file,
 gboolean
 ctk_source_file_is_local (GtkSourceFile *file)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_FILE (file), FALSE);
+	g_return_val_if_fail (CTK_SOURCE_IS_FILE (file), FALSE);
 
 	if (file->priv->location == NULL)
 	{
@@ -576,7 +576,7 @@ void
 _ctk_source_file_set_externally_modified (GtkSourceFile *file,
 					  gboolean       externally_modified)
 {
-	g_return_if_fail (GTK_SOURCE_IS_FILE (file));
+	g_return_if_fail (CTK_SOURCE_IS_FILE (file));
 
 	file->priv->externally_modified = externally_modified != FALSE;
 }
@@ -597,7 +597,7 @@ _ctk_source_file_set_externally_modified (GtkSourceFile *file,
 gboolean
 ctk_source_file_is_externally_modified (GtkSourceFile *file)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_FILE (file), FALSE);
+	g_return_val_if_fail (CTK_SOURCE_IS_FILE (file), FALSE);
 
 	return file->priv->externally_modified;
 }
@@ -606,7 +606,7 @@ void
 _ctk_source_file_set_deleted (GtkSourceFile *file,
 			      gboolean       deleted)
 {
-	g_return_if_fail (GTK_SOURCE_IS_FILE (file));
+	g_return_if_fail (CTK_SOURCE_IS_FILE (file));
 
 	file->priv->deleted = deleted != FALSE;
 }
@@ -627,7 +627,7 @@ _ctk_source_file_set_deleted (GtkSourceFile *file,
 gboolean
 ctk_source_file_is_deleted (GtkSourceFile *file)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_FILE (file), FALSE);
+	g_return_val_if_fail (CTK_SOURCE_IS_FILE (file), FALSE);
 
 	return file->priv->deleted;
 }
@@ -636,7 +636,7 @@ void
 _ctk_source_file_set_readonly (GtkSourceFile *file,
 			       gboolean       readonly)
 {
-	g_return_if_fail (GTK_SOURCE_IS_FILE (file));
+	g_return_if_fail (CTK_SOURCE_IS_FILE (file));
 
 	readonly = readonly != FALSE;
 
@@ -663,7 +663,7 @@ _ctk_source_file_set_readonly (GtkSourceFile *file,
 gboolean
 ctk_source_file_is_readonly (GtkSourceFile *file)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_FILE (file), FALSE);
+	g_return_val_if_fail (CTK_SOURCE_IS_FILE (file), FALSE);
 
 	return file->priv->readonly;
 }

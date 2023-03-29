@@ -19,10 +19,10 @@
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTK_SOURCE_ENCODING_H
-#define GTK_SOURCE_ENCODING_H
+#ifndef CTK_SOURCE_ENCODING_H
+#define CTK_SOURCE_ENCODING_H
 
-#if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
+#if !defined (CTK_SOURCE_H_INSIDE) && !defined (CTK_SOURCE_COMPILATION)
 #error "Only <ctksourceview/ctksource.h> can be included directly."
 #endif
 
@@ -32,43 +32,43 @@
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_ENCODING (ctk_source_encoding_get_type ())
+#define CTK_SOURCE_TYPE_ENCODING (ctk_source_encoding_get_type ())
 
-GTK_SOURCE_AVAILABLE_IN_3_14
+CTK_SOURCE_AVAILABLE_IN_3_14
 GType			 ctk_source_encoding_get_type			(void) G_GNUC_CONST;
 
-GTK_SOURCE_AVAILABLE_IN_3_14
+CTK_SOURCE_AVAILABLE_IN_3_14
 const GtkSourceEncoding	*ctk_source_encoding_get_from_charset		(const gchar             *charset);
 
-GTK_SOURCE_AVAILABLE_IN_3_14
+CTK_SOURCE_AVAILABLE_IN_3_14
 gchar			*ctk_source_encoding_to_string			(const GtkSourceEncoding *enc);
 
-GTK_SOURCE_AVAILABLE_IN_3_14
+CTK_SOURCE_AVAILABLE_IN_3_14
 const gchar		*ctk_source_encoding_get_name			(const GtkSourceEncoding *enc);
 
-GTK_SOURCE_AVAILABLE_IN_3_14
+CTK_SOURCE_AVAILABLE_IN_3_14
 const gchar		*ctk_source_encoding_get_charset		(const GtkSourceEncoding *enc);
 
-GTK_SOURCE_AVAILABLE_IN_3_14
+CTK_SOURCE_AVAILABLE_IN_3_14
 const GtkSourceEncoding	*ctk_source_encoding_get_utf8			(void);
 
-GTK_SOURCE_AVAILABLE_IN_3_14
+CTK_SOURCE_AVAILABLE_IN_3_14
 const GtkSourceEncoding	*ctk_source_encoding_get_current		(void);
 
-GTK_SOURCE_AVAILABLE_IN_3_14
+CTK_SOURCE_AVAILABLE_IN_3_14
 GSList			*ctk_source_encoding_get_all			(void);
 
-GTK_SOURCE_AVAILABLE_IN_3_18
+CTK_SOURCE_AVAILABLE_IN_3_18
 GSList			*ctk_source_encoding_get_default_candidates	(void);
 
 /* These should not be used, they are just to make python bindings happy */
 
-GTK_SOURCE_AVAILABLE_IN_3_14
+CTK_SOURCE_AVAILABLE_IN_3_14
 GtkSourceEncoding	*ctk_source_encoding_copy			(const GtkSourceEncoding *enc);
 
-GTK_SOURCE_AVAILABLE_IN_3_14
+CTK_SOURCE_AVAILABLE_IN_3_14
 void			 ctk_source_encoding_free			(GtkSourceEncoding       *enc);
 
 G_END_DECLS
 
-#endif  /* GTK_SOURCE_ENCODING_H */
+#endif  /* CTK_SOURCE_ENCODING_H */

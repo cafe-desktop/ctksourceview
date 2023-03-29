@@ -60,9 +60,9 @@ static void ctk_source_style_scheme_chooser_widget_style_scheme_chooser_interfac
 
 G_DEFINE_TYPE_WITH_CODE (GtkSourceStyleSchemeChooserWidget,
                          ctk_source_style_scheme_chooser_widget,
-                         GTK_TYPE_BIN,
+                         CTK_TYPE_BIN,
                          G_ADD_PRIVATE (GtkSourceStyleSchemeChooserWidget)
-                         G_IMPLEMENT_INTERFACE (GTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER,
+                         G_IMPLEMENT_INTERFACE (CTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER,
                                                 ctk_source_style_scheme_chooser_widget_style_scheme_chooser_interface_init))
 
 #define GET_PRIV(o) ctk_source_style_scheme_chooser_widget_get_instance_private (o)
@@ -76,7 +76,7 @@ enum
 static void
 ctk_source_style_scheme_chooser_widget_dispose (GObject *object)
 {
-	GtkSourceStyleSchemeChooserWidget *widget = GTK_SOURCE_STYLE_SCHEME_CHOOSER_WIDGET (object);
+	GtkSourceStyleSchemeChooserWidget *widget = CTK_SOURCE_STYLE_SCHEME_CHOOSER_WIDGET (object);
 	GtkSourceStyleSchemeChooserWidgetPrivate *priv = GET_PRIV (widget);
 
 	g_clear_object (&priv->scheme);
@@ -94,7 +94,7 @@ ctk_source_style_scheme_chooser_widget_get_property (GObject    *object,
 	{
 		case PROP_STYLE_SCHEME:
 			g_value_set_object (value,
-			                    ctk_source_style_scheme_chooser_get_style_scheme (GTK_SOURCE_STYLE_SCHEME_CHOOSER (object)));
+			                    ctk_source_style_scheme_chooser_get_style_scheme (CTK_SOURCE_STYLE_SCHEME_CHOOSER (object)));
 			break;
 
 		default:
@@ -111,7 +111,7 @@ ctk_source_style_scheme_chooser_widget_set_property (GObject      *object,
 	switch (prop_id)
 	{
 		case PROP_STYLE_SCHEME:
-			ctk_source_style_scheme_chooser_set_style_scheme (GTK_SOURCE_STYLE_SCHEME_CHOOSER (object),
+			ctk_source_style_scheme_chooser_set_style_scheme (CTK_SOURCE_STYLE_SCHEME_CHOOSER (object),
 			                                                  g_value_get_object (value));
 			break;
 
@@ -152,9 +152,9 @@ make_row (GtkSourceStyleScheme *scheme,
 	g_object_set_data (G_OBJECT (row), "scheme", scheme);
 
 	event = ctk_event_box_new ();
-	ctk_event_box_set_above_child (GTK_EVENT_BOX (event), TRUE);
+	ctk_event_box_set_above_child (CTK_EVENT_BOX (event), TRUE);
 	ctk_widget_show (event);
-	ctk_container_add (GTK_CONTAINER (row), event);
+	ctk_container_add (CTK_CONTAINER (row), event);
 
 	buffer = ctk_source_buffer_new_with_language (language);
 	ctk_source_buffer_set_highlight_matching_brackets (buffer, FALSE);
@@ -162,10 +162,10 @@ make_row (GtkSourceStyleScheme *scheme,
 
 	text = g_strdup_printf ("/* %s */\n#include <ctksourceview/ctksource.h>",
 	                        ctk_source_style_scheme_get_name (scheme));
-	ctk_text_buffer_set_text (GTK_TEXT_BUFFER (buffer), text, -1);
+	ctk_text_buffer_set_text (CTK_TEXT_BUFFER (buffer), text, -1);
 	g_free (text);
 
-	view = g_object_new (GTK_SOURCE_TYPE_VIEW,
+	view = g_object_new (CTK_SOURCE_TYPE_VIEW,
 	                     "buffer", buffer,
 	                     "can-focus", FALSE,
 	                     "cursor-visible", FALSE,
@@ -176,7 +176,7 @@ make_row (GtkSourceStyleScheme *scheme,
 	                     "show-right-margin", TRUE,
 	                     "margin", 2,
 	                     NULL);
-	ctk_container_add (GTK_CONTAINER (event), view);
+	ctk_container_add (CTK_CONTAINER (event), view);
 
 	return row;
 }
@@ -221,7 +221,7 @@ ctk_source_style_scheme_chooser_widget_populate (GtkSourceStyleSchemeChooserWidg
 
 	g_signal_handlers_block_by_func (priv->list_box, on_row_selected, widget);
 
-	ctk_container_foreach (GTK_CONTAINER (priv->list_box),
+	ctk_container_foreach (CTK_CONTAINER (priv->list_box),
 	                       destroy_child_cb,
 	                       NULL);
 
@@ -238,11 +238,11 @@ ctk_source_style_scheme_chooser_widget_populate (GtkSourceStyleSchemeChooserWidg
 
 		scheme = ctk_source_style_scheme_manager_get_scheme (manager, scheme_ids [i]);
 		row = make_row (scheme, lang);
-		ctk_container_add (GTK_CONTAINER (priv->list_box), GTK_WIDGET (row));
+		ctk_container_add (CTK_CONTAINER (priv->list_box), CTK_WIDGET (row));
 
 		if (scheme == priv->scheme)
 		{
-			ctk_list_box_select_row (priv->list_box, GTK_LIST_BOX_ROW (row));
+			ctk_list_box_select_row (priv->list_box, CTK_LIST_BOX_ROW (row));
 
 			row_selected = TRUE;
 		}
@@ -253,7 +253,7 @@ ctk_source_style_scheme_chooser_widget_populate (GtkSourceStyleSchemeChooserWidg
 	/* The current scheme may have been removed so select the default one */
 	if (!row_selected)
 	{
-		ctk_source_style_scheme_chooser_set_style_scheme (GTK_SOURCE_STYLE_SCHEME_CHOOSER (widget),
+		ctk_source_style_scheme_chooser_set_style_scheme (CTK_SOURCE_STYLE_SCHEME_CHOOSER (widget),
 		                                                  _ctk_source_style_scheme_get_default ());
 	}
 }
@@ -272,10 +272,10 @@ ctk_source_style_scheme_chooser_widget_init (GtkSourceStyleSchemeChooserWidget *
 	GtkSourceStyleSchemeChooserWidgetPrivate *priv = GET_PRIV (widget);
 	GtkSourceStyleSchemeManager *manager;
 
-	priv->list_box = GTK_LIST_BOX (ctk_list_box_new ());
-	ctk_list_box_set_selection_mode (priv->list_box, GTK_SELECTION_BROWSE);
-	ctk_widget_show (GTK_WIDGET (priv->list_box));
-	ctk_container_add (GTK_CONTAINER (widget), GTK_WIDGET (priv->list_box));
+	priv->list_box = CTK_LIST_BOX (ctk_list_box_new ());
+	ctk_list_box_set_selection_mode (priv->list_box, CTK_SELECTION_BROWSE);
+	ctk_widget_show (CTK_WIDGET (priv->list_box));
+	ctk_container_add (CTK_CONTAINER (widget), CTK_WIDGET (priv->list_box));
 
 	manager = ctk_source_style_scheme_manager_get_default ();
 	g_signal_connect (manager,
@@ -285,7 +285,7 @@ ctk_source_style_scheme_chooser_widget_init (GtkSourceStyleSchemeChooserWidget *
 
 	ctk_source_style_scheme_chooser_widget_populate (widget);
 
-	ctk_source_style_scheme_chooser_set_style_scheme (GTK_SOURCE_STYLE_SCHEME_CHOOSER (widget),
+	ctk_source_style_scheme_chooser_set_style_scheme (CTK_SOURCE_STYLE_SCHEME_CHOOSER (widget),
 	                                                  _ctk_source_style_scheme_get_default ());
 
 	g_signal_connect (priv->list_box,
@@ -297,7 +297,7 @@ ctk_source_style_scheme_chooser_widget_init (GtkSourceStyleSchemeChooserWidget *
 static GtkSourceStyleScheme *
 ctk_source_style_scheme_chooser_widget_get_style_scheme (GtkSourceStyleSchemeChooser *chooser)
 {
-	GtkSourceStyleSchemeChooserWidget *widget = GTK_SOURCE_STYLE_SCHEME_CHOOSER_WIDGET (chooser);
+	GtkSourceStyleSchemeChooserWidget *widget = CTK_SOURCE_STYLE_SCHEME_CHOOSER_WIDGET (chooser);
 	GtkSourceStyleSchemeChooserWidgetPrivate *priv = GET_PRIV (widget);
 
 	return priv->scheme;
@@ -307,7 +307,7 @@ static void
 ctk_source_style_scheme_chooser_widget_set_style_scheme (GtkSourceStyleSchemeChooser *chooser,
                                                          GtkSourceStyleScheme        *scheme)
 {
-	GtkSourceStyleSchemeChooserWidget *widget = GTK_SOURCE_STYLE_SCHEME_CHOOSER_WIDGET (chooser);
+	GtkSourceStyleSchemeChooserWidget *widget = CTK_SOURCE_STYLE_SCHEME_CHOOSER_WIDGET (chooser);
 	GtkSourceStyleSchemeChooserWidgetPrivate *priv = GET_PRIV (widget);
 
 	if (g_set_object (&priv->scheme, scheme))
@@ -315,7 +315,7 @@ ctk_source_style_scheme_chooser_widget_set_style_scheme (GtkSourceStyleSchemeCho
 		GList *children;
 		GList *l;
 
-		children = ctk_container_get_children (GTK_CONTAINER (priv->list_box));
+		children = ctk_container_get_children (CTK_CONTAINER (priv->list_box));
 
 		for (l = children; l != NULL; l = g_list_next (l))
 		{
@@ -358,5 +358,5 @@ ctk_source_style_scheme_chooser_widget_style_scheme_chooser_interface_init (GtkS
 GtkWidget *
 ctk_source_style_scheme_chooser_widget_new (void)
 {
-	return g_object_new (GTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER_WIDGET, NULL);
+	return g_object_new (CTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER_WIDGET, NULL);
 }

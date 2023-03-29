@@ -18,10 +18,10 @@
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTK_SOURCE_GUTTER_RENDERER_H
-#define GTK_SOURCE_GUTTER_RENDERER_H
+#ifndef CTK_SOURCE_GUTTER_RENDERER_H
+#define CTK_SOURCE_GUTTER_RENDERER_H
 
-#if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
+#if !defined (CTK_SOURCE_H_INSIDE) && !defined (CTK_SOURCE_COMPILATION)
 #error "Only <ctksourceview/ctksource.h> can be included directly."
 #endif
 
@@ -30,49 +30,49 @@
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_GUTTER_RENDERER			(ctk_source_gutter_renderer_get_type ())
-#define GTK_SOURCE_GUTTER_RENDERER(obj)			(G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_GUTTER_RENDERER, GtkSourceGutterRenderer))
-#define GTK_SOURCE_GUTTER_RENDERER_CONST(obj)		(G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_GUTTER_RENDERER, GtkSourceGutterRenderer const))
-#define GTK_SOURCE_GUTTER_RENDERER_CLASS(klass)		(G_TYPE_CHECK_CLASS_CAST ((klass), GTK_SOURCE_TYPE_GUTTER_RENDERER, GtkSourceGutterRendererClass))
-#define GTK_SOURCE_IS_GUTTER_RENDERER(obj)		(G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_SOURCE_TYPE_GUTTER_RENDERER))
-#define GTK_SOURCE_IS_GUTTER_RENDERER_CLASS(klass)	(G_TYPE_CHECK_CLASS_TYPE ((klass), GTK_SOURCE_TYPE_GUTTER_RENDERER))
-#define GTK_SOURCE_GUTTER_RENDERER_GET_CLASS(obj)	(G_TYPE_INSTANCE_GET_CLASS ((obj), GTK_SOURCE_TYPE_GUTTER_RENDERER, GtkSourceGutterRendererClass))
+#define CTK_SOURCE_TYPE_GUTTER_RENDERER			(ctk_source_gutter_renderer_get_type ())
+#define CTK_SOURCE_GUTTER_RENDERER(obj)			(G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_GUTTER_RENDERER, GtkSourceGutterRenderer))
+#define CTK_SOURCE_GUTTER_RENDERER_CONST(obj)		(G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_GUTTER_RENDERER, GtkSourceGutterRenderer const))
+#define CTK_SOURCE_GUTTER_RENDERER_CLASS(klass)		(G_TYPE_CHECK_CLASS_CAST ((klass), CTK_SOURCE_TYPE_GUTTER_RENDERER, GtkSourceGutterRendererClass))
+#define CTK_SOURCE_IS_GUTTER_RENDERER(obj)		(G_TYPE_CHECK_INSTANCE_TYPE ((obj), CTK_SOURCE_TYPE_GUTTER_RENDERER))
+#define CTK_SOURCE_IS_GUTTER_RENDERER_CLASS(klass)	(G_TYPE_CHECK_CLASS_TYPE ((klass), CTK_SOURCE_TYPE_GUTTER_RENDERER))
+#define CTK_SOURCE_GUTTER_RENDERER_GET_CLASS(obj)	(G_TYPE_INSTANCE_GET_CLASS ((obj), CTK_SOURCE_TYPE_GUTTER_RENDERER, GtkSourceGutterRendererClass))
 
 typedef struct _GtkSourceGutterRendererClass	GtkSourceGutterRendererClass;
 typedef struct _GtkSourceGutterRendererPrivate	GtkSourceGutterRendererPrivate;
 
 /**
  * GtkSourceGutterRendererState:
- * @GTK_SOURCE_GUTTER_RENDERER_STATE_NORMAL: normal state
- * @GTK_SOURCE_GUTTER_RENDERER_STATE_CURSOR: area in the renderer represents the
+ * @CTK_SOURCE_GUTTER_RENDERER_STATE_NORMAL: normal state
+ * @CTK_SOURCE_GUTTER_RENDERER_STATE_CURSOR: area in the renderer represents the
  * line on which the insert cursor is currently positioned
- * @GTK_SOURCE_GUTTER_RENDERER_STATE_PRELIT: the mouse pointer is currently
+ * @CTK_SOURCE_GUTTER_RENDERER_STATE_PRELIT: the mouse pointer is currently
  * over the activatable area of the renderer
- * @GTK_SOURCE_GUTTER_RENDERER_STATE_SELECTED: area in the renderer represents
+ * @CTK_SOURCE_GUTTER_RENDERER_STATE_SELECTED: area in the renderer represents
  * a line in the buffer which contains part of the selection
  **/
 typedef enum _GtkSourceGutterRendererState
 {
-	GTK_SOURCE_GUTTER_RENDERER_STATE_NORMAL = 0,
-	GTK_SOURCE_GUTTER_RENDERER_STATE_CURSOR = 1 << 0,
-	GTK_SOURCE_GUTTER_RENDERER_STATE_PRELIT = 1 << 1,
-	GTK_SOURCE_GUTTER_RENDERER_STATE_SELECTED = 1 << 2
+	CTK_SOURCE_GUTTER_RENDERER_STATE_NORMAL = 0,
+	CTK_SOURCE_GUTTER_RENDERER_STATE_CURSOR = 1 << 0,
+	CTK_SOURCE_GUTTER_RENDERER_STATE_PRELIT = 1 << 1,
+	CTK_SOURCE_GUTTER_RENDERER_STATE_SELECTED = 1 << 2
 } GtkSourceGutterRendererState;
 
 /**
  * GtkSourceGutterRendererAlignmentMode:
- * @GTK_SOURCE_GUTTER_RENDERER_ALIGNMENT_MODE_CELL: The full cell.
- * @GTK_SOURCE_GUTTER_RENDERER_ALIGNMENT_MODE_FIRST: The first line.
- * @GTK_SOURCE_GUTTER_RENDERER_ALIGNMENT_MODE_LAST: The last line.
+ * @CTK_SOURCE_GUTTER_RENDERER_ALIGNMENT_MODE_CELL: The full cell.
+ * @CTK_SOURCE_GUTTER_RENDERER_ALIGNMENT_MODE_FIRST: The first line.
+ * @CTK_SOURCE_GUTTER_RENDERER_ALIGNMENT_MODE_LAST: The last line.
  *
  * The alignment mode of the renderer, when a cell spans multiple lines (due to
  * text wrapping).
  **/
 typedef enum _GtkSourceGutterRendererAlignmentMode
 {
-	GTK_SOURCE_GUTTER_RENDERER_ALIGNMENT_MODE_CELL,
-	GTK_SOURCE_GUTTER_RENDERER_ALIGNMENT_MODE_FIRST,
-	GTK_SOURCE_GUTTER_RENDERER_ALIGNMENT_MODE_LAST
+	CTK_SOURCE_GUTTER_RENDERER_ALIGNMENT_MODE_CELL,
+	CTK_SOURCE_GUTTER_RENDERER_ALIGNMENT_MODE_FIRST,
+	CTK_SOURCE_GUTTER_RENDERER_ALIGNMENT_MODE_LAST
 } GtkSourceGutterRendererAlignmentMode;
 
 struct _GtkSourceGutterRenderer
@@ -153,10 +153,10 @@ struct _GtkSourceGutterRendererClass
 	gpointer padding[20];
 };
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 GType    ctk_source_gutter_renderer_get_type (void) G_GNUC_CONST;
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 void     ctk_source_gutter_renderer_begin           (GtkSourceGutterRenderer      *renderer,
                                                      cairo_t                      *cr,
                                                      GdkRectangle                 *background_area,
@@ -164,7 +164,7 @@ void     ctk_source_gutter_renderer_begin           (GtkSourceGutterRenderer    
                                                      GtkTextIter                  *start,
                                                      GtkTextIter                  *end);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 void     ctk_source_gutter_renderer_draw            (GtkSourceGutterRenderer      *renderer,
                                                      cairo_t                      *cr,
                                                      GdkRectangle                 *background_area,
@@ -173,86 +173,86 @@ void     ctk_source_gutter_renderer_draw            (GtkSourceGutterRenderer    
                                                      GtkTextIter                  *end,
                                                      GtkSourceGutterRendererState  state);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 void     ctk_source_gutter_renderer_end             (GtkSourceGutterRenderer      *renderer);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 gint     ctk_source_gutter_renderer_get_size        (GtkSourceGutterRenderer      *renderer);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 void    ctk_source_gutter_renderer_set_size         (GtkSourceGutterRenderer      *renderer,
                                                      gint                          size);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 void     ctk_source_gutter_renderer_set_visible     (GtkSourceGutterRenderer      *renderer,
                                                      gboolean                      visible);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 gboolean ctk_source_gutter_renderer_get_visible     (GtkSourceGutterRenderer      *renderer);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 void     ctk_source_gutter_renderer_get_padding     (GtkSourceGutterRenderer      *renderer,
                                                      gint                         *xpad,
                                                      gint                         *ypad);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 void     ctk_source_gutter_renderer_set_padding     (GtkSourceGutterRenderer      *renderer,
                                                      gint                          xpad,
                                                      gint                          ypad);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 void     ctk_source_gutter_renderer_get_alignment   (GtkSourceGutterRenderer      *renderer,
                                                      gfloat                       *xalign,
                                                      gfloat                       *yalign);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 void     ctk_source_gutter_renderer_set_alignment   (GtkSourceGutterRenderer      *renderer,
                                                      gfloat                        xalign,
                                                      gfloat                        yalign);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 void     ctk_source_gutter_renderer_set_alignment_mode (GtkSourceGutterRenderer              *renderer,
                                                         GtkSourceGutterRendererAlignmentMode  mode);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 GtkTextWindowType
 	ctk_source_gutter_renderer_get_window_type  (GtkSourceGutterRenderer      *renderer);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 GtkTextView *ctk_source_gutter_renderer_get_view    (GtkSourceGutterRenderer      *renderer);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 GtkSourceGutterRendererAlignmentMode
 	ctk_source_gutter_renderer_get_alignment_mode (GtkSourceGutterRenderer    *renderer);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 gboolean ctk_source_gutter_renderer_get_background  (GtkSourceGutterRenderer      *renderer,
                                                      GdkRGBA                      *color);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 void     ctk_source_gutter_renderer_set_background  (GtkSourceGutterRenderer      *renderer,
                                                      const GdkRGBA                *color);
 
 /* Emits the 'activate' signal */
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 void     ctk_source_gutter_renderer_activate        (GtkSourceGutterRenderer      *renderer,
                                                      GtkTextIter                  *iter,
                                                      GdkRectangle                 *area,
                                                      GdkEvent                     *event);
 
 /* Emits the 'query-activatable' signal */
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 gboolean ctk_source_gutter_renderer_query_activatable (GtkSourceGutterRenderer      *renderer,
                                                        GtkTextIter                  *iter,
                                                        GdkRectangle                 *area,
                                                        GdkEvent                     *event);
 
 /* Emits the 'queue-draw' signal */
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 void     ctk_source_gutter_renderer_queue_draw      (GtkSourceGutterRenderer      *renderer);
 
 /* Emits the 'query-tooltip' signal */
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 gboolean ctk_source_gutter_renderer_query_tooltip   (GtkSourceGutterRenderer      *renderer,
                                                      GtkTextIter                  *iter,
                                                      GdkRectangle                 *area,
@@ -261,7 +261,7 @@ gboolean ctk_source_gutter_renderer_query_tooltip   (GtkSourceGutterRenderer    
                                                      GtkTooltip                   *tooltip);
 
 /* Emits the 'query-data' signal */
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 void     ctk_source_gutter_renderer_query_data      (GtkSourceGutterRenderer      *renderer,
                                                      GtkTextIter                  *start,
                                                      GtkTextIter                  *end,
@@ -269,4 +269,4 @@ void     ctk_source_gutter_renderer_query_data      (GtkSourceGutterRenderer    
 
 G_END_DECLS
 
-#endif /* GTK_SOURCE_GUTTER_RENDERER_H */
+#endif /* CTK_SOURCE_GUTTER_RENDERER_H */

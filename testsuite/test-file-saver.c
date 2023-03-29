@@ -182,7 +182,7 @@ test_saver (const gchar            *filename_or_uri,
 	location = g_file_new_for_commandline_arg (filename_or_uri);
 
 	buffer = ctk_source_buffer_new (NULL);
-	ctk_text_buffer_set_text (GTK_TEXT_BUFFER (buffer), buffer_contents, -1);
+	ctk_text_buffer_set_text (CTK_TEXT_BUFFER (buffer), buffer_contents, -1);
 
 	file = ctk_source_file_new ();
 	saver = ctk_source_file_saver_new_with_target (buffer, file, location);
@@ -215,35 +215,35 @@ typedef struct
 } NewLineTestData;
 
 static NewLineTestData newline_test_data[] = {
-	{GTK_SOURCE_NEWLINE_TYPE_LF, "\nhello\nworld", "\nhello\nworld\n"},
-	{GTK_SOURCE_NEWLINE_TYPE_LF, "\nhello\nworld\n", "\nhello\nworld\n\n"},
-	{GTK_SOURCE_NEWLINE_TYPE_LF, "\nhello\nworld\n\n", "\nhello\nworld\n\n\n"},
-	{GTK_SOURCE_NEWLINE_TYPE_LF, "\r\nhello\r\nworld", "\nhello\nworld\n"},
-	{GTK_SOURCE_NEWLINE_TYPE_LF, "\r\nhello\r\nworld\r\n", "\nhello\nworld\n\n"},
-	{GTK_SOURCE_NEWLINE_TYPE_LF, "\rhello\rworld", "\nhello\nworld\n"},
-	{GTK_SOURCE_NEWLINE_TYPE_LF, "\rhello\rworld\r", "\nhello\nworld\n\n"},
-	{GTK_SOURCE_NEWLINE_TYPE_LF, "\nhello\r\nworld", "\nhello\nworld\n"},
-	{GTK_SOURCE_NEWLINE_TYPE_LF, "\nhello\r\nworld\r", "\nhello\nworld\n\n"},
+	{CTK_SOURCE_NEWLINE_TYPE_LF, "\nhello\nworld", "\nhello\nworld\n"},
+	{CTK_SOURCE_NEWLINE_TYPE_LF, "\nhello\nworld\n", "\nhello\nworld\n\n"},
+	{CTK_SOURCE_NEWLINE_TYPE_LF, "\nhello\nworld\n\n", "\nhello\nworld\n\n\n"},
+	{CTK_SOURCE_NEWLINE_TYPE_LF, "\r\nhello\r\nworld", "\nhello\nworld\n"},
+	{CTK_SOURCE_NEWLINE_TYPE_LF, "\r\nhello\r\nworld\r\n", "\nhello\nworld\n\n"},
+	{CTK_SOURCE_NEWLINE_TYPE_LF, "\rhello\rworld", "\nhello\nworld\n"},
+	{CTK_SOURCE_NEWLINE_TYPE_LF, "\rhello\rworld\r", "\nhello\nworld\n\n"},
+	{CTK_SOURCE_NEWLINE_TYPE_LF, "\nhello\r\nworld", "\nhello\nworld\n"},
+	{CTK_SOURCE_NEWLINE_TYPE_LF, "\nhello\r\nworld\r", "\nhello\nworld\n\n"},
 
-	{GTK_SOURCE_NEWLINE_TYPE_CR_LF, "\nhello\nworld", "\r\nhello\r\nworld\r\n"},
-	{GTK_SOURCE_NEWLINE_TYPE_CR_LF, "\nhello\nworld\n", "\r\nhello\r\nworld\r\n\r\n"},
-	{GTK_SOURCE_NEWLINE_TYPE_CR_LF, "\nhello\nworld\n\n", "\r\nhello\r\nworld\r\n\r\n\r\n"},
-	{GTK_SOURCE_NEWLINE_TYPE_CR_LF, "\r\nhello\r\nworld", "\r\nhello\r\nworld\r\n"},
-	{GTK_SOURCE_NEWLINE_TYPE_CR_LF, "\r\nhello\r\nworld\r\n", "\r\nhello\r\nworld\r\n\r\n"},
-	{GTK_SOURCE_NEWLINE_TYPE_CR_LF, "\rhello\rworld", "\r\nhello\r\nworld\r\n"},
-	{GTK_SOURCE_NEWLINE_TYPE_CR_LF, "\rhello\rworld\r", "\r\nhello\r\nworld\r\n\r\n"},
-	{GTK_SOURCE_NEWLINE_TYPE_CR_LF, "\nhello\r\nworld", "\r\nhello\r\nworld\r\n"},
-	{GTK_SOURCE_NEWLINE_TYPE_CR_LF, "\nhello\r\nworld\r", "\r\nhello\r\nworld\r\n\r\n"},
+	{CTK_SOURCE_NEWLINE_TYPE_CR_LF, "\nhello\nworld", "\r\nhello\r\nworld\r\n"},
+	{CTK_SOURCE_NEWLINE_TYPE_CR_LF, "\nhello\nworld\n", "\r\nhello\r\nworld\r\n\r\n"},
+	{CTK_SOURCE_NEWLINE_TYPE_CR_LF, "\nhello\nworld\n\n", "\r\nhello\r\nworld\r\n\r\n\r\n"},
+	{CTK_SOURCE_NEWLINE_TYPE_CR_LF, "\r\nhello\r\nworld", "\r\nhello\r\nworld\r\n"},
+	{CTK_SOURCE_NEWLINE_TYPE_CR_LF, "\r\nhello\r\nworld\r\n", "\r\nhello\r\nworld\r\n\r\n"},
+	{CTK_SOURCE_NEWLINE_TYPE_CR_LF, "\rhello\rworld", "\r\nhello\r\nworld\r\n"},
+	{CTK_SOURCE_NEWLINE_TYPE_CR_LF, "\rhello\rworld\r", "\r\nhello\r\nworld\r\n\r\n"},
+	{CTK_SOURCE_NEWLINE_TYPE_CR_LF, "\nhello\r\nworld", "\r\nhello\r\nworld\r\n"},
+	{CTK_SOURCE_NEWLINE_TYPE_CR_LF, "\nhello\r\nworld\r", "\r\nhello\r\nworld\r\n\r\n"},
 
-	{GTK_SOURCE_NEWLINE_TYPE_CR, "\nhello\nworld", "\rhello\rworld\r"},
-	{GTK_SOURCE_NEWLINE_TYPE_CR, "\nhello\nworld\n", "\rhello\rworld\r\r"},
-	{GTK_SOURCE_NEWLINE_TYPE_CR, "\nhello\nworld\n\n", "\rhello\rworld\r\r\r"},
-	{GTK_SOURCE_NEWLINE_TYPE_CR, "\r\nhello\r\nworld", "\rhello\rworld\r"},
-	{GTK_SOURCE_NEWLINE_TYPE_CR, "\r\nhello\r\nworld\r\n", "\rhello\rworld\r\r"},
-	{GTK_SOURCE_NEWLINE_TYPE_CR, "\rhello\rworld", "\rhello\rworld\r"},
-	{GTK_SOURCE_NEWLINE_TYPE_CR, "\rhello\rworld\r", "\rhello\rworld\r\r"},
-	{GTK_SOURCE_NEWLINE_TYPE_CR, "\nhello\r\nworld", "\rhello\rworld\r"},
-	{GTK_SOURCE_NEWLINE_TYPE_CR, "\nhello\r\nworld\r", "\rhello\rworld\r\r"}
+	{CTK_SOURCE_NEWLINE_TYPE_CR, "\nhello\nworld", "\rhello\rworld\r"},
+	{CTK_SOURCE_NEWLINE_TYPE_CR, "\nhello\nworld\n", "\rhello\rworld\r\r"},
+	{CTK_SOURCE_NEWLINE_TYPE_CR, "\nhello\nworld\n\n", "\rhello\rworld\r\r\r"},
+	{CTK_SOURCE_NEWLINE_TYPE_CR, "\r\nhello\r\nworld", "\rhello\rworld\r"},
+	{CTK_SOURCE_NEWLINE_TYPE_CR, "\r\nhello\r\nworld\r\n", "\rhello\rworld\r\r"},
+	{CTK_SOURCE_NEWLINE_TYPE_CR, "\rhello\rworld", "\rhello\rworld\r"},
+	{CTK_SOURCE_NEWLINE_TYPE_CR, "\rhello\rworld\r", "\rhello\rworld\r\r"},
+	{CTK_SOURCE_NEWLINE_TYPE_CR, "\nhello\r\nworld", "\rhello\rworld\r"},
+	{CTK_SOURCE_NEWLINE_TYPE_CR, "\nhello\r\nworld\r", "\rhello\rworld\r\r"}
 };
 
 static void
@@ -288,21 +288,21 @@ test_local (void)
 	test_saver (default_local_uri,
 	            "hello world",
 		    "hello world\n",
-	            GTK_SOURCE_NEWLINE_TYPE_LF,
+	            CTK_SOURCE_NEWLINE_TYPE_LF,
 		    NULL,
 		    NULL);
 
 	test_saver (default_local_uri,
 	            "hello world\r\n",
 		    "hello world\n\n",
-	            GTK_SOURCE_NEWLINE_TYPE_LF,
+	            CTK_SOURCE_NEWLINE_TYPE_LF,
 		    NULL,
 		    NULL);
 
 	test_saver (default_local_uri,
 	            "hello world\n",
 		    "hello world\n\n",
-	            GTK_SOURCE_NEWLINE_TYPE_LF,
+	            CTK_SOURCE_NEWLINE_TYPE_LF,
 		    NULL,
 		    NULL);
 	g_free (default_local_uri);
@@ -320,21 +320,21 @@ test_remote (void)
 	test_saver (DEFAULT_REMOTE_URI,
 	            "hello world",
 		    "hello world\n",
-	            GTK_SOURCE_NEWLINE_TYPE_LF,
+	            CTK_SOURCE_NEWLINE_TYPE_LF,
 		    NULL,
 		    NULL);
 
 	test_saver (DEFAULT_REMOTE_URI,
 	            "hello world\r\n",
 		    "hello world\n\n",
-	            GTK_SOURCE_NEWLINE_TYPE_LF,
+	            CTK_SOURCE_NEWLINE_TYPE_LF,
 		    NULL,
 		    NULL);
 
 	test_saver (DEFAULT_REMOTE_URI,
 	            "hello world\n",
 		    "hello world\n\n",
-	            GTK_SOURCE_NEWLINE_TYPE_LF,
+	            CTK_SOURCE_NEWLINE_TYPE_LF,
 		    NULL,
 		    NULL);
 }
@@ -412,7 +412,7 @@ test_permissions (const gchar *uri,
 	test_saver (uri,
 	            DEFAULT_CONTENT,
 		    DEFAULT_CONTENT_RESULT,
-	            GTK_SOURCE_NEWLINE_TYPE_LF,
+	            CTK_SOURCE_NEWLINE_TYPE_LF,
 		    check_permissions_saved,
 		    GINT_TO_POINTER ((gint)permissions));
 
@@ -448,7 +448,7 @@ test_local_unowned_directory (void)
 	test_saver (unowned_local_uri,
 	            DEFAULT_CONTENT,
 		    DEFAULT_CONTENT_RESULT,
-	            GTK_SOURCE_NEWLINE_TYPE_LF,
+	            CTK_SOURCE_NEWLINE_TYPE_LF,
 		    NULL,
 		    NULL);
 	g_free (unowned_local_uri);
@@ -465,7 +465,7 @@ test_remote_unowned_directory (void)
 	test_saver (unowned_remote_uri,
 	            DEFAULT_CONTENT,
 		    DEFAULT_CONTENT_RESULT,
-	            GTK_SOURCE_NEWLINE_TYPE_LF,
+	            CTK_SOURCE_NEWLINE_TYPE_LF,
 		    NULL,
 		    NULL);
 	g_free (unowned_remote_uri);
@@ -513,7 +513,7 @@ test_unowned_group (const gchar *uri)
 	test_saver (uri,
 	            DEFAULT_CONTENT,
 		    DEFAULT_CONTENT_RESULT,
-	            GTK_SOURCE_NEWLINE_TYPE_LF,
+	            CTK_SOURCE_NEWLINE_TYPE_LF,
 		    test_unowned_group_permissions,
 		    NULL);
 }

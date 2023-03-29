@@ -18,10 +18,10 @@
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTK_SOURCE_GUTTER_H
-#define GTK_SOURCE_GUTTER_H
+#ifndef CTK_SOURCE_GUTTER_H
+#define CTK_SOURCE_GUTTER_H
 
-#if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
+#if !defined (CTK_SOURCE_H_INSIDE) && !defined (CTK_SOURCE_COMPILATION)
 #error "Only <ctksourceview/ctksource.h> can be included directly."
 #endif
 
@@ -30,12 +30,12 @@
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_GUTTER			(ctk_source_gutter_get_type ())
-#define GTK_SOURCE_GUTTER(obj)			(G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_GUTTER, GtkSourceGutter))
-#define GTK_SOURCE_GUTTER_CLASS(klass)		(G_TYPE_CHECK_CLASS_CAST ((klass), GTK_SOURCE_TYPE_GUTTER, GtkSourceGutterClass))
-#define GTK_SOURCE_IS_GUTTER(obj)		(G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_SOURCE_TYPE_GUTTER))
-#define GTK_SOURCE_IS_GUTTER_CLASS(klass)	(G_TYPE_CHECK_CLASS_TYPE ((klass), GTK_SOURCE_TYPE_GUTTER))
-#define GTK_SOURCE_GUTTER_GET_CLASS(obj)	(G_TYPE_INSTANCE_GET_CLASS ((obj), GTK_SOURCE_TYPE_GUTTER, GtkSourceGutterClass))
+#define CTK_SOURCE_TYPE_GUTTER			(ctk_source_gutter_get_type ())
+#define CTK_SOURCE_GUTTER(obj)			(G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_GUTTER, GtkSourceGutter))
+#define CTK_SOURCE_GUTTER_CLASS(klass)		(G_TYPE_CHECK_CLASS_CAST ((klass), CTK_SOURCE_TYPE_GUTTER, GtkSourceGutterClass))
+#define CTK_SOURCE_IS_GUTTER(obj)		(G_TYPE_CHECK_INSTANCE_TYPE ((obj), CTK_SOURCE_TYPE_GUTTER))
+#define CTK_SOURCE_IS_GUTTER_CLASS(klass)	(G_TYPE_CHECK_CLASS_TYPE ((klass), CTK_SOURCE_TYPE_GUTTER))
+#define CTK_SOURCE_GUTTER_GET_CLASS(obj)	(G_TYPE_INSTANCE_GET_CLASS ((obj), CTK_SOURCE_TYPE_GUTTER, GtkSourceGutterClass))
 
 typedef struct _GtkSourceGutterClass	GtkSourceGutterClass;
 typedef struct _GtkSourceGutterPrivate	GtkSourceGutterPrivate;
@@ -54,35 +54,35 @@ struct _GtkSourceGutterClass
 	gpointer padding[10];
 };
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 GType ctk_source_gutter_get_type 		(void) G_GNUC_CONST;
 
-GTK_SOURCE_AVAILABLE_IN_3_24
+CTK_SOURCE_AVAILABLE_IN_3_24
 GtkSourceView *
      ctk_source_gutter_get_view			(GtkSourceGutter         *gutter);
 
-GTK_SOURCE_AVAILABLE_IN_3_24
+CTK_SOURCE_AVAILABLE_IN_3_24
 GtkTextWindowType
      ctk_source_gutter_get_window_type		(GtkSourceGutter         *gutter);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 gboolean ctk_source_gutter_insert               (GtkSourceGutter         *gutter,
                                                  GtkSourceGutterRenderer *renderer,
                                                  gint                     position);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 void ctk_source_gutter_reorder			(GtkSourceGutter	 *gutter,
                                                  GtkSourceGutterRenderer *renderer,
                                                  gint                     position);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 void ctk_source_gutter_remove			(GtkSourceGutter         *gutter,
                                                  GtkSourceGutterRenderer *renderer);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 void ctk_source_gutter_queue_draw		(GtkSourceGutter         *gutter);
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 GtkSourceGutterRenderer *
      ctk_source_gutter_get_renderer_at_pos      (GtkSourceGutter         *gutter,
                                                  gint                     x,
@@ -90,4 +90,4 @@ GtkSourceGutterRenderer *
 
 G_END_DECLS
 
-#endif /* GTK_SOURCE_GUTTER_H */
+#endif /* CTK_SOURCE_GUTTER_H */

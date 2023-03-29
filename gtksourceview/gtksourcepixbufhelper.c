@@ -206,7 +206,7 @@ from_gicon (GtkSourcePixbufHelper *helper,
 	screen = ctk_widget_get_screen (widget);
 	icon_theme = ctk_icon_theme_get_for_screen (screen);
 
-	flags = GTK_ICON_LOOKUP_USE_BUILTIN;
+	flags = CTK_ICON_LOOKUP_USE_BUILTIN;
 
 	info = ctk_icon_theme_lookup_by_gicon (icon_theme,
 	                                       helper->gicon,
@@ -233,7 +233,7 @@ from_name (GtkSourcePixbufHelper *helper,
 	screen = ctk_widget_get_screen (widget);
 	icon_theme = ctk_icon_theme_get_for_screen (screen);
 
-	flags = GTK_ICON_LOOKUP_USE_BUILTIN;
+	flags = CTK_ICON_LOOKUP_USE_BUILTIN;
         scale = ctk_widget_get_scale_factor (widget);
 
 	info = ctk_icon_theme_lookup_icon_for_scale (icon_theme,

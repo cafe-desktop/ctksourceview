@@ -19,8 +19,8 @@
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTK_SOURCE_BUFFER_INPUT_STREAM_H
-#define GTK_SOURCE_BUFFER_INPUT_STREAM_H
+#ifndef CTK_SOURCE_BUFFER_INPUT_STREAM_H
+#define CTK_SOURCE_BUFFER_INPUT_STREAM_H
 
 #include <gio/gio.h>
 #include <ctk/ctk.h>
@@ -30,12 +30,12 @@
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_BUFFER_INPUT_STREAM		(_ctk_source_buffer_input_stream_get_type ())
-#define GTK_SOURCE_BUFFER_INPUT_STREAM(obj)		(G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_BUFFER_INPUT_STREAM, GtkSourceBufferInputStream))
-#define GTK_SOURCE_BUFFER_INPUT_STREAM_CLASS(klass)	(G_TYPE_CHECK_CLASS_CAST ((klass), GTK_SOURCE_TYPE_BUFFER_INPUT_STREAM, GtkSourceBufferInputStreamClass))
-#define GTK_SOURCE_IS_BUFFER_INPUT_STREAM(obj)		(G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_SOURCE_TYPE_BUFFER_INPUT_STREAM))
-#define GTK_SOURCE_IS_BUFFER_INPUT_STREAM_CLASS(klass)	(G_TYPE_CHECK_CLASS_TYPE ((klass), GTK_SOURCE_TYPE_BUFFER_INPUT_STREAM))
-#define GTK_SOURCE_BUFFER_INPUT_STREAM_GET_CLASS(obj)	(G_TYPE_INSTANCE_GET_CLASS ((obj), GTK_SOURCE_TYPE_BUFFER_INPUT_STREAM, GtkSourceBufferInputStreamClass))
+#define CTK_SOURCE_TYPE_BUFFER_INPUT_STREAM		(_ctk_source_buffer_input_stream_get_type ())
+#define CTK_SOURCE_BUFFER_INPUT_STREAM(obj)		(G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_BUFFER_INPUT_STREAM, GtkSourceBufferInputStream))
+#define CTK_SOURCE_BUFFER_INPUT_STREAM_CLASS(klass)	(G_TYPE_CHECK_CLASS_CAST ((klass), CTK_SOURCE_TYPE_BUFFER_INPUT_STREAM, GtkSourceBufferInputStreamClass))
+#define CTK_SOURCE_IS_BUFFER_INPUT_STREAM(obj)		(G_TYPE_CHECK_INSTANCE_TYPE ((obj), CTK_SOURCE_TYPE_BUFFER_INPUT_STREAM))
+#define CTK_SOURCE_IS_BUFFER_INPUT_STREAM_CLASS(klass)	(G_TYPE_CHECK_CLASS_TYPE ((klass), CTK_SOURCE_TYPE_BUFFER_INPUT_STREAM))
+#define CTK_SOURCE_BUFFER_INPUT_STREAM_GET_CLASS(obj)	(G_TYPE_INSTANCE_GET_CLASS ((obj), CTK_SOURCE_TYPE_BUFFER_INPUT_STREAM, GtkSourceBufferInputStreamClass))
 
 typedef struct _GtkSourceBufferInputStreamClass		GtkSourceBufferInputStreamClass;
 typedef struct _GtkSourceBufferInputStreamPrivate	GtkSourceBufferInputStreamPrivate;
@@ -52,21 +52,21 @@ struct _GtkSourceBufferInputStreamClass
 	GInputStreamClass parent_class;
 };
 
-GTK_SOURCE_INTERNAL
+CTK_SOURCE_INTERNAL
 GType		 _ctk_source_buffer_input_stream_get_type		(void) G_GNUC_CONST;
 
-GTK_SOURCE_INTERNAL
+CTK_SOURCE_INTERNAL
 GtkSourceBufferInputStream
 		*_ctk_source_buffer_input_stream_new			(GtkTextBuffer              *buffer,
 									 GtkSourceNewlineType        type,
 									 gboolean                    add_trailing_newline);
 
-GTK_SOURCE_INTERNAL
+CTK_SOURCE_INTERNAL
 gsize		 _ctk_source_buffer_input_stream_get_total_size		(GtkSourceBufferInputStream *stream);
 
-GTK_SOURCE_INTERNAL
+CTK_SOURCE_INTERNAL
 gsize		 _ctk_source_buffer_input_stream_tell			(GtkSourceBufferInputStream *stream);
 
 G_END_DECLS
 
-#endif /* GTK_SOURCE_BUFFER_INPUT_STREAM_H */
+#endif /* CTK_SOURCE_BUFFER_INPUT_STREAM_H */

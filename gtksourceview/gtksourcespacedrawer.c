@@ -65,13 +65,13 @@
  * except newlines:
  * |[
  * ctk_source_space_drawer_set_types_for_locations (space_drawer,
- *                                                  GTK_SOURCE_SPACE_LOCATION_ALL,
- *                                                  GTK_SOURCE_SPACE_TYPE_NBSP);
+ *                                                  CTK_SOURCE_SPACE_LOCATION_ALL,
+ *                                                  CTK_SOURCE_SPACE_TYPE_NBSP);
  *
  * ctk_source_space_drawer_set_types_for_locations (space_drawer,
- *                                                  GTK_SOURCE_SPACE_LOCATION_TRAILING,
- *                                                  GTK_SOURCE_SPACE_TYPE_ALL &
- *                                                  ~GTK_SOURCE_SPACE_TYPE_NEWLINE);
+ *                                                  CTK_SOURCE_SPACE_LOCATION_TRAILING,
+ *                                                  CTK_SOURCE_SPACE_TYPE_ALL &
+ *                                                  ~CTK_SOURCE_SPACE_TYPE_NEWLINE);
  *
  * ctk_source_space_drawer_set_enable_matrix (space_drawer, TRUE);
  * ]|
@@ -121,7 +121,7 @@ get_number_of_locations (void)
 	gint flags;
 
 	num = 0;
-	flags = GTK_SOURCE_SPACE_LOCATION_ALL;
+	flags = CTK_SOURCE_SPACE_LOCATION_ALL;
 
 	while (flags != 0)
 	{
@@ -147,7 +147,7 @@ get_default_matrix (void)
 	{
 		GVariant *space_types;
 
-		space_types = g_variant_new_uint32 (GTK_SOURCE_SPACE_TYPE_ALL);
+		space_types = g_variant_new_uint32 (CTK_SOURCE_SPACE_TYPE_ALL);
 
 		g_variant_builder_add_value (&builder, space_types);
 	}
@@ -203,7 +203,7 @@ static GtkSourceSpaceTypeFlags
 get_types_at_all_locations (GtkSourceSpaceDrawer        *drawer,
 			    GtkSourceSpaceLocationFlags  locations)
 {
-	GtkSourceSpaceTypeFlags ret = GTK_SOURCE_SPACE_TYPE_ALL;
+	GtkSourceSpaceTypeFlags ret = CTK_SOURCE_SPACE_TYPE_ALL;
 	gint index;
 	gint num_locations;
 	gboolean found;
@@ -224,7 +224,7 @@ get_types_at_all_locations (GtkSourceSpaceDrawer        *drawer,
 		index++;
 	}
 
-	return found ? ret : GTK_SOURCE_SPACE_TYPE_NONE;
+	return found ? ret : CTK_SOURCE_SPACE_TYPE_NONE;
 }
 
 /* OR */
@@ -232,7 +232,7 @@ static GtkSourceSpaceTypeFlags
 get_types_at_any_locations (GtkSourceSpaceDrawer        *drawer,
 			    GtkSourceSpaceLocationFlags  locations)
 {
-	GtkSourceSpaceTypeFlags ret = GTK_SOURCE_SPACE_TYPE_NONE;
+	GtkSourceSpaceTypeFlags ret = CTK_SOURCE_SPACE_TYPE_NONE;
 	gint index;
 	gint num_locations;
 
@@ -259,7 +259,7 @@ ctk_source_space_drawer_get_property (GObject    *object,
 				      GValue     *value,
 				      GParamSpec *pspec)
 {
-	GtkSourceSpaceDrawer *drawer = GTK_SOURCE_SPACE_DRAWER (object);
+	GtkSourceSpaceDrawer *drawer = CTK_SOURCE_SPACE_DRAWER (object);
 
 	switch (prop_id)
 	{
@@ -283,7 +283,7 @@ ctk_source_space_drawer_set_property (GObject      *object,
 				      const GValue *value,
 				      GParamSpec   *pspec)
 {
-	GtkSourceSpaceDrawer *drawer = GTK_SOURCE_SPACE_DRAWER (object);
+	GtkSourceSpaceDrawer *drawer = CTK_SOURCE_SPACE_DRAWER (object);
 
 	switch (prop_id)
 	{
@@ -304,7 +304,7 @@ ctk_source_space_drawer_set_property (GObject      *object,
 static void
 ctk_source_space_drawer_finalize (GObject *object)
 {
-	GtkSourceSpaceDrawer *drawer = GTK_SOURCE_SPACE_DRAWER (object);
+	GtkSourceSpaceDrawer *drawer = CTK_SOURCE_SPACE_DRAWER (object);
 
 	g_free (drawer->priv->matrix);
 
@@ -350,13 +350,13 @@ ctk_source_space_drawer_class_init (GtkSourceSpaceDrawerClass *klass)
 	 * The #GVariant is of type `"au"`, an array of unsigned integers. Each
 	 * integer is a combination of #GtkSourceSpaceTypeFlags. There is one
 	 * integer for each #GtkSourceSpaceLocationFlags, in the same order as
-	 * they are defined in the enum (%GTK_SOURCE_SPACE_LOCATION_NONE and
-	 * %GTK_SOURCE_SPACE_LOCATION_ALL are not taken into account).
+	 * they are defined in the enum (%CTK_SOURCE_SPACE_LOCATION_NONE and
+	 * %CTK_SOURCE_SPACE_LOCATION_ALL are not taken into account).
 	 *
 	 * If the array is shorter than the number of locations, then the value
-	 * for the missing locations will be %GTK_SOURCE_SPACE_TYPE_NONE.
+	 * for the missing locations will be %CTK_SOURCE_SPACE_TYPE_NONE.
 	 *
-	 * By default, %GTK_SOURCE_SPACE_TYPE_ALL is set for all locations.
+	 * By default, %CTK_SOURCE_SPACE_TYPE_ALL is set for all locations.
 	 *
 	 * Since: 3.24
 	 */
@@ -393,7 +393,7 @@ ctk_source_space_drawer_init (GtkSourceSpaceDrawer *drawer)
 GtkSourceSpaceDrawer *
 ctk_source_space_drawer_new (void)
 {
-	return g_object_new (GTK_SOURCE_TYPE_SPACE_DRAWER, NULL);
+	return g_object_new (CTK_SOURCE_TYPE_SPACE_DRAWER, NULL);
 }
 
 /**
@@ -417,7 +417,7 @@ GtkSourceSpaceTypeFlags
 ctk_source_space_drawer_get_types_for_locations (GtkSourceSpaceDrawer        *drawer,
 						 GtkSourceSpaceLocationFlags  locations)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_SPACE_DRAWER (drawer), GTK_SOURCE_SPACE_TYPE_NONE);
+	g_return_val_if_fail (CTK_SOURCE_IS_SPACE_DRAWER (drawer), CTK_SOURCE_SPACE_TYPE_NONE);
 
 	return get_types_at_all_locations (drawer, locations);
 }
@@ -442,7 +442,7 @@ ctk_source_space_drawer_set_types_for_locations (GtkSourceSpaceDrawer        *dr
 	gint num_locations;
 	gboolean changed = FALSE;
 
-	g_return_if_fail (GTK_SOURCE_IS_SPACE_DRAWER (drawer));
+	g_return_if_fail (CTK_SOURCE_IS_SPACE_DRAWER (drawer));
 
 	index = 0;
 	num_locations = get_number_of_locations ();
@@ -487,7 +487,7 @@ ctk_source_space_drawer_get_matrix (GtkSourceSpaceDrawer *drawer)
 	gint num_locations;
 	gint i;
 
-	g_return_val_if_fail (GTK_SOURCE_IS_SPACE_DRAWER (drawer), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_SPACE_DRAWER (drawer), NULL);
 
 	if (is_zero_matrix (drawer))
 	{
@@ -534,7 +534,7 @@ ctk_source_space_drawer_set_matrix (GtkSourceSpaceDrawer *drawer,
 	GVariantIter iter;
 	gboolean changed = FALSE;
 
-	g_return_if_fail (GTK_SOURCE_IS_SPACE_DRAWER (drawer));
+	g_return_if_fail (CTK_SOURCE_IS_SPACE_DRAWER (drawer));
 
 	if (matrix == NULL)
 	{
@@ -604,7 +604,7 @@ ctk_source_space_drawer_set_matrix (GtkSourceSpaceDrawer *drawer,
 gboolean
 ctk_source_space_drawer_get_enable_matrix (GtkSourceSpaceDrawer *drawer)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_SPACE_DRAWER (drawer), FALSE);
+	g_return_val_if_fail (CTK_SOURCE_IS_SPACE_DRAWER (drawer), FALSE);
 
 	return drawer->priv->enable_matrix;
 }
@@ -622,7 +622,7 @@ void
 ctk_source_space_drawer_set_enable_matrix (GtkSourceSpaceDrawer *drawer,
 					   gboolean              enable_matrix)
 {
-	g_return_if_fail (GTK_SOURCE_IS_SPACE_DRAWER (drawer));
+	g_return_if_fail (CTK_SOURCE_IS_SPACE_DRAWER (drawer));
 
 	enable_matrix = enable_matrix != FALSE;
 
@@ -677,7 +677,7 @@ ctk_source_space_drawer_bind_matrix_setting (GtkSourceSpaceDrawer *drawer,
 {
 	GVariant *value;
 
-	g_return_if_fail (GTK_SOURCE_IS_SPACE_DRAWER (drawer));
+	g_return_if_fail (CTK_SOURCE_IS_SPACE_DRAWER (drawer));
 	g_return_if_fail (G_IS_SETTINGS (settings));
 	g_return_if_fail (key != NULL);
 	g_return_if_fail ((flags & G_SETTINGS_BIND_INVERT_BOOLEAN) == 0);
@@ -706,8 +706,8 @@ _ctk_source_space_drawer_update_color (GtkSourceSpaceDrawer *drawer,
 	GtkSourceBuffer *buffer;
 	GtkSourceStyleScheme *style_scheme;
 
-	g_return_if_fail (GTK_SOURCE_IS_SPACE_DRAWER (drawer));
-	g_return_if_fail (GTK_SOURCE_IS_VIEW (view));
+	g_return_if_fail (CTK_SOURCE_IS_SPACE_DRAWER (drawer));
+	g_return_if_fail (CTK_SOURCE_IS_VIEW (view));
 
 	if (drawer->priv->color != NULL)
 	{
@@ -715,7 +715,7 @@ _ctk_source_space_drawer_update_color (GtkSourceSpaceDrawer *drawer,
 		drawer->priv->color = NULL;
 	}
 
-	buffer = GTK_SOURCE_BUFFER (ctk_text_view_get_buffer (GTK_TEXT_VIEW (view)));
+	buffer = CTK_SOURCE_BUFFER (ctk_text_view_get_buffer (CTK_TEXT_VIEW (view)));
 	style_scheme = ctk_source_buffer_get_style_scheme (buffer);
 
 	if (style_scheme != NULL)
@@ -751,9 +751,9 @@ _ctk_source_space_drawer_update_color (GtkSourceSpaceDrawer *drawer,
 		GtkStyleContext *context;
 		GdkRGBA color;
 
-		context = ctk_widget_get_style_context (GTK_WIDGET (view));
+		context = ctk_widget_get_style_context (CTK_WIDGET (view));
 		ctk_style_context_save (context);
-		ctk_style_context_set_state (context, GTK_STATE_FLAG_INSENSITIVE);
+		ctk_style_context_set_state (context, CTK_STATE_FLAG_INSENSITIVE);
 		ctk_style_context_get_color (context,
 					     ctk_style_context_get_state (context),
 					     &color);
@@ -794,7 +794,7 @@ is_newline (const GtkTextIter *iter)
 	{
 		GtkSourceBuffer *buffer;
 
-		buffer = GTK_SOURCE_BUFFER (ctk_text_iter_get_buffer (iter));
+		buffer = CTK_SOURCE_BUFFER (ctk_text_iter_get_buffer (iter));
 
 		return ctk_source_buffer_get_implicit_trailing_newline (buffer);
 	}
@@ -865,7 +865,7 @@ draw_newline_at_pos (cairo_t      *cr,
 
 	cairo_save (cr);
 
-	if (ctk_widget_get_default_direction () == GTK_TEXT_DIR_LTR)
+	if (ctk_widget_get_default_direction () == CTK_TEXT_DIR_LTR)
 	{
 		cairo_move_to (cr, x + w * 7 / 8, y);
 		cairo_rel_line_to (cr, 0, h * 1 / 3);
@@ -976,7 +976,7 @@ space_needs_drawing_according_to_tag (const GtkTextIter *iter,
 	{
 		GtkTextTag *tag = l->data;
 
-		if (GTK_SOURCE_IS_TAG (tag))
+		if (CTK_SOURCE_IS_TAG (tag))
 		{
 			gboolean draw_spaces_set;
 			gboolean draw_spaces;
@@ -1003,22 +1003,22 @@ get_iter_locations (const GtkTextIter *iter,
 		    const GtkTextIter *leading_end,
 		    const GtkTextIter *trailing_start)
 {
-	GtkSourceSpaceLocationFlags iter_locations = GTK_SOURCE_SPACE_LOCATION_NONE;
+	GtkSourceSpaceLocationFlags iter_locations = CTK_SOURCE_SPACE_LOCATION_NONE;
 
 	if (ctk_text_iter_compare (iter, leading_end) < 0)
 	{
-		iter_locations |= GTK_SOURCE_SPACE_LOCATION_LEADING;
+		iter_locations |= CTK_SOURCE_SPACE_LOCATION_LEADING;
 	}
 
 	if (ctk_text_iter_compare (trailing_start, iter) <= 0)
 	{
-		iter_locations |= GTK_SOURCE_SPACE_LOCATION_TRAILING;
+		iter_locations |= CTK_SOURCE_SPACE_LOCATION_TRAILING;
 	}
 
 	/* Neither leading nor trailing, must be in text. */
-	if (iter_locations == GTK_SOURCE_SPACE_LOCATION_NONE)
+	if (iter_locations == CTK_SOURCE_SPACE_LOCATION_NONE)
 	{
-		iter_locations = GTK_SOURCE_SPACE_LOCATION_INSIDE_TEXT;
+		iter_locations = CTK_SOURCE_SPACE_LOCATION_INSIDE_TEXT;
 	}
 
 	return iter_locations;
@@ -1033,22 +1033,22 @@ get_iter_space_type (const GtkTextIter *iter)
 
 	if (is_tab (ch))
 	{
-		return GTK_SOURCE_SPACE_TYPE_TAB;
+		return CTK_SOURCE_SPACE_TYPE_TAB;
 	}
 	else if (is_nbsp (ch))
 	{
-		return GTK_SOURCE_SPACE_TYPE_NBSP;
+		return CTK_SOURCE_SPACE_TYPE_NBSP;
 	}
 	else if (is_space (ch))
 	{
-		return GTK_SOURCE_SPACE_TYPE_SPACE;
+		return CTK_SOURCE_SPACE_TYPE_SPACE;
 	}
 	else if (is_newline (iter))
 	{
-		return GTK_SOURCE_SPACE_TYPE_NEWLINE;
+		return CTK_SOURCE_SPACE_TYPE_NEWLINE;
 	}
 
-	return GTK_SOURCE_SPACE_TYPE_NONE;
+	return CTK_SOURCE_SPACE_TYPE_NONE;
 }
 
 static gboolean
@@ -1173,8 +1173,8 @@ _ctk_source_space_drawer_draw (GtkSourceSpaceDrawer *drawer,
 	g_timer_start (timer);
 #endif
 
-	g_return_if_fail (GTK_SOURCE_IS_SPACE_DRAWER (drawer));
-	g_return_if_fail (GTK_SOURCE_IS_VIEW (view));
+	g_return_if_fail (CTK_SOURCE_IS_SPACE_DRAWER (drawer));
+	g_return_if_fail (CTK_SOURCE_IS_VIEW (view));
 	g_return_if_fail (cr != NULL);
 
 	if (drawer->priv->color == NULL)
@@ -1183,11 +1183,11 @@ _ctk_source_space_drawer_draw (GtkSourceSpaceDrawer *drawer,
 		return;
 	}
 
-	text_view = GTK_TEXT_VIEW (view);
+	text_view = CTK_TEXT_VIEW (view);
 	buffer = ctk_text_view_get_buffer (text_view);
 
 	if ((!drawer->priv->enable_matrix || is_zero_matrix (drawer)) &&
-	    !_ctk_source_buffer_has_spaces_tag (GTK_SOURCE_BUFFER (buffer)))
+	    !_ctk_source_buffer_has_spaces_tag (CTK_SOURCE_BUFFER (buffer)))
 	{
 		return;
 	}
@@ -1197,7 +1197,7 @@ _ctk_source_space_drawer_draw (GtkSourceSpaceDrawer *drawer,
 		return;
 	}
 
-	is_wrapping = ctk_text_view_get_wrap_mode (text_view) != GTK_WRAP_NONE;
+	is_wrapping = ctk_text_view_get_wrap_mode (text_view) != CTK_WRAP_NONE;
 
 	min_x = clip.x;
 	min_y = clip.y;

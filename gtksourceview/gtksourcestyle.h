@@ -18,10 +18,10 @@
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTK_SOURCE_STYLE_H
-#define GTK_SOURCE_STYLE_H
+#ifndef CTK_SOURCE_STYLE_H
+#define CTK_SOURCE_STYLE_H
 
-#if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
+#if !defined (CTK_SOURCE_H_INSIDE) && !defined (CTK_SOURCE_COMPILATION)
 #error "Only <ctksourceview/ctksource.h> can be included directly."
 #endif
 
@@ -30,25 +30,25 @@
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_STYLE             (ctk_source_style_get_type ())
-#define GTK_SOURCE_STYLE(obj)             (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_STYLE, GtkSourceStyle))
-#define GTK_SOURCE_IS_STYLE(obj)          (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_SOURCE_TYPE_STYLE))
-#define GTK_SOURCE_STYLE_CLASS(klass)     (G_TYPE_CHECK_CLASS_CAST ((klass), GTK_SOURCE_TYPE_STYLE, GtkSourceStyleClass))
-#define GTK_SOURCE_IS_STYLE_CLASS(klass)  (G_TYPE_CHECK_CLASS_TYPE ((klass), GTK_SOURCE_TYPE_STYLE))
-#define GTK_SOURCE_STYLE_GET_CLASS(obj)   (G_TYPE_INSTANCE_GET_CLASS ((obj), GTK_SOURCE_TYPE_STYLE, GtkSourceStyleClass))
+#define CTK_SOURCE_TYPE_STYLE             (ctk_source_style_get_type ())
+#define CTK_SOURCE_STYLE(obj)             (G_TYPE_CHECK_INSTANCE_CAST ((obj), CTK_SOURCE_TYPE_STYLE, GtkSourceStyle))
+#define CTK_SOURCE_IS_STYLE(obj)          (G_TYPE_CHECK_INSTANCE_TYPE ((obj), CTK_SOURCE_TYPE_STYLE))
+#define CTK_SOURCE_STYLE_CLASS(klass)     (G_TYPE_CHECK_CLASS_CAST ((klass), CTK_SOURCE_TYPE_STYLE, GtkSourceStyleClass))
+#define CTK_SOURCE_IS_STYLE_CLASS(klass)  (G_TYPE_CHECK_CLASS_TYPE ((klass), CTK_SOURCE_TYPE_STYLE))
+#define CTK_SOURCE_STYLE_GET_CLASS(obj)   (G_TYPE_INSTANCE_GET_CLASS ((obj), CTK_SOURCE_TYPE_STYLE, GtkSourceStyleClass))
 
 typedef struct _GtkSourceStyleClass GtkSourceStyleClass;
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 GType		 ctk_source_style_get_type	(void) G_GNUC_CONST;
 
-GTK_SOURCE_AVAILABLE_IN_ALL
+CTK_SOURCE_AVAILABLE_IN_ALL
 GtkSourceStyle	*ctk_source_style_copy		(const GtkSourceStyle *style);
 
-GTK_SOURCE_AVAILABLE_IN_3_22
+CTK_SOURCE_AVAILABLE_IN_3_22
 void		 ctk_source_style_apply		(const GtkSourceStyle *style,
 						 GtkTextTag           *tag);
 
 G_END_DECLS
 
-#endif  /* GTK_SOURCE_STYLE_H */
+#endif  /* CTK_SOURCE_STYLE_H */

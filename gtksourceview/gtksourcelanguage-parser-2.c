@@ -272,18 +272,18 @@ get_context_flags (ParserState *parser_state)
 {
 	guint i;
 	xmlChar *value;
-	GtkSourceContextFlags flags = GTK_SOURCE_CONTEXT_EXTEND_PARENT;
+	GtkSourceContextFlags flags = CTK_SOURCE_CONTEXT_EXTEND_PARENT;
 	const gchar *names[] = {
 		"extend-parent", "end-parent", "end-at-line-end",
 		"first-line-only", "once-only", "style-inside"
 	};
 	GtkSourceContextFlags values[] = {
-		GTK_SOURCE_CONTEXT_EXTEND_PARENT,
-		GTK_SOURCE_CONTEXT_END_PARENT,
-		GTK_SOURCE_CONTEXT_END_AT_LINE_END,
-		GTK_SOURCE_CONTEXT_FIRST_LINE_ONLY,
-		GTK_SOURCE_CONTEXT_ONCE_ONLY,
-		GTK_SOURCE_CONTEXT_STYLE_INSIDE
+		CTK_SOURCE_CONTEXT_EXTEND_PARENT,
+		CTK_SOURCE_CONTEXT_END_PARENT,
+		CTK_SOURCE_CONTEXT_END_AT_LINE_END,
+		CTK_SOURCE_CONTEXT_FIRST_LINE_ONLY,
+		CTK_SOURCE_CONTEXT_ONCE_ONLY,
+		CTK_SOURCE_CONTEXT_STYLE_INSIDE
 	};
 
 	g_assert (G_N_ELEMENTS (names) == G_N_ELEMENTS (values));
@@ -616,7 +616,7 @@ add_ref (ParserState               *parser_state,
 			ref_id [strlen (ref_id) - 2] = '\0';
 		}
 
-		if (all && (options & (GTK_SOURCE_CONTEXT_IGNORE_STYLE | GTK_SOURCE_CONTEXT_OVERRIDE_STYLE)))
+		if (all && (options & (CTK_SOURCE_CONTEXT_IGNORE_STYLE | CTK_SOURCE_CONTEXT_OVERRIDE_STYLE)))
 		{
 			g_set_error (&tmp_error, PARSER_ERROR,
 				     PARSER_ERROR_WRONG_STYLE,
@@ -746,7 +746,7 @@ handle_context_element (ParserState *parser_state)
 
 	if (ignore_style)
 	{
-		options |= GTK_SOURCE_CONTEXT_IGNORE_STYLE;
+		options |= CTK_SOURCE_CONTEXT_IGNORE_STYLE;
 
 		if (style_ref != NULL)
 			g_warning ("in file %s: style-ref and ignore-style used simultaneously",
@@ -766,11 +766,11 @@ handle_context_element (ParserState *parser_state)
 	{
 		tmp = xmlTextReaderGetAttribute (parser_state->reader, BAD_CAST "original");
 		if (tmp != NULL && str_to_bool (tmp))
-			options |= GTK_SOURCE_CONTEXT_REF_ORIGINAL;
+			options |= CTK_SOURCE_CONTEXT_REF_ORIGINAL;
 		xmlFree (tmp);
 
 		if (style_ref != NULL)
-			options |= GTK_SOURCE_CONTEXT_OVERRIDE_STYLE;
+			options |= CTK_SOURCE_CONTEXT_OVERRIDE_STYLE;
 
 		add_ref (parser_state,
 		         (gchar*) ref,

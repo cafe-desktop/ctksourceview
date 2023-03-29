@@ -97,7 +97,7 @@ G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceCompletionContext, ctk_source_completion_co
 static void
 ctk_source_completion_context_dispose (GObject *object)
 {
-	GtkSourceCompletionContext *context = GTK_SOURCE_COMPLETION_CONTEXT (object);
+	GtkSourceCompletionContext *context = CTK_SOURCE_COMPLETION_CONTEXT (object);
 
 	if (context->priv->mark != NULL)
 	{
@@ -157,7 +157,7 @@ ctk_source_completion_context_set_property (GObject      *object,
                                             const GValue *value,
                                             GParamSpec   *pspec)
 {
-	GtkSourceCompletionContext *context = GTK_SOURCE_COMPLETION_CONTEXT (object);
+	GtkSourceCompletionContext *context = CTK_SOURCE_COMPLETION_CONTEXT (object);
 
 	switch (prop_id)
 	{
@@ -184,7 +184,7 @@ ctk_source_completion_context_get_property (GObject    *object,
                                             GValue     *value,
                                             GParamSpec *pspec)
 {
-	GtkSourceCompletionContext *context = GTK_SOURCE_COMPLETION_CONTEXT (object);
+	GtkSourceCompletionContext *context = CTK_SOURCE_COMPLETION_CONTEXT (object);
 
 	switch (prop_id)
 	{
@@ -250,7 +250,7 @@ ctk_source_completion_context_class_init (GtkSourceCompletionContextClass *klass
 	                                 g_param_spec_object ("completion",
 	                                                      "Completion",
 	                                                      "The completion object to which the context belongs",
-	                                                      GTK_SOURCE_TYPE_COMPLETION,
+	                                                      CTK_SOURCE_TYPE_COMPLETION,
 	                                                      G_PARAM_READWRITE |
 							      G_PARAM_CONSTRUCT_ONLY |
 							      G_PARAM_STATIC_STRINGS));
@@ -265,7 +265,7 @@ ctk_source_completion_context_class_init (GtkSourceCompletionContextClass *klass
 					 g_param_spec_boxed ("iter",
 							     "Iterator",
 							     "The GtkTextIter at which the completion was invoked",
-							     GTK_TYPE_TEXT_ITER,
+							     CTK_TYPE_TEXT_ITER,
 							     G_PARAM_READWRITE |
 							     G_PARAM_STATIC_STRINGS));
 
@@ -279,8 +279,8 @@ ctk_source_completion_context_class_init (GtkSourceCompletionContextClass *klass
 	                                 g_param_spec_flags ("activation",
 	                                                     "Activation",
 	                                                     "The type of activation",
-	                                                     GTK_SOURCE_TYPE_COMPLETION_ACTIVATION,
-	                                                     GTK_SOURCE_COMPLETION_ACTIVATION_USER_REQUESTED,
+	                                                     CTK_SOURCE_TYPE_COMPLETION_ACTIVATION,
+	                                                     CTK_SOURCE_COMPLETION_ACTIVATION_USER_REQUESTED,
 	                                                     G_PARAM_READWRITE |
 							     G_PARAM_CONSTRUCT |
 							     G_PARAM_STATIC_STRINGS));
@@ -312,8 +312,8 @@ ctk_source_completion_context_add_proposals (GtkSourceCompletionContext  *contex
                                              GList                       *proposals,
                                              gboolean                     finished)
 {
-	g_return_if_fail (GTK_SOURCE_IS_COMPLETION_CONTEXT (context));
-	g_return_if_fail (GTK_SOURCE_IS_COMPLETION_PROVIDER (provider));
+	g_return_if_fail (CTK_SOURCE_IS_COMPLETION_CONTEXT (context));
+	g_return_if_fail (CTK_SOURCE_IS_COMPLETION_PROVIDER (provider));
 
 	_ctk_source_completion_add_proposals (context->priv->completion,
 	                                      context,
@@ -340,7 +340,7 @@ ctk_source_completion_context_get_iter (GtkSourceCompletionContext *context,
 	GtkSourceView *view;
 	GtkTextBuffer *completion_buffer;
 
-	g_return_val_if_fail (GTK_SOURCE_IS_COMPLETION_CONTEXT (context), FALSE);
+	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_CONTEXT (context), FALSE);
 
 	if (context->priv->mark == NULL)
 	{
@@ -363,7 +363,7 @@ ctk_source_completion_context_get_iter (GtkSourceCompletionContext *context,
 		return FALSE;
 	}
 
-	completion_buffer = ctk_text_view_get_buffer (GTK_TEXT_VIEW (view));
+	completion_buffer = ctk_text_view_get_buffer (CTK_TEXT_VIEW (view));
 
 	if (completion_buffer != mark_buffer)
 	{
@@ -385,8 +385,8 @@ ctk_source_completion_context_get_iter (GtkSourceCompletionContext *context,
 GtkSourceCompletionActivation
 ctk_source_completion_context_get_activation (GtkSourceCompletionContext *context)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_COMPLETION_CONTEXT (context),
-			      GTK_SOURCE_COMPLETION_ACTIVATION_NONE);
+	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_CONTEXT (context),
+			      CTK_SOURCE_COMPLETION_ACTIVATION_NONE);
 
 	return context->priv->activation;
 }
@@ -394,7 +394,7 @@ ctk_source_completion_context_get_activation (GtkSourceCompletionContext *contex
 void
 _ctk_source_completion_context_cancel (GtkSourceCompletionContext *context)
 {
-	g_return_if_fail (GTK_SOURCE_IS_COMPLETION_CONTEXT (context));
+	g_return_if_fail (CTK_SOURCE_IS_COMPLETION_CONTEXT (context));
 
 	g_signal_emit (context, context_signals[CANCELLED], 0);
 }
@@ -403,10 +403,10 @@ GtkSourceCompletionContext *
 _ctk_source_completion_context_new (GtkSourceCompletion *completion,
 				    GtkTextIter         *position)
 {
-	g_return_val_if_fail (GTK_SOURCE_IS_COMPLETION (completion), NULL);
+	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION (completion), NULL);
 	g_return_val_if_fail (position != NULL, NULL);
 
-	return g_object_new (GTK_SOURCE_TYPE_COMPLETION_CONTEXT,
+	return g_object_new (CTK_SOURCE_TYPE_COMPLETION_CONTEXT,
 	                     "completion", completion,
 	                     "iter", position,
 	                      NULL);

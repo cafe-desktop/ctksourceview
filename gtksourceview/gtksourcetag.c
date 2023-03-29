@@ -54,7 +54,7 @@ enum
 	PROP_DRAW_SPACES_SET,
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceTag, ctk_source_tag, GTK_TYPE_TEXT_TAG)
+G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceTag, ctk_source_tag, CTK_TYPE_TEXT_TAG)
 
 static void
 ctk_source_tag_get_property (GObject    *object,
@@ -64,7 +64,7 @@ ctk_source_tag_get_property (GObject    *object,
 {
 	GtkSourceTagPrivate *priv;
 
-	priv = ctk_source_tag_get_instance_private (GTK_SOURCE_TAG (object));
+	priv = ctk_source_tag_get_instance_private (CTK_SOURCE_TAG (object));
 
 	switch (prop_id)
 	{
@@ -92,7 +92,7 @@ ctk_source_tag_set_property (GObject      *object,
 	GtkSourceTagPrivate *priv;
 	gboolean size_changed = FALSE;
 
-	tag = GTK_SOURCE_TAG (object);
+	tag = CTK_SOURCE_TAG (object);
 	priv = ctk_source_tag_get_instance_private (tag);
 
 	switch (prop_id)
@@ -112,7 +112,7 @@ ctk_source_tag_set_property (GObject      *object,
 			break;
 	}
 
-	ctk_text_tag_changed (GTK_TEXT_TAG (tag), size_changed);
+	ctk_text_tag_changed (CTK_TEXT_TAG (tag), size_changed);
 }
 
 static void
@@ -183,7 +183,7 @@ ctk_source_tag_init (GtkSourceTag *tag)
 GtkTextTag *
 ctk_source_tag_new (const gchar *name)
 {
-	return g_object_new (GTK_SOURCE_TYPE_TAG,
+	return g_object_new (CTK_SOURCE_TYPE_TAG,
 			     "name", name,
 			     NULL);
 }

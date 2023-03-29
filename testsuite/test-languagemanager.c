@@ -79,7 +79,7 @@ test_get_language (void)
 
 		lang1 = ctk_source_language_manager_get_language (lm, *ids);
 		g_assert_nonnull (lang1);
-		g_assert_true (GTK_SOURCE_IS_LANGUAGE (lang1));
+		g_assert_true (CTK_SOURCE_IS_LANGUAGE (lang1));
 		g_assert_cmpstr (*ids, == , ctk_source_language_get_id (lang1));
 
 		/* langs are owned by the manager */
