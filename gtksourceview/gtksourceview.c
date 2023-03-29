@@ -790,7 +790,7 @@ ctk_source_view_class_init (CtkSourceViewClass *klass)
 			      G_TYPE_NONE,
 			      2,
 			      CTK_TYPE_TEXT_ITER,
-			      GDK_TYPE_EVENT | G_SIGNAL_TYPE_STATIC_SCOPE);
+			      CDK_TYPE_EVENT | G_SIGNAL_TYPE_STATIC_SCOPE);
 	g_signal_set_va_marshaller (signals[LINE_MARK_ACTIVATED],
 	                            G_TYPE_FROM_CLASS (klass),
 	                            _ctk_source_marshal_VOID__BOXED_BOXEDv);
@@ -966,163 +966,163 @@ ctk_source_view_class_init (CtkSourceViewClass *klass)
 	binding_set = ctk_binding_set_by_class (klass);
 
 	ctk_binding_entry_add_signal (binding_set,
-				      GDK_KEY_z,
-				      GDK_CONTROL_MASK,
+				      CDK_KEY_z,
+				      CDK_CONTROL_MASK,
 				      "undo", 0);
 	ctk_binding_entry_add_signal (binding_set,
-				      GDK_KEY_z,
-				      GDK_CONTROL_MASK | GDK_SHIFT_MASK,
+				      CDK_KEY_z,
+				      CDK_CONTROL_MASK | CDK_SHIFT_MASK,
 				      "redo", 0);
 	ctk_binding_entry_add_signal (binding_set,
-				      GDK_KEY_F14,
+				      CDK_KEY_F14,
 				      0,
 				      "undo", 0);
 	ctk_binding_entry_add_signal (binding_set,
-				      GDK_KEY_space,
-				      GDK_CONTROL_MASK,
+				      CDK_KEY_space,
+				      CDK_CONTROL_MASK,
 				      "show-completion", 0);
 
 	ctk_binding_entry_add_signal (binding_set,
-				      GDK_KEY_Up,
-				      GDK_MOD1_MASK,
+				      CDK_KEY_Up,
+				      CDK_MOD1_MASK,
 				      "move-lines", 1,
 				      G_TYPE_BOOLEAN, FALSE);
 	ctk_binding_entry_add_signal (binding_set,
-				      GDK_KEY_KP_Up,
-				      GDK_MOD1_MASK,
+				      CDK_KEY_KP_Up,
+				      CDK_MOD1_MASK,
 				      "move-lines", 1,
 				      G_TYPE_BOOLEAN, FALSE);
 	ctk_binding_entry_add_signal (binding_set,
-				      GDK_KEY_Down,
-				      GDK_MOD1_MASK,
+				      CDK_KEY_Down,
+				      CDK_MOD1_MASK,
 				      "move-lines", 1,
 				      G_TYPE_BOOLEAN, TRUE);
 	ctk_binding_entry_add_signal (binding_set,
-				      GDK_KEY_KP_Down,
-				      GDK_MOD1_MASK,
+				      CDK_KEY_KP_Down,
+				      CDK_MOD1_MASK,
 				      "move-lines", 1,
 				      G_TYPE_BOOLEAN, TRUE);
 
 	ctk_binding_entry_add_signal (binding_set,
-				      GDK_KEY_Left,
-				      GDK_MOD1_MASK,
+				      CDK_KEY_Left,
+				      CDK_MOD1_MASK,
 				      "move-words", 1,
 				      G_TYPE_INT, -1);
 	ctk_binding_entry_add_signal (binding_set,
-				      GDK_KEY_KP_Left,
-				      GDK_MOD1_MASK,
+				      CDK_KEY_KP_Left,
+				      CDK_MOD1_MASK,
 				      "move-words", 1,
 				      G_TYPE_INT, -1);
 	ctk_binding_entry_add_signal (binding_set,
-				      GDK_KEY_Right,
-				      GDK_MOD1_MASK,
+				      CDK_KEY_Right,
+				      CDK_MOD1_MASK,
 				      "move-words", 1,
 				      G_TYPE_INT, 1);
 	ctk_binding_entry_add_signal (binding_set,
-				      GDK_KEY_KP_Right,
-				      GDK_MOD1_MASK,
+				      CDK_KEY_KP_Right,
+				      CDK_MOD1_MASK,
 				      "move-words", 1,
 				      G_TYPE_INT, 1);
 
 	ctk_binding_entry_add_signal (binding_set,
-				      GDK_KEY_Up,
-				      GDK_MOD1_MASK | GDK_SHIFT_MASK,
+				      CDK_KEY_Up,
+				      CDK_MOD1_MASK | CDK_SHIFT_MASK,
 				      "move-viewport", 2,
 				      CTK_TYPE_SCROLL_STEP, CTK_SCROLL_STEPS,
 				      G_TYPE_INT, -1);
 
 	ctk_binding_entry_add_signal (binding_set,
-				      GDK_KEY_KP_Up,
-				      GDK_MOD1_MASK | GDK_SHIFT_MASK,
+				      CDK_KEY_KP_Up,
+				      CDK_MOD1_MASK | CDK_SHIFT_MASK,
 				      "move-viewport", 2,
 				      CTK_TYPE_SCROLL_STEP, CTK_SCROLL_STEPS,
 				      G_TYPE_INT, -1);
 
 	ctk_binding_entry_add_signal (binding_set,
-				      GDK_KEY_Down,
-				      GDK_MOD1_MASK | GDK_SHIFT_MASK,
+				      CDK_KEY_Down,
+				      CDK_MOD1_MASK | CDK_SHIFT_MASK,
 				      "move-viewport", 2,
 				      CTK_TYPE_SCROLL_STEP, CTK_SCROLL_STEPS,
 				      G_TYPE_INT, 1);
 
 	ctk_binding_entry_add_signal (binding_set,
-				      GDK_KEY_KP_Down,
-				      GDK_MOD1_MASK | GDK_SHIFT_MASK,
+				      CDK_KEY_KP_Down,
+				      CDK_MOD1_MASK | CDK_SHIFT_MASK,
 				      "move-viewport", 2,
 				      CTK_TYPE_SCROLL_STEP, CTK_SCROLL_STEPS,
 				      G_TYPE_INT, 1);
 
 	ctk_binding_entry_add_signal (binding_set,
-				      GDK_KEY_Page_Up,
-				      GDK_MOD1_MASK | GDK_SHIFT_MASK,
+				      CDK_KEY_Page_Up,
+				      CDK_MOD1_MASK | CDK_SHIFT_MASK,
 				      "move-viewport", 2,
 				      CTK_TYPE_SCROLL_STEP, CTK_SCROLL_PAGES,
 				      G_TYPE_INT, -1);
 
 	ctk_binding_entry_add_signal (binding_set,
-				      GDK_KEY_KP_Page_Up,
-				      GDK_MOD1_MASK | GDK_SHIFT_MASK,
+				      CDK_KEY_KP_Page_Up,
+				      CDK_MOD1_MASK | CDK_SHIFT_MASK,
 				      "move-viewport", 2,
 				      CTK_TYPE_SCROLL_STEP, CTK_SCROLL_PAGES,
 				      G_TYPE_INT, -1);
 
 	ctk_binding_entry_add_signal (binding_set,
-				      GDK_KEY_Page_Down,
-				      GDK_MOD1_MASK | GDK_SHIFT_MASK,
+				      CDK_KEY_Page_Down,
+				      CDK_MOD1_MASK | CDK_SHIFT_MASK,
 				      "move-viewport", 2,
 				      CTK_TYPE_SCROLL_STEP, CTK_SCROLL_PAGES,
 				      G_TYPE_INT, 1);
 
 	ctk_binding_entry_add_signal (binding_set,
-				      GDK_KEY_KP_Page_Down,
-				      GDK_MOD1_MASK | GDK_SHIFT_MASK,
+				      CDK_KEY_KP_Page_Down,
+				      CDK_MOD1_MASK | CDK_SHIFT_MASK,
 				      "move-viewport", 2,
 				      CTK_TYPE_SCROLL_STEP, CTK_SCROLL_PAGES,
 				      G_TYPE_INT, 1);
 
 	ctk_binding_entry_add_signal (binding_set,
-				      GDK_KEY_Home,
-				      GDK_MOD1_MASK | GDK_SHIFT_MASK,
+				      CDK_KEY_Home,
+				      CDK_MOD1_MASK | CDK_SHIFT_MASK,
 				      "move-viewport", 2,
 				      CTK_TYPE_SCROLL_STEP, CTK_SCROLL_ENDS,
 				      G_TYPE_INT, -1);
 
 	ctk_binding_entry_add_signal (binding_set,
-				      GDK_KEY_KP_Home,
-				      GDK_MOD1_MASK | GDK_SHIFT_MASK,
+				      CDK_KEY_KP_Home,
+				      CDK_MOD1_MASK | CDK_SHIFT_MASK,
 				      "move-viewport", 2,
 				      CTK_TYPE_SCROLL_STEP, CTK_SCROLL_ENDS,
 				      G_TYPE_INT, -1);
 
 	ctk_binding_entry_add_signal (binding_set,
-				      GDK_KEY_End,
-				      GDK_MOD1_MASK | GDK_SHIFT_MASK,
+				      CDK_KEY_End,
+				      CDK_MOD1_MASK | CDK_SHIFT_MASK,
 				      "move-viewport", 2,
 				      CTK_TYPE_SCROLL_STEP, CTK_SCROLL_ENDS,
 				      G_TYPE_INT, 1);
 
 	ctk_binding_entry_add_signal (binding_set,
-				      GDK_KEY_KP_End,
-				      GDK_MOD1_MASK | GDK_SHIFT_MASK,
+				      CDK_KEY_KP_End,
+				      CDK_MOD1_MASK | CDK_SHIFT_MASK,
 				      "move-viewport", 2,
 				      CTK_TYPE_SCROLL_STEP, CTK_SCROLL_ENDS,
 				      G_TYPE_INT, 1);
 
 	ctk_binding_entry_add_signal (binding_set,
-				      GDK_KEY_percent,
-				      GDK_CONTROL_MASK,
+				      CDK_KEY_percent,
+				      CDK_CONTROL_MASK,
 				      "move-to-matching-bracket", 1,
 				      G_TYPE_BOOLEAN, FALSE);
 
 	ctk_binding_entry_add_signal (binding_set,
-				      GDK_KEY_a,
-				      GDK_CONTROL_MASK | GDK_SHIFT_MASK,
+				      CDK_KEY_a,
+				      CDK_CONTROL_MASK | CDK_SHIFT_MASK,
 				      "change-number", 1,
 				      G_TYPE_INT, 1);
 
 	ctk_binding_entry_add_signal (binding_set,
-				      GDK_KEY_x,
-				      GDK_CONTROL_MASK | GDK_SHIFT_MASK,
+				      CDK_KEY_x,
+				      CDK_CONTROL_MASK | CDK_SHIFT_MASK,
 				      "change-number", 1,
 				      G_TYPE_INT, -1);
 }
@@ -2323,7 +2323,7 @@ ctk_source_view_extend_selection (CtkTextView            *text_view,
 	if (granularity == CTK_TEXT_EXTEND_SELECTION_WORD)
 	{
 		_ctk_source_iter_extend_selection_word (location, start, end);
-		return GDK_EVENT_STOP;
+		return CDK_EVENT_STOP;
 	}
 
 	return CTK_TEXT_VIEW_CLASS (ctk_source_view_parent_class)->extend_selection (text_view,
@@ -4080,8 +4080,8 @@ ctk_source_view_key_press_event (CtkWidget   *widget,
 	mark = ctk_text_buffer_get_insert (buf);
 	ctk_text_buffer_get_iter_at_mark (buf, &cur, mark);
 
-	if ((key == GDK_KEY_Return || key == GDK_KEY_KP_Enter) &&
-	    !(event->state & GDK_SHIFT_MASK) &&
+	if ((key == CDK_KEY_Return || key == CDK_KEY_KP_Enter) &&
+	    !(event->state & CDK_SHIFT_MASK) &&
 	    view->priv->auto_indent)
 	{
 		/* Auto-indent means that when you press ENTER at the end of a
@@ -4102,7 +4102,7 @@ ctk_source_view_key_press_event (CtkWidget   *widget,
 			if (ctk_text_view_im_context_filter_keypress (CTK_TEXT_VIEW (view), event))
 			{
 				g_free (indent);
-				return GDK_EVENT_STOP;
+				return CDK_EVENT_STOP;
 			}
 
 			/* Delete any selected text to preserve behavior without auto-indent */
@@ -4123,16 +4123,16 @@ ctk_source_view_key_press_event (CtkWidget   *widget,
 			ctk_text_buffer_end_user_action (buf);
 			ctk_text_view_scroll_mark_onscreen (CTK_TEXT_VIEW (widget),
 							    mark);
-			return GDK_EVENT_STOP;
+			return CDK_EVENT_STOP;
 		}
 	}
 
 	/* if tab or shift+tab:
-	 * with shift+tab key is GDK_ISO_Left_Tab (yay! on win32 and mac too!)
+	 * with shift+tab key is CDK_ISO_Left_Tab (yay! on win32 and mac too!)
 	 */
-	if ((key == GDK_KEY_Tab || key == GDK_KEY_KP_Tab || key == GDK_KEY_ISO_Left_Tab) &&
+	if ((key == CDK_KEY_Tab || key == CDK_KEY_KP_Tab || key == CDK_KEY_ISO_Left_Tab) &&
 	    ((event->state & modifiers) == 0 ||
-	     (event->state & modifiers) == GDK_SHIFT_MASK) &&
+	     (event->state & modifiers) == CDK_SHIFT_MASK) &&
 	    editable &&
 	    ctk_text_view_get_accepts_tab (CTK_TEXT_VIEW (view)))
 	{
@@ -4144,12 +4144,12 @@ ctk_source_view_key_press_event (CtkWidget   *widget,
 		if (view->priv->indent_on_tab)
 		{
 			/* shift+tab: always unindent */
-			if (event->state & GDK_SHIFT_MASK)
+			if (event->state & CDK_SHIFT_MASK)
 			{
 				_ctk_source_buffer_save_and_clear_selection (CTK_SOURCE_BUFFER (buf));
 				ctk_source_view_unindent_lines (view, &s, &e);
 				_ctk_source_buffer_restore_selection (CTK_SOURCE_BUFFER (buf));
-				return GDK_EVENT_STOP;
+				return CDK_EVENT_STOP;
 			}
 
 			/* tab: if we have a selection which spans one whole line
@@ -4163,28 +4163,28 @@ ctk_source_view_key_press_event (CtkWidget   *widget,
 				_ctk_source_buffer_save_and_clear_selection (CTK_SOURCE_BUFFER (buf));
 				ctk_source_view_indent_lines (view, &s, &e);
 				_ctk_source_buffer_restore_selection (CTK_SOURCE_BUFFER (buf));
-				return GDK_EVENT_STOP;
+				return CDK_EVENT_STOP;
 			}
 		}
 
 		insert_tab_or_spaces (view, &s, &e);
-		return GDK_EVENT_STOP;
+		return CDK_EVENT_STOP;
 	}
 
-	if (key == GDK_KEY_BackSpace)
+	if (key == CDK_KEY_BackSpace)
 	{
 		if ((event->state & modifiers) == 0)
 		{
 			if (view->priv->smart_backspace && do_smart_backspace (view))
 			{
-				return GDK_EVENT_STOP;
+				return CDK_EVENT_STOP;
 			}
 		}
-		else if ((event->state & modifiers) == GDK_CONTROL_MASK)
+		else if ((event->state & modifiers) == CDK_CONTROL_MASK)
 		{
 			if (do_ctrl_backspace (view))
 			{
-				return GDK_EVENT_STOP;
+				return CDK_EVENT_STOP;
 			}
 		}
 	}

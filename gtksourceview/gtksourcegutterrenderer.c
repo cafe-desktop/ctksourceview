@@ -621,8 +621,8 @@ ctk_source_gutter_renderer_class_init (CtkSourceGutterRendererClass *klass)
 		              G_TYPE_NONE,
 		              3,
 		              CTK_TYPE_TEXT_ITER,
-		              GDK_TYPE_RECTANGLE,
-		              GDK_TYPE_EVENT);
+		              CDK_TYPE_RECTANGLE,
+		              CDK_TYPE_EVENT);
 	g_signal_set_va_marshaller (signals[ACTIVATE],
 	                            G_TYPE_FROM_CLASS (klass),
 	                            _ctk_source_marshal_VOID__BOXED_BOXED_BOXEDv);
@@ -672,7 +672,7 @@ ctk_source_gutter_renderer_class_init (CtkSourceGutterRendererClass *klass)
 		              G_TYPE_BOOLEAN,
 		              5,
 		              CTK_TYPE_TEXT_ITER,
-		              GDK_TYPE_RECTANGLE,
+		              CDK_TYPE_RECTANGLE,
 		              G_TYPE_INT,
 		              G_TYPE_INT,
 		              CTK_TYPE_TOOLTIP);
@@ -731,8 +731,8 @@ ctk_source_gutter_renderer_class_init (CtkSourceGutterRendererClass *klass)
 		              G_TYPE_BOOLEAN,
 		              3,
 		              CTK_TYPE_TEXT_ITER,
-		              GDK_TYPE_RECTANGLE,
-		              GDK_TYPE_EVENT);
+		              CDK_TYPE_RECTANGLE,
+		              CDK_TYPE_EVENT);
 	g_signal_set_va_marshaller (signals[QUERY_ACTIVATABLE],
 	                            G_TYPE_FROM_CLASS (klass),
 	                            _ctk_source_marshal_BOOLEAN__BOXED_BOXED_BOXEDv);
@@ -800,7 +800,7 @@ ctk_source_gutter_renderer_class_init (CtkSourceGutterRendererClass *klass)
 	                                 g_param_spec_boxed ("background-rgba",
 	                                                     "Background Color",
 	                                                     "The background color",
-	                                                     GDK_TYPE_RGBA,
+	                                                     CDK_TYPE_RGBA,
 	                                                     G_PARAM_READWRITE));
 
 	g_object_class_install_property (object_class,

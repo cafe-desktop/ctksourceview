@@ -263,7 +263,7 @@ ctk_source_completion_info_init (CtkSourceCompletionInfo *info)
 	ctk_widget_set_name (CTK_WIDGET (info), "ctk-tooltip");
 
 	ctk_window_set_type_hint (CTK_WINDOW (info),
-	                          GDK_WINDOW_TYPE_HINT_COMBO);
+	                          CDK_WINDOW_TYPE_HINT_COMBO);
 
 	ctk_container_set_border_width (CTK_CONTAINER (info), 1);
 }
@@ -400,9 +400,9 @@ move_to_iter (CtkSourceCompletionInfo *window,
 
 	cdk_window_move_to_rect (cdk_window,
 				 &position,
-				 GDK_GRAVITY_SOUTH_WEST,
-				 GDK_GRAVITY_NORTH_WEST,
-				 GDK_ANCHOR_SLIDE | GDK_ANCHOR_FLIP_Y | GDK_ANCHOR_RESIZE,
+				 CDK_GRAVITY_SOUTH_WEST,
+				 CDK_GRAVITY_NORTH_WEST,
+				 CDK_ANCHOR_SLIDE | CDK_ANCHOR_FLIP_Y | CDK_ANCHOR_RESIZE,
 				 window->priv->xoffset, 0);
 }
 

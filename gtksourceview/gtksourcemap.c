@@ -724,14 +724,14 @@ connect_view (CtkSourceMap  *map,
 		                         map,
 		                         G_CONNECT_SWAPPED);
 
-	if ((ctk_widget_get_events (CTK_WIDGET (priv->view)) & GDK_ENTER_NOTIFY_MASK) == 0)
+	if ((ctk_widget_get_events (CTK_WIDGET (priv->view)) & CDK_ENTER_NOTIFY_MASK) == 0)
 	{
-		ctk_widget_add_events (CTK_WIDGET (priv->view), GDK_ENTER_NOTIFY_MASK);
+		ctk_widget_add_events (CTK_WIDGET (priv->view), CDK_ENTER_NOTIFY_MASK);
 	}
 
-	if ((ctk_widget_get_events (CTK_WIDGET (priv->view)) & GDK_LEAVE_NOTIFY_MASK) == 0)
+	if ((ctk_widget_get_events (CTK_WIDGET (priv->view)) & CDK_LEAVE_NOTIFY_MASK) == 0)
 	{
-		ctk_widget_add_events (CTK_WIDGET (priv->view), GDK_LEAVE_NOTIFY_MASK);
+		ctk_widget_add_events (CTK_WIDGET (priv->view), CDK_LEAVE_NOTIFY_MASK);
 	}
 
 	/* If we are not visible, we want to block certain signal handlers */
@@ -917,7 +917,7 @@ ctk_source_map_button_press_event (CtkWidget      *widget,
 
 	priv->in_press = TRUE;
 
-	return GDK_EVENT_STOP;
+	return CDK_EVENT_STOP;
 }
 
 static gboolean
@@ -933,7 +933,7 @@ ctk_source_map_button_release_event (CtkWidget      *widget,
 
 	priv->in_press = FALSE;
 
-	return GDK_EVENT_STOP;
+	return CDK_EVENT_STOP;
 }
 
 
@@ -975,7 +975,7 @@ ctk_source_map_motion_notify_event (CtkWidget      *widget,
 		scroll_to_child_point (map, &point);
 	}
 
-	return GDK_EVENT_STOP;
+	return CDK_EVENT_STOP;
 }
 
 static gboolean
@@ -1000,11 +1000,11 @@ ctk_source_map_scroll_event (CtkWidget      *widget,
 		gdouble y;
 		gint count = 0;
 
-		if (event->direction == GDK_SCROLL_UP)
+		if (event->direction == CDK_SCROLL_UP)
 		{
 			count = -scroll_acceleration;
 		}
-		else if (event->direction == GDK_SCROLL_DOWN)
+		else if (event->direction == CDK_SCROLL_DOWN)
 		{
 			count = scroll_acceleration;
 		}
@@ -1026,11 +1026,11 @@ ctk_source_map_scroll_event (CtkWidget      *widget,
 		{
 			g_signal_emit_by_name (priv->view, "move-viewport",
 			                       CTK_SCROLL_STEPS, count);
-			return GDK_EVENT_STOP;
+			return CDK_EVENT_STOP;
 		}
 	}
 
-	return GDK_EVENT_PROPAGATE;
+	return CDK_EVENT_PROPAGATE;
 }
 
 static void
@@ -1173,7 +1173,7 @@ ctk_source_map_init (CtkSourceMap *map)
 	              "visible", TRUE,
 	              NULL);
 
-	ctk_widget_add_events (CTK_WIDGET (map), GDK_SCROLL_MASK);
+	ctk_widget_add_events (CTK_WIDGET (map), CDK_SCROLL_MASK);
 
 	completion = ctk_source_view_get_completion (CTK_SOURCE_VIEW (map));
 	ctk_source_completion_block_interactive (completion);

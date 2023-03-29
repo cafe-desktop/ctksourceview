@@ -135,11 +135,11 @@ ctk_minor_version = ctk_version_arr[1]
 # Configurations
 add_project_arguments([
   '-DG_DISABLE_DEPRECATED',
-  '-DGDK_DISABLE_DEPRECATED',
+  '-DCDK_DISABLE_DEPRECATED',
   '-DCTK_DISABLE_DEPRECATED',
-  '-DGDK_PIXBUF_DISABLE_DEPRECATED',
-  '-DGDK_VERSION_MIN_REQUIRED=GDK_VERSION_@0@_@1@'.format(ctk_major_version, ctk_minor_version),
-  '-DGDK_VERSION_MAX_ALLOWED=GDK_VERSION_@0@_@1@'.format(ctk_major_version, ctk_minor_version),
+  '-DCDK_PIXBUF_DISABLE_DEPRECATED',
+  '-DCDK_VERSION_MIN_REQUIRED=CDK_VERSION_@0@_@1@'.format(ctk_major_version, ctk_minor_version),
+  '-DCDK_VERSION_MAX_ALLOWED=CDK_VERSION_@0@_@1@'.format(ctk_major_version, ctk_minor_version),
   '-DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_@0@_@1@'.format(glib_major_version, glib_minor_version),
   '-DGLIB_VERSION_MAX_ALLOWED=GLIB_VERSION_@0@_@1@'.format(glib_major_version, glib_minor_version),
 ], language: 'c')
