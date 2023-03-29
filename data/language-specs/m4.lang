@@ -193,7 +193,7 @@
         version_compare|
         warn)|
       AT_DATA|
-      CTK_DOC_CHECK|
+      GTK_DOC_CHECK|
       IT_PROG_INTLTOOL
     </define-regex>
     <define-regex id="macros-ms" extended="true">
