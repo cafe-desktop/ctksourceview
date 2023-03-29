@@ -314,7 +314,7 @@ ctk_source_completion_item_class_init (CtkSourceCompletionItemClass *klass)
 					 g_param_spec_object ("icon",
 							      "Icon",
 							      "",
-							      CDK_TYPE_PIXBUF,
+							      GDK_TYPE_PIXBUF,
 							      G_PARAM_READWRITE |
 							      G_PARAM_STATIC_STRINGS));
 

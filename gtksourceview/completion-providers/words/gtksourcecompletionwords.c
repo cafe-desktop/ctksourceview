@@ -438,7 +438,7 @@ ctk_source_completion_words_class_init (CtkSourceCompletionWordsClass *klass)
 		g_param_spec_object ("icon",
 				     "Icon",
 				     "The provider icon",
-				     CDK_TYPE_PIXBUF,
+				     GDK_TYPE_PIXBUF,
 				     G_PARAM_READWRITE | G_PARAM_CONSTRUCT | G_PARAM_STATIC_STRINGS);
 
 	properties[PROP_PROPOSALS_BATCH_SIZE] =

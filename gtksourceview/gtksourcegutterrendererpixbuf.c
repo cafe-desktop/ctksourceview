@@ -312,7 +312,7 @@ ctk_source_gutter_renderer_pixbuf_class_init (CtkSourceGutterRendererPixbufClass
 	                                 g_param_spec_object ("pixbuf",
 	                                                      "Pixbuf",
 	                                                      "The pixbuf",
-	                                                      CDK_TYPE_PIXBUF,
+	                                                      GDK_TYPE_PIXBUF,
 	                                                      G_PARAM_READWRITE));
 
 	g_object_class_install_property (object_class,
