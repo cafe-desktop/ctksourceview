@@ -364,7 +364,7 @@ ctk_source_gutter_renderer_pixbuf_set_pixbuf (CtkSourceGutterRendererPixbuf *ren
                                               GdkPixbuf                     *pixbuf)
 {
 	g_return_if_fail (CTK_SOURCE_IS_GUTTER_RENDERER_PIXBUF (renderer));
-	g_return_if_fail (renderer == NULL || CDK_IS_PIXBUF (pixbuf));
+	g_return_if_fail (renderer == NULL || GDK_IS_PIXBUF (pixbuf));
 
 	set_pixbuf (renderer, pixbuf);
 }
