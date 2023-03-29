@@ -2,7 +2,7 @@ glib_prefix = glib_dep.get_pkgconfig_variable('prefix')
 glib_docpath = join_paths(glib_prefix, 'share', 'gtk-doc', 'html')
 
 ctk_prefix = ctk_dep.get_pkgconfig_variable('prefix')
-ctk_docpath = join_paths(ctk_prefix, 'share', 'gtk-doc', 'html')
+gtk_docpath = join_paths(ctk_prefix, 'share', 'gtk-doc', 'html')
 
 reference_private_h = [
   'config.h',
@@ -88,7 +88,7 @@ reference_fixxref_args = [
   '--extra-dir=@0@'.format(join_paths(glib_docpath, 'glib')),
   '--extra-dir=@0@'.format(join_paths(glib_docpath, 'gobject')),
   '--extra-dir=@0@'.format(join_paths(glib_docpath, 'gio')),
-  '--extra-dir=@0@'.format(join_paths(ctk_docpath, 'ctk')),
+  '--extra-dir=@0@'.format(join_paths(gtk_docpath, 'ctk')),
 ]
 
 gnome.ctkdoc('@0@.0'.format(package_string),
