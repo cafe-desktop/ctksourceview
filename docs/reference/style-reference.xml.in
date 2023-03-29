@@ -3,8 +3,8 @@
    "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd"
 [
  <!ENTITY % local.common.attrib "xmlns:xi CDATA #FIXED 'http://www.w3.org/2003/XInclude'">
- <!ENTITY % gtkdocentities SYSTEM "xml/gtkdocentities.ent">
- %gtkdocentities;
+ <!ENTITY % ctkdocentities SYSTEM "xml/ctkdocentities.ent">
+ %ctkdocentities;
 ]>
 <refentry id="style-reference">
 <refmeta>
@@ -25,7 +25,7 @@ This is an overview of the Style Scheme Definition XML format, describing the
 meaning and usage of every element and attribute.  The formal definition is
 stored in the RelaxNG schema file <filename>style.rng</filename> which
 should be installed on your system in the directory
-<filename>${PREFIX}/share/gtksourceview-@GSV_API_VERSION@/</filename> (where
+<filename>${PREFIX}/share/ctksourceview-@GSV_API_VERSION@/</filename> (where
 <filename>${PREFIX}</filename> can be <filename>/usr/</filename> or
 <filename>/usr/local/</filename> if you have installed from source).
 </para>

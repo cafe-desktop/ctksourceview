@@ -18,8 +18,8 @@
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <gtksourceview/gtksource.h>
-#include <gtksourceview/gtksourceutils-private.h>
+#include <ctksourceview/ctksource.h>
+#include <ctksourceview/ctksourceutils-private.h>
 
 gint
 main (gint   argc,
@@ -34,7 +34,7 @@ main (gint   argc,
 	{
 		const gchar *str;
 
-		_gtk_source_utils_int_to_string (i, &str);
+		_ctk_source_utils_int_to_string (i, &str);
 	}
 	d = g_timer_elapsed (timer, NULL);
 	g_print ("int_to_string: %lf\n", d);
@@ -56,7 +56,7 @@ main (gint   argc,
 		gint len1, len2;
 		gchar str2[12];
 
-		len1 = _gtk_source_utils_int_to_string (i, &str1);
+		len1 = _ctk_source_utils_int_to_string (i, &str1);
 		len2 = g_snprintf (str2, sizeof str2, "%u", i);
 
 		g_assert_cmpint (len1, ==, len2);

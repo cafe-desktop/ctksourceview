@@ -21,10 +21,10 @@
  along with this library; if not, see <http://www.gnu.org/licenses/>.
 
 -->
-<language id="gtkrc" name="GtkRC" version="2.0" _section="Other">
+<language id="ctkrc" name="GtkRC" version="2.0" _section="Other">
   <metadata>
-    <property name="mimetypes">text/x-gtkrc</property>
-    <property name="globs">gtkrc;.gtkrc;gtkrc-*;.gtkrc-*</property>
+    <property name="mimetypes">text/x-ctkrc</property>
+    <property name="globs">ctkrc;.ctkrc;ctkrc-*;.ctkrc-*</property>
     <property name="line-comment-start">#</property>
   </metadata>
 
@@ -97,7 +97,7 @@
       <keyword>TRUE</keyword>
       <keyword>FALSE</keyword>
     </context>
-    <context id="gtkrc" class="no-spell-check">
+    <context id="ctkrc" class="no-spell-check">
       <include>
         <context ref="double-quoted-string"/>
         <context ref="single-quoted-string"/>

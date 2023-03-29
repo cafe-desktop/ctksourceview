@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: or\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gtksourceview&component=general\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=ctksourceview&component=general\n"
 "POT-Creation-Date: 2010-06-24 21:48+0000\n"
 "PO-Revision-Date: 2010-07-29 18:32+0530\n"
 "Last-Translator: Manoj Kumar Giri <mgiri@redhat.com>\n"
@@ -27,66 +27,66 @@ msgstr ""
 "\n"
 "\n"
 
-#: ../data/glade/gtksourceview.xml.in.h:1
+#: ../data/glade/ctksourceview.xml.in.h:1
 msgid "After"
 msgstr "ପରେ"
 
 #. Translators: "All" is used as a label in thestatus bar of the
 #. popup, telling that all completion pages are shown
-#: ../data/glade/gtksourceview.xml.in.h:2
-#: ../gtksourceview/gtksourcecompletion.c:649
+#: ../data/glade/ctksourceview.xml.in.h:2
+#: ../ctksourceview/ctksourcecompletion.c:649
 msgid "All"
 msgstr "ସମସ୍ତ"
 
-#: ../data/glade/gtksourceview.xml.in.h:3
+#: ../data/glade/ctksourceview.xml.in.h:3
 msgid "Always"
 msgstr "ସର୍ବଦା"
 
-#: ../data/glade/gtksourceview.xml.in.h:4
+#: ../data/glade/ctksourceview.xml.in.h:4
 msgid "Before"
 msgstr "ପୂର୍ବେ"
 
-#: ../data/glade/gtksourceview.xml.in.h:5
+#: ../data/glade/ctksourceview.xml.in.h:5
 #| msgid "Variable"
 msgid "Disabled"
 msgstr "ନିଷ୍କ୍ରିୟ କରାଯାଇଛି"
 
-#: ../data/glade/gtksourceview.xml.in.h:6
+#: ../data/glade/ctksourceview.xml.in.h:6
 #| msgid "The gutters' GtkSourceView"
 msgid "GtkSourceView"
 msgstr "GtkSourceView"
 
-#: ../data/glade/gtksourceview.xml.in.h:7
+#: ../data/glade/ctksourceview.xml.in.h:7
 #| msgid "POD heading"
 msgid "Leading"
 msgstr "ପ୍ରମୂଖ"
 
-#: ../data/glade/gtksourceview.xml.in.h:8
+#: ../data/glade/ctksourceview.xml.in.h:8
 #| msgid "Underline"
 msgid "Newline"
 msgstr "ନୂତନରେଖା"
 
-#: ../data/glade/gtksourceview.xml.in.h:9
+#: ../data/glade/ctksourceview.xml.in.h:9
 msgid "Non Breaking Whitespace"
 msgstr "ଅଭଙ୍ଗା ଧଳା ସ୍ଥାନ"
 
-#: ../data/glade/gtksourceview.xml.in.h:10
+#: ../data/glade/ctksourceview.xml.in.h:10
 #| msgid "Draw Spaces"
 msgid "Space"
 msgstr "ଖାଲିସ୍ଥାନ"
 
-#: ../data/glade/gtksourceview.xml.in.h:11
+#: ../data/glade/ctksourceview.xml.in.h:11
 #| msgid "Tag"
 msgid "Tab"
 msgstr "ଟ୍ୟାବ"
 
-#: ../data/glade/gtksourceview.xml.in.h:12
-#: ../gtksourceview/gtksourcecompletionitem.c:255
+#: ../data/glade/ctksourceview.xml.in.h:12
+#: ../ctksourceview/ctksourcecompletionitem.c:255
 #| msgid "Text2Tags"
 msgid "Text"
 msgstr "ପାଠ୍ୟ"
 
-#: ../data/glade/gtksourceview.xml.in.h:13
+#: ../data/glade/ctksourceview.xml.in.h:13
 #| msgid "Trailing Tab"
 msgid "Trailing"
 msgstr "ପଛୁଆ"
@@ -104,7 +104,7 @@ msgstr "ଇଚ୍ଛାମୁତାବକ ଆଧାର ସଂଖ୍ୟା"
 #: ../data/language-specs/bennugd.lang.h:2 ../data/language-specs/c.lang.h:1
 #: ../data/language-specs/cg.lang.h:2 ../data/language-specs/csharp.lang.h:1
 #: ../data/language-specs/def.lang.h:4 ../data/language-specs/fsharp.lang.h:2
-#: ../data/language-specs/gtkrc.lang.h:1 ../data/language-specs/ini.lang.h:2
+#: ../data/language-specs/ctkrc.lang.h:1 ../data/language-specs/ini.lang.h:2
 #: ../data/language-specs/java.lang.h:1
 #: ../data/language-specs/javascript.lang.h:1
 #: ../data/language-specs/lua.lang.h:1 ../data/language-specs/nemerle.lang.h:2
@@ -127,7 +127,7 @@ msgstr "ବୁଲିଆନ ମୂଲ୍ୟ"
 #: ../data/language-specs/forth.lang.h:1
 #: ../data/language-specs/fortran.lang.h:2
 #: ../data/language-specs/fsharp.lang.h:4 ../data/language-specs/gap.lang.h:2
-#: ../data/language-specs/gtkrc.lang.h:2
+#: ../data/language-specs/ctkrc.lang.h:2
 #: ../data/language-specs/haskell.lang.h:2
 #: ../data/language-specs/html.lang.h:3 ../data/language-specs/idl.lang.h:1
 #: ../data/language-specs/ini.lang.h:3 ../data/language-specs/java.lang.h:3
@@ -158,7 +158,7 @@ msgstr "ଟିପ୍ପଣୀ"
 #: ../data/language-specs/forth.lang.h:3
 #: ../data/language-specs/fortran.lang.h:3
 #: ../data/language-specs/fsharp.lang.h:5 ../data/language-specs/glsl.lang.h:4
-#: ../data/language-specs/gtkrc.lang.h:3
+#: ../data/language-specs/ctkrc.lang.h:3
 #: ../data/language-specs/haskell.lang.h:3 ../data/language-specs/idl.lang.h:2
 #: ../data/language-specs/ini.lang.h:4 ../data/language-specs/java.lang.h:4
 #: ../data/language-specs/javascript.lang.h:5
@@ -214,7 +214,7 @@ msgstr "ଛାଡ଼ିଯାଇଥିବା ଅକ୍ଷର"
 #: ../data/language-specs/forth.lang.h:7
 #: ../data/language-specs/fortran.lang.h:8
 #: ../data/language-specs/fsharp.lang.h:10 ../data/language-specs/gap.lang.h:6
-#: ../data/language-specs/glsl.lang.h:5 ../data/language-specs/gtkrc.lang.h:7
+#: ../data/language-specs/glsl.lang.h:5 ../data/language-specs/ctkrc.lang.h:7
 #: ../data/language-specs/haskell.lang.h:9 ../data/language-specs/idl.lang.h:4
 #: ../data/language-specs/ini.lang.h:7 ../data/language-specs/java.lang.h:11
 #: ../data/language-specs/javascript.lang.h:10
@@ -302,7 +302,7 @@ msgstr "ସଂଗ୍ରହାଳୟ ଶ୍ରେଣୀ"
 #: ../data/language-specs/forth.lang.h:11
 #: ../data/language-specs/fsharp.lang.h:17
 #: ../data/language-specs/gdb-log.lang.h:10
-#: ../data/language-specs/gtkrc.lang.h:9
+#: ../data/language-specs/ctkrc.lang.h:9
 #: ../data/language-specs/haskell.lang.h:13
 #: ../data/language-specs/idl.lang.h:7 ../data/language-specs/ini.lang.h:9
 #: ../data/language-specs/java.lang.h:17
@@ -339,7 +339,7 @@ msgstr "ASP ବସ୍ତୁ"
 #: ../data/language-specs/cg.lang.h:11 ../data/language-specs/css.lang.h:7
 #: ../data/language-specs/def.lang.h:32 ../data/language-specs/gap.lang.h:4
 #: ../data/language-specs/gdb-log.lang.h:4
-#: ../data/language-specs/gtk-doc.lang.h:3
+#: ../data/language-specs/ctk-doc.lang.h:3
 #: ../data/language-specs/javascript.lang.h:7
 #: ../data/language-specs/lua.lang.h:4 ../data/language-specs/octave.lang.h:6
 #: ../data/language-specs/scheme.lang.h:3 ../data/language-specs/sh.lang.h:3
@@ -485,13 +485,13 @@ msgstr "କ୍ଷେତ୍ର"
 
 #: ../data/language-specs/bibtex.lang.h:4
 #: ../data/language-specs/docbook.lang.h:5 ../data/language-specs/dtd.lang.h:2
-#: ../data/language-specs/gtk-doc.lang.h:6
+#: ../data/language-specs/ctk-doc.lang.h:6
 #: ../data/language-specs/haddock.lang.h:14
 #: ../data/language-specs/html.lang.h:7 ../data/language-specs/latex.lang.h:6
 #: ../data/language-specs/mallard.lang.h:4 ../data/language-specs/t2t.lang.h:6
 #: ../data/language-specs/texinfo.lang.h:8 ../data/language-specs/xml.lang.h:9
 #: ../data/language-specs/xslt.lang.h:2
-#: ../gtksourceview/gtksourcecompletionitem.c:242
+#: ../ctksourceview/ctksourcecompletionitem.c:242
 msgid "Markup"
 msgstr "ଚିହ୍ନିତ ପାଠ୍ଯ"
 
@@ -565,7 +565,7 @@ msgid "File"
 msgstr "ଫାଇଲ"
 
 #: ../data/language-specs/changelog.lang.h:7
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:462
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:462
 msgid "Name"
 msgstr "ନାମ"
 
@@ -577,7 +577,7 @@ msgstr "ନାମ"
 #. *
 #. * #GtkSourceLanguage encapsulates syntax and highlighting styles for a
 #. * particular language. Use #GtkSourceLanguageManager to obtain a
-#. * #GtkSourceLanguage instance, and gtk_source_buffer_set_language() to apply it
+#. * #GtkSourceLanguage instance, and ctk_source_buffer_set_language() to apply it
 #. * to a #GtkSourceBuffer.
 #.
 #: ../data/language-specs/changelog.lang.h:8
@@ -586,7 +586,7 @@ msgstr "ନାମ"
 #: ../data/language-specs/diff.lang.h:9 ../data/language-specs/dot.lang.h:6
 #: ../data/language-specs/dpatch.lang.h:2
 #: ../data/language-specs/gdb-log.lang.h:8
-#: ../data/language-specs/gtkrc.lang.h:8 ../data/language-specs/ini.lang.h:8
+#: ../data/language-specs/ctkrc.lang.h:8 ../data/language-specs/ini.lang.h:8
 #: ../data/language-specs/libtool.lang.h:3
 #: ../data/language-specs/msil.lang.h:2 ../data/language-specs/nsis.lang.h:4
 #: ../data/language-specs/ocl.lang.h:6
@@ -594,7 +594,7 @@ msgstr "ନାମ"
 #: ../data/language-specs/po.lang.h:5 ../data/language-specs/rpmspec.lang.h:10
 #: ../data/language-specs/sh.lang.h:6 ../data/language-specs/texinfo.lang.h:9
 #: ../data/language-specs/yacc.lang.h:1
-#: ../gtksourceview/gtksourcelanguage.c:55
+#: ../ctksourceview/ctksourcelanguage.c:55
 msgid "Others"
 msgstr "ଅନ୍ଯାନ୍ଯ"
 
@@ -663,7 +663,7 @@ msgstr "CMake"
 
 #. Any constant
 #: ../data/language-specs/cmake.lang.h:4 ../data/language-specs/def.lang.h:15
-#: ../data/language-specs/gtk-doc.lang.h:1
+#: ../data/language-specs/ctk-doc.lang.h:1
 #: ../data/language-specs/libtool.lang.h:2
 #: ../data/language-specs/ruby.lang.h:6
 msgid "Constant"
@@ -695,7 +695,7 @@ msgstr "ରଙ୍ଗ"
 
 #: ../data/language-specs/css.lang.h:4 ../data/language-specs/fcl.lang.h:3
 #: ../data/language-specs/fortran.lang.h:4 ../data/language-specs/gap.lang.h:3
-#: ../data/language-specs/gtkrc.lang.h:4
+#: ../data/language-specs/ctkrc.lang.h:4
 #: ../data/language-specs/haskell.lang.h:4 ../data/language-specs/ini.lang.h:5
 #: ../data/language-specs/octave.lang.h:4
 #: ../data/language-specs/pascal.lang.h:3 ../data/language-specs/sql.lang.h:3
@@ -768,7 +768,7 @@ msgid "Defaults"
 msgstr "ପୂର୍ବ ନିର୍ଦ୍ଧାରିତ"
 
 #. A special comment containing documentation like in javadoc or
-#. gtk-doc
+#. ctk-doc
 #: ../data/language-specs/def.lang.h:23
 msgid "Documentation comment"
 msgstr "ଦଲିଲକରଣ ଟିପ୍ପଣୀ"
@@ -1180,57 +1180,57 @@ msgstr ""
 msgid "Reserved Keywords"
 msgstr "ସଂରକ୍ଷିତ ସୂଚକ ଶବ୍ଦ"
 
-#: ../data/language-specs/gtk-doc.lang.h:2
+#: ../data/language-specs/ctk-doc.lang.h:2
 msgid "Deprecated"
 msgstr "ଅପସନ୍ଦ"
 
-#: ../data/language-specs/gtk-doc.lang.h:4
+#: ../data/language-specs/ctk-doc.lang.h:4
 msgid "Function Name"
 msgstr "ଫଳନ ନାମ"
 
-#: ../data/language-specs/gtk-doc.lang.h:5
+#: ../data/language-specs/ctk-doc.lang.h:5
 msgid "Inline Documentation Section"
 msgstr "ଇନଲାଇନ ଦଲିଲିକରଣ ବିଭାଗ"
 
-#: ../data/language-specs/gtk-doc.lang.h:7
+#: ../data/language-specs/ctk-doc.lang.h:7
 msgid "Parameter"
 msgstr "ପ୍ରାଚଳ"
 
-#: ../data/language-specs/gtk-doc.lang.h:8
+#: ../data/language-specs/ctk-doc.lang.h:8
 msgid "Property Name"
 msgstr "ଗୁଣଧର୍ମ ନାମ"
 
-#: ../data/language-specs/gtk-doc.lang.h:9
+#: ../data/language-specs/ctk-doc.lang.h:9
 msgid "Return"
 msgstr "ଫେରସ୍ଥ"
 
-#: ../data/language-specs/gtk-doc.lang.h:10
+#: ../data/language-specs/ctk-doc.lang.h:10
 msgid "Signal Name"
 msgstr "ସଂକେତ ନାମ"
 
-#: ../data/language-specs/gtk-doc.lang.h:11
+#: ../data/language-specs/ctk-doc.lang.h:11
 msgid "Since"
 msgstr "ପରଠୁ"
 
-#: ../data/language-specs/gtk-doc.lang.h:12
+#: ../data/language-specs/ctk-doc.lang.h:12
 #: ../data/language-specs/verilog.lang.h:8
 #: ../data/language-specs/vhdl.lang.h:10
 msgid "Type"
 msgstr "ପ୍ରକାର"
 
-#: ../data/language-specs/gtk-doc.lang.h:13
-msgid "gtk-doc"
-msgstr "gtk-doc"
+#: ../data/language-specs/ctk-doc.lang.h:13
+msgid "ctk-doc"
+msgstr "ctk-doc"
 
-#: ../data/language-specs/gtkrc.lang.h:5
+#: ../data/language-specs/ctkrc.lang.h:5
 msgid "GtkRC"
 msgstr "GtkRC"
 
-#: ../data/language-specs/gtkrc.lang.h:6
+#: ../data/language-specs/ctkrc.lang.h:6
 msgid "Include directive"
 msgstr "ଅନ୍ତର୍ଭୁକ୍ତ ନିର୍ଦ୍ଦେଶ"
 
-#: ../data/language-specs/gtkrc.lang.h:10
+#: ../data/language-specs/ctkrc.lang.h:10
 msgid "Widget State"
 msgstr "ୱିଜେଟ ସ୍ଥିତି"
 
@@ -1822,13 +1822,13 @@ msgstr "ଏହା କଣ ଜଣାନାହିଁ"
 msgid "SQL"
 msgstr "SQL"
 
-#: ../data/language-specs/t2t.lang.h:2 ../gtksourceview/gtksourcestyle.c:104
-#: ../gtksourceview/gtksourcestyle.c:105
+#: ../data/language-specs/t2t.lang.h:2 ../ctksourceview/ctksourcestyle.c:104
+#: ../ctksourceview/ctksourcestyle.c:105
 msgid "Bold"
 msgstr "ଗାଢ଼"
 
-#: ../data/language-specs/t2t.lang.h:5 ../gtksourceview/gtksourcestyle.c:112
-#: ../gtksourceview/gtksourcestyle.c:113
+#: ../data/language-specs/t2t.lang.h:5 ../ctksourceview/ctksourcestyle.c:112
+#: ../ctksourceview/ctksourcestyle.c:113
 msgid "Italic"
 msgstr "ତେରଛା"
 
@@ -1996,323 +1996,323 @@ msgstr "ଟଙ୍ଗୋ ରଙ୍ଗ ଥାଳି ବ୍ୟବହାର କର�
 msgid "Tango"
 msgstr "ଟଙ୍ଗୋ"
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:378
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:378
 msgid "Document Words"
 msgstr ""
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:463
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:463
 msgid "The provider name"
 msgstr ""
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:470
-#: ../gtksourceview/gtksourcecompletionitem.c:268
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:470
+#: ../ctksourceview/ctksourcecompletionitem.c:268
 msgid "Icon"
 msgstr ""
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:471
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:471
 msgid "The provider icon"
 msgstr ""
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:478
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:478
 msgid "Proposals Batch Size"
 msgstr ""
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:479
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:479
 msgid "Number of proposals added in one batch"
 msgstr ""
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:488
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:488
 msgid "Scan Batch Size"
 msgstr ""
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:489
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:489
 msgid "Number of lines scanned in one batch"
 msgstr ""
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:498
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:498
 msgid "Minimum Word Size"
 msgstr ""
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:499
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:499
 msgid "The minimum word size to complete"
 msgstr ""
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:508
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:508
 msgid "Interactive Delay"
 msgstr ""
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:509
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:509
 msgid "The delay before initiating interactive completion"
 msgstr ""
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:518
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:518
 msgid "Priority"
 msgstr ""
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:519
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:519
 msgid "Provider priority"
 msgstr ""
 
-#: ../gtksourceview/gtksourcebuffer.c:223
-#: ../gtksourceview/gtksourceprintcompositor.c:505
+#: ../ctksourceview/ctksourcebuffer.c:223
+#: ../ctksourceview/ctksourceprintcompositor.c:505
 msgid "Highlight Syntax"
 msgstr "ବାକ୍ୟବିନ୍ୟାସକୁ ଆଲୋକିତ କରନ୍ତୁ"
 
-#: ../gtksourceview/gtksourcebuffer.c:224
+#: ../ctksourceview/ctksourcebuffer.c:224
 msgid "Whether to highlight syntax in the buffer"
 msgstr "ବଫରରେ ବାକ୍ୟବିନ୍ୟାସକୁ ଆଲୋକିତ କରାଯିବ କି ନାହିଁ"
 
-#: ../gtksourceview/gtksourcebuffer.c:237
+#: ../ctksourceview/ctksourcebuffer.c:237
 msgid "Highlight Matching Brackets"
 msgstr "ମେଳଖାଉଥିବା ବନ୍ଧନୀଗୁଡ଼ିକୁ ଆଲୋକିତ କରନ୍ତୁ"
 
-#: ../gtksourceview/gtksourcebuffer.c:238
+#: ../ctksourceview/ctksourcebuffer.c:238
 msgid "Whether to highlight matching brackets"
 msgstr "ମେଳଖାଉଥିବା ବନ୍ଧନୀଗୁଡ଼ିକୁ ଆଲୋକିତ କରାଯିବ କି ନାହିଁ"
 
-#: ../gtksourceview/gtksourcebuffer.c:251
-#: ../gtksourceview/gtksourceundomanagerdefault.c:412
+#: ../ctksourceview/ctksourcebuffer.c:251
+#: ../ctksourceview/ctksourceundomanagerdefault.c:412
 msgid "Maximum Undo Levels"
 msgstr "ସର୍ବାଧିକ ପଦକ୍ଷେପ ବାତିଲ ସ୍ତର"
 
-#: ../gtksourceview/gtksourcebuffer.c:252
-#: ../gtksourceview/gtksourceundomanagerdefault.c:413
+#: ../ctksourceview/ctksourcebuffer.c:252
+#: ../ctksourceview/ctksourceundomanagerdefault.c:413
 msgid "Number of undo levels for the buffer"
 msgstr "ବଫର ପାଇଁ ପଦକ୍ଷେପ ବାତିଲ ସଂଖ୍ୟା"
 
 #. Translators: throughout GtkSourceView "language" stands
 #. * for "programming language", not "spoken language"
-#: ../gtksourceview/gtksourcebuffer.c:264
+#: ../ctksourceview/ctksourcebuffer.c:264
 msgid "Language"
 msgstr "ଭାଷା"
 
-#: ../gtksourceview/gtksourcebuffer.c:265
+#: ../ctksourceview/ctksourcebuffer.c:265
 msgid "Language object to get highlighting patterns from"
 msgstr "ରୁ ଆଲୋକିତ ପ୍ରକାର ପାଇବା ପାଇଁ ଭାଷା ଲକ୍ଷ୍ୟ"
 
-#: ../gtksourceview/gtksourcebuffer.c:273
+#: ../ctksourceview/ctksourcebuffer.c:273
 msgid "Can undo"
 msgstr "ପଦକ୍ଷେପ ବାତିଲ କରିପାରିବେ"
 
-#: ../gtksourceview/gtksourcebuffer.c:274
+#: ../ctksourceview/ctksourcebuffer.c:274
 msgid "Whether Undo operation is possible"
 msgstr "ପଦକ୍ଷେପ ବାତିଲ ସମ୍ଭବ କି ନୁହଁ"
 
-#: ../gtksourceview/gtksourcebuffer.c:281
+#: ../ctksourceview/ctksourcebuffer.c:281
 msgid "Can redo"
 msgstr "ପୁଣିଥରେ କରିପାରିବେ"
 
-#: ../gtksourceview/gtksourcebuffer.c:282
+#: ../ctksourceview/ctksourcebuffer.c:282
 msgid "Whether Redo operation is possible"
 msgstr "ପୁଣିଥରେ କରିବା ସମ୍ଭବ କି ନୁହଁ"
 
-#: ../gtksourceview/gtksourcebuffer.c:296
-#: ../gtksourceview/gtksourcebuffer.c:297
+#: ../ctksourceview/ctksourcebuffer.c:296
+#: ../ctksourceview/ctksourcebuffer.c:297
 msgid "Style scheme"
 msgstr "ଶୈଳୀ ଯୋଜନା"
 
-#: ../gtksourceview/gtksourcebuffer.c:304
+#: ../ctksourceview/ctksourcebuffer.c:304
 msgid "Undo manager"
 msgstr ""
 
-#: ../gtksourceview/gtksourcebuffer.c:305
+#: ../ctksourceview/ctksourcebuffer.c:305
 msgid "The buffer undo manager"
 msgstr ""
 
-#: ../gtksourceview/gtksourcecompletion.c:940
-#: ../gtksourceview/gtksourcecompletion.c:963
+#: ../ctksourceview/ctksourcecompletion.c:940
+#: ../ctksourceview/ctksourcecompletion.c:963
 msgid "No extra information available"
 msgstr ""
 
-#: ../gtksourceview/gtksourcecompletion.c:2232
-#: ../gtksourceview/gtksourcegutter.c:368
+#: ../ctksourceview/ctksourcecompletion.c:2232
+#: ../ctksourceview/ctksourcegutter.c:368
 msgid "View"
 msgstr "ଦୃଶ୍ଯ"
 
-#: ../gtksourceview/gtksourcecompletion.c:2233
+#: ../ctksourceview/ctksourcecompletion.c:2233
 #, fuzzy
 #| msgid "The GtkSourceBuffer object to print"
 msgid "The GtkSourceView bound to the completion"
 msgstr "ମୁଦ୍ରଣ କରିବାକୁ ଥିବା GtkSourceBuffer ବସ୍ତୁ"
 
-#: ../gtksourceview/gtksourcecompletion.c:2248
+#: ../ctksourceview/ctksourcecompletion.c:2248
 msgid "Remember Info Visibility"
 msgstr ""
 
-#: ../gtksourceview/gtksourcecompletion.c:2249
+#: ../ctksourceview/ctksourcecompletion.c:2249
 msgid "Remember the last info window visibility state"
 msgstr ""
 
-#: ../gtksourceview/gtksourcecompletion.c:2262
+#: ../ctksourceview/ctksourcecompletion.c:2262
 #, fuzzy
 #| msgid "Section 1"
 msgid "Select on Show"
 msgstr "ବିଭାଗ 1"
 
-#: ../gtksourceview/gtksourcecompletion.c:2263
+#: ../ctksourceview/ctksourcecompletion.c:2263
 msgid "Select first proposal when completion is shown"
 msgstr ""
 
-#: ../gtksourceview/gtksourcecompletion.c:2277
+#: ../ctksourceview/ctksourcecompletion.c:2277
 #, fuzzy
 #| msgid "Show Line Marks"
 msgid "Show Headers"
 msgstr "ଧାଡ଼ି ଚିହ୍ନଗୁଡ଼ିକୁ ଦର୍ଶାନ୍ତୁ"
 
-#: ../gtksourceview/gtksourcecompletion.c:2278
+#: ../ctksourceview/ctksourcecompletion.c:2278
 msgid "Show provider headers when proposals from multiple providers are available"
 msgstr ""
 
-#: ../gtksourceview/gtksourcecompletion.c:2292
+#: ../ctksourceview/ctksourcecompletion.c:2292
 msgid "Show Icons"
 msgstr ""
 
-#: ../gtksourceview/gtksourcecompletion.c:2293
+#: ../ctksourceview/ctksourcecompletion.c:2293
 msgid "Show provider and proposal icons in the completion popup"
 msgstr ""
 
-#: ../gtksourceview/gtksourcecompletion.c:2306
+#: ../ctksourceview/ctksourcecompletion.c:2306
 #, fuzzy
 #| msgid "Type Operators"
 msgid "Accelerators"
 msgstr "ପ୍ରକାର ଚାଳକ"
 
-#: ../gtksourceview/gtksourcecompletion.c:2307
+#: ../ctksourceview/ctksourcecompletion.c:2307
 msgid "Number of proposal accelerators to show"
 msgstr ""
 
-#: ../gtksourceview/gtksourcecompletion.c:2323
+#: ../ctksourceview/ctksourcecompletion.c:2323
 msgid "Auto Complete Delay"
 msgstr ""
 
-#: ../gtksourceview/gtksourcecompletion.c:2324
+#: ../ctksourceview/ctksourcecompletion.c:2324
 msgid "Completion popup delay for interactive completion"
 msgstr ""
 
-#: ../gtksourceview/gtksourcecompletion.c:2339
+#: ../ctksourceview/ctksourcecompletion.c:2339
 msgid "Provider Page Size"
 msgstr ""
 
-#: ../gtksourceview/gtksourcecompletion.c:2340
+#: ../ctksourceview/ctksourcecompletion.c:2340
 msgid "Provider scrolling page size"
 msgstr ""
 
-#: ../gtksourceview/gtksourcecompletion.c:2355
+#: ../ctksourceview/ctksourcecompletion.c:2355
 msgid "Proposal Page Size"
 msgstr ""
 
-#: ../gtksourceview/gtksourcecompletion.c:2356
+#: ../ctksourceview/ctksourcecompletion.c:2356
 msgid "Proposal scrolling page size"
 msgstr ""
 
-#: ../gtksourceview/gtksourcecompletion.c:2694
+#: ../ctksourceview/ctksourcecompletion.c:2694
 #, fuzzy
 #| msgid "Print Header"
 msgid "Provider"
 msgstr "ଶୀର୍ଷକ ମୁଦ୍ରଣ କରନ୍ତୁ"
 
-#: ../gtksourceview/gtksourcecompletioncontext.c:244
-#: ../gtksourceview/gtksourceview.c:328
+#: ../ctksourceview/ctksourcecompletioncontext.c:244
+#: ../ctksourceview/ctksourceview.c:328
 #, fuzzy
 #| msgid "Option"
 msgid "Completion"
 msgstr "ବିକଳ୍ପ"
 
-#: ../gtksourceview/gtksourcecompletioncontext.c:245
+#: ../ctksourceview/ctksourcecompletioncontext.c:245
 msgid "The completion object to which the context belongs"
 msgstr ""
 
 #. Translators: The GtkTextIter at which the completion was invoked
-#: ../gtksourceview/gtksourcecompletioncontext.c:258
+#: ../ctksourceview/ctksourcecompletioncontext.c:258
 #, fuzzy
 #| msgid "Operator"
 msgid "Iterator"
 msgstr "ଚାଳକ"
 
-#: ../gtksourceview/gtksourcecompletioncontext.c:259
+#: ../ctksourceview/ctksourcecompletioncontext.c:259
 msgid "The GtkTextIter at which the completion was invoked"
 msgstr ""
 
-#: ../gtksourceview/gtksourcecompletioncontext.c:271
+#: ../ctksourceview/ctksourcecompletioncontext.c:271
 #, fuzzy
 #| msgid "Location"
 msgid "Activation"
 msgstr "ଅବସ୍ଥିତି"
 
-#: ../gtksourceview/gtksourcecompletioncontext.c:272
+#: ../ctksourceview/ctksourcecompletioncontext.c:272
 msgid "The type of activation"
 msgstr ""
 
 #. Tooltip style
-#: ../gtksourceview/gtksourcecompletioninfo.c:178
+#: ../ctksourceview/ctksourcecompletioninfo.c:178
 msgid "Completion Info"
 msgstr ""
 
-#: ../gtksourceview/gtksourcecompletioninfo.c:350
+#: ../ctksourceview/ctksourcecompletioninfo.c:350
 msgid "Maximum width"
 msgstr ""
 
-#: ../gtksourceview/gtksourcecompletioninfo.c:351
+#: ../ctksourceview/ctksourcecompletioninfo.c:351
 msgid "The maximum allowed width"
 msgstr ""
 
-#: ../gtksourceview/gtksourcecompletioninfo.c:360
+#: ../ctksourceview/ctksourcecompletioninfo.c:360
 msgid "Maximum height"
 msgstr ""
 
-#: ../gtksourceview/gtksourcecompletioninfo.c:361
+#: ../ctksourceview/ctksourcecompletioninfo.c:361
 msgid "The maximum allowed height"
 msgstr ""
 
-#: ../gtksourceview/gtksourcecompletioninfo.c:371
+#: ../ctksourceview/ctksourcecompletioninfo.c:371
 msgid "Shrink width"
 msgstr ""
 
-#: ../gtksourceview/gtksourcecompletioninfo.c:372
+#: ../ctksourceview/ctksourcecompletioninfo.c:372
 msgid "Whether the window should shrink width to fit the contents"
 msgstr ""
 
-#: ../gtksourceview/gtksourcecompletioninfo.c:379
+#: ../ctksourceview/ctksourcecompletioninfo.c:379
 msgid "Shrink height"
 msgstr ""
 
-#: ../gtksourceview/gtksourcecompletioninfo.c:380
+#: ../ctksourceview/ctksourcecompletioninfo.c:380
 msgid "Whether the window should shrink height to fit the contents"
 msgstr ""
 
-#: ../gtksourceview/gtksourcecompletionitem.c:229
+#: ../ctksourceview/ctksourcecompletionitem.c:229
 #, fuzzy
 #| msgid "LaTeX"
 msgid "Label"
 msgstr "LaTeX"
 
-#: ../gtksourceview/gtksourcecompletionitem.c:230
+#: ../ctksourceview/ctksourcecompletionitem.c:230
 msgid "Label to be shown for this item"
 msgstr ""
 
-#: ../gtksourceview/gtksourcecompletionitem.c:243
+#: ../ctksourceview/ctksourcecompletionitem.c:243
 msgid "Markup to be shown for this item"
 msgstr ""
 
-#: ../gtksourceview/gtksourcecompletionitem.c:256
+#: ../ctksourceview/ctksourcecompletionitem.c:256
 msgid "Item text"
 msgstr ""
 
-#: ../gtksourceview/gtksourcecompletionitem.c:269
+#: ../ctksourceview/ctksourcecompletionitem.c:269
 msgid "Icon to be shown for this item"
 msgstr ""
 
-#: ../gtksourceview/gtksourcecompletionitem.c:281
+#: ../ctksourceview/ctksourcecompletionitem.c:281
 #, fuzzy
 #| msgid "Ignore"
 msgid "Info"
 msgstr "ଅଗ୍ରାହ୍ୟ କରିବା"
 
-#: ../gtksourceview/gtksourcecompletionitem.c:282
+#: ../ctksourceview/ctksourcecompletionitem.c:282
 msgid "Info to be shown for this item"
 msgstr ""
 
-#: ../gtksourceview/gtksourcecontextengine.c:2971
+#: ../ctksourceview/ctksourcecontextengine.c:2971
 msgid "using \\C is not supported in language definitions"
 msgstr "ଭାଷା ବ୍ୟାଖ୍ୟାରେ \\C ବ୍ୟବହାର କରିବା ସମର୍ଥିତ ନୁହଁ"
 
@@ -2320,7 +2320,7 @@ msgstr "ଭାଷା ବ୍ୟାଖ୍ୟାରେ \\C ବ୍ୟବହାର �
 #. * named sub-patterns with the same name or if resulting regex is
 #. * too long. In this case fixing lang file helps (e.g. renaming
 #. * subpatterns, making huge keywords use bigger prefixes, etc.)
-#: ../gtksourceview/gtksourcecontextengine.c:3595
+#: ../ctksourceview/ctksourcecontextengine.c:3595
 #, c-format
 msgid ""
 "Cannot create a regex for all the transitions, the syntax highlighting "
@@ -2331,413 +2331,413 @@ msgstr ""
 "ମନ୍ଥର।\n"
 "ତ୍ରୁଟିଟି ହେଉଛି: %s"
 
-#: ../gtksourceview/gtksourcecontextengine.c:4930
+#: ../ctksourceview/ctksourcecontextengine.c:4930
 msgid ""
 "Highlighting a single line took too much time, syntax highlighting will be "
 "disabled"
 msgstr "ଗୋଟିଏ ଧାଡ଼ିକୁ ଆଲୋକିତ କରିବା ପାଇଁ ଅଧିକ ସମୟ ଲାଗିଥିଲା, ବାକ୍ୟବିନ୍ୟାସ ଆଲୋକିତକୁ ନିଷ୍କ୍ରିୟ କରାଯାଇଥିଲା"
 
-#: ../gtksourceview/gtksourcecontextengine.c:6182
+#: ../ctksourceview/ctksourcecontextengine.c:6182
 #, c-format
 msgid "context '%s' cannot contain a \\%%{...@start} command"
 msgstr "ପ୍ରସଙ୍ଗ '%s' ଗୋଟିଏ \\%%{...@start} ନିର୍ଦ୍ଦେଶ ଧାରଣ କରିପାରିବ ନାହିଁ"
 
-#: ../gtksourceview/gtksourcecontextengine.c:6344
-#: ../gtksourceview/gtksourcecontextengine.c:6433
+#: ../ctksourceview/ctksourcecontextengine.c:6344
+#: ../ctksourceview/ctksourcecontextengine.c:6433
 #, c-format
 msgid "duplicated context id '%s'"
 msgstr "ନକଲି ପ୍ରସଙ୍ଗ id '%s'"
 
-#: ../gtksourceview/gtksourcecontextengine.c:6548
-#: ../gtksourceview/gtksourcecontextengine.c:6608
+#: ../ctksourceview/ctksourcecontextengine.c:6548
+#: ../ctksourceview/ctksourcecontextengine.c:6608
 #, c-format
 msgid ""
 "style override used with wildcard context reference in language '%s' in ref "
 "'%s'"
 msgstr "ସନ୍ଦର୍ଭ '%s'ର ଭାଷା '%s' ରେ ୱାଇଲ୍ଡକାର୍ଡ ପ୍ରସଙ୍ଗ ସହିତ ବ୍ୟବହୃତ ଶୈଳୀ ନବଲିଖନ"
 
-#: ../gtksourceview/gtksourcecontextengine.c:6622
+#: ../ctksourceview/ctksourcecontextengine.c:6622
 #, c-format
 msgid "invalid context reference '%s'"
 msgstr "ଅବୈଧ ପ୍ରସଙ୍ଗ ସନ୍ଦର୍ଭ '%s'"
 
-#: ../gtksourceview/gtksourcecontextengine.c:6641
-#: ../gtksourceview/gtksourcecontextengine.c:6651
+#: ../ctksourceview/ctksourcecontextengine.c:6641
+#: ../ctksourceview/ctksourcecontextengine.c:6651
 #, c-format
 msgid "unknown context '%s'"
 msgstr "ଅଜଣା ପ୍ରସଙ୍ଗ '%s'"
 
-#: ../gtksourceview/gtksourcecontextengine.c:6751
+#: ../ctksourceview/ctksourcecontextengine.c:6751
 #, c-format
 msgid "Missing main language definition (id = \"%s\".)"
 msgstr "ଅନୁପସ୍ଥିତ ପ୍ରଧାନ ଭାଷା ବ୍ୟାଖ୍ୟା (id = \"%s\".)"
 
-#: ../gtksourceview/gtksourcegutter.c:369
+#: ../ctksourceview/ctksourcegutter.c:369
 msgid "The gutters' GtkSourceView"
 msgstr "ନାଳୀର GtkSourceView"
 
-#: ../gtksourceview/gtksourcegutter.c:381
+#: ../ctksourceview/ctksourcegutter.c:381
 msgid "Window Type"
 msgstr "ୱିଣ୍ଡୋ ପ୍ରକାର"
 
-#: ../gtksourceview/gtksourcegutter.c:382
+#: ../ctksourceview/ctksourcegutter.c:382
 msgid "The gutters text window type"
 msgstr "ନାଳୀର ପାଠ୍ୟ ୱିଣ୍ଡୋ ପ୍ରକାର"
 
-#: ../gtksourceview/gtksourcelanguage.c:228
-#: ../gtksourceview/gtksourcelanguage.c:229
+#: ../ctksourceview/ctksourcelanguage.c:228
+#: ../ctksourceview/ctksourcelanguage.c:229
 msgid "Language id"
 msgstr "ଭାଷା id"
 
-#: ../gtksourceview/gtksourcelanguage.c:236
-#: ../gtksourceview/gtksourcelanguage.c:237
+#: ../ctksourceview/ctksourcelanguage.c:236
+#: ../ctksourceview/ctksourcelanguage.c:237
 msgid "Language name"
 msgstr "ଭାଷା ନାମ"
 
-#: ../gtksourceview/gtksourcelanguage.c:244
-#: ../gtksourceview/gtksourcelanguage.c:245
+#: ../ctksourceview/ctksourcelanguage.c:244
+#: ../ctksourceview/ctksourcelanguage.c:245
 msgid "Language section"
 msgstr "ଭାଷା ବିଭାଗ"
 
-#: ../gtksourceview/gtksourcelanguage.c:252
+#: ../ctksourceview/ctksourcelanguage.c:252
 msgid "Hidden"
 msgstr "ଲୁକ୍କାଇତ"
 
-#: ../gtksourceview/gtksourcelanguage.c:253
+#: ../ctksourceview/ctksourcelanguage.c:253
 msgid "Whether the language should be hidden from the user"
 msgstr "ଭାଷାକୁ ଚାଳକ ପାଖରୁ ଲୁଚାାଇବାଉଚିତ କି ନୁହଁ "
 
-#: ../gtksourceview/gtksourcelanguagemanager.c:150
+#: ../ctksourceview/ctksourcelanguagemanager.c:150
 msgid "Language specification directories"
 msgstr "ଭାଷା ନିର୍ଦ୍ଦିଷ୍ଟକ ସୂଚନା ଡିରେକ୍ଟୋରୀଗୁଡ଼ିକ"
 
-#: ../gtksourceview/gtksourcelanguagemanager.c:151
+#: ../ctksourceview/ctksourcelanguagemanager.c:151
 msgid ""
 "List of directories where the language specification files (.lang) are "
 "located"
 msgstr "ଭାଷା ନିର୍ଦ୍ଦିଷ୍ଟକ ସୂଚନା ଫାଇଲଗୁଡ଼ିକ (.lang) ସ୍ଥିତବାନ ଡିରେକ୍ଟୋରୀଗୁଡ଼ିକର ତାଲିକା"
 
-#: ../gtksourceview/gtksourcelanguagemanager.c:160
+#: ../ctksourceview/ctksourcelanguagemanager.c:160
 msgid "Language ids"
 msgstr "ଭାଷା id ଗୁଡ଼ିକ"
 
-#: ../gtksourceview/gtksourcelanguagemanager.c:161
+#: ../ctksourceview/ctksourcelanguagemanager.c:161
 msgid "List of the ids of the available languages"
 msgstr "ଉପଲବ୍ଧ ଭାଷାଗୁଡ଼ିକର idର ତାଲିକା"
 
-#: ../gtksourceview/gtksourcelanguage-parser-2.c:951
+#: ../ctksourceview/ctksourcelanguage-parser-2.c:951
 #, c-format
 msgid "Unknown id '%s' in regex '%s'"
 msgstr "regex '%s'ରେ ଅଜଣା id '%s'"
 
-#: ../gtksourceview/gtksourcelanguage-parser-2.c:1179
+#: ../ctksourceview/ctksourcelanguage-parser-2.c:1179
 #, c-format
 msgid "in regex '%s': backreferences are not supported"
 msgstr "regex '%s'ରେ: ପଛୁଆ ସନ୍ଦର୍ଭ ସମର୍ଥିତ ନୁହଁ"
 
-#: ../gtksourceview/gtksourcemark.c:140
+#: ../ctksourceview/ctksourcemark.c:140
 msgid "category"
 msgstr "ବିଭାଗ"
 
-#: ../gtksourceview/gtksourcemark.c:141
+#: ../ctksourceview/ctksourcemark.c:141
 msgid "The mark category"
 msgstr "ଚିହ୍ନିତ ବିଭାଗ"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:445
+#: ../ctksourceview/ctksourceprintcompositor.c:445
 msgid "Source Buffer"
 msgstr "ଉତ୍ସ ବଫର"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:446
+#: ../ctksourceview/ctksourceprintcompositor.c:446
 msgid "The GtkSourceBuffer object to print"
 msgstr "ମୁଦ୍ରଣ କରିବାକୁ ଥିବା GtkSourceBuffer ବସ୍ତୁ"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:463
-#: ../gtksourceview/gtksourceview.c:366
+#: ../ctksourceview/ctksourceprintcompositor.c:463
+#: ../ctksourceview/ctksourceview.c:366
 msgid "Tab Width"
 msgstr "ଟ୍ୟାବ ଓସାର"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:464
-#: ../gtksourceview/gtksourceview.c:367
+#: ../ctksourceview/ctksourceprintcompositor.c:464
+#: ../ctksourceview/ctksourceview.c:367
 msgid "Width of a tab character expressed in spaces"
 msgstr "ଖାଲିସ୍ଥାନରେ ପ୍ରକାଶକରାଯାଇଥିବା ଟ୍ୟାବର ଓସାର"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:484
+#: ../ctksourceview/ctksourceprintcompositor.c:484
 msgid "Wrap Mode"
 msgstr "ଧାଡ଼ି ମୋଡ଼ା ଧାରା"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:485
+#: ../ctksourceview/ctksourceprintcompositor.c:485
 msgid "Whether to wrap lines never, at word boundaries, or at character boundaries."
 msgstr "ଶବ୍ଦ ସୀମା କିମ୍ବା ବର୍ଣ୍ଣ ସୀମା ମଧ୍ଯରେ, ଧାଡ଼ିଗୁଡ଼ିକୁ କେବେବି ଆବୃତ କରିବା ଉଚିତ ନୁହଁ"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:506
+#: ../ctksourceview/ctksourceprintcompositor.c:506
 msgid "Whether to print the document with highlighted syntax"
 msgstr "ଦଲିଲକୁ ଆଲୋକିତ ବାକ୍ୟବିନ୍ୟାସ ସହିତ ମୁଦ୍ରଣ କରିବା ଉଚିତ କି"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:527
+#: ../ctksourceview/ctksourceprintcompositor.c:527
 msgid "Print Line Numbers"
 msgstr "ଧାଡ଼ି ସଂଖ୍ଯା ମୁଦ୍ରଣ କରନ୍ତୁ"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:528
+#: ../ctksourceview/ctksourceprintcompositor.c:528
 msgid "Interval of printed line numbers (0 means no numbers)"
 msgstr "ମୁଦ୍ରିତ ଧାଡ଼ି ସଂଖ୍ୟାର ଅନ୍ତରାଳ (0 ମାନେ କୌଣସି ସଂଖ୍ୟା ନାହିଁ)"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:550
+#: ../ctksourceview/ctksourceprintcompositor.c:550
 msgid "Print Header"
 msgstr "ଶୀର୍ଷକ ମୁଦ୍ରଣ କରନ୍ତୁ"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:551
+#: ../ctksourceview/ctksourceprintcompositor.c:551
 msgid "Whether to print a header in each page"
 msgstr "ପ୍ରତ୍ୟେକ ପୃଷ୍ଠାରେ ଶୀର୍ଷକକୁ ମୁଦ୍ରଣ କରିବା ଉଚିତ କି ନୁହଁ"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:573
+#: ../ctksourceview/ctksourceprintcompositor.c:573
 msgid "Print Footer"
 msgstr "ପାଦିକା ମୁଦ୍ରଣ କରନ୍ତୁ"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:574
+#: ../ctksourceview/ctksourceprintcompositor.c:574
 msgid "Whether to print a footer in each page"
 msgstr "ପ୍ରତ୍ୟେକ ପୃଷ୍ଠାରେ ପାଦିକାକୁ ମୁଦ୍ରଣ କରିବା ଉଚିତ କି ନୁହଁ"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:596
+#: ../ctksourceview/ctksourceprintcompositor.c:596
 msgid "Body Font Name"
 msgstr "ଶରୀର ଅକ୍ଷରରୂପ ନାମ"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:597
+#: ../ctksourceview/ctksourceprintcompositor.c:597
 msgid "Name of the font to use for the text body (e.g. \"Monospace 10\")"
 msgstr "ପାଠ୍ୟ ଶରୀର ପାଇଁ ବ୍ୟବହୃତ ଅକ୍ଷରରୂପର ନାମ (ଯେପରିକି \"Monospace 10\")"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:620
+#: ../ctksourceview/ctksourceprintcompositor.c:620
 msgid "Line Numbers Font Name"
 msgstr "ଧାଡ଼ି ସଂଖ୍ଯା ଅକ୍ଷରରୂପ ନାମ"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:621
+#: ../ctksourceview/ctksourceprintcompositor.c:621
 msgid "Name of the font to use for the line numbers (e.g. \"Monospace 10\")"
 msgstr "ଧାଡ଼ିସଂଖ୍ୟାରେ ବ୍ୟବହୃତ ଅକ୍ଷରରୂପର ନାମ (ଉଦାହରଣ ସ୍ୱରୂପ \"Monospace 10\")"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:644
+#: ../ctksourceview/ctksourceprintcompositor.c:644
 msgid "Header Font Name"
 msgstr "ଶୀର୍ଷକ ଅକ୍ଷରରୂପ ନାମ"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:645
+#: ../ctksourceview/ctksourceprintcompositor.c:645
 msgid "Name of the font to use for the page header (e.g. \"Monospace 10\")"
 msgstr "ପୃଷ୍ଠା ଶୀର୍ଷକରେ ବ୍ୟବହୃତ ଅକ୍ଷରରୂପର ନାମ (ଉଦାହରଣ ସ୍ୱରୂପ \"Monospace 10\")"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:668
+#: ../ctksourceview/ctksourceprintcompositor.c:668
 msgid "Footer Font Name"
 msgstr "ପାଦିକା ଅକ୍ଷରରୂପ ନାମ"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:669
+#: ../ctksourceview/ctksourceprintcompositor.c:669
 msgid "Name of the font to use for the page footer (e.g. \"Monospace 10\")"
 msgstr "ପୃଷ୍ଠା ପାଦିକାରେ ବ୍ୟବହୃତ ଅକ୍ଷରରୂପର ନାମ (ଉଦାହରଣ ସ୍ୱରୂପ \"Monospace 10\")"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:685
+#: ../ctksourceview/ctksourceprintcompositor.c:685
 msgid "Number of pages"
 msgstr "ପୃଷ୍ଠା ସଂଖ୍ୟା"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:686
+#: ../ctksourceview/ctksourceprintcompositor.c:686
 msgid ""
 "The number of pages in the document (-1 means the document has not been "
 "completely paginated)."
 msgstr "ଦଲିଲର ପୃଷ୍ଠାସଂଖ୍ୟା (-1 ମାନେ ଦଲିଲରେ ସମ୍ପୂର୍ଣ୍ଣ ପୃଷ୍ଠାସଂଖ୍ୟା ଦିଆହୋଇନାହିଁ)।"
 
-#: ../gtksourceview/gtksourcestyle.c:80
+#: ../ctksourceview/ctksourcestyle.c:80
 msgid "Line background"
 msgstr "ଧାଡ଼ି ପୃଷ୍ଠଭୂମି"
 
-#: ../gtksourceview/gtksourcestyle.c:81
+#: ../ctksourceview/ctksourcestyle.c:81
 msgid "Line background color"
 msgstr "ଧାଡ଼ି ପୃଷ୍ଠଭୂମି ରଙ୍ଗ"
 
-#: ../gtksourceview/gtksourcestyle.c:88
+#: ../ctksourceview/ctksourcestyle.c:88
 msgid "Background"
 msgstr "ପୃଷ୍ଠଭୂମି"
 
-#: ../gtksourceview/gtksourcestyle.c:89
+#: ../ctksourceview/ctksourcestyle.c:89
 msgid "Background color"
 msgstr "ପୃଷ୍ଠଭୂମି ରଙ୍ଗ"
 
-#: ../gtksourceview/gtksourcestyle.c:96
+#: ../ctksourceview/ctksourcestyle.c:96
 msgid "Foreground"
 msgstr "ପୃଷ୍ଠଭୂମି"
 
-#: ../gtksourceview/gtksourcestyle.c:97
+#: ../ctksourceview/ctksourcestyle.c:97
 msgid "Foreground color"
 msgstr "ପୃଷ୍ଠଭୂମି ରଙ୍ଗ"
 
-#: ../gtksourceview/gtksourcestyle.c:120 ../gtksourceview/gtksourcestyle.c:121
+#: ../ctksourceview/ctksourcestyle.c:120 ../ctksourceview/ctksourcestyle.c:121
 msgid "Underline"
 msgstr "ଅବରେଖନ"
 
-#: ../gtksourceview/gtksourcestyle.c:128 ../gtksourceview/gtksourcestyle.c:129
+#: ../ctksourceview/ctksourcestyle.c:128 ../ctksourceview/ctksourcestyle.c:129
 msgid "Strikethrough"
 msgstr "ମଧ୍ଯରେଖିତ"
 
-#: ../gtksourceview/gtksourcestyle.c:136
+#: ../ctksourceview/ctksourcestyle.c:136
 msgid "Line background set"
 msgstr "ଧାଡ଼ି ପୃଷ୍ଠଭୂମି ସେଟ"
 
-#: ../gtksourceview/gtksourcestyle.c:137
+#: ../ctksourceview/ctksourcestyle.c:137
 msgid "Whether line background color is set"
 msgstr "ଧାଡ଼ି ପୃଷ୍ଠଭୂମି ରଙ୍ଗ ସେଟ କରାଯାଇଛି କି ନାହିଁ"
 
-#: ../gtksourceview/gtksourcestyle.c:144
+#: ../ctksourceview/ctksourcestyle.c:144
 msgid "Foreground set"
 msgstr "ପୃଷ୍ଠଭୂମି ସେଟ"
 
-#: ../gtksourceview/gtksourcestyle.c:145
+#: ../ctksourceview/ctksourcestyle.c:145
 msgid "Whether foreground color is set"
 msgstr "ପୃଷ୍ଠଭୂମି ରଙ୍ଗ ସେଟକରାଯାଇଛି କି ନାହିଁ"
 
-#: ../gtksourceview/gtksourcestyle.c:152
+#: ../ctksourceview/ctksourcestyle.c:152
 msgid "Background set"
 msgstr "ପୃଷ୍ଠଭୂମି ସେଟ"
 
-#: ../gtksourceview/gtksourcestyle.c:153
+#: ../ctksourceview/ctksourcestyle.c:153
 msgid "Whether background color is set"
 msgstr "ପୃଷ୍ଠଭୂମି ରଙ୍ଗ ସେଟକରାଯାଇଛି କି ନାହିଁ"
 
-#: ../gtksourceview/gtksourcestyle.c:160
+#: ../ctksourceview/ctksourcestyle.c:160
 msgid "Bold set"
 msgstr "ଗାଢ଼ ସେଟ"
 
-#: ../gtksourceview/gtksourcestyle.c:161
+#: ../ctksourceview/ctksourcestyle.c:161
 msgid "Whether bold attribute is set"
 msgstr "ଗାଢ଼ ଗୁଣଧର୍ମ ସେଟ କରାଯାଇଛି କି ନାହିଁ"
 
-#: ../gtksourceview/gtksourcestyle.c:168
+#: ../ctksourceview/ctksourcestyle.c:168
 msgid "Italic set"
 msgstr "ତେରଛା ସେଟ"
 
-#: ../gtksourceview/gtksourcestyle.c:169
+#: ../ctksourceview/ctksourcestyle.c:169
 msgid "Whether italic attribute is set"
 msgstr "ତେରଛା ଗୁଣଧର୍ମ ସେଟ କରାଯାଇଛି କି ନାହିଁ"
 
-#: ../gtksourceview/gtksourcestyle.c:176
+#: ../ctksourceview/ctksourcestyle.c:176
 msgid "Underline set"
 msgstr "ଅବରେଖନ ସେଟ"
 
-#: ../gtksourceview/gtksourcestyle.c:177
+#: ../ctksourceview/ctksourcestyle.c:177
 msgid "Whether underline attribute is set"
 msgstr "ଅବରେଖନ ଗୁଣଧର୍ମ ସେଟ କରାଯାଇଛି କି ନାହିଁ"
 
-#: ../gtksourceview/gtksourcestyle.c:184
+#: ../ctksourceview/ctksourcestyle.c:184
 msgid "Strikethrough set"
 msgstr "ମଧ୍ଯରେଖନ ସେଟ"
 
-#: ../gtksourceview/gtksourcestyle.c:185
+#: ../ctksourceview/ctksourcestyle.c:185
 msgid "Whether strikethrough attribute is set"
 msgstr "ମଧ୍ଯରେଖନ ଗୁଣଧର୍ମ ସେଟ କରାଯାଇଛି କି ନାହିଁ"
 
-#: ../gtksourceview/gtksourcestylescheme.c:187
-#: ../gtksourceview/gtksourcestylescheme.c:188
+#: ../ctksourceview/ctksourcestylescheme.c:187
+#: ../ctksourceview/ctksourcestylescheme.c:188
 msgid "Style scheme id"
 msgstr "ଶୈଳୀ ଯୋଜନା id"
 
-#: ../gtksourceview/gtksourcestylescheme.c:200
-#: ../gtksourceview/gtksourcestylescheme.c:201
+#: ../ctksourceview/ctksourcestylescheme.c:200
+#: ../ctksourceview/ctksourcestylescheme.c:201
 msgid "Style scheme name"
 msgstr "ଶୈଳୀ ଯୋଜନା ନାମ"
 
-#: ../gtksourceview/gtksourcestylescheme.c:213
-#: ../gtksourceview/gtksourcestylescheme.c:214
+#: ../ctksourceview/ctksourcestylescheme.c:213
+#: ../ctksourceview/ctksourcestylescheme.c:214
 msgid "Style scheme description"
 msgstr "ଶୈଳୀ ଯୋଜନା ବର୍ଣ୍ଣନା"
 
-#: ../gtksourceview/gtksourcestylescheme.c:226
-#: ../gtksourceview/gtksourcestylescheme.c:227
+#: ../ctksourceview/ctksourcestylescheme.c:226
+#: ../ctksourceview/ctksourcestylescheme.c:227
 msgid "Style scheme filename"
 msgstr "ଶୈଳୀ ଯୋଜନା ଫାଇଲ ନାମ"
 
-#: ../gtksourceview/gtksourcestyleschememanager.c:152
+#: ../ctksourceview/ctksourcestyleschememanager.c:152
 msgid "Style scheme search path"
 msgstr "ଶୈଳୀ ଯୋଜନା ସନ୍ଧାନ ପଥ"
 
-#: ../gtksourceview/gtksourcestyleschememanager.c:153
+#: ../ctksourceview/ctksourcestyleschememanager.c:153
 msgid "List of directories and files where the style schemes are located"
 msgstr "ଶୈଳୀ ଯୋଜନା ଅବସ୍ଥିତ ଫାାଇ ଏବଂ ଡିରେକ୍ଟୋରୀ ଗୁଡ଼ିର ତାଲିକାକ"
 
-#: ../gtksourceview/gtksourcestyleschememanager.c:161
+#: ../ctksourceview/ctksourcestyleschememanager.c:161
 msgid "Scheme ids"
 msgstr "ଯୋଜନା idଗୁଡ଼ିକ"
 
-#: ../gtksourceview/gtksourcestyleschememanager.c:162
+#: ../ctksourceview/ctksourcestyleschememanager.c:162
 msgid "List of the ids of the available style schemes"
 msgstr "ଉପଲବ୍ଧ ଶୈଳୀ ଯୋଜନାଗୁଡ଼ିକର idର ତାଲିକା"
 
-#: ../gtksourceview/gtksourceundomanagerdefault.c:404
+#: ../ctksourceview/ctksourceundomanagerdefault.c:404
 #, fuzzy
 #| msgid "Source Buffer"
 msgid "Buffer"
 msgstr "ଉତ୍ସ ବଫର"
 
-#: ../gtksourceview/gtksourceundomanagerdefault.c:405
+#: ../ctksourceview/ctksourceundomanagerdefault.c:405
 msgid "The text buffer to add undo support on"
 msgstr ""
 
-#: ../gtksourceview/gtksourceview.c:329
+#: ../ctksourceview/ctksourceview.c:329
 msgid "The completion object associated with the view"
 msgstr ""
 
-#: ../gtksourceview/gtksourceview.c:341
+#: ../ctksourceview/ctksourceview.c:341
 msgid "Show Line Numbers"
 msgstr "ଧାଡ଼ି ସଂଖ୍ୟା ଦର୍ଶାନ୍ତୁ"
 
-#: ../gtksourceview/gtksourceview.c:342
+#: ../ctksourceview/ctksourceview.c:342
 msgid "Whether to display line numbers"
 msgstr "ଧାଡ଼ି ସଂଖ୍ୟା ଦର୍ଶାଇବା ଉଚିତ କି ନୁହଁ"
 
-#: ../gtksourceview/gtksourceview.c:353
+#: ../ctksourceview/ctksourceview.c:353
 msgid "Show Line Marks"
 msgstr "ଧାଡ଼ି ଚିହ୍ନଗୁଡ଼ିକୁ ଦର୍ଶାନ୍ତୁ"
 
-#: ../gtksourceview/gtksourceview.c:354
+#: ../ctksourceview/ctksourceview.c:354
 msgid "Whether to display line mark pixbufs"
 msgstr "ଧାଡ଼ି ଚିହ୍ନିତ pixbufsକୁ ଦର୍ଶାଇବା ଉଚିତ କି"
 
-#: ../gtksourceview/gtksourceview.c:381
+#: ../ctksourceview/ctksourceview.c:381
 msgid "Indent Width"
 msgstr "ଅନୁଚ୍ଛେଦ ଓସାର"
 
-#: ../gtksourceview/gtksourceview.c:382
+#: ../ctksourceview/ctksourceview.c:382
 msgid "Number of spaces to use for each step of indent"
 msgstr "ଅନୁଚ୍ଛେଦର ପ୍ରତ୍ୟେକ ପଦକ୍ଷେପ ପାଇଁ ବ୍ୟବହୃତ ସ୍ଥାନର ସଂଖ୍ୟା"
 
-#: ../gtksourceview/gtksourceview.c:391
+#: ../ctksourceview/ctksourceview.c:391
 msgid "Auto Indentation"
 msgstr "ସ୍ୱୟଂ ଅନୁଚ୍ଛେଦନ"
 
-#: ../gtksourceview/gtksourceview.c:392
+#: ../ctksourceview/ctksourceview.c:392
 msgid "Whether to enable auto indentation"
 msgstr "ସ୍ୱୟଂ ଅନୁଚ୍ଛେଦନକୁ ସକ୍ରିୟ କରିବା ଉଚିତ କି ନୁହଁ"
 
-#: ../gtksourceview/gtksourceview.c:399
+#: ../ctksourceview/ctksourceview.c:399
 msgid "Insert Spaces Instead of Tabs"
 msgstr "ଟ୍ୟାବ ବଦଳରେ ଖାଲିସ୍ଥାନ ଭର୍ତ୍ତି କରନ୍ତୁ"
 
-#: ../gtksourceview/gtksourceview.c:400
+#: ../ctksourceview/ctksourceview.c:400
 msgid "Whether to insert spaces instead of tabs"
 msgstr "ଟ୍ୟାବ ବଦଳରେ ଖାଲିସ୍ଥାନ ଭର୍ତ୍ତି କରିବା ଉଚିତ କି ନୁହଁ"
 
-#: ../gtksourceview/gtksourceview.c:412
+#: ../ctksourceview/ctksourceview.c:412
 msgid "Show Right Margin"
 msgstr "ଡାହାଣ ସୀମା ଦର୍ଶାନ୍ତୁ"
 
-#: ../gtksourceview/gtksourceview.c:413
+#: ../ctksourceview/ctksourceview.c:413
 msgid "Whether to display the right margin"
 msgstr "ଡାହାଣ ସୀମା ଦର୍ଶାଇବା ଉଚିତ କି ନୁହଁ"
 
-#: ../gtksourceview/gtksourceview.c:425
+#: ../ctksourceview/ctksourceview.c:425
 msgid "Right Margin Position"
 msgstr "ଡାହାଣ ସୀମା ସ୍ଥାନ"
 
-#: ../gtksourceview/gtksourceview.c:426
+#: ../ctksourceview/ctksourceview.c:426
 msgid "Position of the right margin"
 msgstr "ଡାହାଣ ସୀମାର ସ୍ଥାନ"
 
-#: ../gtksourceview/gtksourceview.c:442
+#: ../ctksourceview/ctksourceview.c:442
 msgid "Smart Home/End"
 msgstr "ଚତୁର Home/End"
 
-#: ../gtksourceview/gtksourceview.c:443
+#: ../ctksourceview/ctksourceview.c:443
 msgid ""
 "HOME and END keys move to first/last non whitespace characters on line "
 "before going to the start/end of the line"
@@ -2745,31 +2745,31 @@ msgstr ""
 "HOME ଏବଂ END କିଗୁଡିକ ପ୍ରଥମ/ଶେଷ ରେଖାରେ  ଧଳା ଅନ୍ତର ହୋଇନଥିବା ଅକ୍ଷରଗୁଡିକ ନିକଟକୁ ଘୁଞ୍ଚେ ରେଖାର "
 "ଆରମ୍ଭ/ଶେଷକୁ ୟିବା ପୂର୍ବରୁ"
 
-#: ../gtksourceview/gtksourceview.c:453
+#: ../ctksourceview/ctksourceview.c:453
 msgid "Highlight current line"
 msgstr "ପ୍ରଚଳିତ ଧାଡ଼ିକୁ ଆଲୋକିତ କରନ୍ତୁ"
 
-#: ../gtksourceview/gtksourceview.c:454
+#: ../ctksourceview/ctksourceview.c:454
 msgid "Whether to highlight the current line"
 msgstr "ପ୍ରଚଳିତ ଧାଡ଼ିକୁ ଆଲୋକିତ କରିବା ଉଚିତ କି ନୁହଁ"
 
-#: ../gtksourceview/gtksourceview.c:461
+#: ../ctksourceview/ctksourceview.c:461
 msgid "Indent on tab"
 msgstr "ଟ୍ୟାବରେ ଅନୁଚ୍ଛେଦ"
 
-#: ../gtksourceview/gtksourceview.c:462
+#: ../ctksourceview/ctksourceview.c:462
 msgid "Whether to indent the selected text when the tab key is pressed"
 msgstr "ଟ୍ୟାବ କି କୁ ଦବାଇବା ସମୟରେ ବଚ୍ଛିତ ପାଠ୍ୟରେ ଅନୁଚ୍ଛେଦ ଦେବା ଉଚିତ କି"
 
-#: ../gtksourceview/gtksourceview.c:476
+#: ../ctksourceview/ctksourceview.c:476
 msgid "Draw Spaces"
 msgstr "ଖାଲିସ୍ଥାନ ଆଙ୍କନ୍ତୁ"
 
-#: ../gtksourceview/gtksourceview.c:477
+#: ../ctksourceview/ctksourceview.c:477
 msgid "Set if and how the spaces should be visualized"
 msgstr "ଖାଲିସ୍ଥାନଗୁଡ଼ିକୁ କିପରି ଦେଖିହେବ ତାହା ସେଟ କରନ୍ତୁ"
 
-#: ../gtksourceview/gtksourceview-i18n.c:74
+#: ../ctksourceview/ctksourceview-i18n.c:74
 msgid "translator-credits"
 msgstr "ମନୋଜ କୁମାର ଗିରି"
 
@@ -2784,9 +2784,9 @@ msgstr "ମନୋଜ କୁମାର ଗିରି"
 #. * value used by GtkSourceView and it represents the encoding for the
 #. * current locale, so please don't translate the "CURRENT" term.  Only
 #. * recognized encodings are used. See
-#. * https://git.gnome.org/browse/gtksourceview/tree/gtksourceview/gtksourceencoding.c#n147
+#. * https://git.gnome.org/browse/ctksourceview/tree/ctksourceview/ctksourceencoding.c#n147
 #. * for a list of supported encodings.
 #.
-#: ../gtksourceview/gtksourceencoding.c:517
+#: ../ctksourceview/ctksourceencoding.c:517
 msgid "['UTF-8', 'CURRENT', 'ISO-8859-15', 'UTF-16']"
 msgstr "['UTF-8', 'CURRENT', 'ISO-8859-15', 'UTF-16']"

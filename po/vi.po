@@ -7,9 +7,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gtksourceview master\n"
+"Project-Id-Version: ctksourceview master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=gtksourceview&keywords=I18N+L10N&component=General\n"
+"product=ctksourceview&keywords=I18N+L10N&component=General\n"
 "POT-Creation-Date: 2016-09-14 18:16+0000\n"
 "PO-Revision-Date: 2016-09-15 07:33+0700\n"
 "Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
@@ -22,64 +22,64 @@ msgstr ""
 "X-Generator: Gtranslator 2.91.7\n"
 
 #. (itstool) path: displayable-values/value@name
-#: gtksourceview.xml:23
+#: ctksourceview.xml:23
 msgid "Disabled"
 msgstr "Tắt"
 
 #. (itstool) path: displayable-values/value@name
-#: gtksourceview.xml:24
+#: ctksourceview.xml:24
 msgid "Before"
 msgstr "Trước"
 
 #. (itstool) path: displayable-values/value@name
-#: gtksourceview.xml:25
+#: ctksourceview.xml:25
 msgid "After"
 msgstr "Sau"
 
 #. (itstool) path: displayable-values/value@name
-#: gtksourceview.xml:26
+#: ctksourceview.xml:26
 msgid "Always"
 msgstr "Luôn luôn"
 
 #. (itstool) path: displayable-values/value@name
-#: gtksourceview.xml:32
+#: ctksourceview.xml:32
 msgid "Space"
 msgstr "Khoảng trắng"
 
 #. (itstool) path: displayable-values/value@name
-#: gtksourceview.xml:33
+#: ctksourceview.xml:33
 msgid "Tab"
 msgstr "Tab"
 
 #. (itstool) path: displayable-values/value@name
-#: gtksourceview.xml:34
+#: ctksourceview.xml:34
 msgid "Newline"
 msgstr "Dòng mới"
 
 #. (itstool) path: displayable-values/value@name
-#: gtksourceview.xml:35
+#: ctksourceview.xml:35
 msgid "Non Breaking Whitespace"
 msgstr "Khoảng trắng không ngắt"
 
 #. (itstool) path: displayable-values/value@name
-#: gtksourceview.xml:36
+#: ctksourceview.xml:36
 msgid "Leading"
 msgstr "Đầu"
 
 #. (itstool) path: displayable-values/value@name
-#: gtksourceview.xml:37
+#: ctksourceview.xml:37
 msgid "Text"
 msgstr "Văn bản"
 
 #. (itstool) path: displayable-values/value@name
-#: gtksourceview.xml:38
+#: ctksourceview.xml:38
 msgid "Trailing"
 msgstr "Đuôi"
 
 #. (itstool) path: displayable-values/value@name
 #. Translators: "All" is used as a label in the status bar of the
 #. popup, telling that all completion pages are shown.
-#: gtksourceview.xml:39 gtksourceview/gtksourcecompletion.c:833
+#: ctksourceview.xml:39 ctksourceview/ctksourcecompletion.c:833
 msgid "All"
 msgstr "Tất cả"
 
@@ -165,7 +165,7 @@ msgstr "Nguồn"
 #: bennugd.lang:32 boo.lang:34 cg.lang:33 c.lang:35 cobol.lang:35
 #: csharp.lang:37 def.lang:40 d.lang:40 dosbatch.lang:31 dot.lang:34
 #: eiffel.lang:33 erlang.lang:32 fcl.lang:30 forth.lang:34 fortran.lang:33
-#: fsharp.lang:34 gap.lang:32 genie.lang:34 go.lang:35 gtkrc.lang:33
+#: fsharp.lang:34 gap.lang:32 genie.lang:34 go.lang:35 ctkrc.lang:33
 #: haskell.lang:34 html.lang:34 idl-exelis.lang:28 idl.lang:32 ini.lang:31
 #: jade.lang:33 java.lang:35 j.lang:32 latex.lang:33 llvm.lang:30 lua.lang:34
 #: matlab.lang:41 modelica.lang:36 nemerle.lang:34 netrexx.lang:38 nsis.lang:32
@@ -193,7 +193,7 @@ msgstr "Lỗi"
 #: c.lang:36 cobol.lang:40 csharp.lang:40 css.lang:50 csv.lang:34 def.lang:57
 #: d.lang:42 dosbatch.lang:32 eiffel.lang:34 erlang.lang:36 forth.lang:35
 #: fortran.lang:34 fsharp.lang:38 gdb-log.lang:30 genie.lang:36 go.lang:37
-#: gtkrc.lang:34 haskell.lang:39 idl-exelis.lang:32 idl.lang:36 imagej.lang:40
+#: ctkrc.lang:34 haskell.lang:39 idl-exelis.lang:32 idl.lang:36 imagej.lang:40
 #: ini.lang:33 java.lang:37 javascript.lang:47 j.lang:45 json.lang:39
 #: julia.lang:37 llvm.lang:31 lua.lang:35 meson.lang:34 modelica.lang:37
 #: nemerle.lang:38 netrexx.lang:36 nsis.lang:33 objc.lang:37 objj.lang:41
@@ -233,7 +233,7 @@ msgstr "Khai báo phạm vi"
 #: cobol.lang:38 cpp.lang:35 csharp.lang:45 css.lang:59 cuda.lang:33
 #: def.lang:92 d.lang:43 dosbatch.lang:33 dot.lang:36 eiffel.lang:37
 #: erlang.lang:33 fcl.lang:32 forth.lang:37 fortran.lang:36 fsharp.lang:39
-#: gap.lang:34 genie.lang:41 glsl.lang:43 go.lang:39 gtkrc.lang:35
+#: gap.lang:34 genie.lang:41 glsl.lang:43 go.lang:39 ctkrc.lang:35
 #: haskell.lang:37 idl-exelis.lang:31 idl.lang:35 imagej.lang:38 ini.lang:34
 #: java.lang:45 javascript.lang:41 julia.lang:44 lex.lang:35 llvm.lang:32
 #: lua.lang:36 matlab.lang:42 modelica.lang:46 nemerle.lang:39 objc.lang:34
@@ -256,7 +256,7 @@ msgstr "Vô giá trị"
 
 #. (itstool) path: styles/style@_name
 #: actionscript.lang:44 ada.lang:38 asp.lang:42 bennugd.lang:41 cg.lang:46
-#: c.lang:51 csharp.lang:48 def.lang:75 fsharp.lang:50 go.lang:48 gtkrc.lang:40
+#: c.lang:51 csharp.lang:48 def.lang:75 fsharp.lang:50 go.lang:48 ctkrc.lang:40
 #: ini.lang:38 java.lang:47 llvm.lang:38 lua.lang:42 nemerle.lang:42
 #: ocaml.lang:52 ooc.lang:43 opal.lang:39 php.lang:53 protobuf.lang:36
 #: R.lang:39 ruby.lang:41 rust.lang:50 sml.lang:40 vala.lang:43 vbnet.lang:38
@@ -281,7 +281,7 @@ msgstr "Từ khóa dành riêng tương lai"
 #: actionscript.lang:47 ada.lang:40 asp.lang:40 bennugd.lang:37 boo.lang:39
 #: cg.lang:39 c.lang:43 cpp.lang:36 csharp.lang:39 cuda.lang:34 d.lang:44
 #: eiffel.lang:38 forth.lang:38 fortran.lang:40 fsharp.lang:42 genie.lang:39
-#: glsl.lang:42 go.lang:40 gtkrc.lang:37 haskell.lang:38 idl-exelis.lang:29
+#: glsl.lang:42 go.lang:40 ctkrc.lang:37 haskell.lang:38 idl-exelis.lang:29
 #: idl.lang:33 ini.lang:37 java.lang:50 javascript.lang:42 llvm.lang:37
 #: nemerle.lang:40 objc.lang:35 objj.lang:38 ocaml.lang:45 ocl.lang:45
 #: ooc.lang:49 opal.lang:41 opencl.lang:34 pascal.lang:37 php.lang:51
@@ -359,7 +359,7 @@ msgid "Word"
 msgstr "Từ"
 
 #. (itstool) path: styles/style@_name
-#: ansforth94.lang:44 cmake.lang:34 cobol.lang:39 def.lang:53 gtk-doc.lang:32
+#: ansforth94.lang:44 cmake.lang:34 cobol.lang:39 def.lang:53 ctk-doc.lang:32
 #: libtool.lang:32 ruby.lang:50
 msgid "Constant"
 msgstr "Hằng"
@@ -399,7 +399,7 @@ msgstr "ASP"
 
 #. (itstool) path: styles/style@_name
 #: asp.lang:36 cg.lang:48 changelog.lang:39 css.lang:53 def.lang:81 gap.lang:35
-#: gdb-log.lang:29 gtk-doc.lang:34 idl-exelis.lang:35 javascript.lang:43
+#: gdb-log.lang:29 ctk-doc.lang:34 idl-exelis.lang:35 javascript.lang:43
 #: llvm.lang:33 lua.lang:40 scheme.lang:36 scilab.lang:35 sh.lang:34
 #: sparql.lang:35 sql.lang:36
 msgid "Function"
@@ -539,7 +539,7 @@ msgstr "BibTeX"
 #. (itstool) path: bibtex.lang/language@_section
 #. (itstool) path: docbook.lang/language@_section
 #. (itstool) path: dtd.lang/language@_section
-#. (itstool) path: gtk-doc.lang/language@_section
+#. (itstool) path: ctk-doc.lang/language@_section
 #. (itstool) path: haddock.lang/language@_section
 #. (itstool) path: html.lang/language@_section
 #. (itstool) path: jade.lang/language@_section
@@ -554,7 +554,7 @@ msgstr "BibTeX"
 #. (itstool) path: texinfo.lang/language@_section
 #. (itstool) path: xml.lang/language@_section
 #. (itstool) path: xslt.lang/language@_section
-#: bibtex.lang:24 docbook.lang:24 dtd.lang:24 gtk-doc.lang:25 haddock.lang:24
+#: bibtex.lang:24 docbook.lang:24 dtd.lang:24 ctk-doc.lang:25 haddock.lang:24
 #: html.lang:25 jade.lang:26 latex.lang:25 mallard.lang:23 markdown.lang:26
 #: mediawiki.lang:23 mxml.lang:24 rst.lang:23 sweave.lang:25 t2t.lang:24
 #: texinfo.lang:25 xml.lang:26 xslt.lang:24
@@ -598,7 +598,7 @@ msgid "Import BVI"
 msgstr "Nhập BVI"
 
 #. (itstool) path: styles/style@_name
-#: bluespec.lang:36 gtk-doc.lang:33 julia.lang:49 systemverilog.lang:34
+#: bluespec.lang:36 ctk-doc.lang:33 julia.lang:49 systemverilog.lang:34
 #: verilog.lang:44 vhdl.lang:36
 msgid "Type"
 msgstr "Kiểu"
@@ -688,7 +688,7 @@ msgstr "Bản ghi đổi"
 #. (itstool) path: dot.lang/language@_section
 #. (itstool) path: dpatch.lang/language@_section
 #. (itstool) path: gdb-log.lang/language@_section
-#. (itstool) path: gtkrc.lang/language@_section
+#. (itstool) path: ctkrc.lang/language@_section
 #. (itstool) path: ini.lang/language@_section
 #. (itstool) path: json.lang/language@_section
 #. (itstool) path: libtool.lang/language@_section
@@ -703,7 +703,7 @@ msgstr "Bản ghi đổi"
 #. (itstool) path: yacc.lang/language@_section
 #. (itstool) path: yaml.lang/language@_section
 #: changelog.lang:25 cmake.lang:24 css.lang:39 csv.lang:24 desktop.lang:25
-#: diff.lang:24 dot.lang:24 dpatch.lang:24 gdb-log.lang:19 gtkrc.lang:25
+#: diff.lang:24 dot.lang:24 dpatch.lang:24 gdb-log.lang:19 ctkrc.lang:25
 #: ini.lang:23 json.lang:30 libtool.lang:24 nsis.lang:24 ocl.lang:33
 #: pkgconfig.lang:24 po.lang:24 protobuf.lang:21 puppet.lang:24 rpmspec.lang:24
 #: scala.lang:49 yacc.lang:24 yaml.lang:22
@@ -847,7 +847,7 @@ msgid "Others 3"
 msgstr "Khác 3"
 
 #. (itstool) path: styles/style@_name
-#: css.lang:55 fcl.lang:34 fortran.lang:39 gap.lang:36 gtkrc.lang:36
+#: css.lang:55 fcl.lang:34 fortran.lang:39 gap.lang:36 ctkrc.lang:36
 #: haskell.lang:43 ini.lang:35 json.lang:43 modelica.lang:43 pascal.lang:36
 #: sml.lang:39 sql.lang:37
 msgid "Decimal"
@@ -1452,64 +1452,64 @@ msgstr "Go"
 msgid "Imaginary number"
 msgstr "Số ảo"
 
-#. (itstool) path: gtk-doc.lang/language@_name
-#: gtk-doc.lang:25
-msgid "gtk-doc"
+#. (itstool) path: ctk-doc.lang/language@_name
+#: ctk-doc.lang:25
+msgid "ctk-doc"
 msgstr "tài liệu GTK"
 
 #. (itstool) path: styles/style@_name
-#: gtk-doc.lang:27
+#: ctk-doc.lang:27
 msgid "Inline Documentation Section"
 msgstr "Phần tài liệu trực tiếp"
 
 #. (itstool) path: styles/style@_name
-#: gtk-doc.lang:28 python.lang:52
+#: ctk-doc.lang:28 python.lang:52
 msgid "Function Name"
 msgstr "Tên hàm"
 
 #. (itstool) path: styles/style@_name
-#: gtk-doc.lang:29
+#: ctk-doc.lang:29
 msgid "Signal Name"
 msgstr "Tên tín hiệu"
 
 #. (itstool) path: styles/style@_name
-#: gtk-doc.lang:30
+#: ctk-doc.lang:30
 msgid "Property Name"
 msgstr "Tên thuộc tính"
 
 #. (itstool) path: styles/style@_name
-#: gtk-doc.lang:31
+#: ctk-doc.lang:31
 msgid "Parameter"
 msgstr "Tham số"
 
 #. (itstool) path: styles/style@_name
-#: gtk-doc.lang:35
+#: ctk-doc.lang:35
 msgid "Return"
 msgstr "Trở về"
 
 #. (itstool) path: styles/style@_name
-#: gtk-doc.lang:36
+#: ctk-doc.lang:36
 msgid "Since"
 msgstr "Kể từ"
 
 #. (itstool) path: styles/style@_name
-#: gtk-doc.lang:37
+#: ctk-doc.lang:37
 msgid "Deprecated"
 msgstr "Bị phản đối"
 
 # Name: don't translate / Tên: đừng dịch
-#. (itstool) path: gtkrc.lang/language@_name
-#: gtkrc.lang:25
+#. (itstool) path: ctkrc.lang/language@_name
+#: ctkrc.lang:25
 msgid "GtkRC"
 msgstr "GtkRC"
 
 #. (itstool) path: styles/style@_name
-#: gtkrc.lang:38
+#: ctkrc.lang:38
 msgid "Widget State"
 msgstr "Tình trạng ô điều khiển"
 
 #. (itstool) path: styles/style@_name
-#: gtkrc.lang:39
+#: ctkrc.lang:39
 msgid "Include directive"
 msgstr "Chỉ thị bao gồm"
 
@@ -2774,9 +2774,9 @@ msgstr "Định nghĩa biến"
 #. * syntax highlighting and [context classes][context-classes].
 #. *
 #. * Use #GtkSourceLanguageManager to obtain a #GtkSourceLanguage instance, and
-#. * gtk_source_buffer_set_language() to apply it to a #GtkSourceBuffer.
+#. * ctk_source_buffer_set_language() to apply it to a #GtkSourceBuffer.
 #.
-#: sh.lang:39 texinfo.lang:35 gtksourceview/gtksourcelanguage.c:56
+#: sh.lang:39 texinfo.lang:35 ctksourceview/ctksourcelanguage.c:56
 msgid "Others"
 msgstr "Khác"
 
@@ -3110,51 +3110,51 @@ msgstr "Tango"
 msgid "Color scheme using Tango color palette"
 msgstr "Lược đồ màu dùng bảng chọn màu Tango"
 
-#: gtksourceview/completion-providers/words/gtksourcecompletionwords.c:334
+#: ctksourceview/completion-providers/words/ctksourcecompletionwords.c:334
 msgid "Document Words"
 msgstr "Document Words"
 
-#: gtksourceview/gtksourcebufferoutputstream.c:843
+#: ctksourceview/ctksourcebufferoutputstream.c:843
 msgid "Invalid byte sequence in conversion input"
 msgstr "Dãy byte không hợp lệ trong phần đầu vào chuyển đổi"
 
-#: gtksourceview/gtksourcebufferoutputstream.c:849
+#: ctksourceview/ctksourcebufferoutputstream.c:849
 #, c-format
 msgid "Error during conversion: %s"
 msgstr "Gặp lỗi khi chuyển đổi: %s"
 
-#: gtksourceview/gtksourcebufferoutputstream.c:930
+#: ctksourceview/ctksourcebufferoutputstream.c:930
 #, c-format
 msgid "Conversion from character set '%s' to 'UTF-8' is not supported"
 msgstr "Chưa hỗ trợ chuyển đổi từ bảng mã “%s” sang “UTF-8”"
 
-#: gtksourceview/gtksourcebufferoutputstream.c:936
+#: ctksourceview/ctksourcebufferoutputstream.c:936
 #, c-format
 msgid "Could not open converter from '%s' to 'UTF-8'"
 msgstr "Không thể mở bộ chuyển đổi từ “%s” sang “UTF-8”"
 
-#: gtksourceview/gtksourcebufferoutputstream.c:996
+#: ctksourceview/ctksourcebufferoutputstream.c:996
 msgid "Invalid object, not initialized"
 msgstr "Đối tượng không hợp lệ, chưa được khởi tạo"
 
-#: gtksourceview/gtksourcebufferoutputstream.c:1188
+#: ctksourceview/ctksourcebufferoutputstream.c:1188
 msgid "Incomplete UTF-8 sequence in input"
 msgstr "Chuỗi UTF-8 chưa hoàn thiện ở đầu vào"
 
 #. Tooltip style
-#: gtksourceview/gtksourcecompletioninfo.c:271
+#: ctksourceview/ctksourcecompletioninfo.c:271
 msgid "Completion Info"
 msgstr "Thông tin hoàn chỉnh"
 
-#: gtksourceview/gtksourcecompletionmodel.c:495
+#: ctksourceview/ctksourcecompletionmodel.c:495
 msgid "Provider"
 msgstr "Bộ cung cấp"
 
-#: gtksourceview/gtksourcecompletion.ui:87
+#: ctksourceview/ctksourcecompletion.ui:87
 msgid "Show detailed proposal information"
 msgstr "Hiển thị thông tin đề nghị chi tiết"
 
-#: gtksourceview/gtksourcecompletion.ui:89
+#: ctksourceview/ctksourcecompletion.ui:89
 msgid "_Details..."
 msgstr "_Chi tiết…"
 
@@ -3162,7 +3162,7 @@ msgstr "_Chi tiết…"
 #. * named sub-patterns with the same name or if resulting regex is
 #. * too long. In this case fixing lang file helps (e.g. renaming
 #. * subpatterns, making huge keywords use bigger prefixes, etc.)
-#: gtksourceview/gtksourcecontextengine.c:3141
+#: ctksourceview/ctksourcecontextengine.c:3141
 #, c-format
 msgid ""
 "Cannot create a regex for all the transitions, the syntax highlighting "
@@ -3173,7 +3173,7 @@ msgstr ""
 "tô sáng cú pháp sẽ chạy chậm hơn trường hợp bình thường.\n"
 "Lỗi: %s"
 
-#: gtksourceview/gtksourcecontextengine.c:4464
+#: ctksourceview/ctksourcecontextengine.c:4464
 msgid ""
 "Highlighting a single line took too much time, syntax highlighting will be "
 "disabled"
@@ -3181,19 +3181,19 @@ msgstr ""
 "Tốn quá nhiều thời gian để tô sáng dòng đơn, tô sáng cú pháp sẽ bị tắt tạm "
 "thời"
 
-#: gtksourceview/gtksourcecontextengine.c:5712
+#: ctksourceview/ctksourcecontextengine.c:5712
 #, c-format
 msgid "context '%s' cannot contain a \\%%{...@start} command"
 msgstr "ngữ cảnh “%s” không thể chứa lệnh kiểu \\%%{…@start}"
 
-#: gtksourceview/gtksourcecontextengine.c:5875
-#: gtksourceview/gtksourcecontextengine.c:5966
+#: ctksourceview/ctksourcecontextengine.c:5875
+#: ctksourceview/ctksourcecontextengine.c:5966
 #, c-format
 msgid "duplicated context id '%s'"
 msgstr "id ngữ cảnh trùng “%s”"
 
-#: gtksourceview/gtksourcecontextengine.c:6080
-#: gtksourceview/gtksourcecontextengine.c:6140
+#: ctksourceview/ctksourcecontextengine.c:6080
+#: ctksourceview/ctksourcecontextengine.c:6140
 #, c-format
 msgid ""
 "style override used with wildcard context reference in language '%s' in ref "
@@ -3202,135 +3202,135 @@ msgstr ""
 "quyền kiểu dáng cao hơn được dùng với tham chiếu ngữ cảnh ký tự đại diện "
 "bằng ngôn ngữ “%s” trong tham chiếu “%s”"
 
-#: gtksourceview/gtksourcecontextengine.c:6154
+#: ctksourceview/ctksourcecontextengine.c:6154
 #, c-format
 msgid "invalid context reference '%s'"
 msgstr "tham chiếu ngữ cảnh không hợp lệ “%s”"
 
-#: gtksourceview/gtksourcecontextengine.c:6173
-#: gtksourceview/gtksourcecontextengine.c:6183
+#: ctksourceview/ctksourcecontextengine.c:6173
+#: ctksourceview/ctksourcecontextengine.c:6183
 #, c-format
 msgid "unknown context '%s'"
 msgstr "ngữ cảnh không rõ “%s”"
 
-#: gtksourceview/gtksourcecontextengine.c:6282
+#: ctksourceview/ctksourcecontextengine.c:6282
 #, c-format
 msgid "Missing main language definition (id = \"%s\".)"
 msgstr "Thiếu định nghĩa ngôn ngữ chính (id = \"%s\".)"
 
-#: gtksourceview/gtksourceencoding.c:141 gtksourceview/gtksourceencoding.c:184
-#: gtksourceview/gtksourceencoding.c:186 gtksourceview/gtksourceencoding.c:188
-#: gtksourceview/gtksourceencoding.c:190 gtksourceview/gtksourceencoding.c:192
-#: gtksourceview/gtksourceencoding.c:194 gtksourceview/gtksourceencoding.c:196
+#: ctksourceview/ctksourceencoding.c:141 ctksourceview/ctksourceencoding.c:184
+#: ctksourceview/ctksourceencoding.c:186 ctksourceview/ctksourceencoding.c:188
+#: ctksourceview/ctksourceencoding.c:190 ctksourceview/ctksourceencoding.c:192
+#: ctksourceview/ctksourceencoding.c:194 ctksourceview/ctksourceencoding.c:196
 msgid "Unicode"
 msgstr "Unicode"
 
-#: gtksourceview/gtksourceencoding.c:155 gtksourceview/gtksourceencoding.c:179
-#: gtksourceview/gtksourceencoding.c:229 gtksourceview/gtksourceencoding.c:272
+#: ctksourceview/ctksourceencoding.c:155 ctksourceview/ctksourceencoding.c:179
+#: ctksourceview/ctksourceencoding.c:229 ctksourceview/ctksourceencoding.c:272
 msgid "Western"
 msgstr "Phương Tây"
 
-#: gtksourceview/gtksourceencoding.c:157 gtksourceview/gtksourceencoding.c:231
-#: gtksourceview/gtksourceencoding.c:268
+#: ctksourceview/ctksourceencoding.c:157 ctksourceview/ctksourceencoding.c:231
+#: ctksourceview/ctksourceencoding.c:268
 msgid "Central European"
 msgstr "Trung Âu"
 
-#: gtksourceview/gtksourceencoding.c:159
+#: ctksourceview/ctksourceencoding.c:159
 msgid "South European"
 msgstr "Nam Âu"
 
-#: gtksourceview/gtksourceencoding.c:161 gtksourceview/gtksourceencoding.c:175
-#: gtksourceview/gtksourceencoding.c:282
+#: ctksourceview/ctksourceencoding.c:161 ctksourceview/ctksourceencoding.c:175
+#: ctksourceview/ctksourceencoding.c:282
 msgid "Baltic"
 msgstr "Ban-tích"
 
-#: gtksourceview/gtksourceencoding.c:163 gtksourceview/gtksourceencoding.c:233
-#: gtksourceview/gtksourceencoding.c:246 gtksourceview/gtksourceencoding.c:250
-#: gtksourceview/gtksourceencoding.c:252 gtksourceview/gtksourceencoding.c:270
+#: ctksourceview/ctksourceencoding.c:163 ctksourceview/ctksourceencoding.c:233
+#: ctksourceview/ctksourceencoding.c:246 ctksourceview/ctksourceencoding.c:250
+#: ctksourceview/ctksourceencoding.c:252 ctksourceview/ctksourceencoding.c:270
 msgid "Cyrillic"
 msgstr "Ki-rin"
 
-#: gtksourceview/gtksourceencoding.c:165 gtksourceview/gtksourceencoding.c:239
-#: gtksourceview/gtksourceencoding.c:280
+#: ctksourceview/ctksourceencoding.c:165 ctksourceview/ctksourceencoding.c:239
+#: ctksourceview/ctksourceencoding.c:280
 msgid "Arabic"
 msgstr "A Rập"
 
-#: gtksourceview/gtksourceencoding.c:167 gtksourceview/gtksourceencoding.c:274
+#: ctksourceview/ctksourceencoding.c:167 ctksourceview/ctksourceencoding.c:274
 msgid "Greek"
 msgstr "Hy Lạp"
 
-#: gtksourceview/gtksourceencoding.c:169
+#: ctksourceview/ctksourceencoding.c:169
 msgid "Hebrew Visual"
 msgstr "Do thái trực quan"
 
-#: gtksourceview/gtksourceencoding.c:171 gtksourceview/gtksourceencoding.c:235
-#: gtksourceview/gtksourceencoding.c:276
+#: ctksourceview/ctksourceencoding.c:171 ctksourceview/ctksourceencoding.c:235
+#: ctksourceview/ctksourceencoding.c:276
 msgid "Turkish"
 msgstr "Thổ Nhĩ Kỳ"
 
-#: gtksourceview/gtksourceencoding.c:173
+#: ctksourceview/ctksourceencoding.c:173
 msgid "Nordic"
 msgstr "Bắc Âu"
 
-#: gtksourceview/gtksourceencoding.c:177
+#: ctksourceview/ctksourceencoding.c:177
 msgid "Celtic"
 msgstr "Tiếng Xen-tơ"
 
-#: gtksourceview/gtksourceencoding.c:181
+#: ctksourceview/ctksourceencoding.c:181
 msgid "Romanian"
 msgstr "Tiếng Ru-ma-ni"
 
-#: gtksourceview/gtksourceencoding.c:199
+#: ctksourceview/ctksourceencoding.c:199
 msgid "Armenian"
 msgstr "Tiếng Ác-mê-ni"
 
-#: gtksourceview/gtksourceencoding.c:201 gtksourceview/gtksourceencoding.c:203
-#: gtksourceview/gtksourceencoding.c:217
+#: ctksourceview/ctksourceencoding.c:201 ctksourceview/ctksourceencoding.c:203
+#: ctksourceview/ctksourceencoding.c:217
 msgid "Chinese Traditional"
 msgstr "Tiếng Hoa truyền thống"
 
-#: gtksourceview/gtksourceencoding.c:205
+#: ctksourceview/ctksourceencoding.c:205
 msgid "Cyrillic/Russian"
 msgstr "Ki-rin/Tiếng Nga"
 
-#: gtksourceview/gtksourceencoding.c:208 gtksourceview/gtksourceencoding.c:210
-#: gtksourceview/gtksourceencoding.c:212 gtksourceview/gtksourceencoding.c:242
-#: gtksourceview/gtksourceencoding.c:257
+#: ctksourceview/ctksourceencoding.c:208 ctksourceview/ctksourceencoding.c:210
+#: ctksourceview/ctksourceencoding.c:212 ctksourceview/ctksourceencoding.c:242
+#: ctksourceview/ctksourceencoding.c:257
 msgid "Japanese"
 msgstr "Tiếng Nhật"
 
-#: gtksourceview/gtksourceencoding.c:215 gtksourceview/gtksourceencoding.c:244
-#: gtksourceview/gtksourceencoding.c:248 gtksourceview/gtksourceencoding.c:263
+#: ctksourceview/ctksourceencoding.c:215 ctksourceview/ctksourceencoding.c:244
+#: ctksourceview/ctksourceencoding.c:248 ctksourceview/ctksourceencoding.c:263
 msgid "Korean"
 msgstr "Tiếng Hàn Quốc"
 
-#: gtksourceview/gtksourceencoding.c:220 gtksourceview/gtksourceencoding.c:222
-#: gtksourceview/gtksourceencoding.c:224
+#: ctksourceview/ctksourceencoding.c:220 ctksourceview/ctksourceencoding.c:222
+#: ctksourceview/ctksourceencoding.c:224
 msgid "Chinese Simplified"
 msgstr "Tiếng Hoa phổ thông"
 
-#: gtksourceview/gtksourceencoding.c:226
+#: ctksourceview/ctksourceencoding.c:226
 msgid "Georgian"
 msgstr "Tiếng Gioóc-gia"
 
-#: gtksourceview/gtksourceencoding.c:237 gtksourceview/gtksourceencoding.c:278
+#: ctksourceview/ctksourceencoding.c:237 ctksourceview/ctksourceencoding.c:278
 msgid "Hebrew"
 msgstr "Tiếng Do Thái"
 
-#: gtksourceview/gtksourceencoding.c:254
+#: ctksourceview/ctksourceencoding.c:254
 msgid "Cyrillic/Ukrainian"
 msgstr "Ki-rin/Tiếng Ucraina"
 
-#: gtksourceview/gtksourceencoding.c:259 gtksourceview/gtksourceencoding.c:265
-#: gtksourceview/gtksourceencoding.c:284
+#: ctksourceview/ctksourceencoding.c:259 ctksourceview/ctksourceencoding.c:265
+#: ctksourceview/ctksourceencoding.c:284
 msgid "Vietnamese"
 msgstr "Tiếng Việt"
 
-#: gtksourceview/gtksourceencoding.c:261
+#: ctksourceview/ctksourceencoding.c:261
 msgid "Thai"
 msgstr "Tiếng Thái Lan"
 
-#: gtksourceview/gtksourceencoding.c:495
+#: ctksourceview/ctksourceencoding.c:495
 msgid "Unknown"
 msgstr "Chưa biết"
 
@@ -3344,91 +3344,91 @@ msgstr "Chưa biết"
 #. * value used by GtkSourceView and it represents the encoding for the
 #. * current locale, so please don't translate the "CURRENT" term.  Only
 #. * recognized encodings are used. See
-#. * https://git.gnome.org/browse/gtksourceview/tree/gtksourceview/gtksourceencoding.c#n147
+#. * https://git.gnome.org/browse/ctksourceview/tree/ctksourceview/ctksourceencoding.c#n147
 #. * for a list of supported encodings.
 #. * Keep the same format: square brackets, single quotes, commas.
 #.
-#: gtksourceview/gtksourceencoding.c:639
+#: ctksourceview/ctksourceencoding.c:639
 msgid "['UTF-8', 'CURRENT', 'ISO-8859-15', 'UTF-16']"
 msgstr "['UTF-8', 'CURRENT', 'UTF-16']"
 
-#: gtksourceview/gtksourcefileloader.c:508
+#: ctksourceview/ctksourcefileloader.c:508
 msgid ""
 "There was a character encoding conversion error and it was needed to use a "
 "fallback character."
 msgstr ""
 "Có một lỗi chuyển đổi bảng mã ký tự và nó cần sử dụng một ký tự dự phòng"
 
-#: gtksourceview/gtksourcefileloader.c:615
+#: ctksourceview/ctksourcefileloader.c:615
 msgid "File too big."
 msgstr "Tập tin quá lớn."
 
-#: gtksourceview/gtksourcefileloader.c:769
+#: ctksourceview/ctksourcefileloader.c:769
 msgid "Not a regular file."
 msgstr "Không phải là một tập tin thường."
 
-#: gtksourceview/gtksourcefilesaver.c:968
+#: ctksourceview/ctksourcefilesaver.c:968
 msgid "The file is externally modified."
 msgstr "Tập tin đã bị sửa đổi từ bên ngoài."
 
-#: gtksourceview/gtksourcefilesaver.c:1420
+#: ctksourceview/ctksourcefilesaver.c:1420
 msgid "The buffer contains invalid characters."
 msgstr "Bộ nhớ đệm có chứa ký tự không hợp lệ."
 
-#: gtksourceview/gtksourcelanguage-parser-2.c:950
+#: ctksourceview/ctksourcelanguage-parser-2.c:950
 #, c-format
 msgid "Unknown id '%s' in regex '%s'"
 msgstr "Không hiểu id “%s” trong biểu thức chính quy “%s”"
 
-#: gtksourceview/gtksourcelanguage-parser-2.c:1180
+#: ctksourceview/ctksourcelanguage-parser-2.c:1180
 #, c-format
 msgid "in regex '%s': backreferences are not supported"
 msgstr "trong biểu thức chính quy “%s”: không hỗ trợ tham chiếu ngược"
 
-#: gtksourceview/gtksourceregex.c:129
+#: ctksourceview/ctksourceregex.c:129
 msgid "using \\C is not supported in language definitions"
 msgstr "trong phần định nghĩa ngôn ngữ, không hỗ trợ khả năng sử dụng \\C"
 
 #. TODO: have a ChooserDialog?
-#: gtksourceview/gtksourcestyleschemechooserbutton.c:185
+#: ctksourceview/ctksourcestyleschemechooserbutton.c:185
 msgid "Select a Style"
 msgstr "Chọn một kiểu"
 
-#: gtksourceview/gtksourcestyleschemechooserbutton.c:189
+#: ctksourceview/ctksourcestyleschemechooserbutton.c:189
 msgid "_Cancel"
 msgstr "T_hôi"
 
-#: gtksourceview/gtksourcestyleschemechooserbutton.c:190
+#: ctksourceview/ctksourcestyleschemechooserbutton.c:190
 msgid "_Select"
 msgstr "C_họn"
 
 #. create redo menu_item.
-#: gtksourceview/gtksourceview.c:1722
+#: ctksourceview/ctksourceview.c:1722
 msgid "_Redo"
 msgstr "Hoàn _lại"
 
 #. create undo menu_item.
-#: gtksourceview/gtksourceview.c:1733
+#: ctksourceview/ctksourceview.c:1733
 msgid "_Undo"
 msgstr "_Hoàn tác"
 
-#: gtksourceview/gtksourceview.c:1752
+#: ctksourceview/ctksourceview.c:1752
 msgid "All _Upper Case"
 msgstr "Tất cả chữ _HOA"
 
-#: gtksourceview/gtksourceview.c:1762
+#: ctksourceview/ctksourceview.c:1762
 msgid "All _Lower Case"
 msgstr "Tất cả chữ _thường"
 
-#: gtksourceview/gtksourceview.c:1772
+#: ctksourceview/ctksourceview.c:1772
 msgid "_Invert Case"
 msgstr "Đả_o HOA/thường"
 
-#: gtksourceview/gtksourceview.c:1782
+#: ctksourceview/ctksourceview.c:1782
 msgid "_Title Case"
 msgstr "Chữ _Tựa"
 
-#: gtksourceview/gtksourceview.c:1792
+#: ctksourceview/ctksourceview.c:1792
 msgid "C_hange Case"
 msgstr "C_huyển đổi HOA/thường"
 

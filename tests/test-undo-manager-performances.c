@@ -18,7 +18,7 @@
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <gtksourceview/gtksource.h>
+#include <ctksourceview/ctksource.h>
 
 #define NB_LINES 100000
 
@@ -32,9 +32,9 @@ test_undo_redo (GtkSourceBuffer *buffer,
 
 	for (nb_actions = 0; nb_actions < max_actions; nb_actions++)
 	{
-		if (gtk_source_buffer_can_undo (buffer))
+		if (ctk_source_buffer_can_undo (buffer))
 		{
-			gtk_source_buffer_undo (buffer);
+			ctk_source_buffer_undo (buffer);
 		}
 		else
 		{
@@ -44,8 +44,8 @@ test_undo_redo (GtkSourceBuffer *buffer,
 
 	for (i = 0; i < nb_actions; i++)
 	{
-		g_assert_true (gtk_source_buffer_can_redo (buffer));
-		gtk_source_buffer_redo (buffer);
+		g_assert_true (ctk_source_buffer_can_redo (buffer));
+		ctk_source_buffer_redo (buffer);
 	}
 
 	return nb_actions;
@@ -62,23 +62,23 @@ main (gint    argc,
 	gint nb_actions;
 	gint i;
 
-	gtk_init (&argc, &argv);
+	ctk_init (&argc, &argv);
 
-	source_buffer = gtk_source_buffer_new (NULL);
+	source_buffer = ctk_source_buffer_new (NULL);
 	text_buffer = GTK_TEXT_BUFFER (source_buffer);
 
-	gtk_text_buffer_get_start_iter (text_buffer, &iter);
+	ctk_text_buffer_get_start_iter (text_buffer, &iter);
 
 	for (i = 0; i < NB_LINES; i++)
 	{
-		gtk_text_buffer_begin_user_action (text_buffer);
+		ctk_text_buffer_begin_user_action (text_buffer);
 
-		gtk_text_buffer_insert (text_buffer,
+		ctk_text_buffer_insert (text_buffer,
 					&iter,
 					"A line of text to fill the text buffer. Is it long enough?\n",
 					-1);
 
-		gtk_text_buffer_end_user_action (text_buffer);
+		ctk_text_buffer_end_user_action (text_buffer);
 	}
 
 	timer = g_timer_new ();

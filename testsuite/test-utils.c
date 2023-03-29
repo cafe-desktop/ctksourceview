@@ -17,34 +17,34 @@
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <gtksourceview/gtksource.h>
+#include <ctksourceview/ctksource.h>
 
 static void
 test_unescape_search_text (void)
 {
 	gchar *unescaped_text;
 
-	unescaped_text = gtk_source_utils_unescape_search_text ("\\n");
+	unescaped_text = ctk_source_utils_unescape_search_text ("\\n");
 	g_assert_cmpstr (unescaped_text, ==, "\n");
 	g_free (unescaped_text);
 
-	unescaped_text = gtk_source_utils_unescape_search_text ("\\r");
+	unescaped_text = ctk_source_utils_unescape_search_text ("\\r");
 	g_assert_cmpstr (unescaped_text, ==, "\r");
 	g_free (unescaped_text);
 
-	unescaped_text = gtk_source_utils_unescape_search_text ("\\t");
+	unescaped_text = ctk_source_utils_unescape_search_text ("\\t");
 	g_assert_cmpstr (unescaped_text, ==, "\t");
 	g_free (unescaped_text);
 
-	unescaped_text = gtk_source_utils_unescape_search_text ("\\\\");
+	unescaped_text = ctk_source_utils_unescape_search_text ("\\\\");
 	g_assert_cmpstr (unescaped_text, ==, "\\");
 	g_free (unescaped_text);
 
-	unescaped_text = gtk_source_utils_unescape_search_text ("foo\\n bar\\r ß\\t hello\\\\blah");
+	unescaped_text = ctk_source_utils_unescape_search_text ("foo\\n bar\\r ß\\t hello\\\\blah");
 	g_assert_cmpstr (unescaped_text, ==, "foo\n bar\r ß\t hello\\blah");
 	g_free (unescaped_text);
 
-	unescaped_text = gtk_source_utils_unescape_search_text ("foo\n bar\r ß\t hello\\blah");
+	unescaped_text = ctk_source_utils_unescape_search_text ("foo\n bar\r ß\t hello\\blah");
 	g_assert_cmpstr (unescaped_text, ==, "foo\n bar\r ß\t hello\\blah");
 	g_free (unescaped_text);
 }
@@ -54,23 +54,23 @@ test_escape_search_text (void)
 {
 	gchar *escaped_text;
 
-	escaped_text = gtk_source_utils_escape_search_text ("\n");
+	escaped_text = ctk_source_utils_escape_search_text ("\n");
 	g_assert_cmpstr (escaped_text, ==, "\\n");
 	g_free (escaped_text);
 
-	escaped_text = gtk_source_utils_escape_search_text ("\r");
+	escaped_text = ctk_source_utils_escape_search_text ("\r");
 	g_assert_cmpstr (escaped_text, ==, "\\r");
 	g_free (escaped_text);
 
-	escaped_text = gtk_source_utils_escape_search_text ("\t");
+	escaped_text = ctk_source_utils_escape_search_text ("\t");
 	g_assert_cmpstr (escaped_text, ==, "\\t");
 	g_free (escaped_text);
 
-	escaped_text = gtk_source_utils_escape_search_text ("\\");
+	escaped_text = ctk_source_utils_escape_search_text ("\\");
 	g_assert_cmpstr (escaped_text, ==, "\\\\");
 	g_free (escaped_text);
 
-	escaped_text = gtk_source_utils_escape_search_text ("foo\n bar\r ß\t hello\\blah");
+	escaped_text = ctk_source_utils_escape_search_text ("foo\n bar\r ß\t hello\\blah");
 	g_assert_cmpstr (escaped_text, ==, "foo\\n bar\\r ß\\t hello\\\\blah");
 	g_free (escaped_text);
 }
@@ -78,7 +78,7 @@ test_escape_search_text (void)
 int
 main (int argc, char **argv)
 {
-	gtk_test_init (&argc, &argv);
+	ctk_test_init (&argc, &argv);
 
 	g_test_add_func ("/Utils/unescape_search_text", test_unescape_search_text);
 	g_test_add_func ("/Utils/escape_search_text", test_escape_search_text);

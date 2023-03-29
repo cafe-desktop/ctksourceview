@@ -28,7 +28,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "gtksourceundomanager.h"
+#include "ctksourceundomanager.h"
 
 /**
  * SECTION:undomanager
@@ -40,11 +40,11 @@
  * already provides an API and a default implementation for the undo/redo.
  *
  * For specific needs, the #GtkSourceUndoManager interface can be implemented to
- * provide custom undo management. Use gtk_source_buffer_set_undo_manager() to
+ * provide custom undo management. Use ctk_source_buffer_set_undo_manager() to
  * install a custom undo manager for a particular #GtkSourceBuffer.
  *
- * Use gtk_source_undo_manager_can_undo_changed() and
- * gtk_source_undo_manager_can_redo_changed() when respectively the undo state
+ * Use ctk_source_undo_manager_can_undo_changed() and
+ * ctk_source_undo_manager_can_redo_changed() when respectively the undo state
  * or redo state of the undo stack has changed.
  *
  * Since: 2.10
@@ -61,51 +61,51 @@ static guint signals[N_SIGNALS];
 
 typedef GtkSourceUndoManagerIface GtkSourceUndoManagerInterface;
 
-G_DEFINE_INTERFACE (GtkSourceUndoManager, gtk_source_undo_manager, G_TYPE_OBJECT)
+G_DEFINE_INTERFACE (GtkSourceUndoManager, ctk_source_undo_manager, G_TYPE_OBJECT)
 
 static gboolean
-gtk_source_undo_manager_can_undo_default (GtkSourceUndoManager *manager)
+ctk_source_undo_manager_can_undo_default (GtkSourceUndoManager *manager)
 {
 	return FALSE;
 }
 
 static gboolean
-gtk_source_undo_manager_can_redo_default (GtkSourceUndoManager *manager)
+ctk_source_undo_manager_can_redo_default (GtkSourceUndoManager *manager)
 {
 	return FALSE;
 }
 
 static void
-gtk_source_undo_manager_undo_default (GtkSourceUndoManager *manager)
+ctk_source_undo_manager_undo_default (GtkSourceUndoManager *manager)
 {
 }
 
 static void
-gtk_source_undo_manager_redo_default (GtkSourceUndoManager *manager)
+ctk_source_undo_manager_redo_default (GtkSourceUndoManager *manager)
 {
 }
 
 static void
-gtk_source_undo_manager_begin_not_undoable_action_default (GtkSourceUndoManager *manager)
+ctk_source_undo_manager_begin_not_undoable_action_default (GtkSourceUndoManager *manager)
 {
 }
 
 static void
-gtk_source_undo_manager_end_not_undoable_action_default (GtkSourceUndoManager *manager)
+ctk_source_undo_manager_end_not_undoable_action_default (GtkSourceUndoManager *manager)
 {
 }
 
 static void
-gtk_source_undo_manager_default_init (GtkSourceUndoManagerIface *iface)
+ctk_source_undo_manager_default_init (GtkSourceUndoManagerIface *iface)
 {
-	iface->can_undo = gtk_source_undo_manager_can_undo_default;
-	iface->can_redo = gtk_source_undo_manager_can_redo_default;
+	iface->can_undo = ctk_source_undo_manager_can_undo_default;
+	iface->can_redo = ctk_source_undo_manager_can_redo_default;
 
-	iface->undo = gtk_source_undo_manager_undo_default;
-	iface->redo = gtk_source_undo_manager_redo_default;
+	iface->undo = ctk_source_undo_manager_undo_default;
+	iface->redo = ctk_source_undo_manager_redo_default;
 
-	iface->begin_not_undoable_action = gtk_source_undo_manager_begin_not_undoable_action_default;
-	iface->end_not_undoable_action = gtk_source_undo_manager_end_not_undoable_action_default;
+	iface->begin_not_undoable_action = ctk_source_undo_manager_begin_not_undoable_action_default;
+	iface->end_not_undoable_action = ctk_source_undo_manager_end_not_undoable_action_default;
 
 	/**
 	 * GtkSourceUndoManager::can-undo-changed:
@@ -153,7 +153,7 @@ gtk_source_undo_manager_default_init (GtkSourceUndoManagerIface *iface)
 }
 
 /**
- * gtk_source_undo_manager_can_undo:
+ * ctk_source_undo_manager_can_undo:
  * @manager: a #GtkSourceUndoManager.
  *
  * Get whether there are undo operations available.
@@ -163,7 +163,7 @@ gtk_source_undo_manager_default_init (GtkSourceUndoManagerIface *iface)
  * Since: 2.10
  */
 gboolean
-gtk_source_undo_manager_can_undo (GtkSourceUndoManager *manager)
+ctk_source_undo_manager_can_undo (GtkSourceUndoManager *manager)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_UNDO_MANAGER (manager), FALSE);
 
@@ -171,7 +171,7 @@ gtk_source_undo_manager_can_undo (GtkSourceUndoManager *manager)
 }
 
 /**
- * gtk_source_undo_manager_can_redo:
+ * ctk_source_undo_manager_can_redo:
  * @manager: a #GtkSourceUndoManager.
  *
  * Get whether there are redo operations available.
@@ -181,7 +181,7 @@ gtk_source_undo_manager_can_undo (GtkSourceUndoManager *manager)
  * Since: 2.10
  */
 gboolean
-gtk_source_undo_manager_can_redo (GtkSourceUndoManager *manager)
+ctk_source_undo_manager_can_redo (GtkSourceUndoManager *manager)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_UNDO_MANAGER (manager), FALSE);
 
@@ -189,17 +189,17 @@ gtk_source_undo_manager_can_redo (GtkSourceUndoManager *manager)
 }
 
 /**
- * gtk_source_undo_manager_undo:
+ * ctk_source_undo_manager_undo:
  * @manager: a #GtkSourceUndoManager.
  *
  * Perform a single undo. Calling this function when there are no undo operations
- * available is an error. Use gtk_source_undo_manager_can_undo() to find out
+ * available is an error. Use ctk_source_undo_manager_can_undo() to find out
  * if there are undo operations available.
  *
  * Since: 2.10
  */
 void
-gtk_source_undo_manager_undo (GtkSourceUndoManager *manager)
+ctk_source_undo_manager_undo (GtkSourceUndoManager *manager)
 {
 	g_return_if_fail (GTK_SOURCE_IS_UNDO_MANAGER (manager));
 
@@ -207,17 +207,17 @@ gtk_source_undo_manager_undo (GtkSourceUndoManager *manager)
 }
 
 /**
- * gtk_source_undo_manager_redo:
+ * ctk_source_undo_manager_redo:
  * @manager: a #GtkSourceUndoManager.
  *
  * Perform a single redo. Calling this function when there are no redo operations
- * available is an error. Use gtk_source_undo_manager_can_redo() to find out
+ * available is an error. Use ctk_source_undo_manager_can_redo() to find out
  * if there are redo operations available.
  *
  * Since: 2.10
  */
 void
-gtk_source_undo_manager_redo (GtkSourceUndoManager *manager)
+ctk_source_undo_manager_redo (GtkSourceUndoManager *manager)
 {
 	g_return_if_fail (GTK_SOURCE_IS_UNDO_MANAGER (manager));
 
@@ -225,17 +225,17 @@ gtk_source_undo_manager_redo (GtkSourceUndoManager *manager)
 }
 
 /**
- * gtk_source_undo_manager_begin_not_undoable_action:
+ * ctk_source_undo_manager_begin_not_undoable_action:
  * @manager: a #GtkSourceUndoManager.
  *
  * Begin a not undoable action on the buffer. All changes between this call
- * and the call to gtk_source_undo_manager_end_not_undoable_action() cannot
+ * and the call to ctk_source_undo_manager_end_not_undoable_action() cannot
  * be undone. This function should be re-entrant.
  *
  * Since: 2.10
  */
 void
-gtk_source_undo_manager_begin_not_undoable_action (GtkSourceUndoManager *manager)
+ctk_source_undo_manager_begin_not_undoable_action (GtkSourceUndoManager *manager)
 {
 	g_return_if_fail (GTK_SOURCE_IS_UNDO_MANAGER (manager));
 
@@ -243,7 +243,7 @@ gtk_source_undo_manager_begin_not_undoable_action (GtkSourceUndoManager *manager
 }
 
 /**
- * gtk_source_undo_manager_end_not_undoable_action:
+ * ctk_source_undo_manager_end_not_undoable_action:
  * @manager: a #GtkSourceUndoManager.
  *
  * Ends a not undoable action on the buffer.
@@ -251,7 +251,7 @@ gtk_source_undo_manager_begin_not_undoable_action (GtkSourceUndoManager *manager
  * Since: 2.10
  */
 void
-gtk_source_undo_manager_end_not_undoable_action (GtkSourceUndoManager *manager)
+ctk_source_undo_manager_end_not_undoable_action (GtkSourceUndoManager *manager)
 {
 	g_return_if_fail (GTK_SOURCE_IS_UNDO_MANAGER (manager));
 
@@ -259,7 +259,7 @@ gtk_source_undo_manager_end_not_undoable_action (GtkSourceUndoManager *manager)
 }
 
 /**
- * gtk_source_undo_manager_can_undo_changed:
+ * ctk_source_undo_manager_can_undo_changed:
  * @manager: a #GtkSourceUndoManager.
  *
  * Emits the #GtkSourceUndoManager::can-undo-changed signal.
@@ -267,7 +267,7 @@ gtk_source_undo_manager_end_not_undoable_action (GtkSourceUndoManager *manager)
  * Since: 2.10
  **/
 void
-gtk_source_undo_manager_can_undo_changed (GtkSourceUndoManager *manager)
+ctk_source_undo_manager_can_undo_changed (GtkSourceUndoManager *manager)
 {
 	g_return_if_fail (GTK_SOURCE_IS_UNDO_MANAGER (manager));
 
@@ -275,7 +275,7 @@ gtk_source_undo_manager_can_undo_changed (GtkSourceUndoManager *manager)
 }
 
 /**
- * gtk_source_undo_manager_can_redo_changed:
+ * ctk_source_undo_manager_can_redo_changed:
  * @manager: a #GtkSourceUndoManager.
  *
  * Emits the #GtkSourceUndoManager::can-redo-changed signal.
@@ -283,7 +283,7 @@ gtk_source_undo_manager_can_undo_changed (GtkSourceUndoManager *manager)
  * Since: 2.10
  **/
 void
-gtk_source_undo_manager_can_redo_changed (GtkSourceUndoManager *manager)
+ctk_source_undo_manager_can_redo_changed (GtkSourceUndoManager *manager)
 {
 	g_return_if_fail (GTK_SOURCE_IS_UNDO_MANAGER (manager));
 

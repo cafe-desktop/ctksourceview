@@ -21,11 +21,11 @@
 
 #include <glib.h>
 #include <glib/gprintf.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #include <stdlib.h>
 #include <string.h>
-#include <gtksourceview/gtksource.h>
-#include "gtksourceview/gtksourcebufferoutputstream.h"
+#include <ctksourceview/ctksource.h>
+#include "ctksourceview/ctksourcebufferoutputstream.h"
 
 static void
 test_consecutive_write (const gchar          *inbuf,
@@ -42,9 +42,9 @@ test_consecutive_write (const gchar          *inbuf,
 	GtkSourceNewlineType type;
 	GSList *encodings = NULL;
 
-	source_buffer = gtk_source_buffer_new (NULL);
-	encodings = g_slist_prepend (encodings, (gpointer)gtk_source_encoding_get_utf8 ());
-	out = gtk_source_buffer_output_stream_new (source_buffer, encodings, TRUE);
+	source_buffer = ctk_source_buffer_new (NULL);
+	encodings = g_slist_prepend (encodings, (gpointer)ctk_source_encoding_get_utf8 ());
+	out = ctk_source_buffer_output_stream_new (source_buffer, encodings, TRUE);
 
 	n = 0;
 
@@ -62,7 +62,7 @@ test_consecutive_write (const gchar          *inbuf,
 
 	g_assert_no_error (err);
 
-	type = gtk_source_buffer_output_stream_detect_newline_type (out);
+	type = ctk_source_buffer_output_stream_detect_newline_type (out);
 	g_assert_cmpint (type, ==, newline_type);
 
 	g_output_stream_close (G_OUTPUT_STREAM (out), NULL, &err);
@@ -73,7 +73,7 @@ test_consecutive_write (const gchar          *inbuf,
 	g_assert_cmpstr (outbuf, ==, b);
 	g_free (b);
 
-	g_assert_false (gtk_text_buffer_get_modified (GTK_TEXT_BUFFER (source_buffer)));
+	g_assert_false (ctk_text_buffer_get_modified (GTK_TEXT_BUFFER (source_buffer)));
 
 	g_object_unref (source_buffer);
 	g_object_unref (out);
@@ -126,9 +126,9 @@ test_boundary (void)
 	GError *err = NULL;
 	GSList *encodings = NULL;
 
-	source_buffer = gtk_source_buffer_new (NULL);
-	encodings = g_slist_prepend (encodings, (gpointer)gtk_source_encoding_get_utf8 ());
-	out = gtk_source_buffer_output_stream_new (source_buffer, encodings, TRUE);
+	source_buffer = ctk_source_buffer_new (NULL);
+	encodings = g_slist_prepend (encodings, (gpointer)ctk_source_encoding_get_utf8 ());
+	out = ctk_source_buffer_output_stream_new (source_buffer, encodings, TRUE);
 
 	g_output_stream_write (G_OUTPUT_STREAM (out), "\r", 1, NULL, NULL);
 	g_output_stream_write (G_OUTPUT_STREAM (out), "\n", 1, NULL, NULL);
@@ -136,7 +136,7 @@ test_boundary (void)
 	g_output_stream_flush (G_OUTPUT_STREAM (out), NULL, &err);
 	g_assert_no_error (err);
 
-	line_count = gtk_text_buffer_get_line_count (GTK_TEXT_BUFFER (source_buffer));
+	line_count = ctk_text_buffer_get_line_count (GTK_TEXT_BUFFER (source_buffer));
 
 	g_assert_cmpint (line_count, ==, 2);
 
@@ -180,8 +180,8 @@ get_encoded_text (const gchar             *text,
 	GConverterResult res;
 	GError *err;
 
-	converter = g_charset_converter_new (gtk_source_encoding_get_charset (to),
-					     gtk_source_encoding_get_charset (from),
+	converter = g_charset_converter_new (ctk_source_encoding_get_charset (to),
+					     ctk_source_encoding_get_charset (from),
 					     NULL);
 
 	out = g_malloc (200);
@@ -258,11 +258,11 @@ do_test (const gchar              *inbuf,
 	if (enc != NULL)
 	{
 		encodings = NULL;
-		encodings = g_slist_prepend (encodings, (gpointer)gtk_source_encoding_get_from_charset (enc));
+		encodings = g_slist_prepend (encodings, (gpointer)ctk_source_encoding_get_from_charset (enc));
 	}
 
-	source_buffer = gtk_source_buffer_new (NULL);
-	out = gtk_source_buffer_output_stream_new (source_buffer, encodings, TRUE);
+	source_buffer = ctk_source_buffer_new (NULL);
+	out = ctk_source_buffer_output_stream_new (source_buffer, encodings, TRUE);
 
 	n = 0;
 
@@ -285,11 +285,11 @@ do_test (const gchar              *inbuf,
 
 	if (guessed != NULL)
 	{
-		*guessed = gtk_source_buffer_output_stream_get_guessed (out);
+		*guessed = ctk_source_buffer_output_stream_get_guessed (out);
 	}
 
-	gtk_text_buffer_get_bounds (GTK_TEXT_BUFFER (source_buffer), &start, &end);
-	text = gtk_text_buffer_get_text (GTK_TEXT_BUFFER (source_buffer),
+	ctk_text_buffer_get_bounds (GTK_TEXT_BUFFER (source_buffer), &start, &end);
+	text = ctk_text_buffer_get_text (GTK_TEXT_BUFFER (source_buffer),
 	                                 &start,
 	                                 &end,
 	                                 FALSE);
@@ -330,15 +330,15 @@ test_empty_conversion (void)
 	   utf-8. In this case, the smart converter cannot determine the right
 	   encoding (because there is no input), but should still default to
 	   utf-8 for the detection */
-	encodings = g_slist_prepend (encodings, (gpointer)gtk_source_encoding_get_from_charset ("UTF-16"));
-	encodings = g_slist_prepend (encodings, (gpointer)gtk_source_encoding_get_from_charset ("ISO-8859-15"));
+	encodings = g_slist_prepend (encodings, (gpointer)ctk_source_encoding_get_from_charset ("UTF-16"));
+	encodings = g_slist_prepend (encodings, (gpointer)ctk_source_encoding_get_from_charset ("ISO-8859-15"));
 
 	out = do_test ("", NULL, encodings, 0, 0, &guessed);
 
 	g_assert_cmpstr (out, ==, "");
 	g_free (out);
 
-	g_assert_true (guessed == gtk_source_encoding_get_utf8 ());
+	g_assert_true (guessed == ctk_source_encoding_get_utf8 ());
 }
 
 static void
@@ -350,28 +350,28 @@ test_guessed (void)
 	const GtkSourceEncoding *guessed;
 
 	aux = get_encoded_text (TEXT_TO_GUESS, -1,
-	                        gtk_source_encoding_get_from_charset ("UTF-16"),
-	                        gtk_source_encoding_get_from_charset ("UTF-8"),
+	                        ctk_source_encoding_get_from_charset ("UTF-16"),
+	                        ctk_source_encoding_get_from_charset ("UTF-8"),
 	                        &aux_len,
 	                        TRUE);
 
 	fail = get_encoded_text (aux, aux_len,
-	                         gtk_source_encoding_get_from_charset ("UTF-8"),
-	                         gtk_source_encoding_get_from_charset ("ISO-8859-15"),
+	                         ctk_source_encoding_get_from_charset ("UTF-8"),
+	                         ctk_source_encoding_get_from_charset ("ISO-8859-15"),
 	                         &fail_len,
 	                         FALSE);
 
 	g_assert_null (fail);
 
 	/* ISO-8859-15 should fail */
-	encs = g_slist_append (encs, (gpointer)gtk_source_encoding_get_from_charset ("ISO-8859-15"));
-	encs = g_slist_append (encs, (gpointer)gtk_source_encoding_get_from_charset ("UTF-16"));
+	encs = g_slist_append (encs, (gpointer)ctk_source_encoding_get_from_charset ("ISO-8859-15"));
+	encs = g_slist_append (encs, (gpointer)ctk_source_encoding_get_from_charset ("UTF-16"));
 
 	aux2 = do_test (aux, NULL, encs, aux_len, aux_len, &guessed);
 	g_free (aux);
 	g_free (aux2);
 
-	g_assert_true (guessed == gtk_source_encoding_get_from_charset ("UTF-16"));
+	g_assert_true (guessed == ctk_source_encoding_get_from_charset ("UTF-16"));
 }
 
 static void
@@ -381,8 +381,8 @@ test_utf16_utf8 (void)
 	gsize aux_len;
 
 	text = get_encoded_text ("\xe2\xb4\xb2", -1,
-	                         gtk_source_encoding_get_from_charset ("UTF-16"),
-	                         gtk_source_encoding_get_from_charset ("UTF-8"),
+	                         ctk_source_encoding_get_from_charset ("UTF-16"),
+	                         ctk_source_encoding_get_from_charset ("UTF-8"),
 	                         &aux_len,
 	                         TRUE);
 

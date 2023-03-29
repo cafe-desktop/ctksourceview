@@ -42,7 +42,7 @@ testsuite_sources = [
 
 foreach test: testsuite_sources
   test_name = test.get(0)
-  test_sources = gtksource_res + [
+  test_sources = ctksource_res + [
     '@0@.c'.format(test_name),
   ]
 
@@ -72,7 +72,7 @@ foreach test: testsuite_sources
     test_t.set('test', test_name)
 
     configure_file(
-              input: 'gtksourceview.test.in',
+              input: 'ctksourceview.test.in',
              output: '@0@.test'.format(test_name),
       configuration: test_t,
         install_dir: testdatadir

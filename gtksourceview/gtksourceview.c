@@ -25,34 +25,34 @@
 #include <config.h>
 #endif
 
-#include "gtksourceview.h"
+#include "ctksourceview.h"
 
 #include <string.h> /* For strlen */
 #include <fribidi.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #include <gdk/gdkkeysyms.h>
 #include <pango/pango-tabs.h>
 #include <glib/gi18n-lib.h>
 
-#include "gtksourcebuffer.h"
-#include "gtksourcebuffer-private.h"
-#include "gtksourcebufferinternal.h"
-#include "gtksource-enumtypes.h"
-#include "gtksourcemark.h"
-#include "gtksourcemarkattributes.h"
-#include "gtksource-marshal.h"
-#include "gtksourcestylescheme.h"
-#include "gtksourcecompletion.h"
-#include "gtksourcecompletion-private.h"
-#include "gtksourcecompletionprovider.h"
-#include "gtksourcegutter.h"
-#include "gtksourcegutter-private.h"
-#include "gtksourcegutterrendererlines.h"
-#include "gtksourcegutterrenderermarks.h"
-#include "gtksourceiter.h"
-#include "gtksourcesearchcontext.h"
-#include "gtksourcespacedrawer.h"
-#include "gtksourcespacedrawer-private.h"
+#include "ctksourcebuffer.h"
+#include "ctksourcebuffer-private.h"
+#include "ctksourcebufferinternal.h"
+#include "ctksource-enumtypes.h"
+#include "ctksourcemark.h"
+#include "ctksourcemarkattributes.h"
+#include "ctksource-marshal.h"
+#include "ctksourcestylescheme.h"
+#include "ctksourcecompletion.h"
+#include "ctksourcecompletion-private.h"
+#include "ctksourcecompletionprovider.h"
+#include "ctksourcegutter.h"
+#include "ctksourcegutter-private.h"
+#include "ctksourcegutterrendererlines.h"
+#include "ctksourcegutterrenderermarks.h"
+#include "ctksourceiter.h"
+#include "ctksourcesearchcontext.h"
+#include "ctksourcespacedrawer.h"
+#include "ctksourcespacedrawer-private.h"
 
 /**
  * SECTION:view
@@ -100,12 +100,12 @@
  * font.
  *
  * |[
- *   GtkCssProvider *provider = gtk_css_provider_new ();
- *   gtk_css_provider_load_from_data (provider,
+ *   GtkCssProvider *provider = ctk_css_provider_new ();
+ *   ctk_css_provider_load_from_data (provider,
  *                                    "textview { font-family: Monospace; font-size: 8pt; }",
  *                                    -1,
  *                                    NULL);
- *   gtk_style_context_add_provider (gtk_widget_get_style_context (view),
+ *   ctk_style_context_add_provider (ctk_widget_get_style_context (view),
  *                                   GTK_STYLE_PROVIDER (provider),
  *                                   GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
  *   g_object_unref (provider);
@@ -239,12 +239,12 @@ struct _MarkCategory
 
 static guint signals[N_SIGNALS];
 
-static void gtk_source_view_buildable_interface_init (GtkBuildableIface *iface);
+static void ctk_source_view_buildable_interface_init (GtkBuildableIface *iface);
 
-G_DEFINE_TYPE_WITH_CODE (GtkSourceView, gtk_source_view, GTK_TYPE_TEXT_VIEW,
+G_DEFINE_TYPE_WITH_CODE (GtkSourceView, ctk_source_view, GTK_TYPE_TEXT_VIEW,
 			 G_ADD_PRIVATE (GtkSourceView)
 			 G_IMPLEMENT_INTERFACE (GTK_TYPE_BUILDABLE,
-						gtk_source_view_buildable_interface_init))
+						ctk_source_view_buildable_interface_init))
 
 /* Implement DnD for application/x-color drops */
 typedef enum _GtkSourceViewDropTypes {
@@ -256,43 +256,43 @@ static const GtkTargetEntry drop_types[] = {
 };
 
 /* Prototypes. */
-static void 	gtk_source_view_dispose			(GObject            *object);
-static void 	gtk_source_view_finalize		(GObject            *object);
-static void	gtk_source_view_undo 			(GtkSourceView      *view);
-static void	gtk_source_view_redo 			(GtkSourceView      *view);
-static void	gtk_source_view_show_completion_real	(GtkSourceView      *view);
-static GtkTextBuffer * gtk_source_view_create_buffer	(GtkTextView        *view);
+static void 	ctk_source_view_dispose			(GObject            *object);
+static void 	ctk_source_view_finalize		(GObject            *object);
+static void	ctk_source_view_undo 			(GtkSourceView      *view);
+static void	ctk_source_view_redo 			(GtkSourceView      *view);
+static void	ctk_source_view_show_completion_real	(GtkSourceView      *view);
+static GtkTextBuffer * ctk_source_view_create_buffer	(GtkTextView        *view);
 static void	remove_source_buffer			(GtkSourceView      *view);
 static void	set_source_buffer			(GtkSourceView      *view,
 							 GtkTextBuffer      *buffer);
-static void	gtk_source_view_populate_popup 		(GtkTextView        *view,
+static void	ctk_source_view_populate_popup 		(GtkTextView        *view,
 							 GtkWidget          *popup);
-static void	gtk_source_view_move_cursor		(GtkTextView        *text_view,
+static void	ctk_source_view_move_cursor		(GtkTextView        *text_view,
 							 GtkMovementStep     step,
 							 gint                count,
 							 gboolean            extend_selection);
-static void	gtk_source_view_delete_from_cursor	(GtkTextView        *text_view,
+static void	ctk_source_view_delete_from_cursor	(GtkTextView        *text_view,
 							 GtkDeleteType       type,
 							 gint                count);
-static gboolean gtk_source_view_extend_selection	(GtkTextView            *text_view,
+static gboolean ctk_source_view_extend_selection	(GtkTextView            *text_view,
 							 GtkTextExtendSelection  granularity,
 							 const GtkTextIter      *location,
 							 GtkTextIter            *start,
 							 GtkTextIter            *end);
-static void 	gtk_source_view_get_lines		(GtkTextView       *text_view,
+static void 	ctk_source_view_get_lines		(GtkTextView       *text_view,
 							 gint               first_y,
 							 gint               last_y,
 							 GArray            *buffer_coords,
 							 GArray            *line_heights,
 							 GArray            *numbers,
 							 gint              *countp);
-static gboolean gtk_source_view_draw 			(GtkWidget         *widget,
+static gboolean ctk_source_view_draw 			(GtkWidget         *widget,
 							 cairo_t           *cr);
-static void	gtk_source_view_move_lines		(GtkSourceView     *view,
+static void	ctk_source_view_move_lines		(GtkSourceView     *view,
 							 gboolean           down);
-static void	gtk_source_view_move_words		(GtkSourceView     *view,
+static void	ctk_source_view_move_words		(GtkSourceView     *view,
 							 gint               step);
-static gboolean	gtk_source_view_key_press_event		(GtkWidget         *widget,
+static gboolean	ctk_source_view_key_press_event		(GtkWidget         *widget,
 							 GdkEventKey       *event);
 static void	view_dnd_drop 				(GtkTextView       *view,
 							 GdkDragContext    *context,
@@ -305,17 +305,17 @@ static void	view_dnd_drop 				(GtkTextView       *view,
 static gint	calculate_real_tab_width 		(GtkSourceView     *view,
 							 guint              tab_size,
 							 gchar              c);
-static void	gtk_source_view_set_property		(GObject           *object,
+static void	ctk_source_view_set_property		(GObject           *object,
 							 guint              prop_id,
 							 const GValue      *value,
 							 GParamSpec        *pspec);
-static void	gtk_source_view_get_property		(GObject           *object,
+static void	ctk_source_view_get_property		(GObject           *object,
 							 guint              prop_id,
 							 GValue            *value,
 							 GParamSpec        *pspec);
-static void	gtk_source_view_style_updated		(GtkWidget         *widget);
-static void	gtk_source_view_update_style_scheme	(GtkSourceView     *view);
-static void	gtk_source_view_draw_layer		(GtkTextView        *view,
+static void	ctk_source_view_style_updated		(GtkWidget         *widget);
+static void	ctk_source_view_update_style_scheme	(GtkSourceView     *view);
+static void	ctk_source_view_draw_layer		(GtkTextView        *view,
 							 GtkTextViewLayer   layer,
 							 cairo_t           *cr);
 
@@ -324,17 +324,17 @@ static MarkCategory *mark_category_new                  (GtkSourceMarkAttributes
 static void          mark_category_free                 (MarkCategory *category);
 
 static void
-gtk_source_view_constructed (GObject *object)
+ctk_source_view_constructed (GObject *object)
 {
 	GtkSourceView *view = GTK_SOURCE_VIEW (object);
 
-	set_source_buffer (view, gtk_text_view_get_buffer (GTK_TEXT_VIEW (view)));
+	set_source_buffer (view, ctk_text_view_get_buffer (GTK_TEXT_VIEW (view)));
 
-	G_OBJECT_CLASS (gtk_source_view_parent_class)->constructed (object);
+	G_OBJECT_CLASS (ctk_source_view_parent_class)->constructed (object);
 }
 
 static void
-gtk_source_view_move_to_matching_bracket (GtkSourceView *view,
+ctk_source_view_move_to_matching_bracket (GtkSourceView *view,
 					  gboolean       extend_selection)
 {
 	GtkTextView *text_view = GTK_TEXT_VIEW (view);
@@ -344,11 +344,11 @@ gtk_source_view_move_to_matching_bracket (GtkSourceView *view,
 	GtkTextIter bracket_match;
 	GtkSourceBracketMatchType result;
 
-	buffer = gtk_text_view_get_buffer (text_view);
-	insert_mark = gtk_text_buffer_get_insert (buffer);
-	gtk_text_buffer_get_iter_at_mark (buffer, &insert, insert_mark);
+	buffer = ctk_text_view_get_buffer (text_view);
+	insert_mark = ctk_text_buffer_get_insert (buffer);
+	ctk_text_buffer_get_iter_at_mark (buffer, &insert, insert_mark);
 
-	result = _gtk_source_buffer_find_bracket_match (GTK_SOURCE_BUFFER (buffer),
+	result = _ctk_source_buffer_find_bracket_match (GTK_SOURCE_BUFFER (buffer),
 							&insert,
 							NULL,
 							&bracket_match);
@@ -357,19 +357,19 @@ gtk_source_view_move_to_matching_bracket (GtkSourceView *view,
 	{
 		if (extend_selection)
 		{
-			gtk_text_buffer_move_mark (buffer, insert_mark, &bracket_match);
+			ctk_text_buffer_move_mark (buffer, insert_mark, &bracket_match);
 		}
 		else
 		{
-			gtk_text_buffer_place_cursor (buffer, &bracket_match);
+			ctk_text_buffer_place_cursor (buffer, &bracket_match);
 		}
 
-		gtk_text_view_scroll_mark_onscreen (text_view, insert_mark);
+		ctk_text_view_scroll_mark_onscreen (text_view, insert_mark);
 	}
 }
 
 static void
-gtk_source_view_change_number (GtkSourceView *view,
+ctk_source_view_change_number (GtkSourceView *view,
 			       gint           count)
 {
 	GtkTextView *text_view = GTK_TEXT_VIEW (view);
@@ -377,37 +377,37 @@ gtk_source_view_change_number (GtkSourceView *view,
 	GtkTextIter start, end;
 	gchar *str;
 
-	buffer = gtk_text_view_get_buffer (text_view);
+	buffer = ctk_text_view_get_buffer (text_view);
 	if (!GTK_SOURCE_IS_BUFFER (buffer))
 	{
 		return;
 	}
 
-	if (!gtk_text_buffer_get_selection_bounds (buffer, &start, &end))
+	if (!ctk_text_buffer_get_selection_bounds (buffer, &start, &end))
 	{
-		if (!gtk_text_iter_starts_word (&start))
+		if (!ctk_text_iter_starts_word (&start))
 		{
 			GtkTextIter prev;
 
-			gtk_text_iter_backward_word_start (&start);
+			ctk_text_iter_backward_word_start (&start);
 
 			/* Include the negative sign if there is one.
-			 * https://gitlab.gnome.org/GNOME/gtksourceview/-/issues/117
+			 * https://gitlab.gnome.org/GNOME/ctksourceview/-/issues/117
 			 */
 			prev = start;
-			if (gtk_text_iter_backward_char (&prev) && gtk_text_iter_get_char (&prev) == '-')
+			if (ctk_text_iter_backward_char (&prev) && ctk_text_iter_get_char (&prev) == '-')
 			{
 				start = prev;
 			}
 		}
 
-		if (!gtk_text_iter_ends_word (&end))
+		if (!ctk_text_iter_ends_word (&end))
 		{
-			gtk_text_iter_forward_word_end (&end);
+			ctk_text_iter_forward_word_end (&end);
 		}
 	}
 
-	str = gtk_text_buffer_get_text (buffer, &start, &end, FALSE);
+	str = ctk_text_buffer_get_text (buffer, &start, &end, FALSE);
 
 	if (str != NULL && *str != '\0')
 	{
@@ -415,7 +415,7 @@ gtk_source_view_change_number (GtkSourceView *view,
 		gint64 n;
 		glong len;
 
-		len = gtk_text_iter_get_offset (&end) - gtk_text_iter_get_offset (&start);
+		len = ctk_text_iter_get_offset (&end) - ctk_text_iter_get_offset (&start);
 		g_assert (len > 0);
 
 		n = g_ascii_strtoll (str, &p, 10);
@@ -429,10 +429,10 @@ gtk_source_view_change_number (GtkSourceView *view,
 
 			newstr = g_strdup_printf ("%"G_GINT64_FORMAT, (n + count));
 
-			gtk_text_buffer_begin_user_action (buffer);
-			gtk_text_buffer_delete (buffer, &start, &end);
-			gtk_text_buffer_insert (buffer, &start, newstr, -1);
-			gtk_text_buffer_end_user_action (buffer);
+			ctk_text_buffer_begin_user_action (buffer);
+			ctk_text_buffer_delete (buffer, &start, &end);
+			ctk_text_buffer_insert (buffer, &start, newstr, -1);
+			ctk_text_buffer_end_user_action (buffer);
 
 			g_free (newstr);
 		}
@@ -442,43 +442,43 @@ gtk_source_view_change_number (GtkSourceView *view,
 }
 
 static void
-gtk_source_view_change_case (GtkSourceView           *view,
+ctk_source_view_change_case (GtkSourceView           *view,
 			     GtkSourceChangeCaseType  case_type)
 {
 	GtkSourceBuffer *buffer;
 	GtkTextIter start, end;
 
-	buffer = GTK_SOURCE_BUFFER (gtk_text_view_get_buffer (GTK_TEXT_VIEW (view)));
+	buffer = GTK_SOURCE_BUFFER (ctk_text_view_get_buffer (GTK_TEXT_VIEW (view)));
 
-	gtk_text_view_reset_im_context (GTK_TEXT_VIEW (view));
+	ctk_text_view_reset_im_context (GTK_TEXT_VIEW (view));
 
-	if (!gtk_text_buffer_get_selection_bounds (GTK_TEXT_BUFFER (buffer), &start, &end))
+	if (!ctk_text_buffer_get_selection_bounds (GTK_TEXT_BUFFER (buffer), &start, &end))
 	{
 		/* if no selection, change the current char */
-		gtk_text_iter_forward_char (&end);
+		ctk_text_iter_forward_char (&end);
 	}
 
-	gtk_source_buffer_change_case (buffer, case_type, &start, &end);
+	ctk_source_buffer_change_case (buffer, case_type, &start, &end);
 }
 
 static void
-gtk_source_view_join_lines (GtkSourceView *view)
+ctk_source_view_join_lines (GtkSourceView *view)
 {
 	GtkSourceBuffer *buffer;
 	GtkTextIter start;
 	GtkTextIter end;
 
-	buffer = GTK_SOURCE_BUFFER (gtk_text_view_get_buffer (GTK_TEXT_VIEW (view)));
+	buffer = GTK_SOURCE_BUFFER (ctk_text_view_get_buffer (GTK_TEXT_VIEW (view)));
 
-	gtk_text_view_reset_im_context (GTK_TEXT_VIEW (view));
+	ctk_text_view_reset_im_context (GTK_TEXT_VIEW (view));
 
-	gtk_text_buffer_get_selection_bounds (GTK_TEXT_BUFFER (buffer), &start, &end);
+	ctk_text_buffer_get_selection_bounds (GTK_TEXT_BUFFER (buffer), &start, &end);
 
-	gtk_source_buffer_join_lines (buffer, &start, &end);
+	ctk_source_buffer_join_lines (buffer, &start, &end);
 }
 
 static void
-gtk_source_view_class_init (GtkSourceViewClass *klass)
+ctk_source_view_class_init (GtkSourceViewClass *klass)
 {
 	GObjectClass *object_class;
 	GtkTextViewClass *textview_class;
@@ -489,28 +489,28 @@ gtk_source_view_class_init (GtkSourceViewClass *klass)
 	textview_class = GTK_TEXT_VIEW_CLASS (klass);
 	widget_class = GTK_WIDGET_CLASS (klass);
 
-	object_class->constructed = gtk_source_view_constructed;
-	object_class->dispose = gtk_source_view_dispose;
-	object_class->finalize = gtk_source_view_finalize;
-	object_class->get_property = gtk_source_view_get_property;
-	object_class->set_property = gtk_source_view_set_property;
+	object_class->constructed = ctk_source_view_constructed;
+	object_class->dispose = ctk_source_view_dispose;
+	object_class->finalize = ctk_source_view_finalize;
+	object_class->get_property = ctk_source_view_get_property;
+	object_class->set_property = ctk_source_view_set_property;
 
-	widget_class->key_press_event = gtk_source_view_key_press_event;
-	widget_class->draw = gtk_source_view_draw;
-	widget_class->style_updated = gtk_source_view_style_updated;
+	widget_class->key_press_event = ctk_source_view_key_press_event;
+	widget_class->draw = ctk_source_view_draw;
+	widget_class->style_updated = ctk_source_view_style_updated;
 
-	textview_class->populate_popup = gtk_source_view_populate_popup;
-	textview_class->move_cursor = gtk_source_view_move_cursor;
-	textview_class->delete_from_cursor = gtk_source_view_delete_from_cursor;
-	textview_class->extend_selection = gtk_source_view_extend_selection;
-	textview_class->create_buffer = gtk_source_view_create_buffer;
-	textview_class->draw_layer = gtk_source_view_draw_layer;
+	textview_class->populate_popup = ctk_source_view_populate_popup;
+	textview_class->move_cursor = ctk_source_view_move_cursor;
+	textview_class->delete_from_cursor = ctk_source_view_delete_from_cursor;
+	textview_class->extend_selection = ctk_source_view_extend_selection;
+	textview_class->create_buffer = ctk_source_view_create_buffer;
+	textview_class->draw_layer = ctk_source_view_draw_layer;
 
-	klass->undo = gtk_source_view_undo;
-	klass->redo = gtk_source_view_redo;
-	klass->show_completion = gtk_source_view_show_completion_real;
-	klass->move_lines = gtk_source_view_move_lines;
-	klass->move_words = gtk_source_view_move_words;
+	klass->undo = ctk_source_view_undo;
+	klass->redo = ctk_source_view_redo;
+	klass->show_completion = ctk_source_view_show_completion_real;
+	klass->move_lines = ctk_source_view_move_lines;
+	klass->move_words = ctk_source_view_move_words;
 
 	/**
 	 * GtkSourceView:completion:
@@ -786,14 +786,14 @@ gtk_source_view_class_init (GtkSourceViewClass *klass)
 			      G_SIGNAL_RUN_LAST,
 			      G_STRUCT_OFFSET (GtkSourceViewClass, line_mark_activated),
 			      NULL, NULL,
-			      _gtk_source_marshal_VOID__BOXED_BOXED,
+			      _ctk_source_marshal_VOID__BOXED_BOXED,
 			      G_TYPE_NONE,
 			      2,
 			      GTK_TYPE_TEXT_ITER,
 			      GDK_TYPE_EVENT | G_SIGNAL_TYPE_STATIC_SCOPE);
 	g_signal_set_va_marshaller (signals[LINE_MARK_ACTIVATED],
 	                            G_TYPE_FROM_CLASS (klass),
-	                            _gtk_source_marshal_VOID__BOXED_BOXEDv);
+	                            _ctk_source_marshal_VOID__BOXED_BOXEDv);
 
 	/**
 	 * GtkSourceView::move-lines:
@@ -863,14 +863,14 @@ gtk_source_view_class_init (GtkSourceViewClass *klass)
 		              G_SIGNAL_RUN_LAST,
 		              0,
 		              NULL, NULL,
-		              _gtk_source_marshal_VOID__BOXED_INT,
+		              _ctk_source_marshal_VOID__BOXED_INT,
 		              G_TYPE_NONE,
 		              2,
 		              GTK_TYPE_TEXT_ITER,
 		              G_TYPE_INT);
 	g_signal_set_va_marshaller (signals[SMART_HOME_END],
 	                            G_TYPE_FROM_CLASS (klass),
-	                            _gtk_source_marshal_VOID__BOXED_INTv);
+	                            _ctk_source_marshal_VOID__BOXED_INTv);
 
 	/**
 	 * GtkSourceView::move-to-matching-bracket:
@@ -886,7 +886,7 @@ gtk_source_view_class_init (GtkSourceViewClass *klass)
 		g_signal_new_class_handler ("move-to-matching-bracket",
 		                            G_TYPE_FROM_CLASS (klass),
 		                            G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
-		                            G_CALLBACK (gtk_source_view_move_to_matching_bracket),
+		                            G_CALLBACK (ctk_source_view_move_to_matching_bracket),
 		                            NULL, NULL,
 		                            g_cclosure_marshal_VOID__BOOLEAN,
 		                            G_TYPE_NONE,
@@ -909,7 +909,7 @@ gtk_source_view_class_init (GtkSourceViewClass *klass)
 		g_signal_new_class_handler ("change-number",
 		                            G_TYPE_FROM_CLASS (klass),
 		                            G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
-		                            G_CALLBACK (gtk_source_view_change_number),
+		                            G_CALLBACK (ctk_source_view_change_number),
 		                            NULL, NULL,
 		                            g_cclosure_marshal_VOID__INT,
 		                            G_TYPE_NONE,
@@ -932,7 +932,7 @@ gtk_source_view_class_init (GtkSourceViewClass *klass)
 		g_signal_new_class_handler ("change-case",
 		                            G_TYPE_FROM_CLASS (klass),
 		                            G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
-		                            G_CALLBACK (gtk_source_view_change_case),
+		                            G_CALLBACK (ctk_source_view_change_case),
 		                            NULL, NULL,
 		                            g_cclosure_marshal_VOID__ENUM,
 		                            G_TYPE_NONE,
@@ -954,7 +954,7 @@ gtk_source_view_class_init (GtkSourceViewClass *klass)
 		g_signal_new_class_handler ("join-lines",
 		                            G_TYPE_FROM_CLASS (klass),
 		                            G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
-		                            G_CALLBACK (gtk_source_view_join_lines),
+		                            G_CALLBACK (ctk_source_view_join_lines),
 		                            NULL, NULL,
 		                            g_cclosure_marshal_VOID__VOID,
 		                            G_TYPE_NONE,
@@ -963,164 +963,164 @@ gtk_source_view_class_init (GtkSourceViewClass *klass)
 	                            G_TYPE_FROM_CLASS (klass),
 	                            g_cclosure_marshal_VOID__VOIDv);
 
-	binding_set = gtk_binding_set_by_class (klass);
+	binding_set = ctk_binding_set_by_class (klass);
 
-	gtk_binding_entry_add_signal (binding_set,
+	ctk_binding_entry_add_signal (binding_set,
 				      GDK_KEY_z,
 				      GDK_CONTROL_MASK,
 				      "undo", 0);
-	gtk_binding_entry_add_signal (binding_set,
+	ctk_binding_entry_add_signal (binding_set,
 				      GDK_KEY_z,
 				      GDK_CONTROL_MASK | GDK_SHIFT_MASK,
 				      "redo", 0);
-	gtk_binding_entry_add_signal (binding_set,
+	ctk_binding_entry_add_signal (binding_set,
 				      GDK_KEY_F14,
 				      0,
 				      "undo", 0);
-	gtk_binding_entry_add_signal (binding_set,
+	ctk_binding_entry_add_signal (binding_set,
 				      GDK_KEY_space,
 				      GDK_CONTROL_MASK,
 				      "show-completion", 0);
 
-	gtk_binding_entry_add_signal (binding_set,
+	ctk_binding_entry_add_signal (binding_set,
 				      GDK_KEY_Up,
 				      GDK_MOD1_MASK,
 				      "move-lines", 1,
 				      G_TYPE_BOOLEAN, FALSE);
-	gtk_binding_entry_add_signal (binding_set,
+	ctk_binding_entry_add_signal (binding_set,
 				      GDK_KEY_KP_Up,
 				      GDK_MOD1_MASK,
 				      "move-lines", 1,
 				      G_TYPE_BOOLEAN, FALSE);
-	gtk_binding_entry_add_signal (binding_set,
+	ctk_binding_entry_add_signal (binding_set,
 				      GDK_KEY_Down,
 				      GDK_MOD1_MASK,
 				      "move-lines", 1,
 				      G_TYPE_BOOLEAN, TRUE);
-	gtk_binding_entry_add_signal (binding_set,
+	ctk_binding_entry_add_signal (binding_set,
 				      GDK_KEY_KP_Down,
 				      GDK_MOD1_MASK,
 				      "move-lines", 1,
 				      G_TYPE_BOOLEAN, TRUE);
 
-	gtk_binding_entry_add_signal (binding_set,
+	ctk_binding_entry_add_signal (binding_set,
 				      GDK_KEY_Left,
 				      GDK_MOD1_MASK,
 				      "move-words", 1,
 				      G_TYPE_INT, -1);
-	gtk_binding_entry_add_signal (binding_set,
+	ctk_binding_entry_add_signal (binding_set,
 				      GDK_KEY_KP_Left,
 				      GDK_MOD1_MASK,
 				      "move-words", 1,
 				      G_TYPE_INT, -1);
-	gtk_binding_entry_add_signal (binding_set,
+	ctk_binding_entry_add_signal (binding_set,
 				      GDK_KEY_Right,
 				      GDK_MOD1_MASK,
 				      "move-words", 1,
 				      G_TYPE_INT, 1);
-	gtk_binding_entry_add_signal (binding_set,
+	ctk_binding_entry_add_signal (binding_set,
 				      GDK_KEY_KP_Right,
 				      GDK_MOD1_MASK,
 				      "move-words", 1,
 				      G_TYPE_INT, 1);
 
-	gtk_binding_entry_add_signal (binding_set,
+	ctk_binding_entry_add_signal (binding_set,
 				      GDK_KEY_Up,
 				      GDK_MOD1_MASK | GDK_SHIFT_MASK,
 				      "move-viewport", 2,
 				      GTK_TYPE_SCROLL_STEP, GTK_SCROLL_STEPS,
 				      G_TYPE_INT, -1);
 
-	gtk_binding_entry_add_signal (binding_set,
+	ctk_binding_entry_add_signal (binding_set,
 				      GDK_KEY_KP_Up,
 				      GDK_MOD1_MASK | GDK_SHIFT_MASK,
 				      "move-viewport", 2,
 				      GTK_TYPE_SCROLL_STEP, GTK_SCROLL_STEPS,
 				      G_TYPE_INT, -1);
 
-	gtk_binding_entry_add_signal (binding_set,
+	ctk_binding_entry_add_signal (binding_set,
 				      GDK_KEY_Down,
 				      GDK_MOD1_MASK | GDK_SHIFT_MASK,
 				      "move-viewport", 2,
 				      GTK_TYPE_SCROLL_STEP, GTK_SCROLL_STEPS,
 				      G_TYPE_INT, 1);
 
-	gtk_binding_entry_add_signal (binding_set,
+	ctk_binding_entry_add_signal (binding_set,
 				      GDK_KEY_KP_Down,
 				      GDK_MOD1_MASK | GDK_SHIFT_MASK,
 				      "move-viewport", 2,
 				      GTK_TYPE_SCROLL_STEP, GTK_SCROLL_STEPS,
 				      G_TYPE_INT, 1);
 
-	gtk_binding_entry_add_signal (binding_set,
+	ctk_binding_entry_add_signal (binding_set,
 				      GDK_KEY_Page_Up,
 				      GDK_MOD1_MASK | GDK_SHIFT_MASK,
 				      "move-viewport", 2,
 				      GTK_TYPE_SCROLL_STEP, GTK_SCROLL_PAGES,
 				      G_TYPE_INT, -1);
 
-	gtk_binding_entry_add_signal (binding_set,
+	ctk_binding_entry_add_signal (binding_set,
 				      GDK_KEY_KP_Page_Up,
 				      GDK_MOD1_MASK | GDK_SHIFT_MASK,
 				      "move-viewport", 2,
 				      GTK_TYPE_SCROLL_STEP, GTK_SCROLL_PAGES,
 				      G_TYPE_INT, -1);
 
-	gtk_binding_entry_add_signal (binding_set,
+	ctk_binding_entry_add_signal (binding_set,
 				      GDK_KEY_Page_Down,
 				      GDK_MOD1_MASK | GDK_SHIFT_MASK,
 				      "move-viewport", 2,
 				      GTK_TYPE_SCROLL_STEP, GTK_SCROLL_PAGES,
 				      G_TYPE_INT, 1);
 
-	gtk_binding_entry_add_signal (binding_set,
+	ctk_binding_entry_add_signal (binding_set,
 				      GDK_KEY_KP_Page_Down,
 				      GDK_MOD1_MASK | GDK_SHIFT_MASK,
 				      "move-viewport", 2,
 				      GTK_TYPE_SCROLL_STEP, GTK_SCROLL_PAGES,
 				      G_TYPE_INT, 1);
 
-	gtk_binding_entry_add_signal (binding_set,
+	ctk_binding_entry_add_signal (binding_set,
 				      GDK_KEY_Home,
 				      GDK_MOD1_MASK | GDK_SHIFT_MASK,
 				      "move-viewport", 2,
 				      GTK_TYPE_SCROLL_STEP, GTK_SCROLL_ENDS,
 				      G_TYPE_INT, -1);
 
-	gtk_binding_entry_add_signal (binding_set,
+	ctk_binding_entry_add_signal (binding_set,
 				      GDK_KEY_KP_Home,
 				      GDK_MOD1_MASK | GDK_SHIFT_MASK,
 				      "move-viewport", 2,
 				      GTK_TYPE_SCROLL_STEP, GTK_SCROLL_ENDS,
 				      G_TYPE_INT, -1);
 
-	gtk_binding_entry_add_signal (binding_set,
+	ctk_binding_entry_add_signal (binding_set,
 				      GDK_KEY_End,
 				      GDK_MOD1_MASK | GDK_SHIFT_MASK,
 				      "move-viewport", 2,
 				      GTK_TYPE_SCROLL_STEP, GTK_SCROLL_ENDS,
 				      G_TYPE_INT, 1);
 
-	gtk_binding_entry_add_signal (binding_set,
+	ctk_binding_entry_add_signal (binding_set,
 				      GDK_KEY_KP_End,
 				      GDK_MOD1_MASK | GDK_SHIFT_MASK,
 				      "move-viewport", 2,
 				      GTK_TYPE_SCROLL_STEP, GTK_SCROLL_ENDS,
 				      G_TYPE_INT, 1);
 
-	gtk_binding_entry_add_signal (binding_set,
+	ctk_binding_entry_add_signal (binding_set,
 				      GDK_KEY_percent,
 				      GDK_CONTROL_MASK,
 				      "move-to-matching-bracket", 1,
 				      G_TYPE_BOOLEAN, FALSE);
 
-	gtk_binding_entry_add_signal (binding_set,
+	ctk_binding_entry_add_signal (binding_set,
 				      GDK_KEY_a,
 				      GDK_CONTROL_MASK | GDK_SHIFT_MASK,
 				      "change-number", 1,
 				      G_TYPE_INT, 1);
 
-	gtk_binding_entry_add_signal (binding_set,
+	ctk_binding_entry_add_signal (binding_set,
 				      GDK_KEY_x,
 				      GDK_CONTROL_MASK | GDK_SHIFT_MASK,
 				      "change-number", 1,
@@ -1128,7 +1128,7 @@ gtk_source_view_class_init (GtkSourceViewClass *klass)
 }
 
 static GObject *
-gtk_source_view_buildable_get_internal_child (GtkBuildable *buildable,
+ctk_source_view_buildable_get_internal_child (GtkBuildable *buildable,
 					      GtkBuilder   *builder,
 					      const gchar  *childname)
 {
@@ -1136,20 +1136,20 @@ gtk_source_view_buildable_get_internal_child (GtkBuildable *buildable,
 
 	if (g_strcmp0 (childname, "completion") == 0)
 	{
-		return G_OBJECT (gtk_source_view_get_completion (view));
+		return G_OBJECT (ctk_source_view_get_completion (view));
 	}
 
 	return NULL;
 }
 
 static void
-gtk_source_view_buildable_interface_init (GtkBuildableIface *iface)
+ctk_source_view_buildable_interface_init (GtkBuildableIface *iface)
 {
-	iface->get_internal_child = gtk_source_view_buildable_get_internal_child;
+	iface->get_internal_child = ctk_source_view_buildable_get_internal_child;
 }
 
 static void
-gtk_source_view_set_property (GObject      *object,
+ctk_source_view_set_property (GObject      *object,
 			      guint         prop_id,
 			      const GValue *value,
 			      GParamSpec   *pspec)
@@ -1163,55 +1163,55 @@ gtk_source_view_set_property (GObject      *object,
 	switch (prop_id)
 	{
 		case PROP_SHOW_LINE_NUMBERS:
-			gtk_source_view_set_show_line_numbers (view, g_value_get_boolean (value));
+			ctk_source_view_set_show_line_numbers (view, g_value_get_boolean (value));
 			break;
 
 		case PROP_SHOW_LINE_MARKS:
-			gtk_source_view_set_show_line_marks (view, g_value_get_boolean (value));
+			ctk_source_view_set_show_line_marks (view, g_value_get_boolean (value));
 			break;
 
 		case PROP_TAB_WIDTH:
-			gtk_source_view_set_tab_width (view, g_value_get_uint (value));
+			ctk_source_view_set_tab_width (view, g_value_get_uint (value));
 			break;
 
 		case PROP_INDENT_WIDTH:
-			gtk_source_view_set_indent_width (view, g_value_get_int (value));
+			ctk_source_view_set_indent_width (view, g_value_get_int (value));
 			break;
 
 		case PROP_AUTO_INDENT:
-			gtk_source_view_set_auto_indent (view, g_value_get_boolean (value));
+			ctk_source_view_set_auto_indent (view, g_value_get_boolean (value));
 			break;
 
 		case PROP_INSERT_SPACES:
-			gtk_source_view_set_insert_spaces_instead_of_tabs (view, g_value_get_boolean (value));
+			ctk_source_view_set_insert_spaces_instead_of_tabs (view, g_value_get_boolean (value));
 			break;
 
 		case PROP_SHOW_RIGHT_MARGIN:
-			gtk_source_view_set_show_right_margin (view, g_value_get_boolean (value));
+			ctk_source_view_set_show_right_margin (view, g_value_get_boolean (value));
 			break;
 
 		case PROP_RIGHT_MARGIN_POSITION:
-			gtk_source_view_set_right_margin_position (view, g_value_get_uint (value));
+			ctk_source_view_set_right_margin_position (view, g_value_get_uint (value));
 			break;
 
 		case PROP_SMART_HOME_END:
-			gtk_source_view_set_smart_home_end (view, g_value_get_enum (value));
+			ctk_source_view_set_smart_home_end (view, g_value_get_enum (value));
 			break;
 
 		case PROP_HIGHLIGHT_CURRENT_LINE:
-			gtk_source_view_set_highlight_current_line (view, g_value_get_boolean (value));
+			ctk_source_view_set_highlight_current_line (view, g_value_get_boolean (value));
 			break;
 
 		case PROP_INDENT_ON_TAB:
-			gtk_source_view_set_indent_on_tab (view, g_value_get_boolean (value));
+			ctk_source_view_set_indent_on_tab (view, g_value_get_boolean (value));
 			break;
 
 		case PROP_BACKGROUND_PATTERN:
-			gtk_source_view_set_background_pattern (view, g_value_get_enum (value));
+			ctk_source_view_set_background_pattern (view, g_value_get_enum (value));
 			break;
 
 		case PROP_SMART_BACKSPACE:
-			gtk_source_view_set_smart_backspace (view, g_value_get_boolean (value));
+			ctk_source_view_set_smart_backspace (view, g_value_get_boolean (value));
 			break;
 
 		default:
@@ -1221,7 +1221,7 @@ gtk_source_view_set_property (GObject      *object,
 }
 
 static void
-gtk_source_view_get_property (GObject    *object,
+ctk_source_view_get_property (GObject    *object,
 			      guint       prop_id,
 			      GValue     *value,
 			      GParamSpec *pspec)
@@ -1235,63 +1235,63 @@ gtk_source_view_get_property (GObject    *object,
 	switch (prop_id)
 	{
 		case PROP_COMPLETION:
-			g_value_set_object (value, gtk_source_view_get_completion (view));
+			g_value_set_object (value, ctk_source_view_get_completion (view));
 			break;
 
 		case PROP_SHOW_LINE_NUMBERS:
-			g_value_set_boolean (value, gtk_source_view_get_show_line_numbers (view));
+			g_value_set_boolean (value, ctk_source_view_get_show_line_numbers (view));
 			break;
 
 		case PROP_SHOW_LINE_MARKS:
-			g_value_set_boolean (value, gtk_source_view_get_show_line_marks (view));
+			g_value_set_boolean (value, ctk_source_view_get_show_line_marks (view));
 			break;
 
 		case PROP_TAB_WIDTH:
-			g_value_set_uint (value, gtk_source_view_get_tab_width (view));
+			g_value_set_uint (value, ctk_source_view_get_tab_width (view));
 			break;
 
 		case PROP_INDENT_WIDTH:
-			g_value_set_int (value, gtk_source_view_get_indent_width (view));
+			g_value_set_int (value, ctk_source_view_get_indent_width (view));
 			break;
 
 		case PROP_AUTO_INDENT:
-			g_value_set_boolean (value, gtk_source_view_get_auto_indent (view));
+			g_value_set_boolean (value, ctk_source_view_get_auto_indent (view));
 			break;
 
 		case PROP_INSERT_SPACES:
-			g_value_set_boolean (value, gtk_source_view_get_insert_spaces_instead_of_tabs (view));
+			g_value_set_boolean (value, ctk_source_view_get_insert_spaces_instead_of_tabs (view));
 			break;
 
 		case PROP_SHOW_RIGHT_MARGIN:
-			g_value_set_boolean (value, gtk_source_view_get_show_right_margin (view));
+			g_value_set_boolean (value, ctk_source_view_get_show_right_margin (view));
 			break;
 
 		case PROP_RIGHT_MARGIN_POSITION:
-			g_value_set_uint (value, gtk_source_view_get_right_margin_position (view));
+			g_value_set_uint (value, ctk_source_view_get_right_margin_position (view));
 			break;
 
 		case PROP_SMART_HOME_END:
-			g_value_set_enum (value, gtk_source_view_get_smart_home_end (view));
+			g_value_set_enum (value, ctk_source_view_get_smart_home_end (view));
 			break;
 
 		case PROP_HIGHLIGHT_CURRENT_LINE:
-			g_value_set_boolean (value, gtk_source_view_get_highlight_current_line (view));
+			g_value_set_boolean (value, ctk_source_view_get_highlight_current_line (view));
 			break;
 
 		case PROP_INDENT_ON_TAB:
-			g_value_set_boolean (value, gtk_source_view_get_indent_on_tab (view));
+			g_value_set_boolean (value, ctk_source_view_get_indent_on_tab (view));
 			break;
 
 		case PROP_BACKGROUND_PATTERN:
-			g_value_set_enum (value, gtk_source_view_get_background_pattern (view));
+			g_value_set_enum (value, ctk_source_view_get_background_pattern (view));
 			break;
 
 		case PROP_SMART_BACKSPACE:
-			g_value_set_boolean (value, gtk_source_view_get_smart_backspace (view));
+			g_value_set_boolean (value, ctk_source_view_get_smart_backspace (view));
 			break;
 
 		case PROP_SPACE_DRAWER:
-			g_value_set_object (value, gtk_source_view_get_space_drawer (view));
+			g_value_set_object (value, ctk_source_view_get_space_drawer (view));
 			break;
 
 		default:
@@ -1305,23 +1305,23 @@ space_drawer_notify_cb (GtkSourceSpaceDrawer *space_drawer,
 			GParamSpec           *pspec,
 			GtkSourceView        *view)
 {
-	gtk_widget_queue_draw (GTK_WIDGET (view));
+	ctk_widget_queue_draw (GTK_WIDGET (view));
 }
 
 static void
 notify_buffer_cb (GtkSourceView *view)
 {
-	set_source_buffer (view, gtk_text_view_get_buffer (GTK_TEXT_VIEW (view)));
+	set_source_buffer (view, ctk_text_view_get_buffer (GTK_TEXT_VIEW (view)));
 }
 
 static void
-gtk_source_view_init (GtkSourceView *view)
+ctk_source_view_init (GtkSourceView *view)
 {
 	GtkStyleContext *context;
 
 	GtkTargetList *target_list;
 
-	view->priv = gtk_source_view_get_instance_private (view);
+	view->priv = ctk_source_view_get_instance_private (view);
 
 	view->priv->tab_width = DEFAULT_TAB_WIDTH;
 	view->priv->tabs_set = FALSE;
@@ -1331,13 +1331,13 @@ gtk_source_view_init (GtkSourceView *view)
 	view->priv->right_margin_pos = DEFAULT_RIGHT_MARGIN_POSITION;
 	view->priv->cached_right_margin_pos = -1;
 
-	gtk_text_view_set_left_margin (GTK_TEXT_VIEW (view), 2);
-	gtk_text_view_set_right_margin (GTK_TEXT_VIEW (view), 2);
+	ctk_text_view_set_left_margin (GTK_TEXT_VIEW (view), 2);
+	ctk_text_view_set_right_margin (GTK_TEXT_VIEW (view), 2);
 
 	view->priv->right_margin_line_color = NULL;
 	view->priv->right_margin_overlay_color = NULL;
 
-	view->priv->space_drawer = gtk_source_space_drawer_new ();
+	view->priv->space_drawer = ctk_source_space_drawer_new ();
 	g_signal_connect_object (view->priv->space_drawer,
 				 "notify",
 				 G_CALLBACK (space_drawer_notify_cb),
@@ -1349,12 +1349,12 @@ gtk_source_view_init (GtkSourceView *view)
 	                                                     (GDestroyNotify) g_free,
 	                                                     (GDestroyNotify) mark_category_free);
 
-	target_list = gtk_drag_dest_get_target_list (GTK_WIDGET (view));
+	target_list = ctk_drag_dest_get_target_list (GTK_WIDGET (view));
 	g_return_if_fail (target_list != NULL);
 
-	gtk_target_list_add_table (target_list, drop_types, G_N_ELEMENTS (drop_types));
+	ctk_target_list_add_table (target_list, drop_types, G_N_ELEMENTS (drop_types));
 
-	gtk_widget_set_has_tooltip (GTK_WIDGET (view), TRUE);
+	ctk_widget_set_has_tooltip (GTK_WIDGET (view), TRUE);
 
 	g_signal_connect (view,
 			  "drag_data_received",
@@ -1366,12 +1366,12 @@ gtk_source_view_init (GtkSourceView *view)
 			  G_CALLBACK (notify_buffer_cb),
 			  NULL);
 
-	context = gtk_widget_get_style_context (GTK_WIDGET (view));
-	gtk_style_context_add_class (context, "sourceview");
+	context = ctk_widget_get_style_context (GTK_WIDGET (view));
+	ctk_style_context_add_class (context, "sourceview");
 }
 
 static void
-gtk_source_view_dispose (GObject *object)
+ctk_source_view_dispose (GObject *object)
 {
 	GtkSourceView *view = GTK_SOURCE_VIEW (object);
 
@@ -1391,11 +1391,11 @@ gtk_source_view_dispose (GObject *object)
 	 */
 	g_signal_handlers_disconnect_by_func (view, notify_buffer_cb, NULL);
 
-	G_OBJECT_CLASS (gtk_source_view_parent_class)->dispose (object);
+	G_OBJECT_CLASS (ctk_source_view_parent_class)->dispose (object);
 }
 
 static void
-gtk_source_view_finalize (GObject *object)
+ctk_source_view_finalize (GObject *object)
 {
 	GtkSourceView *view = GTK_SOURCE_VIEW (object);
 
@@ -1414,7 +1414,7 @@ gtk_source_view_finalize (GObject *object)
 		g_hash_table_destroy (view->priv->mark_categories);
 	}
 
-	G_OBJECT_CLASS (gtk_source_view_parent_class)->finalize (object);
+	G_OBJECT_CLASS (ctk_source_view_parent_class)->finalize (object);
 }
 
 static void
@@ -1424,20 +1424,20 @@ get_visible_region (GtkTextView *text_view,
 {
 	GdkRectangle visible_rect;
 
-	gtk_text_view_get_visible_rect (text_view, &visible_rect);
+	ctk_text_view_get_visible_rect (text_view, &visible_rect);
 
-	gtk_text_view_get_line_at_y (text_view,
+	ctk_text_view_get_line_at_y (text_view,
 				     start,
 				     visible_rect.y,
 				     NULL);
 
-	gtk_text_view_get_line_at_y (text_view,
+	ctk_text_view_get_line_at_y (text_view,
 				     end,
 				     visible_rect.y + visible_rect.height,
 				     NULL);
 
-	gtk_text_iter_backward_line (start);
-	gtk_text_iter_forward_line (end);
+	ctk_text_iter_backward_line (start);
+	ctk_text_iter_forward_line (end);
 }
 
 static void
@@ -1461,24 +1461,24 @@ highlight_updated_cb (GtkSourceBuffer *buffer,
 			   G_STRFUNC,
 			   text_view,
 			   ++nth_call,
-			   gtk_text_iter_get_offset (_start),
-			   gtk_text_iter_get_offset (_end));
+			   ctk_text_iter_get_offset (_start),
+			   ctk_text_iter_get_offset (_end));
 	}
 #endif
 
 	start = *_start;
 	end = *_end;
-	gtk_text_iter_order (&start, &end);
+	ctk_text_iter_order (&start, &end);
 
 	get_visible_region (text_view, &visible_start, &visible_end);
 
-	if (gtk_text_iter_compare (&end, &visible_start) < 0 ||
-	    gtk_text_iter_compare (&visible_end, &start) < 0)
+	if (ctk_text_iter_compare (&end, &visible_start) < 0 ||
+	    ctk_text_iter_compare (&visible_end, &start) < 0)
 	{
 		return;
 	}
 
-	if (gtk_text_iter_compare (&start, &visible_start) < 0)
+	if (ctk_text_iter_compare (&start, &visible_start) < 0)
 	{
 		intersect_start = visible_start;
 	}
@@ -1487,7 +1487,7 @@ highlight_updated_cb (GtkSourceBuffer *buffer,
 		intersect_start = start;
 	}
 
-	if (gtk_text_iter_compare (&visible_end, &end) < 0)
+	if (ctk_text_iter_compare (&visible_end, &end) < 0)
 	{
 		intersect_end = visible_end;
 	}
@@ -1503,14 +1503,14 @@ highlight_updated_cb (GtkSourceBuffer *buffer,
 	 * applies to the buffer.
 	 *
 	 * A previous implementation of this signal handler queued a redraw on
-	 * the view with gtk_widget_queue_draw_area(), instead of calling
-	 * directly _gtk_source_buffer_update_syntax_highlight(). The ::draw
-	 * handler also calls _gtk_source_buffer_update_syntax_highlight(), so
+	 * the view with ctk_widget_queue_draw_area(), instead of calling
+	 * directly _ctk_source_buffer_update_syntax_highlight(). The ::draw
+	 * handler also calls _ctk_source_buffer_update_syntax_highlight(), so
 	 * this had the desired effect, but it was less clear.
 	 * See the Git commit 949cd128064201935f90d999544e6a19f8e3baa6.
 	 * And: https://bugzilla.gnome.org/show_bug.cgi?id=767565
 	 */
-	_gtk_source_buffer_update_syntax_highlight (buffer,
+	_ctk_source_buffer_update_syntax_highlight (buffer,
 						    &intersect_start,
 						    &intersect_end,
 						    FALSE);
@@ -1528,12 +1528,12 @@ search_start_cb (GtkSourceBufferInternal *buffer_internal,
 
 #ifndef G_DISABLE_ASSERT
 	{
-		GtkSourceBuffer *buffer_search = gtk_source_search_context_get_buffer (search_context);
+		GtkSourceBuffer *buffer_search = ctk_source_search_context_get_buffer (search_context);
 		g_assert (buffer_search == view->priv->source_buffer);
 	}
 #endif
 
-	_gtk_source_search_context_update_highlight (search_context,
+	_ctk_source_search_context_update_highlight (search_context,
 						     &visible_start,
 						     &visible_end,
 						     FALSE);
@@ -1546,7 +1546,7 @@ source_mark_updated_cb (GtkSourceBuffer *buffer,
 {
 	/* TODO do something more intelligent here, namely
 	 * invalidate only the area under the mark if possible */
-	gtk_widget_queue_draw (GTK_WIDGET (text_view));
+	ctk_widget_queue_draw (GTK_WIDGET (text_view));
 }
 
 static void
@@ -1554,7 +1554,7 @@ buffer_style_scheme_changed_cb (GtkSourceBuffer *buffer,
 				GParamSpec      *pspec,
 				GtkSourceView   *view)
 {
-	gtk_source_view_update_style_scheme (view);
+	ctk_source_view_update_style_scheme (view);
 }
 
 static void
@@ -1563,7 +1563,7 @@ implicit_trailing_newline_changed_cb (GtkSourceBuffer *buffer,
 				      GtkSourceView   *view)
 {
 	/* For drawing or not a trailing newline. */
-	gtk_widget_queue_draw (GTK_WIDGET (view));
+	ctk_widget_queue_draw (GTK_WIDGET (view));
 }
 
 static void
@@ -1589,7 +1589,7 @@ remove_source_buffer (GtkSourceView *view)
 						      implicit_trailing_newline_changed_cb,
 						      view);
 
-		buffer_internal = _gtk_source_buffer_internal_get_from_buffer (view->priv->source_buffer);
+		buffer_internal = _ctk_source_buffer_internal_get_from_buffer (view->priv->source_buffer);
 
 		g_signal_handlers_disconnect_by_func (buffer_internal,
 						      search_start_cb,
@@ -1637,7 +1637,7 @@ set_source_buffer (GtkSourceView *view,
 				  G_CALLBACK (implicit_trailing_newline_changed_cb),
 				  view);
 
-		buffer_internal = _gtk_source_buffer_internal_get_from_buffer (view->priv->source_buffer);
+		buffer_internal = _ctk_source_buffer_internal_get_from_buffer (view->priv->source_buffer);
 
 		g_signal_connect (buffer_internal,
 				  "search-start",
@@ -1645,7 +1645,7 @@ set_source_buffer (GtkSourceView *view,
 				  view);
 	}
 
-	gtk_source_view_update_style_scheme (view);
+	ctk_source_view_update_style_scheme (view);
 }
 
 static void
@@ -1656,15 +1656,15 @@ scroll_to_insert (GtkSourceView *view,
 	GtkTextIter iter;
 	GdkRectangle visible, location;
 
-	insert = gtk_text_buffer_get_insert (buffer);
-	gtk_text_buffer_get_iter_at_mark (buffer, &iter, insert);
+	insert = ctk_text_buffer_get_insert (buffer);
+	ctk_text_buffer_get_iter_at_mark (buffer, &iter, insert);
 
-	gtk_text_view_get_visible_rect (GTK_TEXT_VIEW (view), &visible);
-	gtk_text_view_get_iter_location (GTK_TEXT_VIEW (view), &iter, &location);
+	ctk_text_view_get_visible_rect (GTK_TEXT_VIEW (view), &visible);
+	ctk_text_view_get_iter_location (GTK_TEXT_VIEW (view), &iter, &location);
 
 	if (location.y < visible.y || visible.y + visible.height < location.y)
 	{
-		gtk_text_view_scroll_to_mark (GTK_TEXT_VIEW (view),
+		ctk_text_view_scroll_to_mark (GTK_TEXT_VIEW (view),
 					      insert,
 					      0.0,
 					      TRUE,
@@ -1679,69 +1679,69 @@ scroll_to_insert (GtkSourceView *view,
 		 * _scroll_to_iter will cause it to move and the
 		 * insert mark is already visible vertically. */
 
-		adjustment = gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (view));
-		position = gtk_adjustment_get_value (adjustment);
+		adjustment = ctk_scrollable_get_vadjustment (GTK_SCROLLABLE (view));
+		position = ctk_adjustment_get_value (adjustment);
 
 		/* Must use _to_iter as _to_mark scrolls in an
 		 * idle handler and would prevent use from
 		 * reverting the vertical position of the view. */
-		gtk_text_view_scroll_to_iter (GTK_TEXT_VIEW (view),
+		ctk_text_view_scroll_to_iter (GTK_TEXT_VIEW (view),
 					      &iter,
 					      0.0,
 					      TRUE,
 					      0.5, 0.0);
 
-		gtk_adjustment_set_value (adjustment, position);
+		ctk_adjustment_set_value (adjustment, position);
 	}
 }
 
 static void
-gtk_source_view_undo (GtkSourceView *view)
+ctk_source_view_undo (GtkSourceView *view)
 {
 	GtkTextBuffer *buffer;
 
 	g_return_if_fail (GTK_SOURCE_IS_VIEW (view));
 
-	buffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW (view));
+	buffer = ctk_text_view_get_buffer (GTK_TEXT_VIEW (view));
 
-	if (gtk_text_view_get_editable (GTK_TEXT_VIEW (view)) &&
+	if (ctk_text_view_get_editable (GTK_TEXT_VIEW (view)) &&
 	    GTK_SOURCE_IS_BUFFER (buffer) &&
-	    gtk_source_buffer_can_undo (GTK_SOURCE_BUFFER (buffer)))
+	    ctk_source_buffer_can_undo (GTK_SOURCE_BUFFER (buffer)))
 	{
-		gtk_source_buffer_undo (GTK_SOURCE_BUFFER (buffer));
+		ctk_source_buffer_undo (GTK_SOURCE_BUFFER (buffer));
 		scroll_to_insert (view, buffer);
 	}
 }
 
 static void
-gtk_source_view_redo (GtkSourceView *view)
+ctk_source_view_redo (GtkSourceView *view)
 {
 	GtkTextBuffer *buffer;
 
 	g_return_if_fail (GTK_SOURCE_IS_VIEW (view));
 
-	buffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW (view));
+	buffer = ctk_text_view_get_buffer (GTK_TEXT_VIEW (view));
 
-	if (gtk_text_view_get_editable (GTK_TEXT_VIEW (view)) &&
+	if (ctk_text_view_get_editable (GTK_TEXT_VIEW (view)) &&
 	    GTK_SOURCE_IS_BUFFER (buffer) &&
-	    gtk_source_buffer_can_redo (GTK_SOURCE_BUFFER (buffer)))
+	    ctk_source_buffer_can_redo (GTK_SOURCE_BUFFER (buffer)))
 	{
-		gtk_source_buffer_redo (GTK_SOURCE_BUFFER (buffer));
+		ctk_source_buffer_redo (GTK_SOURCE_BUFFER (buffer));
 		scroll_to_insert (view, buffer);
 	}
 }
 
 static void
-gtk_source_view_show_completion_real (GtkSourceView *view)
+ctk_source_view_show_completion_real (GtkSourceView *view)
 {
 	GtkSourceCompletion *completion;
 	GtkSourceCompletionContext *context;
 
-	completion = gtk_source_view_get_completion (view);
-	context = gtk_source_completion_create_context (completion, NULL);
+	completion = ctk_source_view_get_completion (view);
+	context = ctk_source_completion_create_context (completion, NULL);
 
-	gtk_source_completion_start (completion,
-				     gtk_source_completion_get_providers (completion),
+	ctk_source_completion_start (completion,
+				     ctk_source_completion_get_providers (completion),
 				     context);
 }
 
@@ -1752,18 +1752,18 @@ menu_item_activate_change_case_cb (GtkWidget   *menu_item,
 	GtkTextBuffer *buffer;
 	GtkTextIter start, end;
 
-	buffer = gtk_text_view_get_buffer (text_view);
+	buffer = ctk_text_view_get_buffer (text_view);
 	if (!GTK_SOURCE_IS_BUFFER (buffer))
 	{
 		return;
 	}
 
-	if (gtk_text_buffer_get_selection_bounds (buffer, &start, &end))
+	if (ctk_text_buffer_get_selection_bounds (buffer, &start, &end))
 	{
 		GtkSourceChangeCaseType case_type;
 
 		case_type = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (menu_item), "change-case"));
-		gtk_source_buffer_change_case (GTK_SOURCE_BUFFER (buffer), case_type, &start, &end);
+		ctk_source_buffer_change_case (GTK_SOURCE_BUFFER (buffer), case_type, &start, &end);
 	}
 }
 
@@ -1771,14 +1771,14 @@ static void
 menu_item_activate_cb (GtkWidget   *menu_item,
 		       GtkTextView *text_view)
 {
-	const gchar *gtksignal;
+	const gchar *ctksignal;
 
-	gtksignal = g_object_get_data (G_OBJECT (menu_item), "gtk-signal");
-	g_signal_emit_by_name (G_OBJECT (text_view), gtksignal);
+	ctksignal = g_object_get_data (G_OBJECT (menu_item), "ctk-signal");
+	g_signal_emit_by_name (G_OBJECT (text_view), ctksignal);
 }
 
 static void
-gtk_source_view_populate_popup (GtkTextView *text_view,
+ctk_source_view_populate_popup (GtkTextView *text_view,
 				GtkWidget   *popup)
 {
 	GtkTextBuffer *buffer;
@@ -1786,7 +1786,7 @@ gtk_source_view_populate_popup (GtkTextView *text_view,
 	GtkWidget *menu_item;
 	GtkMenuShell *case_menu;
 
-	buffer = gtk_text_view_get_buffer (text_view);
+	buffer = ctk_text_view_get_buffer (text_view);
 	if (!GTK_SOURCE_IS_BUFFER (buffer))
 	{
 		return;
@@ -1799,91 +1799,91 @@ gtk_source_view_populate_popup (GtkTextView *text_view,
 
 	menu = GTK_MENU_SHELL (popup);
 
-	if (_gtk_source_buffer_is_undo_redo_enabled (GTK_SOURCE_BUFFER (buffer)))
+	if (_ctk_source_buffer_is_undo_redo_enabled (GTK_SOURCE_BUFFER (buffer)))
 	{
 		/* separator */
-		menu_item = gtk_separator_menu_item_new ();
-		gtk_menu_shell_prepend (menu, menu_item);
-		gtk_widget_show (menu_item);
+		menu_item = ctk_separator_menu_item_new ();
+		ctk_menu_shell_prepend (menu, menu_item);
+		ctk_widget_show (menu_item);
 
 		/* create redo menu_item. */
-		menu_item = gtk_menu_item_new_with_mnemonic (_("_Redo"));
-		g_object_set_data (G_OBJECT (menu_item), "gtk-signal", (gpointer)"redo");
+		menu_item = ctk_menu_item_new_with_mnemonic (_("_Redo"));
+		g_object_set_data (G_OBJECT (menu_item), "ctk-signal", (gpointer)"redo");
 		g_signal_connect (G_OBJECT (menu_item), "activate",
 				  G_CALLBACK (menu_item_activate_cb), text_view);
-		gtk_menu_shell_prepend (menu, menu_item);
-		gtk_widget_set_sensitive (menu_item,
-					  (gtk_text_view_get_editable (text_view) &&
-					   gtk_source_buffer_can_redo (GTK_SOURCE_BUFFER (buffer))));
-		gtk_widget_show (menu_item);
+		ctk_menu_shell_prepend (menu, menu_item);
+		ctk_widget_set_sensitive (menu_item,
+					  (ctk_text_view_get_editable (text_view) &&
+					   ctk_source_buffer_can_redo (GTK_SOURCE_BUFFER (buffer))));
+		ctk_widget_show (menu_item);
 
 		/* create undo menu_item. */
-		menu_item = gtk_menu_item_new_with_mnemonic (_("_Undo"));
-		g_object_set_data (G_OBJECT (menu_item), "gtk-signal", (gpointer)"undo");
+		menu_item = ctk_menu_item_new_with_mnemonic (_("_Undo"));
+		g_object_set_data (G_OBJECT (menu_item), "ctk-signal", (gpointer)"undo");
 		g_signal_connect (G_OBJECT (menu_item), "activate",
 				  G_CALLBACK (menu_item_activate_cb), text_view);
-		gtk_menu_shell_prepend (menu, menu_item);
-		gtk_widget_set_sensitive (menu_item,
-					  (gtk_text_view_get_editable (text_view) &&
-					   gtk_source_buffer_can_undo (GTK_SOURCE_BUFFER (buffer))));
-		gtk_widget_show (menu_item);
+		ctk_menu_shell_prepend (menu, menu_item);
+		ctk_widget_set_sensitive (menu_item,
+					  (ctk_text_view_get_editable (text_view) &&
+					   ctk_source_buffer_can_undo (GTK_SOURCE_BUFFER (buffer))));
+		ctk_widget_show (menu_item);
 	}
 
 	/* separator */
-	menu_item = gtk_separator_menu_item_new ();
-	gtk_menu_shell_append (menu, menu_item);
-	gtk_widget_show (menu_item);
+	menu_item = ctk_separator_menu_item_new ();
+	ctk_menu_shell_append (menu, menu_item);
+	ctk_widget_show (menu_item);
 
 	/* create change case menu */
-	case_menu = GTK_MENU_SHELL (gtk_menu_new ());
+	case_menu = GTK_MENU_SHELL (ctk_menu_new ());
 
-	menu_item = gtk_menu_item_new_with_mnemonic (_("All _Upper Case"));
+	menu_item = ctk_menu_item_new_with_mnemonic (_("All _Upper Case"));
 	g_object_set_data (G_OBJECT (menu_item), "change-case", GINT_TO_POINTER(GTK_SOURCE_CHANGE_CASE_UPPER));
 	g_signal_connect (G_OBJECT (menu_item), "activate",
 			  G_CALLBACK (menu_item_activate_change_case_cb), text_view);
-	gtk_menu_shell_append (case_menu, menu_item);
-	gtk_widget_set_sensitive (menu_item,
-				  (gtk_text_view_get_editable (text_view) &&
-				   gtk_text_buffer_get_has_selection (buffer)));
-	gtk_widget_show (menu_item);
+	ctk_menu_shell_append (case_menu, menu_item);
+	ctk_widget_set_sensitive (menu_item,
+				  (ctk_text_view_get_editable (text_view) &&
+				   ctk_text_buffer_get_has_selection (buffer)));
+	ctk_widget_show (menu_item);
 
-	menu_item = gtk_menu_item_new_with_mnemonic (_("All _Lower Case"));
+	menu_item = ctk_menu_item_new_with_mnemonic (_("All _Lower Case"));
 	g_object_set_data (G_OBJECT (menu_item), "change-case", GINT_TO_POINTER(GTK_SOURCE_CHANGE_CASE_LOWER));
 	g_signal_connect (G_OBJECT (menu_item), "activate",
 			  G_CALLBACK (menu_item_activate_change_case_cb), text_view);
-	gtk_menu_shell_append (case_menu, menu_item);
-	gtk_widget_set_sensitive (menu_item,
-				  (gtk_text_view_get_editable (text_view) &&
-				   gtk_text_buffer_get_has_selection (buffer)));
-	gtk_widget_show (menu_item);
+	ctk_menu_shell_append (case_menu, menu_item);
+	ctk_widget_set_sensitive (menu_item,
+				  (ctk_text_view_get_editable (text_view) &&
+				   ctk_text_buffer_get_has_selection (buffer)));
+	ctk_widget_show (menu_item);
 
-	menu_item = gtk_menu_item_new_with_mnemonic (_("_Invert Case"));
+	menu_item = ctk_menu_item_new_with_mnemonic (_("_Invert Case"));
 	g_object_set_data (G_OBJECT (menu_item), "change-case", GINT_TO_POINTER(GTK_SOURCE_CHANGE_CASE_TOGGLE));
 	g_signal_connect (G_OBJECT (menu_item), "activate",
 			  G_CALLBACK (menu_item_activate_change_case_cb), text_view);
-	gtk_menu_shell_append (case_menu, menu_item);
-	gtk_widget_set_sensitive (menu_item,
-				  (gtk_text_view_get_editable (text_view) &&
-				   gtk_text_buffer_get_has_selection (buffer)));
-	gtk_widget_show (menu_item);
+	ctk_menu_shell_append (case_menu, menu_item);
+	ctk_widget_set_sensitive (menu_item,
+				  (ctk_text_view_get_editable (text_view) &&
+				   ctk_text_buffer_get_has_selection (buffer)));
+	ctk_widget_show (menu_item);
 
-	menu_item = gtk_menu_item_new_with_mnemonic (_("_Title Case"));
+	menu_item = ctk_menu_item_new_with_mnemonic (_("_Title Case"));
 	g_object_set_data (G_OBJECT (menu_item), "change-case", GINT_TO_POINTER(GTK_SOURCE_CHANGE_CASE_TITLE));
 	g_signal_connect (G_OBJECT (menu_item), "activate",
 			  G_CALLBACK (menu_item_activate_change_case_cb), text_view);
-	gtk_menu_shell_append (case_menu, menu_item);
-	gtk_widget_set_sensitive (menu_item,
-				  (gtk_text_view_get_editable (text_view) &&
-				   gtk_text_buffer_get_has_selection (buffer)));
-	gtk_widget_show (menu_item);
+	ctk_menu_shell_append (case_menu, menu_item);
+	ctk_widget_set_sensitive (menu_item,
+				  (ctk_text_view_get_editable (text_view) &&
+				   ctk_text_buffer_get_has_selection (buffer)));
+	ctk_widget_show (menu_item);
 
-	menu_item = gtk_menu_item_new_with_mnemonic (_("C_hange Case"));
-	gtk_menu_item_set_submenu (GTK_MENU_ITEM (menu_item), GTK_WIDGET (case_menu));
-	gtk_menu_shell_append (menu, menu_item);
-	gtk_widget_set_sensitive (menu_item,
-				  (gtk_text_view_get_editable (text_view) &&
-				   gtk_text_buffer_get_has_selection (buffer)));
-	gtk_widget_show (menu_item);
+	menu_item = ctk_menu_item_new_with_mnemonic (_("C_hange Case"));
+	ctk_menu_item_set_submenu (GTK_MENU_ITEM (menu_item), GTK_WIDGET (case_menu));
+	ctk_menu_shell_append (menu, menu_item);
+	ctk_widget_set_sensitive (menu_item,
+				  (ctk_text_view_get_editable (text_view) &&
+				   ctk_text_buffer_get_has_selection (buffer)));
+	ctk_widget_show (menu_item);
 }
 
 static void
@@ -1891,19 +1891,19 @@ move_cursor (GtkTextView       *text_view,
 	     const GtkTextIter *new_location,
 	     gboolean           extend_selection)
 {
-	GtkTextBuffer *buffer = gtk_text_view_get_buffer (text_view);
-	GtkTextMark *insert = gtk_text_buffer_get_insert (buffer);
+	GtkTextBuffer *buffer = ctk_text_view_get_buffer (text_view);
+	GtkTextMark *insert = ctk_text_buffer_get_insert (buffer);
 
 	if (extend_selection)
 	{
-		gtk_text_buffer_move_mark (buffer, insert, new_location);
+		ctk_text_buffer_move_mark (buffer, insert, new_location);
 	}
 	else
 	{
-		gtk_text_buffer_place_cursor (buffer, new_location);
+		ctk_text_buffer_place_cursor (buffer, new_location);
 	}
 
-	gtk_text_view_scroll_mark_onscreen (text_view, insert);
+	ctk_text_view_scroll_mark_onscreen (text_view, insert);
 }
 
 static void
@@ -1917,29 +1917,29 @@ move_to_first_char (GtkTextView *text_view,
 
 	if (display_line)
 	{
-		gtk_text_view_backward_display_line_start (text_view, iter);
-		gtk_text_view_forward_display_line_end (text_view, &last);
+		ctk_text_view_backward_display_line_start (text_view, iter);
+		ctk_text_view_forward_display_line_end (text_view, &last);
 	}
 	else
 	{
-		gtk_text_iter_set_line_offset (iter, 0);
+		ctk_text_iter_set_line_offset (iter, 0);
 
-		if (!gtk_text_iter_ends_line (&last))
+		if (!ctk_text_iter_ends_line (&last))
 		{
-			gtk_text_iter_forward_to_line_end (&last);
+			ctk_text_iter_forward_to_line_end (&last);
 		}
 	}
 
 
-	while (gtk_text_iter_compare (iter, &last) < 0)
+	while (ctk_text_iter_compare (iter, &last) < 0)
 	{
 		gunichar c;
 
-		c = gtk_text_iter_get_char (iter);
+		c = ctk_text_iter_get_char (iter);
 
 		if (g_unichar_isspace (c))
 		{
-			if (!gtk_text_iter_forward_visible_cursor_position (iter))
+			if (!ctk_text_iter_forward_visible_cursor_position (iter))
 			{
 				break;
 			}
@@ -1962,34 +1962,34 @@ move_to_last_char (GtkTextView *text_view,
 
 	if (display_line)
 	{
-		gtk_text_view_forward_display_line_end (text_view, iter);
-		gtk_text_view_backward_display_line_start (text_view, &first);
+		ctk_text_view_forward_display_line_end (text_view, iter);
+		ctk_text_view_backward_display_line_start (text_view, &first);
 	}
 	else
 	{
-		if (!gtk_text_iter_ends_line (iter))
+		if (!ctk_text_iter_ends_line (iter))
 		{
-			gtk_text_iter_forward_to_line_end (iter);
+			ctk_text_iter_forward_to_line_end (iter);
 		}
 
-		gtk_text_iter_set_line_offset (&first, 0);
+		ctk_text_iter_set_line_offset (&first, 0);
 	}
 
-	while (gtk_text_iter_compare (iter, &first) > 0)
+	while (ctk_text_iter_compare (iter, &first) > 0)
 	{
 		gunichar c;
 
-		if (!gtk_text_iter_backward_visible_cursor_position (iter))
+		if (!ctk_text_iter_backward_visible_cursor_position (iter))
 		{
 			break;
 		}
 
-		c = gtk_text_iter_get_char (iter);
+		c = ctk_text_iter_get_char (iter);
 
 		if (!g_unichar_isspace (c))
 		{
 			/* We've gone one cursor position too far. */
-			gtk_text_iter_forward_visible_cursor_position (iter);
+			ctk_text_iter_forward_visible_cursor_position (iter);
 			break;
 		}
 	}
@@ -2005,7 +2005,7 @@ do_cursor_move_home_end (GtkTextView *text_view,
 	/* if we are clearing selection, we need to move_cursor even
 	 * if we are at proper iter because selection_bound may need
 	 * to be moved */
-	if (!gtk_text_iter_equal (cur, iter) || !extend_selection)
+	if (!ctk_text_iter_equal (cur, iter) || !extend_selection)
 	{
 		move_cursor (text_view, iter, extend_selection);
 		g_signal_emit (text_view, signals[SMART_HOME_END], 0, iter, count);
@@ -2020,7 +2020,7 @@ move_cursor_smart_home_end (GtkTextView     *text_view,
 			    gboolean         extend_selection)
 {
 	GtkSourceView *source_view = GTK_SOURCE_VIEW (text_view);
-	GtkTextBuffer *buffer = gtk_text_view_get_buffer (text_view);
+	GtkTextBuffer *buffer = ctk_text_view_get_buffer (text_view);
 	gboolean move_display_line;
 	GtkTextMark *mark;
 	GtkTextIter cur;
@@ -2031,8 +2031,8 @@ move_cursor_smart_home_end (GtkTextView     *text_view,
 
 	move_display_line = step == GTK_MOVEMENT_DISPLAY_LINE_ENDS;
 
-	mark = gtk_text_buffer_get_insert (buffer);
-	gtk_text_buffer_get_iter_at_mark (buffer, &cur, mark);
+	mark = ctk_text_buffer_get_insert (buffer);
+	ctk_text_buffer_get_iter_at_mark (buffer, &cur, mark);
 	iter = cur;
 
 	if (count == -1)
@@ -2043,17 +2043,17 @@ move_cursor_smart_home_end (GtkTextView     *text_view,
 
 		if (move_display_line)
 		{
-			at_home = gtk_text_view_starts_display_line (text_view, &cur);
+			at_home = ctk_text_view_starts_display_line (text_view, &cur);
 		}
 		else
 		{
-			at_home = gtk_text_iter_starts_line (&cur);
+			at_home = ctk_text_iter_starts_line (&cur);
 		}
 
 		switch (source_view->priv->smart_home_end)
 		{
 			case GTK_SOURCE_SMART_HOME_END_BEFORE:
-				if (!gtk_text_iter_equal (&cur, &iter) || at_home)
+				if (!ctk_text_iter_equal (&cur, &iter) || at_home)
 				{
 					do_cursor_move_home_end (text_view,
 					                         &cur,
@@ -2100,18 +2100,18 @@ move_cursor_smart_home_end (GtkTextView     *text_view,
 			GtkTextIter display_end;
 			display_end = cur;
 
-			gtk_text_view_forward_display_line_end (text_view, &display_end);
-			at_end = gtk_text_iter_equal (&cur, &display_end);
+			ctk_text_view_forward_display_line_end (text_view, &display_end);
+			at_end = ctk_text_iter_equal (&cur, &display_end);
 		}
 		else
 		{
-			at_end = gtk_text_iter_ends_line (&cur);
+			at_end = ctk_text_iter_ends_line (&cur);
 		}
 
 		switch (source_view->priv->smart_home_end)
 		{
 			case GTK_SOURCE_SMART_HOME_END_BEFORE:
-				if (!gtk_text_iter_equal (&cur, &iter) || at_end)
+				if (!ctk_text_iter_equal (&cur, &iter) || at_end)
 				{
 					do_cursor_move_home_end (text_view,
 					                         &cur,
@@ -2164,18 +2164,18 @@ move_cursor_words (GtkTextView *text_view,
 	const gchar *ptr;
 	gchar *line_text;
 
-	buffer = gtk_text_view_get_buffer (text_view);
+	buffer = ctk_text_view_get_buffer (text_view);
 
-	gtk_text_buffer_get_iter_at_mark (buffer,
+	ctk_text_buffer_get_iter_at_mark (buffer,
 					  &insert,
-					  gtk_text_buffer_get_insert (buffer));
+					  ctk_text_buffer_get_insert (buffer));
 
 	line_start = line_end = newplace = insert;
 
 	/* Get the text of the current line for RTL analysis */
-	gtk_text_iter_set_line_offset (&line_start, 0);
-	gtk_text_iter_forward_line (&line_end);
-	line_text = gtk_text_iter_get_visible_text (&line_start, &line_end);
+	ctk_text_iter_set_line_offset (&line_start, 0);
+	ctk_text_iter_forward_line (&line_end);
+	line_text = ctk_text_iter_get_visible_text (&line_start, &line_end);
 
 	/* Swap direction for RTL to maintain visual cursor movement.
 	 * Otherwise, cursor will move in opposite direction which is counter
@@ -2206,16 +2206,16 @@ move_cursor_words (GtkTextView *text_view,
 
 	if (count < 0)
 	{
-		if (!_gtk_source_iter_backward_visible_word_starts (&newplace, -count))
+		if (!_ctk_source_iter_backward_visible_word_starts (&newplace, -count))
 		{
-			gtk_text_iter_set_line_offset (&newplace, 0);
+			ctk_text_iter_set_line_offset (&newplace, 0);
 		}
 	}
 	else if (count > 0)
 	{
-		if (!_gtk_source_iter_forward_visible_word_ends (&newplace, count))
+		if (!_ctk_source_iter_forward_visible_word_ends (&newplace, count))
 		{
-			gtk_text_iter_forward_to_line_end (&newplace);
+			ctk_text_iter_forward_to_line_end (&newplace);
 		}
 	}
 
@@ -2223,17 +2223,17 @@ move_cursor_words (GtkTextView *text_view,
 }
 
 static void
-gtk_source_view_move_cursor (GtkTextView     *text_view,
+ctk_source_view_move_cursor (GtkTextView     *text_view,
 			     GtkMovementStep  step,
 			     gint             count,
 			     gboolean         extend_selection)
 {
-	if (!gtk_text_view_get_cursor_visible (text_view))
+	if (!ctk_text_view_get_cursor_visible (text_view))
 	{
 		goto chain_up;
 	}
 
-	gtk_text_view_reset_im_context (text_view);
+	ctk_text_view_reset_im_context (text_view);
 
 	switch (step)
 	{
@@ -2261,60 +2261,60 @@ gtk_source_view_move_cursor (GtkTextView     *text_view,
 	}
 
 chain_up:
-	GTK_TEXT_VIEW_CLASS (gtk_source_view_parent_class)->move_cursor (text_view,
+	GTK_TEXT_VIEW_CLASS (ctk_source_view_parent_class)->move_cursor (text_view,
 									 step,
 									 count,
 									 extend_selection);
 }
 
 static void
-gtk_source_view_delete_from_cursor (GtkTextView   *text_view,
+ctk_source_view_delete_from_cursor (GtkTextView   *text_view,
 				    GtkDeleteType  type,
 				    gint           count)
 {
-	GtkTextBuffer *buffer = gtk_text_view_get_buffer (text_view);
+	GtkTextBuffer *buffer = ctk_text_view_get_buffer (text_view);
 	GtkTextIter insert;
 	GtkTextIter start;
 	GtkTextIter end;
 
 	if (type != GTK_DELETE_WORD_ENDS)
 	{
-		GTK_TEXT_VIEW_CLASS (gtk_source_view_parent_class)->delete_from_cursor (text_view,
+		GTK_TEXT_VIEW_CLASS (ctk_source_view_parent_class)->delete_from_cursor (text_view,
 											type,
 											count);
 		return;
 	}
 
-	gtk_text_view_reset_im_context (text_view);
+	ctk_text_view_reset_im_context (text_view);
 
-	gtk_text_buffer_get_iter_at_mark (buffer,
+	ctk_text_buffer_get_iter_at_mark (buffer,
 					  &insert,
-					  gtk_text_buffer_get_insert (buffer));
+					  ctk_text_buffer_get_insert (buffer));
 
 	start = insert;
 	end = insert;
 
 	if (count > 0)
 	{
-		if (!_gtk_source_iter_forward_visible_word_ends (&end, count))
+		if (!_ctk_source_iter_forward_visible_word_ends (&end, count))
 		{
-			gtk_text_iter_forward_to_line_end (&end);
+			ctk_text_iter_forward_to_line_end (&end);
 		}
 	}
 	else
 	{
-		if (!_gtk_source_iter_backward_visible_word_starts (&start, -count))
+		if (!_ctk_source_iter_backward_visible_word_starts (&start, -count))
 		{
-			gtk_text_iter_set_line_offset (&start, 0);
+			ctk_text_iter_set_line_offset (&start, 0);
 		}
 	}
 
-	gtk_text_buffer_delete_interactive (buffer, &start, &end,
-					    gtk_text_view_get_editable (text_view));
+	ctk_text_buffer_delete_interactive (buffer, &start, &end,
+					    ctk_text_view_get_editable (text_view));
 }
 
 static gboolean
-gtk_source_view_extend_selection (GtkTextView            *text_view,
+ctk_source_view_extend_selection (GtkTextView            *text_view,
 				  GtkTextExtendSelection  granularity,
 				  const GtkTextIter      *location,
 				  GtkTextIter            *start,
@@ -2322,11 +2322,11 @@ gtk_source_view_extend_selection (GtkTextView            *text_view,
 {
 	if (granularity == GTK_TEXT_EXTEND_SELECTION_WORD)
 	{
-		_gtk_source_iter_extend_selection_word (location, start, end);
+		_ctk_source_iter_extend_selection_word (location, start, end);
 		return GDK_EVENT_STOP;
 	}
 
-	return GTK_TEXT_VIEW_CLASS (gtk_source_view_parent_class)->extend_selection (text_view,
+	return GTK_TEXT_VIEW_CLASS (ctk_source_view_parent_class)->extend_selection (text_view,
 										     granularity,
 										     location,
 										     start,
@@ -2334,7 +2334,7 @@ gtk_source_view_extend_selection (GtkTextView            *text_view,
 }
 
 static void
-gtk_source_view_ensure_redrawn_rect_is_highlighted (GtkSourceView *view,
+ctk_source_view_ensure_redrawn_rect_is_highlighted (GtkSourceView *view,
 						    cairo_t       *cr)
 {
 	GdkRectangle clip;
@@ -2346,27 +2346,27 @@ gtk_source_view_ensure_redrawn_rect_is_highlighted (GtkSourceView *view,
 		return;
 	}
 
-	gtk_text_view_get_line_at_y (GTK_TEXT_VIEW (view), &iter1, clip.y, NULL);
-	gtk_text_iter_backward_line (&iter1);
-	gtk_text_view_get_line_at_y (GTK_TEXT_VIEW (view), &iter2, clip.y + clip.height, NULL);
-	gtk_text_iter_forward_line (&iter2);
+	ctk_text_view_get_line_at_y (GTK_TEXT_VIEW (view), &iter1, clip.y, NULL);
+	ctk_text_iter_backward_line (&iter1);
+	ctk_text_view_get_line_at_y (GTK_TEXT_VIEW (view), &iter2, clip.y + clip.height, NULL);
+	ctk_text_iter_forward_line (&iter2);
 
 	DEBUG ({
 		g_print ("    draw area: %d - %d\n", clip.y, clip.y + clip.height);
 		g_print ("    lines to update: %d - %d\n",
-			 gtk_text_iter_get_line (&iter1),
-			 gtk_text_iter_get_line (&iter2));
+			 ctk_text_iter_get_line (&iter1),
+			 ctk_text_iter_get_line (&iter2));
 	});
 
-	_gtk_source_buffer_update_syntax_highlight (view->priv->source_buffer,
+	_ctk_source_buffer_update_syntax_highlight (view->priv->source_buffer,
 						    &iter1, &iter2, FALSE);
-	_gtk_source_buffer_update_search_highlight (view->priv->source_buffer,
+	_ctk_source_buffer_update_search_highlight (view->priv->source_buffer,
 						    &iter1, &iter2, FALSE);
 }
 
-/* This function is taken from gtk+/tests/testtext.c */
+/* This function is taken from ctk+/tests/testtext.c */
 static void
-gtk_source_view_get_lines (GtkTextView *text_view,
+ctk_source_view_get_lines (GtkTextView *text_view,
 			   gint         first_y,
 			   gint         last_y,
 			   GArray      *buffer_coords,
@@ -2384,17 +2384,17 @@ gtk_source_view_get_lines (GtkTextView *text_view,
 		g_array_set_size (line_heights, 0);
 
 	/* Get iter at first y */
-	gtk_text_view_get_line_at_y (text_view, &iter, first_y, NULL);
+	ctk_text_view_get_line_at_y (text_view, &iter, first_y, NULL);
 
 	/* For each iter, get its location and add it to the arrays.
 	 * Stop when we pass last_y */
 	count = 0;
 
-	while (!gtk_text_iter_is_end (&iter))
+	while (!ctk_text_iter_is_end (&iter))
 	{
 		gint y, height;
 
-		gtk_text_view_get_line_yrange (text_view, &iter, &y, &height);
+		ctk_text_view_get_line_yrange (text_view, &iter, &y, &height);
 
 		g_array_append_val (buffer_coords, y);
 		if (line_heights)
@@ -2402,7 +2402,7 @@ gtk_source_view_get_lines (GtkTextView *text_view,
 			g_array_append_val (line_heights, height);
 		}
 
-		last_line_num = gtk_text_iter_get_line (&iter);
+		last_line_num = ctk_text_iter_get_line (&iter);
 		g_array_append_val (numbers, last_line_num);
 
 		++count;
@@ -2410,17 +2410,17 @@ gtk_source_view_get_lines (GtkTextView *text_view,
 		if ((y + height) >= last_y)
 			break;
 
-		gtk_text_iter_forward_line (&iter);
+		ctk_text_iter_forward_line (&iter);
 	}
 
-	if (gtk_text_iter_is_end (&iter))
+	if (ctk_text_iter_is_end (&iter))
 	{
 		gint y, height;
 		gint line_num;
 
-		gtk_text_view_get_line_yrange (text_view, &iter, &y, &height);
+		ctk_text_view_get_line_yrange (text_view, &iter, &y, &height);
 
-		line_num = gtk_text_iter_get_line (&iter);
+		line_num = ctk_text_iter_get_line (&iter);
 
 		if (line_num != last_line_num)
 		{
@@ -2445,7 +2445,7 @@ gtk_source_view_get_lines (GtkTextView *text_view,
  * See https://bugzilla.gnome.org/show_bug.cgi?id=310847 for more details.
  */
 static void
-gtk_source_view_paint_line_background (GtkTextView    *text_view,
+ctk_source_view_paint_line_background (GtkTextView    *text_view,
 				       cairo_t        *cr,
 				       int             y, /* in buffer coordinates */
 				       int             height,
@@ -2465,7 +2465,7 @@ gtk_source_view_paint_line_background (GtkTextView    *text_view,
 }
 
 static void
-gtk_source_view_paint_marks_background (GtkSourceView *view,
+ctk_source_view_paint_marks_background (GtkSourceView *view,
 					cairo_t       *cr)
 {
 	GtkTextView *text_view;
@@ -2478,7 +2478,7 @@ gtk_source_view_paint_marks_background (GtkSourceView *view,
 	gint i;
 
 	if (view->priv->source_buffer == NULL ||
-	    !_gtk_source_buffer_has_source_marks (view->priv->source_buffer) ||
+	    !_ctk_source_buffer_has_source_marks (view->priv->source_buffer) ||
 	    !gdk_cairo_get_clip_rectangle (cr, &clip))
 	{
 		return;
@@ -2494,7 +2494,7 @@ gtk_source_view_paint_marks_background (GtkSourceView *view,
 	heights = g_array_new (FALSE, FALSE, sizeof (gint));
 
 	/* get the line numbers and y coordinates. */
-	gtk_source_view_get_lines (text_view,
+	ctk_source_view_get_lines (text_view,
 	                           y1,
 	                           y2,
 	                           pixels,
@@ -2509,8 +2509,8 @@ gtk_source_view_paint_marks_background (GtkSourceView *view,
 		gint height;
 		GtkTextIter iter;
 
-		gtk_text_buffer_get_start_iter (gtk_text_view_get_buffer (text_view), &iter);
-		gtk_text_view_get_line_yrange (text_view, &iter, &y, &height);
+		ctk_text_buffer_get_start_iter (ctk_text_view_get_buffer (text_view), &iter);
+		ctk_text_view_get_line_yrange (text_view, &iter, &y, &height);
 
 		g_array_append_val (pixels, y);
 		g_array_append_val (pixels, height);
@@ -2533,7 +2533,7 @@ gtk_source_view_paint_marks_background (GtkSourceView *view,
 
 		line_to_paint = g_array_index (numbers, gint, i);
 
-		marks = gtk_source_buffer_get_source_marks_at_line (view->priv->source_buffer,
+		marks = ctk_source_buffer_get_source_marks_at_line (view->priv->source_buffer,
 		                                                    line_to_paint,
 		                                                    NULL);
 
@@ -2545,13 +2545,13 @@ gtk_source_view_paint_marks_background (GtkSourceView *view,
 			gint prio;
 			GdkRGBA bg;
 
-			attrs = gtk_source_view_get_mark_attributes (view,
-			                                             gtk_source_mark_get_category (marks->data),
+			attrs = ctk_source_view_get_mark_attributes (view,
+			                                             ctk_source_mark_get_category (marks->data),
 			                                             &prio);
 
 			if (attrs != NULL &&
 			    prio > priority &&
-			    gtk_source_mark_attributes_get_background (attrs, &bg))
+			    ctk_source_mark_attributes_get_background (attrs, &bg))
 			{
 				priority = prio;
 				background = bg;
@@ -2562,7 +2562,7 @@ gtk_source_view_paint_marks_background (GtkSourceView *view,
 
 		if (priority != -1)
 		{
-			gtk_source_view_paint_line_background (text_view,
+			ctk_source_view_paint_line_background (text_view,
 			                                       cr,
 			                                       g_array_index (pixels, gint, i),
 			                                       g_array_index (heights, gint, i),
@@ -2576,7 +2576,7 @@ gtk_source_view_paint_marks_background (GtkSourceView *view,
 }
 
 static void
-gtk_source_view_paint_right_margin (GtkSourceView *view,
+ctk_source_view_paint_right_margin (GtkSourceView *view,
 				    cairo_t       *cr)
 {
 	GdkRectangle clip;
@@ -2610,7 +2610,7 @@ gtk_source_view_paint_right_margin (GtkSourceView *view,
 						  '_');
 	}
 
-	x = view->priv->cached_right_margin_pos + gtk_text_view_get_left_margin (text_view);
+	x = view->priv->cached_right_margin_pos + ctk_text_view_get_left_margin (text_view);
 
 	cairo_save (cr);
 	cairo_set_line_width (cr, 1.0);
@@ -2640,7 +2640,7 @@ gtk_source_view_paint_right_margin (GtkSourceView *view,
 
 	PROFILE ({
 		g_timer_stop (timer);
-		g_print ("    gtk_source_view_paint_right_margin time: "
+		g_print ("    ctk_source_view_paint_right_margin time: "
 			 "%g (sec * 1000)\n",
 			 g_timer_elapsed (timer, NULL) * 1000);
 	});
@@ -2662,7 +2662,7 @@ realign (gint  offset,
 }
 
 static void
-gtk_source_view_paint_background_pattern_grid (GtkSourceView *view,
+ctk_source_view_paint_background_pattern_grid (GtkSourceView *view,
 					       cairo_t       *cr)
 {
 	GdkRectangle clip;
@@ -2672,7 +2672,7 @@ gtk_source_view_paint_background_pattern_grid (GtkSourceView *view,
 	gint grid_width = 16;
 	gint grid_height = 16;
 
-	context = gtk_widget_get_pango_context (GTK_WIDGET (view));
+	context = ctk_widget_get_pango_context (GTK_WIDGET (view));
 	layout = pango_layout_new (context);
 	pango_layout_set_text (layout, "X", 1);
 	pango_layout_get_pixel_size (layout, &grid_width, &grid_height);
@@ -2712,7 +2712,7 @@ gtk_source_view_paint_background_pattern_grid (GtkSourceView *view,
 }
 
 static void
-gtk_source_view_paint_current_line_highlight (GtkSourceView *view,
+ctk_source_view_paint_current_line_highlight (GtkSourceView *view,
 					      cairo_t       *cr)
 {
 	GtkTextBuffer *buffer;
@@ -2720,20 +2720,20 @@ gtk_source_view_paint_current_line_highlight (GtkSourceView *view,
 	gint y;
 	gint height;
 
-	buffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW (view));
-	gtk_text_buffer_get_iter_at_mark (buffer,
+	buffer = ctk_text_view_get_buffer (GTK_TEXT_VIEW (view));
+	ctk_text_buffer_get_iter_at_mark (buffer,
 					  &cur,
-					  gtk_text_buffer_get_insert (buffer));
-	gtk_text_view_get_line_yrange (GTK_TEXT_VIEW (view), &cur, &y, &height);
+					  ctk_text_buffer_get_insert (buffer));
+	ctk_text_view_get_line_yrange (GTK_TEXT_VIEW (view), &cur, &y, &height);
 
-	gtk_source_view_paint_line_background (GTK_TEXT_VIEW (view),
+	ctk_source_view_paint_line_background (GTK_TEXT_VIEW (view),
 					       cr,
 					       y, height,
 					       &view->priv->current_line_color);
 }
 
 static void
-gtk_source_view_draw_layer (GtkTextView      *text_view,
+ctk_source_view_draw_layer (GtkTextView      *text_view,
 			    GtkTextViewLayer  layer,
 			    cairo_t          *cr)
 {
@@ -2745,34 +2745,34 @@ gtk_source_view_draw_layer (GtkTextView      *text_view,
 
 	if (layer == GTK_TEXT_VIEW_LAYER_BELOW_TEXT)
 	{
-		gtk_source_view_ensure_redrawn_rect_is_highlighted (view, cr);
+		ctk_source_view_ensure_redrawn_rect_is_highlighted (view, cr);
 
 		if (view->priv->background_pattern == GTK_SOURCE_BACKGROUND_PATTERN_TYPE_GRID &&
 		    view->priv->background_pattern_color_set)
 		{
-			gtk_source_view_paint_background_pattern_grid (view, cr);
+			ctk_source_view_paint_background_pattern_grid (view, cr);
 		}
 
-		if (gtk_widget_is_sensitive (GTK_WIDGET (view)) &&
+		if (ctk_widget_is_sensitive (GTK_WIDGET (view)) &&
 		    view->priv->highlight_current_line &&
 		    view->priv->current_line_color_set)
 		{
-			gtk_source_view_paint_current_line_highlight (view, cr);
+			ctk_source_view_paint_current_line_highlight (view, cr);
 		}
 
-		gtk_source_view_paint_marks_background (view, cr);
+		ctk_source_view_paint_marks_background (view, cr);
 	}
 	else if (layer == GTK_TEXT_VIEW_LAYER_ABOVE_TEXT)
 	{
 		/* Draw the right margin vertical line + overlay. */
 		if (view->priv->show_right_margin)
 		{
-			gtk_source_view_paint_right_margin (view, cr);
+			ctk_source_view_paint_right_margin (view, cr);
 		}
 
 		if (view->priv->space_drawer != NULL)
 		{
-			_gtk_source_space_drawer_draw (view->priv->space_drawer, view, cr);
+			_ctk_source_space_drawer_draw (view->priv->space_drawer, view, cr);
 		}
 	}
 
@@ -2780,7 +2780,7 @@ gtk_source_view_draw_layer (GtkTextView      *text_view,
 }
 
 static gboolean
-gtk_source_view_draw (GtkWidget *widget,
+ctk_source_view_draw (GtkWidget *widget,
 		      cairo_t   *cr)
 {
 	GtkSourceView *view = GTK_SOURCE_VIEW (widget);
@@ -2797,28 +2797,28 @@ gtk_source_view_draw (GtkWidget *widget,
 #endif
 
 	DEBUG ({
-		g_print ("> gtk_source_view_draw start\n");
+		g_print ("> ctk_source_view_draw start\n");
 	});
 
-	event_handled = GTK_WIDGET_CLASS (gtk_source_view_parent_class)->draw (widget, cr);
+	event_handled = GTK_WIDGET_CLASS (ctk_source_view_parent_class)->draw (widget, cr);
 
 	if (view->priv->left_gutter != NULL)
 	{
-		_gtk_source_gutter_draw (view->priv->left_gutter, view, cr);
+		_ctk_source_gutter_draw (view->priv->left_gutter, view, cr);
 	}
 
 	if (view->priv->right_gutter != NULL)
 	{
-		_gtk_source_gutter_draw (view->priv->right_gutter, view, cr);
+		_ctk_source_gutter_draw (view->priv->right_gutter, view, cr);
 	}
 
 	PROFILE ({
 		g_timer_stop (timer);
-		g_print ("    gtk_source_view_draw time: %g (sec * 1000)\n",
+		g_print ("    ctk_source_view_draw time: %g (sec * 1000)\n",
 		         g_timer_elapsed (timer, NULL) * 1000);
 	});
 	DEBUG ({
-		g_print ("> gtk_source_view_draw end\n");
+		g_print ("> ctk_source_view_draw end\n");
 	});
 
 	return event_handled;
@@ -2849,7 +2849,7 @@ calculate_real_tab_width (GtkSourceView *view, guint tab_size, gchar c)
 	}
 
 	tab_string = g_strnfill (tab_size, c);
-	layout = gtk_widget_create_pango_layout (GTK_WIDGET (view), tab_string);
+	layout = ctk_widget_create_pango_layout (GTK_WIDGET (view), tab_string);
 	g_free (tab_string);
 
 	if (layout != NULL)
@@ -2866,9 +2866,9 @@ calculate_real_tab_width (GtkSourceView *view, guint tab_size, gchar c)
 }
 
 static GtkTextBuffer *
-gtk_source_view_create_buffer (GtkTextView *text_view)
+ctk_source_view_create_buffer (GtkTextView *text_view)
 {
-	return GTK_TEXT_BUFFER (gtk_source_buffer_new (NULL));
+	return GTK_TEXT_BUFFER (ctk_source_buffer_new (NULL));
 }
 
 
@@ -2878,27 +2878,27 @@ gtk_source_view_create_buffer (GtkTextView *text_view)
  */
 
 /**
- * gtk_source_view_new:
+ * ctk_source_view_new:
  *
  * Creates a new #GtkSourceView.
  *
  * By default, an empty #GtkSourceBuffer will be lazily created and can be
- * retrieved with gtk_text_view_get_buffer().
+ * retrieved with ctk_text_view_get_buffer().
  *
  * If you want to specify your own buffer, either override the
  * #GtkTextViewClass create_buffer factory method, or use
- * gtk_source_view_new_with_buffer().
+ * ctk_source_view_new_with_buffer().
  *
  * Returns: a new #GtkSourceView.
  */
 GtkWidget *
-gtk_source_view_new (void)
+ctk_source_view_new (void)
 {
 	return g_object_new (GTK_SOURCE_TYPE_VIEW, NULL);
 }
 
 /**
- * gtk_source_view_new_with_buffer:
+ * ctk_source_view_new_with_buffer:
  * @buffer: a #GtkSourceBuffer.
  *
  * Creates a new #GtkSourceView widget displaying the buffer
@@ -2907,7 +2907,7 @@ gtk_source_view_new (void)
  * Returns: a new #GtkSourceView.
  */
 GtkWidget *
-gtk_source_view_new_with_buffer (GtkSourceBuffer *buffer)
+ctk_source_view_new_with_buffer (GtkSourceBuffer *buffer)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_BUFFER (buffer), NULL);
 
@@ -2917,7 +2917,7 @@ gtk_source_view_new_with_buffer (GtkSourceBuffer *buffer)
 }
 
 /**
- * gtk_source_view_get_show_line_numbers:
+ * ctk_source_view_get_show_line_numbers:
  * @view: a #GtkSourceView.
  *
  * Returns whether line numbers are displayed beside the text.
@@ -2925,7 +2925,7 @@ gtk_source_view_new_with_buffer (GtkSourceBuffer *buffer)
  * Return value: %TRUE if the line numbers are displayed.
  */
 gboolean
-gtk_source_view_get_show_line_numbers (GtkSourceView *view)
+ctk_source_view_get_show_line_numbers (GtkSourceView *view)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_VIEW (view), FALSE);
 
@@ -2933,14 +2933,14 @@ gtk_source_view_get_show_line_numbers (GtkSourceView *view)
 }
 
 /**
- * gtk_source_view_set_show_line_numbers:
+ * ctk_source_view_set_show_line_numbers:
  * @view: a #GtkSourceView.
  * @show: whether line numbers should be displayed.
  *
  * If %TRUE line numbers will be displayed beside the text.
  */
 void
-gtk_source_view_set_show_line_numbers (GtkSourceView *view,
+ctk_source_view_set_show_line_numbers (GtkSourceView *view,
 				       gboolean       show)
 {
 	g_return_if_fail (GTK_SOURCE_IS_VIEW (view));
@@ -2956,9 +2956,9 @@ gtk_source_view_set_show_line_numbers (GtkSourceView *view,
 	{
 		GtkSourceGutter *gutter;
 
-		gutter = gtk_source_view_get_gutter (view, GTK_TEXT_WINDOW_LEFT);
+		gutter = ctk_source_view_get_gutter (view, GTK_TEXT_WINDOW_LEFT);
 
-		view->priv->line_renderer = gtk_source_gutter_renderer_lines_new ();
+		view->priv->line_renderer = ctk_source_gutter_renderer_lines_new ();
 		g_object_set (view->priv->line_renderer,
 		              "alignment-mode", GTK_SOURCE_GUTTER_RENDERER_ALIGNMENT_MODE_FIRST,
 		              "yalign", 0.5,
@@ -2966,19 +2966,19 @@ gtk_source_view_set_show_line_numbers (GtkSourceView *view,
 		              "xpad", 3,
 		              NULL);
 
-		gtk_source_gutter_insert (gutter,
+		ctk_source_gutter_insert (gutter,
 		                          view->priv->line_renderer,
 		                          GTK_SOURCE_VIEW_GUTTER_POSITION_LINES);
 	}
 
-	gtk_source_gutter_renderer_set_visible (view->priv->line_renderer, show);
+	ctk_source_gutter_renderer_set_visible (view->priv->line_renderer, show);
 	view->priv->show_line_numbers = show;
 
 	g_object_notify (G_OBJECT (view), "show_line_numbers");
 }
 
 /**
- * gtk_source_view_get_show_line_marks:
+ * ctk_source_view_get_show_line_marks:
  * @view: a #GtkSourceView.
  *
  * Returns whether line marks are displayed beside the text.
@@ -2988,7 +2988,7 @@ gtk_source_view_set_show_line_numbers (GtkSourceView *view,
  * Since: 2.2
  */
 gboolean
-gtk_source_view_get_show_line_marks (GtkSourceView *view)
+ctk_source_view_get_show_line_marks (GtkSourceView *view)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_VIEW (view), FALSE);
 
@@ -3010,7 +3010,7 @@ gutter_renderer_marks_activate (GtkSourceGutterRenderer *renderer,
 }
 
 /**
- * gtk_source_view_set_show_line_marks:
+ * ctk_source_view_set_show_line_marks:
  * @view: a #GtkSourceView.
  * @show: whether line marks should be displayed.
  *
@@ -3019,7 +3019,7 @@ gutter_renderer_marks_activate (GtkSourceGutterRenderer *renderer,
  * Since: 2.2
  */
 void
-gtk_source_view_set_show_line_marks (GtkSourceView *view,
+ctk_source_view_set_show_line_marks (GtkSourceView *view,
 				     gboolean       show)
 {
 	g_return_if_fail (GTK_SOURCE_IS_VIEW (view));
@@ -3035,11 +3035,11 @@ gtk_source_view_set_show_line_marks (GtkSourceView *view,
 	{
 		GtkSourceGutter *gutter;
 
-		gutter = gtk_source_view_get_gutter (view, GTK_TEXT_WINDOW_LEFT);
+		gutter = ctk_source_view_get_gutter (view, GTK_TEXT_WINDOW_LEFT);
 
-		view->priv->marks_renderer = gtk_source_gutter_renderer_marks_new ();
+		view->priv->marks_renderer = ctk_source_gutter_renderer_marks_new ();
 
-		gtk_source_gutter_insert (gutter,
+		ctk_source_gutter_insert (gutter,
 		                          view->priv->marks_renderer,
 		                          GTK_SOURCE_VIEW_GUTTER_POSITION_MARKS);
 
@@ -3049,7 +3049,7 @@ gtk_source_view_set_show_line_marks (GtkSourceView *view,
 		                  view);
 	}
 
-	gtk_source_gutter_renderer_set_visible (view->priv->marks_renderer, show);
+	ctk_source_gutter_renderer_set_visible (view->priv->marks_renderer, show);
 	view->priv->show_line_marks = show;
 
 	g_object_notify (G_OBJECT (view), "show_line_marks");
@@ -3071,7 +3071,7 @@ set_tab_stops_internal (GtkSourceView *view)
 	tab_array = pango_tab_array_new (1, TRUE);
 	pango_tab_array_set_tab (tab_array, 0, PANGO_TAB_LEFT, real_tab_width);
 
-	gtk_text_view_set_tabs (GTK_TEXT_VIEW (view),
+	ctk_text_view_set_tabs (GTK_TEXT_VIEW (view),
 				tab_array);
 	view->priv->tabs_set = TRUE;
 
@@ -3081,7 +3081,7 @@ set_tab_stops_internal (GtkSourceView *view)
 }
 
 /**
- * gtk_source_view_set_tab_width:
+ * ctk_source_view_set_tab_width:
  * @view: a #GtkSourceView.
  * @width: width of tab in characters.
  *
@@ -3090,7 +3090,7 @@ set_tab_stops_internal (GtkSourceView *view)
  * widget.
  */
 void
-gtk_source_view_set_tab_width (GtkSourceView *view,
+ctk_source_view_set_tab_width (GtkSourceView *view,
 			       guint          width)
 {
 	guint save_width;
@@ -3117,7 +3117,7 @@ gtk_source_view_set_tab_width (GtkSourceView *view,
 }
 
 /**
- * gtk_source_view_get_tab_width:
+ * ctk_source_view_get_tab_width:
  * @view: a #GtkSourceView.
  *
  * Returns the width of tabulation in characters.
@@ -3125,7 +3125,7 @@ gtk_source_view_set_tab_width (GtkSourceView *view,
  * Return value: width of tab.
  */
 guint
-gtk_source_view_get_tab_width (GtkSourceView *view)
+ctk_source_view_get_tab_width (GtkSourceView *view)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_VIEW (view), DEFAULT_TAB_WIDTH);
 
@@ -3133,7 +3133,7 @@ gtk_source_view_get_tab_width (GtkSourceView *view)
 }
 
 /**
- * gtk_source_view_set_indent_width:
+ * ctk_source_view_set_indent_width:
  * @view: a #GtkSourceView.
  * @width: indent width in characters.
  *
@@ -3159,7 +3159,7 @@ gtk_source_view_get_tab_width (GtkSourceView *view)
  * drawing!).
  */
 void
-gtk_source_view_set_indent_width (GtkSourceView *view,
+ctk_source_view_set_indent_width (GtkSourceView *view,
 				  gint           width)
 {
 	g_return_if_fail (GTK_SOURCE_VIEW (view));
@@ -3173,16 +3173,16 @@ gtk_source_view_set_indent_width (GtkSourceView *view,
 }
 
 /**
- * gtk_source_view_get_indent_width:
+ * ctk_source_view_get_indent_width:
  * @view: a #GtkSourceView.
  *
  * Returns the number of spaces to use for each step of indent.
- * See gtk_source_view_set_indent_width() for details.
+ * See ctk_source_view_set_indent_width() for details.
  *
  * Return value: indent width.
  */
 gint
-gtk_source_view_get_indent_width (GtkSourceView *view)
+ctk_source_view_get_indent_width (GtkSourceView *view)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_VIEW (view), 0);
 
@@ -3198,31 +3198,31 @@ compute_indentation (GtkSourceView *view,
 	gunichar ch;
 
 	start = *cur;
-	gtk_text_iter_set_line_offset (&start, 0);
+	ctk_text_iter_set_line_offset (&start, 0);
 
 	end = start;
 
-	ch = gtk_text_iter_get_char (&end);
+	ch = ctk_text_iter_get_char (&end);
 
 	while (g_unichar_isspace (ch) &&
 	       (ch != '\n') &&
 	       (ch != '\r') &&
-	       (gtk_text_iter_compare (&end, cur) < 0))
+	       (ctk_text_iter_compare (&end, cur) < 0))
 	{
-		if (!gtk_text_iter_forward_char (&end))
+		if (!ctk_text_iter_forward_char (&end))
 		{
 			break;
 		}
 
-		ch = gtk_text_iter_get_char (&end);
+		ch = ctk_text_iter_get_char (&end);
 	}
 
-	if (gtk_text_iter_equal (&start, &end))
+	if (ctk_text_iter_equal (&start, &end))
 	{
 		return NULL;
 	}
 
-	return gtk_text_iter_get_slice (&start, &end);
+	return ctk_text_iter_get_slice (&start, &end);
 }
 
 static guint
@@ -3257,7 +3257,7 @@ get_indent_string (guint tabs,
 }
 
 /**
- * gtk_source_view_indent_lines:
+ * ctk_source_view_indent_lines:
  * @view: a #GtkSourceView.
  * @start: #GtkTextIter of the first line to indent
  * @end: #GtkTextIter of the last line to indent
@@ -3268,7 +3268,7 @@ get_indent_string (guint tabs,
  * Since: 3.16
  */
 void
-gtk_source_view_indent_lines (GtkSourceView *view,
+ctk_source_view_indent_lines (GtkSourceView *view,
 			      GtkTextIter   *start,
 			      GtkTextIter   *end)
 {
@@ -3283,21 +3283,21 @@ gtk_source_view_indent_lines (GtkSourceView *view,
 
 	if (view->priv->completion != NULL)
 	{
-		gtk_source_completion_block_interactive (view->priv->completion);
+		ctk_source_completion_block_interactive (view->priv->completion);
 	}
 
-	buf = gtk_text_view_get_buffer (GTK_TEXT_VIEW (view));
+	buf = ctk_text_view_get_buffer (GTK_TEXT_VIEW (view));
 
-	bracket_hl = gtk_source_buffer_get_highlight_matching_brackets (GTK_SOURCE_BUFFER (buf));
-	gtk_source_buffer_set_highlight_matching_brackets (GTK_SOURCE_BUFFER (buf), FALSE);
+	bracket_hl = ctk_source_buffer_get_highlight_matching_brackets (GTK_SOURCE_BUFFER (buf));
+	ctk_source_buffer_set_highlight_matching_brackets (GTK_SOURCE_BUFFER (buf), FALSE);
 
-	start_mark = gtk_text_buffer_create_mark (buf, NULL, start, FALSE);
-	end_mark = gtk_text_buffer_create_mark (buf, NULL, end, FALSE);
+	start_mark = ctk_text_buffer_create_mark (buf, NULL, start, FALSE);
+	end_mark = ctk_text_buffer_create_mark (buf, NULL, end, FALSE);
 
-	start_line = gtk_text_iter_get_line (start);
-	end_line = gtk_text_iter_get_line (end);
+	start_line = ctk_text_iter_get_line (start);
+	end_line = ctk_text_iter_get_line (end);
 
-	if ((gtk_text_iter_get_visible_line_offset (end) == 0) &&
+	if ((ctk_text_iter_get_visible_line_offset (end) == 0) &&
 	    (end_line > start_line))
 	{
 		end_line--;
@@ -3326,7 +3326,7 @@ gtk_source_view_indent_lines (GtkSourceView *view,
 		tab_buffer = g_strdup ("\t");
 	}
 
-	gtk_text_buffer_begin_user_action (buf);
+	ctk_text_buffer_begin_user_action (buf);
 
 	for (i = start_line; i <= end_line; i++)
 	{
@@ -3334,7 +3334,7 @@ gtk_source_view_indent_lines (GtkSourceView *view,
 		GtkTextIter iter2;
 		guint replaced_spaces = 0;
 
-		gtk_text_buffer_get_iter_at_line (buf, &iter, i);
+		ctk_text_buffer_get_iter_at_line (buf, &iter, i);
 
 		/* Don't add indentation on completely empty lines, to not add
 		 * trailing spaces.
@@ -3344,28 +3344,28 @@ gtk_source_view_indent_lines (GtkSourceView *view,
 		 * whitespaces to more easily insert text at the right place
 		 * without the need to insert the indentation each time.
 		 */
-		if (gtk_text_iter_ends_line (&iter))
+		if (ctk_text_iter_ends_line (&iter))
 		{
 			continue;
 		}
 
 		/* add spaces always after tabs, to avoid the case
 		 * where "\t" becomes "  \t" with no visual difference */
-		while (gtk_text_iter_get_char (&iter) == '\t')
+		while (ctk_text_iter_get_char (&iter) == '\t')
 		{
-			gtk_text_iter_forward_char (&iter);
+			ctk_text_iter_forward_char (&iter);
 		}
 
 		/* if tabs are allowed try to merge the spaces
 		 * with the tab we are going to insert (if any) */
 		iter2 = iter;
 		while (!view->priv->insert_spaces &&
-		       (gtk_text_iter_get_char (&iter2) == ' ') &&
+		       (ctk_text_iter_get_char (&iter2) == ' ') &&
 			replaced_spaces < view->priv->tab_width)
 		{
 			++replaced_spaces;
 
-			gtk_text_iter_forward_char (&iter2);
+			ctk_text_iter_forward_char (&iter2);
 		}
 
 		if (replaced_spaces > 0)
@@ -3377,41 +3377,41 @@ gtk_source_view_indent_lines (GtkSourceView *view,
 			s = (spaces + replaced_spaces) % view->priv->tab_width;
 			indent_buf = get_indent_string (t, s);
 
-			gtk_text_buffer_delete (buf, &iter, &iter2);
-			gtk_text_buffer_insert (buf, &iter, indent_buf, -1);
+			ctk_text_buffer_delete (buf, &iter, &iter2);
+			ctk_text_buffer_insert (buf, &iter, indent_buf, -1);
 
 			g_free (indent_buf);
 		}
 		else
 		{
-			gtk_text_buffer_insert (buf, &iter, tab_buffer, -1);
+			ctk_text_buffer_insert (buf, &iter, tab_buffer, -1);
 		}
 	}
 
-	gtk_text_buffer_end_user_action (buf);
+	ctk_text_buffer_end_user_action (buf);
 
 	g_free (tab_buffer);
 
-	gtk_source_buffer_set_highlight_matching_brackets (GTK_SOURCE_BUFFER (buf), bracket_hl);
+	ctk_source_buffer_set_highlight_matching_brackets (GTK_SOURCE_BUFFER (buf), bracket_hl);
 
 	if (view->priv->completion != NULL)
 	{
-		gtk_source_completion_unblock_interactive (view->priv->completion);
+		ctk_source_completion_unblock_interactive (view->priv->completion);
 	}
 
-	gtk_text_view_scroll_mark_onscreen (GTK_TEXT_VIEW (view),
-					    gtk_text_buffer_get_insert (buf));
+	ctk_text_view_scroll_mark_onscreen (GTK_TEXT_VIEW (view),
+					    ctk_text_buffer_get_insert (buf));
 
 	/* revalidate iters */
-	gtk_text_buffer_get_iter_at_mark (buf, start, start_mark);
-	gtk_text_buffer_get_iter_at_mark (buf, end, end_mark);
+	ctk_text_buffer_get_iter_at_mark (buf, start, start_mark);
+	ctk_text_buffer_get_iter_at_mark (buf, end, end_mark);
 
-	gtk_text_buffer_delete_mark (buf, start_mark);
-	gtk_text_buffer_delete_mark (buf, end_mark);
+	ctk_text_buffer_delete_mark (buf, start_mark);
+	ctk_text_buffer_delete_mark (buf, end_mark);
 }
 
 /**
- * gtk_source_view_unindent_lines:
+ * ctk_source_view_unindent_lines:
  * @view: a #GtkSourceView.
  * @start: #GtkTextIter of the first line to indent
  * @end: #GtkTextIter of the last line to indent
@@ -3422,7 +3422,7 @@ gtk_source_view_indent_lines (GtkSourceView *view,
  * Since: 3.16
  */
 void
-gtk_source_view_unindent_lines (GtkSourceView *view,
+ctk_source_view_unindent_lines (GtkSourceView *view,
 				GtkTextIter   *start,
 				GtkTextIter   *end)
 {
@@ -3436,21 +3436,21 @@ gtk_source_view_unindent_lines (GtkSourceView *view,
 
 	if (view->priv->completion != NULL)
 	{
-		gtk_source_completion_block_interactive (view->priv->completion);
+		ctk_source_completion_block_interactive (view->priv->completion);
 	}
 
-	buf = gtk_text_view_get_buffer (GTK_TEXT_VIEW (view));
+	buf = ctk_text_view_get_buffer (GTK_TEXT_VIEW (view));
 
-	bracket_hl = gtk_source_buffer_get_highlight_matching_brackets (GTK_SOURCE_BUFFER (buf));
-	gtk_source_buffer_set_highlight_matching_brackets (GTK_SOURCE_BUFFER (buf), FALSE);
+	bracket_hl = ctk_source_buffer_get_highlight_matching_brackets (GTK_SOURCE_BUFFER (buf));
+	ctk_source_buffer_set_highlight_matching_brackets (GTK_SOURCE_BUFFER (buf), FALSE);
 
-	start_mark = gtk_text_buffer_create_mark (buf, NULL, start, FALSE);
-	end_mark = gtk_text_buffer_create_mark (buf, NULL, end, FALSE);
+	start_mark = ctk_text_buffer_create_mark (buf, NULL, start, FALSE);
+	end_mark = ctk_text_buffer_create_mark (buf, NULL, end, FALSE);
 
-	start_line = gtk_text_iter_get_line (start);
-	end_line = gtk_text_iter_get_line (end);
+	start_line = ctk_text_iter_get_line (start);
+	end_line = ctk_text_iter_get_line (end);
 
-	if ((gtk_text_iter_get_visible_line_offset (end) == 0) &&
+	if ((ctk_text_iter_get_visible_line_offset (end) == 0) &&
 	    (end_line > start_line))
 	{
 		end_line--;
@@ -3459,7 +3459,7 @@ gtk_source_view_unindent_lines (GtkSourceView *view,
 	tab_width = view->priv->tab_width;
 	indent_width = get_real_indent_width (view);
 
-	gtk_text_buffer_begin_user_action (buf);
+	ctk_text_buffer_begin_user_action (buf);
 
 	for (i = start_line; i <= end_line; i++)
 	{
@@ -3467,16 +3467,16 @@ gtk_source_view_unindent_lines (GtkSourceView *view,
 		gint to_delete = 0;
 		gint to_delete_equiv = 0;
 
-		gtk_text_buffer_get_iter_at_line (buf, &iter, i);
+		ctk_text_buffer_get_iter_at_line (buf, &iter, i);
 
 		iter2 = iter;
 
-		while (!gtk_text_iter_ends_line (&iter2) &&
+		while (!ctk_text_iter_ends_line (&iter2) &&
 		       to_delete_equiv < indent_width)
 		{
 			gunichar c;
 
-			c = gtk_text_iter_get_char (&iter2);
+			c = ctk_text_iter_get_char (&iter2);
 			if (c == '\t')
 			{
 				to_delete_equiv += tab_width - to_delete_equiv % tab_width;
@@ -3492,34 +3492,34 @@ gtk_source_view_unindent_lines (GtkSourceView *view,
 				break;
 			}
 
-			gtk_text_iter_forward_char (&iter2);
+			ctk_text_iter_forward_char (&iter2);
 		}
 
 		if (to_delete > 0)
 		{
-			gtk_text_iter_set_line_offset (&iter2, to_delete);
-			gtk_text_buffer_delete (buf, &iter, &iter2);
+			ctk_text_iter_set_line_offset (&iter2, to_delete);
+			ctk_text_buffer_delete (buf, &iter, &iter2);
 		}
 	}
 
-	gtk_text_buffer_end_user_action (buf);
+	ctk_text_buffer_end_user_action (buf);
 
-	gtk_source_buffer_set_highlight_matching_brackets (GTK_SOURCE_BUFFER (buf), bracket_hl);
+	ctk_source_buffer_set_highlight_matching_brackets (GTK_SOURCE_BUFFER (buf), bracket_hl);
 
 	if (view->priv->completion != NULL)
 	{
-		gtk_source_completion_unblock_interactive (view->priv->completion);
+		ctk_source_completion_unblock_interactive (view->priv->completion);
 	}
 
-	gtk_text_view_scroll_mark_onscreen (GTK_TEXT_VIEW (view),
-					    gtk_text_buffer_get_insert (buf));
+	ctk_text_view_scroll_mark_onscreen (GTK_TEXT_VIEW (view),
+					    ctk_text_buffer_get_insert (buf));
 
 	/* revalidate iters */
-	gtk_text_buffer_get_iter_at_mark (buf, start, start_mark);
-	gtk_text_buffer_get_iter_at_mark (buf, end, end_mark);
+	ctk_text_buffer_get_iter_at_mark (buf, start, start_mark);
+	ctk_text_buffer_get_iter_at_mark (buf, end, end_mark);
 
-	gtk_text_buffer_delete_mark (buf, start_mark);
-	gtk_text_buffer_delete_mark (buf, end_mark);
+	ctk_text_buffer_delete_mark (buf, start_mark);
+	ctk_text_buffer_delete_mark (buf, end_mark);
 }
 
 static gint
@@ -3533,13 +3533,13 @@ get_line_offset_in_equivalent_spaces (GtkSourceView *view,
 	tab_width = view->priv->tab_width;
 
 	i = *iter;
-	gtk_text_iter_set_line_offset (&i, 0);
+	ctk_text_iter_set_line_offset (&i, 0);
 
-	while (!gtk_text_iter_equal (&i, iter))
+	while (!ctk_text_iter_equal (&i, iter))
 	{
 		gunichar c;
 
-		c = gtk_text_iter_get_char (&i);
+		c = ctk_text_iter_get_char (&i);
 		if (c == '\t')
 		{
 			n += tab_width - n % tab_width;
@@ -3549,7 +3549,7 @@ get_line_offset_in_equivalent_spaces (GtkSourceView *view,
 			++n;
 		}
 
-		gtk_text_iter_forward_char (&i);
+		ctk_text_iter_forward_char (&i);
 	}
 
 	return n;
@@ -3608,9 +3608,9 @@ insert_tab_or_spaces (GtkSourceView *view,
 		iter = *start;
 		for (i = 0; i < tab_width; ++i)
 		{
-			gtk_text_iter_backward_char (&iter);
+			ctk_text_iter_backward_char (&iter);
 
-			if (gtk_text_iter_get_char (&iter) == ' ')
+			if (ctk_text_iter_get_char (&iter) == ' ')
 			{
 				++preceding_spaces;
 			}
@@ -3620,15 +3620,15 @@ insert_tab_or_spaces (GtkSourceView *view,
 			}
 		}
 
-		gtk_text_iter_backward_chars (start, preceding_spaces);
+		ctk_text_iter_backward_chars (start, preceding_spaces);
 
 		/* now also extend the selection to the following tabs
 		 * since we do not want to insert spaces before a tab
 		 * since it may have no visual effect */
-		while (gtk_text_iter_get_char (end) == '\t')
+		while (ctk_text_iter_get_char (end) == '\t')
 		{
 			++following_tabs;
-			gtk_text_iter_forward_char (end);
+			ctk_text_iter_forward_char (end);
 		}
 
 		tabs = (preceding_spaces + equiv_spaces) / tab_width;
@@ -3636,7 +3636,7 @@ insert_tab_or_spaces (GtkSourceView *view,
 
 		tab_buf = get_indent_string (tabs + following_tabs, spaces);
 
-		cursor_offset = gtk_text_iter_get_offset (start) +
+		cursor_offset = ctk_text_iter_get_offset (start) +
 			        tabs +
 		                (following_tabs > 0 ? 1 : spaces);
 	}
@@ -3645,29 +3645,29 @@ insert_tab_or_spaces (GtkSourceView *view,
 		tab_buf = g_strdup ("\t");
 	}
 
-	buf = gtk_text_view_get_buffer (GTK_TEXT_VIEW (view));
+	buf = ctk_text_view_get_buffer (GTK_TEXT_VIEW (view));
 
-	gtk_text_buffer_begin_user_action (buf);
+	ctk_text_buffer_begin_user_action (buf);
 
-	gtk_text_buffer_delete (buf, start, end);
-	gtk_text_buffer_insert (buf, start, tab_buf, -1);
+	ctk_text_buffer_delete (buf, start, end);
+	ctk_text_buffer_insert (buf, start, tab_buf, -1);
 
 	/* adjust cursor position if needed */
 	if (cursor_offset > 0)
 	{
 		GtkTextIter iter;
 
-		gtk_text_buffer_get_iter_at_offset (buf, &iter, cursor_offset);
-		gtk_text_buffer_place_cursor (buf, &iter);
+		ctk_text_buffer_get_iter_at_offset (buf, &iter, cursor_offset);
+		ctk_text_buffer_place_cursor (buf, &iter);
 	}
 
-	gtk_text_buffer_end_user_action (buf);
+	ctk_text_buffer_end_user_action (buf);
 
 	g_free (tab_buf);
 }
 
 static void
-gtk_source_view_move_words (GtkSourceView *view,
+ctk_source_view_move_words (GtkSourceView *view,
 			    gint           step)
 {
 	GtkTextBuffer *buf;
@@ -3675,44 +3675,44 @@ gtk_source_view_move_words (GtkSourceView *view,
 	GtkTextMark *nsmark, *nemark;
 	gchar *old_text, *new_text;
 
-	buf = gtk_text_view_get_buffer (GTK_TEXT_VIEW (view));
+	buf = ctk_text_view_get_buffer (GTK_TEXT_VIEW (view));
 
-	if (step == 0 || gtk_text_view_get_editable (GTK_TEXT_VIEW (view)) == FALSE)
+	if (step == 0 || ctk_text_view_get_editable (GTK_TEXT_VIEW (view)) == FALSE)
 	{
 		return;
 	}
 
-	gtk_text_buffer_get_selection_bounds (buf, &s, &e);
+	ctk_text_buffer_get_selection_bounds (buf, &s, &e);
 
-	if (gtk_text_iter_compare (&s, &e) == 0)
+	if (ctk_text_iter_compare (&s, &e) == 0)
 	{
-		if (!gtk_text_iter_starts_word (&s))
+		if (!ctk_text_iter_starts_word (&s))
 		{
-			if (!gtk_text_iter_inside_word (&s) && !gtk_text_iter_ends_word (&s))
+			if (!ctk_text_iter_inside_word (&s) && !ctk_text_iter_ends_word (&s))
 			{
 				return;
 			}
 			else
 			{
-				gtk_text_iter_backward_word_start (&s);
+				ctk_text_iter_backward_word_start (&s);
 			}
 		}
 
-		if (!gtk_text_iter_starts_word (&s))
+		if (!ctk_text_iter_starts_word (&s))
 		{
 			return;
 		}
 
 		e = s;
 
-		if (!gtk_text_iter_ends_word (&e))
+		if (!ctk_text_iter_ends_word (&e))
 		{
-			if (!gtk_text_iter_forward_word_end (&e))
+			if (!ctk_text_iter_forward_word_end (&e))
 			{
-				gtk_text_iter_forward_to_end (&e);
+				ctk_text_iter_forward_to_end (&e);
 			}
 
-			if (!gtk_text_iter_ends_word (&e))
+			if (!ctk_text_iter_ends_word (&e))
 			{
 				return;
 			}
@@ -3724,19 +3724,19 @@ gtk_source_view_move_words (GtkSourceView *view,
 	{
 		ne = e;
 
-		if (!gtk_text_iter_forward_word_ends (&ne, step))
+		if (!ctk_text_iter_forward_word_ends (&ne, step))
 		{
-			gtk_text_iter_forward_to_end (&ne);
+			ctk_text_iter_forward_to_end (&ne);
 		}
 
-		if (!gtk_text_iter_ends_word (&ne) || gtk_text_iter_equal (&ne, &e))
+		if (!ctk_text_iter_ends_word (&ne) || ctk_text_iter_equal (&ne, &e))
 		{
 			return;
 		}
 
 		ns = ne;
 
-		if (!gtk_text_iter_backward_word_start (&ns))
+		if (!ctk_text_iter_backward_word_start (&ns))
 		{
 			return;
 		}
@@ -3745,55 +3745,55 @@ gtk_source_view_move_words (GtkSourceView *view,
 	{
 		ns = s;
 
-		if (!gtk_text_iter_backward_word_starts (&ns, -step))
+		if (!ctk_text_iter_backward_word_starts (&ns, -step))
 		{
 			return;
 		}
 
 		ne = ns;
 
-		if (!gtk_text_iter_forward_word_end (&ne))
+		if (!ctk_text_iter_forward_word_end (&ne))
 		{
 			return;
 		}
 	}
 
-	if (gtk_text_iter_in_range (&ns, &s, &e) ||
-	    (!gtk_text_iter_equal (&s, &ne) &&
-	     gtk_text_iter_in_range (&ne, &s, &e)))
+	if (ctk_text_iter_in_range (&ns, &s, &e) ||
+	    (!ctk_text_iter_equal (&s, &ne) &&
+	     ctk_text_iter_in_range (&ne, &s, &e)))
 	{
 		return;
 	}
 
-	old_text = gtk_text_buffer_get_text (buf, &s, &e, TRUE);
-	new_text = gtk_text_buffer_get_text (buf, &ns, &ne, TRUE);
+	old_text = ctk_text_buffer_get_text (buf, &s, &e, TRUE);
+	new_text = ctk_text_buffer_get_text (buf, &ns, &ne, TRUE);
 
-	gtk_text_buffer_begin_user_action (buf);
+	ctk_text_buffer_begin_user_action (buf);
 
-	nsmark = gtk_text_buffer_create_mark (buf, NULL, &ns, step < 0);
-	nemark = gtk_text_buffer_create_mark (buf, NULL, &ne, step < 0);
+	nsmark = ctk_text_buffer_create_mark (buf, NULL, &ns, step < 0);
+	nemark = ctk_text_buffer_create_mark (buf, NULL, &ne, step < 0);
 
-	gtk_text_buffer_delete (buf, &s, &e);
-	gtk_text_buffer_insert (buf, &s, new_text, -1);
+	ctk_text_buffer_delete (buf, &s, &e);
+	ctk_text_buffer_insert (buf, &s, new_text, -1);
 
-	gtk_text_buffer_get_iter_at_mark (buf, &ns, nsmark);
-	gtk_text_buffer_get_iter_at_mark (buf, &ne, nemark);
+	ctk_text_buffer_get_iter_at_mark (buf, &ns, nsmark);
+	ctk_text_buffer_get_iter_at_mark (buf, &ne, nemark);
 
-	gtk_text_buffer_delete (buf, &ns, &ne);
-	gtk_text_buffer_insert (buf, &ns, old_text, -1);
+	ctk_text_buffer_delete (buf, &ns, &ne);
+	ctk_text_buffer_insert (buf, &ns, old_text, -1);
 
 	ne = ns;
-	gtk_text_buffer_get_iter_at_mark (buf, &ns, nsmark);
+	ctk_text_buffer_get_iter_at_mark (buf, &ns, nsmark);
 
-	gtk_text_buffer_select_range (buf, &ns, &ne);
+	ctk_text_buffer_select_range (buf, &ns, &ne);
 
-	gtk_text_buffer_delete_mark (buf, nsmark);
-	gtk_text_buffer_delete_mark (buf, nemark);
+	ctk_text_buffer_delete_mark (buf, nsmark);
+	ctk_text_buffer_delete_mark (buf, nemark);
 
-	gtk_text_buffer_end_user_action (buf);
+	ctk_text_buffer_end_user_action (buf);
 
-	gtk_text_view_scroll_mark_onscreen (GTK_TEXT_VIEW (view),
-	                                    gtk_text_buffer_get_insert (buf));
+	ctk_text_view_scroll_mark_onscreen (GTK_TEXT_VIEW (view),
+	                                    ctk_text_buffer_get_insert (buf));
 
 	g_free (old_text);
 	g_free (new_text);
@@ -3805,9 +3805,9 @@ buffer_contains_trailing_newline (GtkTextBuffer *buffer)
 	GtkTextIter iter;
 	gunichar ch;
 
-	gtk_text_buffer_get_end_iter (buffer, &iter);
-	gtk_text_iter_backward_char (&iter);
-	ch = gtk_text_iter_get_char (&iter);
+	ctk_text_buffer_get_end_iter (buffer, &iter);
+	ctk_text_iter_backward_char (&iter);
+	ch = ctk_text_iter_get_char (&iter);
 
 	return (ch == '\n' || ch == '\r');
 }
@@ -3821,25 +3821,25 @@ remove_trailing_newline (GtkTextBuffer *buffer)
 	GtkTextIter start;
 	GtkTextIter end;
 
-	gtk_text_buffer_get_end_iter (buffer, &end);
+	ctk_text_buffer_get_end_iter (buffer, &end);
 	start = end;
 
-	gtk_text_iter_set_line_offset (&start, 0);
+	ctk_text_iter_set_line_offset (&start, 0);
 
-	if (gtk_text_iter_ends_line (&start) &&
-	    gtk_text_iter_backward_line (&start))
+	if (ctk_text_iter_ends_line (&start) &&
+	    ctk_text_iter_backward_line (&start))
 	{
-		if (!gtk_text_iter_ends_line (&start))
+		if (!ctk_text_iter_ends_line (&start))
 		{
-			gtk_text_iter_forward_to_line_end (&start);
+			ctk_text_iter_forward_to_line_end (&start);
 		}
 
-		gtk_text_buffer_delete (buffer, &start, &end);
+		ctk_text_buffer_delete (buffer, &start, &end);
 	}
 }
 
 static void
-gtk_source_view_move_lines (GtkSourceView *view,
+ctk_source_view_move_lines (GtkSourceView *view,
 			    gboolean       down)
 {
 	GtkTextBuffer *buffer;
@@ -3851,25 +3851,25 @@ gtk_source_view_move_lines (GtkSourceView *view,
 	gchar *text;
 	gboolean initially_contains_trailing_newline;
 
-	buffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW (view));
+	buffer = ctk_text_view_get_buffer (GTK_TEXT_VIEW (view));
 
-	if (!gtk_text_view_get_editable (GTK_TEXT_VIEW (view)))
+	if (!ctk_text_view_get_editable (GTK_TEXT_VIEW (view)))
 	{
 		return;
 	}
 
-	gtk_text_buffer_get_selection_bounds (buffer, &start, &end);
+	ctk_text_buffer_get_selection_bounds (buffer, &start, &end);
 
 	/* Get the entire lines, including the paragraph terminator. */
-	gtk_text_iter_set_line_offset (&start, 0);
-	if (!gtk_text_iter_starts_line (&end) ||
-	    gtk_text_iter_get_line (&start) == gtk_text_iter_get_line (&end))
+	ctk_text_iter_set_line_offset (&start, 0);
+	if (!ctk_text_iter_starts_line (&end) ||
+	    ctk_text_iter_get_line (&start) == ctk_text_iter_get_line (&end))
 	{
-		gtk_text_iter_forward_line (&end);
+		ctk_text_iter_forward_line (&end);
 	}
 
-	if ((!down && gtk_text_iter_is_start (&start)) ||
-	    (down && gtk_text_iter_is_end (&end)))
+	if ((!down && ctk_text_iter_is_start (&start)) ||
+	    (down && ctk_text_iter_is_end (&end)))
 	{
 		/* Nothing to do, and the undo/redo history must remain
 		 * unchanged.
@@ -3877,66 +3877,66 @@ gtk_source_view_move_lines (GtkSourceView *view,
 		return;
 	}
 
-	start_mark = gtk_text_buffer_create_mark (buffer, NULL, &start, TRUE);
-	end_mark = gtk_text_buffer_create_mark (buffer, NULL, &end, FALSE);
+	start_mark = ctk_text_buffer_create_mark (buffer, NULL, &start, TRUE);
+	end_mark = ctk_text_buffer_create_mark (buffer, NULL, &end, FALSE);
 
-	gtk_text_buffer_begin_user_action (buffer);
+	ctk_text_buffer_begin_user_action (buffer);
 
 	initially_contains_trailing_newline = buffer_contains_trailing_newline (buffer);
 
 	if (!initially_contains_trailing_newline)
 	{
 		/* Insert a trailing newline. */
-		gtk_text_buffer_get_end_iter (buffer, &end);
-		gtk_text_buffer_insert (buffer, &end, "\n", -1);
+		ctk_text_buffer_get_end_iter (buffer, &end);
+		ctk_text_buffer_insert (buffer, &end, "\n", -1);
 	}
 
 	/* At this point all lines finish with a newline or carriage return, so
 	 * there are no special cases for the last line.
 	 */
 
-	gtk_text_buffer_get_iter_at_mark (buffer, &start, start_mark);
-	gtk_text_buffer_get_iter_at_mark (buffer, &end, end_mark);
-	gtk_text_buffer_delete_mark (buffer, start_mark);
-	gtk_text_buffer_delete_mark (buffer, end_mark);
+	ctk_text_buffer_get_iter_at_mark (buffer, &start, start_mark);
+	ctk_text_buffer_get_iter_at_mark (buffer, &end, end_mark);
+	ctk_text_buffer_delete_mark (buffer, start_mark);
+	ctk_text_buffer_delete_mark (buffer, end_mark);
 	start_mark = NULL;
 	end_mark = NULL;
 
-	text = gtk_text_buffer_get_text (buffer, &start, &end, TRUE);
+	text = ctk_text_buffer_get_text (buffer, &start, &end, TRUE);
 
-	gtk_text_buffer_delete (buffer, &start, &end);
+	ctk_text_buffer_delete (buffer, &start, &end);
 
 	if (down)
 	{
 		insert_pos = end;
-		gtk_text_iter_forward_line (&insert_pos);
+		ctk_text_iter_forward_line (&insert_pos);
 	}
 	else
 	{
 		insert_pos = start;
-		gtk_text_iter_backward_line (&insert_pos);
+		ctk_text_iter_backward_line (&insert_pos);
 	}
 
-	start_mark = gtk_text_buffer_create_mark (buffer, NULL, &insert_pos, TRUE);
+	start_mark = ctk_text_buffer_create_mark (buffer, NULL, &insert_pos, TRUE);
 
-	gtk_text_buffer_insert (buffer, &insert_pos, text, -1);
+	ctk_text_buffer_insert (buffer, &insert_pos, text, -1);
 	g_free (text);
 
 	/* Select the moved text. */
-	gtk_text_buffer_get_iter_at_mark (buffer, &start, start_mark);
-	gtk_text_buffer_delete_mark (buffer, start_mark);
+	ctk_text_buffer_get_iter_at_mark (buffer, &start, start_mark);
+	ctk_text_buffer_delete_mark (buffer, start_mark);
 
-	gtk_text_buffer_select_range (buffer, &start, &insert_pos);
+	ctk_text_buffer_select_range (buffer, &start, &insert_pos);
 
 	if (!initially_contains_trailing_newline)
 	{
 		remove_trailing_newline (buffer);
 	}
 
-	gtk_text_buffer_end_user_action (buffer);
+	ctk_text_buffer_end_user_action (buffer);
 
-	gtk_text_view_scroll_mark_onscreen (GTK_TEXT_VIEW (view),
-					    gtk_text_buffer_get_insert (buffer));
+	ctk_text_view_scroll_mark_onscreen (GTK_TEXT_VIEW (view),
+					    ctk_text_buffer_get_insert (buffer));
 }
 
 static gboolean
@@ -3951,21 +3951,21 @@ do_smart_backspace (GtkSourceView *view)
 	gint indent_width;
 
 	buffer = GTK_TEXT_BUFFER (view->priv->source_buffer);
-	default_editable = gtk_text_view_get_editable (GTK_TEXT_VIEW (view));
+	default_editable = ctk_text_view_get_editable (GTK_TEXT_VIEW (view));
 
-	if (gtk_text_buffer_get_selection_bounds (buffer, &insert, &end))
+	if (ctk_text_buffer_get_selection_bounds (buffer, &insert, &end))
 	{
 		return FALSE;
 	}
 
 	/* If the line isn't empty up to our cursor, ignore. */
-	_gtk_source_iter_get_leading_spaces_end_boundary (&insert, &leading_end);
-	if (gtk_text_iter_compare (&leading_end, &insert) < 0)
+	_ctk_source_iter_get_leading_spaces_end_boundary (&insert, &leading_end);
+	if (ctk_text_iter_compare (&leading_end, &insert) < 0)
 	{
 		return FALSE;
 	}
 
-	visual_column = gtk_source_view_get_visual_column (view, &insert);
+	visual_column = ctk_source_view_get_visual_column (view, &insert);
 	indent_width = view->priv->indent_width;
 	if (indent_width <= 0)
 	{
@@ -3989,21 +3989,21 @@ do_smart_backspace (GtkSourceView *view)
 		g_assert ((gint)visual_column >= indent_width);
 		target_column = visual_column - indent_width;
 
-		while (gtk_source_view_get_visual_column (view, &insert) > target_column)
+		while (ctk_source_view_get_visual_column (view, &insert) > target_column)
 		{
-			gtk_text_iter_backward_cursor_position (&insert);
+			ctk_text_iter_backward_cursor_position (&insert);
 		}
 
-		gtk_text_buffer_begin_user_action (buffer);
-		gtk_text_buffer_delete_interactive (buffer, &insert, &end, default_editable);
-		while (gtk_source_view_get_visual_column (view, &insert) < target_column)
+		ctk_text_buffer_begin_user_action (buffer);
+		ctk_text_buffer_delete_interactive (buffer, &insert, &end, default_editable);
+		while (ctk_source_view_get_visual_column (view, &insert) < target_column)
 		{
-			if (!gtk_text_buffer_insert_interactive (buffer, &insert, " ", 1, default_editable))
+			if (!ctk_text_buffer_insert_interactive (buffer, &insert, " ", 1, default_editable))
 			{
 				break;
 			}
 		}
-		gtk_text_buffer_end_user_action (buffer);
+		ctk_text_buffer_end_user_action (buffer);
 
 		return TRUE;
 	}
@@ -4021,9 +4021,9 @@ do_ctrl_backspace (GtkSourceView *view)
 	gboolean default_editable;
 
 	buffer = GTK_TEXT_BUFFER (view->priv->source_buffer);
-	default_editable = gtk_text_view_get_editable (GTK_TEXT_VIEW (view));
+	default_editable = ctk_text_view_get_editable (GTK_TEXT_VIEW (view));
 
-	if (gtk_text_buffer_get_selection_bounds (buffer, &insert, &end))
+	if (ctk_text_buffer_get_selection_bounds (buffer, &insert, &end))
 	{
 		return FALSE;
 	}
@@ -4032,22 +4032,22 @@ do_ctrl_backspace (GtkSourceView *view)
 	 * end of the previous line. Anything more than that is non-obvious because it requires
 	 * looking in a position other than where the cursor is.
 	 */
-	if ((gtk_text_iter_get_line_offset (&insert) == 0) &&
-	    (gtk_text_iter_get_line (&insert) > 0))
+	if ((ctk_text_iter_get_line_offset (&insert) == 0) &&
+	    (ctk_text_iter_get_line (&insert) > 0))
 	{
-		gtk_text_iter_backward_cursor_position (&insert);
-		gtk_text_buffer_delete_interactive (buffer, &insert, &end, default_editable);
+		ctk_text_iter_backward_cursor_position (&insert);
+		ctk_text_buffer_delete_interactive (buffer, &insert, &end, default_editable);
 		return TRUE;
 	}
 
 	/* If only leading whitespaces are on the left of the cursor, delete up
 	 * to the zero position.
 	 */
-	_gtk_source_iter_get_leading_spaces_end_boundary (&insert, &leading_end);
-	if (gtk_text_iter_compare (&insert, &leading_end) <= 0)
+	_ctk_source_iter_get_leading_spaces_end_boundary (&insert, &leading_end);
+	if (ctk_text_iter_compare (&insert, &leading_end) <= 0)
 	{
-		gtk_text_iter_set_line_offset (&insert, 0);
-		gtk_text_buffer_delete_interactive (buffer, &insert, &end, default_editable);
+		ctk_text_iter_set_line_offset (&insert, 0);
+		ctk_text_buffer_delete_interactive (buffer, &insert, &end, default_editable);
 		return TRUE;
 	}
 
@@ -4055,7 +4055,7 @@ do_ctrl_backspace (GtkSourceView *view)
 }
 
 static gboolean
-gtk_source_view_key_press_event (GtkWidget   *widget,
+ctk_source_view_key_press_event (GtkWidget   *widget,
 				 GdkEventKey *event)
 {
 	GtkSourceView *view;
@@ -4067,18 +4067,18 @@ gtk_source_view_key_press_event (GtkWidget   *widget,
 	gboolean editable;
 
 	view = GTK_SOURCE_VIEW (widget);
-	buf = gtk_text_view_get_buffer (GTK_TEXT_VIEW (widget));
+	buf = ctk_text_view_get_buffer (GTK_TEXT_VIEW (widget));
 
-	editable = gtk_text_view_get_editable (GTK_TEXT_VIEW (widget));
+	editable = ctk_text_view_get_editable (GTK_TEXT_VIEW (widget));
 
 	/* Be careful when testing for modifier state equality:
 	 * caps lock, num lock,etc need to be taken into account */
-	modifiers = gtk_accelerator_get_default_mod_mask ();
+	modifiers = ctk_accelerator_get_default_mod_mask ();
 
 	key = event->keyval;
 
-	mark = gtk_text_buffer_get_insert (buf);
-	gtk_text_buffer_get_iter_at_mark (buf, &cur, mark);
+	mark = ctk_text_buffer_get_insert (buf);
+	ctk_text_buffer_get_iter_at_mark (buf, &cur, mark);
 
 	if ((key == GDK_KEY_Return || key == GDK_KEY_KP_Enter) &&
 	    !(event->state & GDK_SHIFT_MASK) &&
@@ -4099,29 +4099,29 @@ gtk_source_view_key_press_event (GtkWidget   *widget,
 			/* Allow input methods to internally handle a key press event.
 			 * If this function returns TRUE, then no further processing should be done
 			 * for this keystroke. */
-			if (gtk_text_view_im_context_filter_keypress (GTK_TEXT_VIEW (view), event))
+			if (ctk_text_view_im_context_filter_keypress (GTK_TEXT_VIEW (view), event))
 			{
 				g_free (indent);
 				return GDK_EVENT_STOP;
 			}
 
 			/* Delete any selected text to preserve behavior without auto-indent */
-			gtk_text_buffer_delete_selection (buf,
+			ctk_text_buffer_delete_selection (buf,
 			                                  TRUE,
-			                                  gtk_text_view_get_editable (GTK_TEXT_VIEW (view)));
+			                                  ctk_text_view_get_editable (GTK_TEXT_VIEW (view)));
 
 			/* If an input method or deletion has inserted some text while handling the
 			 * key press event, the cur iterm may be invalid, so get the iter again
 			 */
-			gtk_text_buffer_get_iter_at_mark (buf, &cur, mark);
+			ctk_text_buffer_get_iter_at_mark (buf, &cur, mark);
 
 			/* Insert new line and auto-indent. */
-			gtk_text_buffer_begin_user_action (buf);
-			gtk_text_buffer_insert (buf, &cur, "\n", 1);
-			gtk_text_buffer_insert (buf, &cur, indent, strlen (indent));
+			ctk_text_buffer_begin_user_action (buf);
+			ctk_text_buffer_insert (buf, &cur, "\n", 1);
+			ctk_text_buffer_insert (buf, &cur, indent, strlen (indent));
 			g_free (indent);
-			gtk_text_buffer_end_user_action (buf);
-			gtk_text_view_scroll_mark_onscreen (GTK_TEXT_VIEW (widget),
+			ctk_text_buffer_end_user_action (buf);
+			ctk_text_view_scroll_mark_onscreen (GTK_TEXT_VIEW (widget),
 							    mark);
 			return GDK_EVENT_STOP;
 		}
@@ -4134,21 +4134,21 @@ gtk_source_view_key_press_event (GtkWidget   *widget,
 	    ((event->state & modifiers) == 0 ||
 	     (event->state & modifiers) == GDK_SHIFT_MASK) &&
 	    editable &&
-	    gtk_text_view_get_accepts_tab (GTK_TEXT_VIEW (view)))
+	    ctk_text_view_get_accepts_tab (GTK_TEXT_VIEW (view)))
 	{
 		GtkTextIter s, e;
 		gboolean has_selection;
 
-		has_selection = gtk_text_buffer_get_selection_bounds (buf, &s, &e);
+		has_selection = ctk_text_buffer_get_selection_bounds (buf, &s, &e);
 
 		if (view->priv->indent_on_tab)
 		{
 			/* shift+tab: always unindent */
 			if (event->state & GDK_SHIFT_MASK)
 			{
-				_gtk_source_buffer_save_and_clear_selection (GTK_SOURCE_BUFFER (buf));
-				gtk_source_view_unindent_lines (view, &s, &e);
-				_gtk_source_buffer_restore_selection (GTK_SOURCE_BUFFER (buf));
+				_ctk_source_buffer_save_and_clear_selection (GTK_SOURCE_BUFFER (buf));
+				ctk_source_view_unindent_lines (view, &s, &e);
+				_ctk_source_buffer_restore_selection (GTK_SOURCE_BUFFER (buf));
 				return GDK_EVENT_STOP;
 			}
 
@@ -4157,12 +4157,12 @@ gtk_source_view_key_press_event (GtkWidget   *widget,
 			 * the full line just replace the text with \t
 			 */
 			if (has_selection &&
-			    ((gtk_text_iter_starts_line (&s) && gtk_text_iter_ends_line (&e)) ||
-			     (gtk_text_iter_get_line (&s) != gtk_text_iter_get_line (&e))))
+			    ((ctk_text_iter_starts_line (&s) && ctk_text_iter_ends_line (&e)) ||
+			     (ctk_text_iter_get_line (&s) != ctk_text_iter_get_line (&e))))
 			{
-				_gtk_source_buffer_save_and_clear_selection (GTK_SOURCE_BUFFER (buf));
-				gtk_source_view_indent_lines (view, &s, &e);
-				_gtk_source_buffer_restore_selection (GTK_SOURCE_BUFFER (buf));
+				_ctk_source_buffer_save_and_clear_selection (GTK_SOURCE_BUFFER (buf));
+				ctk_source_view_indent_lines (view, &s, &e);
+				_ctk_source_buffer_restore_selection (GTK_SOURCE_BUFFER (buf));
 				return GDK_EVENT_STOP;
 			}
 		}
@@ -4189,11 +4189,11 @@ gtk_source_view_key_press_event (GtkWidget   *widget,
 		}
 	}
 
-	return GTK_WIDGET_CLASS (gtk_source_view_parent_class)->key_press_event (widget, event);
+	return GTK_WIDGET_CLASS (ctk_source_view_parent_class)->key_press_event (widget, event);
 }
 
 /**
- * gtk_source_view_get_auto_indent:
+ * ctk_source_view_get_auto_indent:
  * @view: a #GtkSourceView.
  *
  * Returns whether auto-indentation of text is enabled.
@@ -4201,7 +4201,7 @@ gtk_source_view_key_press_event (GtkWidget   *widget,
  * Returns: %TRUE if auto indentation is enabled.
  */
 gboolean
-gtk_source_view_get_auto_indent (GtkSourceView *view)
+ctk_source_view_get_auto_indent (GtkSourceView *view)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_VIEW (view), FALSE);
 
@@ -4209,7 +4209,7 @@ gtk_source_view_get_auto_indent (GtkSourceView *view)
 }
 
 /**
- * gtk_source_view_set_auto_indent:
+ * ctk_source_view_set_auto_indent:
  * @view: a #GtkSourceView.
  * @enable: whether to enable auto indentation.
  *
@@ -4221,7 +4221,7 @@ gtk_source_view_get_auto_indent (GtkSourceView *view)
  * on the context.
  */
 void
-gtk_source_view_set_auto_indent (GtkSourceView *view,
+ctk_source_view_set_auto_indent (GtkSourceView *view,
 				 gboolean       enable)
 {
 	g_return_if_fail (GTK_SOURCE_IS_VIEW (view));
@@ -4236,7 +4236,7 @@ gtk_source_view_set_auto_indent (GtkSourceView *view,
 }
 
 /**
- * gtk_source_view_get_insert_spaces_instead_of_tabs:
+ * ctk_source_view_get_insert_spaces_instead_of_tabs:
  * @view: a #GtkSourceView.
  *
  * Returns whether when inserting a tabulator character it should
@@ -4245,7 +4245,7 @@ gtk_source_view_set_auto_indent (GtkSourceView *view,
  * Returns: %TRUE if spaces are inserted instead of tabs.
  */
 gboolean
-gtk_source_view_get_insert_spaces_instead_of_tabs (GtkSourceView *view)
+ctk_source_view_get_insert_spaces_instead_of_tabs (GtkSourceView *view)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_VIEW (view), FALSE);
 
@@ -4253,7 +4253,7 @@ gtk_source_view_get_insert_spaces_instead_of_tabs (GtkSourceView *view)
 }
 
 /**
- * gtk_source_view_set_insert_spaces_instead_of_tabs:
+ * ctk_source_view_set_insert_spaces_instead_of_tabs:
  * @view: a #GtkSourceView.
  * @enable: whether to insert spaces instead of tabs.
  *
@@ -4262,7 +4262,7 @@ gtk_source_view_get_insert_spaces_instead_of_tabs (GtkSourceView *view)
  * #GtkTextBuffer API.
  */
 void
-gtk_source_view_set_insert_spaces_instead_of_tabs (GtkSourceView *view,
+ctk_source_view_set_insert_spaces_instead_of_tabs (GtkSourceView *view,
 						   gboolean       enable)
 {
 	g_return_if_fail (GTK_SOURCE_IS_VIEW (view));
@@ -4277,7 +4277,7 @@ gtk_source_view_set_insert_spaces_instead_of_tabs (GtkSourceView *view,
 }
 
 /**
- * gtk_source_view_get_indent_on_tab:
+ * ctk_source_view_get_indent_on_tab:
  * @view: a #GtkSourceView.
  *
  * Returns whether when the tab key is pressed the current selection
@@ -4286,7 +4286,7 @@ gtk_source_view_set_insert_spaces_instead_of_tabs (GtkSourceView *view,
  * Return value: %TRUE if the selection is indented when tab is pressed.
  */
 gboolean
-gtk_source_view_get_indent_on_tab (GtkSourceView *view)
+ctk_source_view_get_indent_on_tab (GtkSourceView *view)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_VIEW (view), FALSE);
 
@@ -4294,7 +4294,7 @@ gtk_source_view_get_indent_on_tab (GtkSourceView *view)
 }
 
 /**
- * gtk_source_view_set_indent_on_tab:
+ * ctk_source_view_set_indent_on_tab:
  * @view: a #GtkSourceView.
  * @enable: whether to indent a block when tab is pressed.
  *
@@ -4309,7 +4309,7 @@ gtk_source_view_get_indent_on_tab (GtkSourceView *view)
  * the selection with a normal \t character.
  */
 void
-gtk_source_view_set_indent_on_tab (GtkSourceView *view,
+ctk_source_view_set_indent_on_tab (GtkSourceView *view,
 				   gboolean       enable)
 {
 	g_return_if_fail (GTK_SOURCE_IS_VIEW (view));
@@ -4342,7 +4342,7 @@ view_dnd_drop (GtkTextView      *view,
 		gchar string[] = "#000000";
 		gint buffer_x;
 		gint buffer_y;
-		gint length = gtk_selection_data_get_length (selection_data);
+		gint length = ctk_selection_data_get_length (selection_data);
 		guint format;
 
 		if (length < 0)
@@ -4350,13 +4350,13 @@ view_dnd_drop (GtkTextView      *view,
 			return;
 		}
 
-		format = gtk_selection_data_get_format (selection_data);
+		format = ctk_selection_data_get_format (selection_data);
 
 		if (format == 8 && length == 4)
 		{
 			guint8 *vals;
 
-			vals = (gpointer) gtk_selection_data_get_data (selection_data);
+			vals = (gpointer) ctk_selection_data_get_data (selection_data);
 
 			rgba.red = vals[0] / 256.0;
 			rgba.green = vals[1] / 256.0;
@@ -4367,7 +4367,7 @@ view_dnd_drop (GtkTextView      *view,
 		{
 			guint16 *vals;
 
-			vals = (gpointer) gtk_selection_data_get_data (selection_data);
+			vals = (gpointer) ctk_selection_data_get_data (selection_data);
 
 			rgba.red = vals[0] / 65535.0;
 			rgba.green = vals[1] / 65535.0;
@@ -4385,21 +4385,21 @@ view_dnd_drop (GtkTextView      *view,
 		            (gint)(rgba.green * 256),
 		            (gint)(rgba.blue * 256));
 
-		gtk_text_view_window_to_buffer_coords (view,
+		ctk_text_view_window_to_buffer_coords (view,
 						       GTK_TEXT_WINDOW_TEXT,
 						       x,
 						       y,
 						       &buffer_x,
 						       &buffer_y);
-		gtk_text_view_get_iter_at_location (view, &iter, buffer_x, buffer_y);
+		ctk_text_view_get_iter_at_location (view, &iter, buffer_x, buffer_y);
 
-		if (gtk_text_view_get_editable (view))
+		if (ctk_text_view_get_editable (view))
 		{
-			gtk_text_buffer_insert (gtk_text_view_get_buffer (view),
+			ctk_text_buffer_insert (ctk_text_view_get_buffer (view),
 						&iter,
 						string,
 						strlen (string));
-			gtk_text_buffer_place_cursor (gtk_text_view_get_buffer (view),
+			ctk_text_buffer_place_cursor (ctk_text_view_get_buffer (view),
 						&iter);
 		}
 
@@ -4414,7 +4414,7 @@ view_dnd_drop (GtkTextView      *view,
 }
 
 /**
- * gtk_source_view_get_highlight_current_line:
+ * ctk_source_view_get_highlight_current_line:
  * @view: a #GtkSourceView.
  *
  * Returns whether the current line is highlighted.
@@ -4422,7 +4422,7 @@ view_dnd_drop (GtkTextView      *view,
  * Return value: %TRUE if the current line is highlighted.
  */
 gboolean
-gtk_source_view_get_highlight_current_line (GtkSourceView *view)
+ctk_source_view_get_highlight_current_line (GtkSourceView *view)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_VIEW (view), FALSE);
 
@@ -4430,14 +4430,14 @@ gtk_source_view_get_highlight_current_line (GtkSourceView *view)
 }
 
 /**
- * gtk_source_view_set_highlight_current_line:
+ * ctk_source_view_set_highlight_current_line:
  * @view: a #GtkSourceView.
  * @highlight: whether to highlight the current line.
  *
  * If @highlight is %TRUE the current line will be highlighted.
  */
 void
-gtk_source_view_set_highlight_current_line (GtkSourceView *view,
+ctk_source_view_set_highlight_current_line (GtkSourceView *view,
 					    gboolean       highlight)
 {
 	g_return_if_fail (GTK_SOURCE_IS_VIEW (view));
@@ -4448,14 +4448,14 @@ gtk_source_view_set_highlight_current_line (GtkSourceView *view,
 	{
 		view->priv->highlight_current_line = highlight;
 
-		gtk_widget_queue_draw (GTK_WIDGET (view));
+		ctk_widget_queue_draw (GTK_WIDGET (view));
 
 		g_object_notify (G_OBJECT (view), "highlight_current_line");
 	}
 }
 
 /**
- * gtk_source_view_get_show_right_margin:
+ * ctk_source_view_get_show_right_margin:
  * @view: a #GtkSourceView.
  *
  * Returns whether a right margin is displayed.
@@ -4463,7 +4463,7 @@ gtk_source_view_set_highlight_current_line (GtkSourceView *view,
  * Return value: %TRUE if the right margin is shown.
  */
 gboolean
-gtk_source_view_get_show_right_margin (GtkSourceView *view)
+ctk_source_view_get_show_right_margin (GtkSourceView *view)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_VIEW (view), FALSE);
 
@@ -4471,14 +4471,14 @@ gtk_source_view_get_show_right_margin (GtkSourceView *view)
 }
 
 /**
- * gtk_source_view_set_show_right_margin:
+ * ctk_source_view_set_show_right_margin:
  * @view: a #GtkSourceView.
  * @show: whether to show a right margin.
  *
  * If %TRUE a right margin is displayed.
  */
 void
-gtk_source_view_set_show_right_margin (GtkSourceView *view,
+ctk_source_view_set_show_right_margin (GtkSourceView *view,
 				       gboolean       show)
 {
 	g_return_if_fail (GTK_SOURCE_IS_VIEW (view));
@@ -4489,14 +4489,14 @@ gtk_source_view_set_show_right_margin (GtkSourceView *view,
 	{
 		view->priv->show_right_margin = show;
 
-		gtk_widget_queue_draw (GTK_WIDGET (view));
+		ctk_widget_queue_draw (GTK_WIDGET (view));
 
 		g_object_notify (G_OBJECT (view), "show-right-margin");
 	}
 }
 
 /**
- * gtk_source_view_get_right_margin_position:
+ * ctk_source_view_get_right_margin_position:
  * @view: a #GtkSourceView.
  *
  * Gets the position of the right margin in the given @view.
@@ -4504,7 +4504,7 @@ gtk_source_view_set_show_right_margin (GtkSourceView *view,
  * Return value: the position of the right margin.
  */
 guint
-gtk_source_view_get_right_margin_position (GtkSourceView *view)
+ctk_source_view_get_right_margin_position (GtkSourceView *view)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_VIEW (view), DEFAULT_RIGHT_MARGIN_POSITION);
 
@@ -4512,14 +4512,14 @@ gtk_source_view_get_right_margin_position (GtkSourceView *view)
 }
 
 /**
- * gtk_source_view_set_right_margin_position:
+ * ctk_source_view_set_right_margin_position:
  * @view: a #GtkSourceView.
  * @pos: the width in characters where to position the right margin.
  *
  * Sets the position of the right margin in the given @view.
  */
 void
-gtk_source_view_set_right_margin_position (GtkSourceView *view,
+ctk_source_view_set_right_margin_position (GtkSourceView *view,
 					   guint          pos)
 {
 	g_return_if_fail (GTK_SOURCE_IS_VIEW (view));
@@ -4530,14 +4530,14 @@ gtk_source_view_set_right_margin_position (GtkSourceView *view,
 		view->priv->right_margin_pos = pos;
 		view->priv->cached_right_margin_pos = -1;
 
-		gtk_widget_queue_draw (GTK_WIDGET (view));
+		ctk_widget_queue_draw (GTK_WIDGET (view));
 
 		g_object_notify (G_OBJECT (view), "right-margin-position");
 	}
 }
 
 /**
- * gtk_source_view_set_smart_backspace:
+ * ctk_source_view_set_smart_backspace:
  * @view: a #GtkSourceView.
  * @smart_backspace: whether to enable smart Backspace handling.
  *
@@ -4547,7 +4547,7 @@ gtk_source_view_set_right_margin_position (GtkSourceView *view,
  * Since: 3.18
  */
 void
-gtk_source_view_set_smart_backspace (GtkSourceView *view,
+ctk_source_view_set_smart_backspace (GtkSourceView *view,
                                      gboolean       smart_backspace)
 {
 	g_return_if_fail (GTK_SOURCE_IS_VIEW (view));
@@ -4562,7 +4562,7 @@ gtk_source_view_set_smart_backspace (GtkSourceView *view,
 }
 
 /**
- * gtk_source_view_get_smart_backspace:
+ * ctk_source_view_get_smart_backspace:
  * @view: a #GtkSourceView.
  *
  * Returns %TRUE if pressing the Backspace key will try to delete spaces
@@ -4573,7 +4573,7 @@ gtk_source_view_set_smart_backspace (GtkSourceView *view,
  * Since: 3.18
  */
 gboolean
-gtk_source_view_get_smart_backspace (GtkSourceView *view)
+ctk_source_view_get_smart_backspace (GtkSourceView *view)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_VIEW (view), FALSE);
 
@@ -4581,7 +4581,7 @@ gtk_source_view_get_smart_backspace (GtkSourceView *view)
 }
 
 /**
- * gtk_source_view_set_smart_home_end:
+ * ctk_source_view_set_smart_home_end:
  * @view: a #GtkSourceView.
  * @smart_home_end: the desired behavior among #GtkSourceSmartHomeEndType.
  *
@@ -4589,7 +4589,7 @@ gtk_source_view_get_smart_backspace (GtkSourceView *view)
  * are pressed.
  */
 void
-gtk_source_view_set_smart_home_end (GtkSourceView             *view,
+ctk_source_view_set_smart_home_end (GtkSourceView             *view,
 				    GtkSourceSmartHomeEndType  smart_home_end)
 {
 	g_return_if_fail (GTK_SOURCE_IS_VIEW (view));
@@ -4602,7 +4602,7 @@ gtk_source_view_set_smart_home_end (GtkSourceView             *view,
 }
 
 /**
- * gtk_source_view_get_smart_home_end:
+ * ctk_source_view_get_smart_home_end:
  * @view: a #GtkSourceView.
  *
  * Returns a #GtkSourceSmartHomeEndType end value specifying
@@ -4611,7 +4611,7 @@ gtk_source_view_set_smart_home_end (GtkSourceView             *view,
  * Returns: a #GtkSourceSmartHomeEndType value.
  */
 GtkSourceSmartHomeEndType
-gtk_source_view_get_smart_home_end (GtkSourceView *view)
+ctk_source_view_get_smart_home_end (GtkSourceView *view)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_VIEW (view), FALSE);
 
@@ -4619,7 +4619,7 @@ gtk_source_view_get_smart_home_end (GtkSourceView *view)
 }
 
 /**
- * gtk_source_view_get_visual_column:
+ * ctk_source_view_get_visual_column:
  * @view: a #GtkSourceView.
  * @iter: a position in @view.
  *
@@ -4629,7 +4629,7 @@ gtk_source_view_get_smart_home_end (GtkSourceView *view)
  * Returns: the visual column at @iter.
  */
 guint
-gtk_source_view_get_visual_column (GtkSourceView     *view,
+ctk_source_view_get_visual_column (GtkSourceView     *view,
 				   const GtkTextIter *iter)
 {
 	GtkTextIter position;
@@ -4643,11 +4643,11 @@ gtk_source_view_get_visual_column (GtkSourceView     *view,
 	tab_width = view->priv->tab_width;
 
 	position = *iter;
-	gtk_text_iter_set_line_offset (&position, 0);
+	ctk_text_iter_set_line_offset (&position, 0);
 
-	while (!gtk_text_iter_equal (&position, iter))
+	while (!ctk_text_iter_equal (&position, iter))
 	{
-		if (gtk_text_iter_get_char (&position) == '\t')
+		if (ctk_text_iter_get_char (&position) == '\t')
 		{
 			column += (tab_width - (column % tab_width));
 		}
@@ -4657,8 +4657,8 @@ gtk_source_view_get_visual_column (GtkSourceView     *view,
 		}
 
 		/* FIXME: this does not handle invisible text correctly, but
-		 * gtk_text_iter_forward_visible_cursor_position is too slow */
-		if (!gtk_text_iter_forward_char (&position))
+		 * ctk_text_iter_forward_visible_cursor_position is too slow */
+		if (!ctk_text_iter_forward_char (&position))
 		{
 			break;
 		}
@@ -4677,7 +4677,7 @@ update_background_pattern_color (GtkSourceView *view)
 	}
 
 	view->priv->background_pattern_color_set =
-		_gtk_source_style_scheme_get_background_pattern_color (view->priv->style_scheme,
+		_ctk_source_style_scheme_get_background_pattern_color (view->priv->style_scheme,
 								       &view->priv->background_pattern_color);
 }
 
@@ -4691,7 +4691,7 @@ update_current_line_color (GtkSourceView *view)
 	}
 
 	view->priv->current_line_color_set =
-		_gtk_source_style_scheme_get_current_line_color (view->priv->style_scheme,
+		_ctk_source_style_scheme_get_current_line_color (view->priv->style_scheme,
 								 &view->priv->current_line_color);
 }
 
@@ -4716,7 +4716,7 @@ update_right_margin_colors (GtkSourceView *view)
 	{
 		GtkSourceStyle *style;
 
-		style = _gtk_source_style_scheme_get_right_margin_style (view->priv->style_scheme);
+		style = _ctk_source_style_scheme_get_right_margin_style (view->priv->style_scheme);
 
 		if (style != NULL)
 		{
@@ -4764,13 +4764,13 @@ update_right_margin_colors (GtkSourceView *view)
 		GtkStyleContext *context;
 		GdkRGBA color;
 
-		context = gtk_widget_get_style_context (widget);
-		gtk_style_context_save (context);
-		gtk_style_context_set_state (context, GTK_STATE_FLAG_NORMAL);
-		gtk_style_context_get_color (context,
-					     gtk_style_context_get_state (context),
+		context = ctk_widget_get_style_context (widget);
+		ctk_style_context_save (context);
+		ctk_style_context_set_state (context, GTK_STATE_FLAG_NORMAL);
+		ctk_style_context_get_color (context,
+					     ctk_style_context_get_state (context),
 					     &color);
-		gtk_style_context_restore (context);
+		ctk_style_context_restore (context);
 
 		view->priv->right_margin_line_color = gdk_rgba_copy (&color);
 		view->priv->right_margin_line_color->alpha =
@@ -4787,23 +4787,23 @@ update_style (GtkSourceView *view)
 
 	if (view->priv->space_drawer != NULL)
 	{
-		_gtk_source_space_drawer_update_color (view->priv->space_drawer, view);
+		_ctk_source_space_drawer_update_color (view->priv->space_drawer, view);
 	}
 
-	gtk_widget_queue_draw (GTK_WIDGET (view));
+	ctk_widget_queue_draw (GTK_WIDGET (view));
 }
 
 static void
-gtk_source_view_update_style_scheme (GtkSourceView *view)
+ctk_source_view_update_style_scheme (GtkSourceView *view)
 {
 	GtkTextBuffer *buffer;
 	GtkSourceStyleScheme *new_scheme = NULL;
 
-	buffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW (view));
+	buffer = ctk_text_view_get_buffer (GTK_TEXT_VIEW (view));
 
 	if (GTK_SOURCE_IS_BUFFER (buffer))
 	{
-		new_scheme = gtk_source_buffer_get_style_scheme (GTK_SOURCE_BUFFER (buffer));
+		new_scheme = ctk_source_buffer_get_style_scheme (GTK_SOURCE_BUFFER (buffer));
 	}
 
 	if (view->priv->style_scheme == new_scheme)
@@ -4813,28 +4813,28 @@ gtk_source_view_update_style_scheme (GtkSourceView *view)
 
 	if (view->priv->style_scheme != NULL)
 	{
-		_gtk_source_style_scheme_unapply (view->priv->style_scheme, view);
+		_ctk_source_style_scheme_unapply (view->priv->style_scheme, view);
 	}
 
 	g_set_object (&view->priv->style_scheme, new_scheme);
 
 	if (view->priv->style_scheme != NULL)
 	{
-		_gtk_source_style_scheme_apply (view->priv->style_scheme, view);
+		_ctk_source_style_scheme_apply (view->priv->style_scheme, view);
 	}
 
 	update_style (view);
 }
 
 static void
-gtk_source_view_style_updated (GtkWidget *widget)
+ctk_source_view_style_updated (GtkWidget *widget)
 {
 	GtkSourceView *view = GTK_SOURCE_VIEW (widget);
 
 	/* Call default handler first. */
-	if (GTK_WIDGET_CLASS (gtk_source_view_parent_class)->style_updated != NULL)
+	if (GTK_WIDGET_CLASS (ctk_source_view_parent_class)->style_updated != NULL)
 	{
-		GTK_WIDGET_CLASS (gtk_source_view_parent_class)->style_updated (widget);
+		GTK_WIDGET_CLASS (ctk_source_view_parent_class)->style_updated (widget);
 	}
 
 	/* Re-set tab stops, but only if we already modified them, i.e.
@@ -4874,7 +4874,7 @@ mark_category_free (MarkCategory *category)
 }
 
 /**
- * gtk_source_view_get_completion:
+ * ctk_source_view_get_completion:
  * @view: a #GtkSourceView.
  *
  * Gets the #GtkSourceCompletion associated with @view. The returned object is
@@ -4884,20 +4884,20 @@ mark_category_free (MarkCategory *category)
  * Returns: (transfer none): the #GtkSourceCompletion associated with @view.
  */
 GtkSourceCompletion *
-gtk_source_view_get_completion (GtkSourceView *view)
+ctk_source_view_get_completion (GtkSourceView *view)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_VIEW (view), NULL);
 
 	if (view->priv->completion == NULL)
 	{
-		view->priv->completion = gtk_source_completion_new (view);
+		view->priv->completion = ctk_source_completion_new (view);
 	}
 
 	return view->priv->completion;
 }
 
 /**
- * gtk_source_view_get_gutter:
+ * ctk_source_view_get_gutter:
  * @view: a #GtkSourceView.
  * @window_type: the gutter window type.
  *
@@ -4911,7 +4911,7 @@ gtk_source_view_get_completion (GtkSourceView *view)
  * Returns: (transfer none): the #GtkSourceGutter.
  */
 GtkSourceGutter *
-gtk_source_view_get_gutter (GtkSourceView     *view,
+ctk_source_view_get_gutter (GtkSourceView     *view,
 			    GtkTextWindowType  window_type)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_VIEW (view), NULL);
@@ -4922,7 +4922,7 @@ gtk_source_view_get_gutter (GtkSourceView     *view,
 	{
 		if (view->priv->left_gutter == NULL)
 		{
-			view->priv->left_gutter = _gtk_source_gutter_new (view, window_type);
+			view->priv->left_gutter = _ctk_source_gutter_new (view, window_type);
 		}
 
 		return view->priv->left_gutter;
@@ -4931,7 +4931,7 @@ gtk_source_view_get_gutter (GtkSourceView     *view,
 	{
 		if (view->priv->right_gutter == NULL)
 		{
-			view->priv->right_gutter = _gtk_source_gutter_new (view, window_type);
+			view->priv->right_gutter = _ctk_source_gutter_new (view, window_type);
 		}
 
 		return view->priv->right_gutter;
@@ -4939,7 +4939,7 @@ gtk_source_view_get_gutter (GtkSourceView     *view,
 }
 
 /**
- * gtk_source_view_set_mark_attributes:
+ * ctk_source_view_set_mark_attributes:
  * @view: a #GtkSourceView.
  * @category: the category.
  * @attributes: mark attributes.
@@ -4948,7 +4948,7 @@ gtk_source_view_get_gutter (GtkSourceView     *view,
  * Sets attributes and priority for the @category.
  */
 void
-gtk_source_view_set_mark_attributes (GtkSourceView           *view,
+ctk_source_view_set_mark_attributes (GtkSourceView           *view,
 				     const gchar             *category,
 				     GtkSourceMarkAttributes *attributes,
 				     gint                     priority)
@@ -4967,7 +4967,7 @@ gtk_source_view_set_mark_attributes (GtkSourceView           *view,
 }
 
 /**
- * gtk_source_view_get_mark_attributes:
+ * ctk_source_view_get_mark_attributes:
  * @view: a #GtkSourceView.
  * @category: the category.
  * @priority: place where priority of the category will be stored.
@@ -4978,7 +4978,7 @@ gtk_source_view_set_mark_attributes (GtkSourceView           *view,
  * The object belongs to @view, so it must not be unreffed.
  */
 GtkSourceMarkAttributes *
-gtk_source_view_get_mark_attributes (GtkSourceView *view,
+ctk_source_view_get_mark_attributes (GtkSourceView *view,
 				     const gchar   *category,
 				     gint          *priority)
 {
@@ -5004,7 +5004,7 @@ gtk_source_view_get_mark_attributes (GtkSourceView *view,
 }
 
 /**
- * gtk_source_view_set_background_pattern:
+ * ctk_source_view_set_background_pattern:
  * @view: a #GtkSourceView.
  * @background_pattern: the #GtkSourceBackgroundPatternType.
  *
@@ -5013,7 +5013,7 @@ gtk_source_view_get_mark_attributes (GtkSourceView *view,
  * Since: 3.16
  */
 void
-gtk_source_view_set_background_pattern (GtkSourceView                  *view,
+ctk_source_view_set_background_pattern (GtkSourceView                  *view,
 					GtkSourceBackgroundPatternType  background_pattern)
 {
 	g_return_if_fail (GTK_SOURCE_IS_VIEW (view));
@@ -5022,14 +5022,14 @@ gtk_source_view_set_background_pattern (GtkSourceView                  *view,
 	{
 		view->priv->background_pattern = background_pattern;
 
-		gtk_widget_queue_draw (GTK_WIDGET (view));
+		ctk_widget_queue_draw (GTK_WIDGET (view));
 
 		g_object_notify (G_OBJECT (view), "background-pattern");
 	}
 }
 
 /**
- * gtk_source_view_get_background_pattern:
+ * ctk_source_view_get_background_pattern:
  * @view: a #GtkSourceView
  *
  * Returns the #GtkSourceBackgroundPatternType specifying if and how
@@ -5039,7 +5039,7 @@ gtk_source_view_set_background_pattern (GtkSourceView                  *view,
  * Since: 3.16
  */
 GtkSourceBackgroundPatternType
-gtk_source_view_get_background_pattern (GtkSourceView *view)
+ctk_source_view_get_background_pattern (GtkSourceView *view)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_VIEW (view), GTK_SOURCE_BACKGROUND_PATTERN_TYPE_NONE);
 
@@ -5047,7 +5047,7 @@ gtk_source_view_get_background_pattern (GtkSourceView *view)
 }
 
 /**
- * gtk_source_view_get_space_drawer:
+ * ctk_source_view_get_space_drawer:
  * @view: a #GtkSourceView.
  *
  * Gets the #GtkSourceSpaceDrawer associated with @view. The returned object is
@@ -5058,7 +5058,7 @@ gtk_source_view_get_background_pattern (GtkSourceView *view)
  * Since: 3.24
  */
 GtkSourceSpaceDrawer *
-gtk_source_view_get_space_drawer (GtkSourceView *view)
+ctk_source_view_get_space_drawer (GtkSourceView *view)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_VIEW (view), NULL);
 

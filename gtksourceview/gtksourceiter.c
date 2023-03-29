@@ -22,7 +22,7 @@
 #include <config.h>
 #endif
 
-#include "gtksourceiter.h"
+#include "ctksourceiter.h"
 
 /* GtkTextIter functions. Contains forward/backward functions for word
  * movements, with custom word boundaries that are used for word selection
@@ -33,7 +33,7 @@
  * triple-click (the ::move-cursor and ::delete-from-cursor signals were already
  * present to customize boundaries for cursor movements). The GTK+ developers
  * didn't want to change the word boundaries for text widgets. More information:
- * https://mail.gnome.org/archives/gtk-devel-list/2014-September/msg00019.html
+ * https://mail.gnome.org/archives/ctk-devel-list/2014-September/msg00019.html
  * https://bugzilla.gnome.org/show_bug.cgi?id=111503
  */
 
@@ -54,32 +54,32 @@
  * "---- a|bcd"   -> "---- abcd|"
  */
 void
-_gtk_source_iter_forward_full_word_end (GtkTextIter *iter)
+_ctk_source_iter_forward_full_word_end (GtkTextIter *iter)
 {
 	GtkTextIter pos;
 	gboolean non_blank_found = FALSE;
 
-	/* It would be better to use gtk_text_iter_forward_visible_char(), but
+	/* It would be better to use ctk_text_iter_forward_visible_char(), but
 	 * it doesn't exist. So move by cursor position instead, it should be
 	 * equivalent here.
 	 */
 
 	pos = *iter;
 
-	while (g_unichar_isspace (gtk_text_iter_get_char (&pos)))
+	while (g_unichar_isspace (ctk_text_iter_get_char (&pos)))
 	{
-		if (!gtk_text_iter_forward_visible_cursor_position (&pos))
+		if (!ctk_text_iter_forward_visible_cursor_position (&pos))
 		{
 			break;
 		}
 	}
 
-	while (!gtk_text_iter_is_end (&pos) &&
-	       !g_unichar_isspace (gtk_text_iter_get_char (&pos)))
+	while (!ctk_text_iter_is_end (&pos) &&
+	       !g_unichar_isspace (ctk_text_iter_get_char (&pos)))
 	{
 		non_blank_found = TRUE;
 
-		if (!gtk_text_iter_forward_visible_cursor_position (&pos))
+		if (!ctk_text_iter_forward_visible_cursor_position (&pos))
 		{
 			break;
 		}
@@ -93,7 +93,7 @@ _gtk_source_iter_forward_full_word_end (GtkTextIter *iter)
 
 /* Symmetric of iter_forward_full_word_end(). */
 void
-_gtk_source_iter_backward_full_word_start (GtkTextIter *iter)
+_ctk_source_iter_backward_full_word_start (GtkTextIter *iter)
 {
 	GtkTextIter pos;
 	GtkTextIter prev;
@@ -101,16 +101,16 @@ _gtk_source_iter_backward_full_word_start (GtkTextIter *iter)
 
 	pos = *iter;
 
-	while (!gtk_text_iter_is_start (&pos))
+	while (!ctk_text_iter_is_start (&pos))
 	{
 		prev = pos;
 
-		if (!gtk_text_iter_backward_visible_cursor_position (&prev))
+		if (!ctk_text_iter_backward_visible_cursor_position (&prev))
 		{
 			break;
 		}
 
-		if (!g_unichar_isspace (gtk_text_iter_get_char (&prev)))
+		if (!g_unichar_isspace (ctk_text_iter_get_char (&prev)))
 		{
 			break;
 		}
@@ -118,16 +118,16 @@ _gtk_source_iter_backward_full_word_start (GtkTextIter *iter)
 		pos = prev;
 	}
 
-	while (!gtk_text_iter_is_start (&pos))
+	while (!ctk_text_iter_is_start (&pos))
 	{
 		prev = pos;
 
-		if (!gtk_text_iter_backward_visible_cursor_position (&prev))
+		if (!ctk_text_iter_backward_visible_cursor_position (&prev))
 		{
 			break;
 		}
 
-		if (g_unichar_isspace (gtk_text_iter_get_char (&prev)))
+		if (g_unichar_isspace (ctk_text_iter_get_char (&prev)))
 		{
 			break;
 		}
@@ -143,56 +143,56 @@ _gtk_source_iter_backward_full_word_start (GtkTextIter *iter)
 }
 
 gboolean
-_gtk_source_iter_starts_full_word (const GtkTextIter *iter)
+_ctk_source_iter_starts_full_word (const GtkTextIter *iter)
 {
 	GtkTextIter prev = *iter;
 
-	if (gtk_text_iter_is_end (iter))
+	if (ctk_text_iter_is_end (iter))
 	{
 		return FALSE;
 	}
 
-	if (!gtk_text_iter_backward_visible_cursor_position (&prev))
+	if (!ctk_text_iter_backward_visible_cursor_position (&prev))
 	{
-		return !g_unichar_isspace (gtk_text_iter_get_char (iter));
+		return !g_unichar_isspace (ctk_text_iter_get_char (iter));
 	}
 
-	return (g_unichar_isspace (gtk_text_iter_get_char (&prev)) &&
-		!g_unichar_isspace (gtk_text_iter_get_char (iter)));
+	return (g_unichar_isspace (ctk_text_iter_get_char (&prev)) &&
+		!g_unichar_isspace (ctk_text_iter_get_char (iter)));
 }
 
 gboolean
-_gtk_source_iter_ends_full_word (const GtkTextIter *iter)
+_ctk_source_iter_ends_full_word (const GtkTextIter *iter)
 {
 	GtkTextIter prev = *iter;
 
-	if (!gtk_text_iter_backward_visible_cursor_position (&prev))
+	if (!ctk_text_iter_backward_visible_cursor_position (&prev))
 	{
 		return FALSE;
 	}
 
-	return (!g_unichar_isspace (gtk_text_iter_get_char (&prev)) &&
-		(gtk_text_iter_is_end (iter) ||
-		 g_unichar_isspace (gtk_text_iter_get_char (iter))));
+	return (!g_unichar_isspace (ctk_text_iter_get_char (&prev)) &&
+		(ctk_text_iter_is_end (iter) ||
+		 g_unichar_isspace (ctk_text_iter_get_char (iter))));
 }
 
 /* Extends the definition of a natural-language word used by Pango. The
  * underscore is added to the possible characters of a natural-language word.
  */
 void
-_gtk_source_iter_forward_extra_natural_word_end (GtkTextIter *iter)
+_ctk_source_iter_forward_extra_natural_word_end (GtkTextIter *iter)
 {
 	GtkTextIter next_word_end = *iter;
 	GtkTextIter next_underscore_end = *iter;
 	GtkTextIter *limit = NULL;
 	gboolean found;
 
-	if (gtk_text_iter_forward_visible_word_end (&next_word_end))
+	if (ctk_text_iter_forward_visible_word_end (&next_word_end))
 	{
 		limit = &next_word_end;
 	}
 
-	found = gtk_text_iter_forward_search (iter,
+	found = ctk_text_iter_forward_search (iter,
 					      "_",
 					      GTK_TEXT_SEARCH_VISIBLE_ONLY | GTK_TEXT_SEARCH_TEXT_ONLY,
 					      NULL,
@@ -210,16 +210,16 @@ _gtk_source_iter_forward_extra_natural_word_end (GtkTextIter *iter)
 
 	while (TRUE)
 	{
-		if (gtk_text_iter_get_char (iter) == '_')
+		if (ctk_text_iter_get_char (iter) == '_')
 		{
-			if (!gtk_text_iter_forward_visible_cursor_position (iter))
+			if (!ctk_text_iter_forward_visible_cursor_position (iter))
 			{
 				break;
 			}
 		}
-		else if (gtk_text_iter_starts_word (iter))
+		else if (ctk_text_iter_starts_word (iter))
 		{
-			if (!gtk_text_iter_forward_visible_word_end (iter))
+			if (!ctk_text_iter_forward_visible_word_end (iter))
 			{
 				break;
 			}
@@ -233,19 +233,19 @@ _gtk_source_iter_forward_extra_natural_word_end (GtkTextIter *iter)
 
 /* Symmetric of iter_forward_extra_natural_word_end(). */
 void
-_gtk_source_iter_backward_extra_natural_word_start (GtkTextIter *iter)
+_ctk_source_iter_backward_extra_natural_word_start (GtkTextIter *iter)
 {
 	GtkTextIter prev_word_start = *iter;
 	GtkTextIter prev_underscore_start = *iter;
 	GtkTextIter *limit = NULL;
 	gboolean found;
 
-	if (gtk_text_iter_backward_visible_word_start (&prev_word_start))
+	if (ctk_text_iter_backward_visible_word_start (&prev_word_start))
 	{
 		limit = &prev_word_start;
 	}
 
-	found = gtk_text_iter_backward_search (iter,
+	found = ctk_text_iter_backward_search (iter,
 					       "_",
 					       GTK_TEXT_SEARCH_VISIBLE_ONLY | GTK_TEXT_SEARCH_TEXT_ONLY,
 					       &prev_underscore_start,
@@ -261,22 +261,22 @@ _gtk_source_iter_backward_extra_natural_word_start (GtkTextIter *iter)
 		*iter = prev_word_start;
 	}
 
-	while (!gtk_text_iter_is_start (iter))
+	while (!ctk_text_iter_is_start (iter))
 	{
 		GtkTextIter prev = *iter;
 
-		if (!gtk_text_iter_backward_visible_cursor_position (&prev))
+		if (!ctk_text_iter_backward_visible_cursor_position (&prev))
 		{
 			break;
 		}
 
-		if (gtk_text_iter_get_char (&prev) == '_')
+		if (ctk_text_iter_get_char (&prev) == '_')
 		{
 			*iter = prev;
 		}
-		else if (gtk_text_iter_ends_word (iter))
+		else if (ctk_text_iter_ends_word (iter))
 		{
-			if (!gtk_text_iter_backward_visible_word_start (iter))
+			if (!ctk_text_iter_backward_visible_word_start (iter))
 			{
 				break;
 			}
@@ -294,39 +294,39 @@ backward_cursor_position (GtkTextIter *iter,
 {
 	if (visible)
 	{
-		return gtk_text_iter_backward_visible_cursor_position (iter);
+		return ctk_text_iter_backward_visible_cursor_position (iter);
 	}
 
-	return gtk_text_iter_backward_cursor_position (iter);
+	return ctk_text_iter_backward_cursor_position (iter);
 }
 
 gboolean
-_gtk_source_iter_starts_extra_natural_word (const GtkTextIter *iter,
+_ctk_source_iter_starts_extra_natural_word (const GtkTextIter *iter,
 					    gboolean           visible)
 {
 	gboolean starts_word;
 	GtkTextIter prev;
 
-	starts_word = gtk_text_iter_starts_word (iter);
+	starts_word = ctk_text_iter_starts_word (iter);
 
 	prev = *iter;
 	if (!backward_cursor_position (&prev, visible))
 	{
-		return starts_word || gtk_text_iter_get_char (iter) == '_';
+		return starts_word || ctk_text_iter_get_char (iter) == '_';
 	}
 
 	if (starts_word)
 	{
-		return gtk_text_iter_get_char (&prev) != '_';
+		return ctk_text_iter_get_char (&prev) != '_';
 	}
 
-	return (gtk_text_iter_get_char (iter) == '_' &&
-		gtk_text_iter_get_char (&prev) != '_' &&
-		!gtk_text_iter_ends_word (iter));
+	return (ctk_text_iter_get_char (iter) == '_' &&
+		ctk_text_iter_get_char (&prev) != '_' &&
+		!ctk_text_iter_ends_word (iter));
 }
 
 gboolean
-_gtk_source_iter_ends_extra_natural_word (const GtkTextIter *iter,
+_ctk_source_iter_ends_extra_natural_word (const GtkTextIter *iter,
 					  gboolean           visible)
 {
 	GtkTextIter prev;
@@ -338,24 +338,24 @@ _gtk_source_iter_ends_extra_natural_word (const GtkTextIter *iter,
 		return FALSE;
 	}
 
-	ends_word = gtk_text_iter_ends_word (iter);
+	ends_word = ctk_text_iter_ends_word (iter);
 
-	if (gtk_text_iter_is_end (iter))
+	if (ctk_text_iter_is_end (iter))
 	{
-		return ends_word || gtk_text_iter_get_char (&prev) == '_';
+		return ends_word || ctk_text_iter_get_char (&prev) == '_';
 	}
 
 	if (ends_word)
 	{
-		return gtk_text_iter_get_char (iter) != '_';
+		return ctk_text_iter_get_char (iter) != '_';
 	}
 
-	return (gtk_text_iter_get_char (&prev) == '_' &&
-		gtk_text_iter_get_char (iter) != '_' &&
-		!gtk_text_iter_starts_word (iter));
+	return (ctk_text_iter_get_char (&prev) == '_' &&
+		ctk_text_iter_get_char (iter) != '_' &&
+		!ctk_text_iter_starts_word (iter));
 }
 
-/* Similar to gtk_text_iter_forward_visible_word_end, but with a custom
+/* Similar to ctk_text_iter_forward_visible_word_end, but with a custom
  * definition of "word".
  *
  * It is normally the same word boundaries as in Vim. This function is the same
@@ -367,7 +367,7 @@ _gtk_source_iter_ends_extra_natural_word (const GtkTextIter *iter,
  * - a group of contiguous non-blank characters.
  */
 gboolean
-_gtk_source_iter_forward_visible_word_end (GtkTextIter *iter)
+_ctk_source_iter_forward_visible_word_end (GtkTextIter *iter)
 {
 	GtkTextIter orig = *iter;
 	GtkTextIter farthest = *iter;
@@ -377,7 +377,7 @@ _gtk_source_iter_forward_visible_word_end (GtkTextIter *iter)
 	/* 'farthest' is the farthest position that this function can return. Example:
 	 * "|---- aaaa"  ->  "----| aaaa"
 	 */
-	_gtk_source_iter_forward_full_word_end (&farthest);
+	_ctk_source_iter_forward_full_word_end (&farthest);
 
 	/* Go to the next extra-natural word end. It can be farther than
 	 * 'farthest':
@@ -386,10 +386,10 @@ _gtk_source_iter_forward_visible_word_end (GtkTextIter *iter)
 	 * Or it can remain at the same place:
 	 * "aaaa| ----"  ->  "aaaa| ----"
 	 */
-	_gtk_source_iter_forward_extra_natural_word_end (&next_word_end);
+	_ctk_source_iter_forward_extra_natural_word_end (&next_word_end);
 
-	if (gtk_text_iter_compare (&farthest, &next_word_end) < 0 ||
-	    gtk_text_iter_equal (iter, &next_word_end))
+	if (ctk_text_iter_compare (&farthest, &next_word_end) < 0 ||
+	    ctk_text_iter_equal (iter, &next_word_end))
 	{
 		*iter = farthest;
 		goto end;
@@ -413,16 +413,16 @@ _gtk_source_iter_forward_visible_word_end (GtkTextIter *iter)
 	 * word_start:    "abcd()|efgh" -> the good one, at the end of the word "()".
 	 */
 	word_start = next_word_end;
-	_gtk_source_iter_backward_extra_natural_word_start (&word_start);
+	_ctk_source_iter_backward_extra_natural_word_start (&word_start);
 
 	/* Example 1 */
-	if (gtk_text_iter_compare (&word_start, iter) <= 0)
+	if (ctk_text_iter_compare (&word_start, iter) <= 0)
 	{
 		*iter = next_word_end;
 	}
 
 	/* Example 2 */
-	else if (_gtk_source_iter_starts_full_word (&word_start))
+	else if (_ctk_source_iter_starts_full_word (&word_start))
 	{
 		*iter = next_word_end;
 	}
@@ -434,12 +434,12 @@ _gtk_source_iter_forward_visible_word_end (GtkTextIter *iter)
 	}
 
 end:
-	return !gtk_text_iter_equal (&orig, iter) && !gtk_text_iter_is_end (iter);
+	return !ctk_text_iter_equal (&orig, iter) && !ctk_text_iter_is_end (iter);
 }
 
-/* Symmetric of _gtk_source_iter_forward_visible_word_end(). */
+/* Symmetric of _ctk_source_iter_forward_visible_word_end(). */
 gboolean
-_gtk_source_iter_backward_visible_word_start (GtkTextIter *iter)
+_ctk_source_iter_backward_visible_word_start (GtkTextIter *iter)
 {
 	GtkTextIter orig = *iter;
 	GtkTextIter farthest = *iter;
@@ -449,7 +449,7 @@ _gtk_source_iter_backward_visible_word_start (GtkTextIter *iter)
 	/* 'farthest' is the farthest position that this function can return. Example:
 	 * "aaaa ----|"  ->  "aaaa |----"
 	 */
-	_gtk_source_iter_backward_full_word_start (&farthest);
+	_ctk_source_iter_backward_full_word_start (&farthest);
 
 	/* Go to the previous extra-natural word start. It can be farther than
 	 * 'farthest':
@@ -458,10 +458,10 @@ _gtk_source_iter_backward_visible_word_start (GtkTextIter *iter)
 	 * Or it can remain at the same place:
 	 * "---- |aaaa"  ->  "---- |aaaa"
 	 */
-	_gtk_source_iter_backward_extra_natural_word_start (&prev_word_start);
+	_ctk_source_iter_backward_extra_natural_word_start (&prev_word_start);
 
-	if (gtk_text_iter_compare (&prev_word_start, &farthest) < 0 ||
-	    gtk_text_iter_equal (iter, &prev_word_start))
+	if (ctk_text_iter_compare (&prev_word_start, &farthest) < 0 ||
+	    ctk_text_iter_equal (iter, &prev_word_start))
 	{
 		*iter = farthest;
 		goto end;
@@ -485,16 +485,16 @@ _gtk_source_iter_backward_visible_word_start (GtkTextIter *iter)
 	 * word_end:        "abcd|()" -> the good one, at the start of the word "()".
 	 */
 	word_end = prev_word_start;
-	_gtk_source_iter_forward_extra_natural_word_end (&word_end);
+	_ctk_source_iter_forward_extra_natural_word_end (&word_end);
 
 	/* Example 1 */
-	if (gtk_text_iter_compare (iter, &word_end) <= 0)
+	if (ctk_text_iter_compare (iter, &word_end) <= 0)
 	{
 		*iter = prev_word_start;
 	}
 
 	/* Example 2 */
-	else if (_gtk_source_iter_ends_full_word (&word_end))
+	else if (_ctk_source_iter_ends_full_word (&word_end))
 	{
 		*iter = prev_word_start;
 	}
@@ -506,12 +506,12 @@ _gtk_source_iter_backward_visible_word_start (GtkTextIter *iter)
 	}
 
 end:
-	return !gtk_text_iter_equal (&orig, iter) && !gtk_text_iter_is_end (iter);
+	return !ctk_text_iter_equal (&orig, iter) && !ctk_text_iter_is_end (iter);
 }
 
-/* Similar to gtk_text_iter_forward_visible_word_ends(). */
+/* Similar to ctk_text_iter_forward_visible_word_ends(). */
 gboolean
-_gtk_source_iter_forward_visible_word_ends (GtkTextIter *iter,
+_ctk_source_iter_forward_visible_word_ends (GtkTextIter *iter,
 					    gint         count)
 {
 	GtkTextIter orig = *iter;
@@ -519,23 +519,23 @@ _gtk_source_iter_forward_visible_word_ends (GtkTextIter *iter,
 
 	if (count < 0)
 	{
-		return _gtk_source_iter_backward_visible_word_starts (iter, -count);
+		return _ctk_source_iter_backward_visible_word_starts (iter, -count);
 	}
 
 	for (i = 0; i < count; i++)
 	{
-		if (!_gtk_source_iter_forward_visible_word_end (iter))
+		if (!_ctk_source_iter_forward_visible_word_end (iter))
 		{
 			break;
 		}
 	}
 
-	return !gtk_text_iter_equal (&orig, iter) && !gtk_text_iter_is_end (iter);
+	return !ctk_text_iter_equal (&orig, iter) && !ctk_text_iter_is_end (iter);
 }
 
-/* Similar to gtk_text_iter_backward_visible_word_starts(). */
+/* Similar to ctk_text_iter_backward_visible_word_starts(). */
 gboolean
-_gtk_source_iter_backward_visible_word_starts (GtkTextIter *iter,
+_ctk_source_iter_backward_visible_word_starts (GtkTextIter *iter,
 					       gint         count)
 {
 	GtkTextIter orig = *iter;
@@ -543,75 +543,75 @@ _gtk_source_iter_backward_visible_word_starts (GtkTextIter *iter,
 
 	if (count < 0)
 	{
-		return _gtk_source_iter_forward_visible_word_ends (iter, -count);
+		return _ctk_source_iter_forward_visible_word_ends (iter, -count);
 	}
 
 	for (i = 0; i < count; i++)
 	{
-		if (!_gtk_source_iter_backward_visible_word_start (iter))
+		if (!_ctk_source_iter_backward_visible_word_start (iter))
 		{
 			break;
 		}
 	}
 
-	return !gtk_text_iter_equal (&orig, iter) && !gtk_text_iter_is_end (iter);
+	return !ctk_text_iter_equal (&orig, iter) && !ctk_text_iter_is_end (iter);
 }
 
 gboolean
-_gtk_source_iter_starts_word (const GtkTextIter *iter)
+_ctk_source_iter_starts_word (const GtkTextIter *iter)
 {
-	if (_gtk_source_iter_starts_full_word (iter) ||
-	    _gtk_source_iter_starts_extra_natural_word (iter, TRUE))
+	if (_ctk_source_iter_starts_full_word (iter) ||
+	    _ctk_source_iter_starts_extra_natural_word (iter, TRUE))
 	{
 		return TRUE;
 	}
 
 	/* Example: "abcd|()", at the start of the word "()". */
-	return (!_gtk_source_iter_ends_full_word (iter) &&
-		_gtk_source_iter_ends_extra_natural_word (iter, TRUE));
+	return (!_ctk_source_iter_ends_full_word (iter) &&
+		_ctk_source_iter_ends_extra_natural_word (iter, TRUE));
 }
 
 gboolean
-_gtk_source_iter_ends_word (const GtkTextIter *iter)
+_ctk_source_iter_ends_word (const GtkTextIter *iter)
 {
-	if (_gtk_source_iter_ends_full_word (iter) ||
-	    _gtk_source_iter_ends_extra_natural_word (iter, TRUE))
+	if (_ctk_source_iter_ends_full_word (iter) ||
+	    _ctk_source_iter_ends_extra_natural_word (iter, TRUE))
 	{
 		return TRUE;
 	}
 
 	/* Example: "abcd()|efgh", at the end of the word "()". */
-	return (!_gtk_source_iter_starts_full_word (iter) &&
-		_gtk_source_iter_starts_extra_natural_word (iter, TRUE));
+	return (!_ctk_source_iter_starts_full_word (iter) &&
+		_ctk_source_iter_starts_extra_natural_word (iter, TRUE));
 }
 
 gboolean
-_gtk_source_iter_inside_word (const GtkTextIter *iter)
+_ctk_source_iter_inside_word (const GtkTextIter *iter)
 {
 	GtkTextIter prev_word_start;
 	GtkTextIter word_end;
 
-	if (_gtk_source_iter_starts_word (iter))
+	if (_ctk_source_iter_starts_word (iter))
 	{
 		return TRUE;
 	}
 
 	prev_word_start = *iter;
-	if (!_gtk_source_iter_backward_visible_word_start (&prev_word_start))
+	if (!_ctk_source_iter_backward_visible_word_start (&prev_word_start))
 	{
 		return FALSE;
 	}
 
 	word_end = prev_word_start;
-	_gtk_source_iter_forward_visible_word_end (&word_end);
+	_ctk_source_iter_forward_visible_word_end (&word_end);
 
-	return (gtk_text_iter_compare (&prev_word_start, iter) <= 0 &&
-		gtk_text_iter_compare (iter, &word_end) < 0);
+	return (ctk_text_iter_compare (&prev_word_start, iter) <= 0 &&
+		ctk_text_iter_compare (iter, &word_end) < 0);
 }
 
 /* Used for the GtkTextView::extend-selection signal. */
 void
-_gtk_source_iter_extend_selection_word (const GtkTextIter *location,
+_ctk_source_iter_extend_selection_word (const GtkTextIter *location,
 					GtkTextIter       *start,
 					GtkTextIter       *end)
 {
@@ -621,16 +621,16 @@ _gtk_source_iter_extend_selection_word (const GtkTextIter *location,
 	*start = *location;
 	*end = *location;
 
-	if (_gtk_source_iter_inside_word (start))
+	if (_ctk_source_iter_inside_word (start))
 	{
-		if (!_gtk_source_iter_starts_word (start))
+		if (!_ctk_source_iter_starts_word (start))
 		{
-			_gtk_source_iter_backward_visible_word_start (start);
+			_ctk_source_iter_backward_visible_word_start (start);
 		}
 
-		if (!_gtk_source_iter_ends_word (end))
+		if (!_ctk_source_iter_ends_word (end))
 		{
-			_gtk_source_iter_forward_visible_word_end (end);
+			_ctk_source_iter_forward_visible_word_end (end);
 		}
 	}
 	else
@@ -638,38 +638,38 @@ _gtk_source_iter_extend_selection_word (const GtkTextIter *location,
 		GtkTextIter tmp;
 
 		tmp = *start;
-		if (_gtk_source_iter_backward_visible_word_start (&tmp))
+		if (_ctk_source_iter_backward_visible_word_start (&tmp))
 		{
-			_gtk_source_iter_forward_visible_word_end (&tmp);
+			_ctk_source_iter_forward_visible_word_end (&tmp);
 		}
 
-		if (gtk_text_iter_get_line (&tmp) == gtk_text_iter_get_line (start))
+		if (ctk_text_iter_get_line (&tmp) == ctk_text_iter_get_line (start))
 		{
 			*start = tmp;
 		}
 		else
 		{
-			gtk_text_iter_set_line_offset (start, 0);
+			ctk_text_iter_set_line_offset (start, 0);
 		}
 
 		tmp = *end;
-		if (!_gtk_source_iter_forward_visible_word_end (&tmp))
+		if (!_ctk_source_iter_forward_visible_word_end (&tmp))
 		{
-			gtk_text_iter_forward_to_end (&tmp);
+			ctk_text_iter_forward_to_end (&tmp);
 		}
 
-		if (_gtk_source_iter_ends_word (&tmp))
+		if (_ctk_source_iter_ends_word (&tmp))
 		{
-			_gtk_source_iter_backward_visible_word_start (&tmp);
+			_ctk_source_iter_backward_visible_word_start (&tmp);
 		}
 
-		if (gtk_text_iter_get_line (&tmp) == gtk_text_iter_get_line (end))
+		if (ctk_text_iter_get_line (&tmp) == ctk_text_iter_get_line (end))
 		{
 			*end = tmp;
 		}
 		else
 		{
-			gtk_text_iter_forward_to_line_end (end);
+			ctk_text_iter_forward_to_line_end (end);
 		}
 	}
 }
@@ -678,25 +678,25 @@ _gtk_source_iter_extend_selection_word (const GtkTextIter *location,
  * the text.
  */
 void
-_gtk_source_iter_get_leading_spaces_end_boundary (const GtkTextIter *iter,
+_ctk_source_iter_get_leading_spaces_end_boundary (const GtkTextIter *iter,
 						  GtkTextIter       *leading_end)
 {
 	g_return_if_fail (iter != NULL);
 	g_return_if_fail (leading_end != NULL);
 
 	*leading_end = *iter;
-	gtk_text_iter_set_line_offset (leading_end, 0);
+	ctk_text_iter_set_line_offset (leading_end, 0);
 
-	while (!gtk_text_iter_ends_line (leading_end))
+	while (!ctk_text_iter_ends_line (leading_end))
 	{
-		gunichar ch = gtk_text_iter_get_char (leading_end);
+		gunichar ch = ctk_text_iter_get_char (leading_end);
 
 		if (!g_unichar_isspace (ch))
 		{
 			break;
 		}
 
-		gtk_text_iter_forward_char (leading_end);
+		ctk_text_iter_forward_char (leading_end);
 	}
 }
 
@@ -704,27 +704,27 @@ _gtk_source_iter_get_leading_spaces_end_boundary (const GtkTextIter *iter,
  * spaces.
  */
 void
-_gtk_source_iter_get_trailing_spaces_start_boundary (const GtkTextIter *iter,
+_ctk_source_iter_get_trailing_spaces_start_boundary (const GtkTextIter *iter,
 						     GtkTextIter       *trailing_start)
 {
 	g_return_if_fail (iter != NULL);
 	g_return_if_fail (trailing_start != NULL);
 
 	*trailing_start = *iter;
-	if (!gtk_text_iter_ends_line (trailing_start))
+	if (!ctk_text_iter_ends_line (trailing_start))
 	{
-		gtk_text_iter_forward_to_line_end (trailing_start);
+		ctk_text_iter_forward_to_line_end (trailing_start);
 	}
 
-	while (!gtk_text_iter_starts_line (trailing_start))
+	while (!ctk_text_iter_starts_line (trailing_start))
 	{
 		GtkTextIter prev;
 		gunichar ch;
 
 		prev = *trailing_start;
-		gtk_text_iter_backward_char (&prev);
+		ctk_text_iter_backward_char (&prev);
 
-		ch = gtk_text_iter_get_char (&prev);
+		ch = ctk_text_iter_get_char (&prev);
 		if (!g_unichar_isspace (ch))
 		{
 			break;

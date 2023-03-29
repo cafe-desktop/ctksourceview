@@ -22,10 +22,10 @@
 #include <config.h>
 #endif
 
-#include "gtksourcebufferinternal.h"
-#include "gtksourcebuffer.h"
-#include "gtksource-marshal.h"
-#include "gtksourcesearchcontext.h"
+#include "ctksourcebufferinternal.h"
+#include "ctksourcebuffer.h"
+#include "ctksource-marshal.h"
+#include "ctksourcesearchcontext.h"
 
 /* A private extension of GtkSourceBuffer, to add private signals and
  * properties.
@@ -42,14 +42,14 @@ enum
 	N_SIGNALS
 };
 
-#define GTK_SOURCE_BUFFER_INTERNAL_KEY "gtk-source-buffer-internal-key"
+#define GTK_SOURCE_BUFFER_INTERNAL_KEY "ctk-source-buffer-internal-key"
 
 static guint signals[N_SIGNALS];
 
-G_DEFINE_TYPE (GtkSourceBufferInternal, _gtk_source_buffer_internal, G_TYPE_OBJECT)
+G_DEFINE_TYPE (GtkSourceBufferInternal, _ctk_source_buffer_internal, G_TYPE_OBJECT)
 
 static void
-_gtk_source_buffer_internal_class_init (GtkSourceBufferInternalClass *klass)
+_ctk_source_buffer_internal_class_init (GtkSourceBufferInternalClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
@@ -75,12 +75,12 @@ _gtk_source_buffer_internal_class_init (GtkSourceBufferInternalClass *klass)
 }
 
 static void
-_gtk_source_buffer_internal_init (GtkSourceBufferInternal *buffer_internal)
+_ctk_source_buffer_internal_init (GtkSourceBufferInternal *buffer_internal)
 {
 }
 
 /*
- * _gtk_source_buffer_internal_get_from_buffer:
+ * _ctk_source_buffer_internal_get_from_buffer:
  * @buffer: a #GtkSourceBuffer.
  *
  * Returns the #GtkSourceBufferInternal object of @buffer. The returned object
@@ -89,7 +89,7 @@ _gtk_source_buffer_internal_init (GtkSourceBufferInternal *buffer_internal)
  * Returns: (transfer none): the #GtkSourceBufferInternal object of @buffer.
  */
 GtkSourceBufferInternal *
-_gtk_source_buffer_internal_get_from_buffer (GtkSourceBuffer *buffer)
+_ctk_source_buffer_internal_get_from_buffer (GtkSourceBuffer *buffer)
 {
 	GtkSourceBufferInternal *buffer_internal;
 
@@ -112,7 +112,7 @@ _gtk_source_buffer_internal_get_from_buffer (GtkSourceBuffer *buffer)
 }
 
 void
-_gtk_source_buffer_internal_emit_search_start (GtkSourceBufferInternal *buffer_internal,
+_ctk_source_buffer_internal_emit_search_start (GtkSourceBufferInternal *buffer_internal,
 					       GtkSourceSearchContext  *search_context)
 {
 	g_return_if_fail (GTK_SOURCE_IS_BUFFER_INTERNAL (buffer_internal));

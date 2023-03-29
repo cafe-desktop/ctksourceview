@@ -3,10 +3,10 @@
 # This script is used to setup some special directory structures, permissions
 # for the file saver test.
 
-UNOWNED_DIRECTORY="/tmp/gtksourceview-file-saver-unowned"
-UNOWNED_FILE="/tmp/gtksourceview-file-saver-unowned/gtksourceview-file-saver-test.txt"
+UNOWNED_DIRECTORY="/tmp/ctksourceview-file-saver-unowned"
+UNOWNED_FILE="/tmp/ctksourceview-file-saver-unowned/ctksourceview-file-saver-test.txt"
 
-UNOWNED_GROUP="/tmp/gtksourceview-file-saver-unowned-group.txt"
+UNOWNED_GROUP="/tmp/ctksourceview-file-saver-unowned-group.txt"
 
 if [ -f "$UNOWNED_FILE" ]; then
 	sudo rm "$UNOWNED_FILE"

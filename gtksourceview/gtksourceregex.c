@@ -23,11 +23,11 @@
 #include <config.h>
 #endif
 
-#include "gtksourceregex.h"
+#include "ctksourceregex.h"
 #include <string.h>
 #include <glib.h>
 #include <glib/gi18n-lib.h>
-#include "gtksourceutils-private.h"
+#include "ctksourceutils-private.h"
 
 /*
  * GRegex wrapper which adds a few features needed for syntax highlighting,
@@ -102,7 +102,7 @@ find_single_byte_escape (const gchar *string)
 }
 
 /**
- * gtk_source_regex_new:
+ * ctk_source_regex_new:
  * @pattern: the regular expression.
  * @flags: compile options for @pattern.
  * @error: location to store the error occuring, or %NULL to ignore errors.
@@ -112,7 +112,7 @@ find_single_byte_escape (const gchar *string)
  * Returns: a newly-allocated #GtkSourceRegex.
  */
 GtkSourceRegex *
-_gtk_source_regex_new (const gchar           *pattern,
+_ctk_source_regex_new (const gchar           *pattern,
 		       GRegexCompileFlags     flags,
 		       GError               **error)
 {
@@ -156,7 +156,7 @@ _gtk_source_regex_new (const gchar           *pattern,
 }
 
 GtkSourceRegex *
-_gtk_source_regex_ref (GtkSourceRegex *regex)
+_ctk_source_regex_ref (GtkSourceRegex *regex)
 {
 	if (regex != NULL)
 		regex->ref_count++;
@@ -164,7 +164,7 @@ _gtk_source_regex_ref (GtkSourceRegex *regex)
 }
 
 void
-_gtk_source_regex_unref (GtkSourceRegex *regex)
+_ctk_source_regex_unref (GtkSourceRegex *regex)
 {
 	if (regex != NULL && --regex->ref_count == 0)
 	{
@@ -198,7 +198,7 @@ replace_start_regex (const GMatchInfo *match_info,
 
 	escapes = g_match_info_fetch (match_info, 1);
 	num_string = g_match_info_fetch (match_info, 2);
-	num = _gtk_source_utils_string_to_int (num_string);
+	num = _ctk_source_utils_string_to_int (num_string);
 
 	if (num < 0)
 	{
@@ -233,7 +233,7 @@ replace_start_regex (const GMatchInfo *match_info,
 }
 
 /**
- * _gtk_source_regex_resolve:
+ * _ctk_source_regex_resolve:
  * @regex: a #GtkSourceRegex.
  * @start_regex: a #GtkSourceRegex.
  * @matched_text: the text matched against @start_regex.
@@ -250,7 +250,7 @@ replace_start_regex (const GMatchInfo *match_info,
  * Returns: a #GtkSourceRegex.
  */
 GtkSourceRegex *
-_gtk_source_regex_resolve (GtkSourceRegex *regex,
+_ctk_source_regex_resolve (GtkSourceRegex *regex,
 			   GtkSourceRegex *start_regex,
 			   const gchar    *matched_text)
 {
@@ -259,7 +259,7 @@ _gtk_source_regex_resolve (GtkSourceRegex *regex,
 	struct RegexResolveData data;
 
 	if (regex == NULL || regex->resolved)
-		return _gtk_source_regex_ref (regex);
+		return _ctk_source_regex_ref (regex);
 
 	data.start_regex = start_regex;
 	data.matched_text = matched_text;
@@ -268,14 +268,14 @@ _gtk_source_regex_resolve (GtkSourceRegex *regex,
 					       -1, 0, 0,
 					       replace_start_regex,
 					       &data, NULL);
-	new_regex = _gtk_source_regex_new (expanded_regex, regex->u.info.flags, NULL);
+	new_regex = _ctk_source_regex_new (expanded_regex, regex->u.info.flags, NULL);
 	if (new_regex == NULL || !new_regex->resolved)
 	{
-		_gtk_source_regex_unref (new_regex);
+		_ctk_source_regex_unref (new_regex);
 		g_warning ("Regular expression %s cannot be expanded.",
 			   regex->u.info.pattern);
 		/* Returns a regex that nevers matches. */
-		new_regex = _gtk_source_regex_new ("$never-match^", 0, NULL);
+		new_regex = _ctk_source_regex_new ("$never-match^", 0, NULL);
 	}
 
 	g_free (expanded_regex);
@@ -284,13 +284,13 @@ _gtk_source_regex_resolve (GtkSourceRegex *regex,
 }
 
 gboolean
-_gtk_source_regex_is_resolved (GtkSourceRegex *regex)
+_ctk_source_regex_is_resolved (GtkSourceRegex *regex)
 {
 	return regex->resolved;
 }
 
 gboolean
-_gtk_source_regex_match (GtkSourceRegex *regex,
+_ctk_source_regex_match (GtkSourceRegex *regex,
 			 const gchar    *line,
 			 gint             byte_length,
 			 gint             byte_pos)
@@ -314,7 +314,7 @@ _gtk_source_regex_match (GtkSourceRegex *regex,
 }
 
 gchar *
-_gtk_source_regex_fetch (GtkSourceRegex *regex,
+_ctk_source_regex_fetch (GtkSourceRegex *regex,
 		         gint            num)
 {
 	g_assert (regex->resolved);
@@ -323,7 +323,7 @@ _gtk_source_regex_fetch (GtkSourceRegex *regex,
 }
 
 void
-_gtk_source_regex_fetch_pos (GtkSourceRegex *regex,
+_ctk_source_regex_fetch_pos (GtkSourceRegex *regex,
 			     const gchar    *text,
 			     gint            num,
 			     gint           *start_pos, /* character offsets */
@@ -351,7 +351,7 @@ _gtk_source_regex_fetch_pos (GtkSourceRegex *regex,
 }
 
 void
-_gtk_source_regex_fetch_pos_bytes (GtkSourceRegex *regex,
+_ctk_source_regex_fetch_pos_bytes (GtkSourceRegex *regex,
 				   gint            num,
 				   gint           *start_pos_p, /* byte offsets */
 				   gint           *end_pos_p)   /* byte offsets */
@@ -374,7 +374,7 @@ _gtk_source_regex_fetch_pos_bytes (GtkSourceRegex *regex,
 }
 
 void
-_gtk_source_regex_fetch_named_pos (GtkSourceRegex *regex,
+_ctk_source_regex_fetch_named_pos (GtkSourceRegex *regex,
 				   const gchar    *text,
 				   const gchar    *name,
 				   gint           *start_pos, /* character offsets */
@@ -401,7 +401,7 @@ _gtk_source_regex_fetch_named_pos (GtkSourceRegex *regex,
 }
 
 const gchar *
-_gtk_source_regex_get_pattern (GtkSourceRegex *regex)
+_ctk_source_regex_get_pattern (GtkSourceRegex *regex)
 {
 	g_assert (regex->resolved);
 

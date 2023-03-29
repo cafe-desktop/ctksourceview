@@ -22,7 +22,7 @@
 #include <config.h>
 #endif
 
-#include "gtksourceversion.h"
+#include "ctksourceversion.h"
 
 /**
  * SECTION:version
@@ -31,7 +31,7 @@
  */
 
 /**
- * gtk_source_get_major_version:
+ * ctk_source_get_major_version:
  *
  * Returns the major version number of the GtkSourceView library.
  * (e.g. in GtkSourceView version 3.20.0 this is 3.)
@@ -46,13 +46,13 @@
  * Since: 3.20
  */
 guint
-gtk_source_get_major_version (void)
+ctk_source_get_major_version (void)
 {
 	return GTK_SOURCE_MAJOR_VERSION;
 }
 
 /**
- * gtk_source_get_minor_version:
+ * ctk_source_get_minor_version:
  *
  * Returns the minor version number of the GtkSourceView library.
  * (e.g. in GtkSourceView version 3.20.0 this is 20.)
@@ -67,13 +67,13 @@ gtk_source_get_major_version (void)
  * Since: 3.20
  */
 guint
-gtk_source_get_minor_version (void)
+ctk_source_get_minor_version (void)
 {
 	return GTK_SOURCE_MINOR_VERSION;
 }
 
 /**
- * gtk_source_get_micro_version:
+ * ctk_source_get_micro_version:
  *
  * Returns the micro version number of the GtkSourceView library.
  * (e.g. in GtkSourceView version 3.20.0 this is 0.)
@@ -88,18 +88,18 @@ gtk_source_get_minor_version (void)
  * Since: 3.20
  */
 guint
-gtk_source_get_micro_version (void)
+ctk_source_get_micro_version (void)
 {
 	return GTK_SOURCE_MICRO_VERSION;
 }
 
 /**
- * gtk_source_check_version:
+ * ctk_source_check_version:
  * @major: the major version to check
  * @minor: the minor version to check
  * @micro: the micro version to check
  *
- * Like GTK_SOURCE_CHECK_VERSION, but the check for gtk_source_check_version is
+ * Like GTK_SOURCE_CHECK_VERSION, but the check for ctk_source_check_version is
  * at runtime instead of compile time. This is useful for compiling
  * against older versions of GtkSourceView, but using features from newer
  * versions.
@@ -110,7 +110,7 @@ gtk_source_get_micro_version (void)
  * Since: 3.20
  */
 gboolean
-gtk_source_check_version (guint major,
+ctk_source_check_version (guint major,
                           guint minor,
                           guint micro)
 {

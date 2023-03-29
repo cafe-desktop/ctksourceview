@@ -22,15 +22,15 @@
 #ifndef GTK_SOURCE_BUFFER_OUTPUT_STREAM_H
 #define GTK_SOURCE_BUFFER_OUTPUT_STREAM_H
 
-#include <gtk/gtk.h>
-#include "gtksourcetypes.h"
-#include "gtksourcetypes-private.h"
-#include "gtksourcebuffer.h"
-#include "gtksourcefile.h"
+#include <ctk/ctk.h>
+#include "ctksourcetypes.h"
+#include "ctksourcetypes-private.h"
+#include "ctksourcebuffer.h"
+#include "ctksourcefile.h"
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_BUFFER_OUTPUT_STREAM		(gtk_source_buffer_output_stream_get_type ())
+#define GTK_SOURCE_TYPE_BUFFER_OUTPUT_STREAM		(ctk_source_buffer_output_stream_get_type ())
 #define GTK_SOURCE_BUFFER_OUTPUT_STREAM(obj)		(G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_BUFFER_OUTPUT_STREAM, GtkSourceBufferOutputStream))
 #define GTK_SOURCE_BUFFER_OUTPUT_STREAM_CLASS(klass)	(G_TYPE_CHECK_CLASS_CAST ((klass), GTK_SOURCE_TYPE_BUFFER_OUTPUT_STREAM, GtkSourceBufferOutputStreamClass))
 #define GTK_SOURCE_IS_BUFFER_OUTPUT_STREAM(obj)		(G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_SOURCE_TYPE_BUFFER_OUTPUT_STREAM))
@@ -53,23 +53,23 @@ struct _GtkSourceBufferOutputStreamClass
 };
 
 GTK_SOURCE_INTERNAL
-GType			 gtk_source_buffer_output_stream_get_type	(void) G_GNUC_CONST;
+GType			 ctk_source_buffer_output_stream_get_type	(void) G_GNUC_CONST;
 
 GTK_SOURCE_INTERNAL
 GtkSourceBufferOutputStream
-			*gtk_source_buffer_output_stream_new		(GtkSourceBuffer             *buffer,
+			*ctk_source_buffer_output_stream_new		(GtkSourceBuffer             *buffer,
 									 GSList                      *candidate_encodings,
 									 gboolean                     remove_trailing_newline);
 
 GTK_SOURCE_INTERNAL
-GtkSourceNewlineType	 gtk_source_buffer_output_stream_detect_newline_type
+GtkSourceNewlineType	 ctk_source_buffer_output_stream_detect_newline_type
 									(GtkSourceBufferOutputStream *stream);
 
 GTK_SOURCE_INTERNAL
-const GtkSourceEncoding	*gtk_source_buffer_output_stream_get_guessed	(GtkSourceBufferOutputStream *stream);
+const GtkSourceEncoding	*ctk_source_buffer_output_stream_get_guessed	(GtkSourceBufferOutputStream *stream);
 
 GTK_SOURCE_INTERNAL
-guint			 gtk_source_buffer_output_stream_get_num_fallbacks
+guint			 ctk_source_buffer_output_stream_get_num_fallbacks
 									(GtkSourceBufferOutputStream *stream);
 
 G_END_DECLS

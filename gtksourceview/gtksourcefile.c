@@ -22,9 +22,9 @@
 #include <config.h>
 #endif
 
-#include "gtksourcefile.h"
-#include "gtksourceencoding.h"
-#include "gtksource-enumtypes.h"
+#include "ctksourcefile.h"
+#include "ctksourceencoding.h"
+#include "ctksource-enumtypes.h"
 
 /**
  * SECTION:file
@@ -74,10 +74,10 @@ struct _GtkSourceFilePrivate
 	guint readonly : 1;
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceFile, gtk_source_file, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceFile, ctk_source_file, G_TYPE_OBJECT)
 
 static void
-gtk_source_file_get_property (GObject    *object,
+ctk_source_file_get_property (GObject    *object,
 			      guint       prop_id,
 			      GValue     *value,
 			      GParamSpec *pspec)
@@ -117,7 +117,7 @@ gtk_source_file_get_property (GObject    *object,
 }
 
 static void
-gtk_source_file_set_property (GObject      *object,
+ctk_source_file_set_property (GObject      *object,
 			      guint         prop_id,
 			      const GValue *value,
 			      GParamSpec   *pspec)
@@ -131,7 +131,7 @@ gtk_source_file_set_property (GObject      *object,
 	switch (prop_id)
 	{
 		case PROP_LOCATION:
-			gtk_source_file_set_location (file, g_value_get_object (value));
+			ctk_source_file_set_location (file, g_value_get_object (value));
 			break;
 
 		default:
@@ -141,7 +141,7 @@ gtk_source_file_set_property (GObject      *object,
 }
 
 static void
-gtk_source_file_dispose (GObject *object)
+ctk_source_file_dispose (GObject *object)
 {
 	GtkSourceFile *file = GTK_SOURCE_FILE (object);
 
@@ -153,17 +153,17 @@ gtk_source_file_dispose (GObject *object)
 		file->priv->mount_operation_notify = NULL;
 	}
 
-	G_OBJECT_CLASS (gtk_source_file_parent_class)->dispose (object);
+	G_OBJECT_CLASS (ctk_source_file_parent_class)->dispose (object);
 }
 
 static void
-gtk_source_file_class_init (GtkSourceFileClass *klass)
+ctk_source_file_class_init (GtkSourceFileClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-	object_class->get_property = gtk_source_file_get_property;
-	object_class->set_property = gtk_source_file_set_property;
-	object_class->dispose = gtk_source_file_dispose;
+	object_class->get_property = ctk_source_file_get_property;
+	object_class->set_property = ctk_source_file_set_property;
+	object_class->dispose = ctk_source_file_dispose;
 
 	/**
 	 * GtkSourceFile:location:
@@ -252,9 +252,9 @@ gtk_source_file_class_init (GtkSourceFileClass *klass)
 }
 
 static void
-gtk_source_file_init (GtkSourceFile *file)
+ctk_source_file_init (GtkSourceFile *file)
 {
-	file->priv = gtk_source_file_get_instance_private (file);
+	file->priv = ctk_source_file_get_instance_private (file);
 
 	file->priv->encoding = NULL;
 	file->priv->newline_type = GTK_SOURCE_NEWLINE_TYPE_LF;
@@ -262,19 +262,19 @@ gtk_source_file_init (GtkSourceFile *file)
 }
 
 /**
- * gtk_source_file_new:
+ * ctk_source_file_new:
  *
  * Returns: a new #GtkSourceFile object.
  * Since: 3.14
  */
 GtkSourceFile *
-gtk_source_file_new (void)
+ctk_source_file_new (void)
 {
 	return g_object_new (GTK_SOURCE_TYPE_FILE, NULL);
 }
 
 /**
- * gtk_source_file_set_location:
+ * ctk_source_file_set_location:
  * @file: a #GtkSourceFile.
  * @location: (nullable): the new #GFile, or %NULL.
  *
@@ -283,7 +283,7 @@ gtk_source_file_new (void)
  * Since: 3.14
  */
 void
-gtk_source_file_set_location (GtkSourceFile *file,
+ctk_source_file_set_location (GtkSourceFile *file,
 			      GFile         *location)
 {
 	g_return_if_fail (GTK_SOURCE_IS_FILE (file));
@@ -302,14 +302,14 @@ gtk_source_file_set_location (GtkSourceFile *file,
 }
 
 /**
- * gtk_source_file_get_location:
+ * ctk_source_file_get_location:
  * @file: a #GtkSourceFile.
  *
  * Returns: (transfer none): the #GFile.
  * Since: 3.14
  */
 GFile *
-gtk_source_file_get_location (GtkSourceFile *file)
+ctk_source_file_get_location (GtkSourceFile *file)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_FILE (file), NULL);
 
@@ -317,7 +317,7 @@ gtk_source_file_get_location (GtkSourceFile *file)
 }
 
 void
-_gtk_source_file_set_encoding (GtkSourceFile           *file,
+_ctk_source_file_set_encoding (GtkSourceFile           *file,
 			       const GtkSourceEncoding *encoding)
 {
 	g_return_if_fail (GTK_SOURCE_IS_FILE (file));
@@ -330,7 +330,7 @@ _gtk_source_file_set_encoding (GtkSourceFile           *file,
 }
 
 /**
- * gtk_source_file_get_encoding:
+ * ctk_source_file_get_encoding:
  * @file: a #GtkSourceFile.
  *
  * The encoding is initially %NULL. After a successful file loading or saving
@@ -340,7 +340,7 @@ _gtk_source_file_set_encoding (GtkSourceFile           *file,
  * Since: 3.14
  */
 const GtkSourceEncoding *
-gtk_source_file_get_encoding (GtkSourceFile *file)
+ctk_source_file_get_encoding (GtkSourceFile *file)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_FILE (file), NULL);
 
@@ -348,7 +348,7 @@ gtk_source_file_get_encoding (GtkSourceFile *file)
 }
 
 void
-_gtk_source_file_set_newline_type (GtkSourceFile        *file,
+_ctk_source_file_set_newline_type (GtkSourceFile        *file,
 				   GtkSourceNewlineType  newline_type)
 {
 	g_return_if_fail (GTK_SOURCE_IS_FILE (file));
@@ -361,14 +361,14 @@ _gtk_source_file_set_newline_type (GtkSourceFile        *file,
 }
 
 /**
- * gtk_source_file_get_newline_type:
+ * ctk_source_file_get_newline_type:
  * @file: a #GtkSourceFile.
  *
  * Returns: the newline type.
  * Since: 3.14
  */
 GtkSourceNewlineType
-gtk_source_file_get_newline_type (GtkSourceFile *file)
+ctk_source_file_get_newline_type (GtkSourceFile *file)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_FILE (file), GTK_SOURCE_NEWLINE_TYPE_DEFAULT);
 
@@ -376,7 +376,7 @@ gtk_source_file_get_newline_type (GtkSourceFile *file)
 }
 
 void
-_gtk_source_file_set_compression_type (GtkSourceFile            *file,
+_ctk_source_file_set_compression_type (GtkSourceFile            *file,
 				       GtkSourceCompressionType  compression_type)
 {
 	g_return_if_fail (GTK_SOURCE_IS_FILE (file));
@@ -389,14 +389,14 @@ _gtk_source_file_set_compression_type (GtkSourceFile            *file,
 }
 
 /**
- * gtk_source_file_get_compression_type:
+ * ctk_source_file_get_compression_type:
  * @file: a #GtkSourceFile.
  *
  * Returns: the compression type.
  * Since: 3.14
  */
 GtkSourceCompressionType
-gtk_source_file_get_compression_type (GtkSourceFile *file)
+ctk_source_file_get_compression_type (GtkSourceFile *file)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_FILE (file), GTK_SOURCE_COMPRESSION_TYPE_NONE);
 
@@ -404,7 +404,7 @@ gtk_source_file_get_compression_type (GtkSourceFile *file)
 }
 
 /**
- * gtk_source_file_set_mount_operation_factory:
+ * ctk_source_file_set_mount_operation_factory:
  * @file: a #GtkSourceFile.
  * @callback: (scope notified): a #GtkSourceMountOperationFactory to call when a
  *   #GMountOperation is needed.
@@ -422,7 +422,7 @@ gtk_source_file_get_compression_type (GtkSourceFile *file)
  * Since: 3.14
  */
 void
-gtk_source_file_set_mount_operation_factory (GtkSourceFile                  *file,
+ctk_source_file_set_mount_operation_factory (GtkSourceFile                  *file,
 					     GtkSourceMountOperationFactory  callback,
 					     gpointer                        user_data,
 					     GDestroyNotify                  notify)
@@ -440,7 +440,7 @@ gtk_source_file_set_mount_operation_factory (GtkSourceFile                  *fil
 }
 
 GMountOperation *
-_gtk_source_file_create_mount_operation (GtkSourceFile *file)
+_ctk_source_file_create_mount_operation (GtkSourceFile *file)
 {
 	return (file != NULL && file->priv->mount_operation_factory != NULL) ?
 		file->priv->mount_operation_factory (file, file->priv->mount_operation_userdata) :
@@ -448,7 +448,7 @@ _gtk_source_file_create_mount_operation (GtkSourceFile *file)
 }
 
 gboolean
-_gtk_source_file_get_modification_time (GtkSourceFile *file,
+_ctk_source_file_get_modification_time (GtkSourceFile *file,
 					GTimeVal      *modification_time)
 {
 	g_assert (modification_time != NULL);
@@ -469,7 +469,7 @@ _gtk_source_file_get_modification_time (GtkSourceFile *file,
 }
 
 void
-_gtk_source_file_set_modification_time (GtkSourceFile *file,
+_ctk_source_file_set_modification_time (GtkSourceFile *file,
 					GTimeVal       modification_time)
 {
 	if (file != NULL)
@@ -482,7 +482,7 @@ _gtk_source_file_set_modification_time (GtkSourceFile *file,
 }
 
 /**
- * gtk_source_file_is_local:
+ * ctk_source_file_is_local:
  * @file: a #GtkSourceFile.
  *
  * Returns whether the file is local. If the #GtkSourceFile:location is %NULL,
@@ -492,7 +492,7 @@ _gtk_source_file_set_modification_time (GtkSourceFile *file,
  * Since: 3.18
  */
 gboolean
-gtk_source_file_is_local (GtkSourceFile *file)
+ctk_source_file_is_local (GtkSourceFile *file)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_FILE (file), FALSE);
 
@@ -505,7 +505,7 @@ gtk_source_file_is_local (GtkSourceFile *file)
 }
 
 /**
- * gtk_source_file_check_file_on_disk:
+ * ctk_source_file_check_file_on_disk:
  * @file: a #GtkSourceFile.
  *
  * Checks synchronously the file on disk, to know whether the file is externally
@@ -516,12 +516,12 @@ gtk_source_file_is_local (GtkSourceFile *file)
  * would take lots of resources.
  *
  * Since this function is synchronous, it is advised to call it only on local
- * files. See gtk_source_file_is_local().
+ * files. See ctk_source_file_is_local().
  *
  * Since: 3.18
  */
 void
-gtk_source_file_check_file_on_disk (GtkSourceFile *file)
+ctk_source_file_check_file_on_disk (GtkSourceFile *file)
 {
 	GFileInfo *info;
 
@@ -566,14 +566,14 @@ gtk_source_file_check_file_on_disk (GtkSourceFile *file)
 
 		readonly = !g_file_info_get_attribute_boolean (info, G_FILE_ATTRIBUTE_ACCESS_CAN_WRITE);
 
-		_gtk_source_file_set_readonly (file, readonly);
+		_ctk_source_file_set_readonly (file, readonly);
 	}
 
 	g_object_unref (info);
 }
 
 void
-_gtk_source_file_set_externally_modified (GtkSourceFile *file,
+_ctk_source_file_set_externally_modified (GtkSourceFile *file,
 					  gboolean       externally_modified)
 {
 	g_return_if_fail (GTK_SOURCE_IS_FILE (file));
@@ -582,20 +582,20 @@ _gtk_source_file_set_externally_modified (GtkSourceFile *file,
 }
 
 /**
- * gtk_source_file_is_externally_modified:
+ * ctk_source_file_is_externally_modified:
  * @file: a #GtkSourceFile.
  *
  * Returns whether the file is externally modified. If the
  * #GtkSourceFile:location is %NULL, returns %FALSE.
  *
  * To have an up-to-date value, you must first call
- * gtk_source_file_check_file_on_disk().
+ * ctk_source_file_check_file_on_disk().
  *
  * Returns: whether the file is externally modified.
  * Since: 3.18
  */
 gboolean
-gtk_source_file_is_externally_modified (GtkSourceFile *file)
+ctk_source_file_is_externally_modified (GtkSourceFile *file)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_FILE (file), FALSE);
 
@@ -603,7 +603,7 @@ gtk_source_file_is_externally_modified (GtkSourceFile *file)
 }
 
 void
-_gtk_source_file_set_deleted (GtkSourceFile *file,
+_ctk_source_file_set_deleted (GtkSourceFile *file,
 			      gboolean       deleted)
 {
 	g_return_if_fail (GTK_SOURCE_IS_FILE (file));
@@ -612,20 +612,20 @@ _gtk_source_file_set_deleted (GtkSourceFile *file,
 }
 
 /**
- * gtk_source_file_is_deleted:
+ * ctk_source_file_is_deleted:
  * @file: a #GtkSourceFile.
  *
  * Returns whether the file has been deleted. If the
  * #GtkSourceFile:location is %NULL, returns %FALSE.
  *
  * To have an up-to-date value, you must first call
- * gtk_source_file_check_file_on_disk().
+ * ctk_source_file_check_file_on_disk().
  *
  * Returns: whether the file has been deleted.
  * Since: 3.18
  */
 gboolean
-gtk_source_file_is_deleted (GtkSourceFile *file)
+ctk_source_file_is_deleted (GtkSourceFile *file)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_FILE (file), FALSE);
 
@@ -633,7 +633,7 @@ gtk_source_file_is_deleted (GtkSourceFile *file)
 }
 
 void
-_gtk_source_file_set_readonly (GtkSourceFile *file,
+_ctk_source_file_set_readonly (GtkSourceFile *file,
 			       gboolean       readonly)
 {
 	g_return_if_fail (GTK_SOURCE_IS_FILE (file));
@@ -648,20 +648,20 @@ _gtk_source_file_set_readonly (GtkSourceFile *file,
 }
 
 /**
- * gtk_source_file_is_readonly:
+ * ctk_source_file_is_readonly:
  * @file: a #GtkSourceFile.
  *
  * Returns whether the file is read-only. If the
  * #GtkSourceFile:location is %NULL, returns %FALSE.
  *
  * To have an up-to-date value, you must first call
- * gtk_source_file_check_file_on_disk().
+ * ctk_source_file_check_file_on_disk().
  *
  * Returns: whether the file is read-only.
  * Since: 3.18
  */
 gboolean
-gtk_source_file_is_readonly (GtkSourceFile *file)
+ctk_source_file_is_readonly (GtkSourceFile *file)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_FILE (file), FALSE);
 

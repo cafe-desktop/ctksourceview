@@ -1,7 +1,7 @@
 Heading
 =======
 
-These are some addresses: http://www.gnome.org/ and https://www.gnome.org/ and git://git.gnome.org/gtksourceview and ssh://USERNAME@git.gnome.org/git/gtksourceview and gnome-list@gnome.org is the last one.
+These are some addresses: http://www.gnome.org/ and https://www.gnome.org/ and git://git.gnome.org/ctksourceview and ssh://USERNAME@git.gnome.org/git/ctksourceview and gnome-list@gnome.org is the last one.
 
 Subheading
 ----------

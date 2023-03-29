@@ -1,9 +1,9 @@
-# Bulgarian translation of gtksourceview po-file.
+# Bulgarian translation of ctksourceview po-file.
 # Copyright (C) 2004, 2005, 2006, 2007, 2008 Free Software Foundation, Inc.
 # Copyright (C) 2009, 2010, 2011, 2012, 2013 Free Software Foundation, Inc.
 # Copyright (C) 2016 Free Software Foundation, Inc.
 # Copyright (C) 2022 Alexander Shopov.
-# This file is distributed under the same license as the gtksourceview package.
+# This file is distributed under the same license as the ctksourceview package.
 # Vladimir Petkov <kaladan@gmail.com>, 2004.
 # Alexander Shopov <ash@kambanaria.org>, 2005, 2006, 2007, 2008, 2009, 2010, 2011.
 # Alexander Shopov <ash@kambanaria.org>, 2012, 2013, 2016, 2022.
@@ -11,8 +11,8 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gtksourceview master\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gtksourceview/issues\n"
+"Project-Id-Version: ctksourceview master\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/ctksourceview/issues\n"
 "POT-Creation-Date: 2022-03-21 18:57+0000\n"
 "PO-Revision-Date: 2022-03-25 11:03+0100\n"
 "Last-Translator: Alexander Shopov <ash@kambanaria.org>\n"
@@ -119,7 +119,7 @@ msgstr "Изходен код"
 #. (itstool) path: erb-html.lang/language@_section
 #. (itstool) path: erb-js.lang/language@_section
 #. (itstool) path: erb.lang/language@_section
-#. (itstool) path: gtk-doc.lang/language@_section
+#. (itstool) path: ctk-doc.lang/language@_section
 #. (itstool) path: haddock.lang/language@_section
 #. (itstool) path: html.lang/language@_section
 #. (itstool) path: jade.lang/language@_section
@@ -137,7 +137,7 @@ msgstr "Изходен код"
 #. (itstool) path: xml.lang/language@_section
 #. (itstool) path: xslt.lang/language@_section
 #: asciidoc.lang:22 bibtex.lang:23 docbook.lang:23 dtd.lang:23 dtl.lang:25
-#: erb-html.lang:20 erb-js.lang:20 erb.lang:20 gtk-doc.lang:24 haddock.lang:23
+#: erb-html.lang:20 erb-js.lang:20 erb.lang:20 ctk-doc.lang:24 haddock.lang:23
 #: html.lang:25 jade.lang:24 jsdoc.lang:23 latex.lang:24 mallard.lang:22
 #: markdown.lang:25 mediawiki.lang:22 mxml.lang:23 rst.lang:22 sweave.lang:24
 #: t2t.lang:23 tera.lang:23 texinfo.lang:24 xml.lang:26 xslt.lang:23
@@ -204,7 +204,7 @@ msgstr "Език за графични обработки CG"
 #. (itstool) path: dpatch.lang/language@_section
 #. (itstool) path: ftl.lang/language@_section
 #. (itstool) path: gdb-log.lang/language@_section
-#. (itstool) path: gtkrc.lang/language@_section
+#. (itstool) path: ctkrc.lang/language@_section
 #. (itstool) path: ini.lang/language@_section
 #. (itstool) path: json.lang/language@_section
 #. (itstool) path: less.lang/language@_section
@@ -225,7 +225,7 @@ msgstr "Език за графични обработки CG"
 #. (itstool) path: yara.lang/language@_section
 #: changelog.lang:24 cmake.lang:23 css.lang:26 csv.lang:23 desktop.lang:24
 #: diff.lang:23 dot.lang:23 dpatch.lang:23 ftl.lang:23 gdb-log.lang:18
-#: gtkrc.lang:24 ini.lang:22 json.lang:29 less.lang:23 libtool.lang:23
+#: ctkrc.lang:24 ini.lang:22 json.lang:29 less.lang:23 libtool.lang:23
 #: logcat.lang:23 nsis.lang:23 ocl.lang:32 pkgconfig.lang:23 po.lang:23
 #: protobuf.lang:21 puppet.lang:23 rpmspec.lang:24 scss.lang:23
 #: terraform.lang:23 toml.lang:23 yacc.lang:23 yaml.lang:21 yara.lang:26
@@ -365,65 +365,65 @@ msgstr "Tango"
 msgid "Color scheme using Tango color palette"
 msgstr "Цветова схема базирана на Tango"
 
-#: gtksourceview/completion-providers/words/gtksourcecompletionwords.c:332
-#: gtksourceview/completion-providers/words/gtksourcecompletionwords.c:222
+#: ctksourceview/completion-providers/words/ctksourcecompletionwords.c:332
+#: ctksourceview/completion-providers/words/ctksourcecompletionwords.c:222
 msgid "Document Words"
 msgstr "Думи от документа"
 
-#: gtksourceview/gtksourcebufferoutputstream.c:842
-#: gtksourceview/gtksourcebufferoutputstream.c:838
+#: ctksourceview/ctksourcebufferoutputstream.c:842
+#: ctksourceview/ctksourcebufferoutputstream.c:838
 msgid "Invalid byte sequence in conversion input"
 msgstr "Неправилна последователност от байтове във входа за прекодиране"
 
-#: gtksourceview/gtksourcebufferoutputstream.c:848
-#: gtksourceview/gtksourcebufferoutputstream.c:844
+#: ctksourceview/ctksourcebufferoutputstream.c:848
+#: ctksourceview/ctksourcebufferoutputstream.c:844
 #, c-format
 msgid "Error during conversion: %s"
 msgstr "Грешка при прекодиране: %s"
 
-#: gtksourceview/gtksourcebufferoutputstream.c:929
-#: gtksourceview/gtksourcebufferoutputstream.c:925
+#: ctksourceview/ctksourcebufferoutputstream.c:929
+#: ctksourceview/ctksourcebufferoutputstream.c:925
 #, c-format
 msgid "Conversion from character set “%s” to “UTF-8” is not supported"
 msgstr "Не се поддържа прекодиране от „%s“ към „UTF-8“"
 
-#: gtksourceview/gtksourcebufferoutputstream.c:935
-#: gtksourceview/gtksourcebufferoutputstream.c:931
+#: ctksourceview/ctksourcebufferoutputstream.c:935
+#: ctksourceview/ctksourcebufferoutputstream.c:931
 #, c-format
 msgid "Could not open converter from “%s” to “UTF-8”"
 msgstr "Модулът за прекодиране от „%s“ към „UTF-8“ не може да бъде зареден"
 
-#: gtksourceview/gtksourcebufferoutputstream.c:995
-#: gtksourceview/gtksourcebufferoutputstream.c:991
+#: ctksourceview/ctksourcebufferoutputstream.c:995
+#: ctksourceview/ctksourcebufferoutputstream.c:991
 msgid "Invalid object, not initialized"
 msgstr "Неправилен, неинициализиран обект"
 
-#: gtksourceview/gtksourcebufferoutputstream.c:1187
-#: gtksourceview/gtksourcebufferoutputstream.c:1183
+#: ctksourceview/ctksourcebufferoutputstream.c:1187
+#: ctksourceview/ctksourcebufferoutputstream.c:1183
 #, c-format
 msgid "Incomplete UTF-8 sequence in input"
 msgstr "Непълна последователност в „UTF-8“ във входа за прекодиране"
 
 #. Translators: "All" is used as a label in the status bar of the
 #. popup, telling that all completion pages are shown.
-#: gtksourceview/gtksourcecompletion.c:838
+#: ctksourceview/ctksourcecompletion.c:838
 msgid "All"
 msgstr "Всички"
 
 #. Tooltip style
-#: gtksourceview/gtksourcecompletioninfo.c:262
+#: ctksourceview/ctksourcecompletioninfo.c:262
 msgid "Completion Info"
 msgstr "Информация за дописване"
 
-#: gtksourceview/gtksourcecompletionmodel.c:494
+#: ctksourceview/ctksourcecompletionmodel.c:494
 msgid "Provider"
 msgstr "Предоставящ модул"
 
-#: gtksourceview/gtksourcecompletion.ui:86
+#: ctksourceview/ctksourcecompletion.ui:86
 msgid "Show detailed proposal information"
 msgstr "Извеждане на подробна информация за приложението"
 
-#: gtksourceview/gtksourcecompletion.ui:88
+#: ctksourceview/ctksourcecompletion.ui:88
 msgid "_Details…"
 msgstr "_Подробности…"
 
@@ -431,8 +431,8 @@ msgstr "_Подробности…"
 #. * named sub-patterns with the same name or if resulting regex is
 #. * too long. In this case fixing lang file helps (e.g. renaming
 #. * subpatterns, making huge keywords use bigger prefixes, etc.)
-#: gtksourceview/gtksourcecontextengine.c:3140
-#: gtksourceview/gtksourcecontextengine.c:3124
+#: ctksourceview/ctksourcecontextengine.c:3140
+#: ctksourceview/ctksourcecontextengine.c:3124
 #, c-format
 msgid ""
 "Cannot create a regex for all the transitions, the syntax highlighting "
@@ -443,8 +443,8 @@ msgstr ""
 "синтаксиса ще бъде по-бавно от обикновено.\n"
 "Грешката е: %s"
 
-#: gtksourceview/gtksourcecontextengine.c:4474
-#: gtksourceview/gtksourcecontextengine.c:4458
+#: ctksourceview/ctksourcecontextengine.c:4474
+#: ctksourceview/ctksourcecontextengine.c:4458
 msgid ""
 "Highlighting a single line took too much time, syntax highlighting will be "
 "disabled"
@@ -452,24 +452,24 @@ msgstr ""
 "Оцветяването на един ред отне твърде много време. Оцветяването на синтаксиса "
 "ще бъде изключено."
 
-#: gtksourceview/gtksourcecontextengine.c:5724
-#: gtksourceview/gtksourcecontextengine.c:5708
+#: ctksourceview/ctksourcecontextengine.c:5724
+#: ctksourceview/ctksourcecontextengine.c:5708
 #, c-format
 msgid "context “%s” cannot contain a \\%%{...@start} command"
 msgstr "контекстът „%s“ не може да съдържа команда „\\%%{…@start}“"
 
-#: gtksourceview/gtksourcecontextengine.c:5887
-#: gtksourceview/gtksourcecontextengine.c:5977
-#: gtksourceview/gtksourcecontextengine.c:5871
-#: gtksourceview/gtksourcecontextengine.c:5961
+#: ctksourceview/ctksourcecontextengine.c:5887
+#: ctksourceview/ctksourcecontextengine.c:5977
+#: ctksourceview/ctksourcecontextengine.c:5871
+#: ctksourceview/ctksourcecontextengine.c:5961
 #, c-format
 msgid "duplicated context id “%s”"
 msgstr "идентификаторът на контекст „%s“ се повтаря"
 
-#: gtksourceview/gtksourcecontextengine.c:6091
-#: gtksourceview/gtksourcecontextengine.c:6151
-#: gtksourceview/gtksourcecontextengine.c:6075
-#: gtksourceview/gtksourcecontextengine.c:6135
+#: ctksourceview/ctksourcecontextengine.c:6091
+#: ctksourceview/ctksourcecontextengine.c:6151
+#: ctksourceview/ctksourcecontextengine.c:6075
+#: ctksourceview/ctksourcecontextengine.c:6135
 #, c-format
 msgid ""
 "style override used with wildcard context reference in language “%s” in ref "
@@ -478,158 +478,158 @@ msgstr ""
 "налагане на стил, което е използвано с указател с маска към контексти в "
 "езика „%s“, указател „%s“ "
 
-#: gtksourceview/gtksourcecontextengine.c:6165
-#: gtksourceview/gtksourcecontextengine.c:6149
+#: ctksourceview/ctksourcecontextengine.c:6165
+#: ctksourceview/ctksourcecontextengine.c:6149
 #, c-format
 msgid "invalid context reference “%s”"
 msgstr "неправилен указател към контекст „%s“"
 
-#: gtksourceview/gtksourcecontextengine.c:6184
-#: gtksourceview/gtksourcecontextengine.c:6194
-#: gtksourceview/gtksourcecontextengine.c:6168
-#: gtksourceview/gtksourcecontextengine.c:6178
+#: ctksourceview/ctksourcecontextengine.c:6184
+#: ctksourceview/ctksourcecontextengine.c:6194
+#: ctksourceview/ctksourcecontextengine.c:6168
+#: ctksourceview/ctksourcecontextengine.c:6178
 #, c-format
 msgid "unknown context “%s”"
 msgstr "непознат контекст „%s“"
 
-#: gtksourceview/gtksourcecontextengine.c:6293
+#: ctksourceview/ctksourcecontextengine.c:6293
 #, c-format
 msgid "Missing main language definition (id = \"%s\".)"
 msgstr "Основната дефиниция на език липсва (id = „%s“)."
 
-#: gtksourceview/gtksourceencoding.c:140 gtksourceview/gtksourceencoding.c:183
-#: gtksourceview/gtksourceencoding.c:185 gtksourceview/gtksourceencoding.c:187
-#: gtksourceview/gtksourceencoding.c:189 gtksourceview/gtksourceencoding.c:191
-#: gtksourceview/gtksourceencoding.c:193 gtksourceview/gtksourceencoding.c:195
-#: gtksourceview/gtksourceencoding.c:136 gtksourceview/gtksourceencoding.c:179
-#: gtksourceview/gtksourceencoding.c:181
+#: ctksourceview/ctksourceencoding.c:140 ctksourceview/ctksourceencoding.c:183
+#: ctksourceview/ctksourceencoding.c:185 ctksourceview/ctksourceencoding.c:187
+#: ctksourceview/ctksourceencoding.c:189 ctksourceview/ctksourceencoding.c:191
+#: ctksourceview/ctksourceencoding.c:193 ctksourceview/ctksourceencoding.c:195
+#: ctksourceview/ctksourceencoding.c:136 ctksourceview/ctksourceencoding.c:179
+#: ctksourceview/ctksourceencoding.c:181
 msgid "Unicode"
 msgstr "Уникод"
 
-#: gtksourceview/gtksourceencoding.c:154 gtksourceview/gtksourceencoding.c:178
-#: gtksourceview/gtksourceencoding.c:228 gtksourceview/gtksourceencoding.c:271
-#: gtksourceview/gtksourceencoding.c:150 gtksourceview/gtksourceencoding.c:174
-#: gtksourceview/gtksourceencoding.c:224 gtksourceview/gtksourceencoding.c:267
+#: ctksourceview/ctksourceencoding.c:154 ctksourceview/ctksourceencoding.c:178
+#: ctksourceview/ctksourceencoding.c:228 ctksourceview/ctksourceencoding.c:271
+#: ctksourceview/ctksourceencoding.c:150 ctksourceview/ctksourceencoding.c:174
+#: ctksourceview/ctksourceencoding.c:224 ctksourceview/ctksourceencoding.c:267
 msgid "Western"
 msgstr "Западноевропейско"
 
-#: gtksourceview/gtksourceencoding.c:156 gtksourceview/gtksourceencoding.c:230
-#: gtksourceview/gtksourceencoding.c:267 gtksourceview/gtksourceencoding.c:152
-#: gtksourceview/gtksourceencoding.c:226 gtksourceview/gtksourceencoding.c:263
+#: ctksourceview/ctksourceencoding.c:156 ctksourceview/ctksourceencoding.c:230
+#: ctksourceview/ctksourceencoding.c:267 ctksourceview/ctksourceencoding.c:152
+#: ctksourceview/ctksourceencoding.c:226 ctksourceview/ctksourceencoding.c:263
 msgid "Central European"
 msgstr "Централноевропейско"
 
-#: gtksourceview/gtksourceencoding.c:158 gtksourceview/gtksourceencoding.c:154
+#: ctksourceview/ctksourceencoding.c:158 ctksourceview/ctksourceencoding.c:154
 msgid "South European"
 msgstr "Южноевропейско"
 
-#: gtksourceview/gtksourceencoding.c:160 gtksourceview/gtksourceencoding.c:174
-#: gtksourceview/gtksourceencoding.c:281 gtksourceview/gtksourceencoding.c:156
-#: gtksourceview/gtksourceencoding.c:170 gtksourceview/gtksourceencoding.c:277
+#: ctksourceview/ctksourceencoding.c:160 ctksourceview/ctksourceencoding.c:174
+#: ctksourceview/ctksourceencoding.c:281 ctksourceview/ctksourceencoding.c:156
+#: ctksourceview/ctksourceencoding.c:170 ctksourceview/ctksourceencoding.c:277
 msgid "Baltic"
 msgstr "Балтийско"
 
-#: gtksourceview/gtksourceencoding.c:162 gtksourceview/gtksourceencoding.c:232
-#: gtksourceview/gtksourceencoding.c:245 gtksourceview/gtksourceencoding.c:249
-#: gtksourceview/gtksourceencoding.c:251 gtksourceview/gtksourceencoding.c:269
-#: gtksourceview/gtksourceencoding.c:158 gtksourceview/gtksourceencoding.c:228
-#: gtksourceview/gtksourceencoding.c:241 gtksourceview/gtksourceencoding.c:247
-#: gtksourceview/gtksourceencoding.c:265
+#: ctksourceview/ctksourceencoding.c:162 ctksourceview/ctksourceencoding.c:232
+#: ctksourceview/ctksourceencoding.c:245 ctksourceview/ctksourceencoding.c:249
+#: ctksourceview/ctksourceencoding.c:251 ctksourceview/ctksourceencoding.c:269
+#: ctksourceview/ctksourceencoding.c:158 ctksourceview/ctksourceencoding.c:228
+#: ctksourceview/ctksourceencoding.c:241 ctksourceview/ctksourceencoding.c:247
+#: ctksourceview/ctksourceencoding.c:265
 msgid "Cyrillic"
 msgstr "Кирилица"
 
-#: gtksourceview/gtksourceencoding.c:164 gtksourceview/gtksourceencoding.c:238
-#: gtksourceview/gtksourceencoding.c:279 gtksourceview/gtksourceencoding.c:160
-#: gtksourceview/gtksourceencoding.c:234 gtksourceview/gtksourceencoding.c:275
+#: ctksourceview/ctksourceencoding.c:164 ctksourceview/ctksourceencoding.c:238
+#: ctksourceview/ctksourceencoding.c:279 ctksourceview/ctksourceencoding.c:160
+#: ctksourceview/ctksourceencoding.c:234 ctksourceview/ctksourceencoding.c:275
 msgid "Arabic"
 msgstr "Арабско"
 
-#: gtksourceview/gtksourceencoding.c:166 gtksourceview/gtksourceencoding.c:273
-#: gtksourceview/gtksourceencoding.c:162 gtksourceview/gtksourceencoding.c:269
+#: ctksourceview/ctksourceencoding.c:166 ctksourceview/ctksourceencoding.c:273
+#: ctksourceview/ctksourceencoding.c:162 ctksourceview/ctksourceencoding.c:269
 msgid "Greek"
 msgstr "Гръцко"
 
-#: gtksourceview/gtksourceencoding.c:168 gtksourceview/gtksourceencoding.c:164
+#: ctksourceview/ctksourceencoding.c:168 ctksourceview/ctksourceencoding.c:164
 msgid "Hebrew Visual"
 msgstr "Визуален иврит"
 
-#: gtksourceview/gtksourceencoding.c:170 gtksourceview/gtksourceencoding.c:234
-#: gtksourceview/gtksourceencoding.c:275 gtksourceview/gtksourceencoding.c:166
-#: gtksourceview/gtksourceencoding.c:230 gtksourceview/gtksourceencoding.c:271
+#: ctksourceview/ctksourceencoding.c:170 ctksourceview/ctksourceencoding.c:234
+#: ctksourceview/ctksourceencoding.c:275 ctksourceview/ctksourceencoding.c:166
+#: ctksourceview/ctksourceencoding.c:230 ctksourceview/ctksourceencoding.c:271
 msgid "Turkish"
 msgstr "Турско"
 
-#: gtksourceview/gtksourceencoding.c:172 gtksourceview/gtksourceencoding.c:168
+#: ctksourceview/ctksourceencoding.c:172 ctksourceview/ctksourceencoding.c:168
 msgid "Nordic"
 msgstr "Скандинавско"
 
-#: gtksourceview/gtksourceencoding.c:176 gtksourceview/gtksourceencoding.c:172
+#: ctksourceview/ctksourceencoding.c:176 ctksourceview/ctksourceencoding.c:172
 msgid "Celtic"
 msgstr "Келтско"
 
-#: gtksourceview/gtksourceencoding.c:180 gtksourceview/gtksourceencoding.c:176
+#: ctksourceview/ctksourceencoding.c:180 ctksourceview/ctksourceencoding.c:176
 msgid "Romanian"
 msgstr "Румънско"
 
-#: gtksourceview/gtksourceencoding.c:198 gtksourceview/gtksourceencoding.c:194
+#: ctksourceview/ctksourceencoding.c:198 ctksourceview/ctksourceencoding.c:194
 msgid "Armenian"
 msgstr "Арменско"
 
-#: gtksourceview/gtksourceencoding.c:200 gtksourceview/gtksourceencoding.c:202
-#: gtksourceview/gtksourceencoding.c:216 gtksourceview/gtksourceencoding.c:196
-#: gtksourceview/gtksourceencoding.c:198 gtksourceview/gtksourceencoding.c:212
+#: ctksourceview/ctksourceencoding.c:200 ctksourceview/ctksourceencoding.c:202
+#: ctksourceview/ctksourceencoding.c:216 ctksourceview/ctksourceencoding.c:196
+#: ctksourceview/ctksourceencoding.c:198 ctksourceview/ctksourceencoding.c:212
 msgid "Chinese Traditional"
 msgstr "Китайско — традиционно"
 
-#: gtksourceview/gtksourceencoding.c:204 gtksourceview/gtksourceencoding.c:200
+#: ctksourceview/ctksourceencoding.c:204 ctksourceview/ctksourceencoding.c:200
 msgid "Cyrillic/Russian"
 msgstr "Кирилица — руска"
 
-#: gtksourceview/gtksourceencoding.c:207 gtksourceview/gtksourceencoding.c:209
-#: gtksourceview/gtksourceencoding.c:211 gtksourceview/gtksourceencoding.c:241
-#: gtksourceview/gtksourceencoding.c:256 gtksourceview/gtksourceencoding.c:203
-#: gtksourceview/gtksourceencoding.c:205 gtksourceview/gtksourceencoding.c:237
-#: gtksourceview/gtksourceencoding.c:252
+#: ctksourceview/ctksourceencoding.c:207 ctksourceview/ctksourceencoding.c:209
+#: ctksourceview/ctksourceencoding.c:211 ctksourceview/ctksourceencoding.c:241
+#: ctksourceview/ctksourceencoding.c:256 ctksourceview/ctksourceencoding.c:203
+#: ctksourceview/ctksourceencoding.c:205 ctksourceview/ctksourceencoding.c:237
+#: ctksourceview/ctksourceencoding.c:252
 msgid "Japanese"
 msgstr "Японско"
 
-#: gtksourceview/gtksourceencoding.c:214 gtksourceview/gtksourceencoding.c:243
-#: gtksourceview/gtksourceencoding.c:247 gtksourceview/gtksourceencoding.c:262
-#: gtksourceview/gtksourceencoding.c:210 gtksourceview/gtksourceencoding.c:239
-#: gtksourceview/gtksourceencoding.c:258
+#: ctksourceview/ctksourceencoding.c:214 ctksourceview/ctksourceencoding.c:243
+#: ctksourceview/ctksourceencoding.c:247 ctksourceview/ctksourceencoding.c:262
+#: ctksourceview/ctksourceencoding.c:210 ctksourceview/ctksourceencoding.c:239
+#: ctksourceview/ctksourceencoding.c:258
 msgid "Korean"
 msgstr "Корейско"
 
-#: gtksourceview/gtksourceencoding.c:219 gtksourceview/gtksourceencoding.c:221
-#: gtksourceview/gtksourceencoding.c:223 gtksourceview/gtksourceencoding.c:215
-#: gtksourceview/gtksourceencoding.c:217
+#: ctksourceview/ctksourceencoding.c:219 ctksourceview/ctksourceencoding.c:221
+#: ctksourceview/ctksourceencoding.c:223 ctksourceview/ctksourceencoding.c:215
+#: ctksourceview/ctksourceencoding.c:217
 msgid "Chinese Simplified"
 msgstr "Китайско — опростено"
 
-#: gtksourceview/gtksourceencoding.c:225 gtksourceview/gtksourceencoding.c:221
+#: ctksourceview/ctksourceencoding.c:225 ctksourceview/ctksourceencoding.c:221
 msgid "Georgian"
 msgstr "Грузинско"
 
-#: gtksourceview/gtksourceencoding.c:236 gtksourceview/gtksourceencoding.c:277
-#: gtksourceview/gtksourceencoding.c:232 gtksourceview/gtksourceencoding.c:273
+#: ctksourceview/ctksourceencoding.c:236 ctksourceview/ctksourceencoding.c:277
+#: ctksourceview/ctksourceencoding.c:232 ctksourceview/ctksourceencoding.c:273
 msgid "Hebrew"
 msgstr "Иврит"
 
-#: gtksourceview/gtksourceencoding.c:253 gtksourceview/gtksourceencoding.c:249
+#: ctksourceview/ctksourceencoding.c:253 ctksourceview/ctksourceencoding.c:249
 msgid "Cyrillic/Ukrainian"
 msgstr "Кирилица — украинска"
 
-#: gtksourceview/gtksourceencoding.c:258 gtksourceview/gtksourceencoding.c:264
-#: gtksourceview/gtksourceencoding.c:283 gtksourceview/gtksourceencoding.c:254
-#: gtksourceview/gtksourceencoding.c:260 gtksourceview/gtksourceencoding.c:279
+#: ctksourceview/ctksourceencoding.c:258 ctksourceview/ctksourceencoding.c:264
+#: ctksourceview/ctksourceencoding.c:283 ctksourceview/ctksourceencoding.c:254
+#: ctksourceview/ctksourceencoding.c:260 ctksourceview/ctksourceencoding.c:279
 msgid "Vietnamese"
 msgstr "Виетнамско"
 
-#: gtksourceview/gtksourceencoding.c:260 gtksourceview/gtksourceencoding.c:256
+#: ctksourceview/ctksourceencoding.c:260 ctksourceview/ctksourceencoding.c:256
 msgid "Thai"
 msgstr "Тайско"
 
-#: gtksourceview/gtksourceencoding.c:494 gtksourceview/gtksourceencoding.c:485
+#: ctksourceview/ctksourceencoding.c:494 ctksourceview/ctksourceencoding.c:485
 msgid "Unknown"
 msgstr "Непознато"
 
@@ -643,42 +643,42 @@ msgstr "Непознато"
 #. * value used by GtkSourceView and it represents the encoding for the
 #. * current locale, so please don't translate the "CURRENT" term.  Only
 #. * recognized encodings are used. See
-#. * https://gitlab.gnome.org/GNOME/gtksourceview/blob/master/gtksourceview/gtksourceencoding.c#L142
+#. * https://gitlab.gnome.org/GNOME/ctksourceview/blob/master/ctksourceview/ctksourceencoding.c#L142
 #. * for a list of supported encodings.
 #. * Keep the same format: square brackets, single quotes, commas.
 #.
-#: gtksourceview/gtksourceencoding.c:638 gtksourceview/gtksourceencoding.c:628
+#: ctksourceview/ctksourceencoding.c:638 ctksourceview/ctksourceencoding.c:628
 msgid "['UTF-8', 'CURRENT', 'ISO-8859-15', 'UTF-16']"
 msgstr "['UTF-8', 'CURRENT', 'WINDOWS-1251', 'UTF-16', 'KOI8-R']"
 
-#: gtksourceview/gtksourcefileloader.c:515
-#: gtksourceview/gtksourcefileloader.c:502
+#: ctksourceview/ctksourcefileloader.c:515
+#: ctksourceview/ctksourcefileloader.c:502
 msgid ""
 "There was a character encoding conversion error and it was needed to use a "
 "fallback character."
 msgstr "Грешка при прекодирането на знак, той бе заместен със знак за замяна."
 
-#: gtksourceview/gtksourcefileloader.c:622
-#: gtksourceview/gtksourcefileloader.c:617
+#: ctksourceview/ctksourcefileloader.c:622
+#: ctksourceview/ctksourcefileloader.c:617
 msgid "File too big."
 msgstr "Прекалено голям файл."
 
-#: gtksourceview/gtksourcefileloader.c:776
-#: gtksourceview/gtksourcefileloader.c:772
+#: ctksourceview/ctksourcefileloader.c:776
+#: ctksourceview/ctksourcefileloader.c:772
 msgid "Not a regular file."
 msgstr "Не е обикновен файл."
 
-#: gtksourceview/gtksourcefilesaver.c:975
-#: gtksourceview/gtksourcefilesaver.c:962
+#: ctksourceview/ctksourcefilesaver.c:975
+#: ctksourceview/ctksourcefilesaver.c:962
 msgid "The file is externally modified."
 msgstr "Файлът е променен от друга програма."
 
-#: gtksourceview/gtksourcefilesaver.c:1427
-#: gtksourceview/gtksourcefilesaver.c:1402
+#: ctksourceview/ctksourcefilesaver.c:1427
+#: ctksourceview/ctksourcefilesaver.c:1402
 msgid "The buffer contains invalid characters."
 msgstr "Буферът съдържа непознати знаци."
 
-#. #-#-#-#-#  gtksourceview.gtksourceview-4-8.pot (PACKAGE VERSION)  #-#-#-#-#
+#. #-#-#-#-#  ctksourceview.ctksourceview-4-8.pot (PACKAGE VERSION)  #-#-#-#-#
 #. *
 #. * SECTION:language
 #. * @Short_description: Represents a syntax highlighted language
@@ -689,9 +689,9 @@ msgstr "Буферът съдържа непознати знаци."
 #. * syntax highlighting and [context classes][context-classes].
 #. *
 #. * Use #GtkSourceLanguageManager to obtain a #GtkSourceLanguage instance, and
-#. * gtk_source_buffer_set_language() to apply it to a #GtkSourceBuffer.
+#. * ctk_source_buffer_set_language() to apply it to a #GtkSourceBuffer.
 #.
-#. #-#-#-#-#  gtksourceview.master.pot (PACKAGE VERSION)  #-#-#-#-#
+#. #-#-#-#-#  ctksourceview.master.pot (PACKAGE VERSION)  #-#-#-#-#
 #. *
 #. * GtkSourceLanguage:
 #. *
@@ -703,71 +703,71 @@ msgstr "Буферът съдържа непознати знаци."
 #. * Use [class@LanguageManager] to obtain a `GtkSourceLanguage` instance, and
 #. * [method@Buffer.set_language] to apply it to a [class@Buffer].
 #.
-#: gtksourceview/gtksourcelanguage.c:56 gtksourceview/gtksourcelanguage.c:52
+#: ctksourceview/ctksourcelanguage.c:56 ctksourceview/ctksourcelanguage.c:52
 msgid "Others"
 msgstr "Други"
 
-#: gtksourceview/gtksourcelanguage-parser-2.c:949
-#: gtksourceview/gtksourcelanguage-parser-2.c:946
+#: ctksourceview/ctksourcelanguage-parser-2.c:949
+#: ctksourceview/ctksourcelanguage-parser-2.c:946
 #, c-format
 msgid "Unknown id “%s” in regex “%s”"
 msgstr "Непознат идентификатор „%s“ в регулярния израз „%s“"
 
-#: gtksourceview/gtksourcelanguage-parser-2.c:1179
-#: gtksourceview/gtksourcelanguage-parser-2.c:1176
+#: ctksourceview/ctksourcelanguage-parser-2.c:1179
+#: ctksourceview/ctksourcelanguage-parser-2.c:1176
 #, c-format
 msgid "in regex “%s”: backreferences are not supported"
 msgstr ""
 "в регулярния израз „%s“: не се поддържат указатели към вече намерени групи "
 "знаци"
 
-#: gtksourceview/gtksourceregex.c:128
+#: ctksourceview/ctksourceregex.c:128
 msgid "using \\C is not supported in language definitions"
 msgstr "използването на „\\C“ в дефинициите на езици не се поддържа"
 
 #. TODO: have a ChooserDialog?
-#: gtksourceview/gtksourcestyleschemechooserbutton.c:185
-#: gtksourceview/gtksourcestyleschemechooserbutton.c:178
+#: ctksourceview/ctksourcestyleschemechooserbutton.c:185
+#: ctksourceview/ctksourcestyleschemechooserbutton.c:178
 msgid "Select a Style"
 msgstr "Избор на стил"
 
-#: gtksourceview/gtksourcestyleschemechooserbutton.c:189
-#: gtksourceview/gtksourcestyleschemechooserbutton.c:182
+#: ctksourceview/ctksourcestyleschemechooserbutton.c:189
+#: ctksourceview/ctksourcestyleschemechooserbutton.c:182
 msgid "_Cancel"
 msgstr "_Отказ"
 
-#: gtksourceview/gtksourcestyleschemechooserbutton.c:190
-#: gtksourceview/gtksourcestyleschemechooserbutton.c:183
+#: ctksourceview/ctksourcestyleschemechooserbutton.c:190
+#: ctksourceview/ctksourcestyleschemechooserbutton.c:183
 msgid "_Select"
 msgstr "_Избор"
 
 #. create redo menu_item.
-#: gtksourceview/gtksourceview.c:1810
+#: ctksourceview/ctksourceview.c:1810
 msgid "_Redo"
 msgstr "_Повтаряне"
 
 #. create undo menu_item.
-#: gtksourceview/gtksourceview.c:1821
+#: ctksourceview/ctksourceview.c:1821
 msgid "_Undo"
 msgstr "_Отмяна"
 
-#: gtksourceview/gtksourceview.c:1840 gtksourceview/gtksourceview.c:1806
+#: ctksourceview/ctksourceview.c:1840 ctksourceview/ctksourceview.c:1806
 msgid "All _Upper Case"
 msgstr "Да са _главни"
 
-#: gtksourceview/gtksourceview.c:1850 gtksourceview/gtksourceview.c:1810
+#: ctksourceview/ctksourceview.c:1850 ctksourceview/ctksourceview.c:1810
 msgid "All _Lower Case"
 msgstr "Да са _малки"
 
-#: gtksourceview/gtksourceview.c:1860 gtksourceview/gtksourceview.c:1814
+#: ctksourceview/ctksourceview.c:1860 ctksourceview/ctksourceview.c:1814
 msgid "_Invert Case"
 msgstr "_Обръщане на регистъра"
 
-#: gtksourceview/gtksourceview.c:1870 gtksourceview/gtksourceview.c:1818
+#: ctksourceview/ctksourceview.c:1870 ctksourceview/ctksourceview.c:1818
 msgid "_Title Case"
 msgstr "_Заглавни начални букви"
 
-#: gtksourceview/gtksourceview.c:1880 gtksourceview/gtksourceview.c:1822
+#: ctksourceview/ctksourceview.c:1880 ctksourceview/ctksourceview.c:1822
 msgid "C_hange Case"
 msgstr "_Смяна на регистъра"
 
@@ -806,83 +806,83 @@ msgstr "Cobalt, светла"
 msgid "Dark color scheme used in the Kate text editor"
 msgstr "Тъмна цветова схема използвана в текстовия редактор Kate"
 
-#: gtksourceview/completion-providers/snippets/gtksourcecompletionsnippets.c:407
+#: ctksourceview/completion-providers/snippets/ctksourcecompletionsnippets.c:407
 msgid "Snippets"
 msgstr "Изрезки"
 
-#: gtksourceview/gtksourcecompletionlist.c:206
-#: gtksourceview/gtksourcecompletionlist.c:210
+#: ctksourceview/ctksourcecompletionlist.c:206
+#: ctksourceview/ctksourcecompletionlist.c:210
 #, c-format
 msgid "%d of %u"
 msgstr "%d от %u"
 
-#: gtksourceview/gtksourcecompletionlist.ui:59
+#: ctksourceview/ctksourcecompletionlist.ui:59
 msgid "_Details"
 msgstr "_Подробности"
 
-#: gtksourceview/gtksourcecontextengine.c:6279
+#: ctksourceview/ctksourcecontextengine.c:6279
 #, c-format
 msgid "Missing main language definition (id = “%s”)."
 msgstr "Основната дефиниция на език липсва (id = „%s“)."
 
-#: gtksourceview/implregex.c:609
+#: ctksourceview/implregex.c:609
 msgid "hexadecimal digit or “}” expected"
 msgstr "очаква се шестнадесетичен знак или „}“"
 
-#: gtksourceview/implregex.c:625
+#: ctksourceview/implregex.c:625
 msgid "hexadecimal digit expected"
 msgstr "очаква се шестнадесетичен знак"
 
-#: gtksourceview/implregex.c:665
+#: ctksourceview/implregex.c:665
 msgid "missing “<” in symbolic reference"
 msgstr "указател към знак, в който липсва „<“"
 
-#: gtksourceview/implregex.c:674
+#: ctksourceview/implregex.c:674
 msgid "unfinished symbolic reference"
 msgstr "незавършен указател към знак"
 
-#: gtksourceview/implregex.c:681
+#: ctksourceview/implregex.c:681
 msgid "zero-length symbolic reference"
 msgstr "указател към знак с нулева дължина"
 
-#: gtksourceview/implregex.c:692
+#: ctksourceview/implregex.c:692
 msgid "digit expected"
 msgstr "очаква се знак"
 
-#: gtksourceview/implregex.c:710
+#: ctksourceview/implregex.c:710
 msgid "illegal symbolic reference"
 msgstr "неправилен указател към знак"
 
-#: gtksourceview/implregex.c:773
+#: ctksourceview/implregex.c:773
 msgid "stray final “\\”"
 msgstr "излишен знак „\\“ в края"
 
-#: gtksourceview/implregex.c:777
+#: ctksourceview/implregex.c:777
 msgid "unknown escape sequence"
 msgstr "непозната екранираща последователност"
 
-#: gtksourceview/implregex.c:787
+#: ctksourceview/implregex.c:787
 #, c-format
 msgid "Error while parsing replacement text “%s” at char %lu: %s"
 msgstr "Грешка при анализа на заместващия текст „%s“ при знак %lu: %s"
 
-#: gtksourceview/vim/gtksourceviminsert.c:490
+#: ctksourceview/vim/ctksourceviminsert.c:490
 msgid "-- INSERT --"
 msgstr "-- ВМЪКНАТО --"
 
-#: gtksourceview/vim/gtksourcevimreplace.c:125
+#: ctksourceview/vim/ctksourcevimreplace.c:125
 msgid "-- REPLACE --"
 msgstr "-- ЗАМЯНА --"
 
-#: gtksourceview/vim/gtksourcevimvisual.c:299
+#: ctksourceview/vim/ctksourcevimvisual.c:299
 msgid "-- VISUAL --"
 msgstr "-- ВИДИМО --"
 
-#: gtksourceview/vim/gtksourcevimvisual.c:302
+#: ctksourceview/vim/ctksourcevimvisual.c:302
 msgid "-- VISUAL LINE --"
 msgstr "-- ВИДИМА ЛИНИЯ --"
 
-#: gtksourceview/vim/gtksourcevimvisual.c:305
+#: ctksourceview/vim/ctksourcevimvisual.c:305
 msgid "-- VISUAL BLOCK --"
 msgstr "-- ВИДИМ БЛОК --"
 
@@ -1561,8 +1561,8 @@ msgstr "-- ВИДИМ БЛОК --"
 #~ msgid "Imaginary number"
 #~ msgstr "Имагинерно число"
 
-#~ msgid "gtk-doc"
-#~ msgstr "gtk-doc"
+#~ msgid "ctk-doc"
+#~ msgstr "ctk-doc"
 
 #~ msgid "Inline Documentation Section"
 #~ msgstr "Вмъкнат раздел с документация"

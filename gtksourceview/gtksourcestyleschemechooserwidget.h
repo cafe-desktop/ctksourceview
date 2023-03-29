@@ -23,15 +23,15 @@
 #define GTK_SOURCE_STYLE_SCHEME_CHOOSER_WIDGET_H
 
 #if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
-#error "Only <gtksourceview/gtksource.h> can be included directly."
+#error "Only <ctksourceview/ctksource.h> can be included directly."
 #endif
 
-#include <gtk/gtk.h>
-#include <gtksourceview/gtksourcetypes.h>
+#include <ctk/ctk.h>
+#include <ctksourceview/ctksourcetypes.h>
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER_WIDGET            (gtk_source_style_scheme_chooser_widget_get_type())
+#define GTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER_WIDGET            (ctk_source_style_scheme_chooser_widget_get_type())
 #define GTK_SOURCE_STYLE_SCHEME_CHOOSER_WIDGET(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER_WIDGET, GtkSourceStyleSchemeChooserWidget))
 #define GTK_SOURCE_STYLE_SCHEME_CHOOSER_WIDGET_CONST(obj)      (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER_WIDGET, GtkSourceStyleSchemeChooserWidget const))
 #define GTK_SOURCE_STYLE_SCHEME_CHOOSER_WIDGET_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass),  GTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER_WIDGET, GtkSourceStyleSchemeChooserWidgetClass))
@@ -54,10 +54,10 @@ struct _GtkSourceStyleSchemeChooserWidgetClass
 };
 
 GTK_SOURCE_AVAILABLE_IN_3_16
-GType        gtk_source_style_scheme_chooser_widget_get_type              (void);
+GType        ctk_source_style_scheme_chooser_widget_get_type              (void);
 
 GTK_SOURCE_AVAILABLE_IN_3_16
-GtkWidget   *gtk_source_style_scheme_chooser_widget_new                   (void);
+GtkWidget   *ctk_source_style_scheme_chooser_widget_new                   (void);
 
 G_END_DECLS
 

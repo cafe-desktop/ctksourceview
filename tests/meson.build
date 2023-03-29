@@ -31,6 +31,6 @@ foreach test_name, test_sources: tests_sources
   # well as the static core lib
   executable('test-@0@'.format(test_name), test_sources,
           c_args: tests_c_args,
-    dependencies: cc.get_id() == 'msvc' ? [gtksource_dep, core_dep] : [gtksource_dep],
+    dependencies: cc.get_id() == 'msvc' ? [ctksource_dep, core_dep] : [ctksource_dep],
   )
 endforeach

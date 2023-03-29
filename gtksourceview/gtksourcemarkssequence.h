@@ -21,12 +21,12 @@
 #ifndef GTK_SOURCE_MARKS_SEQUENCE_H
 #define GTK_SOURCE_MARKS_SEQUENCE_H
 
-#include <gtk/gtk.h>
-#include "gtksourcetypes-private.h"
+#include <ctk/ctk.h>
+#include "ctksourcetypes-private.h"
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_MARKS_SEQUENCE             (_gtk_source_marks_sequence_get_type ())
+#define GTK_SOURCE_TYPE_MARKS_SEQUENCE             (_ctk_source_marks_sequence_get_type ())
 #define GTK_SOURCE_MARKS_SEQUENCE(obj)             (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_MARKS_SEQUENCE, GtkSourceMarksSequence))
 #define GTK_SOURCE_MARKS_SEQUENCE_CLASS(klass)     (G_TYPE_CHECK_CLASS_CAST ((klass), GTK_SOURCE_TYPE_MARKS_SEQUENCE, GtkSourceMarksSequenceClass))
 #define GTK_SOURCE_IS_MARKS_SEQUENCE(obj)          (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_SOURCE_TYPE_MARKS_SEQUENCE))
@@ -49,44 +49,44 @@ struct _GtkSourceMarksSequenceClass
 };
 
 G_GNUC_INTERNAL
-GType			 _gtk_source_marks_sequence_get_type		(void) G_GNUC_CONST;
+GType			 _ctk_source_marks_sequence_get_type		(void) G_GNUC_CONST;
 
 G_GNUC_INTERNAL
-GtkSourceMarksSequence	*_gtk_source_marks_sequence_new			(GtkTextBuffer          *buffer);
+GtkSourceMarksSequence	*_ctk_source_marks_sequence_new			(GtkTextBuffer          *buffer);
 
 G_GNUC_INTERNAL
-gboolean		 _gtk_source_marks_sequence_is_empty		(GtkSourceMarksSequence *seq);
+gboolean		 _ctk_source_marks_sequence_is_empty		(GtkSourceMarksSequence *seq);
 
 G_GNUC_INTERNAL
-void			 _gtk_source_marks_sequence_add			(GtkSourceMarksSequence *seq,
+void			 _ctk_source_marks_sequence_add			(GtkSourceMarksSequence *seq,
 									 GtkTextMark            *mark);
 
 G_GNUC_INTERNAL
-void			 _gtk_source_marks_sequence_remove		(GtkSourceMarksSequence *seq,
+void			 _ctk_source_marks_sequence_remove		(GtkSourceMarksSequence *seq,
 									 GtkTextMark            *mark);
 
 G_GNUC_INTERNAL
-GtkTextMark		*_gtk_source_marks_sequence_next		(GtkSourceMarksSequence *seq,
+GtkTextMark		*_ctk_source_marks_sequence_next		(GtkSourceMarksSequence *seq,
 									 GtkTextMark            *mark);
 
 G_GNUC_INTERNAL
-GtkTextMark		*_gtk_source_marks_sequence_prev		(GtkSourceMarksSequence *seq,
+GtkTextMark		*_ctk_source_marks_sequence_prev		(GtkSourceMarksSequence *seq,
 									 GtkTextMark            *mark);
 
 G_GNUC_INTERNAL
-gboolean		 _gtk_source_marks_sequence_forward_iter	(GtkSourceMarksSequence *seq,
+gboolean		 _ctk_source_marks_sequence_forward_iter	(GtkSourceMarksSequence *seq,
 									 GtkTextIter            *iter);
 
 G_GNUC_INTERNAL
-gboolean		 _gtk_source_marks_sequence_backward_iter	(GtkSourceMarksSequence *seq,
+gboolean		 _ctk_source_marks_sequence_backward_iter	(GtkSourceMarksSequence *seq,
 									 GtkTextIter            *iter);
 
 G_GNUC_INTERNAL
-GSList			*_gtk_source_marks_sequence_get_marks_at_iter	(GtkSourceMarksSequence *seq,
+GSList			*_ctk_source_marks_sequence_get_marks_at_iter	(GtkSourceMarksSequence *seq,
 									 const GtkTextIter      *iter);
 
 G_GNUC_INTERNAL
-GSList			*_gtk_source_marks_sequence_get_marks_in_range	(GtkSourceMarksSequence *seq,
+GSList			*_ctk_source_marks_sequence_get_marks_in_range	(GtkSourceMarksSequence *seq,
 									 const GtkTextIter      *iter1,
 									 const GtkTextIter      *iter2);
 

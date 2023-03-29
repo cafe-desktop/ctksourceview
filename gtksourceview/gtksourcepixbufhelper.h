@@ -21,38 +21,38 @@
 #ifndef GTK_SOURCE_PIXBUF_HELPER_H
 #define GTK_SOURCE_PIXBUF_HELPER_H
 
-#include <gtk/gtk.h>
-#include "gtksourcetypes-private.h"
+#include <ctk/ctk.h>
+#include "ctksourcetypes-private.h"
 
 G_GNUC_INTERNAL
-GtkSourcePixbufHelper *gtk_source_pixbuf_helper_new (void);
+GtkSourcePixbufHelper *ctk_source_pixbuf_helper_new (void);
 
 G_GNUC_INTERNAL
-void gtk_source_pixbuf_helper_free (GtkSourcePixbufHelper *helper);
+void ctk_source_pixbuf_helper_free (GtkSourcePixbufHelper *helper);
 
 G_GNUC_INTERNAL
-void gtk_source_pixbuf_helper_set_pixbuf (GtkSourcePixbufHelper *helper,
+void ctk_source_pixbuf_helper_set_pixbuf (GtkSourcePixbufHelper *helper,
                                           const GdkPixbuf       *pixbuf);
 
 G_GNUC_INTERNAL
-GdkPixbuf *gtk_source_pixbuf_helper_get_pixbuf (GtkSourcePixbufHelper *helper);
+GdkPixbuf *ctk_source_pixbuf_helper_get_pixbuf (GtkSourcePixbufHelper *helper);
 
 G_GNUC_INTERNAL
-void gtk_source_pixbuf_helper_set_icon_name (GtkSourcePixbufHelper *helper,
+void ctk_source_pixbuf_helper_set_icon_name (GtkSourcePixbufHelper *helper,
                                              const gchar           *icon_name);
 
 G_GNUC_INTERNAL
-const gchar *gtk_source_pixbuf_helper_get_icon_name (GtkSourcePixbufHelper *helper);
+const gchar *ctk_source_pixbuf_helper_get_icon_name (GtkSourcePixbufHelper *helper);
 
 G_GNUC_INTERNAL
-void gtk_source_pixbuf_helper_set_gicon (GtkSourcePixbufHelper *helper,
+void ctk_source_pixbuf_helper_set_gicon (GtkSourcePixbufHelper *helper,
                                          GIcon                 *gicon);
 
 G_GNUC_INTERNAL
-GIcon *gtk_source_pixbuf_helper_get_gicon (GtkSourcePixbufHelper *helper);
+GIcon *ctk_source_pixbuf_helper_get_gicon (GtkSourcePixbufHelper *helper);
 
 G_GNUC_INTERNAL
-GdkPixbuf *gtk_source_pixbuf_helper_render (GtkSourcePixbufHelper *helper,
+GdkPixbuf *ctk_source_pixbuf_helper_render (GtkSourcePixbufHelper *helper,
                                             GtkWidget             *widget,
                                             gint                   size);
 

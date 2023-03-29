@@ -19,11 +19,11 @@
  */
 
 #include <gio/gio.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #include <stdlib.h>
 #include <string.h>
-#include <gtksourceview/gtksource.h>
-#include "gtksourceview/gtksourcebufferinputstream.h"
+#include <ctksourceview/ctksource.h>
+#include "ctksourceview/ctksourcebufferinputstream.h"
 
 static void
 test_consecutive_read (const gchar          *inbuf,
@@ -39,11 +39,11 @@ test_consecutive_read (const gchar          *inbuf,
 	gchar *b;
 	gboolean close;
 
-	buf = gtk_text_buffer_new (NULL);
-	gtk_text_buffer_set_text (buf, inbuf, -1);
+	buf = ctk_text_buffer_new (NULL);
+	ctk_text_buffer_set_text (buf, inbuf, -1);
 
 	b = g_malloc (200);
-	in = _gtk_source_buffer_input_stream_new (buf, type, TRUE);
+	in = _ctk_source_buffer_input_stream_new (buf, type, TRUE);
 
 	outlen = strlen (outbuf);
 	n = 0;

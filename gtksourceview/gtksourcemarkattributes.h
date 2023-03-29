@@ -23,15 +23,15 @@
 #define GTK_SOURCE_MARK_ATTRIBUTES_H
 
 #if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
-#error "Only <gtksourceview/gtksource.h> can be included directly."
+#error "Only <ctksourceview/ctksource.h> can be included directly."
 #endif
 
-#include <gtk/gtk.h>
-#include <gtksourceview/gtksourcetypes.h>
+#include <ctk/ctk.h>
+#include <ctksourceview/ctksourcetypes.h>
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_MARK_ATTRIBUTES			(gtk_source_mark_attributes_get_type ())
+#define GTK_SOURCE_TYPE_MARK_ATTRIBUTES			(ctk_source_mark_attributes_get_type ())
 #define GTK_SOURCE_MARK_ATTRIBUTES(obj)			(G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_MARK_ATTRIBUTES, GtkSourceMarkAttributes))
 #define GTK_SOURCE_MARK_ATTRIBUTES_CLASS(klass)		(G_TYPE_CHECK_CLASS_CAST ((klass), GTK_SOURCE_TYPE_MARK_ATTRIBUTES, GtkSourceMarkAttributesClass))
 #define GTK_SOURCE_IS_MARK_ATTRIBUTES(obj)		(G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_SOURCE_TYPE_MARK_ATTRIBUTES))
@@ -60,51 +60,51 @@ struct _GtkSourceMarkAttributesClass
 };
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-GType gtk_source_mark_attributes_get_type (void) G_GNUC_CONST;
+GType ctk_source_mark_attributes_get_type (void) G_GNUC_CONST;
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-GtkSourceMarkAttributes *gtk_source_mark_attributes_new (void);
+GtkSourceMarkAttributes *ctk_source_mark_attributes_new (void);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-void             gtk_source_mark_attributes_set_background      (GtkSourceMarkAttributes *attributes,
+void             ctk_source_mark_attributes_set_background      (GtkSourceMarkAttributes *attributes,
                                                                  const GdkRGBA           *background);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-gboolean         gtk_source_mark_attributes_get_background      (GtkSourceMarkAttributes *attributes,
+gboolean         ctk_source_mark_attributes_get_background      (GtkSourceMarkAttributes *attributes,
                                                                  GdkRGBA                 *background);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-void             gtk_source_mark_attributes_set_icon_name       (GtkSourceMarkAttributes *attributes,
+void             ctk_source_mark_attributes_set_icon_name       (GtkSourceMarkAttributes *attributes,
                                                                  const gchar             *icon_name);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-const gchar     *gtk_source_mark_attributes_get_icon_name       (GtkSourceMarkAttributes *attributes);
+const gchar     *ctk_source_mark_attributes_get_icon_name       (GtkSourceMarkAttributes *attributes);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-void             gtk_source_mark_attributes_set_gicon           (GtkSourceMarkAttributes *attributes,
+void             ctk_source_mark_attributes_set_gicon           (GtkSourceMarkAttributes *attributes,
                                                                  GIcon                   *gicon);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-GIcon           *gtk_source_mark_attributes_get_gicon           (GtkSourceMarkAttributes *attributes);
+GIcon           *ctk_source_mark_attributes_get_gicon           (GtkSourceMarkAttributes *attributes);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-void             gtk_source_mark_attributes_set_pixbuf          (GtkSourceMarkAttributes *attributes,
+void             ctk_source_mark_attributes_set_pixbuf          (GtkSourceMarkAttributes *attributes,
                                                                  const GdkPixbuf         *pixbuf);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-const GdkPixbuf *gtk_source_mark_attributes_get_pixbuf          (GtkSourceMarkAttributes *attributes);
+const GdkPixbuf *ctk_source_mark_attributes_get_pixbuf          (GtkSourceMarkAttributes *attributes);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-const GdkPixbuf *gtk_source_mark_attributes_render_icon         (GtkSourceMarkAttributes *attributes,
+const GdkPixbuf *ctk_source_mark_attributes_render_icon         (GtkSourceMarkAttributes *attributes,
                                                                  GtkWidget               *widget,
                                                                  gint                   size);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-gchar           *gtk_source_mark_attributes_get_tooltip_text    (GtkSourceMarkAttributes *attributes,
+gchar           *ctk_source_mark_attributes_get_tooltip_text    (GtkSourceMarkAttributes *attributes,
                                                                  GtkSourceMark           *mark);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-gchar           *gtk_source_mark_attributes_get_tooltip_markup  (GtkSourceMarkAttributes *attributes,
+gchar           *ctk_source_mark_attributes_get_tooltip_markup  (GtkSourceMarkAttributes *attributes,
                                                                  GtkSourceMark           *mark);
 
 G_END_DECLS

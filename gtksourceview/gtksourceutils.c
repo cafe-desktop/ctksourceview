@@ -33,31 +33,31 @@
 #include <config.h>
 #endif
 
-#include "gtksourceutils.h"
-#include "gtksourceutils-private.h"
+#include "ctksourceutils.h"
+#include "ctksourceutils-private.h"
 #include <string.h>
 #include <errno.h>
 #include <math.h>
 #include <glib/gi18n-lib.h>
 
 /**
- * gtk_source_utils_unescape_search_text:
+ * ctk_source_utils_unescape_search_text:
  * @text: the text to unescape.
  *
- * Use this function before gtk_source_search_settings_set_search_text(), to
+ * Use this function before ctk_source_search_settings_set_search_text(), to
  * unescape the following sequences of characters: `\n`, `\r`, `\t` and `\\`.
  * The purpose is to easily write those characters in a search entry.
  *
  * Note that unescaping the search text is not needed for regular expression
  * searches.
  *
- * See also: gtk_source_utils_escape_search_text().
+ * See also: ctk_source_utils_escape_search_text().
  *
  * Returns: the unescaped @text.
  * Since: 3.10
  */
 gchar *
-gtk_source_utils_unescape_search_text (const gchar *text)
+ctk_source_utils_unescape_search_text (const gchar *text)
 {
 	GString *str;
 	gint length;
@@ -133,7 +133,7 @@ gtk_source_utils_unescape_search_text (const gchar *text)
 }
 
 /**
- * gtk_source_utils_escape_search_text:
+ * ctk_source_utils_escape_search_text:
  * @text: the text to escape.
  *
  * Use this function to escape the following characters: `\n`, `\r`, `\t` and `\`.
@@ -144,7 +144,7 @@ gtk_source_utils_unescape_search_text (const gchar *text)
  * search entry. The selection can contain tabulations, newlines, etc. So it's
  * better to escape those special characters to better fit in the search entry.
  *
- * See also: gtk_source_utils_unescape_search_text().
+ * See also: ctk_source_utils_unescape_search_text().
  *
  * <warning>
  * Warning: the escape and unescape functions are not reciprocal! For example,
@@ -157,7 +157,7 @@ gtk_source_utils_unescape_search_text (const gchar *text)
  * Since: 3.10
  */
 gchar *
-gtk_source_utils_escape_search_text (const gchar* text)
+ctk_source_utils_escape_search_text (const gchar* text)
 {
 	GString *str;
 	gint length;
@@ -205,10 +205,10 @@ gtk_source_utils_escape_search_text (const gchar* text)
 	return g_string_free (str, FALSE);
 }
 
-#define GSV_DATA_SUBDIR "gtksourceview-" GSV_API_VERSION_S
+#define GSV_DATA_SUBDIR "ctksourceview-" GSV_API_VERSION_S
 
 gchar **
-_gtk_source_utils_get_default_dirs (const gchar *basename)
+_ctk_source_utils_get_default_dirs (const gchar *basename)
 {
 	const gchar * const *system_dirs;
 	GPtrArray *dirs;
@@ -280,7 +280,7 @@ build_file_listing (const gchar *item,
 }
 
 GSList *
-_gtk_source_utils_get_file_list (gchar       **path,
+_ctk_source_utils_get_file_list (gchar       **path,
 				 const gchar  *suffix,
 				 gboolean      only_dirs)
 {
@@ -300,7 +300,7 @@ _gtk_source_utils_get_file_list (gchar       **path,
  * (e.g. \%{1@start} or \%{blah@start}) are named or numbers.
  */
 gint
-_gtk_source_utils_string_to_int (const gchar *str)
+_ctk_source_utils_string_to_int (const gchar *str)
 {
 	guint64 number;
 	gchar *end_str;
@@ -329,7 +329,7 @@ _gtk_source_utils_string_to_int (const gchar *str)
 #define FONT_SIZE    "font-size"
 
 gchar *
-_gtk_source_utils_pango_font_description_to_css (const PangoFontDescription *font_desc)
+_ctk_source_utils_pango_font_description_to_css (const PangoFontDescription *font_desc)
 {
 	PangoFontMask mask;
 	GString *str;
@@ -432,7 +432,7 @@ _gtk_source_utils_pango_font_description_to_css (const PangoFontDescription *fon
 		 *
 		 * font-weight with numbers does not appear to be working as expected
 		 * right now. So for the common (bold/normal), let's just use the string
-		 * and let gtk warn for the other values, which shouldn't really be
+		 * and let ctk warn for the other values, which shouldn't really be
 		 * used for this.
 		 */
 
@@ -528,13 +528,13 @@ _gtk_source_utils_pango_font_description_to_css (const PangoFontDescription *fon
 }
 
 /*
- * _gtk_source_utils_dgettext:
+ * _ctk_source_utils_dgettext:
  *
  * Try to translate string from given domain. It returns
  * duplicated string which must be freed with g_free().
  */
 gchar *
-_gtk_source_utils_dgettext (const gchar *domain,
+_ctk_source_utils_dgettext (const gchar *domain,
 			    const gchar *string)
 {
 	const gchar *translated;
@@ -564,7 +564,7 @@ _gtk_source_utils_dgettext (const gchar *domain,
 }
 
 /*
- * _gtk_source_utils_int_to_string:
+ * _ctk_source_utils_int_to_string:
  * @value: the integer to convert to a string
  * @outstr: (out): a location for a pointer to the result string
  *
@@ -583,7 +583,7 @@ _gtk_source_utils_dgettext (const gchar *domain,
  * Returns: the number of characters in the resulting string
  */
 gint
-_gtk_source_utils_int_to_string (guint         value,
+_ctk_source_utils_int_to_string (guint         value,
                                  const gchar **outstr)
 {
 	static struct{
@@ -649,15 +649,15 @@ _gtk_source_utils_int_to_string (guint         value,
 }
 
 /*
- * The goal of this function is to be like gtk_text_view_scroll_to_iter() but
+ * The goal of this function is to be like ctk_text_view_scroll_to_iter() but
  * without any of the scrolling animation. We use it from the source map where
  * the updates are so fast the scrolling animation makes it feel very delayed.
  *
- * Many parts of this function were taken from gtk_text_view_scroll_to_iter ()
- * https://developer.gnome.org/gtk3/stable/GtkTextView.html#gtk-text-view-scroll-to-iter
+ * Many parts of this function were taken from ctk_text_view_scroll_to_iter ()
+ * https://developer.gnome.org/ctk3/stable/GtkTextView.html#ctk-text-view-scroll-to-iter
  */
 void
-_gtk_source_view_jump_to_iter (GtkTextView       *text_view,
+_ctk_source_view_jump_to_iter (GtkTextView       *text_view,
                                const GtkTextIter *iter,
                                double             within_margin,
                                gboolean           use_align,
@@ -684,11 +684,11 @@ _gtk_source_view_jump_to_iter (GtkTextView       *text_view,
   g_return_if_fail (xalign >= 0.0 && xalign <= 1.0);
   g_return_if_fail (yalign >= 0.0 && yalign <= 1.0);
 
-  hadj = gtk_scrollable_get_hadjustment (GTK_SCROLLABLE (text_view));
-  vadj = gtk_scrollable_get_vadjustment (GTK_SCROLLABLE (text_view));
+  hadj = ctk_scrollable_get_hadjustment (GTK_SCROLLABLE (text_view));
+  vadj = ctk_scrollable_get_vadjustment (GTK_SCROLLABLE (text_view));
 
-  gtk_text_view_get_iter_location (text_view, iter, &rect);
-  gtk_text_view_get_visible_rect (text_view, &screen);
+  ctk_text_view_get_iter_location (text_view, iter, &rect);
+  ctk_text_view_get_visible_rect (text_view, &screen);
 
   current_x_scroll = screen.x;
   current_y_scroll = screen.y;
@@ -777,6 +777,6 @@ _gtk_source_view_jump_to_iter (GtkTextView       *text_view,
     }
   xvalue += current_x_scroll;
 
-  gtk_adjustment_set_value (hadj, xvalue);
-  gtk_adjustment_set_value (vadj, yvalue);
+  ctk_adjustment_set_value (hadj, xvalue);
+  ctk_adjustment_set_value (vadj, yvalue);
 }

@@ -20,7 +20,7 @@
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <gtksourceview/gtksource.h>
+#include <ctksourceview/ctksource.h>
 
 static void
 test_weak_ref (void)
@@ -31,22 +31,22 @@ test_weak_ref (void)
 	GtkTextIter start;
 	GtkTextIter end;
 
-	buffer = gtk_text_buffer_new (NULL);
-	region = gtk_source_region_new (buffer);
+	buffer = ctk_text_buffer_new (NULL);
+	region = ctk_source_region_new (buffer);
 
-	gtk_text_buffer_set_text (buffer, "test_weak_ref", -1);
-	gtk_text_buffer_get_bounds (buffer, &start, &end);
-	gtk_source_region_add_subregion (region, &start, &end);
+	ctk_text_buffer_set_text (buffer, "test_weak_ref", -1);
+	ctk_text_buffer_get_bounds (buffer, &start, &end);
+	ctk_source_region_add_subregion (region, &start, &end);
 
-	g_assert_false (gtk_source_region_is_empty (region));
+	g_assert_false (ctk_source_region_is_empty (region));
 
 	g_object_unref (buffer);
 
-	g_assert_true (gtk_source_region_is_empty (region));
-	g_assert_false (gtk_source_region_get_bounds (region, &start, &end));
+	g_assert_true (ctk_source_region_is_empty (region));
+	g_assert_false (ctk_source_region_get_bounds (region, &start, &end));
 
-	gtk_source_region_get_start_region_iter (region, &region_iter);
-	g_assert_false (gtk_source_region_iter_get_subregion (&region_iter, &start, &end));
+	ctk_source_region_get_start_region_iter (region, &region_iter);
+	g_assert_false (ctk_source_region_iter_get_subregion (&region_iter, &start, &end));
 
 	g_object_unref (region);
 }
@@ -60,11 +60,11 @@ add_subregion (GtkSourceRegion *region,
 	GtkTextIter start_iter;
 	GtkTextIter end_iter;
 
-	buffer = gtk_source_region_get_buffer (region);
-	gtk_text_buffer_get_iter_at_offset (buffer, &start_iter, start_offset);
-	gtk_text_buffer_get_iter_at_offset (buffer, &end_iter, end_offset);
+	buffer = ctk_source_region_get_buffer (region);
+	ctk_text_buffer_get_iter_at_offset (buffer, &start_iter, start_offset);
+	ctk_text_buffer_get_iter_at_offset (buffer, &end_iter, end_offset);
 
-	gtk_source_region_add_subregion (region, &start_iter, &end_iter);
+	ctk_source_region_add_subregion (region, &start_iter, &end_iter);
 }
 
 static void
@@ -76,11 +76,11 @@ subtract_subregion (GtkSourceRegion *region,
 	GtkTextIter start_iter;
 	GtkTextIter end_iter;
 
-	buffer = gtk_source_region_get_buffer (region);
-	gtk_text_buffer_get_iter_at_offset (buffer, &start_iter, start_offset);
-	gtk_text_buffer_get_iter_at_offset (buffer, &end_iter, end_offset);
+	buffer = ctk_source_region_get_buffer (region);
+	ctk_text_buffer_get_iter_at_offset (buffer, &start_iter, start_offset);
+	ctk_text_buffer_get_iter_at_offset (buffer, &end_iter, end_offset);
 
-	gtk_source_region_subtract_subregion (region, &start_iter, &end_iter);
+	ctk_source_region_subtract_subregion (region, &start_iter, &end_iter);
 }
 
 static void
@@ -92,14 +92,14 @@ check_result (GtkSourceRegion *region,
 
 	if (expected_result == NULL)
 	{
-		g_assert_true (gtk_source_region_is_empty (region));
+		g_assert_true (ctk_source_region_is_empty (region));
 		return;
 	}
 
-	g_assert_false (gtk_source_region_is_empty (region));
+	g_assert_false (ctk_source_region_is_empty (region));
 
 	expected_region_str = g_strconcat ("Subregions: ", expected_result, NULL);
-	region_str = gtk_source_region_to_string (region);
+	region_str = ctk_source_region_to_string (region);
 	g_assert_cmpstr (region_str, ==, expected_region_str);
 
 	g_free (expected_region_str);
@@ -112,18 +112,18 @@ test_add_subtract_subregion (void)
 	GtkTextBuffer *buffer;
 	GtkSourceRegion *region;
 
-	buffer = gtk_text_buffer_new (NULL);
-	region = gtk_source_region_new (buffer);
+	buffer = ctk_text_buffer_new (NULL);
+	region = ctk_source_region_new (buffer);
 
-	gtk_text_buffer_set_text (buffer, "This is a test of GtkSourceRegion", -1);
+	ctk_text_buffer_set_text (buffer, "This is a test of GtkSourceRegion", -1);
 
-	g_assert_true (gtk_source_region_is_empty (region));
+	g_assert_true (ctk_source_region_is_empty (region));
 
 	/* Add/remove 0-length subregions */
 	add_subregion (region, 5, 5);
-	g_assert_true (gtk_source_region_is_empty (region));
+	g_assert_true (ctk_source_region_is_empty (region));
 	subtract_subregion (region, 5, 5);
-	g_assert_true (gtk_source_region_is_empty (region));
+	g_assert_true (ctk_source_region_is_empty (region));
 
 	/* Add subregion */
 	add_subregion (region, 5, 10);
@@ -138,7 +138,7 @@ test_add_subtract_subregion (void)
 
 	/* Remove all */
 	subtract_subregion (region, 1, 15);
-	g_assert_true (gtk_source_region_is_empty (region));
+	g_assert_true (ctk_source_region_is_empty (region));
 
 	/* Add two separate subregions */
 	add_subregion (region, 5, 10);
@@ -218,11 +218,11 @@ do_intersection_subregion (GtkSourceRegion *region,
 	GtkTextIter end_iter;
 	GtkSourceRegion *intersection;
 
-	buffer = gtk_source_region_get_buffer (region);
-	gtk_text_buffer_get_iter_at_offset (buffer, &start_iter, start_offset);
-	gtk_text_buffer_get_iter_at_offset (buffer, &end_iter, end_offset);
+	buffer = ctk_source_region_get_buffer (region);
+	ctk_text_buffer_get_iter_at_offset (buffer, &start_iter, start_offset);
+	ctk_text_buffer_get_iter_at_offset (buffer, &end_iter, end_offset);
 
-	intersection = gtk_source_region_intersect_subregion (region, &start_iter, &end_iter);
+	intersection = ctk_source_region_intersect_subregion (region, &start_iter, &end_iter);
 	check_result (intersection, expected_result);
 	g_clear_object (&intersection);
 }
@@ -233,12 +233,12 @@ test_intersect_subregion (void)
 	GtkTextBuffer *buffer;
 	GtkSourceRegion *region;
 
-	buffer = gtk_text_buffer_new (NULL);
-	region = gtk_source_region_new (buffer);
+	buffer = ctk_text_buffer_new (NULL);
+	region = ctk_source_region_new (buffer);
 
-	gtk_text_buffer_set_text (buffer, "This is a test of GtkSourceRegion", -1);
+	ctk_text_buffer_set_text (buffer, "This is a test of GtkSourceRegion", -1);
 
-	g_assert_true (gtk_source_region_is_empty (region));
+	g_assert_true (ctk_source_region_is_empty (region));
 
 	add_subregion (region, 0, 2);
 	add_subregion (region, 10, 15);
@@ -264,32 +264,32 @@ test_add_subtract_intersect_region (void)
 	GtkSourceRegion *region_to_subtract = NULL;
 	GtkSourceRegion *intersection = NULL;
 
-	buffer = gtk_text_buffer_new (NULL);
-	main_region = gtk_source_region_new (buffer);
+	buffer = ctk_text_buffer_new (NULL);
+	main_region = ctk_source_region_new (buffer);
 
-	gtk_text_buffer_set_text (buffer, "This is a test of GtkSourceRegion", -1);
+	ctk_text_buffer_set_text (buffer, "This is a test of GtkSourceRegion", -1);
 
-	g_assert_true (gtk_source_region_is_empty (main_region));
+	g_assert_true (ctk_source_region_is_empty (main_region));
 
 	/* Basic tests */
 
-	region_to_add = gtk_source_region_new (buffer);
+	region_to_add = ctk_source_region_new (buffer);
 	add_subregion (region_to_add, 0, 5);
 	add_subregion (region_to_add, 10, 15);
 	check_result (region_to_add, "0-5 10-15");
-	gtk_source_region_add_region (main_region, region_to_add);
+	ctk_source_region_add_region (main_region, region_to_add);
 	check_result (main_region, "0-5 10-15");
 
-	region_to_subtract = gtk_source_region_new (buffer);
+	region_to_subtract = ctk_source_region_new (buffer);
 	add_subregion (region_to_subtract, 2, 3);
 	add_subregion (region_to_subtract, 10, 15);
-	gtk_source_region_subtract_region (main_region, region_to_subtract);
+	ctk_source_region_subtract_region (main_region, region_to_subtract);
 	check_result (main_region, "0-2 3-5");
 
 	add_subregion (main_region, 20, 25);
 	check_result (main_region, "0-2 3-5 20-25");
 	check_result (region_to_add, "0-5 10-15");
-	intersection = gtk_source_region_intersect_region (main_region, region_to_add);
+	intersection = ctk_source_region_intersect_region (main_region, region_to_add);
 	check_result (intersection, "0-2 3-5");
 
 	g_object_unref (buffer);
@@ -302,7 +302,7 @@ test_add_subtract_intersect_region (void)
 int
 main (int argc, char **argv)
 {
-	gtk_test_init (&argc, &argv);
+	ctk_test_init (&argc, &argv);
 
 	g_test_add_func ("/Region/weak-ref", test_weak_ref);
 	g_test_add_func ("/Region/add-subtract-subregion", test_add_subtract_subregion);

@@ -2,7 +2,7 @@
 # since we may not have permissions to do it, for instance if
 # compiling with a prefix while glade is installed in /usr.
 # We use the variable only to find the dtd file.
-# If you install gtksourceview and glade in different prefixes
+# If you install ctksourceview and glade in different prefixes
 # and want to use the catalog in glade, you will need to set
 # the GLADE_CATALOG_SEARCH_PATH environment variable.
 
@@ -10,8 +10,8 @@ catalog_in = configuration_data()
 catalog_in.set('GSV_API_VERSION', api_version)
 
 catalog_xml = configure_file(
-          input: 'gtksourceview.xml.in',
-         output: 'gtksourceview.xml',
+          input: 'ctksourceview.xml.in',
+         output: 'ctksourceview.xml',
   configuration: catalog_in,
     install_dir: join_paths(datadir, 'glade', 'catalogs')
 )

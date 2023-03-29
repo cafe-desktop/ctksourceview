@@ -22,8 +22,8 @@
 #include <config.h>
 #endif
 
-#include "gtksourcestyleschemechooser.h"
-#include "gtksourcestylescheme.h"
+#include "ctksourcestyleschemechooser.h"
+#include "ctksourcestylescheme.h"
 
 /**
  * SECTION:styleschemechooser
@@ -40,10 +40,10 @@
  * Since: 3.16
  */
 
-G_DEFINE_INTERFACE (GtkSourceStyleSchemeChooser, gtk_source_style_scheme_chooser, G_TYPE_OBJECT);
+G_DEFINE_INTERFACE (GtkSourceStyleSchemeChooser, ctk_source_style_scheme_chooser, G_TYPE_OBJECT);
 
 static void
-gtk_source_style_scheme_chooser_default_init (GtkSourceStyleSchemeChooserInterface *iface)
+ctk_source_style_scheme_chooser_default_init (GtkSourceStyleSchemeChooserInterface *iface)
 {
 	/**
 	 * GtkSourceStyleSchemeChooser:style-scheme:
@@ -63,7 +63,7 @@ gtk_source_style_scheme_chooser_default_init (GtkSourceStyleSchemeChooserInterfa
 }
 
 /**
- * gtk_source_style_scheme_chooser_get_style_scheme:
+ * ctk_source_style_scheme_chooser_get_style_scheme:
  * @chooser: a #GtkSourceStyleSchemeChooser
  *
  * Gets the currently-selected scheme.
@@ -73,7 +73,7 @@ gtk_source_style_scheme_chooser_default_init (GtkSourceStyleSchemeChooserInterfa
  * Since: 3.16
  */
 GtkSourceStyleScheme *
-gtk_source_style_scheme_chooser_get_style_scheme (GtkSourceStyleSchemeChooser *chooser)
+ctk_source_style_scheme_chooser_get_style_scheme (GtkSourceStyleSchemeChooser *chooser)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_STYLE_SCHEME_CHOOSER (chooser), NULL);
 
@@ -81,7 +81,7 @@ gtk_source_style_scheme_chooser_get_style_scheme (GtkSourceStyleSchemeChooser *c
 }
 
 /**
- * gtk_source_style_scheme_chooser_set_style_scheme:
+ * ctk_source_style_scheme_chooser_set_style_scheme:
  * @chooser: a #GtkSourceStyleSchemeChooser
  * @scheme: a #GtkSourceStyleScheme
  *
@@ -90,7 +90,7 @@ gtk_source_style_scheme_chooser_get_style_scheme (GtkSourceStyleSchemeChooser *c
  * Since: 3.16
  */
 void
-gtk_source_style_scheme_chooser_set_style_scheme (GtkSourceStyleSchemeChooser *chooser,
+ctk_source_style_scheme_chooser_set_style_scheme (GtkSourceStyleSchemeChooser *chooser,
                                                   GtkSourceStyleScheme        *scheme)
 {
 	g_return_if_fail (GTK_SOURCE_IS_STYLE_SCHEME_CHOOSER (chooser));

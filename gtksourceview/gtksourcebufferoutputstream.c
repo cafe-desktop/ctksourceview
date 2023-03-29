@@ -23,14 +23,14 @@
 #include <config.h>
 #endif
 
-#include "gtksourcebufferoutputstream.h"
+#include "ctksourcebufferoutputstream.h"
 #include <string.h>
 #include <errno.h>
 #include <glib/gi18n-lib.h>
-#include "gtksourcebuffer.h"
-#include "gtksourcebuffer-private.h"
-#include "gtksourceencoding.h"
-#include "gtksourcefileloader.h"
+#include "ctksourcebuffer.h"
+#include "ctksourcebuffer-private.h"
+#include "ctksourceencoding.h"
+#include "ctksourcefileloader.h"
 
 /* NOTE: never use async methods on this stream, the stream is just
  * a wrapper around GtkTextBuffer api so that we can use GIO Stream
@@ -94,24 +94,24 @@ enum
 	PROP_REMOVE_TRAILING_NEWLINE
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceBufferOutputStream, gtk_source_buffer_output_stream, G_TYPE_OUTPUT_STREAM)
+G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceBufferOutputStream, ctk_source_buffer_output_stream, G_TYPE_OUTPUT_STREAM)
 
-static gssize gtk_source_buffer_output_stream_write   (GOutputStream  *stream,
+static gssize ctk_source_buffer_output_stream_write   (GOutputStream  *stream,
 						       const void     *buffer,
 						       gsize           count,
 						       GCancellable   *cancellable,
 						       GError        **error);
 
-static gboolean gtk_source_buffer_output_stream_close (GOutputStream  *stream,
+static gboolean ctk_source_buffer_output_stream_close (GOutputStream  *stream,
 						       GCancellable   *cancellable,
 						       GError        **error);
 
-static gboolean gtk_source_buffer_output_stream_flush (GOutputStream  *stream,
+static gboolean ctk_source_buffer_output_stream_flush (GOutputStream  *stream,
 						       GCancellable   *cancellable,
 						       GError        **error);
 
 static void
-gtk_source_buffer_output_stream_set_property (GObject      *object,
+ctk_source_buffer_output_stream_set_property (GObject      *object,
 					      guint         prop_id,
 					      const GValue *value,
 					      GParamSpec   *pspec)
@@ -136,7 +136,7 @@ gtk_source_buffer_output_stream_set_property (GObject      *object,
 }
 
 static void
-gtk_source_buffer_output_stream_get_property (GObject    *object,
+ctk_source_buffer_output_stream_get_property (GObject    *object,
 					      guint       prop_id,
 					      GValue     *value,
 					      GParamSpec *pspec)
@@ -160,18 +160,18 @@ gtk_source_buffer_output_stream_get_property (GObject    *object,
 }
 
 static void
-gtk_source_buffer_output_stream_dispose (GObject *object)
+ctk_source_buffer_output_stream_dispose (GObject *object)
 {
 	GtkSourceBufferOutputStream *stream = GTK_SOURCE_BUFFER_OUTPUT_STREAM (object);
 
 	g_clear_object (&stream->priv->source_buffer);
 	g_clear_object (&stream->priv->charset_conv);
 
-	G_OBJECT_CLASS (gtk_source_buffer_output_stream_parent_class)->dispose (object);
+	G_OBJECT_CLASS (ctk_source_buffer_output_stream_parent_class)->dispose (object);
 }
 
 static void
-gtk_source_buffer_output_stream_finalize (GObject *object)
+ctk_source_buffer_output_stream_finalize (GObject *object)
 {
 	GtkSourceBufferOutputStream *stream = GTK_SOURCE_BUFFER_OUTPUT_STREAM (object);
 
@@ -179,11 +179,11 @@ gtk_source_buffer_output_stream_finalize (GObject *object)
 	g_free (stream->priv->iconv_buffer);
 	g_slist_free (stream->priv->encodings);
 
-	G_OBJECT_CLASS (gtk_source_buffer_output_stream_parent_class)->finalize (object);
+	G_OBJECT_CLASS (ctk_source_buffer_output_stream_parent_class)->finalize (object);
 }
 
 static void
-gtk_source_buffer_output_stream_constructed (GObject *object)
+ctk_source_buffer_output_stream_constructed (GObject *object)
 {
 	GtkSourceBufferOutputStream *stream = GTK_SOURCE_BUFFER_OUTPUT_STREAM (object);
 
@@ -193,31 +193,31 @@ gtk_source_buffer_output_stream_constructed (GObject *object)
 		return;
 	}
 
-	gtk_source_buffer_begin_not_undoable_action (stream->priv->source_buffer);
+	ctk_source_buffer_begin_not_undoable_action (stream->priv->source_buffer);
 
-	gtk_text_buffer_set_text (GTK_TEXT_BUFFER (stream->priv->source_buffer), "", 0);
-	gtk_text_buffer_set_modified (GTK_TEXT_BUFFER (stream->priv->source_buffer), FALSE);
+	ctk_text_buffer_set_text (GTK_TEXT_BUFFER (stream->priv->source_buffer), "", 0);
+	ctk_text_buffer_set_modified (GTK_TEXT_BUFFER (stream->priv->source_buffer), FALSE);
 
-	gtk_source_buffer_end_not_undoable_action (stream->priv->source_buffer);
+	ctk_source_buffer_end_not_undoable_action (stream->priv->source_buffer);
 
-	G_OBJECT_CLASS (gtk_source_buffer_output_stream_parent_class)->constructed (object);
+	G_OBJECT_CLASS (ctk_source_buffer_output_stream_parent_class)->constructed (object);
 }
 
 static void
-gtk_source_buffer_output_stream_class_init (GtkSourceBufferOutputStreamClass *klass)
+ctk_source_buffer_output_stream_class_init (GtkSourceBufferOutputStreamClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 	GOutputStreamClass *stream_class = G_OUTPUT_STREAM_CLASS (klass);
 
-	object_class->get_property = gtk_source_buffer_output_stream_get_property;
-	object_class->set_property = gtk_source_buffer_output_stream_set_property;
-	object_class->dispose = gtk_source_buffer_output_stream_dispose;
-	object_class->finalize = gtk_source_buffer_output_stream_finalize;
-	object_class->constructed = gtk_source_buffer_output_stream_constructed;
+	object_class->get_property = ctk_source_buffer_output_stream_get_property;
+	object_class->set_property = ctk_source_buffer_output_stream_set_property;
+	object_class->dispose = ctk_source_buffer_output_stream_dispose;
+	object_class->finalize = ctk_source_buffer_output_stream_finalize;
+	object_class->constructed = ctk_source_buffer_output_stream_constructed;
 
-	stream_class->write_fn = gtk_source_buffer_output_stream_write;
-	stream_class->close_fn = gtk_source_buffer_output_stream_close;
-	stream_class->flush = gtk_source_buffer_output_stream_flush;
+	stream_class->write_fn = ctk_source_buffer_output_stream_write;
+	stream_class->close_fn = ctk_source_buffer_output_stream_close;
+	stream_class->flush = ctk_source_buffer_output_stream_flush;
 
 	g_object_class_install_property (object_class,
 					 PROP_BUFFER,
@@ -241,9 +241,9 @@ gtk_source_buffer_output_stream_class_init (GtkSourceBufferOutputStreamClass *kl
 }
 
 static void
-gtk_source_buffer_output_stream_init (GtkSourceBufferOutputStream *stream)
+ctk_source_buffer_output_stream_init (GtkSourceBufferOutputStream *stream)
 {
-	stream->priv = gtk_source_buffer_output_stream_get_instance_private (stream);
+	stream->priv = ctk_source_buffer_output_stream_get_instance_private (stream);
 
 	stream->priv->buffer = NULL;
 	stream->priv->buflen = 0;
@@ -392,10 +392,10 @@ guess_encoding (GtkSourceBufferOutputStream *stream,
 
 		DEBUG ({
 		       g_print ("trying charset: %s\n",
-				gtk_source_encoding_get_charset (stream->priv->current_encoding->data));
+				ctk_source_encoding_get_charset (stream->priv->current_encoding->data));
 		});
 
-		if (enc == gtk_source_encoding_get_utf8 ())
+		if (enc == ctk_source_encoding_get_utf8 ())
 		{
 			gsize remainder;
 			const gchar *end;
@@ -419,7 +419,7 @@ guess_encoding (GtkSourceBufferOutputStream *stream,
 		}
 
 		conv = g_charset_converter_new ("UTF-8",
-						gtk_source_encoding_get_charset (enc),
+						ctk_source_encoding_get_charset (enc),
 						NULL);
 
 		/* If we tried all encodings we use the first one */
@@ -451,12 +451,12 @@ get_newline_type (GtkTextIter *end)
 	gunichar c;
 
 	copy = *end;
-	c = gtk_text_iter_get_char (&copy);
+	c = ctk_text_iter_get_char (&copy);
 
 	if (g_unichar_break_type (c) == G_UNICODE_BREAK_CARRIAGE_RETURN)
 	{
-		if (gtk_text_iter_forward_char (&copy) &&
-		    g_unichar_break_type (gtk_text_iter_get_char (&copy)) == G_UNICODE_BREAK_LINE_FEED)
+		if (ctk_text_iter_forward_char (&copy) &&
+		    g_unichar_break_type (ctk_text_iter_get_char (&copy)) == G_UNICODE_BREAK_LINE_FEED)
 		{
 			res = GTK_SOURCE_NEWLINE_TYPE_CR_LF;
 		}
@@ -474,7 +474,7 @@ get_newline_type (GtkTextIter *end)
 }
 
 GtkSourceBufferOutputStream *
-gtk_source_buffer_output_stream_new (GtkSourceBuffer *buffer,
+ctk_source_buffer_output_stream_new (GtkSourceBuffer *buffer,
 				     GSList          *candidate_encodings,
 				     gboolean         remove_trailing_newline)
 {
@@ -491,7 +491,7 @@ gtk_source_buffer_output_stream_new (GtkSourceBuffer *buffer,
 }
 
 GtkSourceNewlineType
-gtk_source_buffer_output_stream_detect_newline_type (GtkSourceBufferOutputStream *stream)
+ctk_source_buffer_output_stream_detect_newline_type (GtkSourceBufferOutputStream *stream)
 {
 	GtkSourceNewlineType type;
 	GtkTextIter iter;
@@ -506,10 +506,10 @@ gtk_source_buffer_output_stream_detect_newline_type (GtkSourceBufferOutputStream
 
 	type = GTK_SOURCE_NEWLINE_TYPE_DEFAULT;
 
-	gtk_text_buffer_get_start_iter (GTK_TEXT_BUFFER (stream->priv->source_buffer),
+	ctk_text_buffer_get_start_iter (GTK_TEXT_BUFFER (stream->priv->source_buffer),
 					&iter);
 
-	if (gtk_text_iter_ends_line (&iter) || gtk_text_iter_forward_to_line_end (&iter))
+	if (ctk_text_iter_ends_line (&iter) || ctk_text_iter_forward_to_line_end (&iter))
 	{
 		type = get_newline_type (&iter);
 	}
@@ -518,7 +518,7 @@ gtk_source_buffer_output_stream_detect_newline_type (GtkSourceBufferOutputStream
 }
 
 const GtkSourceEncoding *
-gtk_source_buffer_output_stream_get_guessed (GtkSourceBufferOutputStream *stream)
+ctk_source_buffer_output_stream_get_guessed (GtkSourceBufferOutputStream *stream)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_BUFFER_OUTPUT_STREAM (stream), NULL);
 
@@ -531,14 +531,14 @@ gtk_source_buffer_output_stream_get_guessed (GtkSourceBufferOutputStream *stream
 		/* If it is not initialized we assume that we are trying to
 		 * convert the empty string.
 		 */
-		return gtk_source_encoding_get_utf8 ();
+		return ctk_source_encoding_get_utf8 ();
 	}
 
 	return NULL;
 }
 
 guint
-gtk_source_buffer_output_stream_get_num_fallbacks (GtkSourceBufferOutputStream *stream)
+ctk_source_buffer_output_stream_get_num_fallbacks (GtkSourceBufferOutputStream *stream)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_BUFFER_OUTPUT_STREAM (stream), 0);
 
@@ -556,10 +556,10 @@ apply_error_tag (GtkSourceBufferOutputStream *stream)
 		return;
 	}
 
-	gtk_text_buffer_get_iter_at_offset (GTK_TEXT_BUFFER (stream->priv->source_buffer),
+	ctk_text_buffer_get_iter_at_offset (GTK_TEXT_BUFFER (stream->priv->source_buffer),
 	                                    &start, stream->priv->error_offset);
 
-	_gtk_source_buffer_set_as_invalid_character (stream->priv->source_buffer,
+	_ctk_source_buffer_set_as_invalid_character (stream->priv->source_buffer,
 						     &start,
 						     &stream->priv->pos);
 
@@ -588,7 +588,7 @@ insert_fallback (GtkSourceBufferOutputStream *stream,
 	out[2] = hex[(v & 0x0f) >> 0];
 	out[3] = '\0';
 
-	gtk_text_buffer_insert (GTK_TEXT_BUFFER (stream->priv->source_buffer),
+	ctk_text_buffer_insert (GTK_TEXT_BUFFER (stream->priv->source_buffer),
 	                        &stream->priv->pos, (const gchar *)out, 3);
 
 	++stream->priv->n_fallback_errors;
@@ -661,7 +661,7 @@ validate_and_insert (GtkSourceBufferOutputStream *stream,
 				/* make sure the buffer is always properly null
 				 * terminated. This is needed, at least for now,
 				 * to avoid issues with pygobject marshalling of
-				 * the insert-text signal of gtktextbuffer
+				 * the insert-text signal of ctktextbuffer
 				 *
 				 * https://bugzilla.gnome.org/show_bug.cgi?id=726689
 				 */
@@ -680,7 +680,7 @@ validate_and_insert (GtkSourceBufferOutputStream *stream,
 				buffer[nvalid] = '\0';
 			}
 
-			gtk_text_buffer_insert (text_buffer, iter, buffer, nvalid);
+			ctk_text_buffer_insert (text_buffer, iter, buffer, nvalid);
 
 			if (orig_non_null != '\0')
 			{
@@ -710,7 +710,7 @@ validate_and_insert (GtkSourceBufferOutputStream *stream,
 		/* we need the start of the chunk of invalid chars */
 		if (stream->priv->error_offset == -1)
 		{
-			stream->priv->error_offset = gtk_text_iter_get_offset (&stream->priv->pos);
+			stream->priv->error_offset = ctk_text_iter_get_offset (&stream->priv->pos);
 		}
 
 		insert_fallback (stream, buffer);
@@ -732,20 +732,20 @@ remove_trailing_newline (GtkSourceBufferOutputStream *stream)
 		return;
 	}
 
-	gtk_text_buffer_get_end_iter (GTK_TEXT_BUFFER (stream->priv->source_buffer), &end);
+	ctk_text_buffer_get_end_iter (GTK_TEXT_BUFFER (stream->priv->source_buffer), &end);
 	start = end;
 
-	gtk_text_iter_set_line_offset (&start, 0);
+	ctk_text_iter_set_line_offset (&start, 0);
 
-	if (gtk_text_iter_ends_line (&start) &&
-	    gtk_text_iter_backward_line (&start))
+	if (ctk_text_iter_ends_line (&start) &&
+	    ctk_text_iter_backward_line (&start))
 	{
-		if (!gtk_text_iter_ends_line (&start))
+		if (!ctk_text_iter_ends_line (&start))
 		{
-			gtk_text_iter_forward_to_line_end (&start);
+			ctk_text_iter_forward_to_line_end (&start);
 		}
 
-		gtk_text_buffer_delete (GTK_TEXT_BUFFER (stream->priv->source_buffer),
+		ctk_text_buffer_delete (GTK_TEXT_BUFFER (stream->priv->source_buffer),
 		                        &start,
 		                        &end);
 	}
@@ -764,11 +764,11 @@ end_append_text_to_document (GtkSourceBufferOutputStream *stream)
 		remove_trailing_newline (stream);
 	}
 
-	gtk_text_buffer_set_modified (GTK_TEXT_BUFFER (stream->priv->source_buffer),
+	ctk_text_buffer_set_modified (GTK_TEXT_BUFFER (stream->priv->source_buffer),
 	                              FALSE);
 
-	gtk_text_buffer_end_user_action (GTK_TEXT_BUFFER (stream->priv->source_buffer));
-	gtk_source_buffer_end_not_undoable_action (stream->priv->source_buffer);
+	ctk_text_buffer_end_user_action (GTK_TEXT_BUFFER (stream->priv->source_buffer));
+	ctk_source_buffer_end_not_undoable_action (stream->priv->source_buffer);
 }
 
 static gboolean
@@ -874,7 +874,7 @@ convert_text (GtkSourceBufferOutputStream  *stream,
 }
 
 static gssize
-gtk_source_buffer_output_stream_write (GOutputStream  *stream,
+ctk_source_buffer_output_stream_write (GOutputStream  *stream,
 				       const void     *buffer,
 				       gsize           count,
 				       GCancellable   *cancellable,
@@ -950,10 +950,10 @@ gtk_source_buffer_output_stream_write (GOutputStream  *stream,
 		 * as only one action, for the features that rely on the user
 		 * action.
 		 */
-		gtk_source_buffer_begin_not_undoable_action (ostream->priv->source_buffer);
-		gtk_text_buffer_begin_user_action (GTK_TEXT_BUFFER (ostream->priv->source_buffer));
+		ctk_source_buffer_begin_not_undoable_action (ostream->priv->source_buffer);
+		ctk_text_buffer_begin_user_action (GTK_TEXT_BUFFER (ostream->priv->source_buffer));
 
-		gtk_text_buffer_get_start_iter (GTK_TEXT_BUFFER (ostream->priv->source_buffer),
+		ctk_text_buffer_get_start_iter (GTK_TEXT_BUFFER (ostream->priv->source_buffer),
 		                                &ostream->priv->pos);
 
 		ostream->priv->is_initialized = TRUE;
@@ -1063,7 +1063,7 @@ gtk_source_buffer_output_stream_write (GOutputStream  *stream,
 }
 
 static gboolean
-gtk_source_buffer_output_stream_flush (GOutputStream  *stream,
+ctk_source_buffer_output_stream_flush (GOutputStream  *stream,
 				       GCancellable   *cancellable,
 				       GError        **error)
 {
@@ -1102,7 +1102,7 @@ gtk_source_buffer_output_stream_flush (GOutputStream  *stream,
 
 		if (ostream->priv->error_offset == -1)
 		{
-			ostream->priv->error_offset = gtk_text_iter_get_offset (&ostream->priv->pos);
+			ostream->priv->error_offset = ctk_text_iter_get_offset (&ostream->priv->pos);
 		}
 
 		text = ostream->priv->buffer;
@@ -1122,7 +1122,7 @@ gtk_source_buffer_output_stream_flush (GOutputStream  *stream,
 		apply_error_tag (ostream);
 
 		/* See special case above, flush this */
-		gtk_text_buffer_insert (GTK_TEXT_BUFFER (ostream->priv->source_buffer),
+		ctk_text_buffer_insert (GTK_TEXT_BUFFER (ostream->priv->source_buffer),
 		                        &ostream->priv->pos,
 		                        "\r",
 		                        1);
@@ -1140,7 +1140,7 @@ gtk_source_buffer_output_stream_flush (GOutputStream  *stream,
 
 		if (ostream->priv->error_offset == -1)
 		{
-			ostream->priv->error_offset = gtk_text_iter_get_offset (&ostream->priv->pos);
+			ostream->priv->error_offset = ctk_text_iter_get_offset (&ostream->priv->pos);
 		}
 
 		text = ostream->priv->iconv_buffer;
@@ -1161,7 +1161,7 @@ gtk_source_buffer_output_stream_flush (GOutputStream  *stream,
 }
 
 static gboolean
-gtk_source_buffer_output_stream_close (GOutputStream  *stream,
+ctk_source_buffer_output_stream_close (GOutputStream  *stream,
 				       GCancellable   *cancellable,
 				       GError        **error)
 {

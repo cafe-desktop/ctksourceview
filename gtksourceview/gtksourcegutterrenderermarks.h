@@ -21,14 +21,14 @@
 #ifndef GTK_SOURCE_GUTTER_RENDERER_MARKS_H
 #define GTK_SOURCE_GUTTER_RENDERER_MARKS_H
 
-#include <gtk/gtk.h>
-#include "gtksourcetypes.h"
-#include "gtksourcetypes-private.h"
-#include "gtksourcegutterrendererpixbuf.h"
+#include <ctk/ctk.h>
+#include "ctksourcetypes.h"
+#include "ctksourcetypes-private.h"
+#include "ctksourcegutterrendererpixbuf.h"
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_GUTTER_RENDERER_MARKS		(gtk_source_gutter_renderer_marks_get_type ())
+#define GTK_SOURCE_TYPE_GUTTER_RENDERER_MARKS		(ctk_source_gutter_renderer_marks_get_type ())
 #define GTK_SOURCE_GUTTER_RENDERER_MARKS(obj)		(G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_GUTTER_RENDERER_MARKS, GtkSourceGutterRendererMarks))
 #define GTK_SOURCE_GUTTER_RENDERER_MARKS_CONST(obj)	(G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_GUTTER_RENDERER_MARKS, GtkSourceGutterRendererMarks const))
 #define GTK_SOURCE_GUTTER_RENDERER_MARKS_CLASS(klass)	(G_TYPE_CHECK_CLASS_CAST ((klass), GTK_SOURCE_TYPE_GUTTER_RENDERER_MARKS, GtkSourceGutterRendererMarksClass))
@@ -49,10 +49,10 @@ struct _GtkSourceGutterRendererMarksClass
 };
 
 G_GNUC_INTERNAL
-GType gtk_source_gutter_renderer_marks_get_type (void) G_GNUC_CONST;
+GType ctk_source_gutter_renderer_marks_get_type (void) G_GNUC_CONST;
 
 G_GNUC_INTERNAL
-GtkSourceGutterRenderer *gtk_source_gutter_renderer_marks_new (void);
+GtkSourceGutterRenderer *ctk_source_gutter_renderer_marks_new (void);
 
 G_END_DECLS
 

@@ -3,8 +3,8 @@
    "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd"
 [
  <!ENTITY % local.common.attrib "xmlns:xi CDATA #FIXED 'http://www.w3.org/2003/XInclude'">
- <!ENTITY % gtkdocentities SYSTEM "xml/gtkdocentities.ent">
- %gtkdocentities;
+ <!ENTITY % ctkdocentities SYSTEM "xml/ctkdocentities.ent">
+ %ctkdocentities;
 ]>
 <refentry id="lang-reference">
 <refmeta>
@@ -34,16 +34,16 @@ This is an overview of the Language Definition XML format, describing the
 meaning and usage of every element and attribute.  The formal definition is
 stored in the RelaxNG schema file <filename>language2.rng</filename> which
 should be installed on your system in the directory
-<filename>${PREFIX}/share/gtksourceview-@GSV_API_VERSION@/</filename> (where
+<filename>${PREFIX}/share/ctksourceview-@GSV_API_VERSION@/</filename> (where
 <filename>${PREFIX}</filename> can be <filename>/usr/</filename> or
 <filename>/usr/local/</filename> if you have installed from source.
 </para>
 
 <para>
 The preinstalled language files are located in
-<filename>${PREFIX}/share/gtksourceview-@GSV_API_VERSION@/language-specs/</filename>. Custom
+<filename>${PREFIX}/share/ctksourceview-@GSV_API_VERSION@/language-specs/</filename>. Custom
 user languages are usually placed in
-<filename>~/.local/share/gtksourceview-@GSV_API_VERSION@/language-specs/</filename>. Note:
+<filename>~/.local/share/ctksourceview-@GSV_API_VERSION@/language-specs/</filename>. Note:
 replace @GSV_API_VERSION@ with 2.0 or 3.0 in the path for GtkSourceView version
 2 or version 3.
 </para>

@@ -1,7 +1,7 @@
 # translation of el.po to
 # translation of el.po to
 # translation of el.po to Greek
-# Greek translation of gtksourcevie
+# Greek translation of ctksourcevie
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) Free Softwre Foundation, 2003
 # Kostas entire translation
@@ -15,7 +15,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: el\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gtksourceview/issues\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/ctksourceview/issues\n"
 "POT-Creation-Date: 2018-11-12 11:33+0000\n"
 "PO-Revision-Date: 2018-12-25 12:49+0200\n"
 "Last-Translator: Efstathios Iosifidis <iosifidis@opensuse.org>\n"
@@ -131,7 +131,7 @@ msgstr "Σενάριο"
 #. (itstool) path: docbook.lang/language@_section
 #. (itstool) path: dtd.lang/language@_section
 #. (itstool) path: dtl.lang/language@_section
-#. (itstool) path: gtk-doc.lang/language@_section
+#. (itstool) path: ctk-doc.lang/language@_section
 #. (itstool) path: haddock.lang/language@_section
 #. (itstool) path: html.lang/language@_section
 #. (itstool) path: jade.lang/language@_section
@@ -147,7 +147,7 @@ msgstr "Σενάριο"
 #. (itstool) path: texinfo.lang/language@_section
 #. (itstool) path: xml.lang/language@_section
 #. (itstool) path: xslt.lang/language@_section
-#: bibtex.lang:23 docbook.lang:23 dtd.lang:23 dtl.lang:25 gtk-doc.lang:24
+#: bibtex.lang:23 docbook.lang:23 dtd.lang:23 dtl.lang:25 ctk-doc.lang:24
 #: haddock.lang:23 html.lang:24 jade.lang:24 latex.lang:24 mallard.lang:22
 #: markdown.lang:25 mediawiki.lang:22 mxml.lang:23 rst.lang:22 sweave.lang:24
 #: t2t.lang:23 tera.lang:23 texinfo.lang:24 xml.lang:25 xslt.lang:23
@@ -168,7 +168,7 @@ msgstr "Γλώσσα CG Shader"
 #. (itstool) path: dot.lang/language@_section
 #. (itstool) path: dpatch.lang/language@_section
 #. (itstool) path: gdb-log.lang/language@_section
-#. (itstool) path: gtkrc.lang/language@_section
+#. (itstool) path: ctkrc.lang/language@_section
 #. (itstool) path: ini.lang/language@_section
 #. (itstool) path: json.lang/language@_section
 #. (itstool) path: less.lang/language@_section
@@ -186,7 +186,7 @@ msgstr "Γλώσσα CG Shader"
 #. (itstool) path: yacc.lang/language@_section
 #. (itstool) path: yaml.lang/language@_section
 #: changelog.lang:24 cmake.lang:23 css.lang:26 csv.lang:23 desktop.lang:24
-#: diff.lang:23 dot.lang:23 dpatch.lang:23 gdb-log.lang:18 gtkrc.lang:24
+#: diff.lang:23 dot.lang:23 dpatch.lang:23 gdb-log.lang:18 ctkrc.lang:24
 #: ini.lang:22 json.lang:29 less.lang:23 libtool.lang:23 logcat.lang:23
 #: nsis.lang:23 ocl.lang:32 pkgconfig.lang:23 po.lang:23 protobuf.lang:21
 #: puppet.lang:23 rpmspec.lang:24 scss.lang:23 toml.lang:23 yacc.lang:23
@@ -326,57 +326,57 @@ msgstr "Tango"
 msgid "Color scheme using Tango color palette"
 msgstr "Σχήμα χρώματος με χρήση παλέτας χρώματος Tango"
 
-#: gtksourceview/completion-providers/words/gtksourcecompletionwords.c:332
+#: ctksourceview/completion-providers/words/ctksourcecompletionwords.c:332
 msgid "Document Words"
 msgstr "Λέξεις εγγράφων"
 
-#: gtksourceview/gtksourcebufferoutputstream.c:842
+#: ctksourceview/ctksourcebufferoutputstream.c:842
 msgid "Invalid byte sequence in conversion input"
 msgstr "Άκυρη σειρά byte στην είσοδο μετατροπής"
 
-#: gtksourceview/gtksourcebufferoutputstream.c:848
+#: ctksourceview/ctksourcebufferoutputstream.c:848
 #, c-format
 msgid "Error during conversion: %s"
 msgstr "Σφάλμα κατά τη μετατροπή: %s"
 
-#: gtksourceview/gtksourcebufferoutputstream.c:929
+#: ctksourceview/ctksourcebufferoutputstream.c:929
 #, c-format
 msgid "Conversion from character set “%s” to “UTF-8” is not supported"
 msgstr "Δεν υποστηρίζεται η μετατροπή από την ομάδα χαρακτήρων «%s» σε «UTF-8»"
 
-#: gtksourceview/gtksourcebufferoutputstream.c:935
+#: ctksourceview/ctksourcebufferoutputstream.c:935
 #, c-format
 msgid "Could not open converter from “%s” to “UTF-8”"
 msgstr "Αδυναμία ανοίγματος μετατροπέα από «%s» σε «UTF-8»"
 
-#: gtksourceview/gtksourcebufferoutputstream.c:995
+#: ctksourceview/ctksourcebufferoutputstream.c:995
 msgid "Invalid object, not initialized"
 msgstr "Άκυρο αντικείμενο, δεν αρχικοποιήθηκε"
 
-#: gtksourceview/gtksourcebufferoutputstream.c:1187
+#: ctksourceview/ctksourcebufferoutputstream.c:1187
 msgid "Incomplete UTF-8 sequence in input"
 msgstr "Ελλιπής σειρά UTF-8 στην είσοδο"
 
 #. Translators: "All" is used as a label in the status bar of the
 #. popup, telling that all completion pages are shown.
-#: gtksourceview/gtksourcecompletion.c:833
+#: ctksourceview/ctksourcecompletion.c:833
 msgid "All"
 msgstr "Όλα"
 
 #. Tooltip style
-#: gtksourceview/gtksourcecompletioninfo.c:262
+#: ctksourceview/ctksourcecompletioninfo.c:262
 msgid "Completion Info"
 msgstr "Πληροφορίες συμπλήρωσης"
 
-#: gtksourceview/gtksourcecompletionmodel.c:494
+#: ctksourceview/ctksourcecompletionmodel.c:494
 msgid "Provider"
 msgstr "Πάροχος"
 
-#: gtksourceview/gtksourcecompletion.ui:86
+#: ctksourceview/ctksourcecompletion.ui:86
 msgid "Show detailed proposal information"
 msgstr "Εμφάνιση λεπτομερών πληροφοριών των εισηγήσεων"
 
-#: gtksourceview/gtksourcecompletion.ui:88
+#: ctksourceview/ctksourcecompletion.ui:88
 msgid "_Details…"
 msgstr "Λ_επτομέρειες…"
 
@@ -384,7 +384,7 @@ msgstr "Λ_επτομέρειες…"
 #. * named sub-patterns with the same name or if resulting regex is
 #. * too long. In this case fixing lang file helps (e.g. renaming
 #. * subpatterns, making huge keywords use bigger prefixes, etc.)
-#: gtksourceview/gtksourcecontextengine.c:3140
+#: ctksourceview/ctksourcecontextengine.c:3140
 #, c-format
 msgid ""
 "Cannot create a regex for all the transitions, the syntax highlighting "
@@ -395,7 +395,7 @@ msgstr ""
 "επισήμανση σύνταξης θα έχει αρκετή καθυστέρηση.\n"
 "Το σφάλμα ήταν: %s"
 
-#: gtksourceview/gtksourcecontextengine.c:4472
+#: ctksourceview/ctksourcecontextengine.c:4472
 msgid ""
 "Highlighting a single line took too much time, syntax highlighting will be "
 "disabled"
@@ -403,19 +403,19 @@ msgstr ""
 "Η επισήμανση μίας γραμμής διήρκεσε υπερβολικά, η επισήμανση της σύνταξης θα "
 "απενεργοποιηθεί"
 
-#: gtksourceview/gtksourcecontextengine.c:5720
+#: ctksourceview/ctksourcecontextengine.c:5720
 #, c-format
 msgid "context “%s” cannot contain a \\%%{...@start} command"
 msgstr "Το περιεχόμενο «%s» δεν μπορεί να περιέχει μια εντολή \\%%{...@start}"
 
-#: gtksourceview/gtksourcecontextengine.c:5883
-#: gtksourceview/gtksourcecontextengine.c:5973
+#: ctksourceview/ctksourcecontextengine.c:5883
+#: ctksourceview/ctksourcecontextengine.c:5973
 #, c-format
 msgid "duplicated context id “%s”"
 msgstr "Διπλότυπο αναγνωριστικό περιεχομένου «%s»"
 
-#: gtksourceview/gtksourcecontextengine.c:6087
-#: gtksourceview/gtksourcecontextengine.c:6147
+#: ctksourceview/ctksourcecontextengine.c:6087
+#: ctksourceview/ctksourcecontextengine.c:6147
 #, c-format
 msgid ""
 "style override used with wildcard context reference in language “%s” in ref "
@@ -424,135 +424,135 @@ msgstr ""
 "Αντικατάσταση στυλ που χρησιμοπείται με αναφορά περιεχομένου μπαλαντέρ στη "
 "γλώσσα «%s» στην αναφορά «%s» "
 
-#: gtksourceview/gtksourcecontextengine.c:6161
+#: ctksourceview/ctksourcecontextengine.c:6161
 #, c-format
 msgid "invalid context reference “%s”"
 msgstr "Άκυρη αναφορά περιεχομένου «%s»"
 
-#: gtksourceview/gtksourcecontextengine.c:6180
-#: gtksourceview/gtksourcecontextengine.c:6190
+#: ctksourceview/ctksourcecontextengine.c:6180
+#: ctksourceview/ctksourcecontextengine.c:6190
 #, c-format
 msgid "unknown context “%s”"
 msgstr "Άγνωστο περιεχόμενο «%s»"
 
-#: gtksourceview/gtksourcecontextengine.c:6289
+#: ctksourceview/ctksourcecontextengine.c:6289
 #, c-format
 msgid "Missing main language definition (id = \"%s\".)"
 msgstr "Λείπει ο ορισμός κύριας γλώσσας (id = \"%s\".)"
 
-#: gtksourceview/gtksourceencoding.c:146 gtksourceview/gtksourceencoding.c:189
-#: gtksourceview/gtksourceencoding.c:191 gtksourceview/gtksourceencoding.c:193
-#: gtksourceview/gtksourceencoding.c:195 gtksourceview/gtksourceencoding.c:197
-#: gtksourceview/gtksourceencoding.c:199 gtksourceview/gtksourceencoding.c:201
+#: ctksourceview/ctksourceencoding.c:146 ctksourceview/ctksourceencoding.c:189
+#: ctksourceview/ctksourceencoding.c:191 ctksourceview/ctksourceencoding.c:193
+#: ctksourceview/ctksourceencoding.c:195 ctksourceview/ctksourceencoding.c:197
+#: ctksourceview/ctksourceencoding.c:199 ctksourceview/ctksourceencoding.c:201
 msgid "Unicode"
 msgstr "Unicode"
 
-#: gtksourceview/gtksourceencoding.c:160 gtksourceview/gtksourceencoding.c:184
-#: gtksourceview/gtksourceencoding.c:234 gtksourceview/gtksourceencoding.c:277
+#: ctksourceview/ctksourceencoding.c:160 ctksourceview/ctksourceencoding.c:184
+#: ctksourceview/ctksourceencoding.c:234 ctksourceview/ctksourceencoding.c:277
 msgid "Western"
 msgstr "Δυτική"
 
-#: gtksourceview/gtksourceencoding.c:162 gtksourceview/gtksourceencoding.c:236
-#: gtksourceview/gtksourceencoding.c:273
+#: ctksourceview/ctksourceencoding.c:162 ctksourceview/ctksourceencoding.c:236
+#: ctksourceview/ctksourceencoding.c:273
 msgid "Central European"
 msgstr "Κεντρικής Ευρώπης"
 
-#: gtksourceview/gtksourceencoding.c:164
+#: ctksourceview/ctksourceencoding.c:164
 msgid "South European"
 msgstr "Νότιας Ευρώπης"
 
-#: gtksourceview/gtksourceencoding.c:166 gtksourceview/gtksourceencoding.c:180
-#: gtksourceview/gtksourceencoding.c:287
+#: ctksourceview/ctksourceencoding.c:166 ctksourceview/ctksourceencoding.c:180
+#: ctksourceview/ctksourceencoding.c:287
 msgid "Baltic"
 msgstr "Βαλτικά"
 
-#: gtksourceview/gtksourceencoding.c:168 gtksourceview/gtksourceencoding.c:238
-#: gtksourceview/gtksourceencoding.c:251 gtksourceview/gtksourceencoding.c:255
-#: gtksourceview/gtksourceencoding.c:257 gtksourceview/gtksourceencoding.c:275
+#: ctksourceview/ctksourceencoding.c:168 ctksourceview/ctksourceencoding.c:238
+#: ctksourceview/ctksourceencoding.c:251 ctksourceview/ctksourceencoding.c:255
+#: ctksourceview/ctksourceencoding.c:257 ctksourceview/ctksourceencoding.c:275
 msgid "Cyrillic"
 msgstr "Κυριλλικά"
 
-#: gtksourceview/gtksourceencoding.c:170 gtksourceview/gtksourceencoding.c:244
-#: gtksourceview/gtksourceencoding.c:285
+#: ctksourceview/ctksourceencoding.c:170 ctksourceview/ctksourceencoding.c:244
+#: ctksourceview/ctksourceencoding.c:285
 msgid "Arabic"
 msgstr "Αραβικά"
 
-#: gtksourceview/gtksourceencoding.c:172 gtksourceview/gtksourceencoding.c:279
+#: ctksourceview/ctksourceencoding.c:172 ctksourceview/ctksourceencoding.c:279
 msgid "Greek"
 msgstr "Ελληνικά"
 
-#: gtksourceview/gtksourceencoding.c:174
+#: ctksourceview/ctksourceencoding.c:174
 msgid "Hebrew Visual"
 msgstr "Οπτικά εβραϊκά"
 
-#: gtksourceview/gtksourceencoding.c:176 gtksourceview/gtksourceencoding.c:240
-#: gtksourceview/gtksourceencoding.c:281
+#: ctksourceview/ctksourceencoding.c:176 ctksourceview/ctksourceencoding.c:240
+#: ctksourceview/ctksourceencoding.c:281
 msgid "Turkish"
 msgstr "Τουρκικά"
 
-#: gtksourceview/gtksourceencoding.c:178
+#: ctksourceview/ctksourceencoding.c:178
 msgid "Nordic"
 msgstr "Σκανδιναβικά"
 
-#: gtksourceview/gtksourceencoding.c:182
+#: ctksourceview/ctksourceencoding.c:182
 msgid "Celtic"
 msgstr "Κέλτικα"
 
-#: gtksourceview/gtksourceencoding.c:186
+#: ctksourceview/ctksourceencoding.c:186
 msgid "Romanian"
 msgstr "Ρουμανικά"
 
-#: gtksourceview/gtksourceencoding.c:204
+#: ctksourceview/ctksourceencoding.c:204
 msgid "Armenian"
 msgstr "Αρμένικα"
 
-#: gtksourceview/gtksourceencoding.c:206 gtksourceview/gtksourceencoding.c:208
-#: gtksourceview/gtksourceencoding.c:222
+#: ctksourceview/ctksourceencoding.c:206 ctksourceview/ctksourceencoding.c:208
+#: ctksourceview/ctksourceencoding.c:222
 msgid "Chinese Traditional"
 msgstr "Παραδοσιακά Κινεζικά"
 
-#: gtksourceview/gtksourceencoding.c:210
+#: ctksourceview/ctksourceencoding.c:210
 msgid "Cyrillic/Russian"
 msgstr "Κυριλλικά/Ρωσικά"
 
-#: gtksourceview/gtksourceencoding.c:213 gtksourceview/gtksourceencoding.c:215
-#: gtksourceview/gtksourceencoding.c:217 gtksourceview/gtksourceencoding.c:247
-#: gtksourceview/gtksourceencoding.c:262
+#: ctksourceview/ctksourceencoding.c:213 ctksourceview/ctksourceencoding.c:215
+#: ctksourceview/ctksourceencoding.c:217 ctksourceview/ctksourceencoding.c:247
+#: ctksourceview/ctksourceencoding.c:262
 msgid "Japanese"
 msgstr "Ιαπωνικά"
 
-#: gtksourceview/gtksourceencoding.c:220 gtksourceview/gtksourceencoding.c:249
-#: gtksourceview/gtksourceencoding.c:253 gtksourceview/gtksourceencoding.c:268
+#: ctksourceview/ctksourceencoding.c:220 ctksourceview/ctksourceencoding.c:249
+#: ctksourceview/ctksourceencoding.c:253 ctksourceview/ctksourceencoding.c:268
 msgid "Korean"
 msgstr "Κορεάτικα"
 
-#: gtksourceview/gtksourceencoding.c:225 gtksourceview/gtksourceencoding.c:227
-#: gtksourceview/gtksourceencoding.c:229
+#: ctksourceview/ctksourceencoding.c:225 ctksourceview/ctksourceencoding.c:227
+#: ctksourceview/ctksourceencoding.c:229
 msgid "Chinese Simplified"
 msgstr "Απλοποιημένα Κινεζικά"
 
-#: gtksourceview/gtksourceencoding.c:231
+#: ctksourceview/ctksourceencoding.c:231
 msgid "Georgian"
 msgstr "Γεωργιανά"
 
-#: gtksourceview/gtksourceencoding.c:242 gtksourceview/gtksourceencoding.c:283
+#: ctksourceview/ctksourceencoding.c:242 ctksourceview/ctksourceencoding.c:283
 msgid "Hebrew"
 msgstr "Εβραϊκά"
 
-#: gtksourceview/gtksourceencoding.c:259
+#: ctksourceview/ctksourceencoding.c:259
 msgid "Cyrillic/Ukrainian"
 msgstr "Κυριλλικά/Ουκρανικά"
 
-#: gtksourceview/gtksourceencoding.c:264 gtksourceview/gtksourceencoding.c:270
-#: gtksourceview/gtksourceencoding.c:289
+#: ctksourceview/ctksourceencoding.c:264 ctksourceview/ctksourceencoding.c:270
+#: ctksourceview/ctksourceencoding.c:289
 msgid "Vietnamese"
 msgstr "Βιετναμέζικα"
 
-#: gtksourceview/gtksourceencoding.c:266
+#: ctksourceview/ctksourceencoding.c:266
 msgid "Thai"
 msgstr "Ταϊλανδέζικα"
 
-#: gtksourceview/gtksourceencoding.c:500
+#: ctksourceview/ctksourceencoding.c:500
 msgid "Unknown"
 msgstr "Άγνωστο"
 
@@ -566,15 +566,15 @@ msgstr "Άγνωστο"
 #. * value used by GtkSourceView and it represents the encoding for the
 #. * current locale, so please don't translate the "CURRENT" term.  Only
 #. * recognized encodings are used. See
-#. * https://gitlab.gnome.org/GNOME/gtksourceview/blob/master/gtksourceview/gtksourceencoding.c#L142
+#. * https://gitlab.gnome.org/GNOME/ctksourceview/blob/master/ctksourceview/ctksourceencoding.c#L142
 #. * for a list of supported encodings.
 #. * Keep the same format: square brackets, single quotes, commas.
 #.
-#: gtksourceview/gtksourceencoding.c:644
+#: ctksourceview/ctksourceencoding.c:644
 msgid "['UTF-8', 'CURRENT', 'ISO-8859-15', 'UTF-16']"
 msgstr "['UTF-8', 'CURRENT', 'WINDOWS-1253', 'ISO-8859-15', 'UTF-16']"
 
-#: gtksourceview/gtksourcefileloader.c:522
+#: ctksourceview/ctksourcefileloader.c:522
 msgid ""
 "There was a character encoding conversion error and it was needed to use a "
 "fallback character."
@@ -582,19 +582,19 @@ msgstr ""
 "Υπήρξε ένα σφάλμα κωδικοποίησης στη μετατροπή του χαρακτήρα και χρειάστηκε "
 "να αντικατασταθεί με έναν εφεδρικό χαρακτήρα."
 
-#: gtksourceview/gtksourcefileloader.c:629
+#: ctksourceview/ctksourcefileloader.c:629
 msgid "File too big."
 msgstr "Το αρχείο είναι πολύ μεγάλο."
 
-#: gtksourceview/gtksourcefileloader.c:783
+#: ctksourceview/ctksourcefileloader.c:783
 msgid "Not a regular file."
 msgstr "Δεν είναι κανονικό αρχείο."
 
-#: gtksourceview/gtksourcefilesaver.c:981
+#: ctksourceview/ctksourcefilesaver.c:981
 msgid "The file is externally modified."
 msgstr "Το αρχείο τροποποιήθηκε εξωτερικά."
 
-#: gtksourceview/gtksourcefilesaver.c:1433
+#: ctksourceview/ctksourcefilesaver.c:1433
 msgid "The buffer contains invalid characters."
 msgstr "Η ενδιάμεση μνήμη περιέχει άκυρους χαρακτήρες."
 
@@ -608,66 +608,66 @@ msgstr "Η ενδιάμεση μνήμη περιέχει άκυρους χαρ�
 #. * syntax highlighting and [context classes][context-classes].
 #. *
 #. * Use #GtkSourceLanguageManager to obtain a #GtkSourceLanguage instance, and
-#. * gtk_source_buffer_set_language() to apply it to a #GtkSourceBuffer.
+#. * ctk_source_buffer_set_language() to apply it to a #GtkSourceBuffer.
 #.
-#: gtksourceview/gtksourcelanguage.c:56
+#: ctksourceview/ctksourcelanguage.c:56
 msgid "Others"
 msgstr "Άλλα"
 
-#: gtksourceview/gtksourcelanguage-parser-2.c:949
+#: ctksourceview/ctksourcelanguage-parser-2.c:949
 #, c-format
 msgid "Unknown id “%s” in regex “%s”"
 msgstr "Άγνωστο αναγνωριστικό «%s» στην κανονική έκφραση «%s»"
 
-#: gtksourceview/gtksourcelanguage-parser-2.c:1179
+#: ctksourceview/ctksourcelanguage-parser-2.c:1179
 #, c-format
 msgid "in regex “%s”: backreferences are not supported"
 msgstr "Στην κανονική έκφραση «%s» : δεν υποστηρίζονται τα backreferences"
 
-#: gtksourceview/gtksourceregex.c:128
+#: ctksourceview/ctksourceregex.c:128
 msgid "using \\C is not supported in language definitions"
 msgstr "Η χρήση \\C δεν υποστηρίζεται στους ορισμούς γλώσσας"
 
 #. TODO: have a ChooserDialog?
-#: gtksourceview/gtksourcestyleschemechooserbutton.c:185
+#: ctksourceview/ctksourcestyleschemechooserbutton.c:185
 msgid "Select a Style"
 msgstr "Επιλογή στυλ"
 
-#: gtksourceview/gtksourcestyleschemechooserbutton.c:189
+#: ctksourceview/ctksourcestyleschemechooserbutton.c:189
 msgid "_Cancel"
 msgstr "Ά_κυρο"
 
-#: gtksourceview/gtksourcestyleschemechooserbutton.c:190
+#: ctksourceview/ctksourcestyleschemechooserbutton.c:190
 msgid "_Select"
 msgstr "_Επιλογή"
 
 #. create redo menu_item.
-#: gtksourceview/gtksourceview.c:1727
+#: ctksourceview/ctksourceview.c:1727
 msgid "_Redo"
 msgstr "Α_κύρωση αναίρεσης"
 
 #. create undo menu_item.
-#: gtksourceview/gtksourceview.c:1738
+#: ctksourceview/ctksourceview.c:1738
 msgid "_Undo"
 msgstr "_Αναίρεση"
 
-#: gtksourceview/gtksourceview.c:1757
+#: ctksourceview/ctksourceview.c:1757
 msgid "All _Upper Case"
 msgstr "Όλα κε_φαλαία"
 
-#: gtksourceview/gtksourceview.c:1767
+#: ctksourceview/ctksourceview.c:1767
 msgid "All _Lower Case"
 msgstr "Όλα πε_ζά"
 
-#: gtksourceview/gtksourceview.c:1777
+#: ctksourceview/ctksourceview.c:1777
 msgid "_Invert Case"
 msgstr "Εν_αλλαγή πεζών κεφαλαίων"
 
-#: gtksourceview/gtksourceview.c:1787
+#: ctksourceview/ctksourceview.c:1787
 msgid "_Title Case"
 msgstr "Γράμματα _τίτλου"
 
-#: gtksourceview/gtksourceview.c:1797
+#: ctksourceview/ctksourceview.c:1797
 msgid "C_hange Case"
 msgstr "Α_λλαγή κεφαλαίων/πεζών"
 
@@ -1352,8 +1352,8 @@ msgstr "Α_λλαγή κεφαλαίων/πεζών"
 #~ msgid "Imaginary number"
 #~ msgstr "Φανταστικός αριθμός"
 
-#~ msgid "gtk-doc"
-#~ msgstr "gtk-doc"
+#~ msgid "ctk-doc"
+#~ msgstr "ctk-doc"
 
 #~ msgid "Inline Documentation Section"
 #~ msgstr "Ενότητα εμβόλιμης τεκμηρίωσης"

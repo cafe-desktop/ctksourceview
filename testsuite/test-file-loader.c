@@ -19,7 +19,7 @@
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <gtksourceview/gtksource.h>
+#include <ctksourceview/ctksource.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -48,7 +48,7 @@ load_file_cb (GtkSourceFileLoader *loader,
 {
 	GError *error = NULL;
 
-	gtk_source_file_loader_load_finish (loader, result, &error);
+	ctk_source_file_loader_load_finish (loader, result, &error);
 	g_assert_no_error (error);
 
 	if (data->expected_buffer_contents != NULL)
@@ -58,10 +58,10 @@ load_file_cb (GtkSourceFileLoader *loader,
 		GtkTextIter end;
 		gchar *buffer_contents;
 
-		buffer = gtk_source_file_loader_get_buffer (loader);
+		buffer = ctk_source_file_loader_get_buffer (loader);
 
-		gtk_text_buffer_get_bounds (GTK_TEXT_BUFFER (buffer), &start, &end);
-		buffer_contents = gtk_text_iter_get_slice (&start, &end);
+		ctk_text_buffer_get_bounds (GTK_TEXT_BUFFER (buffer), &start, &end);
+		buffer_contents = ctk_text_iter_get_slice (&start, &end);
 
 		g_assert_cmpstr (buffer_contents, ==, data->expected_buffer_contents);
 
@@ -70,13 +70,13 @@ load_file_cb (GtkSourceFileLoader *loader,
 
 	if (data->newline_type != -1)
 	{
-		g_assert_cmpint (gtk_source_file_loader_get_newline_type (loader),
+		g_assert_cmpint (ctk_source_file_loader_get_newline_type (loader),
 		                 ==,
 		                 data->newline_type);
 	}
 
 	/* finished */
-	gtk_main_quit ();
+	ctk_main_quit ();
 }
 
 static void
@@ -97,25 +97,25 @@ test_loader (const gchar *filename,
 	g_assert_no_error (error);
 
 	location = g_file_new_for_path (filename);
-	buffer = gtk_source_buffer_new (NULL);
-	file = gtk_source_file_new ();
-	gtk_source_file_set_location (file, location);
-	loader = gtk_source_file_loader_new (buffer, file);
+	buffer = ctk_source_buffer_new (NULL);
+	file = ctk_source_file_new ();
+	ctk_source_file_set_location (file, location);
+	loader = ctk_source_file_loader_new (buffer, file);
 
-	candidate_encodings = g_slist_prepend (NULL, (gpointer) gtk_source_encoding_get_utf8 ());
-	gtk_source_file_loader_set_candidate_encodings (loader, candidate_encodings);
+	candidate_encodings = g_slist_prepend (NULL, (gpointer) ctk_source_encoding_get_utf8 ());
+	ctk_source_file_loader_set_candidate_encodings (loader, candidate_encodings);
 
 	data = g_slice_new (LoaderTestData);
 	data->expected_buffer_contents = expected_buffer_contents;
 	data->newline_type = newline_type;
 
-	gtk_source_file_loader_load_async (loader,
+	ctk_source_file_loader_load_async (loader,
 					   G_PRIORITY_DEFAULT,
 					   NULL, NULL, NULL, NULL,
 					   (GAsyncReadyCallback) load_file_cb,
 					   data);
 
-	gtk_main ();
+	ctk_main ();
 
 	g_slice_free (LoaderTestData, data);
 	delete_file (location);

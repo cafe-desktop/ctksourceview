@@ -22,11 +22,11 @@
 #include <config.h>
 #endif
 
-#include "gtksourcegutter.h"
-#include "gtksourcegutter-private.h"
-#include "gtksourceview.h"
-#include "gtksourcegutterrenderer.h"
-#include "gtksourcegutterrenderer-private.h"
+#include "ctksourcegutter.h"
+#include "ctksourcegutter-private.h"
+#include "ctksourceview.h"
+#include "ctksourcegutterrenderer.h"
+#include "ctksourcegutterrenderer-private.h"
 
 /**
  * SECTION:gutter
@@ -40,7 +40,7 @@
  * additional #GtkSourceGutterRenderer objects in the gutter, you can extend the
  * gutter with your own custom drawings.
  *
- * To get a #GtkSourceGutter, use the gtk_source_view_get_gutter() function.
+ * To get a #GtkSourceGutter, use the ctk_source_view_get_gutter() function.
  *
  * The gutter works very much the same way as cells rendered in a #GtkTreeView.
  * The concept is similar, with the exception that the gutter does not have an
@@ -83,7 +83,7 @@ struct _GtkSourceGutterPrivate
 	guint is_drawing : 1;
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceGutter, gtk_source_gutter, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceGutter, ctk_source_gutter, G_TYPE_OBJECT)
 
 static gboolean on_view_motion_notify_event (GtkSourceView   *view,
                                              GdkEventMotion  *event,
@@ -118,7 +118,7 @@ static void update_gutter_size (GtkSourceGutter *gutter);
 static GdkWindow *
 get_window (GtkSourceGutter *gutter)
 {
-	return gtk_text_view_get_window (GTK_TEXT_VIEW (gutter->priv->view),
+	return ctk_text_view_get_window (GTK_TEXT_VIEW (gutter->priv->view),
 	                                 gutter->priv->window_type);
 }
 
@@ -164,7 +164,7 @@ renderer_new (GtkSourceGutter         *gutter,
 	ret->position = position;
 	ret->prelit = -1;
 
-	_gtk_source_gutter_renderer_set_view (renderer,
+	_ctk_source_gutter_renderer_set_view (renderer,
 	                                      GTK_TEXT_VIEW (gutter->priv->view),
 	                                      gutter->priv->window_type);
 
@@ -219,7 +219,7 @@ renderer_free (Renderer *renderer)
 	g_signal_handler_disconnect (renderer->renderer,
 	                             renderer->notify_visible_handler);
 
-	_gtk_source_gutter_renderer_set_view (renderer->renderer,
+	_ctk_source_gutter_renderer_set_view (renderer->renderer,
 	                                      NULL,
 	                                      GTK_TEXT_WINDOW_PRIVATE);
 
@@ -228,7 +228,7 @@ renderer_free (Renderer *renderer)
 }
 
 static void
-gtk_source_gutter_dispose (GObject *object)
+ctk_source_gutter_dispose (GObject *object)
 {
 	GtkSourceGutter *gutter = GTK_SOURCE_GUTTER (object);
 
@@ -237,11 +237,11 @@ gtk_source_gutter_dispose (GObject *object)
 
 	gutter->priv->view = NULL;
 
-	G_OBJECT_CLASS (gtk_source_gutter_parent_class)->dispose (object);
+	G_OBJECT_CLASS (ctk_source_gutter_parent_class)->dispose (object);
 }
 
 static void
-gtk_source_gutter_get_property (GObject    *object,
+ctk_source_gutter_get_property (GObject    *object,
                                 guint       prop_id,
                                 GValue     *value,
                                 GParamSpec *pspec)
@@ -323,7 +323,7 @@ do_redraw (GtkSourceGutter *gutter)
 {
 	GdkWindow *window;
 
-	window = gtk_text_view_get_window (GTK_TEXT_VIEW (gutter->priv->view),
+	window = ctk_text_view_get_window (GTK_TEXT_VIEW (gutter->priv->view),
 	                                   gutter->priv->window_type);
 
 	if (window && !gutter->priv->is_drawing)
@@ -345,7 +345,7 @@ calculate_gutter_size (GtkSourceGutter *gutter,
 		Renderer *renderer = item->data;
 		gint width;
 
-		if (!gtk_source_gutter_renderer_get_visible (renderer->renderer))
+		if (!ctk_source_gutter_renderer_get_visible (renderer->renderer))
 		{
 			width = 0;
 		}
@@ -354,9 +354,9 @@ calculate_gutter_size (GtkSourceGutter *gutter,
 			gint xpad;
 			gint size;
 
-			size = gtk_source_gutter_renderer_get_size (renderer->renderer);
+			size = ctk_source_gutter_renderer_get_size (renderer->renderer);
 
-			gtk_source_gutter_renderer_get_padding (renderer->renderer,
+			ctk_source_gutter_renderer_get_padding (renderer->renderer,
 			                                        &xpad,
 			                                        NULL);
 
@@ -379,13 +379,13 @@ update_gutter_size (GtkSourceGutter *gutter)
 {
 	gint width = calculate_gutter_size (gutter, NULL);
 
-	gtk_text_view_set_border_window_size (GTK_TEXT_VIEW (gutter->priv->view),
+	ctk_text_view_set_border_window_size (GTK_TEXT_VIEW (gutter->priv->view),
 	                                      gutter->priv->window_type,
 	                                      width);
 }
 
 static void
-gtk_source_gutter_set_property (GObject       *object,
+ctk_source_gutter_set_property (GObject       *object,
                                 guint          prop_id,
                                 const GValue  *value,
                                 GParamSpec    *pspec)
@@ -407,7 +407,7 @@ gtk_source_gutter_set_property (GObject       *object,
 }
 
 static void
-gtk_source_gutter_constructed (GObject *object)
+ctk_source_gutter_constructed (GObject *object)
 {
 	GtkSourceGutter *gutter;
 
@@ -423,19 +423,19 @@ gtk_source_gutter_constructed (GObject *object)
 		gutter->priv->orientation = GTK_ORIENTATION_VERTICAL;
 	}
 
-	G_OBJECT_CLASS (gtk_source_gutter_parent_class)->constructed (object);
+	G_OBJECT_CLASS (ctk_source_gutter_parent_class)->constructed (object);
 }
 
 static void
-gtk_source_gutter_class_init (GtkSourceGutterClass *klass)
+ctk_source_gutter_class_init (GtkSourceGutterClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-	object_class->set_property = gtk_source_gutter_set_property;
-	object_class->get_property = gtk_source_gutter_get_property;
+	object_class->set_property = ctk_source_gutter_set_property;
+	object_class->get_property = ctk_source_gutter_get_property;
 
-	object_class->dispose = gtk_source_gutter_dispose;
-	object_class->constructed = gtk_source_gutter_constructed;
+	object_class->dispose = ctk_source_gutter_dispose;
+	object_class->constructed = ctk_source_gutter_constructed;
 
 	/**
 	 * GtkSourceGutter:view:
@@ -466,9 +466,9 @@ gtk_source_gutter_class_init (GtkSourceGutterClass *klass)
 }
 
 static void
-gtk_source_gutter_init (GtkSourceGutter *self)
+ctk_source_gutter_init (GtkSourceGutter *self)
 {
-	self->priv = gtk_source_gutter_get_instance_private (self);
+	self->priv = ctk_source_gutter_get_instance_private (self);
 }
 
 static gint
@@ -504,7 +504,7 @@ append_renderer (GtkSourceGutter *gutter,
 }
 
 GtkSourceGutter *
-_gtk_source_gutter_new (GtkSourceView     *view,
+_ctk_source_gutter_new (GtkSourceView     *view,
 			GtkTextWindowType  type)
 {
 	return g_object_new (GTK_SOURCE_TYPE_GUTTER,
@@ -516,14 +516,14 @@ _gtk_source_gutter_new (GtkSourceView     *view,
 /* Public API */
 
 /**
- * gtk_source_gutter_get_view:
+ * ctk_source_gutter_get_view:
  * @gutter: a #GtkSourceGutter.
  *
  * Returns: (transfer none): the associated #GtkSourceView.
  * Since: 3.24
  */
 GtkSourceView *
-gtk_source_gutter_get_view (GtkSourceGutter *gutter)
+ctk_source_gutter_get_view (GtkSourceGutter *gutter)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_GUTTER (gutter), NULL);
 
@@ -531,14 +531,14 @@ gtk_source_gutter_get_view (GtkSourceGutter *gutter)
 }
 
 /**
- * gtk_source_gutter_get_window_type:
+ * ctk_source_gutter_get_window_type:
  * @gutter: a #GtkSourceGutter.
  *
  * Returns: the #GtkTextWindowType of @gutter.
  * Since: 3.24
  */
 GtkTextWindowType
-gtk_source_gutter_get_window_type (GtkSourceGutter *gutter)
+ctk_source_gutter_get_window_type (GtkSourceGutter *gutter)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_GUTTER (gutter), GTK_TEXT_WINDOW_PRIVATE);
 
@@ -546,7 +546,7 @@ gtk_source_gutter_get_window_type (GtkSourceGutter *gutter)
 }
 
 /**
- * gtk_source_gutter_insert:
+ * ctk_source_gutter_insert:
  * @gutter: a #GtkSourceGutter.
  * @renderer: a gutter renderer (must inherit from #GtkSourceGutterRenderer).
  * @position: the renderer position.
@@ -561,7 +561,7 @@ gtk_source_gutter_get_window_type (GtkSourceGutter *gutter)
  *
  **/
 gboolean
-gtk_source_gutter_insert (GtkSourceGutter         *gutter,
+ctk_source_gutter_insert (GtkSourceGutter         *gutter,
                           GtkSourceGutterRenderer *renderer,
                           gint                     position)
 {
@@ -569,8 +569,8 @@ gtk_source_gutter_insert (GtkSourceGutter         *gutter,
 
 	g_return_val_if_fail (GTK_SOURCE_IS_GUTTER (gutter), FALSE);
 	g_return_val_if_fail (GTK_SOURCE_IS_GUTTER_RENDERER (renderer), FALSE);
-	g_return_val_if_fail (gtk_source_gutter_renderer_get_view (renderer) == NULL, FALSE);
-	g_return_val_if_fail (gtk_source_gutter_renderer_get_window_type (renderer) == GTK_TEXT_WINDOW_PRIVATE, FALSE);
+	g_return_val_if_fail (ctk_source_gutter_renderer_get_view (renderer) == NULL, FALSE);
+	g_return_val_if_fail (ctk_source_gutter_renderer_get_window_type (renderer) == GTK_TEXT_WINDOW_PRIVATE, FALSE);
 
 	internal_renderer = renderer_new (gutter, renderer, position);
 	append_renderer (gutter, internal_renderer);
@@ -605,7 +605,7 @@ renderer_find (GtkSourceGutter          *gutter,
 }
 
 /**
- * gtk_source_gutter_reorder:
+ * ctk_source_gutter_reorder:
  * @gutter: a #GtkSourceGutterRenderer.
  * @renderer: a #GtkCellRenderer.
  * @position: the new renderer position.
@@ -615,7 +615,7 @@ renderer_find (GtkSourceGutter          *gutter,
  * Since: 2.8
  */
 void
-gtk_source_gutter_reorder (GtkSourceGutter         *gutter,
+ctk_source_gutter_reorder (GtkSourceGutter         *gutter,
                            GtkSourceGutterRenderer *renderer,
                            gint                     position)
 {
@@ -637,7 +637,7 @@ gtk_source_gutter_reorder (GtkSourceGutter         *gutter,
 }
 
 /**
- * gtk_source_gutter_remove:
+ * ctk_source_gutter_remove:
  * @gutter: a #GtkSourceGutter.
  * @renderer: a #GtkSourceGutterRenderer.
  *
@@ -646,7 +646,7 @@ gtk_source_gutter_reorder (GtkSourceGutter         *gutter,
  * Since: 2.8
  */
 void
-gtk_source_gutter_remove (GtkSourceGutter         *gutter,
+ctk_source_gutter_remove (GtkSourceGutter         *gutter,
                           GtkSourceGutterRenderer *renderer)
 {
 	Renderer *ret;
@@ -667,7 +667,7 @@ gtk_source_gutter_remove (GtkSourceGutter         *gutter,
 }
 
 /**
- * gtk_source_gutter_queue_draw:
+ * ctk_source_gutter_queue_draw:
  * @gutter: a #GtkSourceGutter.
  *
  * Invalidates the drawable area of the gutter. You can use this to force a
@@ -676,7 +676,7 @@ gtk_source_gutter_remove (GtkSourceGutter         *gutter,
  * Since: 2.8
  */
 void
-gtk_source_gutter_queue_draw (GtkSourceGutter *gutter)
+ctk_source_gutter_queue_draw (GtkSourceGutter *gutter)
 {
 	g_return_if_fail (GTK_SOURCE_IS_GUTTER (gutter));
 
@@ -723,7 +723,7 @@ lines_info_free (LinesInfo *info)
 	}
 }
 
-/* This function is taken and adapted from gtk+/tests/testtext.c */
+/* This function is taken and adapted from ctk+/tests/testtext.c */
 static LinesInfo *
 get_lines_info (GtkTextView *text_view,
 		gint         first_y_buffer_coord,
@@ -736,27 +736,27 @@ get_lines_info (GtkTextView *text_view,
 	info = lines_info_new ();
 
 	/* Get iter at first y */
-	gtk_text_view_get_line_at_y (text_view, &iter, first_y_buffer_coord, NULL);
+	ctk_text_view_get_line_at_y (text_view, &iter, first_y_buffer_coord, NULL);
 
 	info->start = iter;
 
 	/* For each iter, get its location and add it to the arrays.
 	 * Stop when we pass last_y_buffer_coord.
 	 */
-	while (!gtk_text_iter_is_end (&iter))
+	while (!ctk_text_iter_is_end (&iter))
 	{
 		gint y;
 		gint height;
 		gint line_num;
 
-		gtk_text_view_get_line_yrange (text_view, &iter, &y, &height);
+		ctk_text_view_get_line_yrange (text_view, &iter, &y, &height);
 
 		g_array_append_val (info->buffer_coords, y);
 		g_array_append_val (info->line_heights, height);
 
 		info->total_height += height;
 
-		line_num = gtk_text_iter_get_line (&iter);
+		line_num = ctk_text_iter_get_line (&iter);
 		g_array_append_val (info->line_numbers, line_num);
 
 		last_line_num = line_num;
@@ -768,18 +768,18 @@ get_lines_info (GtkTextView *text_view,
 			break;
 		}
 
-		gtk_text_iter_forward_line (&iter);
+		ctk_text_iter_forward_line (&iter);
 	}
 
-	if (gtk_text_iter_is_end (&iter))
+	if (ctk_text_iter_is_end (&iter))
 	{
 		gint y;
 		gint height;
 		gint line_num;
 
-		gtk_text_view_get_line_yrange (text_view, &iter, &y, &height);
+		ctk_text_view_get_line_yrange (text_view, &iter, &y, &height);
 
-		line_num = gtk_text_iter_get_line (&iter);
+		line_num = ctk_text_iter_get_line (&iter);
 
 		if (line_num != last_line_num)
 		{
@@ -804,7 +804,7 @@ get_lines_info (GtkTextView *text_view,
 		g_array_append_val (info->buffer_coords, y);
 		g_array_append_val (info->line_numbers, n);
 
-		gtk_text_view_get_line_yrange (text_view, &iter, &y, &height);
+		ctk_text_view_get_line_yrange (text_view, &iter, &y, &height);
 		g_array_append_val (info->line_heights, height);
 
 		info->total_height += height;
@@ -824,12 +824,12 @@ get_clip_rectangle (GtkSourceGutter *gutter,
 {
 	GdkWindow *window = get_window (gutter);
 
-	if (window == NULL || !gtk_cairo_should_draw_window (cr, window))
+	if (window == NULL || !ctk_cairo_should_draw_window (cr, window))
 	{
 		return FALSE;
 	}
 
-	gtk_cairo_transform_to_window (cr, GTK_WIDGET (view), window);
+	ctk_cairo_transform_to_window (cr, GTK_WIDGET (view), window);
 
 	return gdk_cairo_get_clip_rectangle (cr, clip);
 }
@@ -869,17 +869,17 @@ apply_style (GtkSourceGutter *gutter,
 	}
 
 	/* Apply classes ourselves, since we are in connect_after and so they
-	 * are not set by gtk.
+	 * are not set by ctk.
 	 */
-	gtk_style_context_add_class (style_context, class);
-	gtk_style_context_get_color (style_context,
-	                             gtk_style_context_get_state (style_context),
+	ctk_style_context_add_class (style_context, class);
+	ctk_style_context_get_color (style_context,
+	                             ctk_style_context_get_state (style_context),
 	                             &fg_color);
 
 	gdk_cairo_set_source_rgba (cr, &fg_color);
 }
 
-/* Call gtk_source_gutter_renderer_begin() on each renderer. */
+/* Call ctk_source_gutter_renderer_begin() on each renderer. */
 static void
 begin_draw (GtkSourceGutter *gutter,
 	    GtkTextView     *view,
@@ -895,7 +895,7 @@ begin_draw (GtkSourceGutter *gutter,
 	background_area.x = 0;
 	background_area.height = info->total_height;
 
-	gtk_text_view_buffer_to_window_coords (view,
+	ctk_text_view_buffer_to_window_coords (view,
 	                                       gutter->priv->window_type,
 	                                       0,
 	                                       g_array_index (info->buffer_coords, gint, 0),
@@ -914,13 +914,13 @@ begin_draw (GtkSourceGutter *gutter,
 
 		width = g_array_index (renderer_widths, gint, renderer_num);
 
-		if (!gtk_source_gutter_renderer_get_visible (renderer->renderer))
+		if (!ctk_source_gutter_renderer_get_visible (renderer->renderer))
 		{
 			g_assert_cmpint (width, ==, 0);
 			continue;
 		}
 
-		gtk_source_gutter_renderer_get_padding (renderer->renderer,
+		ctk_source_gutter_renderer_get_padding (renderer->renderer,
 							&xpad,
 							NULL);
 
@@ -934,7 +934,7 @@ begin_draw (GtkSourceGutter *gutter,
 		gdk_cairo_rectangle (cr, &background_area);
 		cairo_clip (cr);
 
-		gtk_source_gutter_renderer_begin (renderer->renderer,
+		ctk_source_gutter_renderer_begin (renderer->renderer,
 						  cr,
 						  &background_area,
 						  &cell_area,
@@ -965,22 +965,22 @@ draw_cells (GtkSourceGutter *gutter,
 	GtkTextIter start;
 	gint i;
 
-	buffer = gtk_text_view_get_buffer (view);
+	buffer = ctk_text_view_get_buffer (view);
 
-	gtk_text_buffer_get_iter_at_mark (buffer,
+	ctk_text_buffer_get_iter_at_mark (buffer,
 	                                  &insert_iter,
-	                                  gtk_text_buffer_get_insert (buffer));
+	                                  ctk_text_buffer_get_insert (buffer));
 
-	cur_line = gtk_text_iter_get_line (&insert_iter);
+	cur_line = ctk_text_iter_get_line (&insert_iter);
 
-	has_selection = gtk_text_buffer_get_selection_bounds (buffer,
+	has_selection = ctk_text_buffer_get_selection_bounds (buffer,
 	                                                      &selection_start,
 	                                                      &selection_end);
 
 	if (has_selection)
 	{
-		selection_start_line = gtk_text_iter_get_line (&selection_start);
-		selection_end_line = gtk_text_iter_get_line (&selection_end);
+		selection_start_line = ctk_text_iter_get_line (&selection_start);
+		selection_end_line = ctk_text_iter_get_line (&selection_end);
 	}
 
 	start = info->start;
@@ -998,19 +998,19 @@ draw_cells (GtkSourceGutter *gutter,
 
 		end = start;
 
-		if (!gtk_text_iter_ends_line (&end))
+		if (!ctk_text_iter_ends_line (&end))
 		{
 			/*
-			 * It turns out that gtk_text_iter_forward_to_line_end
+			 * It turns out that ctk_text_iter_forward_to_line_end
 			 * is slower than jumping to the next line in the
 			 * btree index and then moving backwards a character.
 			 * We don't really care that we might be after the
 			 * newline breaking characters, since those are part
 			 * of the same line (rather than the next line).
 			 */
-			if (gtk_text_iter_forward_line (&end))
+			if (ctk_text_iter_forward_line (&end))
 			{
-				gtk_text_iter_backward_char (&end);
+				ctk_text_iter_backward_char (&end);
 			}
 		}
 
@@ -1019,7 +1019,7 @@ draw_cells (GtkSourceGutter *gutter,
 		 * improvements by avoiding some buffer <-> window coords
 		 * conversions.
 		 */
-		gtk_text_view_buffer_to_window_coords (view,
+		ctk_text_view_buffer_to_window_coords (view,
 		                                       gutter->priv->window_type,
 		                                       0,
 		                                       g_array_index (info->buffer_coords, gint, i),
@@ -1058,13 +1058,13 @@ draw_cells (GtkSourceGutter *gutter,
 			renderer = l->data;
 			width = g_array_index (renderer_widths, gint, renderer_num);
 
-			if (!gtk_source_gutter_renderer_get_visible (renderer->renderer))
+			if (!ctk_source_gutter_renderer_get_visible (renderer->renderer))
 			{
 				g_assert_cmpint (width, ==, 0);
 				continue;
 			}
 
-			gtk_source_gutter_renderer_get_padding (renderer->renderer,
+			ctk_source_gutter_renderer_get_padding (renderer->renderer,
 			                                        &xpad,
 			                                        &ypad);
 
@@ -1082,7 +1082,7 @@ draw_cells (GtkSourceGutter *gutter,
 				state |= GTK_SOURCE_GUTTER_RENDERER_STATE_PRELIT;
 			}
 
-			gtk_source_gutter_renderer_query_data (renderer->renderer,
+			ctk_source_gutter_renderer_query_data (renderer->renderer,
 			                                       &start,
 			                                       &end,
 			                                       state);
@@ -1094,7 +1094,7 @@ draw_cells (GtkSourceGutter *gutter,
 			cairo_clip (cr);
 
 			/* Call render with correct area */
-			gtk_source_gutter_renderer_draw (renderer->renderer,
+			ctk_source_gutter_renderer_draw (renderer->renderer,
 			                                 cr,
 			                                 &background_area,
 			                                 &cell_area,
@@ -1109,7 +1109,7 @@ draw_cells (GtkSourceGutter *gutter,
 		}
 
 		i++;
-		gtk_text_iter_forward_line (&start);
+		ctk_text_iter_forward_line (&start);
 	}
 }
 
@@ -1122,15 +1122,15 @@ end_draw (GtkSourceGutter *gutter)
 	{
 		Renderer *renderer = l->data;
 
-		if (gtk_source_gutter_renderer_get_visible (renderer->renderer))
+		if (ctk_source_gutter_renderer_get_visible (renderer->renderer))
 		{
-			gtk_source_gutter_renderer_end (renderer->renderer);
+			ctk_source_gutter_renderer_end (renderer->renderer);
 		}
 	}
 }
 
 void
-_gtk_source_gutter_draw (GtkSourceGutter *gutter,
+_ctk_source_gutter_draw (GtkSourceGutter *gutter,
 			 GtkSourceView   *view,
 			 cairo_t         *cr)
 {
@@ -1160,14 +1160,14 @@ _gtk_source_gutter_draw (GtkSourceGutter *gutter,
 	last_y_window_coord = first_y_window_coord + clip.height;
 
 	/* get the extents of the line printing */
-	gtk_text_view_window_to_buffer_coords (text_view,
+	ctk_text_view_window_to_buffer_coords (text_view,
 	                                       gutter->priv->window_type,
 	                                       0,
 	                                       first_y_window_coord,
 	                                       NULL,
 	                                       &first_y_buffer_coord);
 
-	gtk_text_view_window_to_buffer_coords (text_view,
+	ctk_text_view_window_to_buffer_coords (text_view,
 	                                       gutter->priv->window_type,
 	                                       0,
 	                                       last_y_window_coord,
@@ -1178,8 +1178,8 @@ _gtk_source_gutter_draw (GtkSourceGutter *gutter,
 			       first_y_buffer_coord,
 			       last_y_buffer_coord);
 
-	style_context = gtk_widget_get_style_context (GTK_WIDGET (view));
-	gtk_style_context_save (style_context);
+	style_context = ctk_widget_get_style_context (GTK_WIDGET (view));
+	ctk_style_context_save (style_context);
 	apply_style (gutter, view, style_context, cr);
 
 	begin_draw (gutter,
@@ -1199,7 +1199,7 @@ _gtk_source_gutter_draw (GtkSourceGutter *gutter,
 
 	end_draw (gutter);
 
-	gtk_style_context_restore (style_context);
+	ctk_style_context_restore (style_context);
 
 	g_array_free (renderer_widths, TRUE);
 	lines_info_free (info);
@@ -1224,14 +1224,14 @@ renderer_at_x (GtkSourceGutter *gutter,
 		Renderer *renderer = item->data;
 		gint xpad;
 
-		if (!gtk_source_gutter_renderer_get_visible (renderer->renderer))
+		if (!ctk_source_gutter_renderer_get_visible (renderer->renderer))
 		{
 			continue;
 		}
 
-		w = gtk_source_gutter_renderer_get_size (renderer->renderer);
+		w = ctk_source_gutter_renderer_get_size (renderer->renderer);
 
-		gtk_source_gutter_renderer_get_padding (renderer->renderer,
+		ctk_source_gutter_renderer_get_padding (renderer->renderer,
 		                                        &xpad,
 		                                        NULL);
 
@@ -1271,21 +1271,21 @@ get_renderer_rect (GtkSourceGutter *gutter,
 
 	rectangle->x = start;
 
-	gtk_text_view_get_line_yrange (GTK_TEXT_VIEW (gutter->priv->view),
+	ctk_text_view_get_line_yrange (GTK_TEXT_VIEW (gutter->priv->view),
 	                               iter,
 	                               &y,
 	                               &rectangle->height);
 
-	rectangle->width = gtk_source_gutter_renderer_get_size (renderer->renderer);
+	rectangle->width = ctk_source_gutter_renderer_get_size (renderer->renderer);
 
-	gtk_text_view_buffer_to_window_coords (GTK_TEXT_VIEW (gutter->priv->view),
+	ctk_text_view_buffer_to_window_coords (GTK_TEXT_VIEW (gutter->priv->view),
 	                                       gutter->priv->window_type,
 	                                       0,
 	                                       y,
 	                                       NULL,
 	                                       &rectangle->y);
 
-	gtk_source_gutter_renderer_get_padding (renderer->renderer,
+	ctk_source_gutter_renderer_get_padding (renderer->renderer,
 	                                        NULL,
 	                                        &ypad);
 
@@ -1313,14 +1313,14 @@ renderer_query_activatable (GtkSourceGutter *gutter,
 		return FALSE;
 	}
 
-	gtk_text_view_window_to_buffer_coords (GTK_TEXT_VIEW (gutter->priv->view),
+	ctk_text_view_window_to_buffer_coords (GTK_TEXT_VIEW (gutter->priv->view),
 	                                       gutter->priv->window_type,
 	                                       x,
 	                                       y,
 	                                       NULL,
 	                                       &y_buf);
 
-	gtk_text_view_get_line_at_y (GTK_TEXT_VIEW (gutter->priv->view),
+	ctk_text_view_get_line_at_y (GTK_TEXT_VIEW (gutter->priv->view),
 	                             &iter,
 	                             y_buf,
 	                             &yline);
@@ -1347,7 +1347,7 @@ renderer_query_activatable (GtkSourceGutter *gutter,
 		return FALSE;
 	}
 
-	return gtk_source_gutter_renderer_query_activatable (renderer->renderer,
+	return ctk_source_gutter_renderer_query_activatable (renderer->renderer,
 	                                                     &iter,
 	                                                     &r,
 	                                                     event);
@@ -1382,7 +1382,7 @@ redraw_for_window (GtkSourceGutter *gutter,
 		Renderer *renderer = item->data;
 		gint prelit = renderer->prelit;
 
-		if (!gtk_source_gutter_renderer_get_visible (renderer->renderer))
+		if (!ctk_source_gutter_renderer_get_visible (renderer->renderer))
 		{
 			renderer->prelit = -1;
 		}
@@ -1488,7 +1488,7 @@ on_view_button_press_event (GtkSourceView    *view,
 	                                &rect,
 	                                start))
 	{
-		gtk_source_gutter_renderer_activate (renderer->renderer,
+		ctk_source_gutter_renderer_activate (renderer->renderer,
 		                                     &line_iter,
 		                                     &rect,
 		                                     (GdkEvent *)event);
@@ -1531,12 +1531,12 @@ on_view_query_tooltip (GtkSourceView   *view,
 		return FALSE;
 	}
 
-	gtk_text_view_window_to_buffer_coords (text_view,
+	ctk_text_view_window_to_buffer_coords (text_view,
 	                                       gutter->priv->window_type,
 	                                       x, y,
 	                                       NULL, &y_buf);
 
-	gtk_text_view_get_line_at_y (GTK_TEXT_VIEW (view),
+	ctk_text_view_get_line_at_y (GTK_TEXT_VIEW (view),
 	                             &line_iter,
 	                             y_buf,
 	                             &yline);
@@ -1553,7 +1553,7 @@ on_view_query_tooltip (GtkSourceView   *view,
 	                   &rect,
 	                   start);
 
-	return gtk_source_gutter_renderer_query_tooltip (renderer->renderer,
+	return ctk_source_gutter_renderer_query_tooltip (renderer->renderer,
 	                                                 &line_iter,
 	                                                 &rect,
 	                                                 x,
@@ -1565,11 +1565,11 @@ static void
 on_view_style_updated (GtkSourceView   *view,
                        GtkSourceGutter *gutter)
 {
-	gtk_source_gutter_queue_draw (gutter);
+	ctk_source_gutter_queue_draw (gutter);
 }
 
 /**
- * gtk_source_gutter_get_renderer_at_pos:
+ * ctk_source_gutter_get_renderer_at_pos:
  * @gutter: A #GtkSourceGutter.
  * @x: The x position to get identified.
  * @y: The y position to get identified.
@@ -1579,14 +1579,14 @@ on_view_style_updated (GtkSourceView   *view,
  * Returns: (nullable) (transfer none): the renderer at (x, y) or %NULL.
  */
 /* TODO: better document this function. The (x,y) position is different from
- * the position passed to gtk_source_gutter_insert() and
- * gtk_source_gutter_reorder(). The (x,y) coordinate can come from a click
+ * the position passed to ctk_source_gutter_insert() and
+ * ctk_source_gutter_reorder(). The (x,y) coordinate can come from a click
  * event, for example? Is the (x,y) a coordinate of the Gutter's GdkWindow?
  * Where is the (0,0)? And so on.
  * Also, this function doesn't seem to be used.
  */
 GtkSourceGutterRenderer *
-gtk_source_gutter_get_renderer_at_pos (GtkSourceGutter *gutter,
+ctk_source_gutter_get_renderer_at_pos (GtkSourceGutter *gutter,
                                        gint             x,
                                        gint             y)
 {

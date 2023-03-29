@@ -23,8 +23,8 @@
 #include <config.h>
 #endif
 
-#include "gtksourceencoding.h"
-#include "gtksourceencoding-private.h"
+#include "ctksourceencoding.h"
+#include "ctksourceencoding-private.h"
 #include <glib/gi18n-lib.h>
 
 /**
@@ -45,9 +45,9 @@ struct _GtkSourceEncoding
 	const gchar *name;
 };
 
-G_DEFINE_BOXED_TYPE (GtkSourceEncoding, gtk_source_encoding,
-                     gtk_source_encoding_copy,
-                     gtk_source_encoding_free)
+G_DEFINE_BOXED_TYPE (GtkSourceEncoding, ctk_source_encoding,
+                     ctk_source_encoding_copy,
+                     ctk_source_encoding_free)
 
 /*
  * The original versions of the following tables are taken from profterm
@@ -140,7 +140,7 @@ static const GtkSourceEncoding utf8_encoding =
 	N_("Unicode")
 };
 
-/* Initialized in gtk_source_encoding_lazy_init(). */
+/* Initialized in ctk_source_encoding_lazy_init(). */
 static GtkSourceEncoding unknown_encoding =
 {
 	GTK_SOURCE_ENCODING_UNKNOWN,
@@ -284,7 +284,7 @@ static const GtkSourceEncoding encodings[] =
 };
 
 static void
-gtk_source_encoding_lazy_init (void)
+ctk_source_encoding_lazy_init (void)
 {
 	static gboolean initialized = FALSE;
 	const gchar *locale_charset;
@@ -303,7 +303,7 @@ gtk_source_encoding_lazy_init (void)
 }
 
 /**
- * gtk_source_encoding_get_from_charset:
+ * ctk_source_encoding_get_from_charset:
  * @charset: a character set.
  *
  * Gets a #GtkSourceEncoding from a character set such as "UTF-8" or
@@ -314,7 +314,7 @@ gtk_source_encoding_lazy_init (void)
  * Since: 3.14
  */
 const GtkSourceEncoding *
-gtk_source_encoding_get_from_charset (const gchar *charset)
+ctk_source_encoding_get_from_charset (const gchar *charset)
 {
 	gint i;
 
@@ -322,7 +322,7 @@ gtk_source_encoding_get_from_charset (const gchar *charset)
 
 	if (g_ascii_strcasecmp (charset, "UTF-8") == 0)
 	{
-		return gtk_source_encoding_get_utf8 ();
+		return ctk_source_encoding_get_utf8 ();
 	}
 
 	for (i = 0; i < GTK_SOURCE_ENCODING_LAST; i++)
@@ -333,7 +333,7 @@ gtk_source_encoding_get_from_charset (const gchar *charset)
 		}
 	}
 
-	gtk_source_encoding_lazy_init ();
+	ctk_source_encoding_lazy_init ();
 
 	if (unknown_encoding.charset != NULL &&
 	    g_ascii_strcasecmp (charset, unknown_encoding.charset) == 0)
@@ -345,7 +345,7 @@ gtk_source_encoding_get_from_charset (const gchar *charset)
 }
 
 /**
- * gtk_source_encoding_get_all:
+ * ctk_source_encoding_get_all:
  *
  * Gets all encodings.
  *
@@ -354,7 +354,7 @@ gtk_source_encoding_get_from_charset (const gchar *charset)
  * Since: 3.14
  */
 GSList *
-gtk_source_encoding_get_all (void)
+ctk_source_encoding_get_all (void)
 {
 	GSList *all = NULL;
 	gint i;
@@ -370,19 +370,19 @@ gtk_source_encoding_get_all (void)
 }
 
 /**
- * gtk_source_encoding_get_utf8:
+ * ctk_source_encoding_get_utf8:
  *
  * Returns: the UTF-8 encoding.
  * Since: 3.14
  */
 const GtkSourceEncoding *
-gtk_source_encoding_get_utf8 (void)
+ctk_source_encoding_get_utf8 (void)
 {
 	return &utf8_encoding;
 }
 
 /**
- * gtk_source_encoding_get_current:
+ * ctk_source_encoding_get_current:
  *
  * Gets the #GtkSourceEncoding for the current locale. See also g_get_charset().
  *
@@ -390,14 +390,14 @@ gtk_source_encoding_get_utf8 (void)
  * Since: 3.14
  */
 const GtkSourceEncoding *
-gtk_source_encoding_get_current (void)
+ctk_source_encoding_get_current (void)
 {
 	static gboolean initialized = FALSE;
 	static const GtkSourceEncoding *locale_encoding = NULL;
 
 	const gchar *locale_charset;
 
-	gtk_source_encoding_lazy_init ();
+	ctk_source_encoding_lazy_init ();
 
 	if (G_LIKELY (initialized))
 	{
@@ -410,7 +410,7 @@ gtk_source_encoding_get_current (void)
 	}
 	else
 	{
-		locale_encoding = gtk_source_encoding_get_from_charset (locale_charset);
+		locale_encoding = ctk_source_encoding_get_from_charset (locale_charset);
 	}
 
 	if (locale_encoding == NULL)
@@ -424,18 +424,18 @@ gtk_source_encoding_get_current (void)
 }
 
 /**
- * gtk_source_encoding_to_string:
+ * ctk_source_encoding_to_string:
  * @enc: a #GtkSourceEncoding.
  *
  * Returns: a string representation. Free with g_free() when no longer needed.
  * Since: 3.14
  */
 gchar *
-gtk_source_encoding_to_string (const GtkSourceEncoding* enc)
+ctk_source_encoding_to_string (const GtkSourceEncoding* enc)
 {
 	g_return_val_if_fail (enc != NULL, NULL);
 
-	gtk_source_encoding_lazy_init ();
+	ctk_source_encoding_lazy_init ();
 
 	g_return_val_if_fail (enc->charset != NULL, NULL);
 
@@ -454,7 +454,7 @@ gtk_source_encoding_to_string (const GtkSourceEncoding* enc)
 }
 
 /**
- * gtk_source_encoding_get_charset:
+ * ctk_source_encoding_get_charset:
  * @enc: a #GtkSourceEncoding.
  *
  * Gets the character set of the #GtkSourceEncoding, such as "UTF-8" or
@@ -464,11 +464,11 @@ gtk_source_encoding_to_string (const GtkSourceEncoding* enc)
  * Since: 3.14
  */
 const gchar *
-gtk_source_encoding_get_charset (const GtkSourceEncoding* enc)
+ctk_source_encoding_get_charset (const GtkSourceEncoding* enc)
 {
 	g_return_val_if_fail (enc != NULL, NULL);
 
-	gtk_source_encoding_lazy_init ();
+	ctk_source_encoding_lazy_init ();
 
 	g_return_val_if_fail (enc->charset != NULL, NULL);
 
@@ -476,7 +476,7 @@ gtk_source_encoding_get_charset (const GtkSourceEncoding* enc)
 }
 
 /**
- * gtk_source_encoding_get_name:
+ * ctk_source_encoding_get_name:
  * @enc: a #GtkSourceEncoding.
  *
  * Gets the name of the #GtkSourceEncoding such as "Unicode" or "Western".
@@ -485,11 +485,11 @@ gtk_source_encoding_get_charset (const GtkSourceEncoding* enc)
  * Since: 3.14
  */
 const gchar *
-gtk_source_encoding_get_name (const GtkSourceEncoding* enc)
+ctk_source_encoding_get_name (const GtkSourceEncoding* enc)
 {
 	g_return_val_if_fail (enc != NULL, NULL);
 
-	gtk_source_encoding_lazy_init ();
+	ctk_source_encoding_lazy_init ();
 
 	return (enc->name == NULL) ? _("Unknown") : _(enc->name);
 }
@@ -511,7 +511,7 @@ strv_to_list (const gchar * const *enc_str)
 		}
 
 		g_return_val_if_fail (charset != NULL, NULL);
-		enc = gtk_source_encoding_get_from_charset (charset);
+		enc = ctk_source_encoding_get_from_charset (charset);
 
 		if (enc != NULL &&
 		    g_slist_find (res, enc) == NULL)
@@ -568,7 +568,7 @@ remove_duplicates_keep_last (GSList *list)
 }
 
 /*
- * _gtk_source_encoding_remove_duplicates:
+ * _ctk_source_encoding_remove_duplicates:
  * @list: (element-type GtkSource.Encoding): a list of #GtkSourceEncoding's.
  * @removal_type: the #GtkSourceEncodingDuplicates.
  *
@@ -579,7 +579,7 @@ remove_duplicates_keep_last (GSList *list)
  * Since: 3.14
  */
 GSList *
-_gtk_source_encoding_remove_duplicates (GSList                      *list,
+_ctk_source_encoding_remove_duplicates (GSList                      *list,
 					GtkSourceEncodingDuplicates  removal_type)
 {
 	switch (removal_type)
@@ -598,10 +598,10 @@ _gtk_source_encoding_remove_duplicates (GSList                      *list,
 }
 
 /**
- * gtk_source_encoding_get_default_candidates:
+ * ctk_source_encoding_get_default_candidates:
  *
  * Gets the list of default candidate encodings to try when loading a file. See
- * gtk_source_file_loader_set_candidate_encodings().
+ * ctk_source_file_loader_set_candidate_encodings().
  *
  * This function returns a different list depending on the current locale (i.e.
  * language, country and default encoding). The UTF-8 encoding and the current
@@ -612,7 +612,7 @@ _gtk_source_encoding_remove_duplicates (GSList                      *list,
  * Since: 3.18
  */
 GSList *
-gtk_source_encoding_get_default_candidates (void)
+ctk_source_encoding_get_default_candidates (void)
 {
 	const gchar *encodings_str;
 	const gchar *encodings_str_translated;
@@ -631,7 +631,7 @@ gtk_source_encoding_get_default_candidates (void)
 	 * value used by GtkSourceView and it represents the encoding for the
 	 * current locale, so please don't translate the "CURRENT" term.  Only
 	 * recognized encodings are used. See
-	 * https://gitlab.gnome.org/GNOME/gtksourceview/blob/master/gtksourceview/gtksourceencoding.c#L142
+	 * https://gitlab.gnome.org/GNOME/ctksourceview/blob/master/ctksourceview/ctksourceencoding.c#L142
 	 * for a list of supported encodings.
 	 * Keep the same format: square brackets, single quotes, commas.
 	 */
@@ -673,12 +673,12 @@ gtk_source_encoding_get_default_candidates (void)
 
 	/* Ensure that UTF-8 and CURRENT are present. */
 	encodings_list = g_slist_prepend (encodings_list,
-					  (gpointer) gtk_source_encoding_get_current ());
+					  (gpointer) ctk_source_encoding_get_current ());
 
 	encodings_list = g_slist_prepend (encodings_list,
 					  (gpointer) &utf8_encoding);
 
-	encodings_list = _gtk_source_encoding_remove_duplicates (encodings_list,
+	encodings_list = _ctk_source_encoding_remove_duplicates (encodings_list,
 								 GTK_SOURCE_ENCODING_DUPLICATES_KEEP_LAST);
 
 	g_variant_unref (encodings_variant);
@@ -686,7 +686,7 @@ gtk_source_encoding_get_default_candidates (void)
 }
 
 /**
- * gtk_source_encoding_copy:
+ * ctk_source_encoding_copy:
  * @enc: a #GtkSourceEncoding.
  *
  * Used by language bindings.
@@ -695,7 +695,7 @@ gtk_source_encoding_get_default_candidates (void)
  * Since: 3.14
  */
 GtkSourceEncoding *
-gtk_source_encoding_copy (const GtkSourceEncoding *enc)
+ctk_source_encoding_copy (const GtkSourceEncoding *enc)
 {
 	g_return_val_if_fail (enc != NULL, NULL);
 
@@ -703,7 +703,7 @@ gtk_source_encoding_copy (const GtkSourceEncoding *enc)
 }
 
 /**
- * gtk_source_encoding_free:
+ * ctk_source_encoding_free:
  * @enc: a #GtkSourceEncoding.
  *
  * Used by language bindings.
@@ -711,7 +711,7 @@ gtk_source_encoding_copy (const GtkSourceEncoding *enc)
  * Since: 3.14
  */
 void
-gtk_source_encoding_free (GtkSourceEncoding *enc)
+ctk_source_encoding_free (GtkSourceEncoding *enc)
 {
 	g_return_if_fail (enc != NULL);
 }

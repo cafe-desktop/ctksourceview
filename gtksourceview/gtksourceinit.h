@@ -21,19 +21,19 @@
 #define GTK_SOURCE_INIT_H
 
 #if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
-#error "Only <gtksourceview/gtksource.h> can be included directly."
+#error "Only <ctksourceview/ctksource.h> can be included directly."
 #endif
 
 #include <glib.h>
-#include <gtksourceview/gtksourceversion.h>
+#include <ctksourceview/ctksourceversion.h>
 
 G_BEGIN_DECLS
 
 GTK_SOURCE_AVAILABLE_IN_4_0
-void	gtk_source_init		(void);
+void	ctk_source_init		(void);
 
 GTK_SOURCE_AVAILABLE_IN_4_0
-void	gtk_source_finalize	(void);
+void	ctk_source_finalize	(void);
 
 G_END_DECLS
 

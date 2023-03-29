@@ -22,14 +22,14 @@
 #include <config.h>
 #endif
 
-#include "gtksourcelanguagemanager.h"
+#include "ctksourcelanguagemanager.h"
 
 #include <string.h>
 #include <gio/gio.h>
 
-#include "gtksourcelanguage.h"
-#include "gtksourcelanguage-private.h"
-#include "gtksourceutils-private.h"
+#include "ctksourcelanguage.h"
+#include "ctksourcelanguage-private.h"
+#include "ctksourceutils-private.h"
 
 /**
  * SECTION:languagemanager
@@ -40,9 +40,9 @@
  * #GtkSourceLanguageManager is an object which processes language description
  * files and creates and stores #GtkSourceLanguage objects, and provides API to
  * access them.
- * Use gtk_source_language_manager_get_default() to retrieve the default
+ * Use ctk_source_language_manager_get_default() to retrieve the default
  * instance of #GtkSourceLanguageManager, and
- * gtk_source_language_manager_guess_language() to get a #GtkSourceLanguage for
+ * ctk_source_language_manager_guess_language() to get a #GtkSourceLanguage for
  * given file name and content type.
  */
 
@@ -68,10 +68,10 @@ struct _GtkSourceLanguageManagerPrivate
 
 static GtkSourceLanguageManager *default_instance;
 
-G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceLanguageManager, gtk_source_language_manager, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceLanguageManager, ctk_source_language_manager, G_TYPE_OBJECT)
 
 static void
-gtk_source_language_manager_set_property (GObject 	*object,
+ctk_source_language_manager_set_property (GObject 	*object,
 					  guint 	 prop_id,
 					  const GValue *value,
 					  GParamSpec	*pspec)
@@ -83,7 +83,7 @@ gtk_source_language_manager_set_property (GObject 	*object,
 	switch (prop_id)
 	{
 		case PROP_SEARCH_PATH:
-			gtk_source_language_manager_set_search_path (lm, g_value_get_boxed (value));
+			ctk_source_language_manager_set_search_path (lm, g_value_get_boxed (value));
 			break;
 
 		default:
@@ -93,7 +93,7 @@ gtk_source_language_manager_set_property (GObject 	*object,
 }
 
 static void
-gtk_source_language_manager_get_property (GObject 	*object,
+ctk_source_language_manager_get_property (GObject 	*object,
 					  guint 	 prop_id,
 					  GValue 	*value,
 					  GParamSpec	*pspec)
@@ -105,11 +105,11 @@ gtk_source_language_manager_get_property (GObject 	*object,
 	switch (prop_id)
 	{
 		case PROP_SEARCH_PATH:
-			g_value_set_boxed (value, gtk_source_language_manager_get_search_path (lm));
+			g_value_set_boxed (value, ctk_source_language_manager_get_search_path (lm));
 			break;
 
 		case PROP_LANGUAGE_IDS:
-			g_value_set_boxed (value, gtk_source_language_manager_get_language_ids (lm));
+			g_value_set_boxed (value, ctk_source_language_manager_get_language_ids (lm));
 			break;
 
 		default:
@@ -119,7 +119,7 @@ gtk_source_language_manager_get_property (GObject 	*object,
 }
 
 static void
-gtk_source_language_manager_finalize (GObject *object)
+ctk_source_language_manager_finalize (GObject *object)
 {
 	GtkSourceLanguageManager *lm;
 
@@ -133,18 +133,18 @@ gtk_source_language_manager_finalize (GObject *object)
 	g_strfreev (lm->priv->lang_dirs);
 	g_free (lm->priv->rng_file);
 
-	G_OBJECT_CLASS (gtk_source_language_manager_parent_class)->finalize (object);
+	G_OBJECT_CLASS (ctk_source_language_manager_parent_class)->finalize (object);
 }
 
 static void
-gtk_source_language_manager_class_init (GtkSourceLanguageManagerClass *klass)
+ctk_source_language_manager_class_init (GtkSourceLanguageManagerClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-	object_class->finalize	= gtk_source_language_manager_finalize;
+	object_class->finalize	= ctk_source_language_manager_finalize;
 
-	object_class->set_property = gtk_source_language_manager_set_property;
-	object_class->get_property = gtk_source_language_manager_get_property;
+	object_class->set_property = ctk_source_language_manager_set_property;
+	object_class->get_property = ctk_source_language_manager_get_property;
 
 	g_object_class_install_property (object_class,
 					 PROP_SEARCH_PATH,
@@ -168,9 +168,9 @@ gtk_source_language_manager_class_init (GtkSourceLanguageManagerClass *klass)
 }
 
 static void
-gtk_source_language_manager_init (GtkSourceLanguageManager *lm)
+ctk_source_language_manager_init (GtkSourceLanguageManager *lm)
 {
-	lm->priv = gtk_source_language_manager_get_instance_private (lm);
+	lm->priv = ctk_source_language_manager_get_instance_private (lm);
 	lm->priv->language_ids = NULL;
 	lm->priv->ids = NULL;
 	lm->priv->lang_dirs = NULL;
@@ -178,22 +178,22 @@ gtk_source_language_manager_init (GtkSourceLanguageManager *lm)
 }
 
 /**
- * gtk_source_language_manager_new:
+ * ctk_source_language_manager_new:
  *
  * Creates a new language manager. If you do not need more than one language
  * manager or a private language manager instance then use
- * gtk_source_language_manager_get_default() instead.
+ * ctk_source_language_manager_get_default() instead.
  *
  * Returns: a new #GtkSourceLanguageManager.
  */
 GtkSourceLanguageManager *
-gtk_source_language_manager_new (void)
+ctk_source_language_manager_new (void)
 {
 	return g_object_new (GTK_SOURCE_TYPE_LANGUAGE_MANAGER, NULL);
 }
 
 /**
- * gtk_source_language_manager_get_default:
+ * ctk_source_language_manager_get_default:
  *
  * Returns the default #GtkSourceLanguageManager instance.
  *
@@ -201,11 +201,11 @@ gtk_source_language_manager_new (void)
  * Return value is owned by GtkSourceView library and must not be unref'ed.
  */
 GtkSourceLanguageManager *
-gtk_source_language_manager_get_default (void)
+ctk_source_language_manager_get_default (void)
 {
 	if (default_instance == NULL)
 	{
-		default_instance = gtk_source_language_manager_new ();
+		default_instance = ctk_source_language_manager_new ();
 		g_object_add_weak_pointer (G_OBJECT (default_instance),
 					   (gpointer) &default_instance);
 	}
@@ -214,7 +214,7 @@ gtk_source_language_manager_get_default (void)
 }
 
 GtkSourceLanguageManager *
-_gtk_source_language_manager_peek_default (void)
+_ctk_source_language_manager_peek_default (void)
 {
 	return default_instance;
 }
@@ -227,7 +227,7 @@ notify_search_path (GtkSourceLanguageManager *mgr)
 }
 
 /**
- * gtk_source_language_manager_set_search_path:
+ * ctk_source_language_manager_set_search_path:
  * @lm: a #GtkSourceLanguageManager.
  * @dirs: (nullable) (array zero-terminated=1):
  * a %NULL-terminated array of strings or %NULL.
@@ -246,7 +246,7 @@ notify_search_path (GtkSourceLanguageManager *mgr)
  * </note>
  */
 void
-gtk_source_language_manager_set_search_path (GtkSourceLanguageManager *lm,
+ctk_source_language_manager_set_search_path (GtkSourceLanguageManager *lm,
 					     gchar                   **dirs)
 {
 	gchar **tmp;
@@ -260,7 +260,7 @@ gtk_source_language_manager_set_search_path (GtkSourceLanguageManager *lm,
 	tmp = lm->priv->lang_dirs;
 
 	if (dirs == NULL)
-		lm->priv->lang_dirs = _gtk_source_utils_get_default_dirs (LANGUAGE_DIR);
+		lm->priv->lang_dirs = _ctk_source_utils_get_default_dirs (LANGUAGE_DIR);
 	else
 		lm->priv->lang_dirs = g_strdupv (dirs);
 
@@ -270,7 +270,7 @@ gtk_source_language_manager_set_search_path (GtkSourceLanguageManager *lm,
 }
 
 /**
- * gtk_source_language_manager_get_search_path:
+ * ctk_source_language_manager_get_search_path:
  * @lm: a #GtkSourceLanguageManager.
  *
  * Gets the list directories where @lm looks for language files.
@@ -280,18 +280,18 @@ gtk_source_language_manager_set_search_path (GtkSourceLanguageManager *lm,
  * The array is owned by @lm and must not be modified.
  */
 const gchar * const *
-gtk_source_language_manager_get_search_path (GtkSourceLanguageManager *lm)
+ctk_source_language_manager_get_search_path (GtkSourceLanguageManager *lm)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_LANGUAGE_MANAGER (lm), NULL);
 
 	if (lm->priv->lang_dirs == NULL)
-		lm->priv->lang_dirs = _gtk_source_utils_get_default_dirs (LANGUAGE_DIR);
+		lm->priv->lang_dirs = _ctk_source_utils_get_default_dirs (LANGUAGE_DIR);
 
 	return (const gchar * const *)lm->priv->lang_dirs;
 }
 
 /**
- * _gtk_source_language_manager_get_rng_file:
+ * _ctk_source_language_manager_get_rng_file:
  * @lm: a #GtkSourceLanguageManager.
  *
  * Returns location of the RNG schema file for lang files version 2.
@@ -299,7 +299,7 @@ gtk_source_language_manager_get_search_path (GtkSourceLanguageManager *lm)
  * Returns: path to RNG file. It belongs to %lm and must not be freed or modified.
  */
 const char *
-_gtk_source_language_manager_get_rng_file (GtkSourceLanguageManager *lm)
+_ctk_source_language_manager_get_rng_file (GtkSourceLanguageManager *lm)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_LANGUAGE_MANAGER (lm), NULL);
 
@@ -307,7 +307,7 @@ _gtk_source_language_manager_get_rng_file (GtkSourceLanguageManager *lm)
 	{
 		const gchar * const *dirs;
 
-		for (dirs = gtk_source_language_manager_get_search_path (lm);
+		for (dirs = ctk_source_language_manager_get_search_path (lm);
 		     dirs != NULL && *dirs != NULL;
 		     ++dirs)
 		{
@@ -336,8 +336,8 @@ language_compare (const gchar **id1, const gchar **id2, GHashTable *language_ids
 	lang1 = g_hash_table_lookup (language_ids, *id1);
 	lang2 = g_hash_table_lookup (language_ids, *id2);
 
-	name1 = gtk_source_language_get_name (lang1);
-	name2 = gtk_source_language_get_name (lang2);
+	name1 = ctk_source_language_get_name (lang1);
+	name2 = ctk_source_language_get_name (lang2);
 
 	return g_utf8_collate (name1, name2);
 }
@@ -354,7 +354,7 @@ ensure_languages (GtkSourceLanguageManager *lm)
 	lm->priv->language_ids = g_hash_table_new_full (g_str_hash, g_str_equal,
 							g_free, g_object_unref);
 
-	filenames = _gtk_source_utils_get_file_list ((gchar **)gtk_source_language_manager_get_search_path (lm),
+	filenames = _ctk_source_utils_get_file_list ((gchar **)ctk_source_language_manager_get_search_path (lm),
 						     LANG_FILE_SUFFIX,
 						     TRUE);
 
@@ -365,7 +365,7 @@ ensure_languages (GtkSourceLanguageManager *lm)
 
 		filename = l->data;
 
-		lang = _gtk_source_language_new_from_file (filename, lm);
+		lang = _ctk_source_language_new_from_file (filename, lm);
 
 		if (lang == NULL)
 		{
@@ -408,7 +408,7 @@ ensure_languages (GtkSourceLanguageManager *lm)
 }
 
 /**
- * gtk_source_language_manager_get_language_ids:
+ * ctk_source_language_manager_get_language_ids:
  * @lm: a #GtkSourceLanguageManager.
  *
  * Returns the ids of the available languages.
@@ -420,7 +420,7 @@ ensure_languages (GtkSourceLanguageManager *lm)
  * The array is owned by @lm and must not be modified.
  */
 const gchar * const *
-gtk_source_language_manager_get_language_ids (GtkSourceLanguageManager *lm)
+ctk_source_language_manager_get_language_ids (GtkSourceLanguageManager *lm)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_LANGUAGE_MANAGER (lm), NULL);
 
@@ -430,7 +430,7 @@ gtk_source_language_manager_get_language_ids (GtkSourceLanguageManager *lm)
 }
 
 /**
- * gtk_source_language_manager_get_language:
+ * ctk_source_language_manager_get_language:
  * @lm: a #GtkSourceLanguageManager.
  * @id: a language id.
  *
@@ -442,7 +442,7 @@ gtk_source_language_manager_get_language_ids (GtkSourceLanguageManager *lm)
  * owned by @lm and should not be freed.
  */
 GtkSourceLanguage *
-gtk_source_language_manager_get_language (GtkSourceLanguageManager *lm,
+ctk_source_language_manager_get_language (GtkSourceLanguageManager *lm,
 					  const gchar              *id)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_LANGUAGE_MANAGER (lm), NULL);
@@ -466,15 +466,15 @@ pick_langs_for_filename (GtkSourceLanguageManager *lm,
 	 * characters to unicode substitution symbol. */
 	filename_utf8 = g_filename_display_name (filename);
 
-	for (p = gtk_source_language_manager_get_language_ids (lm);
+	for (p = ctk_source_language_manager_get_language_ids (lm);
 	     p != NULL && *p != NULL;
 	     p++)
 	{
 		GtkSourceLanguage *lang;
 		gchar **globs, **gptr;
 
-		lang = gtk_source_language_manager_get_language (lm, *p);
-		globs = gtk_source_language_get_globs (lang);
+		lang = ctk_source_language_manager_get_language (lm, *p);
+		globs = ctk_source_language_get_globs (lang);
 
 		for (gptr = globs; gptr != NULL && *gptr != NULL; gptr++)
 		{
@@ -502,15 +502,15 @@ pick_lang_for_mime_type_pass (GtkSourceLanguageManager *lm,
 {
 	const gchar* const * id_ptr;
 
-	for (id_ptr = gtk_source_language_manager_get_language_ids (lm);
+	for (id_ptr = ctk_source_language_manager_get_language_ids (lm);
 	     id_ptr != NULL && *id_ptr != NULL;
 	     id_ptr++)
 	{
 		GtkSourceLanguage *lang;
 		gchar **mime_types, **mptr;
 
-		lang = gtk_source_language_manager_get_language (lm, *id_ptr);
-		mime_types = gtk_source_language_get_mime_types (lang);
+		lang = ctk_source_language_manager_get_language (lm, *id_ptr);
+		mime_types = ctk_source_language_get_mime_types (lang);
 
 		for (mptr = mime_types; mptr != NULL && *mptr != NULL; mptr++)
 		{
@@ -599,7 +599,7 @@ pick_lang_for_mime_type (GtkSourceLanguageManager *lm,
 }
 
 /**
- * gtk_source_language_manager_guess_language:
+ * ctk_source_language_manager_guess_language:
  * @lm: a #GtkSourceLanguageManager.
  * @filename: (nullable) (type filename): a filename in Glib filename encoding, or %NULL.
  * @content_type: (nullable): a content type (as in GIO API), or %NULL.
@@ -610,8 +610,8 @@ pick_lang_for_mime_type (GtkSourceLanguageManager *lm,
  *
  * <informalexample><programlisting>
  *   GtkSourceLanguage *lang;
- *   lang = gtk_source_language_manager_guess_language (filename, NULL);
- *   gtk_source_buffer_set_language (buffer, lang);
+ *   lang = ctk_source_language_manager_guess_language (filename, NULL);
+ *   ctk_source_buffer_set_language (buffer, lang);
  * </programlisting></informalexample>
  *
  * or
@@ -628,13 +628,13 @@ pick_lang_for_mime_type (GtkSourceLanguageManager *lm,
  *       content_type = NULL;
  *     }
  *
- *   lang = gtk_source_language_manager_guess_language (manager, filename, content_type);
- *   gtk_source_buffer_set_language (buffer, lang);
+ *   lang = ctk_source_language_manager_guess_language (manager, filename, content_type);
+ *   ctk_source_buffer_set_language (buffer, lang);
  *
  *   g_free (content_type);
  * </programlisting></informalexample>
  *
- * etc. Use gtk_source_language_get_mime_types() and gtk_source_language_get_globs()
+ * etc. Use ctk_source_language_get_mime_types() and ctk_source_language_get_globs()
  * if you need full control over file -> language mapping.
  *
  * Returns: (nullable) (transfer none): a #GtkSourceLanguage, or %NULL if there
@@ -644,7 +644,7 @@ pick_lang_for_mime_type (GtkSourceLanguageManager *lm,
  * Since: 2.4
  */
 GtkSourceLanguage *
-gtk_source_language_manager_guess_language (GtkSourceLanguageManager *lm,
+ctk_source_language_manager_guess_language (GtkSourceLanguageManager *lm,
 					    const gchar		     *filename,
 					    const gchar		     *content_type)
 {
@@ -679,7 +679,7 @@ gtk_source_language_manager_guess_language (GtkSourceLanguageManager *lm,
 				gchar **mime_types, **gptr;
 
 				lang = GTK_SOURCE_LANGUAGE (l->data);
-				mime_types = gtk_source_language_get_mime_types (lang);
+				mime_types = ctk_source_language_get_mime_types (lang);
 
 				for (gptr = mime_types; gptr != NULL && *gptr != NULL; gptr++)
 				{

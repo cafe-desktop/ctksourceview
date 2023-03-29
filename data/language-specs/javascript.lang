@@ -183,7 +183,7 @@
 
          End-parent contexts are container contexts to avoid the
          end-parent bug:
-         https://gitlab.gnome.org/GNOME/gtksourceview/issues/14
+         https://gitlab.gnome.org/GNOME/ctksourceview/issues/14
     -->
 
 
@@ -286,7 +286,7 @@
 
     <!-- "unknown id" errors can occur when using a regex defined in one
           component file in another component file
-          https://gitlab.gnome.org/GNOME/gtksourceview/issues/67
+          https://gitlab.gnome.org/GNOME/ctksourceview/issues/67
 
           so we move the definitions of these regexes here
     -->

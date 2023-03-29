@@ -1,13 +1,13 @@
-# Thai translation of gtksourceview.
+# Thai translation of ctksourceview.
 # Copyright (C) 2004-2012 Free Software Foundation, Inc.
-# This file is distributed under the same license as the gtksourceview package.
+# This file is distributed under the same license as the ctksourceview package.
 # Theppitak Karoonboonyanan <thep@linux.thai.net>, 2004-2012.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gtksourceview 1.1.0\n"
+"Project-Id-Version: ctksourceview 1.1.0\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=gtksourceview&keywords=I18N+L10N&component=general\n"
+"product=ctksourceview&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2012-09-18 14:01+0000\n"
 "PO-Revision-Date: 2012-09-24 14:21+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
@@ -17,61 +17,61 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../data/glade/gtksourceview.xml.in.h:1
+#: ../data/glade/ctksourceview.xml.in.h:1
 msgid "GtkSourceView"
 msgstr "GtkSourceView"
 
 #. Translators: It is related to an option of a set of values
-#: ../data/glade/gtksourceview.xml.in.h:3
+#: ../data/glade/ctksourceview.xml.in.h:3
 msgid "Disabled"
 msgstr "ปิดใช้"
 
-#: ../data/glade/gtksourceview.xml.in.h:4
+#: ../data/glade/ctksourceview.xml.in.h:4
 msgid "Before"
 msgstr "หลัง"
 
-#: ../data/glade/gtksourceview.xml.in.h:5
+#: ../data/glade/ctksourceview.xml.in.h:5
 msgid "After"
 msgstr "ก่อน"
 
-#: ../data/glade/gtksourceview.xml.in.h:6
+#: ../data/glade/ctksourceview.xml.in.h:6
 msgid "Always"
 msgstr "เสมอ"
 
-#: ../data/glade/gtksourceview.xml.in.h:7
+#: ../data/glade/ctksourceview.xml.in.h:7
 msgid "Space"
 msgstr "ช่องว่าง"
 
-#: ../data/glade/gtksourceview.xml.in.h:8
+#: ../data/glade/ctksourceview.xml.in.h:8
 msgid "Tab"
 msgstr "แท็บ"
 
-#: ../data/glade/gtksourceview.xml.in.h:9
+#: ../data/glade/ctksourceview.xml.in.h:9
 msgid "Newline"
 msgstr "ขึ้นบรรทัดใหม่"
 
-#: ../data/glade/gtksourceview.xml.in.h:10
+#: ../data/glade/ctksourceview.xml.in.h:10
 msgid "Non Breaking Whitespace"
 msgstr "อักขระช่องว่างไม่แบ่งบรรทัด"
 
-#: ../data/glade/gtksourceview.xml.in.h:11
+#: ../data/glade/ctksourceview.xml.in.h:11
 msgid "Leading"
 msgstr "ต้นบรรทัด"
 
-#: ../data/glade/gtksourceview.xml.in.h:12
-#: ../gtksourceview/gtksourcecompletionitem.c:255
-#: ../gtksourceview/gtksourcegutterrenderertext.c:403
+#: ../data/glade/ctksourceview.xml.in.h:12
+#: ../ctksourceview/ctksourcecompletionitem.c:255
+#: ../ctksourceview/ctksourcegutterrenderertext.c:403
 msgid "Text"
 msgstr "ข้อความ"
 
-#: ../data/glade/gtksourceview.xml.in.h:13
+#: ../data/glade/ctksourceview.xml.in.h:13
 msgid "Trailing"
 msgstr "ท้ายบรรทัด"
 
 #. Translators: "All" is used as a label in thestatus bar of the
 #. popup, telling that all completion pages are shown
-#: ../data/glade/gtksourceview.xml.in.h:14
-#: ../gtksourceview/gtksourcecompletion.c:647
+#: ../data/glade/ctksourceview.xml.in.h:14
+#: ../ctksourceview/ctksourcecompletion.c:647
 msgid "All"
 msgstr "ทั้งหมด"
 
@@ -126,7 +126,7 @@ msgstr "แอกชันสคริปต์"
 #: ../data/language-specs/forth.lang.h:3
 #: ../data/language-specs/fortran.lang.h:3
 #: ../data/language-specs/fsharp.lang.h:3 ../data/language-specs/gap.lang.h:3
-#: ../data/language-specs/go.lang.h:3 ../data/language-specs/gtkrc.lang.h:3
+#: ../data/language-specs/go.lang.h:3 ../data/language-specs/ctkrc.lang.h:3
 #: ../data/language-specs/haskell.lang.h:4
 #: ../data/language-specs/html.lang.h:3 ../data/language-specs/idl.lang.h:3
 #: ../data/language-specs/ini.lang.h:3 ../data/language-specs/j.lang.h:4
@@ -182,7 +182,7 @@ msgstr "ข้อผิดพลาด"
 #: ../data/language-specs/forth.lang.h:4
 #: ../data/language-specs/fsharp.lang.h:7
 #: ../data/language-specs/gdb-log.lang.h:8 ../data/language-specs/go.lang.h:5
-#: ../data/language-specs/gtkrc.lang.h:4
+#: ../data/language-specs/ctkrc.lang.h:4
 #: ../data/language-specs/haskell.lang.h:9 ../data/language-specs/idl.lang.h:7
 #: ../data/language-specs/imagej.lang.h:10 ../data/language-specs/ini.lang.h:5
 #: ../data/language-specs/j.lang.h:17 ../data/language-specs/java.lang.h:4
@@ -251,7 +251,7 @@ msgstr "การประกาศขอบเขต"
 #: ../data/language-specs/fortran.lang.h:5
 #: ../data/language-specs/fsharp.lang.h:8 ../data/language-specs/gap.lang.h:5
 #: ../data/language-specs/glsl.lang.h:5 ../data/language-specs/go.lang.h:7
-#: ../data/language-specs/gtkrc.lang.h:5
+#: ../data/language-specs/ctkrc.lang.h:5
 #: ../data/language-specs/haskell.lang.h:7 ../data/language-specs/idl.lang.h:6
 #: ../data/language-specs/imagej.lang.h:8 ../data/language-specs/ini.lang.h:6
 #: ../data/language-specs/java.lang.h:12
@@ -302,7 +302,7 @@ msgstr "ค่า Null"
 #: ../data/language-specs/csharp.lang.h:14
 #: ../data/language-specs/def.lang.h:34
 #: ../data/language-specs/fsharp.lang.h:19 ../data/language-specs/go.lang.h:16
-#: ../data/language-specs/gtkrc.lang.h:10 ../data/language-specs/ini.lang.h:10
+#: ../data/language-specs/ctkrc.lang.h:10 ../data/language-specs/ini.lang.h:10
 #: ../data/language-specs/java.lang.h:14 ../data/language-specs/lua.lang.h:10
 #: ../data/language-specs/nemerle.lang.h:11
 #: ../data/language-specs/ocaml.lang.h:19 ../data/language-specs/ooc.lang.h:13
@@ -345,7 +345,7 @@ msgstr "คำสงวนสำหรับอนาคต"
 #: ../data/language-specs/fortran.lang.h:9
 #: ../data/language-specs/fsharp.lang.h:11
 #: ../data/language-specs/glsl.lang.h:4 ../data/language-specs/go.lang.h:8
-#: ../data/language-specs/gtkrc.lang.h:7
+#: ../data/language-specs/ctkrc.lang.h:7
 #: ../data/language-specs/haskell.lang.h:8 ../data/language-specs/idl.lang.h:4
 #: ../data/language-specs/ini.lang.h:9 ../data/language-specs/java.lang.h:17
 #: ../data/language-specs/javascript.lang.h:8
@@ -437,7 +437,7 @@ msgstr "ASP"
 #: ../data/language-specs/changelog.lang.h:8
 #: ../data/language-specs/css.lang.h:8 ../data/language-specs/def.lang.h:38
 #: ../data/language-specs/gap.lang.h:6 ../data/language-specs/gdb-log.lang.h:7
-#: ../data/language-specs/gtk-doc.lang.h:10
+#: ../data/language-specs/ctk-doc.lang.h:10
 #: ../data/language-specs/javascript.lang.h:9
 #: ../data/language-specs/lua.lang.h:8 ../data/language-specs/scheme.lang.h:7
 #: ../data/language-specs/scilab.lang.h:7 ../data/language-specs/sh.lang.h:4
@@ -586,7 +586,7 @@ msgstr "เลขฐานสิบหก"
 
 #: ../data/language-specs/bibtex.lang.h:1
 #: ../data/language-specs/docbook.lang.h:1 ../data/language-specs/dtd.lang.h:1
-#: ../data/language-specs/gtk-doc.lang.h:1
+#: ../data/language-specs/ctk-doc.lang.h:1
 #: ../data/language-specs/haddock.lang.h:1
 #: ../data/language-specs/html.lang.h:1 ../data/language-specs/latex.lang.h:1
 #: ../data/language-specs/mallard.lang.h:1
@@ -594,8 +594,8 @@ msgstr "เลขฐานสิบหก"
 #: ../data/language-specs/mxml.lang.h:1 ../data/language-specs/t2t.lang.h:1
 #: ../data/language-specs/texinfo.lang.h:1 ../data/language-specs/xml.lang.h:1
 #: ../data/language-specs/xslt.lang.h:1
-#: ../gtksourceview/gtksourcecompletionitem.c:242
-#: ../gtksourceview/gtksourcegutterrenderertext.c:395
+#: ../ctksourceview/ctksourcecompletionitem.c:242
+#: ../ctksourceview/ctksourcegutterrenderertext.c:395
 msgid "Markup"
 msgstr "มาร์กอัป"
 
@@ -696,7 +696,7 @@ msgstr "ในตัว"
 #. *
 #. * #GtkSourceLanguage encapsulates syntax and highlighting styles for a
 #. * particular language. Use #GtkSourceLanguageManager to obtain a
-#. * #GtkSourceLanguage instance, and gtk_source_buffer_set_language() to apply it
+#. * #GtkSourceLanguage instance, and ctk_source_buffer_set_language() to apply it
 #. * to a #GtkSourceBuffer.
 #.
 #: ../data/language-specs/changelog.lang.h:1
@@ -705,7 +705,7 @@ msgstr "ในตัว"
 #: ../data/language-specs/diff.lang.h:1 ../data/language-specs/dot.lang.h:1
 #: ../data/language-specs/dpatch.lang.h:1
 #: ../data/language-specs/gdb-log.lang.h:1
-#: ../data/language-specs/gtkrc.lang.h:1 ../data/language-specs/ini.lang.h:1
+#: ../data/language-specs/ctkrc.lang.h:1 ../data/language-specs/ini.lang.h:1
 #: ../data/language-specs/json.lang.h:1
 #: ../data/language-specs/libtool.lang.h:1
 #: ../data/language-specs/nsis.lang.h:1 ../data/language-specs/ocl.lang.h:1
@@ -715,7 +715,7 @@ msgstr "ในตัว"
 #: ../data/language-specs/rpmspec.lang.h:1 ../data/language-specs/sh.lang.h:10
 #: ../data/language-specs/texinfo.lang.h:5
 #: ../data/language-specs/yacc.lang.h:1
-#: ../gtksourceview/gtksourcelanguage.c:55
+#: ../ctksourceview/ctksourcelanguage.c:55
 msgid "Others"
 msgstr "อื่นๆ"
 
@@ -729,7 +729,7 @@ msgid "Date"
 msgstr "วันที่"
 
 #: ../data/language-specs/changelog.lang.h:4
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:455
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:455
 msgid "Name"
 msgstr "ชื่อ"
 
@@ -801,7 +801,7 @@ msgstr "ตัวแปรในตัว"
 #. Any constant
 #: ../data/language-specs/cmake.lang.h:5 ../data/language-specs/cobol.lang.h:7
 #: ../data/language-specs/def.lang.h:13
-#: ../data/language-specs/gtk-doc.lang.h:8
+#: ../data/language-specs/ctk-doc.lang.h:8
 #: ../data/language-specs/libtool.lang.h:3
 #: ../data/language-specs/ruby.lang.h:17
 msgid "Constant"
@@ -852,7 +852,7 @@ msgstr "อื่นๆ 3"
 #. Translator: it is a type of number
 #: ../data/language-specs/css.lang.h:10 ../data/language-specs/fcl.lang.h:7
 #: ../data/language-specs/fortran.lang.h:8 ../data/language-specs/gap.lang.h:7
-#: ../data/language-specs/gtkrc.lang.h:6
+#: ../data/language-specs/ctkrc.lang.h:6
 #: ../data/language-specs/haskell.lang.h:13
 #: ../data/language-specs/ini.lang.h:7 ../data/language-specs/json.lang.h:8
 #: ../data/language-specs/octave.lang.h:9
@@ -911,7 +911,7 @@ msgid "Shebang"
 msgstr "ส่วนหัวสคริปต์ (#!/bin/sh)"
 
 #. A special comment containing documentation like in javadoc or
-#. gtk-doc
+#. ctk-doc
 #: ../data/language-specs/def.lang.h:8
 msgid "Documentation comment"
 msgstr "หมายเหตุสำหรับสร้างเอกสาร"
@@ -1340,58 +1340,58 @@ msgstr "Go"
 msgid "Imaginary number"
 msgstr "จำนวนจินตภาพ"
 
-#: ../data/language-specs/gtk-doc.lang.h:2
-msgid "gtk-doc"
-msgstr "gtk-doc"
+#: ../data/language-specs/ctk-doc.lang.h:2
+msgid "ctk-doc"
+msgstr "ctk-doc"
 
-#: ../data/language-specs/gtk-doc.lang.h:3
+#: ../data/language-specs/ctk-doc.lang.h:3
 msgid "Inline Documentation Section"
 msgstr "เอกสารประกอบในบรรทัด"
 
-#: ../data/language-specs/gtk-doc.lang.h:4
+#: ../data/language-specs/ctk-doc.lang.h:4
 msgid "Function Name"
 msgstr "ชื่อฟังก์ชัน"
 
-#: ../data/language-specs/gtk-doc.lang.h:5
+#: ../data/language-specs/ctk-doc.lang.h:5
 msgid "Signal Name"
 msgstr "ชื่อสัญญาณ"
 
-#: ../data/language-specs/gtk-doc.lang.h:6
+#: ../data/language-specs/ctk-doc.lang.h:6
 msgid "Property Name"
 msgstr "ชื่อคุณสมบัติ"
 
-#: ../data/language-specs/gtk-doc.lang.h:7
+#: ../data/language-specs/ctk-doc.lang.h:7
 msgid "Parameter"
 msgstr "พารามิเตอร์"
 
-#: ../data/language-specs/gtk-doc.lang.h:9
+#: ../data/language-specs/ctk-doc.lang.h:9
 #: ../data/language-specs/systemverilog.lang.h:6
 #: ../data/language-specs/verilog.lang.h:12
 #: ../data/language-specs/vhdl.lang.h:7
 msgid "Type"
 msgstr "ชนิด"
 
-#: ../data/language-specs/gtk-doc.lang.h:11
+#: ../data/language-specs/ctk-doc.lang.h:11
 msgid "Return"
 msgstr "การคืนค่า"
 
-#: ../data/language-specs/gtk-doc.lang.h:12
+#: ../data/language-specs/ctk-doc.lang.h:12
 msgid "Since"
 msgstr "ตั้งแต่"
 
-#: ../data/language-specs/gtk-doc.lang.h:13
+#: ../data/language-specs/ctk-doc.lang.h:13
 msgid "Deprecated"
 msgstr "ไม่แนะนำให้ใช้"
 
-#: ../data/language-specs/gtkrc.lang.h:2
+#: ../data/language-specs/ctkrc.lang.h:2
 msgid "GtkRC"
 msgstr "GtkRC"
 
-#: ../data/language-specs/gtkrc.lang.h:8
+#: ../data/language-specs/ctkrc.lang.h:8
 msgid "Widget State"
 msgstr "สถานะวิดเจ็ต"
 
-#: ../data/language-specs/gtkrc.lang.h:9
+#: ../data/language-specs/ctkrc.lang.h:9
 msgid "Include directive"
 msgstr "คำสั่ง include"
 
@@ -1748,7 +1748,7 @@ msgid "Link Text"
 msgstr "ข้อความลิงก์"
 
 #: ../data/language-specs/markdown.lang.h:10
-#: ../gtksourceview/gtksourcecompletionitem.c:229
+#: ../ctksourceview/ctksourcecompletionitem.c:229
 msgid "Label"
 msgstr "ป้ายชื่อ"
 
@@ -2238,13 +2238,13 @@ msgstr "หัวข้อ 4"
 msgid "Section 5"
 msgstr "หัวข้อ 5"
 
-#: ../data/language-specs/t2t.lang.h:14 ../gtksourceview/gtksourcestyle.c:112
-#: ../gtksourceview/gtksourcestyle.c:113
+#: ../data/language-specs/t2t.lang.h:14 ../ctksourceview/ctksourcestyle.c:112
+#: ../ctksourceview/ctksourcestyle.c:113
 msgid "Italic"
 msgstr "เอียง"
 
-#: ../data/language-specs/t2t.lang.h:15 ../gtksourceview/gtksourcestyle.c:104
-#: ../gtksourceview/gtksourcestyle.c:105
+#: ../data/language-specs/t2t.lang.h:15 ../ctksourceview/ctksourcestyle.c:104
+#: ../ctksourceview/ctksourcestyle.c:105
 msgid "Bold"
 msgstr "หนา"
 
@@ -2380,272 +2380,272 @@ msgstr "Tango"
 msgid "Color scheme using Tango color palette"
 msgstr "ชุดสีซึ่งใช้สีจากจานสีของ Tango"
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:371
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:371
 msgid "Document Words"
 msgstr "คำในเอกสาร"
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:456
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:456
 msgid "The provider name"
 msgstr "ชื่อของแหล่งที่มา"
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:463
-#: ../gtksourceview/gtksourcecompletionitem.c:268
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:463
+#: ../ctksourceview/ctksourcecompletionitem.c:268
 msgid "Icon"
 msgstr "ไอคอน"
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:464
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:464
 msgid "The provider icon"
 msgstr "ไอคอนของแหล่งที่มา"
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:471
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:471
 msgid "Proposals Batch Size"
 msgstr "ขนาดของชุดคำเสนอ"
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:472
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:472
 msgid "Number of proposals added in one batch"
 msgstr "จำนวนคำเสนอที่จะเพิ่มในชุดหนึ่งๆ"
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:481
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:481
 msgid "Scan Batch Size"
 msgstr "ขนาดของการตรวจข้อมูลต่อชุด"
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:482
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:482
 msgid "Number of lines scanned in one batch"
 msgstr "จำนวนบรรทัดที่จะตรวจข้อมูลในชุดหนึ่งๆ"
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:491
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:491
 msgid "Minimum Word Size"
 msgstr "ขนาดต่ำสุดของคำ"
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:492
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:492
 msgid "The minimum word size to complete"
 msgstr "ขนาดต่ำสุดของคำที่จะเติมเต็ม"
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:501
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:501
 msgid "Interactive Delay"
 msgstr "เวลาหน่วงก่อนโต้ตอบ"
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:502
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:502
 msgid "The delay before initiating interactive completion"
 msgstr "เวลาหน่วงก่อนที่จะเริ่มเติมเต็มคำแบบโต้ตอบ"
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:511
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:511
 msgid "Priority"
 msgstr "ลำดับความสำคัญ"
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:512
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:512
 msgid "Provider priority"
 msgstr "ลำดับความสำคัญของแหล่งที่มา"
 
-#: ../gtksourceview/gtksourcebuffer.c:234
-#: ../gtksourceview/gtksourceprintcompositor.c:502
+#: ../ctksourceview/ctksourcebuffer.c:234
+#: ../ctksourceview/ctksourceprintcompositor.c:502
 msgid "Highlight Syntax"
 msgstr "เน้นข้อความตามไวยากรณ์"
 
-#: ../gtksourceview/gtksourcebuffer.c:235
+#: ../ctksourceview/ctksourcebuffer.c:235
 msgid "Whether to highlight syntax in the buffer"
 msgstr "กำหนดว่าจะเน้นข้อความในบัฟเฟอร์ตามไวยากรณ์หรือไม่"
 
-#: ../gtksourceview/gtksourcebuffer.c:248
+#: ../ctksourceview/ctksourcebuffer.c:248
 msgid "Highlight Matching Brackets"
 msgstr "เน้นคู่วงเล็บเปิด-ปิด"
 
-#: ../gtksourceview/gtksourcebuffer.c:249
+#: ../ctksourceview/ctksourcebuffer.c:249
 msgid "Whether to highlight matching brackets"
 msgstr "กำหนดว่าจะเน้นคู่วงเล็บเปิด-ปิดหรือไม่"
 
-#: ../gtksourceview/gtksourcebuffer.c:262
-#: ../gtksourceview/gtksourceundomanagerdefault.c:418
+#: ../ctksourceview/ctksourcebuffer.c:262
+#: ../ctksourceview/ctksourceundomanagerdefault.c:418
 msgid "Maximum Undo Levels"
 msgstr "จำนวนขั้นการเรียกคืนสูงสุด"
 
-#: ../gtksourceview/gtksourcebuffer.c:263
-#: ../gtksourceview/gtksourceundomanagerdefault.c:419
+#: ../ctksourceview/ctksourcebuffer.c:263
+#: ../ctksourceview/ctksourceundomanagerdefault.c:419
 msgid "Number of undo levels for the buffer"
 msgstr "จำนวนขั้นของการเรียกคืนการทำคำสั่งในบัฟเฟอร์"
 
 #. Translators: throughout GtkSourceView "language" stands
 #. * for "programming language", not "spoken language"
-#: ../gtksourceview/gtksourcebuffer.c:275
+#: ../ctksourceview/ctksourcebuffer.c:275
 msgid "Language"
 msgstr "ภาษา"
 
-#: ../gtksourceview/gtksourcebuffer.c:276
+#: ../ctksourceview/ctksourcebuffer.c:276
 msgid "Language object to get highlighting patterns from"
 msgstr "อ็อบเจกต์ภาษาที่เก็บรูปแบบการเน้นข้อความ"
 
-#: ../gtksourceview/gtksourcebuffer.c:284
+#: ../ctksourceview/ctksourcebuffer.c:284
 msgid "Can undo"
 msgstr "สามารถเรียกคืนได้"
 
-#: ../gtksourceview/gtksourcebuffer.c:285
+#: ../ctksourceview/ctksourcebuffer.c:285
 msgid "Whether Undo operation is possible"
 msgstr "ระบุว่า การกระทำสามารถเรียกคืนได้หรือไม่"
 
-#: ../gtksourceview/gtksourcebuffer.c:292
+#: ../ctksourceview/ctksourcebuffer.c:292
 msgid "Can redo"
 msgstr "สามารถทำซ้ำได้"
 
-#: ../gtksourceview/gtksourcebuffer.c:293
+#: ../ctksourceview/ctksourcebuffer.c:293
 msgid "Whether Redo operation is possible"
 msgstr "ระบุว่า การกระทำสามารถทำซ้ำได้หรือไม่"
 
-#: ../gtksourceview/gtksourcebuffer.c:307
-#: ../gtksourceview/gtksourcebuffer.c:308
+#: ../ctksourceview/ctksourcebuffer.c:307
+#: ../ctksourceview/ctksourcebuffer.c:308
 msgid "Style scheme"
 msgstr "ชุดสไตล์"
 
-#: ../gtksourceview/gtksourcebuffer.c:315
+#: ../ctksourceview/ctksourcebuffer.c:315
 msgid "Undo manager"
 msgstr "ผู้จัดการการเรียกคืนคำสั่ง"
 
-#: ../gtksourceview/gtksourcebuffer.c:316
+#: ../ctksourceview/ctksourcebuffer.c:316
 msgid "The buffer undo manager"
 msgstr "ผู้จัดการการเรียกคืนคำสั่งของบัฟเฟอร์"
 
-#: ../gtksourceview/gtksourcecompletion.c:934
-#: ../gtksourceview/gtksourcecompletion.c:957
+#: ../ctksourceview/ctksourcecompletion.c:934
+#: ../ctksourceview/ctksourcecompletion.c:957
 msgid "No extra information available"
 msgstr "ไม่มีข้อมูลพิเศษเพิ่มเติมอีก"
 
-#: ../gtksourceview/gtksourcecompletion.c:2212
-#: ../gtksourceview/gtksourcegutter.c:547
+#: ../ctksourceview/ctksourcecompletion.c:2212
+#: ../ctksourceview/ctksourcegutter.c:547
 msgid "View"
 msgstr "ตัวแสดง"
 
-#: ../gtksourceview/gtksourcecompletion.c:2213
+#: ../ctksourceview/ctksourcecompletion.c:2213
 msgid "The GtkSourceView bound to the completion"
 msgstr "อ็อบเจกต์ GtkSourceView ที่ผูกอยู่กับการเติมเต็มคำนี้"
 
-#: ../gtksourceview/gtksourcecompletion.c:2228
+#: ../ctksourceview/ctksourcecompletion.c:2228
 msgid "Remember Info Visibility"
 msgstr "จำการปรากฏของข้อมูล"
 
-#: ../gtksourceview/gtksourcecompletion.c:2229
+#: ../ctksourceview/ctksourcecompletion.c:2229
 msgid "Remember the last info window visibility state"
 msgstr "จำสถานะล่าสุดของการปรากฏของหน้าต่างข้อมูล"
 
-#: ../gtksourceview/gtksourcecompletion.c:2242
+#: ../ctksourceview/ctksourcecompletion.c:2242
 msgid "Select on Show"
 msgstr "เลือกเมื่อแสดง"
 
-#: ../gtksourceview/gtksourcecompletion.c:2243
+#: ../ctksourceview/ctksourcecompletion.c:2243
 msgid "Select first proposal when completion is shown"
 msgstr "เลือกคำเสนอรายการแรกเมื่อแสดงการเติมเต็มคำ"
 
-#: ../gtksourceview/gtksourcecompletion.c:2257
+#: ../ctksourceview/ctksourcecompletion.c:2257
 msgid "Show Headers"
 msgstr "แสดงหัวเรื่อง"
 
-#: ../gtksourceview/gtksourcecompletion.c:2258
+#: ../ctksourceview/ctksourcecompletion.c:2258
 msgid ""
 "Show provider headers when proposals from multiple providers are available"
 msgstr "แสดงหัวเรื่องของแหล่งที่มาเมื่อมีคำเสนอมากจากหลายแหล่ง"
 
-#: ../gtksourceview/gtksourcecompletion.c:2272
+#: ../ctksourceview/ctksourcecompletion.c:2272
 msgid "Show Icons"
 msgstr "แสดงไอคอน"
 
-#: ../gtksourceview/gtksourcecompletion.c:2273
+#: ../ctksourceview/ctksourcecompletion.c:2273
 msgid "Show provider and proposal icons in the completion popup"
 msgstr "แสดงไอคอนของแหล่งที่มาและคำเสนอในหน้าต่างผุดขึ้นสำหรับเติมเต็มคำ"
 
-#: ../gtksourceview/gtksourcecompletion.c:2288
+#: ../ctksourceview/ctksourcecompletion.c:2288
 msgid "Accelerators"
 msgstr "จำนวนคีย์ด่วน"
 
-#: ../gtksourceview/gtksourcecompletion.c:2289
+#: ../ctksourceview/ctksourcecompletion.c:2289
 msgid "Number of proposal accelerators to show"
 msgstr "จำนวนคีย์ด่วนของคำเสนอที่จะแสดง"
 
-#: ../gtksourceview/gtksourcecompletion.c:2305
+#: ../ctksourceview/ctksourcecompletion.c:2305
 msgid "Auto Complete Delay"
 msgstr "เวลาหน่วงก่อนเติมเต็มคำอัตโนมัติ"
 
-#: ../gtksourceview/gtksourcecompletion.c:2306
+#: ../ctksourceview/ctksourcecompletion.c:2306
 msgid "Completion popup delay for interactive completion"
 msgstr "เวลาหน่วงก่อนผุดหน้าต่างเติมเต็มคำแบบโต้ตอบ"
 
-#: ../gtksourceview/gtksourcecompletion.c:2322
+#: ../ctksourceview/ctksourcecompletion.c:2322
 msgid "Provider Page Size"
 msgstr "ขนาดหน้าของแหล่งที่มา"
 
-#: ../gtksourceview/gtksourcecompletion.c:2323
+#: ../ctksourceview/ctksourcecompletion.c:2323
 msgid "Provider scrolling page size"
 msgstr "ขนาดของการเลื่อนหน้าแหล่งที่มา"
 
-#: ../gtksourceview/gtksourcecompletion.c:2342
+#: ../ctksourceview/ctksourcecompletion.c:2342
 msgid "Proposal Page Size"
 msgstr "ขนาดหน้าของคำเสนอ"
 
-#: ../gtksourceview/gtksourcecompletion.c:2343
+#: ../ctksourceview/ctksourcecompletion.c:2343
 msgid "Proposal scrolling page size"
 msgstr "ขนาดของการเลื่อนหน้าคำเสนอ"
 
-#: ../gtksourceview/gtksourcecompletion.c:2704
+#: ../ctksourceview/ctksourcecompletion.c:2704
 msgid "Provider"
 msgstr "แหล่งที่มา"
 
-#: ../gtksourceview/gtksourcecompletion.ui.h:1
+#: ../ctksourceview/ctksourcecompletion.ui.h:1
 msgid "Show detailed proposal information"
 msgstr "แสดงข้อมูลของคำเสนอโดยละเอียด"
 
-#: ../gtksourceview/gtksourcecompletion.ui.h:2
+#: ../ctksourceview/ctksourcecompletion.ui.h:2
 msgid "_Details..."
 msgstr "_รายละเอียด..."
 
-#: ../gtksourceview/gtksourcecompletioncontext.c:255
-#: ../gtksourceview/gtksourceview.c:306
+#: ../ctksourceview/ctksourcecompletioncontext.c:255
+#: ../ctksourceview/ctksourceview.c:306
 msgid "Completion"
 msgstr "ตัวเติมเต็มคำ"
 
-#: ../gtksourceview/gtksourcecompletioncontext.c:256
+#: ../ctksourceview/ctksourcecompletioncontext.c:256
 msgid "The completion object to which the context belongs"
 msgstr "อ็อบเจกต์ตัวเติมเต็มคำที่เป็นเจ้าของบริบทนี้"
 
 #. Translators: The GtkTextIter at which the completion was invoked
-#: ../gtksourceview/gtksourcecompletioncontext.c:269
+#: ../ctksourceview/ctksourcecompletioncontext.c:269
 msgid "Iterator"
 msgstr "ตัววิ่ง"
 
-#: ../gtksourceview/gtksourcecompletioncontext.c:270
+#: ../ctksourceview/ctksourcecompletioncontext.c:270
 msgid "The GtkTextIter at which the completion was invoked"
 msgstr "อ็อบเจกต์ GtkTextIter ที่ใช้งานอยู่ขณะที่เรียกตัวเติมเต็มคำนี้"
 
-#: ../gtksourceview/gtksourcecompletioncontext.c:282
+#: ../ctksourceview/ctksourcecompletioncontext.c:282
 msgid "Activation"
 msgstr "การเรียกทำงาน"
 
-#: ../gtksourceview/gtksourcecompletioncontext.c:283
+#: ../ctksourceview/ctksourcecompletioncontext.c:283
 msgid "The type of activation"
 msgstr "ชนิดของการเรียกทำงาน"
 
 #. Tooltip style
-#: ../gtksourceview/gtksourcecompletioninfo.c:61
+#: ../ctksourceview/ctksourcecompletioninfo.c:61
 msgid "Completion Info"
 msgstr "ข้อมูลของการเติมเต็มคำ"
 
-#: ../gtksourceview/gtksourcecompletionitem.c:230
+#: ../ctksourceview/ctksourcecompletionitem.c:230
 msgid "Label to be shown for this item"
 msgstr "ป้ายชื่อที่จะแสดงสำหรับรายการนี้"
 
-#: ../gtksourceview/gtksourcecompletionitem.c:243
+#: ../ctksourceview/ctksourcecompletionitem.c:243
 msgid "Markup to be shown for this item"
 msgstr "มาร์กอัปที่จะแสดงสำหรับรายการนี้"
 
-#: ../gtksourceview/gtksourcecompletionitem.c:256
+#: ../ctksourceview/ctksourcecompletionitem.c:256
 msgid "Item text"
 msgstr "ข้อความของรายการ"
 
-#: ../gtksourceview/gtksourcecompletionitem.c:269
+#: ../ctksourceview/ctksourcecompletionitem.c:269
 msgid "Icon to be shown for this item"
 msgstr "ไอคอนที่จะแสดงสำหรับรายการนี้"
 
-#: ../gtksourceview/gtksourcecompletionitem.c:281
+#: ../ctksourceview/ctksourcecompletionitem.c:281
 msgid "Info"
 msgstr "ข้อมูล"
 
-#: ../gtksourceview/gtksourcecompletionitem.c:282
+#: ../ctksourceview/ctksourcecompletionitem.c:282
 msgid "Info to be shown for this item"
 msgstr "ข้อมูลที่จะแสดงสำหรับรายการนี้"
 
@@ -2653,7 +2653,7 @@ msgstr "ข้อมูลที่จะแสดงสำหรับราย
 #. * named sub-patterns with the same name or if resulting regex is
 #. * too long. In this case fixing lang file helps (e.g. renaming
 #. * subpatterns, making huge keywords use bigger prefixes, etc.)
-#: ../gtksourceview/gtksourcecontextengine.c:3120
+#: ../ctksourceview/ctksourcecontextengine.c:3120
 #, c-format
 msgid ""
 "Cannot create a regex for all the transitions, the syntax highlighting "
@@ -2664,542 +2664,542 @@ msgstr ""
 "การเน้นข้อความตามไวยากรณ์อาจทำงานช้ากว่าปกติ\n"
 "ข้อผิดพลาดคือ: %s"
 
-#: ../gtksourceview/gtksourcecontextengine.c:4443
+#: ../ctksourceview/ctksourcecontextengine.c:4443
 msgid ""
 "Highlighting a single line took too much time, syntax highlighting will be "
 "disabled"
 msgstr "การเน้นไวยากรณ์เพียงบรรทัดเดียวใช้เวลานานเกินไป จะปิดการเน้นไวยากรณ์"
 
-#: ../gtksourceview/gtksourcecontextengine.c:5687
+#: ../ctksourceview/ctksourcecontextengine.c:5687
 #, c-format
 msgid "context '%s' cannot contain a \\%%{...@start} command"
 msgstr "บริบท '%s' จะมีคำสั่ง \\%%{...@start} ไม่ได้"
 
-#: ../gtksourceview/gtksourcecontextengine.c:5848
-#: ../gtksourceview/gtksourcecontextengine.c:5937
+#: ../ctksourceview/ctksourcecontextengine.c:5848
+#: ../ctksourceview/ctksourcecontextengine.c:5937
 #, c-format
 msgid "duplicated context id '%s'"
 msgstr "id ของบริบท '%s' ซ้ำกัน"
 
-#: ../gtksourceview/gtksourcecontextengine.c:6051
-#: ../gtksourceview/gtksourcecontextengine.c:6111
+#: ../ctksourceview/ctksourcecontextengine.c:6051
+#: ../ctksourceview/ctksourcecontextengine.c:6111
 #, c-format
 msgid ""
 "style override used with wildcard context reference in language '%s' in ref "
 "'%s'"
 msgstr "มีการทับค่าสไตล์ในตัวอ้างอิงบริบทที่เป็น wildcard ในภาษา '%s' ที่ตัวอ้างอิง '%s'"
 
-#: ../gtksourceview/gtksourcecontextengine.c:6125
+#: ../ctksourceview/ctksourcecontextengine.c:6125
 #, c-format
 msgid "invalid context reference '%s'"
 msgstr "ตัวอ้างอิงบริบท '%s' ใช้การไม่ได้"
 
-#: ../gtksourceview/gtksourcecontextengine.c:6144
-#: ../gtksourceview/gtksourcecontextengine.c:6154
+#: ../ctksourceview/ctksourcecontextengine.c:6144
+#: ../ctksourceview/ctksourcecontextengine.c:6154
 #, c-format
 msgid "unknown context '%s'"
 msgstr "ไม่รู้จักบริบท '%s'"
 
-#: ../gtksourceview/gtksourcecontextengine.c:6253
+#: ../ctksourceview/ctksourcecontextengine.c:6253
 #, c-format
 msgid "Missing main language definition (id = \"%s\".)"
 msgstr "ไม่มีข้อกำหนดภาษาหลัก (id = \"%s\")"
 
-#: ../gtksourceview/gtksourcegutter.c:548
+#: ../ctksourceview/ctksourcegutter.c:548
 msgid "The gutters' GtkSourceView"
 msgstr "อ็อบเจกต์ GtkSourceView ที่ผูกอยู่กับแถบด้านข้างอันนี้"
 
-#: ../gtksourceview/gtksourcegutter.c:560
-#: ../gtksourceview/gtksourcegutterrenderer.c:703
+#: ../ctksourceview/ctksourcegutter.c:560
+#: ../ctksourceview/ctksourcegutterrenderer.c:703
 msgid "Window Type"
 msgstr "ชนิดของหน้าต่าง"
 
-#: ../gtksourceview/gtksourcegutter.c:561
+#: ../ctksourceview/ctksourcegutter.c:561
 msgid "The gutters text window type"
 msgstr "ชนิดของหน้าต่างข้อความแถบข้าง"
 
-#: ../gtksourceview/gtksourcegutter.c:572
-#: ../gtksourceview/gtksourcegutterrenderer.c:479
+#: ../ctksourceview/ctksourcegutter.c:572
+#: ../ctksourceview/ctksourcegutterrenderer.c:479
 msgid "X Padding"
 msgstr "การเสริมเต็มในแนว X"
 
-#: ../gtksourceview/gtksourcegutter.c:573
-#: ../gtksourceview/gtksourcegutterrenderer.c:480
+#: ../ctksourceview/ctksourcegutter.c:573
+#: ../ctksourceview/ctksourcegutterrenderer.c:480
 msgid "The x-padding"
 msgstr "การเสริมเต็มในแนว X"
 
-#: ../gtksourceview/gtksourcegutter.c:583
-#: ../gtksourceview/gtksourcegutterrenderer.c:495
+#: ../ctksourceview/ctksourcegutter.c:583
+#: ../ctksourceview/ctksourcegutterrenderer.c:495
 msgid "Y Padding"
 msgstr "การเสริมเต็มในแนว Y"
 
-#: ../gtksourceview/gtksourcegutter.c:584
-#: ../gtksourceview/gtksourcegutterrenderer.c:496
+#: ../ctksourceview/ctksourcegutter.c:584
+#: ../ctksourceview/ctksourcegutterrenderer.c:496
 msgid "The y-padding"
 msgstr "การเสริมเต็มในแนว Y"
 
-#: ../gtksourceview/gtksourcegutterrenderer.c:465
-#: ../gtksourceview/gtksourcegutterrenderer.c:466
+#: ../ctksourceview/ctksourcegutterrenderer.c:465
+#: ../ctksourceview/ctksourcegutterrenderer.c:466
 msgid "Visible"
 msgstr "ปรากฏเห็น"
 
-#: ../gtksourceview/gtksourcegutterrenderer.c:511
+#: ../ctksourceview/ctksourcegutterrenderer.c:511
 msgid "X Alignment"
 msgstr "การจัดเรียงในแนว X"
 
-#: ../gtksourceview/gtksourcegutterrenderer.c:512
+#: ../ctksourceview/ctksourcegutterrenderer.c:512
 msgid "The x-alignment"
 msgstr "การจัดเรียงในแนว X"
 
-#: ../gtksourceview/gtksourcegutterrenderer.c:527
+#: ../ctksourceview/ctksourcegutterrenderer.c:527
 msgid "Y Alignment"
 msgstr "การจัดเรียงในแนว Y"
 
-#: ../gtksourceview/gtksourcegutterrenderer.c:528
+#: ../ctksourceview/ctksourcegutterrenderer.c:528
 msgid "The y-alignment"
 msgstr "การจัดเรียงในแนว Y"
 
-#: ../gtksourceview/gtksourcegutterrenderer.c:670
+#: ../ctksourceview/ctksourcegutterrenderer.c:670
 msgid "The View"
 msgstr "ช่องแสดง"
 
-#: ../gtksourceview/gtksourcegutterrenderer.c:671
+#: ../ctksourceview/ctksourcegutterrenderer.c:671
 msgid "The view"
 msgstr "ช่องแสดง"
 
-#: ../gtksourceview/gtksourcegutterrenderer.c:687
+#: ../ctksourceview/ctksourcegutterrenderer.c:687
 msgid "Alignment Mode"
 msgstr "โหมดการจัดเรียง"
 
-#: ../gtksourceview/gtksourcegutterrenderer.c:688
+#: ../ctksourceview/ctksourcegutterrenderer.c:688
 msgid "The alignment mode"
 msgstr "โหมดการจัดเรียง"
 
-#: ../gtksourceview/gtksourcegutterrenderer.c:704
+#: ../ctksourceview/ctksourcegutterrenderer.c:704
 msgid "The window type"
 msgstr "ชนิดของหน้าต่าง"
 
-#: ../gtksourceview/gtksourcegutterrenderer.c:712
+#: ../ctksourceview/ctksourcegutterrenderer.c:712
 msgid "Size"
 msgstr "ขนาด"
 
-#: ../gtksourceview/gtksourcegutterrenderer.c:713
+#: ../ctksourceview/ctksourcegutterrenderer.c:713
 msgid "The size"
 msgstr "ขนาด"
 
-#: ../gtksourceview/gtksourcegutterrendererpixbuf.c:293
-#: ../gtksourceview/gtksourcemarkattributes.c:316
+#: ../ctksourceview/ctksourcegutterrendererpixbuf.c:293
+#: ../ctksourceview/ctksourcemarkattributes.c:316
 msgid "Pixbuf"
 msgstr "พิกซ์บัฟ"
 
-#: ../gtksourceview/gtksourcegutterrendererpixbuf.c:294
-#: ../gtksourceview/gtksourcemarkattributes.c:317
+#: ../ctksourceview/ctksourcegutterrendererpixbuf.c:294
+#: ../ctksourceview/ctksourcemarkattributes.c:317
 msgid "The pixbuf"
 msgstr "พิกซ์บัฟ"
 
-#: ../gtksourceview/gtksourcegutterrendererpixbuf.c:301
-#: ../gtksourceview/gtksourcemarkattributes.c:303
+#: ../ctksourceview/ctksourcegutterrendererpixbuf.c:301
+#: ../ctksourceview/ctksourcemarkattributes.c:303
 msgid "Stock Id"
 msgstr "ID ไอคอนสำเร็จรูป"
 
-#: ../gtksourceview/gtksourcegutterrendererpixbuf.c:302
-#: ../gtksourceview/gtksourcemarkattributes.c:304
+#: ../ctksourceview/ctksourcegutterrendererpixbuf.c:302
+#: ../ctksourceview/ctksourcemarkattributes.c:304
 msgid "The stock id"
 msgstr "ID ไอคอนสำเร็จรูป"
 
-#: ../gtksourceview/gtksourcegutterrendererpixbuf.c:309
-#: ../gtksourceview/gtksourcemarkattributes.c:329
+#: ../ctksourceview/ctksourcegutterrendererpixbuf.c:309
+#: ../ctksourceview/ctksourcemarkattributes.c:329
 msgid "Icon Name"
 msgstr "ชื่อไอคอน"
 
-#: ../gtksourceview/gtksourcegutterrendererpixbuf.c:310
-#: ../gtksourceview/gtksourcemarkattributes.c:330
+#: ../ctksourceview/ctksourcegutterrendererpixbuf.c:310
+#: ../ctksourceview/ctksourcemarkattributes.c:330
 msgid "The icon name"
 msgstr "ชื่อไอคอน"
 
-#: ../gtksourceview/gtksourcegutterrendererpixbuf.c:317
-#: ../gtksourceview/gtksourcemarkattributes.c:342
+#: ../ctksourceview/ctksourcegutterrendererpixbuf.c:317
+#: ../ctksourceview/ctksourcemarkattributes.c:342
 msgid "GIcon"
 msgstr "GIcon"
 
-#: ../gtksourceview/gtksourcegutterrendererpixbuf.c:318
+#: ../ctksourceview/ctksourcegutterrendererpixbuf.c:318
 msgid "The gicon"
 msgstr "GIcon"
 
-#: ../gtksourceview/gtksourcegutterrenderertext.c:396
+#: ../ctksourceview/ctksourcegutterrenderertext.c:396
 msgid "The markup"
 msgstr "มาร์กอัป"
 
-#: ../gtksourceview/gtksourcegutterrenderertext.c:404
+#: ../ctksourceview/ctksourcegutterrenderertext.c:404
 msgid "The text"
 msgstr "ข้อความ"
 
-#: ../gtksourceview/gtksourcelanguage.c:228
-#: ../gtksourceview/gtksourcelanguage.c:229
+#: ../ctksourceview/ctksourcelanguage.c:228
+#: ../ctksourceview/ctksourcelanguage.c:229
 msgid "Language id"
 msgstr "id ภาษา"
 
-#: ../gtksourceview/gtksourcelanguage.c:236
-#: ../gtksourceview/gtksourcelanguage.c:237
+#: ../ctksourceview/ctksourcelanguage.c:236
+#: ../ctksourceview/ctksourcelanguage.c:237
 msgid "Language name"
 msgstr "ชื่อภาษา"
 
-#: ../gtksourceview/gtksourcelanguage.c:244
-#: ../gtksourceview/gtksourcelanguage.c:245
+#: ../ctksourceview/ctksourcelanguage.c:244
+#: ../ctksourceview/ctksourcelanguage.c:245
 msgid "Language section"
 msgstr "หมวดภาษา"
 
-#: ../gtksourceview/gtksourcelanguage.c:252
+#: ../ctksourceview/ctksourcelanguage.c:252
 msgid "Hidden"
 msgstr "ซ่อน"
 
-#: ../gtksourceview/gtksourcelanguage.c:253
+#: ../ctksourceview/ctksourcelanguage.c:253
 msgid "Whether the language should be hidden from the user"
 msgstr "ระบุว่าควรซ่อนภาษานี้ไม่ให้ผู้ใช้เห็นหรือไม่"
 
-#: ../gtksourceview/gtksourcelanguagemanager.c:150
+#: ../ctksourceview/ctksourcelanguagemanager.c:150
 msgid "Language specification directories"
 msgstr "ไดเรกทอรีข้อกำหนดภาษา"
 
-#: ../gtksourceview/gtksourcelanguagemanager.c:151
+#: ../ctksourceview/ctksourcelanguagemanager.c:151
 msgid ""
 "List of directories where the language specification files (.lang) are "
 "located"
 msgstr "รายชื่อไดเรกทอรีที่เก็บแฟ้มข้อกำหนดภาษา (.lang)"
 
-#: ../gtksourceview/gtksourcelanguagemanager.c:160
+#: ../ctksourceview/ctksourcelanguagemanager.c:160
 msgid "Language ids"
 msgstr "id ภาษาที่มี"
 
-#: ../gtksourceview/gtksourcelanguagemanager.c:161
+#: ../ctksourceview/ctksourcelanguagemanager.c:161
 msgid "List of the ids of the available languages"
 msgstr "รายชื่อของ id ของภาษาที่มี"
 
-#: ../gtksourceview/gtksourcelanguage-parser-2.c:950
+#: ../ctksourceview/ctksourcelanguage-parser-2.c:950
 #, c-format
 msgid "Unknown id '%s' in regex '%s'"
 msgstr "ไม่รู้จัก id '%s' ใน regex '%s'"
 
-#: ../gtksourceview/gtksourcelanguage-parser-2.c:1178
+#: ../ctksourceview/ctksourcelanguage-parser-2.c:1178
 #, c-format
 msgid "in regex '%s': backreferences are not supported"
 msgstr "ใน regex '%s': ไม่รองรับการอ้างอิงกลับ"
 
-#: ../gtksourceview/gtksourcemarkattributes.c:290
-#: ../gtksourceview/gtksourcestyle.c:88
+#: ../ctksourceview/ctksourcemarkattributes.c:290
+#: ../ctksourceview/ctksourcestyle.c:88
 msgid "Background"
 msgstr "พื้นหลัง"
 
-#: ../gtksourceview/gtksourcemarkattributes.c:291
+#: ../ctksourceview/ctksourcemarkattributes.c:291
 msgid "The background"
 msgstr "พื้นหลัง"
 
-#: ../gtksourceview/gtksourcemarkattributes.c:343
+#: ../ctksourceview/ctksourcemarkattributes.c:343
 msgid "The GIcon"
 msgstr "GIcon"
 
-#: ../gtksourceview/gtksourcemark.c:140
+#: ../ctksourceview/ctksourcemark.c:140
 msgid "category"
 msgstr "หมวด"
 
-#: ../gtksourceview/gtksourcemark.c:141
+#: ../ctksourceview/ctksourcemark.c:141
 msgid "The mark category"
 msgstr "หมวดของเครื่องหมาย"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:442
+#: ../ctksourceview/ctksourceprintcompositor.c:442
 msgid "Source Buffer"
 msgstr "บัฟเฟอร์ซอร์ส"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:443
+#: ../ctksourceview/ctksourceprintcompositor.c:443
 msgid "The GtkSourceBuffer object to print"
 msgstr "อ็อบเจกต์ GtkSourceBuffer ที่จะพิมพ์"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:460
-#: ../gtksourceview/gtksourceview.c:344
+#: ../ctksourceview/ctksourceprintcompositor.c:460
+#: ../ctksourceview/ctksourceview.c:344
 msgid "Tab Width"
 msgstr "ความกว้างแท็บ"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:461
-#: ../gtksourceview/gtksourceview.c:345
+#: ../ctksourceview/ctksourceprintcompositor.c:461
+#: ../ctksourceview/ctksourceview.c:345
 msgid "Width of a tab character expressed in spaces"
 msgstr "ความกว้างของอักขระแท็บ นับในหน่วยจำนวนอักขระเว้นวรรค"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:481
+#: ../ctksourceview/ctksourceprintcompositor.c:481
 msgid "Wrap Mode"
 msgstr "โหมดการตัดบรรทัด"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:482
+#: ../ctksourceview/ctksourceprintcompositor.c:482
 msgid ""
 "Whether to wrap lines never, at word boundaries, or at character boundaries."
 msgstr "กำหนดว่าจะไม่ตัดบรรทัด, ตัดบรรทัดระหว่างคำ หรือจะตัดบรรทัดระหว่างอักขระ"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:503
+#: ../ctksourceview/ctksourceprintcompositor.c:503
 msgid "Whether to print the document with highlighted syntax"
 msgstr "กำหนดว่าจะพิมพ์เอกสารโดยเน้นข้อความตามไวยากรณ์หรือไม่"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:524
+#: ../ctksourceview/ctksourceprintcompositor.c:524
 msgid "Print Line Numbers"
 msgstr "การพิมพ์เลขบรรทัด"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:525
+#: ../ctksourceview/ctksourceprintcompositor.c:525
 msgid "Interval of printed line numbers (0 means no numbers)"
 msgstr "จำนวนบรรทัดต่อการพิมพ์เลขบรรทัดหนึ่งครั้ง (0 หมายถึงไม่พิมพ์เลขบรรทัด)"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:547
+#: ../ctksourceview/ctksourceprintcompositor.c:547
 msgid "Print Header"
 msgstr "พิมพ์หัวกระดาษ"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:548
+#: ../ctksourceview/ctksourceprintcompositor.c:548
 msgid "Whether to print a header in each page"
 msgstr "กำหนดว่าจะพิมพ์หัวกระดาษในแต่ละหน้าหรือไม่"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:570
+#: ../ctksourceview/ctksourceprintcompositor.c:570
 msgid "Print Footer"
 msgstr "พิมพ์ท้ายกระดาษ"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:571
+#: ../ctksourceview/ctksourceprintcompositor.c:571
 msgid "Whether to print a footer in each page"
 msgstr "กำหนดว่าจะพิมพ์ท้ายกระดาษในแต่ละหน้าหรือไม่"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:593
+#: ../ctksourceview/ctksourceprintcompositor.c:593
 msgid "Body Font Name"
 msgstr "ชื่อแบบอักษรสำหรับเนื้อความ"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:594
+#: ../ctksourceview/ctksourceprintcompositor.c:594
 msgid "Name of the font to use for the text body (e.g. \"Monospace 10\")"
 msgstr "ชื่อแบบอักษรที่จะใช้พิมพ์เนื้อความเอกสาร (เช่น \"Monospace 10\")"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:617
+#: ../ctksourceview/ctksourceprintcompositor.c:617
 msgid "Line Numbers Font Name"
 msgstr "ชื่อแบบอักษรสำหรับเลขบรรทัด"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:618
+#: ../ctksourceview/ctksourceprintcompositor.c:618
 msgid "Name of the font to use for the line numbers (e.g. \"Monospace 10\")"
 msgstr "ชื่อแบบอักษรสำหรับพิมพ์เลขบรรทัด (เช่น \"Monospace 10\")"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:641
+#: ../ctksourceview/ctksourceprintcompositor.c:641
 msgid "Header Font Name"
 msgstr "ชื่อแบบอักษรสำหรับหัวกระดาษ"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:642
+#: ../ctksourceview/ctksourceprintcompositor.c:642
 msgid "Name of the font to use for the page header (e.g. \"Monospace 10\")"
 msgstr "ชื่อแบบอักษรสำหรับพิมพ์หัวกระดาษ (เช่น \"Monospace 10\")"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:665
+#: ../ctksourceview/ctksourceprintcompositor.c:665
 msgid "Footer Font Name"
 msgstr "ชื่อแบบอักษรสำหรับท้ายกระดาษ"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:666
+#: ../ctksourceview/ctksourceprintcompositor.c:666
 msgid "Name of the font to use for the page footer (e.g. \"Monospace 10\")"
 msgstr "ชื่อแบบอักษรสำหรับพิมพ์ท้ายกระดาษ (เช่น \"Monospace 10\")"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:682
+#: ../ctksourceview/ctksourceprintcompositor.c:682
 msgid "Number of pages"
 msgstr "จำนวนหน้า"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:683
+#: ../ctksourceview/ctksourceprintcompositor.c:683
 msgid ""
 "The number of pages in the document (-1 means the document has not been "
 "completely paginated)."
 msgstr "จำนวนหน้าในเอกสาร (-1 หมายถึงเอกสารยังแบ่งหน้าไม่เสร็จ)"
 
-#: ../gtksourceview/gtksourceregex.c:125
+#: ../ctksourceview/ctksourceregex.c:125
 msgid "using \\C is not supported in language definitions"
 msgstr "ไม่รองรับการใช้ \\C ในข้อกำหนดภาษา"
 
-#: ../gtksourceview/gtksourcestyle.c:80
+#: ../ctksourceview/ctksourcestyle.c:80
 msgid "Line background"
 msgstr "พื้นหลังบรรทัด"
 
-#: ../gtksourceview/gtksourcestyle.c:81
+#: ../ctksourceview/ctksourcestyle.c:81
 msgid "Line background color"
 msgstr "สีพื้นหลังบรรทัด"
 
-#: ../gtksourceview/gtksourcestyle.c:89
+#: ../ctksourceview/ctksourcestyle.c:89
 msgid "Background color"
 msgstr "สีพื้นหลัง"
 
-#: ../gtksourceview/gtksourcestyle.c:96
+#: ../ctksourceview/ctksourcestyle.c:96
 msgid "Foreground"
 msgstr "ตัวอักษร"
 
-#: ../gtksourceview/gtksourcestyle.c:97
+#: ../ctksourceview/ctksourcestyle.c:97
 msgid "Foreground color"
 msgstr "ศีตัวอักษร"
 
-#: ../gtksourceview/gtksourcestyle.c:120 ../gtksourceview/gtksourcestyle.c:121
+#: ../ctksourceview/ctksourcestyle.c:120 ../ctksourceview/ctksourcestyle.c:121
 msgid "Underline"
 msgstr "ขีดเส้นใต้"
 
-#: ../gtksourceview/gtksourcestyle.c:128 ../gtksourceview/gtksourcestyle.c:129
+#: ../ctksourceview/ctksourcestyle.c:128 ../ctksourceview/ctksourcestyle.c:129
 msgid "Strikethrough"
 msgstr "ขีดฆ่า"
 
-#: ../gtksourceview/gtksourcestyle.c:136
+#: ../ctksourceview/ctksourcestyle.c:136
 msgid "Line background set"
 msgstr "ใช้สีพื้นหลังบรรทัด"
 
-#: ../gtksourceview/gtksourcestyle.c:137
+#: ../ctksourceview/ctksourcestyle.c:137
 msgid "Whether line background color is set"
 msgstr "ระบุว่ามีการกำหนดสีพื้นหลังของบรรทัดหรือไม่"
 
-#: ../gtksourceview/gtksourcestyle.c:144
+#: ../ctksourceview/ctksourcestyle.c:144
 msgid "Foreground set"
 msgstr "ใช้สีตัวอักษร"
 
-#: ../gtksourceview/gtksourcestyle.c:145
+#: ../ctksourceview/ctksourcestyle.c:145
 msgid "Whether foreground color is set"
 msgstr "ระบุว่ามีการกำหนดสีตัวอักษรหรือไม่"
 
-#: ../gtksourceview/gtksourcestyle.c:152
+#: ../ctksourceview/ctksourcestyle.c:152
 msgid "Background set"
 msgstr "ใช้สีพื้นหลัง"
 
-#: ../gtksourceview/gtksourcestyle.c:153
+#: ../ctksourceview/ctksourcestyle.c:153
 msgid "Whether background color is set"
 msgstr "ระบุว่ามีการกำหนดสีพื้นหลังหรือไม่"
 
-#: ../gtksourceview/gtksourcestyle.c:160
+#: ../ctksourceview/ctksourcestyle.c:160
 msgid "Bold set"
 msgstr "ใช้ตัวหนา"
 
-#: ../gtksourceview/gtksourcestyle.c:161
+#: ../ctksourceview/ctksourcestyle.c:161
 msgid "Whether bold attribute is set"
 msgstr "กำหนดว่ากำหนดรูปแบบเป็นตัวหนาหรือไม่"
 
-#: ../gtksourceview/gtksourcestyle.c:168
+#: ../ctksourceview/ctksourcestyle.c:168
 msgid "Italic set"
 msgstr "ใช้ตัวเอียง"
 
-#: ../gtksourceview/gtksourcestyle.c:169
+#: ../ctksourceview/ctksourcestyle.c:169
 msgid "Whether italic attribute is set"
 msgstr "ระบุว่ามีการกำหนดรูปแบบเป็นตัวเอียงหรือไม่"
 
-#: ../gtksourceview/gtksourcestyle.c:176
+#: ../ctksourceview/ctksourcestyle.c:176
 msgid "Underline set"
 msgstr "ใช้ตัวขีดเส้นใต้"
 
-#: ../gtksourceview/gtksourcestyle.c:177
+#: ../ctksourceview/ctksourcestyle.c:177
 msgid "Whether underline attribute is set"
 msgstr "ระบุว่ามีการกำหนดรูปแบบเป็นตัวขีดเส้นใต้หรือไม่"
 
-#: ../gtksourceview/gtksourcestyle.c:184
+#: ../ctksourceview/ctksourcestyle.c:184
 msgid "Strikethrough set"
 msgstr "ใช้ตัวขีดฆ่า"
 
-#: ../gtksourceview/gtksourcestyle.c:185
+#: ../ctksourceview/ctksourcestyle.c:185
 msgid "Whether strikethrough attribute is set"
 msgstr "ระบุว่ามีการกำหนดรูปแบบเป็นตัวขีดฆ่าหรือไม่"
 
-#: ../gtksourceview/gtksourcestylescheme.c:212
-#: ../gtksourceview/gtksourcestylescheme.c:213
+#: ../ctksourceview/ctksourcestylescheme.c:212
+#: ../ctksourceview/ctksourcestylescheme.c:213
 msgid "Style scheme id"
 msgstr "id ของชุดสไตล์"
 
-#: ../gtksourceview/gtksourcestylescheme.c:225
-#: ../gtksourceview/gtksourcestylescheme.c:226
+#: ../ctksourceview/ctksourcestylescheme.c:225
+#: ../ctksourceview/ctksourcestylescheme.c:226
 msgid "Style scheme name"
 msgstr "ชื่อของชุดสไตล์"
 
-#: ../gtksourceview/gtksourcestylescheme.c:238
-#: ../gtksourceview/gtksourcestylescheme.c:239
+#: ../ctksourceview/ctksourcestylescheme.c:238
+#: ../ctksourceview/ctksourcestylescheme.c:239
 msgid "Style scheme description"
 msgstr "คำบรรยายของชุดสไตล์"
 
-#: ../gtksourceview/gtksourcestylescheme.c:251
-#: ../gtksourceview/gtksourcestylescheme.c:252
+#: ../ctksourceview/ctksourcestylescheme.c:251
+#: ../ctksourceview/ctksourcestylescheme.c:252
 msgid "Style scheme filename"
 msgstr "ชื่อแฟ้มชุดสไตล์"
 
-#: ../gtksourceview/gtksourcestyleschememanager.c:152
+#: ../ctksourceview/ctksourcestyleschememanager.c:152
 msgid "Style scheme search path"
 msgstr "พาธสำหรับค้นหาชุดสไตล์"
 
-#: ../gtksourceview/gtksourcestyleschememanager.c:153
+#: ../ctksourceview/ctksourcestyleschememanager.c:153
 msgid "List of directories and files where the style schemes are located"
 msgstr "รายชื่อไดเรกทอรีและแฟ้มที่เก็บชุดสไตล์"
 
-#: ../gtksourceview/gtksourcestyleschememanager.c:161
+#: ../ctksourceview/ctksourcestyleschememanager.c:161
 msgid "Scheme ids"
 msgstr "id ของชุดสไตล์ที่มี"
 
-#: ../gtksourceview/gtksourcestyleschememanager.c:162
+#: ../ctksourceview/ctksourcestyleschememanager.c:162
 msgid "List of the ids of the available style schemes"
 msgstr "รายชื่อของ id ของชุดสไตล์ที่มี"
 
-#: ../gtksourceview/gtksourceundomanagerdefault.c:410
+#: ../ctksourceview/ctksourceundomanagerdefault.c:410
 msgid "Buffer"
 msgstr "บัฟเฟอร์"
 
-#: ../gtksourceview/gtksourceundomanagerdefault.c:411
+#: ../ctksourceview/ctksourceundomanagerdefault.c:411
 msgid "The text buffer to add undo support on"
 msgstr "บัฟเฟอร์ข้อความที่จะเพิ่มการรองรับการเรียกคืนคำสั่ง"
 
-#: ../gtksourceview/gtksourceview.c:307
+#: ../ctksourceview/ctksourceview.c:307
 msgid "The completion object associated with the view"
 msgstr "อ็อบเจกต์ตัวเติมเต็มคำที่เชื่อมอยู่กับตัวแสดงนี้"
 
-#: ../gtksourceview/gtksourceview.c:319
+#: ../ctksourceview/ctksourceview.c:319
 msgid "Show Line Numbers"
 msgstr "แสดงเลขบรรทัด"
 
-#: ../gtksourceview/gtksourceview.c:320
+#: ../ctksourceview/ctksourceview.c:320
 msgid "Whether to display line numbers"
 msgstr "กำหนดว่าจะแสดงเลขบรรทัดหรือไม่"
 
-#: ../gtksourceview/gtksourceview.c:331
+#: ../ctksourceview/ctksourceview.c:331
 msgid "Show Line Marks"
 msgstr "แสดงการทำเครื่องหมายบรรทัด"
 
-#: ../gtksourceview/gtksourceview.c:332
+#: ../ctksourceview/ctksourceview.c:332
 msgid "Whether to display line mark pixbufs"
 msgstr "กำหนดว่าจะแสดงรูปเล็กๆ ที่ใช้ทำเครื่องหมายบรรทัดหรือไม่"
 
-#: ../gtksourceview/gtksourceview.c:359
+#: ../ctksourceview/ctksourceview.c:359
 msgid "Indent Width"
 msgstr "ระยะร่นบรรทัด"
 
-#: ../gtksourceview/gtksourceview.c:360
+#: ../ctksourceview/ctksourceview.c:360
 msgid "Number of spaces to use for each step of indent"
 msgstr "จำนวนอักขระเว้นวรรคที่จะใช้ในการร่นบรรทัดแต่ละขั้น"
 
-#: ../gtksourceview/gtksourceview.c:369
+#: ../ctksourceview/ctksourceview.c:369
 msgid "Auto Indentation"
 msgstr "ร่นบรรทัดอัตโนมัติ"
 
-#: ../gtksourceview/gtksourceview.c:370
+#: ../ctksourceview/ctksourceview.c:370
 msgid "Whether to enable auto indentation"
 msgstr "กำหนดว่าจะเปิดใช้การร่นบรรทัดอัตโนมัติหรือไม่"
 
-#: ../gtksourceview/gtksourceview.c:377
+#: ../ctksourceview/ctksourceview.c:377
 msgid "Insert Spaces Instead of Tabs"
 msgstr "แทรกช่องว่างแทนแท็บ"
 
-#: ../gtksourceview/gtksourceview.c:378
+#: ../ctksourceview/ctksourceview.c:378
 msgid "Whether to insert spaces instead of tabs"
 msgstr "กำหนดว่าจะแทรกช่องว่างแทนแท็บหรือไม่"
 
-#: ../gtksourceview/gtksourceview.c:390
+#: ../ctksourceview/ctksourceview.c:390
 msgid "Show Right Margin"
 msgstr "แสดงกั้นหน้าขวา"
 
-#: ../gtksourceview/gtksourceview.c:391
+#: ../ctksourceview/ctksourceview.c:391
 msgid "Whether to display the right margin"
 msgstr "กำหนดว่าจะแสดงกั้นหน้าขวาหรือไม่"
 
-#: ../gtksourceview/gtksourceview.c:403
+#: ../ctksourceview/ctksourceview.c:403
 msgid "Right Margin Position"
 msgstr "ตำแหน่งกั้นหน้าขวา"
 
-#: ../gtksourceview/gtksourceview.c:404
+#: ../ctksourceview/ctksourceview.c:404
 msgid "Position of the right margin"
 msgstr "ตำแหน่งของกั้นหน้าขวา"
 
-#: ../gtksourceview/gtksourceview.c:420
+#: ../ctksourceview/ctksourceview.c:420
 msgid "Smart Home/End"
 msgstr "ใช้ home/end พิเศษ"
 
-#: ../gtksourceview/gtksourceview.c:421
+#: ../ctksourceview/ctksourceview.c:421
 msgid ""
 "HOME and END keys move to first/last non whitespace characters on line "
 "before going to the start/end of the line"
@@ -3207,31 +3207,31 @@ msgstr ""
 "ปุ่ม HOME และ END จะเคลื่อนไปที่อักขระแรก/สุดท้ายที่ไม่ใช่ช่องว่างของบรรทัด ก่อนที่จะไปที่ต้น/"
 "ท้ายบรรทัด"
 
-#: ../gtksourceview/gtksourceview.c:431
+#: ../ctksourceview/ctksourceview.c:431
 msgid "Highlight current line"
 msgstr "เน้นบรรทัดปัจจุบัน"
 
-#: ../gtksourceview/gtksourceview.c:432
+#: ../ctksourceview/ctksourceview.c:432
 msgid "Whether to highlight the current line"
 msgstr "กำหนดว่าจะเน้นบรรทัดปัจจุบันหรือไม่"
 
-#: ../gtksourceview/gtksourceview.c:439
+#: ../ctksourceview/ctksourceview.c:439
 msgid "Indent on tab"
 msgstr "ร่นบรรทัดเมื่อกดแท็บ"
 
-#: ../gtksourceview/gtksourceview.c:440
+#: ../ctksourceview/ctksourceview.c:440
 msgid "Whether to indent the selected text when the tab key is pressed"
 msgstr "กำหนดว่าจะร่นข้อความที่เลือกเมื่อกดปุ่มแท็บหรือไม่"
 
-#: ../gtksourceview/gtksourceview.c:454
+#: ../ctksourceview/ctksourceview.c:454
 msgid "Draw Spaces"
 msgstr "วาดช่องว่าง"
 
-#: ../gtksourceview/gtksourceview.c:455
+#: ../ctksourceview/ctksourceview.c:455
 msgid "Set if and how the spaces should be visualized"
 msgstr "กำหนดวิธีแสดงผลช่องว่างชนิดต่างๆ"
 
-#: ../gtksourceview/gtksourceview-i18n.c:72
+#: ../ctksourceview/ctksourceview-i18n.c:72
 msgid "translator-credits"
 msgstr "Theppitak Karoonboonyanan <thep@linux.thai.net>"
 
@@ -3614,9 +3614,9 @@ msgstr "Theppitak Karoonboonyanan <thep@linux.thai.net>"
 #. * value used by GtkSourceView and it represents the encoding for the
 #. * current locale, so please don't translate the "CURRENT" term.  Only
 #. * recognized encodings are used. See
-#. * https://git.gnome.org/browse/gtksourceview/tree/gtksourceview/gtksourceencoding.c#n147
+#. * https://git.gnome.org/browse/ctksourceview/tree/ctksourceview/ctksourceencoding.c#n147
 #. * for a list of supported encodings.
 #.
-#: ../gtksourceview/gtksourceencoding.c:517
+#: ../ctksourceview/ctksourceencoding.c:517
 msgid "['UTF-8', 'CURRENT', 'ISO-8859-15', 'UTF-16']"
 msgstr "['UTF-8', 'CURRENT', 'TIS-620', 'UTF-16']"

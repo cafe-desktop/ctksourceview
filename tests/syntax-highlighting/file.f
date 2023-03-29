@@ -1,4 +1,4 @@
-! gtk-source-lang: fortran
+! ctk-source-lang: fortran
 program test95
   ! Comment: This is a Fortran free-form program
 !$ use omp_lib

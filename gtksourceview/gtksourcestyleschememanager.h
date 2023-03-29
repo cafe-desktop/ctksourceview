@@ -22,15 +22,15 @@
 #define GTK_SOURCE_STYLE_SCHEME_MANAGER_H
 
 #if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
-#error "Only <gtksourceview/gtksource.h> can be included directly."
+#error "Only <ctksourceview/ctksource.h> can be included directly."
 #endif
 
 #include <glib-object.h>
-#include <gtksourceview/gtksourcetypes.h>
+#include <ctksourceview/ctksourcetypes.h>
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_STYLE_SCHEME_MANAGER		(gtk_source_style_scheme_manager_get_type ())
+#define GTK_SOURCE_TYPE_STYLE_SCHEME_MANAGER		(ctk_source_style_scheme_manager_get_type ())
 #define GTK_SOURCE_STYLE_SCHEME_MANAGER(obj)		(G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_SOURCE_TYPE_STYLE_SCHEME_MANAGER, GtkSourceStyleSchemeManager))
 #define GTK_SOURCE_STYLE_SCHEME_MANAGER_CLASS(klass)	(G_TYPE_CHECK_CLASS_CAST((klass), GTK_SOURCE_TYPE_STYLE_SCHEME_MANAGER, GtkSourceStyleSchemeManagerClass))
 #define GTK_SOURCE_IS_STYLE_SCHEME_MANAGER(obj)		(G_TYPE_CHECK_INSTANCE_TYPE((obj), GTK_SOURCE_TYPE_STYLE_SCHEME_MANAGER))
@@ -56,44 +56,44 @@ struct _GtkSourceStyleSchemeManagerClass
 };
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-GType			 gtk_source_style_scheme_manager_get_type		(void) G_GNUC_CONST;
+GType			 ctk_source_style_scheme_manager_get_type		(void) G_GNUC_CONST;
 
 GTK_SOURCE_AVAILABLE_IN_ALL
 GtkSourceStyleSchemeManager *
-			 gtk_source_style_scheme_manager_new			(void);
+			 ctk_source_style_scheme_manager_new			(void);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
 GtkSourceStyleSchemeManager *
-			 gtk_source_style_scheme_manager_get_default		(void);
+			 ctk_source_style_scheme_manager_get_default		(void);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-void			 gtk_source_style_scheme_manager_set_search_path	(GtkSourceStyleSchemeManager	*manager,
+void			 ctk_source_style_scheme_manager_set_search_path	(GtkSourceStyleSchemeManager	*manager,
 						    				 gchar			       **path);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-void 			 gtk_source_style_scheme_manager_append_search_path	(GtkSourceStyleSchemeManager	*manager,
+void 			 ctk_source_style_scheme_manager_append_search_path	(GtkSourceStyleSchemeManager	*manager,
 						    				 const gchar			*path);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-void 			 gtk_source_style_scheme_manager_prepend_search_path	(GtkSourceStyleSchemeManager	*manager,
+void 			 ctk_source_style_scheme_manager_prepend_search_path	(GtkSourceStyleSchemeManager	*manager,
 						    				 const gchar			*path);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-const gchar * const *	 gtk_source_style_scheme_manager_get_search_path	(GtkSourceStyleSchemeManager	*manager);
+const gchar * const *	 ctk_source_style_scheme_manager_get_search_path	(GtkSourceStyleSchemeManager	*manager);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-void			 gtk_source_style_scheme_manager_force_rescan		(GtkSourceStyleSchemeManager	*manager);
+void			 ctk_source_style_scheme_manager_force_rescan		(GtkSourceStyleSchemeManager	*manager);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-const gchar * const *	 gtk_source_style_scheme_manager_get_scheme_ids		(GtkSourceStyleSchemeManager	*manager);
+const gchar * const *	 ctk_source_style_scheme_manager_get_scheme_ids		(GtkSourceStyleSchemeManager	*manager);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-GtkSourceStyleScheme	*gtk_source_style_scheme_manager_get_scheme		(GtkSourceStyleSchemeManager	*manager,
+GtkSourceStyleScheme	*ctk_source_style_scheme_manager_get_scheme		(GtkSourceStyleSchemeManager	*manager,
 										 const gchar			*scheme_id);
 
 G_GNUC_INTERNAL
 GtkSourceStyleSchemeManager *
-			 _gtk_source_style_scheme_manager_peek_default		(void);
+			 _ctk_source_style_scheme_manager_peek_default		(void);
 
 G_END_DECLS
 

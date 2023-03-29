@@ -18,7 +18,7 @@
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <gtksourceview/gtksource.h>
+#include <ctksourceview/ctksource.h>
 
 #define NUM_LOCATIONS (3)
 #define LEADING_INDEX (0)
@@ -74,42 +74,42 @@ check_equal_matrix (GtkSourceSpaceDrawer    *drawer,
 	GVariant *my_variant;
 	GVariant *drawer_variant;
 
-	types = gtk_source_space_drawer_get_types_for_locations (drawer, GTK_SOURCE_SPACE_LOCATION_LEADING);
+	types = ctk_source_space_drawer_get_types_for_locations (drawer, GTK_SOURCE_SPACE_LOCATION_LEADING);
 	g_assert_cmpint (types, ==, matrix[LEADING_INDEX]);
 
-	types = gtk_source_space_drawer_get_types_for_locations (drawer, GTK_SOURCE_SPACE_LOCATION_INSIDE_TEXT);
+	types = ctk_source_space_drawer_get_types_for_locations (drawer, GTK_SOURCE_SPACE_LOCATION_INSIDE_TEXT);
 	g_assert_cmpint (types, ==, matrix[INSIDE_TEXT_INDEX]);
 
-	types = gtk_source_space_drawer_get_types_for_locations (drawer, GTK_SOURCE_SPACE_LOCATION_TRAILING);
+	types = ctk_source_space_drawer_get_types_for_locations (drawer, GTK_SOURCE_SPACE_LOCATION_TRAILING);
 	g_assert_cmpint (types, ==, matrix[TRAILING_INDEX]);
 
 	/* Check variants */
 	my_variant = create_variant_from_matrix (matrix);
-	drawer_variant = gtk_source_space_drawer_get_matrix (drawer);
+	drawer_variant = ctk_source_space_drawer_get_matrix (drawer);
 	g_assert_true (g_variant_equal (my_variant, drawer_variant));
 
-	gtk_source_space_drawer_set_types_for_locations (drawer,
+	ctk_source_space_drawer_set_types_for_locations (drawer,
 							 GTK_SOURCE_SPACE_LOCATION_ALL,
 							 GTK_SOURCE_SPACE_TYPE_NONE);
-	gtk_source_space_drawer_set_matrix (drawer, my_variant);
+	ctk_source_space_drawer_set_matrix (drawer, my_variant);
 	g_variant_ref_sink (drawer_variant);
 	g_variant_unref (drawer_variant);
 
 	my_variant = create_variant_from_matrix (matrix);
-	drawer_variant = gtk_source_space_drawer_get_matrix (drawer);
+	drawer_variant = ctk_source_space_drawer_get_matrix (drawer);
 	g_assert_true (g_variant_equal (my_variant, drawer_variant));
 	g_variant_ref_sink (my_variant);
 	g_variant_unref (my_variant);
 	g_variant_ref_sink (drawer_variant);
 	g_variant_unref (drawer_variant);
 
-	types = gtk_source_space_drawer_get_types_for_locations (drawer, GTK_SOURCE_SPACE_LOCATION_LEADING);
+	types = ctk_source_space_drawer_get_types_for_locations (drawer, GTK_SOURCE_SPACE_LOCATION_LEADING);
 	g_assert_cmpint (types, ==, matrix[LEADING_INDEX]);
 
-	types = gtk_source_space_drawer_get_types_for_locations (drawer, GTK_SOURCE_SPACE_LOCATION_INSIDE_TEXT);
+	types = ctk_source_space_drawer_get_types_for_locations (drawer, GTK_SOURCE_SPACE_LOCATION_INSIDE_TEXT);
 	g_assert_cmpint (types, ==, matrix[INSIDE_TEXT_INDEX]);
 
-	types = gtk_source_space_drawer_get_types_for_locations (drawer, GTK_SOURCE_SPACE_LOCATION_TRAILING);
+	types = ctk_source_space_drawer_get_types_for_locations (drawer, GTK_SOURCE_SPACE_LOCATION_TRAILING);
 	g_assert_cmpint (types, ==, matrix[TRAILING_INDEX]);
 }
 
@@ -120,27 +120,27 @@ set_matrix (GtkSourceSpaceDrawer    *drawer,
 	GtkSourceSpaceTypeFlags types;
 
 	/* Leading */
-	gtk_source_space_drawer_set_types_for_locations (drawer,
+	ctk_source_space_drawer_set_types_for_locations (drawer,
 							 GTK_SOURCE_SPACE_LOCATION_LEADING,
 							 matrix[LEADING_INDEX]);
 
-	types = gtk_source_space_drawer_get_types_for_locations (drawer, GTK_SOURCE_SPACE_LOCATION_LEADING);
+	types = ctk_source_space_drawer_get_types_for_locations (drawer, GTK_SOURCE_SPACE_LOCATION_LEADING);
 	g_assert_cmpint (types, ==, matrix[LEADING_INDEX]);
 
 	/* Inside text */
-	gtk_source_space_drawer_set_types_for_locations (drawer,
+	ctk_source_space_drawer_set_types_for_locations (drawer,
 							 GTK_SOURCE_SPACE_LOCATION_INSIDE_TEXT,
 							 matrix[INSIDE_TEXT_INDEX]);
 
-	types = gtk_source_space_drawer_get_types_for_locations (drawer, GTK_SOURCE_SPACE_LOCATION_INSIDE_TEXT);
+	types = ctk_source_space_drawer_get_types_for_locations (drawer, GTK_SOURCE_SPACE_LOCATION_INSIDE_TEXT);
 	g_assert_cmpint (types, ==, matrix[INSIDE_TEXT_INDEX]);
 
 	/* Trailing */
-	gtk_source_space_drawer_set_types_for_locations (drawer,
+	ctk_source_space_drawer_set_types_for_locations (drawer,
 							 GTK_SOURCE_SPACE_LOCATION_TRAILING,
 							 matrix[TRAILING_INDEX]);
 
-	types = gtk_source_space_drawer_get_types_for_locations (drawer, GTK_SOURCE_SPACE_LOCATION_TRAILING);
+	types = ctk_source_space_drawer_get_types_for_locations (drawer, GTK_SOURCE_SPACE_LOCATION_TRAILING);
 	g_assert_cmpint (types, ==, matrix[TRAILING_INDEX]);
 
 	/* Check all */
@@ -158,10 +158,10 @@ test_matrix_getters_setters (void)
 	GtkSourceSpaceTypeFlags matrix[NUM_LOCATIONS];
 	GtkSourceSpaceTypeFlags types;
 
-	view = GTK_SOURCE_VIEW (gtk_source_view_new ());
+	view = GTK_SOURCE_VIEW (ctk_source_view_new ());
 	g_object_ref_sink (view);
 
-	drawer = gtk_source_view_get_space_drawer (view);
+	drawer = ctk_source_view_get_space_drawer (view);
 
 	/* Default value */
 	matrix[LEADING_INDEX] = GTK_SOURCE_SPACE_TYPE_ALL;
@@ -179,7 +179,7 @@ test_matrix_getters_setters (void)
 	set_matrix (drawer, matrix);
 
 	/* Reset to 0 all at once */
-	gtk_source_space_drawer_set_types_for_locations (drawer,
+	ctk_source_space_drawer_set_types_for_locations (drawer,
 							 GTK_SOURCE_SPACE_LOCATION_ALL,
 							 GTK_SOURCE_SPACE_TYPE_NONE);
 
@@ -189,7 +189,7 @@ test_matrix_getters_setters (void)
 	check_equal_matrix (drawer, matrix);
 
 	/* Set leading and trailing at once */
-	gtk_source_space_drawer_set_types_for_locations (drawer,
+	ctk_source_space_drawer_set_types_for_locations (drawer,
 							 GTK_SOURCE_SPACE_LOCATION_LEADING |
 							 GTK_SOURCE_SPACE_LOCATION_TRAILING,
 							 GTK_SOURCE_SPACE_TYPE_TAB);
@@ -199,7 +199,7 @@ test_matrix_getters_setters (void)
 	check_equal_matrix (drawer, matrix);
 
 	/* Enable all at once */
-	gtk_source_space_drawer_set_types_for_locations (drawer,
+	ctk_source_space_drawer_set_types_for_locations (drawer,
 							 GTK_SOURCE_SPACE_LOCATION_ALL,
 							 GTK_SOURCE_SPACE_TYPE_ALL);
 
@@ -214,22 +214,22 @@ test_matrix_getters_setters (void)
 	matrix[TRAILING_INDEX] = GTK_SOURCE_SPACE_TYPE_ALL;
 	set_matrix (drawer, matrix);
 
-	types = gtk_source_space_drawer_get_types_for_locations (drawer, GTK_SOURCE_SPACE_LOCATION_ALL);
+	types = ctk_source_space_drawer_get_types_for_locations (drawer, GTK_SOURCE_SPACE_LOCATION_ALL);
 	g_assert_cmpint (types, ==, GTK_SOURCE_SPACE_TYPE_NBSP);
 
-	types = gtk_source_space_drawer_get_types_for_locations (drawer,
+	types = ctk_source_space_drawer_get_types_for_locations (drawer,
 								 GTK_SOURCE_SPACE_LOCATION_LEADING |
 								 GTK_SOURCE_SPACE_LOCATION_TRAILING);
 	g_assert_cmpint (types, ==, GTK_SOURCE_SPACE_TYPE_NBSP | GTK_SOURCE_SPACE_TYPE_TAB);
 
 	/* Set at none locations */
-	gtk_source_space_drawer_set_types_for_locations (drawer,
+	ctk_source_space_drawer_set_types_for_locations (drawer,
 							 GTK_SOURCE_SPACE_LOCATION_NONE,
 							 GTK_SOURCE_SPACE_TYPE_ALL);
 	check_equal_matrix (drawer, matrix);
 
 	/* Get at none locations */
-	types = gtk_source_space_drawer_get_types_for_locations (drawer, GTK_SOURCE_SPACE_LOCATION_NONE);
+	types = ctk_source_space_drawer_get_types_for_locations (drawer, GTK_SOURCE_SPACE_LOCATION_NONE);
 	g_assert_cmpint (types, ==, 0);
 
 	g_object_unref (view);
@@ -238,7 +238,7 @@ test_matrix_getters_setters (void)
 int
 main (int argc, char **argv)
 {
-	gtk_test_init (&argc, &argv);
+	ctk_test_init (&argc, &argv);
 
 	g_test_add_func ("/SpaceDrawer/matrix-getters-setters", test_matrix_getters_setters);
 

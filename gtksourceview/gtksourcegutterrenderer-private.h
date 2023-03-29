@@ -21,13 +21,13 @@
 #ifndef GTK_SOURCE_GUTTER_RENDERER_PRIVATE_H
 #define GTK_SOURCE_GUTTER_RENDERER_PRIVATE_H
 
-#include <gtk/gtk.h>
-#include "gtksourcetypes.h"
+#include <ctk/ctk.h>
+#include "ctksourcetypes.h"
 
 G_BEGIN_DECLS
 
 G_GNUC_INTERNAL
-void _gtk_source_gutter_renderer_set_view         (GtkSourceGutterRenderer *renderer,
+void _ctk_source_gutter_renderer_set_view         (GtkSourceGutterRenderer *renderer,
                                                    GtkTextView             *view,
                                                    GtkTextWindowType        window_type);
 

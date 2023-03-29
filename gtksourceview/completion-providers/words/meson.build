@@ -5,22 +5,22 @@ completionwords_c_args = [
 ]
 
 completionwords_public_h = [
-  'gtksourcecompletionwords.h',
+  'ctksourcecompletionwords.h',
 ]
 
 completionwords_public_c = [
-  'gtksourcecompletionwords.c',
-  'gtksourcecompletionwordsbuffer.c',
-  'gtksourcecompletionwordslibrary.c',
-  'gtksourcecompletionwordsproposal.c',
-  'gtksourcecompletionwordsutils.c',
+  'ctksourcecompletionwords.c',
+  'ctksourcecompletionwordsbuffer.c',
+  'ctksourcecompletionwordslibrary.c',
+  'ctksourcecompletionwordsproposal.c',
+  'ctksourcecompletionwordsutils.c',
 ]
 
 install_headers(
   completionwords_public_h,
   install_dir: join_paths(
     pkgincludedir,
-    'gtksourceview',
+    'ctksourceview',
     'completion-providers',
     'words'
   )
@@ -35,7 +35,7 @@ completionwords_lib = static_library(
   install: false,
 )
 
-gtksource_libs += [
+ctksource_libs += [
   completionwords_lib
 ]
 
@@ -45,9 +45,9 @@ completionwords_dep = declare_dependency(
   dependencies: core_dep,
 )
 
-gtksource_deps += completionwords_dep
+ctksource_deps += completionwords_dep
 
 extra_public_sources += files([
-  'gtksourcecompletionwords.c',
-  'gtksourcecompletionwords.h',
+  'ctksourcecompletionwords.c',
+  'ctksourcecompletionwords.h',
 ])

@@ -33,19 +33,19 @@
 #include <config.h>
 #endif
 
-#include "gtksourcecompletioncontainer.h"
+#include "ctksourcecompletioncontainer.h"
 
 #define UNREALIZED_WIDTH  350
 #define MAX_HEIGHT        180
 
 G_DEFINE_TYPE (GtkSourceCompletionContainer,
-	       _gtk_source_completion_container,
+	       _ctk_source_completion_container,
 	       GTK_TYPE_SCROLLED_WINDOW);
 
 static gint
 get_max_width (GtkSourceCompletionContainer *container)
 {
-	if (gtk_widget_get_realized (GTK_WIDGET (container)))
+	if (ctk_widget_get_realized (GTK_WIDGET (container)))
 	{
 		GdkDisplay *display;
 		GdkMonitor *monitor;
@@ -55,9 +55,9 @@ get_max_width (GtkSourceCompletionContainer *container)
 		gint max_width;
 		gint xorigin;
 
-		toplevel = gtk_widget_get_toplevel (GTK_WIDGET (container));
-		window = gtk_widget_get_window (toplevel);
-		display = gtk_widget_get_display (toplevel);
+		toplevel = ctk_widget_get_toplevel (GTK_WIDGET (container));
+		window = ctk_widget_get_window (toplevel);
+		display = ctk_widget_get_display (toplevel);
 		monitor = gdk_display_get_monitor_at_window (display, window);
 		gdk_monitor_get_geometry (monitor, &geom);
 
@@ -75,7 +75,7 @@ get_max_width (GtkSourceCompletionContainer *container)
 }
 
 static void
-_gtk_source_completion_container_get_preferred_width (GtkWidget *widget,
+_ctk_source_completion_container_get_preferred_width (GtkWidget *widget,
 						      gint      *min_width,
 						      gint      *nat_width)
 {
@@ -84,16 +84,16 @@ _gtk_source_completion_container_get_preferred_width (GtkWidget *widget,
 	GtkRequisition nat_size;
 	gint width;
 
-	child = gtk_bin_get_child (GTK_BIN (container));
-	gtk_widget_get_preferred_size (child, NULL, &nat_size);
+	child = ctk_bin_get_child (GTK_BIN (container));
+	ctk_widget_get_preferred_size (child, NULL, &nat_size);
 
 	width = MIN (nat_size.width, get_max_width (container));
 
-	if (GTK_WIDGET_CLASS (_gtk_source_completion_container_parent_class)->get_preferred_width != NULL)
+	if (GTK_WIDGET_CLASS (_ctk_source_completion_container_parent_class)->get_preferred_width != NULL)
 	{
 		gint min_width_parent = 0;
 
-		GTK_WIDGET_CLASS (_gtk_source_completion_container_parent_class)->get_preferred_width (widget,
+		GTK_WIDGET_CLASS (_ctk_source_completion_container_parent_class)->get_preferred_width (widget,
 												       &min_width_parent,
 												       NULL);
 
@@ -121,10 +121,10 @@ get_row_height (GtkSourceCompletionContainer *container,
 	GtkTreeModel *model;
 	gint nb_rows;
 
-	/* For another possible implementation, see gtkentrycompletion.c in the
-	 * GTK+ source code (the _gtk_entry_completion_resize_popup() function).
-	 * It uses gtk_tree_view_column_cell_get_size() for retrieving the
-	 * height, plus gtk_widget_style_get() to retrieve the
+	/* For another possible implementation, see ctkentrycompletion.c in the
+	 * GTK+ source code (the _ctk_entry_completion_resize_popup() function).
+	 * It uses ctk_tree_view_column_cell_get_size() for retrieving the
+	 * height, plus ctk_widget_style_get() to retrieve the
 	 * "vertical-separator" height (note that the vertical separator must
 	 * probably be counted one less time than the number or rows).
 	 * But using that technique is buggy, it returns a smaller height (it's
@@ -136,15 +136,15 @@ get_row_height (GtkSourceCompletionContainer *container,
 	 * 0).
 	 */
 
-	tree_view = gtk_bin_get_child (GTK_BIN (container));
-	model = gtk_tree_view_get_model (GTK_TREE_VIEW (tree_view));
+	tree_view = ctk_bin_get_child (GTK_BIN (container));
+	model = ctk_tree_view_get_model (GTK_TREE_VIEW (tree_view));
 
 	if (model == NULL)
 	{
 		return 0;
 	}
 
-	nb_rows = gtk_tree_model_iter_n_children (model, NULL);
+	nb_rows = ctk_tree_model_iter_n_children (model, NULL);
 
 	if (nb_rows == 0)
 	{
@@ -156,7 +156,7 @@ get_row_height (GtkSourceCompletionContainer *container,
 
 /* Return a height at a row boundary of the GtkTreeView. */
 static void
-_gtk_source_completion_container_get_preferred_height (GtkWidget *widget,
+_ctk_source_completion_container_get_preferred_height (GtkWidget *widget,
 						       gint	 *min_height,
 						       gint	 *nat_height)
 {
@@ -165,8 +165,8 @@ _gtk_source_completion_container_get_preferred_height (GtkWidget *widget,
 	GtkRequisition nat_size;
 	gint height;
 
-	child = gtk_bin_get_child (GTK_BIN (container));
-	gtk_widget_get_preferred_size (child, NULL, &nat_size);
+	child = ctk_bin_get_child (GTK_BIN (container));
+	ctk_widget_get_preferred_size (child, NULL, &nat_size);
 
 	if (nat_size.height <= MAX_HEIGHT)
 	{
@@ -180,11 +180,11 @@ _gtk_source_completion_container_get_preferred_height (GtkWidget *widget,
 		height = n_rows_allowed * row_height;
 	}
 
-	if (GTK_WIDGET_CLASS (_gtk_source_completion_container_parent_class)->get_preferred_height != NULL)
+	if (GTK_WIDGET_CLASS (_ctk_source_completion_container_parent_class)->get_preferred_height != NULL)
 	{
 		gint min_height_parent = 0;
 
-		GTK_WIDGET_CLASS (_gtk_source_completion_container_parent_class)->get_preferred_height (widget,
+		GTK_WIDGET_CLASS (_ctk_source_completion_container_parent_class)->get_preferred_height (widget,
 													&min_height_parent,
 													NULL);
 
@@ -205,21 +205,21 @@ _gtk_source_completion_container_get_preferred_height (GtkWidget *widget,
 }
 
 static void
-_gtk_source_completion_container_class_init (GtkSourceCompletionContainerClass *klass)
+_ctk_source_completion_container_class_init (GtkSourceCompletionContainerClass *klass)
 {
 	GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
-	widget_class->get_preferred_width = _gtk_source_completion_container_get_preferred_width;
-	widget_class->get_preferred_height = _gtk_source_completion_container_get_preferred_height;
+	widget_class->get_preferred_width = _ctk_source_completion_container_get_preferred_width;
+	widget_class->get_preferred_height = _ctk_source_completion_container_get_preferred_height;
 }
 
 static void
-_gtk_source_completion_container_init (GtkSourceCompletionContainer *container)
+_ctk_source_completion_container_init (GtkSourceCompletionContainer *container)
 {
 }
 
 GtkSourceCompletionContainer *
-_gtk_source_completion_container_new (void)
+_ctk_source_completion_container_new (void)
 {
 	return g_object_new (GTK_SOURCE_TYPE_COMPLETION_CONTAINER, NULL);
 }

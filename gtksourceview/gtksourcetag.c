@@ -24,7 +24,7 @@
 #include <config.h>
 #endif
 
-#include "gtksourcetag.h"
+#include "ctksourcetag.h"
 
 /**
  * SECTION:tag
@@ -54,17 +54,17 @@ enum
 	PROP_DRAW_SPACES_SET,
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceTag, gtk_source_tag, GTK_TYPE_TEXT_TAG)
+G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceTag, ctk_source_tag, GTK_TYPE_TEXT_TAG)
 
 static void
-gtk_source_tag_get_property (GObject    *object,
+ctk_source_tag_get_property (GObject    *object,
 			     guint       prop_id,
 			     GValue     *value,
 			     GParamSpec *pspec)
 {
 	GtkSourceTagPrivate *priv;
 
-	priv = gtk_source_tag_get_instance_private (GTK_SOURCE_TAG (object));
+	priv = ctk_source_tag_get_instance_private (GTK_SOURCE_TAG (object));
 
 	switch (prop_id)
 	{
@@ -83,7 +83,7 @@ gtk_source_tag_get_property (GObject    *object,
 }
 
 static void
-gtk_source_tag_set_property (GObject      *object,
+ctk_source_tag_set_property (GObject      *object,
 			     guint         prop_id,
 			     const GValue *value,
 			     GParamSpec   *pspec)
@@ -93,7 +93,7 @@ gtk_source_tag_set_property (GObject      *object,
 	gboolean size_changed = FALSE;
 
 	tag = GTK_SOURCE_TAG (object);
-	priv = gtk_source_tag_get_instance_private (tag);
+	priv = ctk_source_tag_get_instance_private (tag);
 
 	switch (prop_id)
 	{
@@ -112,16 +112,16 @@ gtk_source_tag_set_property (GObject      *object,
 			break;
 	}
 
-	gtk_text_tag_changed (GTK_TEXT_TAG (tag), size_changed);
+	ctk_text_tag_changed (GTK_TEXT_TAG (tag), size_changed);
 }
 
 static void
-gtk_source_tag_class_init (GtkSourceTagClass *klass)
+ctk_source_tag_class_init (GtkSourceTagClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-	object_class->get_property = gtk_source_tag_get_property;
-	object_class->set_property = gtk_source_tag_set_property;
+	object_class->get_property = ctk_source_tag_get_property;
+	object_class->set_property = ctk_source_tag_set_property;
 
 	/**
 	 * GtkSourceTag:draw-spaces:
@@ -163,25 +163,25 @@ gtk_source_tag_class_init (GtkSourceTagClass *klass)
 }
 
 static void
-gtk_source_tag_init (GtkSourceTag *tag)
+ctk_source_tag_init (GtkSourceTag *tag)
 {
 }
 
 /**
- * gtk_source_tag_new:
+ * ctk_source_tag_new:
  * @name: (nullable): tag name, or %NULL.
  *
  * Creates a #GtkSourceTag. Configure the tag using object arguments,
  * i.e. using g_object_set().
  *
- * For usual cases, gtk_source_buffer_create_source_tag() is more convenient to
+ * For usual cases, ctk_source_buffer_create_source_tag() is more convenient to
  * use.
  *
  * Returns: a new #GtkSourceTag.
  * Since: 3.20
  */
 GtkTextTag *
-gtk_source_tag_new (const gchar *name)
+ctk_source_tag_new (const gchar *name)
 {
 	return g_object_new (GTK_SOURCE_TYPE_TAG,
 			     "name", name,

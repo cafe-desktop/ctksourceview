@@ -60,8 +60,8 @@ data/language-specs/glsl.lang
 data/language-specs/go.lang
 data/language-specs/gradle.lang
 data/language-specs/groovy.lang
-data/language-specs/gtk-doc.lang
-data/language-specs/gtkrc.lang
+data/language-specs/ctk-doc.lang
+data/language-specs/ctkrc.lang
 data/language-specs/haddock.lang
 data/language-specs/haskell.lang
 data/language-specs/haskell-literate.lang

@@ -25,14 +25,14 @@
 #include <config.h>
 #endif
 
-#include "gtksourcefileloader.h"
+#include "ctksourcefileloader.h"
 #include <glib/gi18n-lib.h>
-#include "gtksourcebuffer.h"
-#include "gtksourcefile.h"
-#include "gtksourcebufferoutputstream.h"
-#include "gtksourceencoding.h"
-#include "gtksourceencoding-private.h"
-#include "gtksource-enumtypes.h"
+#include "ctksourcebuffer.h"
+#include "ctksourcefile.h"
+#include "ctksourcebufferoutputstream.h"
+#include "ctksourceencoding.h"
+#include "ctksourceencoding-private.h"
+#include "ctksource-enumtypes.h"
 
 /**
  * SECTION:fileloader
@@ -45,19 +45,19 @@
  *
  * A file loader should be used only for one load operation, including errors
  * handling. If an error occurs, you can reconfigure the loader and relaunch the
- * operation with gtk_source_file_loader_load_async().
+ * operation with ctk_source_file_loader_load_async().
  *
  * Running a #GtkSourceFileLoader is an undoable action for the
- * #GtkSourceBuffer. That is, gtk_source_buffer_begin_not_undoable_action() and
- * gtk_source_buffer_end_not_undoable_action() are called, which delete the
+ * #GtkSourceBuffer. That is, ctk_source_buffer_begin_not_undoable_action() and
+ * ctk_source_buffer_end_not_undoable_action() are called, which delete the
  * undo/redo history.
  *
  * After a file loading, the buffer is reset to the contents provided by the
  * #GFile or #GInputStream, so the buffer is set as “unmodified”, that is,
- * gtk_text_buffer_set_modified() is called with %FALSE. If the contents isn't
+ * ctk_text_buffer_set_modified() is called with %FALSE. If the contents isn't
  * saved somewhere (for example if you load from stdin), then you should
- * probably call gtk_text_buffer_set_modified() with %TRUE after calling
- * gtk_source_file_loader_load_finish().
+ * probably call ctk_text_buffer_set_modified() with %TRUE after calling
+ * ctk_source_file_loader_load_finish().
  */
 
 #if 0
@@ -139,7 +139,7 @@ struct _TaskData
 	guint tried_mount : 1;
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceFileLoader, gtk_source_file_loader, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceFileLoader, ctk_source_file_loader, G_TYPE_OBJECT)
 
 static void open_file (GTask *task);
 static void read_file_chunk (GTask *task);
@@ -189,7 +189,7 @@ get_compression_type_from_content_type (const gchar *content_type)
 }
 
 static void
-gtk_source_file_loader_set_property (GObject      *object,
+ctk_source_file_loader_set_property (GObject      *object,
 				     guint         prop_id,
 				     const GValue *value,
 				     GParamSpec   *pspec)
@@ -229,7 +229,7 @@ gtk_source_file_loader_set_property (GObject      *object,
 }
 
 static void
-gtk_source_file_loader_get_property (GObject    *object,
+ctk_source_file_loader_get_property (GObject    *object,
 				     guint       prop_id,
 				     GValue     *value,
 				     GParamSpec *pspec)
@@ -261,7 +261,7 @@ gtk_source_file_loader_get_property (GObject    *object,
 }
 
 static void
-gtk_source_file_loader_dispose (GObject *object)
+ctk_source_file_loader_dispose (GObject *object)
 {
 	GtkSourceFileLoader *loader = GTK_SOURCE_FILE_LOADER (object);
 
@@ -288,7 +288,7 @@ gtk_source_file_loader_dispose (GObject *object)
 	g_slist_free (loader->priv->candidate_encodings);
 	loader->priv->candidate_encodings = NULL;
 
-	G_OBJECT_CLASS (gtk_source_file_loader_parent_class)->dispose (object);
+	G_OBJECT_CLASS (ctk_source_file_loader_parent_class)->dispose (object);
 }
 
 static void
@@ -302,14 +302,14 @@ set_default_candidate_encodings (GtkSourceFileLoader *loader)
 	 * GtkSourceFile's encoding has been set by a FileLoader or FileSaver,
 	 * put it at the beginning of the list.
 	 */
-	list = gtk_source_encoding_get_default_candidates ();
+	list = ctk_source_encoding_get_default_candidates ();
 
 	if (loader->priv->file == NULL)
 	{
 		goto end;
 	}
 
-	file_encoding = gtk_source_file_get_encoding (loader->priv->file);
+	file_encoding = ctk_source_file_get_encoding (loader->priv->file);
 
 	if (file_encoding == NULL)
 	{
@@ -340,7 +340,7 @@ end:
 }
 
 static void
-gtk_source_file_loader_constructed (GObject *object)
+ctk_source_file_loader_constructed (GObject *object)
 {
 	GtkSourceFileLoader *loader = GTK_SOURCE_FILE_LOADER (object);
 
@@ -351,7 +351,7 @@ gtk_source_file_loader_constructed (GObject *object)
 		if (loader->priv->location == NULL &&
 		    loader->priv->input_stream_property == NULL)
 		{
-			loader->priv->location = gtk_source_file_get_location (loader->priv->file);
+			loader->priv->location = ctk_source_file_get_location (loader->priv->file);
 
 			if (loader->priv->location != NULL)
 			{
@@ -360,23 +360,23 @@ gtk_source_file_loader_constructed (GObject *object)
 			else
 			{
 				g_warning ("GtkSourceFileLoader: the GtkSourceFile's location is NULL. "
-					   "Call gtk_source_file_set_location() or read from a GInputStream.");
+					   "Call ctk_source_file_set_location() or read from a GInputStream.");
 			}
 		}
 	}
 
-	G_OBJECT_CLASS (gtk_source_file_loader_parent_class)->constructed (object);
+	G_OBJECT_CLASS (ctk_source_file_loader_parent_class)->constructed (object);
 }
 
 static void
-gtk_source_file_loader_class_init (GtkSourceFileLoaderClass *klass)
+ctk_source_file_loader_class_init (GtkSourceFileLoaderClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-	object_class->dispose = gtk_source_file_loader_dispose;
-	object_class->set_property = gtk_source_file_loader_set_property;
-	object_class->get_property = gtk_source_file_loader_get_property;
-	object_class->constructed = gtk_source_file_loader_constructed;
+	object_class->dispose = ctk_source_file_loader_dispose;
+	object_class->set_property = ctk_source_file_loader_set_property;
+	object_class->get_property = ctk_source_file_loader_get_property;
+	object_class->constructed = ctk_source_file_loader_constructed;
 
 	/**
 	 * GtkSourceFileLoader:buffer:
@@ -457,9 +457,9 @@ gtk_source_file_loader_class_init (GtkSourceFileLoaderClass *klass)
 }
 
 static void
-gtk_source_file_loader_init (GtkSourceFileLoader *loader)
+ctk_source_file_loader_init (GtkSourceFileLoader *loader)
 {
-	loader->priv = gtk_source_file_loader_get_instance_private (loader);
+	loader->priv = ctk_source_file_loader_get_instance_private (loader);
 }
 
 static void
@@ -507,7 +507,7 @@ close_input_stream_cb (GObject      *source_object,
 	/* Check if we needed some fallback char, if so, check if there was a
 	 * previous error and if not set a fallback used error.
 	 */
-	if (gtk_source_buffer_output_stream_get_num_fallbacks (task_data->output_stream) > 0)
+	if (ctk_source_buffer_output_stream_get_num_fallbacks (task_data->output_stream) > 0)
 	{
 		g_task_return_new_error (task,
 					 GTK_SOURCE_FILE_LOADER_ERROR,
@@ -651,10 +651,10 @@ read_cb (GObject      *source_object,
 		g_output_stream_flush (G_OUTPUT_STREAM (task_data->output_stream), NULL, NULL);
 
 		loader->priv->auto_detected_encoding =
-			gtk_source_buffer_output_stream_get_guessed (task_data->output_stream);
+			ctk_source_buffer_output_stream_get_guessed (task_data->output_stream);
 
 		loader->priv->auto_detected_newline_type =
-			gtk_source_buffer_output_stream_detect_newline_type (task_data->output_stream);
+			ctk_source_buffer_output_stream_detect_newline_type (task_data->output_stream);
 
 		write_complete (task);
 		return;
@@ -822,7 +822,7 @@ recover_not_mounted (GTask *task)
 	loader = g_task_get_source_object (task);
 	task_data = g_task_get_task_data (task);
 
-	mount_operation = _gtk_source_file_create_mount_operation (loader->priv->file);
+	mount_operation = _ctk_source_file_create_mount_operation (loader->priv->file);
 
 	DEBUG ({
 	       g_print ("%s\n", G_STRFUNC);
@@ -903,26 +903,26 @@ open_file (GTask *task)
 }
 
 GQuark
-gtk_source_file_loader_error_quark (void)
+ctk_source_file_loader_error_quark (void)
 {
 	static GQuark quark = 0;
 
 	if (G_UNLIKELY (quark == 0))
 	{
-		quark = g_quark_from_static_string ("gtk-source-file-loader-error");
+		quark = g_quark_from_static_string ("ctk-source-file-loader-error");
 	}
 
 	return quark;
 }
 
 /**
- * gtk_source_file_loader_new:
+ * ctk_source_file_loader_new:
  * @buffer: the #GtkSourceBuffer to load the contents into.
  * @file: the #GtkSourceFile.
  *
  * Creates a new #GtkSourceFileLoader object. The contents is read from the
  * #GtkSourceFile's location. If not already done, call
- * gtk_source_file_set_location() before calling this constructor. The previous
+ * ctk_source_file_set_location() before calling this constructor. The previous
  * location is anyway not needed, because as soon as the file loading begins,
  * the @buffer is emptied.
  *
@@ -930,7 +930,7 @@ gtk_source_file_loader_error_quark (void)
  * Since: 3.14
  */
 GtkSourceFileLoader *
-gtk_source_file_loader_new (GtkSourceBuffer *buffer,
+ctk_source_file_loader_new (GtkSourceBuffer *buffer,
 			    GtkSourceFile   *file)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_BUFFER (buffer), NULL);
@@ -943,7 +943,7 @@ gtk_source_file_loader_new (GtkSourceBuffer *buffer,
 }
 
 /**
- * gtk_source_file_loader_new_from_stream:
+ * ctk_source_file_loader_new_from_stream:
  * @buffer: the #GtkSourceBuffer to load the contents into.
  * @file: the #GtkSourceFile.
  * @stream: the #GInputStream to load, e.g. stdin.
@@ -954,7 +954,7 @@ gtk_source_file_loader_new (GtkSourceBuffer *buffer,
  * Since: 3.14
  */
 GtkSourceFileLoader *
-gtk_source_file_loader_new_from_stream (GtkSourceBuffer *buffer,
+ctk_source_file_loader_new_from_stream (GtkSourceBuffer *buffer,
 					GtkSourceFile   *file,
 					GInputStream    *stream)
 {
@@ -970,7 +970,7 @@ gtk_source_file_loader_new_from_stream (GtkSourceBuffer *buffer,
 }
 
 /**
- * gtk_source_file_loader_set_candidate_encodings:
+ * ctk_source_file_loader_set_candidate_encodings:
  * @loader: a #GtkSourceFileLoader.
  * @candidate_encodings: (element-type GtkSourceEncoding): a list of
  *   #GtkSourceEncoding<!-- -->s.
@@ -983,14 +983,14 @@ gtk_source_file_loader_new_from_stream (GtkSourceBuffer *buffer,
  *
  * By default the candidate encodings are (in that order in the list):
  * 1. If set, the #GtkSourceFile's encoding as returned by
- * gtk_source_file_get_encoding().
+ * ctk_source_file_get_encoding().
  * 2. The default candidates as returned by
- * gtk_source_encoding_get_default_candidates().
+ * ctk_source_encoding_get_default_candidates().
  *
  * Since: 3.14
  */
 void
-gtk_source_file_loader_set_candidate_encodings (GtkSourceFileLoader *loader,
+ctk_source_file_loader_set_candidate_encodings (GtkSourceFileLoader *loader,
 						GSList              *candidate_encodings)
 {
 	GSList *list;
@@ -999,21 +999,21 @@ gtk_source_file_loader_set_candidate_encodings (GtkSourceFileLoader *loader,
 	g_return_if_fail (loader->priv->task == NULL);
 
 	list = g_slist_copy (candidate_encodings);
-	list = _gtk_source_encoding_remove_duplicates (list, GTK_SOURCE_ENCODING_DUPLICATES_KEEP_FIRST);
+	list = _ctk_source_encoding_remove_duplicates (list, GTK_SOURCE_ENCODING_DUPLICATES_KEEP_FIRST);
 
 	g_slist_free (loader->priv->candidate_encodings);
 	loader->priv->candidate_encodings = list;
 }
 
 /**
- * gtk_source_file_loader_get_buffer:
+ * ctk_source_file_loader_get_buffer:
  * @loader: a #GtkSourceFileLoader.
  *
  * Returns: (transfer none): the #GtkSourceBuffer to load the contents into.
  * Since: 3.14
  */
 GtkSourceBuffer *
-gtk_source_file_loader_get_buffer (GtkSourceFileLoader *loader)
+ctk_source_file_loader_get_buffer (GtkSourceFileLoader *loader)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_FILE_LOADER (loader), NULL);
 
@@ -1021,14 +1021,14 @@ gtk_source_file_loader_get_buffer (GtkSourceFileLoader *loader)
 }
 
 /**
- * gtk_source_file_loader_get_file:
+ * ctk_source_file_loader_get_file:
  * @loader: a #GtkSourceFileLoader.
  *
  * Returns: (transfer none): the #GtkSourceFile.
  * Since: 3.14
  */
 GtkSourceFile *
-gtk_source_file_loader_get_file (GtkSourceFileLoader *loader)
+ctk_source_file_loader_get_file (GtkSourceFileLoader *loader)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_FILE_LOADER (loader), NULL);
 
@@ -1036,7 +1036,7 @@ gtk_source_file_loader_get_file (GtkSourceFileLoader *loader)
 }
 
 /**
- * gtk_source_file_loader_get_location:
+ * ctk_source_file_loader_get_location:
  * @loader: a #GtkSourceFileLoader.
  *
  * Returns: (nullable) (transfer none): the #GFile to load, or %NULL
@@ -1044,7 +1044,7 @@ gtk_source_file_loader_get_file (GtkSourceFileLoader *loader)
  * Since: 3.14
  */
 GFile *
-gtk_source_file_loader_get_location (GtkSourceFileLoader *loader)
+ctk_source_file_loader_get_location (GtkSourceFileLoader *loader)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_FILE_LOADER (loader), NULL);
 
@@ -1052,7 +1052,7 @@ gtk_source_file_loader_get_location (GtkSourceFileLoader *loader)
 }
 
 /**
- * gtk_source_file_loader_get_input_stream:
+ * ctk_source_file_loader_get_input_stream:
  * @loader: a #GtkSourceFileLoader.
  *
  * Returns: (nullable) (transfer none): the #GInputStream to load, or %NULL
@@ -1060,7 +1060,7 @@ gtk_source_file_loader_get_location (GtkSourceFileLoader *loader)
  * Since: 3.14
  */
 GInputStream *
-gtk_source_file_loader_get_input_stream (GtkSourceFileLoader *loader)
+ctk_source_file_loader_get_input_stream (GtkSourceFileLoader *loader)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_FILE_LOADER (loader), NULL);
 
@@ -1068,7 +1068,7 @@ gtk_source_file_loader_get_input_stream (GtkSourceFileLoader *loader)
 }
 
 /**
- * gtk_source_file_loader_load_async:
+ * ctk_source_file_loader_load_async:
  * @loader: a #GtkSourceFileLoader.
  * @io_priority: the I/O priority of the request. E.g. %G_PRIORITY_LOW,
  *   %G_PRIORITY_DEFAULT or %G_PRIORITY_HIGH.
@@ -1094,7 +1094,7 @@ gtk_source_file_loader_get_input_stream (GtkSourceFileLoader *loader)
  * https://bugzilla.gnome.org/show_bug.cgi?id=616044
  */
 void
-gtk_source_file_loader_load_async (GtkSourceFileLoader   *loader,
+ctk_source_file_loader_load_async (GtkSourceFileLoader   *loader,
 				   gint                   io_priority,
 				   GCancellable          *cancellable,
 				   GFileProgressCallback  progress_callback,
@@ -1141,21 +1141,21 @@ gtk_source_file_loader_load_async (GtkSourceFileLoader   *loader,
 	 */
 	if (loader->priv->input_stream_property != NULL)
 	{
-		gtk_source_file_set_location (loader->priv->file, NULL);
+		ctk_source_file_set_location (loader->priv->file, NULL);
 	}
 	else
 	{
-		gtk_source_file_set_location (loader->priv->file,
+		ctk_source_file_set_location (loader->priv->file,
 					      loader->priv->location);
 	}
 
-	implicit_trailing_newline = gtk_source_buffer_get_implicit_trailing_newline (loader->priv->source_buffer);
+	implicit_trailing_newline = ctk_source_buffer_get_implicit_trailing_newline (loader->priv->source_buffer);
 
 	/* The BufferOutputStream has a strong reference to the buffer.
          * We create the BufferOutputStream here so we are sure that the
          * buffer will not be destroyed during the file loading.
          */
-	task_data->output_stream = gtk_source_buffer_output_stream_new (loader->priv->source_buffer,
+	task_data->output_stream = ctk_source_buffer_output_stream_new (loader->priv->source_buffer,
 									loader->priv->candidate_encodings,
 									implicit_trailing_newline);
 
@@ -1173,12 +1173,12 @@ gtk_source_file_loader_load_async (GtkSourceFileLoader   *loader,
 }
 
 /**
- * gtk_source_file_loader_load_finish:
+ * ctk_source_file_loader_load_finish:
  * @loader: a #GtkSourceFileLoader.
  * @result: a #GAsyncResult.
  * @error: a #GError, or %NULL.
  *
- * Finishes a file loading started with gtk_source_file_loader_load_async().
+ * Finishes a file loading started with ctk_source_file_loader_load_async().
  *
  * If the contents has been loaded, the following #GtkSourceFile properties will
  * be updated: the location, the encoding, the newline type and the compression
@@ -1188,7 +1188,7 @@ gtk_source_file_loader_load_async (GtkSourceFileLoader   *loader,
  * Since: 3.14
  */
 gboolean
-gtk_source_file_loader_load_finish (GtkSourceFileLoader  *loader,
+ctk_source_file_loader_load_finish (GtkSourceFileLoader  *loader,
 				    GAsyncResult         *result,
 				    GError              **error)
 {
@@ -1229,24 +1229,24 @@ gtk_source_file_loader_load_finish (GtkSourceFileLoader  *loader,
 		 * operation.
 		 */
 
-		_gtk_source_file_set_encoding (loader->priv->file,
+		_ctk_source_file_set_encoding (loader->priv->file,
 					       loader->priv->auto_detected_encoding);
 
-		_gtk_source_file_set_newline_type (loader->priv->file,
+		_ctk_source_file_set_newline_type (loader->priv->file,
 						   loader->priv->auto_detected_newline_type);
 
-		_gtk_source_file_set_compression_type (loader->priv->file,
+		_ctk_source_file_set_compression_type (loader->priv->file,
 						       loader->priv->auto_detected_compression_type);
 
-		_gtk_source_file_set_externally_modified (loader->priv->file, FALSE);
-		_gtk_source_file_set_deleted (loader->priv->file, FALSE);
+		_ctk_source_file_set_externally_modified (loader->priv->file, FALSE);
+		_ctk_source_file_set_deleted (loader->priv->file, FALSE);
 
 		if (g_file_info_has_attribute (task_data->info, G_FILE_ATTRIBUTE_TIME_MODIFIED))
 		{
 			GTimeVal modification_time;
 
 			g_file_info_get_modification_time (task_data->info, &modification_time);
-			_gtk_source_file_set_modification_time (loader->priv->file, modification_time);
+			_ctk_source_file_set_modification_time (loader->priv->file, modification_time);
 		}
 
 		if (g_file_info_has_attribute (task_data->info, G_FILE_ATTRIBUTE_ACCESS_CAN_WRITE))
@@ -1256,11 +1256,11 @@ gtk_source_file_loader_load_finish (GtkSourceFileLoader  *loader,
 			readonly = !g_file_info_get_attribute_boolean (task_data->info,
 								       G_FILE_ATTRIBUTE_ACCESS_CAN_WRITE);
 
-			_gtk_source_file_set_readonly (loader->priv->file, readonly);
+			_ctk_source_file_set_readonly (loader->priv->file, readonly);
 		}
 		else
 		{
-			_gtk_source_file_set_readonly (loader->priv->file, FALSE);
+			_ctk_source_file_set_readonly (loader->priv->file, FALSE);
 		}
 	}
 
@@ -1275,14 +1275,14 @@ gtk_source_file_loader_load_finish (GtkSourceFileLoader  *loader,
 }
 
 /**
- * gtk_source_file_loader_get_encoding:
+ * ctk_source_file_loader_get_encoding:
  * @loader: a #GtkSourceFileLoader.
  *
  * Returns: the detected file encoding.
  * Since: 3.14
  */
 const GtkSourceEncoding *
-gtk_source_file_loader_get_encoding (GtkSourceFileLoader *loader)
+ctk_source_file_loader_get_encoding (GtkSourceFileLoader *loader)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_FILE_LOADER (loader), NULL);
 
@@ -1290,14 +1290,14 @@ gtk_source_file_loader_get_encoding (GtkSourceFileLoader *loader)
 }
 
 /**
- * gtk_source_file_loader_get_newline_type:
+ * ctk_source_file_loader_get_newline_type:
  * @loader: a #GtkSourceFileLoader.
  *
  * Returns: the detected newline type.
  * Since: 3.14
  */
 GtkSourceNewlineType
-gtk_source_file_loader_get_newline_type (GtkSourceFileLoader *loader)
+ctk_source_file_loader_get_newline_type (GtkSourceFileLoader *loader)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_FILE_LOADER (loader),
 			      GTK_SOURCE_NEWLINE_TYPE_LF);
@@ -1306,14 +1306,14 @@ gtk_source_file_loader_get_newline_type (GtkSourceFileLoader *loader)
 }
 
 /**
- * gtk_source_file_loader_get_compression_type:
+ * ctk_source_file_loader_get_compression_type:
  * @loader: a #GtkSourceFileLoader.
  *
  * Returns: the detected compression type.
  * Since: 3.14
  */
 GtkSourceCompressionType
-gtk_source_file_loader_get_compression_type (GtkSourceFileLoader *loader)
+ctk_source_file_loader_get_compression_type (GtkSourceFileLoader *loader)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_FILE_LOADER (loader),
 			      GTK_SOURCE_COMPRESSION_TYPE_NONE);

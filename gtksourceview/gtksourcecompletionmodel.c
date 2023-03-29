@@ -23,10 +23,10 @@
 #include <config.h>
 #endif
 
-#include "gtksourcecompletionmodel.h"
+#include "ctksourcecompletionmodel.h"
 #include <glib/gi18n-lib.h>
-#include "gtksourcecompletionprovider.h"
-#include "gtksourcecompletionproposal.h"
+#include "ctksourcecompletionprovider.h"
+#include "ctksourcecompletionproposal.h"
 
 typedef struct
 {
@@ -72,7 +72,7 @@ struct _GtkSourceCompletionModelPrivate
 static void tree_model_iface_init (gpointer g_iface, gpointer iface_data);
 
 G_DEFINE_TYPE_WITH_CODE (GtkSourceCompletionModel,
-                         gtk_source_completion_model,
+                         ctk_source_completion_model,
                          G_TYPE_OBJECT,
 			 G_ADD_PRIVATE (GtkSourceCompletionModel)
                          G_IMPLEMENT_INTERFACE (GTK_TYPE_TREE_MODEL,
@@ -195,7 +195,7 @@ get_proposal_path (GtkSourceCompletionModel *model,
 	idx = get_provider_start_index (model, provider_info);
 	idx += g_queue_link_index (provider_info->proposals, proposal_node);
 
-	return gtk_tree_path_new_from_indices (idx, -1);
+	return ctk_tree_path_new_from_indices (idx, -1);
 }
 
 /* Returns the first visible provider after @provider. It can be @provider
@@ -281,7 +281,7 @@ get_last_iter (GtkSourceCompletionModel *model,
 
 	if (!provider_info->visible)
 	{
-		return gtk_source_completion_model_iter_previous (model, iter);
+		return ctk_source_completion_model_iter_previous (model, iter);
 	}
 
 	return TRUE;
@@ -352,9 +352,9 @@ show_header (GtkSourceCompletionModel *model,
 		GtkTreeIter iter;
 
 		iter.user_data = provider_info->proposals->head;
-		gtk_tree_model_row_inserted (GTK_TREE_MODEL (model), path, &iter);
+		ctk_tree_model_row_inserted (GTK_TREE_MODEL (model), path, &iter);
 
-		gtk_tree_path_free (path);
+		ctk_tree_path_free (path);
 	}
 }
 
@@ -374,8 +374,8 @@ hide_header (GtkSourceCompletionModel *model,
 	if (provider_info->visible)
 	{
 		GtkTreePath *path = get_proposal_path (model, provider_info->proposals->head);
-		gtk_tree_model_row_deleted (GTK_TREE_MODEL (model), path);
-		gtk_tree_path_free (path);
+		ctk_tree_model_row_deleted (GTK_TREE_MODEL (model), path);
+		ctk_tree_path_free (path);
 	}
 }
 
@@ -420,7 +420,7 @@ tree_model_get_iter (GtkTreeModel *tree_model,
 	g_return_val_if_fail (path != NULL, FALSE);
 
 	model = GTK_SOURCE_COMPLETION_MODEL (tree_model);
-	indices = gtk_tree_path_get_indices (path);
+	indices = ctk_tree_path_get_indices (path);
 
 	return get_iter_from_index (model, iter, indices[0]);
 }
@@ -478,7 +478,7 @@ tree_model_get_value (GtkTreeModel *tree_model,
 		case GTK_SOURCE_COMPLETION_MODEL_COLUMN_MARKUP:
 			if (is_header (proposal_info))
 			{
-				gchar *name = gtk_source_completion_provider_get_name (completion_provider);
+				gchar *name = ctk_source_completion_provider_get_name (completion_provider);
 
 				if (name != NULL)
 				{
@@ -497,11 +497,11 @@ tree_model_get_value (GtkTreeModel *tree_model,
 			}
 			else
 			{
-				gchar *markup = gtk_source_completion_proposal_get_markup (completion_proposal);
+				gchar *markup = ctk_source_completion_proposal_get_markup (completion_proposal);
 
 				if (markup == NULL)
 				{
-					gchar *label = gtk_source_completion_proposal_get_label (completion_proposal);
+					gchar *label = ctk_source_completion_proposal_get_label (completion_proposal);
 					markup = g_markup_escape_text (label != NULL ? label : "", -1);
 					g_free (label);
 				}
@@ -513,12 +513,12 @@ tree_model_get_value (GtkTreeModel *tree_model,
 		case GTK_SOURCE_COMPLETION_MODEL_COLUMN_ICON:
 			if (is_header (proposal_info))
 			{
-				GdkPixbuf *icon = gtk_source_completion_provider_get_icon (completion_provider);
+				GdkPixbuf *icon = ctk_source_completion_provider_get_icon (completion_provider);
 				g_value_set_object (value, (gpointer)icon);
 			}
 			else
 			{
-				GdkPixbuf *icon = gtk_source_completion_proposal_get_icon (completion_proposal);
+				GdkPixbuf *icon = ctk_source_completion_proposal_get_icon (completion_proposal);
 				g_value_set_object (value, (gpointer)icon);
 			}
 			break;
@@ -526,12 +526,12 @@ tree_model_get_value (GtkTreeModel *tree_model,
 		case GTK_SOURCE_COMPLETION_MODEL_COLUMN_ICON_NAME:
 			if (is_header (proposal_info))
 			{
-				const gchar *icon_name = gtk_source_completion_provider_get_icon_name (completion_provider);
+				const gchar *icon_name = ctk_source_completion_provider_get_icon_name (completion_provider);
 				g_value_set_string (value, (gpointer)icon_name);
 			}
 			else
 			{
-				const gchar *icon_name = gtk_source_completion_proposal_get_icon_name (completion_proposal);
+				const gchar *icon_name = ctk_source_completion_proposal_get_icon_name (completion_proposal);
 				g_value_set_string (value, (gpointer)icon_name);
 			}
 			break;
@@ -539,12 +539,12 @@ tree_model_get_value (GtkTreeModel *tree_model,
 		case GTK_SOURCE_COMPLETION_MODEL_COLUMN_GICON:
 			if (is_header (proposal_info))
 			{
-				GIcon *icon = gtk_source_completion_provider_get_gicon (completion_provider);
+				GIcon *icon = ctk_source_completion_provider_get_gicon (completion_provider);
 				g_value_set_object (value, (gpointer)icon);
 			}
 			else
 			{
-				GIcon *icon = gtk_source_completion_proposal_get_gicon (completion_proposal);
+				GIcon *icon = ctk_source_completion_proposal_get_gicon (completion_proposal);
 				g_value_set_object (value, (gpointer)icon);
 			}
 			break;
@@ -725,7 +725,7 @@ tree_model_iface_init (gpointer g_iface,
 /* Construction and destruction */
 
 static void
-gtk_source_completion_model_dispose (GObject *object)
+ctk_source_completion_model_dispose (GObject *object)
 {
 	GtkSourceCompletionModel *model = GTK_SOURCE_COMPLETION_MODEL (object);
 
@@ -735,21 +735,21 @@ gtk_source_completion_model_dispose (GObject *object)
 	g_list_free_full (model->priv->visible_providers, g_object_unref);
 	model->priv->visible_providers = NULL;
 
-	G_OBJECT_CLASS (gtk_source_completion_model_parent_class)->dispose (object);
+	G_OBJECT_CLASS (ctk_source_completion_model_parent_class)->dispose (object);
 }
 
 static void
-gtk_source_completion_model_class_init (GtkSourceCompletionModelClass *klass)
+ctk_source_completion_model_class_init (GtkSourceCompletionModelClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-	object_class->dispose = gtk_source_completion_model_dispose;
+	object_class->dispose = ctk_source_completion_model_dispose;
 }
 
 static void
-gtk_source_completion_model_init (GtkSourceCompletionModel *self)
+ctk_source_completion_model_init (GtkSourceCompletionModel *self)
 {
-	self->priv = gtk_source_completion_model_get_instance_private (self);
+	self->priv = ctk_source_completion_model_get_instance_private (self);
 
 	self->priv->column_types[GTK_SOURCE_COMPLETION_MODEL_COLUMN_MARKUP] = G_TYPE_STRING;
 	self->priv->column_types[GTK_SOURCE_COMPLETION_MODEL_COLUMN_ICON] = GDK_TYPE_PIXBUF;
@@ -786,12 +786,12 @@ create_provider_info (GtkSourceCompletionModel    *model,
 
 	/* Insert the ProviderInfo in the list */
 
-	priority = gtk_source_completion_provider_get_priority (provider);
+	priority = ctk_source_completion_provider_get_priority (provider);
 
 	for (l = model->priv->providers; l != NULL; l = l->next)
 	{
 		ProviderInfo *cur_info = l->data;
-		gint cur_priority = gtk_source_completion_provider_get_priority (cur_info->completion_provider);
+		gint cur_priority = ctk_source_completion_provider_get_priority (cur_info->completion_provider);
 
 		if (cur_priority < priority)
 		{
@@ -828,11 +828,11 @@ on_proposal_changed (GtkSourceCompletionProposal *proposal,
 		iter.user_data = proposal_node;
 		path = get_proposal_path (provider_info->model, proposal_node);
 
-		gtk_tree_model_row_changed (GTK_TREE_MODEL (provider_info->model),
+		ctk_tree_model_row_changed (GTK_TREE_MODEL (provider_info->model),
 					    path,
 					    &iter);
 
-		gtk_tree_path_free (path);
+		ctk_tree_path_free (path);
 	}
 }
 
@@ -855,7 +855,7 @@ add_proposal (GtkSourceCompletionProposal *proposal,
 }
 
 void
-gtk_source_completion_model_add_proposals (GtkSourceCompletionModel    *model,
+ctk_source_completion_model_add_proposals (GtkSourceCompletionModel    *model,
 					   GtkSourceCompletionProvider *provider,
 					   GList                       *proposals)
 {
@@ -889,7 +889,7 @@ provider_copy_func (gconstpointer src,
 }
 
 void
-gtk_source_completion_model_set_visible_providers (GtkSourceCompletionModel *model,
+ctk_source_completion_model_set_visible_providers (GtkSourceCompletionModel *model,
                                                    GList                    *providers)
 {
 	GList *l;
@@ -915,7 +915,7 @@ gtk_source_completion_model_set_visible_providers (GtkSourceCompletionModel *mod
 }
 
 GList *
-gtk_source_completion_model_get_visible_providers (GtkSourceCompletionModel *model)
+ctk_source_completion_model_get_visible_providers (GtkSourceCompletionModel *model)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_COMPLETION_MODEL (model), NULL);
 
@@ -924,7 +924,7 @@ gtk_source_completion_model_get_visible_providers (GtkSourceCompletionModel *mod
 
 /* If @only_visible is %TRUE, only the visible providers are taken into account. */
 gboolean
-gtk_source_completion_model_is_empty (GtkSourceCompletionModel *model,
+ctk_source_completion_model_is_empty (GtkSourceCompletionModel *model,
                                       gboolean                  only_visible)
 {
 	GList *l;
@@ -948,7 +948,7 @@ gtk_source_completion_model_is_empty (GtkSourceCompletionModel *model,
 }
 
 void
-gtk_source_completion_model_set_show_headers (GtkSourceCompletionModel *model,
+ctk_source_completion_model_set_show_headers (GtkSourceCompletionModel *model,
                                               gboolean                  show_headers)
 {
 	GList *l;
@@ -976,7 +976,7 @@ gtk_source_completion_model_set_show_headers (GtkSourceCompletionModel *model,
 }
 
 gboolean
-gtk_source_completion_model_iter_is_header (GtkSourceCompletionModel *model,
+ctk_source_completion_model_iter_is_header (GtkSourceCompletionModel *model,
                                             GtkTreeIter              *iter)
 {
 	GList *proposal_node;
@@ -993,7 +993,7 @@ gtk_source_completion_model_iter_is_header (GtkSourceCompletionModel *model,
 }
 
 gboolean
-gtk_source_completion_model_iter_previous (GtkSourceCompletionModel *model,
+ctk_source_completion_model_iter_previous (GtkSourceCompletionModel *model,
                                            GtkTreeIter              *iter)
 {
 	/* This function is the symmetry of tree_model_iter_next(). */
@@ -1047,7 +1047,7 @@ gtk_source_completion_model_iter_previous (GtkSourceCompletionModel *model,
  * Free the return value with g_list_free().
  */
 GList *
-gtk_source_completion_model_get_providers (GtkSourceCompletionModel *model)
+ctk_source_completion_model_get_providers (GtkSourceCompletionModel *model)
 {
 	GList *l;
 	GList *ret = NULL;
@@ -1067,20 +1067,20 @@ gtk_source_completion_model_get_providers (GtkSourceCompletionModel *model)
  * Returns TRUE on success.
  */
 gboolean
-gtk_source_completion_model_first_proposal (GtkSourceCompletionModel *model,
+ctk_source_completion_model_first_proposal (GtkSourceCompletionModel *model,
 					    GtkTreeIter              *iter)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_COMPLETION_MODEL (model), FALSE);
 	g_return_val_if_fail (iter != NULL, FALSE);
 
-	if (!gtk_tree_model_get_iter_first (GTK_TREE_MODEL (model), iter))
+	if (!ctk_tree_model_get_iter_first (GTK_TREE_MODEL (model), iter))
 	{
 		return FALSE;
 	}
 
-	while (gtk_source_completion_model_iter_is_header (model, iter))
+	while (ctk_source_completion_model_iter_is_header (model, iter))
 	{
-		if (!gtk_tree_model_iter_next (GTK_TREE_MODEL (model), iter))
+		if (!ctk_tree_model_iter_next (GTK_TREE_MODEL (model), iter))
 		{
 			return FALSE;
 		}
@@ -1093,7 +1093,7 @@ gtk_source_completion_model_first_proposal (GtkSourceCompletionModel *model,
  * Returns TRUE on success.
  */
 gboolean
-gtk_source_completion_model_last_proposal (GtkSourceCompletionModel *model,
+ctk_source_completion_model_last_proposal (GtkSourceCompletionModel *model,
 					   GtkTreeIter              *iter)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_COMPLETION_MODEL (model), FALSE);
@@ -1104,9 +1104,9 @@ gtk_source_completion_model_last_proposal (GtkSourceCompletionModel *model,
 		return FALSE;
 	}
 
-	while (gtk_source_completion_model_iter_is_header (model, iter))
+	while (ctk_source_completion_model_iter_is_header (model, iter))
 	{
-		if (!gtk_source_completion_model_iter_previous (model, iter))
+		if (!ctk_source_completion_model_iter_previous (model, iter))
 		{
 			return FALSE;
 		}
@@ -1119,7 +1119,7 @@ gtk_source_completion_model_last_proposal (GtkSourceCompletionModel *model,
  * Returns TRUE on success.
  */
 gboolean
-gtk_source_completion_model_next_proposal (GtkSourceCompletionModel *model,
+ctk_source_completion_model_next_proposal (GtkSourceCompletionModel *model,
 					   GtkTreeIter              *iter)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_COMPLETION_MODEL (model), FALSE);
@@ -1127,11 +1127,11 @@ gtk_source_completion_model_next_proposal (GtkSourceCompletionModel *model,
 
 	do
 	{
-		if (!gtk_tree_model_iter_next (GTK_TREE_MODEL (model), iter))
+		if (!ctk_tree_model_iter_next (GTK_TREE_MODEL (model), iter))
 		{
 			return FALSE;
 		}
-	} while (gtk_source_completion_model_iter_is_header (model, iter));
+	} while (ctk_source_completion_model_iter_is_header (model, iter));
 
 	return TRUE;
 }
@@ -1140,7 +1140,7 @@ gtk_source_completion_model_next_proposal (GtkSourceCompletionModel *model,
  * Returns TRUE on success.
  */
 gboolean
-gtk_source_completion_model_previous_proposal (GtkSourceCompletionModel *model,
+ctk_source_completion_model_previous_proposal (GtkSourceCompletionModel *model,
 					       GtkTreeIter              *iter)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_COMPLETION_MODEL (model), FALSE);
@@ -1148,11 +1148,11 @@ gtk_source_completion_model_previous_proposal (GtkSourceCompletionModel *model,
 
 	do
 	{
-		if (!gtk_source_completion_model_iter_previous (model, iter))
+		if (!ctk_source_completion_model_iter_previous (model, iter))
 		{
 			return FALSE;
 		}
-	} while (gtk_source_completion_model_iter_is_header (model, iter));
+	} while (ctk_source_completion_model_iter_is_header (model, iter));
 
 	return TRUE;
 }
@@ -1163,12 +1163,12 @@ proposal_has_info (GtkSourceCompletionProvider *provider,
 {
 	gchar *info;
 
-	if (gtk_source_completion_provider_get_info_widget (provider, proposal) != NULL)
+	if (ctk_source_completion_provider_get_info_widget (provider, proposal) != NULL)
 	{
 		return TRUE;
 	}
 
-	info = gtk_source_completion_proposal_get_info (proposal);
+	info = ctk_source_completion_proposal_get_info (proposal);
 
 	if (info != NULL)
 	{
@@ -1207,7 +1207,7 @@ provider_has_info (ProviderInfo *provider_info)
  * information. If the function returns %FALSE, the "Details" button is useless.
  */
 gboolean
-gtk_source_completion_model_has_info (GtkSourceCompletionModel *model)
+ctk_source_completion_model_has_info (GtkSourceCompletionModel *model)
 {
 	GList *l;
 
@@ -1225,7 +1225,7 @@ gtk_source_completion_model_has_info (GtkSourceCompletionModel *model)
 }
 
 gboolean
-gtk_source_completion_model_iter_equal (GtkSourceCompletionModel *model,
+ctk_source_completion_model_iter_equal (GtkSourceCompletionModel *model,
                                         GtkTreeIter              *iter1,
                                         GtkTreeIter              *iter2)
 {
@@ -1237,7 +1237,7 @@ gtk_source_completion_model_iter_equal (GtkSourceCompletionModel *model,
 }
 
 GtkSourceCompletionModel*
-gtk_source_completion_model_new (void)
+ctk_source_completion_model_new (void)
 {
 	return g_object_new (GTK_SOURCE_TYPE_COMPLETION_MODEL, NULL);
 }

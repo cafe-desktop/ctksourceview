@@ -23,18 +23,18 @@
 #define GTK_SOURCE_COMPLETION_H
 
 #if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
-#error "Only <gtksourceview/gtksource.h> can be included directly."
+#error "Only <ctksourceview/ctksource.h> can be included directly."
 #endif
 
-#include <gtk/gtk.h>
-#include <gtksourceview/gtksourcetypes.h>
+#include <ctk/ctk.h>
+#include <ctksourceview/ctksourcetypes.h>
 
 G_BEGIN_DECLS
 
 /*
  * Type checking and casting macros
  */
-#define GTK_SOURCE_TYPE_COMPLETION              (gtk_source_completion_get_type())
+#define GTK_SOURCE_TYPE_COMPLETION              (ctk_source_completion_get_type())
 #define GTK_SOURCE_COMPLETION(obj)              (G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_SOURCE_TYPE_COMPLETION, GtkSourceCompletion))
 #define GTK_SOURCE_COMPLETION_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST((klass), GTK_SOURCE_TYPE_COMPLETION, GtkSourceCompletionClass))
 #define GTK_SOURCE_IS_COMPLETION(obj)           (G_TYPE_CHECK_INSTANCE_TYPE((obj), GTK_SOURCE_TYPE_COMPLETION))
@@ -48,7 +48,7 @@ G_BEGIN_DECLS
  * #GtkSourceCompletionError enumeration. See #GError for more information on
  * error domains.
  */
-#define GTK_SOURCE_COMPLETION_ERROR		(gtk_source_completion_error_quark ())
+#define GTK_SOURCE_COMPLETION_ERROR		(ctk_source_completion_error_quark ())
 
 typedef struct _GtkSourceCompletionPrivate GtkSourceCompletionPrivate;
 typedef struct _GtkSourceCompletionClass GtkSourceCompletionClass;
@@ -101,52 +101,52 @@ struct _GtkSourceCompletionClass
 };
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-GType		 gtk_source_completion_get_type			(void) G_GNUC_CONST;
+GType		 ctk_source_completion_get_type			(void) G_GNUC_CONST;
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-GQuark		 gtk_source_completion_error_quark		(void);
+GQuark		 ctk_source_completion_error_quark		(void);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-gboolean	 gtk_source_completion_add_provider		(GtkSourceCompletion           *completion,
+gboolean	 ctk_source_completion_add_provider		(GtkSourceCompletion           *completion,
 								 GtkSourceCompletionProvider   *provider,
 								 GError                       **error);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-gboolean	 gtk_source_completion_remove_provider		(GtkSourceCompletion           *completion,
+gboolean	 ctk_source_completion_remove_provider		(GtkSourceCompletion           *completion,
 								 GtkSourceCompletionProvider   *provider,
 								 GError                       **error);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-GList		*gtk_source_completion_get_providers		(GtkSourceCompletion           *completion);
+GList		*ctk_source_completion_get_providers		(GtkSourceCompletion           *completion);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-gboolean	 gtk_source_completion_start			(GtkSourceCompletion           *completion,
+gboolean	 ctk_source_completion_start			(GtkSourceCompletion           *completion,
 								 GList                         *providers,
 								 GtkSourceCompletionContext    *context);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-void		 gtk_source_completion_hide			(GtkSourceCompletion           *completion);
+void		 ctk_source_completion_hide			(GtkSourceCompletion           *completion);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
 GtkSourceCompletionInfo *
-		 gtk_source_completion_get_info_window		(GtkSourceCompletion           *completion);
+		 ctk_source_completion_get_info_window		(GtkSourceCompletion           *completion);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-GtkSourceView	*gtk_source_completion_get_view			(GtkSourceCompletion	       *completion);
+GtkSourceView	*ctk_source_completion_get_view			(GtkSourceCompletion	       *completion);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
 GtkSourceCompletionContext *
-		 gtk_source_completion_create_context		(GtkSourceCompletion           *completion,
+		 ctk_source_completion_create_context		(GtkSourceCompletion           *completion,
 		 						 GtkTextIter                   *position);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-void		 gtk_source_completion_block_interactive	(GtkSourceCompletion           *completion);
+void		 ctk_source_completion_block_interactive	(GtkSourceCompletion           *completion);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-void		 gtk_source_completion_unblock_interactive	(GtkSourceCompletion           *completion);
+void		 ctk_source_completion_unblock_interactive	(GtkSourceCompletion           *completion);
 
 G_GNUC_INTERNAL
-void		 _gtk_source_completion_add_proposals		(GtkSourceCompletion           *completion,
+void		 _ctk_source_completion_add_proposals		(GtkSourceCompletion           *completion,
 								 GtkSourceCompletionContext    *context,
 								 GtkSourceCompletionProvider   *provider,
 								 GList                         *proposals,

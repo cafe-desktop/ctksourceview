@@ -21,13 +21,13 @@
 #ifndef GTK_SOURCE_COMPLETION_MODEL_H
 #define GTK_SOURCE_COMPLETION_MODEL_H
 
-#include <gtk/gtk.h>
-#include "gtksourcetypes.h"
-#include "gtksourcetypes-private.h"
+#include <ctk/ctk.h>
+#include "ctksourcetypes.h"
+#include "ctksourcetypes-private.h"
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_COMPLETION_MODEL		(gtk_source_completion_model_get_type ())
+#define GTK_SOURCE_TYPE_COMPLETION_MODEL		(ctk_source_completion_model_get_type ())
 #define GTK_SOURCE_COMPLETION_MODEL(obj)		(G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_COMPLETION_MODEL, GtkSourceCompletionModel))
 #define GTK_SOURCE_COMPLETION_MODEL_CONST(obj)		(G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_COMPLETION_MODEL, GtkSourceCompletionModel const))
 #define GTK_SOURCE_COMPLETION_MODEL_CLASS(klass)	(G_TYPE_CHECK_CLASS_CAST ((klass), GTK_SOURCE_TYPE_COMPLETION_MODEL, GtkSourceCompletionModelClass))
@@ -63,64 +63,64 @@ enum
 };
 
 GTK_SOURCE_INTERNAL
-GType    gtk_source_completion_model_get_type			(void) G_GNUC_CONST;
+GType    ctk_source_completion_model_get_type			(void) G_GNUC_CONST;
 
 GTK_SOURCE_INTERNAL
 GtkSourceCompletionModel *
-         gtk_source_completion_model_new			(void);
+         ctk_source_completion_model_new			(void);
 
 GTK_SOURCE_INTERNAL
-void     gtk_source_completion_model_add_proposals              (GtkSourceCompletionModel    *model,
+void     ctk_source_completion_model_add_proposals              (GtkSourceCompletionModel    *model,
 								 GtkSourceCompletionProvider *provider,
 								 GList                       *proposals);
 
 GTK_SOURCE_INTERNAL
-gboolean gtk_source_completion_model_is_empty			(GtkSourceCompletionModel    *model,
+gboolean ctk_source_completion_model_is_empty			(GtkSourceCompletionModel    *model,
 								 gboolean                     only_visible);
 
 GTK_SOURCE_INTERNAL
-void     gtk_source_completion_model_set_visible_providers	(GtkSourceCompletionModel    *model,
+void     ctk_source_completion_model_set_visible_providers	(GtkSourceCompletionModel    *model,
 								 GList                       *providers);
 
 GTK_SOURCE_INTERNAL
-GList   *gtk_source_completion_model_get_visible_providers	(GtkSourceCompletionModel    *model);
+GList   *ctk_source_completion_model_get_visible_providers	(GtkSourceCompletionModel    *model);
 
 GTK_SOURCE_INTERNAL
-GList   *gtk_source_completion_model_get_providers		(GtkSourceCompletionModel    *model);
+GList   *ctk_source_completion_model_get_providers		(GtkSourceCompletionModel    *model);
 
 GTK_SOURCE_INTERNAL
-void     gtk_source_completion_model_set_show_headers		(GtkSourceCompletionModel    *model,
+void     ctk_source_completion_model_set_show_headers		(GtkSourceCompletionModel    *model,
 								 gboolean                     show_headers);
 
 GTK_SOURCE_INTERNAL
-gboolean gtk_source_completion_model_iter_is_header		(GtkSourceCompletionModel    *model,
+gboolean ctk_source_completion_model_iter_is_header		(GtkSourceCompletionModel    *model,
 								 GtkTreeIter                 *iter);
 
 GTK_SOURCE_INTERNAL
-gboolean gtk_source_completion_model_iter_previous		(GtkSourceCompletionModel    *model,
+gboolean ctk_source_completion_model_iter_previous		(GtkSourceCompletionModel    *model,
 								 GtkTreeIter                 *iter);
 
 GTK_SOURCE_INTERNAL
-gboolean gtk_source_completion_model_first_proposal             (GtkSourceCompletionModel    *model,
+gboolean ctk_source_completion_model_first_proposal             (GtkSourceCompletionModel    *model,
 								 GtkTreeIter                 *iter);
 
 GTK_SOURCE_INTERNAL
-gboolean gtk_source_completion_model_last_proposal              (GtkSourceCompletionModel    *model,
+gboolean ctk_source_completion_model_last_proposal              (GtkSourceCompletionModel    *model,
 								 GtkTreeIter                 *iter);
 
 GTK_SOURCE_INTERNAL
-gboolean gtk_source_completion_model_next_proposal              (GtkSourceCompletionModel    *model,
+gboolean ctk_source_completion_model_next_proposal              (GtkSourceCompletionModel    *model,
 								 GtkTreeIter                 *iter);
 
 GTK_SOURCE_INTERNAL
-gboolean gtk_source_completion_model_previous_proposal          (GtkSourceCompletionModel    *model,
+gboolean ctk_source_completion_model_previous_proposal          (GtkSourceCompletionModel    *model,
 								 GtkTreeIter                 *iter);
 
 GTK_SOURCE_INTERNAL
-gboolean gtk_source_completion_model_has_info                   (GtkSourceCompletionModel    *model);
+gboolean ctk_source_completion_model_has_info                   (GtkSourceCompletionModel    *model);
 
 GTK_SOURCE_INTERNAL
-gboolean gtk_source_completion_model_iter_equal			(GtkSourceCompletionModel    *model,
+gboolean ctk_source_completion_model_iter_equal			(GtkSourceCompletionModel    *model,
 								 GtkTreeIter                 *iter1,
 								 GtkTreeIter                 *iter2);
 

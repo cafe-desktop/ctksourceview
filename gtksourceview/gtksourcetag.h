@@ -24,18 +24,18 @@
 #define GTK_SOURCE_TAG_H
 
 #if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
-#error "Only <gtksourceview/gtksource.h> can be included directly."
+#error "Only <ctksourceview/ctksource.h> can be included directly."
 #endif
 
-#include <gtk/gtk.h>
-#include <gtksourceview/gtksourcetypes.h>
+#include <ctk/ctk.h>
+#include <ctksourceview/ctksourcetypes.h>
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_TAG (gtk_source_tag_get_type ())
+#define GTK_SOURCE_TYPE_TAG (ctk_source_tag_get_type ())
 
 GTK_SOURCE_AVAILABLE_IN_3_20
-G_DECLARE_DERIVABLE_TYPE (GtkSourceTag, gtk_source_tag,
+G_DECLARE_DERIVABLE_TYPE (GtkSourceTag, ctk_source_tag,
 			  GTK_SOURCE, TAG,
 			  GtkTextTag)
 
@@ -47,7 +47,7 @@ struct _GtkSourceTagClass
 };
 
 GTK_SOURCE_AVAILABLE_IN_3_20
-GtkTextTag *	gtk_source_tag_new		(const gchar *name);
+GtkTextTag *	ctk_source_tag_new		(const gchar *name);
 
 G_END_DECLS
 

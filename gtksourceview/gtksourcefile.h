@@ -22,15 +22,15 @@
 #define GTK_SOURCE_FILE_H
 
 #if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
-#error "Only <gtksourceview/gtksource.h> can be included directly."
+#error "Only <ctksourceview/ctksource.h> can be included directly."
 #endif
 
-#include <gtk/gtk.h>
-#include <gtksourceview/gtksourcetypes.h>
+#include <ctk/ctk.h>
+#include <ctksourceview/ctksourcetypes.h>
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_FILE             (gtk_source_file_get_type ())
+#define GTK_SOURCE_TYPE_FILE             (ctk_source_file_get_type ())
 #define GTK_SOURCE_FILE(obj)             (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_FILE, GtkSourceFile))
 #define GTK_SOURCE_FILE_CLASS(klass)     (G_TYPE_CHECK_CLASS_CAST ((klass), GTK_SOURCE_TYPE_FILE, GtkSourceFileClass))
 #define GTK_SOURCE_IS_FILE(obj)          (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_SOURCE_TYPE_FILE))
@@ -110,86 +110,86 @@ struct _GtkSourceFileClass
 };
 
 GTK_SOURCE_AVAILABLE_IN_3_14
-GType		 gtk_source_file_get_type			(void) G_GNUC_CONST;
+GType		 ctk_source_file_get_type			(void) G_GNUC_CONST;
 
 GTK_SOURCE_AVAILABLE_IN_3_14
-GtkSourceFile	*gtk_source_file_new				(void);
+GtkSourceFile	*ctk_source_file_new				(void);
 
 GTK_SOURCE_AVAILABLE_IN_3_14
-GFile		*gtk_source_file_get_location			(GtkSourceFile *file);
+GFile		*ctk_source_file_get_location			(GtkSourceFile *file);
 
 GTK_SOURCE_AVAILABLE_IN_3_14
-void		 gtk_source_file_set_location			(GtkSourceFile *file,
+void		 ctk_source_file_set_location			(GtkSourceFile *file,
 								 GFile         *location);
 
 GTK_SOURCE_AVAILABLE_IN_3_14
 const GtkSourceEncoding *
-		 gtk_source_file_get_encoding			(GtkSourceFile *file);
+		 ctk_source_file_get_encoding			(GtkSourceFile *file);
 
 GTK_SOURCE_AVAILABLE_IN_3_14
 GtkSourceNewlineType
-		 gtk_source_file_get_newline_type		(GtkSourceFile *file);
+		 ctk_source_file_get_newline_type		(GtkSourceFile *file);
 
 GTK_SOURCE_AVAILABLE_IN_3_14
 GtkSourceCompressionType
-		 gtk_source_file_get_compression_type		(GtkSourceFile *file);
+		 ctk_source_file_get_compression_type		(GtkSourceFile *file);
 
 GTK_SOURCE_AVAILABLE_IN_3_14
-void		 gtk_source_file_set_mount_operation_factory	(GtkSourceFile                  *file,
+void		 ctk_source_file_set_mount_operation_factory	(GtkSourceFile                  *file,
 								 GtkSourceMountOperationFactory  callback,
 								 gpointer                        user_data,
 								 GDestroyNotify                  notify);
 
 GTK_SOURCE_AVAILABLE_IN_3_18
-void		 gtk_source_file_check_file_on_disk		(GtkSourceFile *file);
+void		 ctk_source_file_check_file_on_disk		(GtkSourceFile *file);
 
 GTK_SOURCE_AVAILABLE_IN_3_18
-gboolean	 gtk_source_file_is_local			(GtkSourceFile *file);
+gboolean	 ctk_source_file_is_local			(GtkSourceFile *file);
 
 GTK_SOURCE_AVAILABLE_IN_3_18
-gboolean	 gtk_source_file_is_externally_modified		(GtkSourceFile *file);
+gboolean	 ctk_source_file_is_externally_modified		(GtkSourceFile *file);
 
 GTK_SOURCE_AVAILABLE_IN_3_18
-gboolean	 gtk_source_file_is_deleted			(GtkSourceFile *file);
+gboolean	 ctk_source_file_is_deleted			(GtkSourceFile *file);
 
 GTK_SOURCE_AVAILABLE_IN_3_18
-gboolean	 gtk_source_file_is_readonly			(GtkSourceFile *file);
+gboolean	 ctk_source_file_is_readonly			(GtkSourceFile *file);
 
 G_GNUC_INTERNAL
-void		 _gtk_source_file_set_encoding			(GtkSourceFile           *file,
+void		 _ctk_source_file_set_encoding			(GtkSourceFile           *file,
 								 const GtkSourceEncoding *encoding);
 
 G_GNUC_INTERNAL
-void		 _gtk_source_file_set_newline_type		(GtkSourceFile        *file,
+void		 _ctk_source_file_set_newline_type		(GtkSourceFile        *file,
 								 GtkSourceNewlineType  newline_type);
 
 G_GNUC_INTERNAL
-void		 _gtk_source_file_set_compression_type		(GtkSourceFile            *file,
+void		 _ctk_source_file_set_compression_type		(GtkSourceFile            *file,
 								 GtkSourceCompressionType  compression_type);
 
 G_GNUC_INTERNAL
-GMountOperation	*_gtk_source_file_create_mount_operation	(GtkSourceFile *file);
+GMountOperation	*_ctk_source_file_create_mount_operation	(GtkSourceFile *file);
 
 G_GNUC_BEGIN_IGNORE_DEPRECATIONS
 G_GNUC_INTERNAL
-gboolean	 _gtk_source_file_get_modification_time		(GtkSourceFile *file,
+gboolean	 _ctk_source_file_get_modification_time		(GtkSourceFile *file,
 								 GTimeVal      *modification_time);
 
 G_GNUC_INTERNAL
-void		 _gtk_source_file_set_modification_time		(GtkSourceFile *file,
+void		 _ctk_source_file_set_modification_time		(GtkSourceFile *file,
 								 GTimeVal       modification_time);
 G_GNUC_END_IGNORE_DEPRECATIONS
 
 G_GNUC_INTERNAL
-void		 _gtk_source_file_set_externally_modified	(GtkSourceFile *file,
+void		 _ctk_source_file_set_externally_modified	(GtkSourceFile *file,
 								 gboolean       externally_modified);
 
 G_GNUC_INTERNAL
-void		 _gtk_source_file_set_deleted			(GtkSourceFile *file,
+void		 _ctk_source_file_set_deleted			(GtkSourceFile *file,
 								 gboolean       deleted);
 
 G_GNUC_INTERNAL
-void		 _gtk_source_file_set_readonly			(GtkSourceFile *file,
+void		 _ctk_source_file_set_readonly			(GtkSourceFile *file,
 								 gboolean       readonly);
 
 G_END_DECLS

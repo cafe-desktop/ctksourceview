@@ -1,4 +1,4 @@
-// gtk-source-lang: Go
+// ctk-source-lang: Go
 /* comment! */
 package main
 import ("fmt")

@@ -23,11 +23,11 @@
 #include <config.h>
 #endif
 
-#include "gtksourcestyleschemechooserbutton.h"
+#include "ctksourcestyleschemechooserbutton.h"
 #include <glib/gi18n-lib.h>
-#include "gtksourcestyleschemechooser.h"
-#include "gtksourcestyleschemechooserwidget.h"
-#include "gtksourcestylescheme.h"
+#include "ctksourcestyleschemechooser.h"
+#include "ctksourcestyleschemechooserwidget.h"
+#include "ctksourcestylescheme.h"
 
 /**
  * SECTION:styleschemechooserbutton
@@ -54,16 +54,16 @@ typedef struct
 	GtkSourceStyleSchemeChooserWidget *chooser;
 } GtkSourceStyleSchemeChooserButtonPrivate;
 
-static void gtk_source_style_scheme_chooser_button_style_scheme_chooser_interface_init (GtkSourceStyleSchemeChooserInterface *iface);
+static void ctk_source_style_scheme_chooser_button_style_scheme_chooser_interface_init (GtkSourceStyleSchemeChooserInterface *iface);
 
 G_DEFINE_TYPE_WITH_CODE (GtkSourceStyleSchemeChooserButton,
-                         gtk_source_style_scheme_chooser_button,
+                         ctk_source_style_scheme_chooser_button,
                          GTK_TYPE_BUTTON,
                          G_ADD_PRIVATE (GtkSourceStyleSchemeChooserButton)
                          G_IMPLEMENT_INTERFACE (GTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER,
-                                                gtk_source_style_scheme_chooser_button_style_scheme_chooser_interface_init))
+                                                ctk_source_style_scheme_chooser_button_style_scheme_chooser_interface_init))
 
-#define GET_PRIV(o) gtk_source_style_scheme_chooser_button_get_instance_private (o)
+#define GET_PRIV(o) ctk_source_style_scheme_chooser_button_get_instance_private (o)
 
 enum
 {
@@ -72,18 +72,18 @@ enum
 };
 
 static void
-gtk_source_style_scheme_chooser_button_dispose (GObject *object)
+ctk_source_style_scheme_chooser_button_dispose (GObject *object)
 {
 	GtkSourceStyleSchemeChooserButton *button = GTK_SOURCE_STYLE_SCHEME_CHOOSER_BUTTON (object);
 	GtkSourceStyleSchemeChooserButtonPrivate *priv = GET_PRIV (button);
 
 	g_clear_object (&priv->scheme);
 
-	G_OBJECT_CLASS (gtk_source_style_scheme_chooser_button_parent_class)->dispose (object);
+	G_OBJECT_CLASS (ctk_source_style_scheme_chooser_button_parent_class)->dispose (object);
 }
 
 static void
-gtk_source_style_scheme_chooser_button_get_property (GObject    *object,
+ctk_source_style_scheme_chooser_button_get_property (GObject    *object,
                                                      guint       prop_id,
                                                      GValue     *value,
                                                      GParamSpec *pspec)
@@ -92,7 +92,7 @@ gtk_source_style_scheme_chooser_button_get_property (GObject    *object,
 	{
 		case PROP_STYLE_SCHEME:
 			g_value_set_object (value,
-			                    gtk_source_style_scheme_chooser_get_style_scheme (GTK_SOURCE_STYLE_SCHEME_CHOOSER (object)));
+			                    ctk_source_style_scheme_chooser_get_style_scheme (GTK_SOURCE_STYLE_SCHEME_CHOOSER (object)));
 			break;
 
 		default:
@@ -101,7 +101,7 @@ gtk_source_style_scheme_chooser_button_get_property (GObject    *object,
 }
 
 static void
-gtk_source_style_scheme_chooser_button_set_property (GObject      *object,
+ctk_source_style_scheme_chooser_button_set_property (GObject      *object,
                                                      guint         prop_id,
                                                      const GValue *value,
                                                      GParamSpec   *pspec)
@@ -109,7 +109,7 @@ gtk_source_style_scheme_chooser_button_set_property (GObject      *object,
 	switch (prop_id)
 	{
 		case PROP_STYLE_SCHEME:
-			gtk_source_style_scheme_chooser_set_style_scheme (GTK_SOURCE_STYLE_SCHEME_CHOOSER (object),
+			ctk_source_style_scheme_chooser_set_style_scheme (GTK_SOURCE_STYLE_SCHEME_CHOOSER (object),
 			                                                  g_value_get_object (value));
 			break;
 
@@ -119,14 +119,14 @@ gtk_source_style_scheme_chooser_button_set_property (GObject      *object,
 }
 
 static void
-gtk_source_style_scheme_chooser_button_constructed (GObject *object)
+ctk_source_style_scheme_chooser_button_constructed (GObject *object)
 {
 	GtkSourceStyleSchemeChooserButton *button = GTK_SOURCE_STYLE_SCHEME_CHOOSER_BUTTON (object);
 
-	G_OBJECT_CLASS (gtk_source_style_scheme_chooser_button_parent_class)->constructed (object);
+	G_OBJECT_CLASS (ctk_source_style_scheme_chooser_button_parent_class)->constructed (object);
 
-	gtk_source_style_scheme_chooser_set_style_scheme (GTK_SOURCE_STYLE_SCHEME_CHOOSER (button),
-	                                                  _gtk_source_style_scheme_get_default ());
+	ctk_source_style_scheme_chooser_set_style_scheme (GTK_SOURCE_STYLE_SCHEME_CHOOSER (button),
+	                                                  _ctk_source_style_scheme_get_default ());
 }
 
 static gboolean
@@ -149,7 +149,7 @@ dialog_response (GtkDialog *dialog,
 {
 	if (response == GTK_RESPONSE_CANCEL)
 	{
-		gtk_widget_hide (GTK_WIDGET (dialog));
+		ctk_widget_hide (GTK_WIDGET (dialog));
 	}
 	else if (response == GTK_RESPONSE_OK)
 	{
@@ -157,11 +157,11 @@ dialog_response (GtkDialog *dialog,
 		GtkSourceStyleSchemeChooserButtonPrivate *priv = GET_PRIV (button);
 		GtkSourceStyleScheme *scheme;
 
-		scheme = gtk_source_style_scheme_chooser_get_style_scheme (GTK_SOURCE_STYLE_SCHEME_CHOOSER (priv->chooser));
+		scheme = ctk_source_style_scheme_chooser_get_style_scheme (GTK_SOURCE_STYLE_SCHEME_CHOOSER (priv->chooser));
 
-		gtk_widget_hide (GTK_WIDGET (dialog));
+		ctk_widget_hide (GTK_WIDGET (dialog));
 
-		gtk_source_style_scheme_chooser_set_style_scheme (GTK_SOURCE_STYLE_SCHEME_CHOOSER (button),
+		ctk_source_style_scheme_chooser_set_style_scheme (GTK_SOURCE_STYLE_SCHEME_CHOOSER (button),
 		                                                  scheme);
 	}
 }
@@ -179,42 +179,42 @@ ensure_dialog (GtkSourceStyleSchemeChooserButton *button)
 		return;
 	}
 
-	parent = gtk_widget_get_toplevel (GTK_WIDGET (button));
+	parent = ctk_widget_get_toplevel (GTK_WIDGET (button));
 
 	/* TODO: have a ChooserDialog? */
-	priv->dialog = dialog = gtk_dialog_new_with_buttons (_("Select a Style"),
+	priv->dialog = dialog = ctk_dialog_new_with_buttons (_("Select a Style"),
 	                                                     GTK_WINDOW (parent),
 	                                                     GTK_DIALOG_DESTROY_WITH_PARENT |
 	                                                     GTK_DIALOG_USE_HEADER_BAR,
 	                                                     _("_Cancel"), GTK_RESPONSE_CANCEL,
 	                                                     _("_Select"), GTK_RESPONSE_OK,
 	                                                     NULL);
-	gtk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_OK);
+	ctk_dialog_set_default_response (GTK_DIALOG (dialog), GTK_RESPONSE_OK);
 
-	scrolled_window = gtk_scrolled_window_new (NULL, NULL);
-	gtk_widget_set_size_request (scrolled_window, 325, 350);
-	gtk_widget_show (scrolled_window);
-	gtk_widget_set_hexpand (scrolled_window, TRUE);
-	gtk_widget_set_vexpand (scrolled_window, TRUE);
-	content_area = gtk_dialog_get_content_area (GTK_DIALOG (dialog));
-	gtk_container_add (GTK_CONTAINER (content_area), scrolled_window);
+	scrolled_window = ctk_scrolled_window_new (NULL, NULL);
+	ctk_widget_set_size_request (scrolled_window, 325, 350);
+	ctk_widget_show (scrolled_window);
+	ctk_widget_set_hexpand (scrolled_window, TRUE);
+	ctk_widget_set_vexpand (scrolled_window, TRUE);
+	content_area = ctk_dialog_get_content_area (GTK_DIALOG (dialog));
+	ctk_container_add (GTK_CONTAINER (content_area), scrolled_window);
 
-	priv->chooser = GTK_SOURCE_STYLE_SCHEME_CHOOSER_WIDGET (gtk_source_style_scheme_chooser_widget_new ());
-	gtk_widget_show (GTK_WIDGET (priv->chooser));
-	gtk_source_style_scheme_chooser_set_style_scheme (GTK_SOURCE_STYLE_SCHEME_CHOOSER (priv->chooser),
+	priv->chooser = GTK_SOURCE_STYLE_SCHEME_CHOOSER_WIDGET (ctk_source_style_scheme_chooser_widget_new ());
+	ctk_widget_show (GTK_WIDGET (priv->chooser));
+	ctk_source_style_scheme_chooser_set_style_scheme (GTK_SOURCE_STYLE_SCHEME_CHOOSER (priv->chooser),
 	                                                  priv->scheme);
 
-	gtk_container_add (GTK_CONTAINER (scrolled_window), GTK_WIDGET (priv->chooser));
+	ctk_container_add (GTK_CONTAINER (scrolled_window), GTK_WIDGET (priv->chooser));
 
-	if (gtk_widget_is_toplevel (parent) && GTK_IS_WINDOW (parent))
+	if (ctk_widget_is_toplevel (parent) && GTK_IS_WINDOW (parent))
 	{
-		if (GTK_WINDOW (parent) != gtk_window_get_transient_for (GTK_WINDOW (dialog)))
+		if (GTK_WINDOW (parent) != ctk_window_get_transient_for (GTK_WINDOW (dialog)))
 		{
-			gtk_window_set_transient_for (GTK_WINDOW (dialog), GTK_WINDOW (parent));
+			ctk_window_set_transient_for (GTK_WINDOW (dialog), GTK_WINDOW (parent));
 		}
 
-		gtk_window_set_modal (GTK_WINDOW (dialog),
-		                      gtk_window_get_modal (GTK_WINDOW (parent)));
+		ctk_window_set_modal (GTK_WINDOW (dialog),
+		                      ctk_window_get_modal (GTK_WINDOW (parent)));
 	}
 
 	g_signal_connect (dialog, "response",
@@ -224,42 +224,42 @@ ensure_dialog (GtkSourceStyleSchemeChooserButton *button)
 }
 
 static void
-gtk_source_style_scheme_chooser_button_clicked (GtkButton *button)
+ctk_source_style_scheme_chooser_button_clicked (GtkButton *button)
 {
 	GtkSourceStyleSchemeChooserButton *cbutton = GTK_SOURCE_STYLE_SCHEME_CHOOSER_BUTTON (button);
 	GtkSourceStyleSchemeChooserButtonPrivate *priv = GET_PRIV (cbutton);
 
 	ensure_dialog (cbutton);
 
-	gtk_source_style_scheme_chooser_set_style_scheme (GTK_SOURCE_STYLE_SCHEME_CHOOSER (priv->chooser),
+	ctk_source_style_scheme_chooser_set_style_scheme (GTK_SOURCE_STYLE_SCHEME_CHOOSER (priv->chooser),
 	                                                  priv->scheme);
 
-	gtk_window_present (GTK_WINDOW (priv->dialog));
+	ctk_window_present (GTK_WINDOW (priv->dialog));
 }
 
 static void
-gtk_source_style_scheme_chooser_button_class_init (GtkSourceStyleSchemeChooserButtonClass *klass)
+ctk_source_style_scheme_chooser_button_class_init (GtkSourceStyleSchemeChooserButtonClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 	GtkButtonClass *button_class = GTK_BUTTON_CLASS (klass);
 
-	object_class->dispose = gtk_source_style_scheme_chooser_button_dispose;
-	object_class->get_property = gtk_source_style_scheme_chooser_button_get_property;
-	object_class->set_property = gtk_source_style_scheme_chooser_button_set_property;
-	object_class->constructed = gtk_source_style_scheme_chooser_button_constructed;
+	object_class->dispose = ctk_source_style_scheme_chooser_button_dispose;
+	object_class->get_property = ctk_source_style_scheme_chooser_button_get_property;
+	object_class->set_property = ctk_source_style_scheme_chooser_button_set_property;
+	object_class->constructed = ctk_source_style_scheme_chooser_button_constructed;
 
-	button_class->clicked = gtk_source_style_scheme_chooser_button_clicked;
+	button_class->clicked = ctk_source_style_scheme_chooser_button_clicked;
 
 	g_object_class_override_property (object_class, PROP_STYLE_SCHEME, "style-scheme");
 }
 
 static void
-gtk_source_style_scheme_chooser_button_init (GtkSourceStyleSchemeChooserButton *button)
+ctk_source_style_scheme_chooser_button_init (GtkSourceStyleSchemeChooserButton *button)
 {
 }
 
 static GtkSourceStyleScheme *
-gtk_source_style_scheme_chooser_button_get_style_scheme (GtkSourceStyleSchemeChooser *chooser)
+ctk_source_style_scheme_chooser_button_get_style_scheme (GtkSourceStyleSchemeChooser *chooser)
 {
 	GtkSourceStyleSchemeChooserButton *button = GTK_SOURCE_STYLE_SCHEME_CHOOSER_BUTTON (chooser);
 	GtkSourceStyleSchemeChooserButtonPrivate *priv = GET_PRIV (button);
@@ -268,17 +268,17 @@ gtk_source_style_scheme_chooser_button_get_style_scheme (GtkSourceStyleSchemeCho
 }
 
 static void
-gtk_source_style_scheme_chooser_button_update_label (GtkSourceStyleSchemeChooserButton *button)
+ctk_source_style_scheme_chooser_button_update_label (GtkSourceStyleSchemeChooserButton *button)
 {
 	GtkSourceStyleSchemeChooserButtonPrivate *priv = GET_PRIV (button);
 	const gchar *label;
 
-	label = priv->scheme != NULL ? gtk_source_style_scheme_get_name (priv->scheme) : NULL;
-	gtk_button_set_label (GTK_BUTTON (button), label);
+	label = priv->scheme != NULL ? ctk_source_style_scheme_get_name (priv->scheme) : NULL;
+	ctk_button_set_label (GTK_BUTTON (button), label);
 }
 
 static void
-gtk_source_style_scheme_chooser_button_set_style_scheme (GtkSourceStyleSchemeChooser *chooser,
+ctk_source_style_scheme_chooser_button_set_style_scheme (GtkSourceStyleSchemeChooser *chooser,
                                                          GtkSourceStyleScheme        *scheme)
 {
 	GtkSourceStyleSchemeChooserButton *button = GTK_SOURCE_STYLE_SCHEME_CHOOSER_BUTTON (chooser);
@@ -286,21 +286,21 @@ gtk_source_style_scheme_chooser_button_set_style_scheme (GtkSourceStyleSchemeCho
 
 	if (g_set_object (&priv->scheme, scheme))
 	{
-		gtk_source_style_scheme_chooser_button_update_label (button);
+		ctk_source_style_scheme_chooser_button_update_label (button);
 
 		g_object_notify (G_OBJECT (button), "style-scheme");
 	}
 }
 
 static void
-gtk_source_style_scheme_chooser_button_style_scheme_chooser_interface_init (GtkSourceStyleSchemeChooserInterface *iface)
+ctk_source_style_scheme_chooser_button_style_scheme_chooser_interface_init (GtkSourceStyleSchemeChooserInterface *iface)
 {
-	iface->get_style_scheme = gtk_source_style_scheme_chooser_button_get_style_scheme;
-	iface->set_style_scheme = gtk_source_style_scheme_chooser_button_set_style_scheme;
+	iface->get_style_scheme = ctk_source_style_scheme_chooser_button_get_style_scheme;
+	iface->set_style_scheme = ctk_source_style_scheme_chooser_button_set_style_scheme;
 }
 
 /**
- * gtk_source_style_scheme_chooser_button_new:
+ * ctk_source_style_scheme_chooser_button_new:
  *
  * Creates a new #GtkSourceStyleSchemeChooserButton.
  *
@@ -309,7 +309,7 @@ gtk_source_style_scheme_chooser_button_style_scheme_chooser_interface_init (GtkS
  * Since: 3.16
  */
 GtkWidget *
-gtk_source_style_scheme_chooser_button_new (void)
+ctk_source_style_scheme_chooser_button_new (void)
 {
 	return g_object_new (GTK_SOURCE_TYPE_STYLE_SCHEME_CHOOSER_BUTTON, NULL);
 }

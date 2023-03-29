@@ -23,8 +23,8 @@
 #endif
 
 #include <stdlib.h>
-#include <gtk/gtk.h>
-#include <gtksourceview/gtksource.h>
+#include <ctk/ctk.h>
+#include <ctksourceview/ctksource.h>
 
 typedef struct _TestFixture TestFixture;
 
@@ -44,7 +44,7 @@ test_fixture_setup (TestFixture   *fixture,
 
 	dir = g_build_filename (TOP_SRCDIR, "data", "styles", NULL);
 
-	fixture->manager = gtk_source_style_scheme_manager_get_default ();
+	fixture->manager = ctk_source_style_scheme_manager_get_default ();
 
 	if (g_file_test (dir, G_FILE_TEST_IS_DIR))
 	{
@@ -59,7 +59,7 @@ test_fixture_setup (TestFixture   *fixture,
 
 		g_free (dir);
 
-		current = gtk_source_style_scheme_manager_get_search_path (fixture->manager);
+		current = ctk_source_style_scheme_manager_get_search_path (fixture->manager);
 		style_dirs = g_new0 (gchar *, g_strv_length ((gchar **)current) + 2);
 		for (i = 0; current[i] != NULL; i++)
 		{
@@ -68,7 +68,7 @@ test_fixture_setup (TestFixture   *fixture,
 		style_dirs[i] = g_test_build_filename (G_TEST_DIST, "styles", NULL);
 	}
 
-	gtk_source_style_scheme_manager_set_search_path (fixture->manager, style_dirs);
+	ctk_source_style_scheme_manager_set_search_path (fixture->manager, style_dirs);
 	g_strfreev (style_dirs);
 }
 
@@ -109,12 +109,12 @@ check_scheme (GtkSourceStyleScheme  *scheme,
 {
 	GtkSourceStyle *style;
 
-	g_assert_cmpstr (gtk_source_style_scheme_get_id (scheme), ==, expected_id);
-	g_assert_cmpstr (gtk_source_style_scheme_get_name (scheme), ==, expected_name);
-	g_assert_cmpstr (gtk_source_style_scheme_get_description (scheme), ==, expected_description);
-	compare_strv ((const gchar **)gtk_source_style_scheme_get_authors (scheme), expected_authors);
+	g_assert_cmpstr (ctk_source_style_scheme_get_id (scheme), ==, expected_id);
+	g_assert_cmpstr (ctk_source_style_scheme_get_name (scheme), ==, expected_name);
+	g_assert_cmpstr (ctk_source_style_scheme_get_description (scheme), ==, expected_description);
+	compare_strv ((const gchar **)ctk_source_style_scheme_get_authors (scheme), expected_authors);
 
-	style = gtk_source_style_scheme_get_style (scheme, style_id);
+	style = ctk_source_style_scheme_get_style (scheme, style_id);
 	g_assert_true (GTK_SOURCE_IS_STYLE (style));
 
 	if (background_rgba != NULL)
@@ -137,7 +137,7 @@ test_scheme_properties (TestFixture   *fixture,
 	GtkSourceStyleScheme *scheme;
 	const gchar *authors[] = { "Paolo Borelli", "John Doe", NULL};
 
-	scheme = gtk_source_style_scheme_manager_get_scheme (fixture->manager, "test");
+	scheme = ctk_source_style_scheme_manager_get_scheme (fixture->manager, "test");
 
 	check_scheme (scheme, "test", "Test", "Test color scheme", authors, "def:comment", NULL);
 
@@ -153,13 +153,13 @@ test_named_color_alpha (TestFixture   *fixture,
 	GdkRGBA color1, color2;
 	gboolean res;
 
-	scheme = gtk_source_style_scheme_manager_get_scheme (fixture->manager, "test");
+	scheme = ctk_source_style_scheme_manager_get_scheme (fixture->manager, "test");
 
 	/* Use these two semi private methods to compare a named color and a normal one */
-	res = _gtk_source_style_scheme_get_current_line_color (scheme, &color1);
+	res = _ctk_source_style_scheme_get_current_line_color (scheme, &color1);
 	g_assert_true (res);
 
-	res = _gtk_source_style_scheme_get_background_pattern_color (scheme, &color2);
+	res = _ctk_source_style_scheme_get_background_pattern_color (scheme, &color2);
 	g_assert_true (res);
 
 	g_assert_true (gdk_rgba_equal (&color1, &color2));
@@ -168,7 +168,7 @@ test_named_color_alpha (TestFixture   *fixture,
 int
 main (int argc, char** argv)
 {
-	gtk_test_init (&argc, &argv);
+	ctk_test_init (&argc, &argv);
 
 	g_test_add ("/StyleScheme/scheme-properties", TestFixture, NULL, test_fixture_setup, test_scheme_properties, test_fixture_teardown);
 	g_test_add ("/StyleScheme/named-colors-alpha", TestFixture, NULL, test_fixture_setup, test_named_color_alpha, test_fixture_teardown);

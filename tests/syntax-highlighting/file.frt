@@ -1,4 +1,4 @@
-\ gtk-source-lang: forth
+\ ctk-source-lang: forth
 -- comment
 (* comment!
   here still comment

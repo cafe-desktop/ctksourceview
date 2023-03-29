@@ -6,12 +6,12 @@
  Copyright (C) 2005-2007 Marco Barisione <barisione@gmail.com>
  Copyright (C) 2005-2007 Emanuele Aina
 
- gtksourceview is free software; you can redistribute it and/or
+ ctksourceview is free software; you can redistribute it and/or
  modify it under the terms of the GNU Lesser General Public
  License as published by the Free Software Foundation; either
  version 2.1 of the License, or (at your option) any later version.
 
- gtksourceview is distributed in the hope that it will be useful,
+ ctksourceview is distributed in the hope that it will be useful,
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  Lesser General Public License for more details.
@@ -27,8 +27,8 @@
   .lang files are XML files which describe how to highlight syntax;
   this RNG is used for validation purposes.
   
-  .lang files should be located in $PREFIX/gtksourceview-1.0/language-specs/, 
-  or in ~./gnome2/gtksourceview-1.0/language-specs/
+  .lang files should be located in $PREFIX/ctksourceview-1.0/language-specs/, 
+  or in ~./gnome2/ctksourceview-1.0/language-specs/
   
   To check if a .lang file is valid, run
   
@@ -67,7 +67,7 @@
     - name		the name of the tag (it can appear in the UI)
     
     - style		the style used to highlight the tag. Recognized values
-    		are (from gtksourcestylescheme.h):
+    		are (from ctksourcestylescheme.h):
     
     		- Base-N Integer	used for values with a base
     					other than 10

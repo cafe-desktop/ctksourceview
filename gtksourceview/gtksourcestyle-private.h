@@ -21,7 +21,7 @@
 #ifndef GTK_SOURCE_STYLE_PRIVATE_H
 #define GTK_SOURCE_STYLE_PRIVATE_H
 
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 
 G_BEGIN_DECLS
 

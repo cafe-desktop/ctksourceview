@@ -3,8 +3,8 @@
    "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd"
 [
  <!ENTITY % local.common.attrib "xmlns:xi CDATA #FIXED 'http://www.w3.org/2003/XInclude'">
- <!ENTITY % gtkdocentities SYSTEM "xml/gtkdocentities.ent">
- %gtkdocentities;
+ <!ENTITY % ctkdocentities SYSTEM "xml/ctkdocentities.ent">
+ %ctkdocentities;
 ]>
 
 <chapter id="porting-guide-3-to-4">
@@ -30,14 +30,14 @@
     <title>New pkg-config name</title>
     <para>
       For GtkSourceView 4, the pkg-config name is:
-      <code>gtksourceview-4</code>
+      <code>ctksourceview-4</code>
     </para>
     <para>
       To compile a program that uses GtkSourceView 4, you
       can for example use the following command:
     </para>
     <para>
-      <code>$ gcc hello.c `pkg-config --cflags --libs gtksourceview-4` -o hello</code>
+      <code>$ gcc hello.c `pkg-config --cflags --libs ctksourceview-4` -o hello</code>
     </para>
   </refsect1>
 
@@ -51,7 +51,7 @@
       </listitem>
       <listitem>
         <para>
-          Only <code>&lt;gtksourceview/gtksource.h&gt;</code> can be included
+          Only <code>&lt;ctksourceview/ctksource.h&gt;</code> can be included
           directly. There were already warnings about it in GtkSourceView 3. The
           warnings have been changed to errors.
         </para>
@@ -72,38 +72,38 @@
     <itemizedlist>
       <listitem>
         <para>
-          <code>gtk_source_completion_item_new2()</code> has been renamed to
-          <link linkend="gtk-source-completion-item-new">gtk_source_completion_item_new()</link>.
+          <code>ctk_source_completion_item_new2()</code> has been renamed to
+          <link linkend="ctk-source-completion-item-new">ctk_source_completion_item_new()</link>.
         </para>
       </listitem>
       <listitem>
         <para>
-          <code>gtk_source_search_context_forward2()</code> has been renamed to
-          <link linkend="gtk-source-search-context-forward">gtk_source_search_context_forward()</link>.
+          <code>ctk_source_search_context_forward2()</code> has been renamed to
+          <link linkend="ctk-source-search-context-forward">ctk_source_search_context_forward()</link>.
         </para>
       </listitem>
       <listitem>
         <para>
-          <code>gtk_source_search_context_forward_finish2()</code> has been renamed to
-          <link linkend="gtk-source-search-context-forward-finish">gtk_source_search_context_forward_finish()</link>.
+          <code>ctk_source_search_context_forward_finish2()</code> has been renamed to
+          <link linkend="ctk-source-search-context-forward-finish">ctk_source_search_context_forward_finish()</link>.
         </para>
       </listitem>
       <listitem>
         <para>
-          <code>gtk_source_search_context_backward2()</code> has been renamed to
-          <link linkend="gtk-source-search-context-backward">gtk_source_search_context_backward()</link>.
+          <code>ctk_source_search_context_backward2()</code> has been renamed to
+          <link linkend="ctk-source-search-context-backward">ctk_source_search_context_backward()</link>.
         </para>
       </listitem>
       <listitem>
         <para>
-          <code>gtk_source_search_context_backward_finish2()</code> has been renamed to
-          <link linkend="gtk-source-search-context-backward-finish">gtk_source_search_context_backward_finish()</link>.
+          <code>ctk_source_search_context_backward_finish2()</code> has been renamed to
+          <link linkend="ctk-source-search-context-backward-finish">ctk_source_search_context_backward_finish()</link>.
         </para>
       </listitem>
       <listitem>
         <para>
-          <code>gtk_source_search_context_replace2()</code> has been renamed to
-          <link linkend="gtk-source-search-context-replace">gtk_source_search_context_replace()</link>.
+          <code>ctk_source_search_context_replace2()</code> has been renamed to
+          <link linkend="ctk-source-search-context-replace">ctk_source_search_context_replace()</link>.
         </para>
       </listitem>
       <listitem>
@@ -149,8 +149,8 @@
     <itemizedlist>
       <listitem>
         <para>
-          <code>gtk_source_completion_show()</code> has been renamed to
-          <link linkend="gtk-source-completion-start">gtk_source_completion_start()</link>.
+          <code>ctk_source_completion_show()</code> has been renamed to
+          <link linkend="ctk-source-completion-start">ctk_source_completion_start()</link>.
           The function conflicted with the
           <link linkend="GtkSourceCompletion-show">GtkSourceCompletion::show</link> signal.
           Note that in Vala this doesn't require code changes because the method
@@ -166,9 +166,9 @@
       <listitem>
         <para>
           For i18n initialization, the
-          <link linkend="gtk-source-init">gtk_source_init()</link> function
+          <link linkend="ctk-source-init">ctk_source_init()</link> function
           now needs to be called. There is also the
-          <link linkend="gtk-source-finalize">gtk_source_finalize()</link>
+          <link linkend="ctk-source-finalize">ctk_source_finalize()</link>
           function which is convenient when using memory debugging tools.
         </para>
       </listitem>

@@ -21,13 +21,13 @@
 #ifndef GTK_SOURCE_ENGINE_H
 #define GTK_SOURCE_ENGINE_H
 
-#include <gtk/gtk.h>
-#include "gtksourcetypes.h"
-#include "gtksourcetypes-private.h"
+#include <ctk/ctk.h>
+#include "ctksourcetypes.h"
+#include "ctksourcetypes-private.h"
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_ENGINE               (_gtk_source_engine_get_type ())
+#define GTK_SOURCE_TYPE_ENGINE               (_ctk_source_engine_get_type ())
 #define GTK_SOURCE_ENGINE(obj)               (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_ENGINE, GtkSourceEngine))
 #define GTK_SOURCE_IS_ENGINE(obj)            (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_SOURCE_TYPE_ENGINE))
 #define GTK_SOURCE_ENGINE_GET_INTERFACE(obj) (G_TYPE_INSTANCE_GET_INTERFACE ((obj), GTK_SOURCE_TYPE_ENGINE, GtkSourceEngineInterface))
@@ -58,30 +58,30 @@ struct _GtkSourceEngineInterface
 };
 
 G_GNUC_INTERNAL
-GType       _gtk_source_engine_get_type		(void) G_GNUC_CONST;
+GType       _ctk_source_engine_get_type		(void) G_GNUC_CONST;
 
 G_GNUC_INTERNAL
-void        _gtk_source_engine_attach_buffer	(GtkSourceEngine      *engine,
+void        _ctk_source_engine_attach_buffer	(GtkSourceEngine      *engine,
 						 GtkTextBuffer        *buffer);
 
 G_GNUC_INTERNAL
-void        _gtk_source_engine_text_inserted	(GtkSourceEngine      *engine,
+void        _ctk_source_engine_text_inserted	(GtkSourceEngine      *engine,
 						 gint                  start_offset,
 						 gint                  end_offset);
 
 G_GNUC_INTERNAL
-void        _gtk_source_engine_text_deleted	(GtkSourceEngine      *engine,
+void        _ctk_source_engine_text_deleted	(GtkSourceEngine      *engine,
 						 gint                  offset,
 						 gint                  length);
 
 G_GNUC_INTERNAL
-void        _gtk_source_engine_update_highlight	(GtkSourceEngine      *engine,
+void        _ctk_source_engine_update_highlight	(GtkSourceEngine      *engine,
 						 const GtkTextIter    *start,
 						 const GtkTextIter    *end,
 						 gboolean              synchronous);
 
 G_GNUC_INTERNAL
-void        _gtk_source_engine_set_style_scheme	(GtkSourceEngine      *engine,
+void        _ctk_source_engine_set_style_scheme	(GtkSourceEngine      *engine,
 						 GtkSourceStyleScheme *scheme);
 
 G_END_DECLS

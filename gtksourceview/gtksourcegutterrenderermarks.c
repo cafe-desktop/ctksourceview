@@ -22,15 +22,15 @@
 #include <config.h>
 #endif
 
-#include "gtksourcegutterrenderermarks.h"
-#include "gtksourceview.h"
-#include "gtksourcebuffer.h"
-#include "gtksourcemarkattributes.h"
-#include "gtksourcemark.h"
+#include "ctksourcegutterrenderermarks.h"
+#include "ctksourceview.h"
+#include "ctksourcebuffer.h"
+#include "ctksourcemarkattributes.h"
+#include "ctksourcemark.h"
 
 #define COMPOSITE_ALPHA                 225
 
-G_DEFINE_TYPE (GtkSourceGutterRendererMarks, gtk_source_gutter_renderer_marks, GTK_SOURCE_TYPE_GUTTER_RENDERER_PIXBUF)
+G_DEFINE_TYPE (GtkSourceGutterRendererMarks, ctk_source_gutter_renderer_marks, GTK_SOURCE_TYPE_GUTTER_RENDERER_PIXBUF)
 
 static gint
 sort_marks_by_priority (gconstpointer m1,
@@ -44,28 +44,28 @@ sort_marks_by_priority (gconstpointer m1,
 	gint line1;
 	gint line2;
 
-	gtk_text_buffer_get_iter_at_mark (gtk_text_mark_get_buffer (GTK_TEXT_MARK (mark1)),
+	ctk_text_buffer_get_iter_at_mark (ctk_text_mark_get_buffer (GTK_TEXT_MARK (mark1)),
 	                                  &iter1,
 	                                  GTK_TEXT_MARK (mark1));
 
-	gtk_text_buffer_get_iter_at_mark (gtk_text_mark_get_buffer (GTK_TEXT_MARK (mark2)),
+	ctk_text_buffer_get_iter_at_mark (ctk_text_mark_get_buffer (GTK_TEXT_MARK (mark2)),
 	                                  &iter2,
 	                                  GTK_TEXT_MARK (mark2));
 
-	line1 = gtk_text_iter_get_line (&iter1);
-	line2 = gtk_text_iter_get_line (&iter2);
+	line1 = ctk_text_iter_get_line (&iter1);
+	line2 = ctk_text_iter_get_line (&iter2);
 
 	if (line1 == line2)
 	{
 		gint priority1 = -1;
 		gint priority2 = -1;
 
-		gtk_source_view_get_mark_attributes (view,
-		                                     gtk_source_mark_get_category (mark1),
+		ctk_source_view_get_mark_attributes (view,
+		                                     ctk_source_mark_get_category (mark1),
 		                                     &priority1);
 
-		gtk_source_view_get_mark_attributes (view,
-		                                     gtk_source_mark_get_category (mark2),
+		ctk_source_view_get_mark_attributes (view,
+		                                     ctk_source_mark_get_category (mark2),
 		                                     &priority2);
 
 		return priority1 - priority2;
@@ -82,7 +82,7 @@ measure_line_height (GtkSourceView *view)
 	PangoLayout *layout;
 	gint height = 12;
 
-	layout = gtk_widget_create_pango_layout (GTK_WIDGET (view), "QWERTY");
+	layout = ctk_widget_create_pango_layout (GTK_WIDGET (view), "QWERTY");
 
 	if (layout)
 	{
@@ -117,8 +117,8 @@ composite_marks (GtkSourceView *view,
 		const GdkPixbuf *pixbuf;
 
 		mark = marks->data;
-		attrs = gtk_source_view_get_mark_attributes (view,
-		                                             gtk_source_mark_get_category (mark),
+		attrs = ctk_source_view_get_mark_attributes (view,
+		                                             ctk_source_mark_get_category (mark),
 		                                             NULL);
 
 		if (attrs == NULL)
@@ -126,7 +126,7 @@ composite_marks (GtkSourceView *view,
 			continue;
 		}
 
-		pixbuf = gtk_source_mark_attributes_render_icon (attrs,
+		pixbuf = ctk_source_mark_attributes_render_icon (attrs,
 		                                                 GTK_WIDGET (view),
 		                                                 size);
 
@@ -177,10 +177,10 @@ gutter_renderer_query_data (GtkSourceGutterRenderer      *renderer,
 	GtkSourceView *view;
 	GtkSourceBuffer *buffer;
 
-	view = GTK_SOURCE_VIEW (gtk_source_gutter_renderer_get_view (renderer));
-	buffer = GTK_SOURCE_BUFFER (gtk_text_view_get_buffer (GTK_TEXT_VIEW (view)));
+	view = GTK_SOURCE_VIEW (ctk_source_gutter_renderer_get_view (renderer));
+	buffer = GTK_SOURCE_BUFFER (ctk_text_view_get_buffer (GTK_TEXT_VIEW (view)));
 
-	marks = gtk_source_buffer_get_source_marks_at_iter (buffer,
+	marks = ctk_source_buffer_get_source_marks_at_iter (buffer,
 	                                                    start,
 	                                                    NULL);
 
@@ -212,7 +212,7 @@ set_tooltip_widget_from_marks (GtkSourceView *view,
 	gint row_num = 0;
 	gint icon_size;
 
-	gtk_icon_size_lookup (GTK_ICON_SIZE_MENU, NULL, &icon_size);
+	ctk_icon_size_lookup (GTK_ICON_SIZE_MENU, NULL, &icon_size);
 
 	for (; marks; marks = g_slist_next (marks))
 	{
@@ -225,20 +225,20 @@ set_tooltip_widget_from_marks (GtkSourceView *view,
 		const GdkPixbuf *pixbuf;
 
 		mark = marks->data;
-		category = gtk_source_mark_get_category (mark);
+		category = ctk_source_mark_get_category (mark);
 
-		attrs = gtk_source_view_get_mark_attributes (view, category, NULL);
+		attrs = ctk_source_view_get_mark_attributes (view, category, NULL);
 
 		if (attrs == NULL)
 		{
 			continue;
 		}
 
-		text = gtk_source_mark_attributes_get_tooltip_markup (attrs, mark);
+		text = ctk_source_mark_attributes_get_tooltip_markup (attrs, mark);
 
 		if (text == NULL)
 		{
-			text = gtk_source_mark_attributes_get_tooltip_text (attrs, mark);
+			text = ctk_source_mark_attributes_get_tooltip_text (attrs, mark);
 		}
 		else
 		{
@@ -252,33 +252,33 @@ set_tooltip_widget_from_marks (GtkSourceView *view,
 
 		if (grid == NULL)
 		{
-			grid = GTK_GRID (gtk_grid_new ());
-			gtk_grid_set_column_spacing (grid, 4);
-			gtk_widget_show (GTK_WIDGET (grid));
+			grid = GTK_GRID (ctk_grid_new ());
+			ctk_grid_set_column_spacing (grid, 4);
+			ctk_widget_show (GTK_WIDGET (grid));
 		}
 
-		label = gtk_label_new (NULL);
+		label = ctk_label_new (NULL);
 
 		if (ismarkup)
 		{
-			gtk_label_set_markup (GTK_LABEL (label), text);
+			ctk_label_set_markup (GTK_LABEL (label), text);
 		}
 		else
 		{
-			gtk_label_set_text (GTK_LABEL (label), text);
+			ctk_label_set_text (GTK_LABEL (label), text);
 		}
 
-		gtk_widget_set_halign (label, GTK_ALIGN_START);
-		gtk_widget_set_valign (label, GTK_ALIGN_START);
-		gtk_widget_show (label);
+		ctk_widget_set_halign (label, GTK_ALIGN_START);
+		ctk_widget_set_valign (label, GTK_ALIGN_START);
+		ctk_widget_show (label);
 
-		pixbuf = gtk_source_mark_attributes_render_icon (attrs,
+		pixbuf = ctk_source_mark_attributes_render_icon (attrs,
 		                                                 GTK_WIDGET (view),
 		                                                 icon_size);
 
 		if (pixbuf == NULL)
 		{
-			gtk_grid_attach (grid, label, 0, row_num, 2, 1);
+			ctk_grid_attach (grid, label, 0, row_num, 2, 1);
 		}
 		else
 		{
@@ -287,15 +287,15 @@ set_tooltip_widget_from_marks (GtkSourceView *view,
 
 			/* FIXME why a copy is needed? */
 			copy = gdk_pixbuf_copy (pixbuf);
-			image = gtk_image_new_from_pixbuf (copy);
+			image = ctk_image_new_from_pixbuf (copy);
 			g_object_unref (copy);
 
-			gtk_widget_set_halign (image, GTK_ALIGN_START);
-			gtk_widget_set_valign (image, GTK_ALIGN_START);
-			gtk_widget_show (image);
+			ctk_widget_set_halign (image, GTK_ALIGN_START);
+			ctk_widget_set_valign (image, GTK_ALIGN_START);
+			ctk_widget_show (image);
 
-			gtk_grid_attach (grid, image, 0, row_num, 1, 1);
-			gtk_grid_attach (grid, label, 1, row_num, 1, 1);
+			ctk_grid_attach (grid, image, 0, row_num, 1, 1);
+			ctk_grid_attach (grid, label, 1, row_num, 1, 1);
 		}
 
 		row_num++;
@@ -304,11 +304,11 @@ set_tooltip_widget_from_marks (GtkSourceView *view,
 		{
 			GtkWidget *separator;
 
-			separator = gtk_separator_new (GTK_ORIENTATION_HORIZONTAL);
+			separator = ctk_separator_new (GTK_ORIENTATION_HORIZONTAL);
 
-			gtk_widget_show (separator);
+			ctk_widget_show (separator);
 
-			gtk_grid_attach (grid, separator, 0, row_num, 2, 1);
+			ctk_grid_attach (grid, separator, 0, row_num, 2, 1);
 			row_num++;
 		}
 
@@ -320,7 +320,7 @@ set_tooltip_widget_from_marks (GtkSourceView *view,
 		return FALSE;
 	}
 
-	gtk_tooltip_set_custom (tooltip, GTK_WIDGET (grid));
+	ctk_tooltip_set_custom (tooltip, GTK_WIDGET (grid));
 
 	return TRUE;
 }
@@ -338,10 +338,10 @@ gutter_renderer_query_tooltip (GtkSourceGutterRenderer *renderer,
 	GtkSourceBuffer *buffer;
 	gboolean ret;
 
-	view = GTK_SOURCE_VIEW (gtk_source_gutter_renderer_get_view (renderer));
-	buffer = GTK_SOURCE_BUFFER (gtk_text_view_get_buffer (GTK_TEXT_VIEW (view)));
+	view = GTK_SOURCE_VIEW (ctk_source_gutter_renderer_get_view (renderer));
+	buffer = GTK_SOURCE_BUFFER (ctk_text_view_get_buffer (GTK_TEXT_VIEW (view)));
 
-	marks = gtk_source_buffer_get_source_marks_at_iter (buffer,
+	marks = ctk_source_buffer_get_source_marks_at_iter (buffer,
 	                                                    iter,
 	                                                    NULL);
 
@@ -378,23 +378,23 @@ gutter_renderer_change_view (GtkSourceGutterRenderer *renderer,
 {
 	GtkSourceView *view;
 
-	view = GTK_SOURCE_VIEW (gtk_source_gutter_renderer_get_view (renderer));
+	view = GTK_SOURCE_VIEW (ctk_source_gutter_renderer_get_view (renderer));
 
 	if (view != NULL)
 	{
-		gtk_source_gutter_renderer_set_size (renderer,
+		ctk_source_gutter_renderer_set_size (renderer,
 		                                     measure_line_height (view));
 	}
 
-	if (GTK_SOURCE_GUTTER_RENDERER_CLASS (gtk_source_gutter_renderer_marks_parent_class)->change_view != NULL)
+	if (GTK_SOURCE_GUTTER_RENDERER_CLASS (ctk_source_gutter_renderer_marks_parent_class)->change_view != NULL)
 	{
-		GTK_SOURCE_GUTTER_RENDERER_CLASS (gtk_source_gutter_renderer_marks_parent_class)->change_view (renderer,
+		GTK_SOURCE_GUTTER_RENDERER_CLASS (ctk_source_gutter_renderer_marks_parent_class)->change_view (renderer,
 													       old_view);
 	}
 }
 
 static void
-gtk_source_gutter_renderer_marks_class_init (GtkSourceGutterRendererMarksClass *klass)
+ctk_source_gutter_renderer_marks_class_init (GtkSourceGutterRendererMarksClass *klass)
 {
 	GtkSourceGutterRendererClass *renderer_class = GTK_SOURCE_GUTTER_RENDERER_CLASS (klass);
 
@@ -405,12 +405,12 @@ gtk_source_gutter_renderer_marks_class_init (GtkSourceGutterRendererMarksClass *
 }
 
 static void
-gtk_source_gutter_renderer_marks_init (GtkSourceGutterRendererMarks *self)
+ctk_source_gutter_renderer_marks_init (GtkSourceGutterRendererMarks *self)
 {
 }
 
 GtkSourceGutterRenderer *
-gtk_source_gutter_renderer_marks_new (void)
+ctk_source_gutter_renderer_marks_new (void)
 {
 	return g_object_new (GTK_SOURCE_TYPE_GUTTER_RENDERER_MARKS, NULL);
 }

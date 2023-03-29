@@ -1,108 +1,108 @@
-core_marshallers = gnome.genmarshal('gtksource-marshal',
-             sources: ['gtksourcemarshalers.list'],
-              prefix: '_gtk_source_marshal',
+core_marshallers = gnome.genmarshal('ctksource-marshal',
+             sources: ['ctksourcemarshalers.list'],
+              prefix: '_ctk_source_marshal',
          skip_source: true,
   valist_marshallers: true,
 )
 
 core_public_h = files([
-  'gtksource.h',
-  'gtksourceautocleanups.h',
-  'gtksourcebuffer.h',
-  'gtksourcecompletion.h',
-  'gtksourcecompletioncontext.h',
-  'gtksourcecompletioninfo.h',
-  'gtksourcecompletionitem.h',
-  'gtksourcecompletionproposal.h',
-  'gtksourcecompletionprovider.h',
-  'gtksourceencoding.h',
-  'gtksourcefile.h',
-  'gtksourcefileloader.h',
-  'gtksourcefilesaver.h',
-  'gtksourcegutter.h',
-  'gtksourcegutterrenderer.h',
-  'gtksourcegutterrendererpixbuf.h',
-  'gtksourcegutterrenderertext.h',
-  'gtksourceinit.h',
-  'gtksourcelanguage.h',
-  'gtksourcelanguagemanager.h',
-  'gtksourcemap.h',
-  'gtksourcemark.h',
-  'gtksourcemarkattributes.h',
-  'gtksourceprintcompositor.h',
-  'gtksourceregion.h',
-  'gtksourcesearchcontext.h',
-  'gtksourcesearchsettings.h',
-  'gtksourcespacedrawer.h',
-  'gtksourcestyle.h',
-  'gtksourcestylescheme.h',
-  'gtksourcestyleschemechooser.h',
-  'gtksourcestyleschemechooserbutton.h',
-  'gtksourcestyleschemechooserwidget.h',
-  'gtksourcestyleschememanager.h',
-  'gtksourcetag.h',
-  'gtksourcetypes.h',
-  'gtksourceundomanager.h',
-  'gtksourceutils.h',
-  'gtksourceview.h',
+  'ctksource.h',
+  'ctksourceautocleanups.h',
+  'ctksourcebuffer.h',
+  'ctksourcecompletion.h',
+  'ctksourcecompletioncontext.h',
+  'ctksourcecompletioninfo.h',
+  'ctksourcecompletionitem.h',
+  'ctksourcecompletionproposal.h',
+  'ctksourcecompletionprovider.h',
+  'ctksourceencoding.h',
+  'ctksourcefile.h',
+  'ctksourcefileloader.h',
+  'ctksourcefilesaver.h',
+  'ctksourcegutter.h',
+  'ctksourcegutterrenderer.h',
+  'ctksourcegutterrendererpixbuf.h',
+  'ctksourcegutterrenderertext.h',
+  'ctksourceinit.h',
+  'ctksourcelanguage.h',
+  'ctksourcelanguagemanager.h',
+  'ctksourcemap.h',
+  'ctksourcemark.h',
+  'ctksourcemarkattributes.h',
+  'ctksourceprintcompositor.h',
+  'ctksourceregion.h',
+  'ctksourcesearchcontext.h',
+  'ctksourcesearchsettings.h',
+  'ctksourcespacedrawer.h',
+  'ctksourcestyle.h',
+  'ctksourcestylescheme.h',
+  'ctksourcestyleschemechooser.h',
+  'ctksourcestyleschemechooserbutton.h',
+  'ctksourcestyleschemechooserwidget.h',
+  'ctksourcestyleschememanager.h',
+  'ctksourcetag.h',
+  'ctksourcetypes.h',
+  'ctksourceundomanager.h',
+  'ctksourceutils.h',
+  'ctksourceview.h',
 ])
 
 core_public_c = files([
-  'gtksourcebuffer.c',
-  'gtksourcecompletion.c',
-  'gtksourcecompletioncontext.c',
-  'gtksourcecompletioninfo.c',
-  'gtksourcecompletionitem.c',
-  'gtksourcecompletionproposal.c',
-  'gtksourcecompletionprovider.c',
-  'gtksourceencoding.c',
-  'gtksourcefile.c',
-  'gtksourcefileloader.c',
-  'gtksourcefilesaver.c',
-  'gtksourcegutter.c',
-  'gtksourcegutterrenderer.c',
-  'gtksourcegutterrendererpixbuf.c',
-  'gtksourcegutterrenderertext.c',
-  'gtksourceinit.c',
-  'gtksourcelanguage.c',
-  'gtksourcelanguagemanager.c',
-  'gtksourcemap.c',
-  'gtksourcemark.c',
-  'gtksourcemarkattributes.c',
-  'gtksourceprintcompositor.c',
-  'gtksourceregion.c',
-  'gtksourcesearchcontext.c',
-  'gtksourcesearchsettings.c',
-  'gtksourcespacedrawer.c',
-  'gtksourcestyle.c',
-  'gtksourcestylescheme.c',
-  'gtksourcestyleschemechooser.c',
-  'gtksourcestyleschemechooserbutton.c',
-  'gtksourcestyleschemechooserwidget.c',
-  'gtksourcestyleschememanager.c',
-  'gtksourcetag.c',
-  'gtksourceundomanager.c',
-  'gtksourceutils.c',
-  'gtksourceversion.c',
-  'gtksourceview.c',
+  'ctksourcebuffer.c',
+  'ctksourcecompletion.c',
+  'ctksourcecompletioncontext.c',
+  'ctksourcecompletioninfo.c',
+  'ctksourcecompletionitem.c',
+  'ctksourcecompletionproposal.c',
+  'ctksourcecompletionprovider.c',
+  'ctksourceencoding.c',
+  'ctksourcefile.c',
+  'ctksourcefileloader.c',
+  'ctksourcefilesaver.c',
+  'ctksourcegutter.c',
+  'ctksourcegutterrenderer.c',
+  'ctksourcegutterrendererpixbuf.c',
+  'ctksourcegutterrenderertext.c',
+  'ctksourceinit.c',
+  'ctksourcelanguage.c',
+  'ctksourcelanguagemanager.c',
+  'ctksourcemap.c',
+  'ctksourcemark.c',
+  'ctksourcemarkattributes.c',
+  'ctksourceprintcompositor.c',
+  'ctksourceregion.c',
+  'ctksourcesearchcontext.c',
+  'ctksourcesearchsettings.c',
+  'ctksourcespacedrawer.c',
+  'ctksourcestyle.c',
+  'ctksourcestylescheme.c',
+  'ctksourcestyleschemechooser.c',
+  'ctksourcestyleschemechooserbutton.c',
+  'ctksourcestyleschemechooserwidget.c',
+  'ctksourcestyleschememanager.c',
+  'ctksourcetag.c',
+  'ctksourceundomanager.c',
+  'ctksourceutils.c',
+  'ctksourceversion.c',
+  'ctksourceview.c',
 ])
 
 core_private_c = files([
-  'gtksourcebufferinputstream.c',
-  'gtksourcebufferinternal.c',
-  'gtksourcebufferoutputstream.c',
-  'gtksourcecompletioncontainer.c',
-  'gtksourcecompletionmodel.c',
-  'gtksourcecontextengine.c',
-  'gtksourceengine.c',
-  'gtksourcegutterrendererlines.c',
-  'gtksourcegutterrenderermarks.c',
-  'gtksourceiter.c',
-  'gtksourcelanguage-parser-2.c',
-  'gtksourcemarkssequence.c',
-  'gtksourcepixbufhelper.c',
-  'gtksourceregex.c',
-  'gtksourceundomanagerdefault.c',
+  'ctksourcebufferinputstream.c',
+  'ctksourcebufferinternal.c',
+  'ctksourcebufferoutputstream.c',
+  'ctksourcecompletioncontainer.c',
+  'ctksourcecompletionmodel.c',
+  'ctksourcecontextengine.c',
+  'ctksourceengine.c',
+  'ctksourcegutterrendererlines.c',
+  'ctksourcegutterrenderermarks.c',
+  'ctksourceiter.c',
+  'ctksourcelanguage-parser-2.c',
+  'ctksourcemarkssequence.c',
+  'ctksourcepixbufhelper.c',
+  'ctksourceregex.c',
+  'ctksourceundomanagerdefault.c',
 ])
 
 core_c_args = [
@@ -117,7 +117,7 @@ core_deps = [
   glib_dep,
   gobject_dep,
   gio_dep,
-  gtk_dep,
+  ctk_dep,
   libxml_dep,
 ]
 
@@ -130,12 +130,12 @@ endif
 
 if cc.get_id() == 'msvc' and cc.version().version_compare('<18')
   # include our math.h to implement round() for pre-2013 Visual Studio
-  gtksourceview_extra_include_dirs = include_directories('../msvc')
+  ctksourceview_extra_include_dirs = include_directories('../msvc')
 else
-  gtksourceview_extra_include_dirs = []
+  ctksourceview_extra_include_dirs = []
 endif
 
-gtksourceview_include_dirs = [rootdir, gtksourceview_extra_include_dirs]
+ctksourceview_include_dirs = [rootdir, ctksourceview_extra_include_dirs]
 
 core_enums_header = '''
 
@@ -144,20 +144,20 @@ core_enums_header = '''
 #endif
 
 #if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
-# error "Only <gtksourceview/gtksource.h> can be included directly."
+# error "Only <ctksourceview/ctksource.h> can be included directly."
 #endif
 
-#include <gtksourceview/gtksourceversion.h>
+#include <ctksourceview/ctksourceversion.h>
 '''
 
-core_enums = gnome.mkenums_simple('gtksource-enumtypes',
+core_enums = gnome.mkenums_simple('ctksource-enumtypes',
             sources: core_public_h,
   identifier_prefix: 'GtkSource',
-      symbol_prefix: 'gtk_source',
+      symbol_prefix: 'ctk_source',
       header_prefix: core_enums_header,
           decorator: 'GTK_SOURCE_ENUM_EXTERN',
      install_header: true,
-        install_dir: join_paths(pkgincludedir, 'gtksourceview'),
+        install_dir: join_paths(pkgincludedir, 'ctksourceview'),
 )
 
 version_h = configuration_data()
@@ -165,30 +165,30 @@ version_h.set('GTK_SOURCE_MAJOR_VERSION', version_major)
 version_h.set('GTK_SOURCE_MINOR_VERSION', version_minor)
 version_h.set('GTK_SOURCE_MICRO_VERSION', version_micro)
 
-gtksourceversion_h = configure_file(
-          input: 'gtksourceversion.h.in',
-         output: 'gtksourceversion.h',
+ctksourceversion_h = configure_file(
+          input: 'ctksourceversion.h.in',
+         output: 'ctksourceversion.h',
   configuration: version_h,
-    install_dir: join_paths(pkgincludedir, 'gtksourceview'),
+    install_dir: join_paths(pkgincludedir, 'ctksourceview'),
 )
 
-gtksource_res = gnome.compile_resources(
-  'gtksourceview-gresources',
-  'gtksourceview.gresource.xml'
+ctksource_res = gnome.compile_resources(
+  'ctksourceview-gresources',
+  'ctksourceview.gresource.xml'
 )
 
 core_sources = [
   core_public_c,
   core_private_c,
   core_enums,
-  gtksourceversion_h,
+  ctksourceversion_h,
   core_marshallers,
-  gtksource_res,
+  ctksource_res,
 ]
 
 install_headers(
   core_public_h,
-  install_dir: join_paths(pkgincludedir, 'gtksourceview'),
+  install_dir: join_paths(pkgincludedir, 'ctksourceview'),
 )
 
 core_enums_h = core_enums.get(1)
@@ -199,7 +199,7 @@ core_enums_h = core_enums.get(1)
 # all the items from the core sources are properly linked into
 # the final GtkSourceView DLL and exported from it.
 core_lib = static_library(package_string + 'core', core_sources,
-  include_directories: gtksourceview_include_dirs,
+  include_directories: ctksourceview_include_dirs,
          dependencies: core_deps,
                c_args: core_c_args,
               install: false
@@ -212,11 +212,11 @@ core_dep = declare_dependency(
               sources: [core_enums_h]
 )
 
-gtksource_deps = [
+ctksource_deps = [
   core_dep,
 ]
 
-gtksource_libs = [core_lib]
+ctksource_libs = [core_lib]
 
 extra_public_sources = []
 
@@ -229,54 +229,54 @@ subdir('completion-providers')
 # completion provider objects that we previously built
 # into static .lib's and link them into the main DLL
 # instead
-gtksource_objs = []
-foreach int_lib : gtksource_libs
-  gtksource_objs += int_lib.extract_all_objects()
+ctksource_objs = []
+foreach int_lib : ctksource_libs
+  ctksource_objs += int_lib.extract_all_objects()
 endforeach
 
-gtksource_lib = shared_library(package_string,
+ctksource_lib = shared_library(package_string,
                 version: lib_version,
         darwin_versions: lib_osx_version,
-    include_directories: gtksourceview_include_dirs,
-           dependencies: cc.get_id() == 'msvc' ? core_deps : gtksource_deps,
-                objects: cc.get_id() == 'msvc' ? gtksource_objs : [],
-             link_whole: cc.get_id() == 'msvc' ? [] : gtksource_libs,
+    include_directories: ctksourceview_include_dirs,
+           dependencies: cc.get_id() == 'msvc' ? core_deps : ctksource_deps,
+                objects: cc.get_id() == 'msvc' ? ctksource_objs : [],
+             link_whole: cc.get_id() == 'msvc' ? [] : ctksource_libs,
                  c_args: core_c_args,
               link_args: release_link_args,
                 install: true,
   gnu_symbol_visibility: 'hidden',
 )
 
-gtksource_dep_sources = [
+ctksource_dep_sources = [
   core_enums_h,
 ]
 
 if generate_gir
-  gtksource_gir_sources = [
+  ctksource_gir_sources = [
     core_public_c,
     core_public_h,
     core_enums_h,
     extra_public_sources,
   ]
 
-  gtksource_gir = gnome.generate_gir(gtksource_lib,
-                sources: gtksource_gir_sources,
+  ctksource_gir = gnome.generate_gir(ctksource_lib,
+                sources: ctksource_gir_sources,
               nsversion: api_version,
               namespace: 'GtkSource',
-          symbol_prefix: 'gtk_source',
+          symbol_prefix: 'ctk_source',
       identifier_prefix: 'GtkSource',
         export_packages: [package_string],
-              link_with: gtksource_lib,
+              link_with: ctksource_lib,
                includes: [ 'Gdk-3.0', 'Gtk-3.0' ],
                 install: true,
         install_dir_gir: girdir,
     install_dir_typelib: typelibdir,
-             extra_args: [ '--c-include=gtksourceview/gtksource.h',
+             extra_args: [ '--c-include=ctksourceview/ctksource.h',
 	                   '--warn-all' ],
   )
 
-  gtksource_dep_sources += [
-    gtksource_gir,
+  ctksource_dep_sources += [
+    ctksource_gir,
   ]
 
   if generate_vapi
@@ -286,16 +286,16 @@ if generate_gir
          copy: true,
     )
 
-    gtksource_vapi = gnome.generate_vapi(package_string,
-            sources: gtksource_gir.get(0),
-      metadata_dirs: join_paths(builddir, 'gtksourceview'),
+    ctksource_vapi = gnome.generate_vapi(package_string,
+            sources: ctksource_gir.get(0),
+      metadata_dirs: join_paths(builddir, 'ctksourceview'),
             install: true,
         install_dir: vapidir,
            packages: [ 'atk',
                        'gdk-3.0',
 		       'gdk-pixbuf-2.0',
 		       'gio-2.0',
-		       'gtk+-3.0',
+		       'ctk+-3.0',
 		       'pango',
 		       'cairo' ],
     )
@@ -303,45 +303,45 @@ if generate_gir
 endif
 
 # MSVC builds: Only link to the dependent packages/.lib's
-gtksource_dep = declare_dependency(
-            link_with: gtksource_lib,
+ctksource_dep = declare_dependency(
+            link_with: ctksource_lib,
   include_directories: rootdir,
-         dependencies: cc.get_id() == 'msvc' ? core_deps : gtksource_deps,
-              sources: gtksource_dep_sources,
+         dependencies: cc.get_id() == 'msvc' ? core_deps : ctksource_deps,
+              sources: ctksource_dep_sources,
 )
 
-gtksource_pc_reqs = [
+ctksource_pc_reqs = [
   'glib-2.0 @0@'.format(glib_req),
   'gobject-2.0 @0@'.format(glib_req),
   'gio-2.0 @0@'.format(glib_req),
-  'gtk+-3.0 @0@'.format(gtk_req),
+  'ctk+-3.0 @0@'.format(ctk_req),
 ]
 
-gtksource_pc_private_reqs = []
-gtksource_lib_private = []
+ctksource_pc_private_reqs = []
+ctksource_lib_private = []
 
 if libxml_dep.type_name() == 'pkgconfig'
-  gtksource_pc_private_reqs += [
+  ctksource_pc_private_reqs += [
     'libxml-2.0 @0@'.format(libxml_req)
   ]
 else
   if libxml_dep.type_name() == 'library'
-    gtksource_lib_private += libxml_dep
+    ctksource_lib_private += libxml_dep
   endif
 endif
 
-gtksource_pc_private_reqs += [
+ctksource_pc_private_reqs += [
   'fribidi @0@'.format(fribidi_req),
 ]
 
-gtksource_pc = pkg.generate(
+ctksource_pc = pkg.generate(
               name: package_string,
        description: 'Source code editing Gtk+ widget.',
-          requires: gtksource_pc_reqs,
-  requires_private: gtksource_pc_private_reqs,
+          requires: ctksource_pc_reqs,
+  requires_private: ctksource_pc_private_reqs,
            version: version,
            subdirs: package_string,
-         libraries: gtksource_lib,
- libraries_private: gtksource_lib_private,
+         libraries: ctksource_lib,
+ libraries_private: ctksource_lib_private,
        install_dir: pkgconfigdir,
 )

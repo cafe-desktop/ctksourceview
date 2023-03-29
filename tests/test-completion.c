@@ -19,8 +19,8 @@
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <gtk/gtk.h>
-#include <gtksourceview/gtksource.h>
+#include <ctk/ctk.h>
+#include <ctksourceview/ctksource.h>
 
 typedef struct _TestProvider TestProvider;
 typedef struct _TestProviderClass TestProviderClass;
@@ -106,7 +106,7 @@ test_provider_populate (GtkSourceCompletionProvider *completion_provider,
 		proposals = provider->proposals;
 	}
 
-	gtk_source_completion_context_add_proposals (context,
+	ctk_source_completion_context_add_proposals (context,
 						     completion_provider,
 						     proposals,
 						     TRUE);
@@ -172,10 +172,10 @@ test_provider_init (TestProvider *self)
 	GIcon *emblem_icon;
 	GEmblem *emblem;
 
-	theme = gtk_icon_theme_get_default ();
-	self->provider_icon = gtk_icon_theme_load_icon (theme, "dialog-information", 16, 0, NULL);
+	theme = ctk_icon_theme_get_default ();
+	self->provider_icon = ctk_icon_theme_load_icon (theme, "dialog-information", 16, 0, NULL);
 
-	self->item_icon = gtk_icon_theme_load_icon (theme, "trophy-gold", 16, 0, NULL);
+	self->item_icon = ctk_icon_theme_load_icon (theme, "trophy-gold", 16, 0, NULL);
 
 	icon = g_themed_icon_new ("trophy-silver");
 	emblem_icon = g_themed_icon_new ("emblem-urgent");
@@ -196,34 +196,34 @@ test_provider_set_fixed (TestProvider *provider,
 
 	g_list_free_full (provider->proposals, g_object_unref);
 
-	item = gtk_source_completion_item_new ();
-	gtk_source_completion_item_set_markup (item, "A very <b>long</b> proposal. I <i>repeat</i>, a very long proposal!");
-	gtk_source_completion_item_set_text (item, "A very long proposal. I repeat, a very long proposal!");
-	gtk_source_completion_item_set_icon (item, provider->item_icon);
-	gtk_source_completion_item_set_info (item, "To test the horizontal scrollbar and the markup.");
+	item = ctk_source_completion_item_new ();
+	ctk_source_completion_item_set_markup (item, "A very <b>long</b> proposal. I <i>repeat</i>, a very long proposal!");
+	ctk_source_completion_item_set_text (item, "A very long proposal. I repeat, a very long proposal!");
+	ctk_source_completion_item_set_icon (item, provider->item_icon);
+	ctk_source_completion_item_set_info (item, "To test the horizontal scrollbar and the markup.");
 	proposals = g_list_prepend (proposals, item);
 
-	item = gtk_source_completion_item_new ();
-	gtk_source_completion_item_set_markup (item, "A proposal with a <b>symbolic</b> icon");
-	gtk_source_completion_item_set_text (item, "Test setting the icon-name property");
-	gtk_source_completion_item_set_icon_name (item, "face-cool-symbolic");
+	item = ctk_source_completion_item_new ();
+	ctk_source_completion_item_set_markup (item, "A proposal with a <b>symbolic</b> icon");
+	ctk_source_completion_item_set_text (item, "Test setting the icon-name property");
+	ctk_source_completion_item_set_icon_name (item, "face-cool-symbolic");
 	proposals = g_list_prepend (proposals, item);
 
-	item = gtk_source_completion_item_new ();
-	gtk_source_completion_item_set_markup (item, "A proposal with an emblem <b>GIcon</b>");
-	gtk_source_completion_item_set_text (item, "Test setting the GIcon property");
-	gtk_source_completion_item_set_gicon (item, provider->item_gicon);
+	item = ctk_source_completion_item_new ();
+	ctk_source_completion_item_set_markup (item, "A proposal with an emblem <b>GIcon</b>");
+	ctk_source_completion_item_set_text (item, "Test setting the GIcon property");
+	ctk_source_completion_item_set_gicon (item, provider->item_gicon);
 	proposals = g_list_prepend (proposals, item);
 
 	for (i = nb_proposals - 1; i > 0; i--)
 	{
 		gchar *name = g_strdup_printf ("Proposal %d", i);
 
-		item = gtk_source_completion_item_new ();
-		gtk_source_completion_item_set_label (item, name);
-		gtk_source_completion_item_set_text (item, name);
-		gtk_source_completion_item_set_icon (item, provider->item_icon);
-		gtk_source_completion_item_set_info (item, "The extra info of the proposal.\nA second line.");
+		item = ctk_source_completion_item_new ();
+		ctk_source_completion_item_set_label (item, name);
+		ctk_source_completion_item_set_text (item, name);
+		ctk_source_completion_item_set_icon (item, provider->item_icon);
+		ctk_source_completion_item_set_info (item, "The extra info of the proposal.\nA second line.");
 		proposals = g_list_prepend (proposals, item);
 
 		g_free (name);
@@ -248,10 +248,10 @@ test_provider_set_random (TestProvider *provider,
 		gchar *padding = g_strnfill ((i * 3) % 10, 'o');
 		gchar *name = g_strdup_printf ("Propo%ssal %d", padding, i);
 
-		item = gtk_source_completion_item_new ();
-		gtk_source_completion_item_set_label (item, name);
-		gtk_source_completion_item_set_text (item, name);
-		gtk_source_completion_item_set_icon (item, provider->item_icon);
+		item = ctk_source_completion_item_new ();
+		ctk_source_completion_item_set_label (item, name);
+		ctk_source_completion_item_set_text (item, name);
+		ctk_source_completion_item_set_icon (item, provider->item_icon);
 		proposals = g_list_prepend (proposals, item);
 
 		g_free (padding);
@@ -269,13 +269,13 @@ add_remove_provider (GtkToggleButton             *button,
 {
 	g_return_if_fail (provider != NULL);
 
-	if (gtk_toggle_button_get_active (button))
+	if (ctk_toggle_button_get_active (button))
 	{
-		gtk_source_completion_add_provider (completion, provider, NULL);
+		ctk_source_completion_add_provider (completion, provider, NULL);
 	}
 	else
 	{
-		gtk_source_completion_remove_provider (completion, provider, NULL);
+		ctk_source_completion_remove_provider (completion, provider, NULL);
 	}
 }
 
@@ -310,7 +310,7 @@ static void
 nb_proposals_changed_cb (GtkSpinButton *spin_button,
 			 TestProvider  *provider)
 {
-	gint nb_proposals = gtk_spin_button_get_value_as_int (spin_button);
+	gint nb_proposals = ctk_spin_button_get_value_as_int (spin_button);
 
 	if (provider->is_random)
 	{
@@ -327,12 +327,12 @@ create_completion (GtkSourceView       *source_view,
 		   GtkSourceCompletion *completion)
 {
 	/* Words completion provider */
-	word_provider = gtk_source_completion_words_new (NULL, NULL);
+	word_provider = ctk_source_completion_words_new (NULL, NULL);
 
-	gtk_source_completion_words_register (word_provider,
-	                                      gtk_text_view_get_buffer (GTK_TEXT_VIEW (source_view)));
+	ctk_source_completion_words_register (word_provider,
+	                                      ctk_text_view_get_buffer (GTK_TEXT_VIEW (source_view)));
 
-	gtk_source_completion_add_provider (completion,
+	ctk_source_completion_add_provider (completion,
 	                                    GTK_SOURCE_COMPLETION_PROVIDER (word_provider),
 	                                    NULL);
 
@@ -344,7 +344,7 @@ create_completion (GtkSourceView       *source_view,
 	fixed_provider->priority = 5;
 	fixed_provider->name = g_strdup ("Fixed Provider");
 
-	gtk_source_completion_add_provider (completion,
+	ctk_source_completion_add_provider (completion,
 	                                    GTK_SOURCE_COMPLETION_PROVIDER (fixed_provider),
 	                                    NULL);
 
@@ -354,7 +354,7 @@ create_completion (GtkSourceView       *source_view,
 	random_provider->priority = 1;
 	random_provider->name = g_strdup ("Random Provider");
 
-	gtk_source_completion_add_provider (completion,
+	ctk_source_completion_add_provider (completion,
 	                                    GTK_SOURCE_COMPLETION_PROVIDER (random_provider),
 	                                    NULL);
 }
@@ -377,10 +377,10 @@ create_window (void)
 	GtkSpinButton *nb_fixed_proposals;
 	GtkSpinButton *nb_random_proposals;
 
-	builder = gtk_builder_new ();
+	builder = ctk_builder_new ();
 
-	gtk_builder_add_from_resource (builder,
-				       "/org/gnome/gtksourceview/tests/ui/test-completion.ui",
+	ctk_builder_add_from_resource (builder,
+				       "/org/gnome/ctksourceview/tests/ui/test-completion.ui",
 				       &error);
 
 	if (error != NULL)
@@ -388,23 +388,23 @@ create_window (void)
 		g_error ("Impossible to load test-completion.ui: %s", error->message);
 	}
 
-	window = GTK_WINDOW (gtk_builder_get_object (builder, "window"));
-	source_view = GTK_SOURCE_VIEW (gtk_builder_get_object (builder, "source_view"));
-	remember_info_visibility = GTK_CHECK_BUTTON (gtk_builder_get_object (builder, "checkbutton_remember_info_visibility"));
-	select_on_show = GTK_CHECK_BUTTON (gtk_builder_get_object (builder, "checkbutton_select_on_show"));
-	show_headers = GTK_CHECK_BUTTON (gtk_builder_get_object (builder, "checkbutton_show_headers"));
-	show_icons = GTK_CHECK_BUTTON (gtk_builder_get_object (builder, "checkbutton_show_icons"));
-	enable_word_provider = GTK_CHECK_BUTTON (gtk_builder_get_object (builder, "checkbutton_word_provider"));
-	enable_fixed_provider = GTK_CHECK_BUTTON (gtk_builder_get_object (builder, "checkbutton_fixed_provider"));
-	enable_random_provider = GTK_CHECK_BUTTON (gtk_builder_get_object (builder, "checkbutton_random_provider"));
-	nb_fixed_proposals = GTK_SPIN_BUTTON (gtk_builder_get_object (builder, "spinbutton_nb_fixed_proposals"));
-	nb_random_proposals = GTK_SPIN_BUTTON (gtk_builder_get_object (builder, "spinbutton_nb_random_proposals"));
+	window = GTK_WINDOW (ctk_builder_get_object (builder, "window"));
+	source_view = GTK_SOURCE_VIEW (ctk_builder_get_object (builder, "source_view"));
+	remember_info_visibility = GTK_CHECK_BUTTON (ctk_builder_get_object (builder, "checkbutton_remember_info_visibility"));
+	select_on_show = GTK_CHECK_BUTTON (ctk_builder_get_object (builder, "checkbutton_select_on_show"));
+	show_headers = GTK_CHECK_BUTTON (ctk_builder_get_object (builder, "checkbutton_show_headers"));
+	show_icons = GTK_CHECK_BUTTON (ctk_builder_get_object (builder, "checkbutton_show_icons"));
+	enable_word_provider = GTK_CHECK_BUTTON (ctk_builder_get_object (builder, "checkbutton_word_provider"));
+	enable_fixed_provider = GTK_CHECK_BUTTON (ctk_builder_get_object (builder, "checkbutton_fixed_provider"));
+	enable_random_provider = GTK_CHECK_BUTTON (ctk_builder_get_object (builder, "checkbutton_random_provider"));
+	nb_fixed_proposals = GTK_SPIN_BUTTON (ctk_builder_get_object (builder, "spinbutton_nb_fixed_proposals"));
+	nb_random_proposals = GTK_SPIN_BUTTON (ctk_builder_get_object (builder, "spinbutton_nb_random_proposals"));
 
-	completion = gtk_source_view_get_completion (source_view);
+	completion = ctk_source_view_get_completion (source_view);
 
 	g_signal_connect (window,
 			  "destroy",
-			  G_CALLBACK (gtk_main_quit),
+			  G_CALLBACK (ctk_main_quit),
 			  NULL);
 
 	g_object_bind_property (completion, "remember-info-visibility",
@@ -456,11 +456,11 @@ create_window (void)
 int
 main (int argc, char *argv[])
 {
-	gtk_init (&argc, &argv);
+	ctk_init (&argc, &argv);
 
 	create_window ();
 
-	gtk_main ();
+	ctk_main ();
 
 	/* Not really useful, except for debugging memory leaks. */
 	g_object_unref (word_provider);

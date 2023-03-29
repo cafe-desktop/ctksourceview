@@ -24,15 +24,15 @@
 #define GTK_SOURCE_UNDO_MANAGER_H
 
 #if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
-#error "Only <gtksourceview/gtksource.h> can be included directly."
+#error "Only <ctksourceview/ctksource.h> can be included directly."
 #endif
 
-#include <gtk/gtk.h>
-#include <gtksourceview/gtksourcetypes.h>
+#include <ctk/ctk.h>
+#include <ctksourceview/ctksourcetypes.h>
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_UNDO_MANAGER                (gtk_source_undo_manager_get_type ())
+#define GTK_SOURCE_TYPE_UNDO_MANAGER                (ctk_source_undo_manager_get_type ())
 #define GTK_SOURCE_UNDO_MANAGER(obj)                (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_UNDO_MANAGER, GtkSourceUndoManager))
 #define GTK_SOURCE_IS_UNDO_MANAGER(obj)             (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_SOURCE_TYPE_UNDO_MANAGER))
 #define GTK_SOURCE_UNDO_MANAGER_GET_INTERFACE(obj)  (G_TYPE_INSTANCE_GET_INTERFACE ((obj), GTK_SOURCE_TYPE_UNDO_MANAGER, GtkSourceUndoManagerIface))
@@ -59,31 +59,31 @@ struct _GtkSourceUndoManagerIface
 };
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-GType     gtk_source_undo_manager_get_type                  (void) G_GNUC_CONST;
+GType     ctk_source_undo_manager_get_type                  (void) G_GNUC_CONST;
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-gboolean  gtk_source_undo_manager_can_undo                  (GtkSourceUndoManager *manager);
+gboolean  ctk_source_undo_manager_can_undo                  (GtkSourceUndoManager *manager);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-gboolean  gtk_source_undo_manager_can_redo                  (GtkSourceUndoManager *manager);
+gboolean  ctk_source_undo_manager_can_redo                  (GtkSourceUndoManager *manager);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-void      gtk_source_undo_manager_undo                      (GtkSourceUndoManager *manager);
+void      ctk_source_undo_manager_undo                      (GtkSourceUndoManager *manager);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-void      gtk_source_undo_manager_redo                      (GtkSourceUndoManager *manager);
+void      ctk_source_undo_manager_redo                      (GtkSourceUndoManager *manager);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-void      gtk_source_undo_manager_begin_not_undoable_action (GtkSourceUndoManager *manager);
+void      ctk_source_undo_manager_begin_not_undoable_action (GtkSourceUndoManager *manager);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-void      gtk_source_undo_manager_end_not_undoable_action   (GtkSourceUndoManager *manager);
+void      ctk_source_undo_manager_end_not_undoable_action   (GtkSourceUndoManager *manager);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-void      gtk_source_undo_manager_can_undo_changed          (GtkSourceUndoManager *manager);
+void      ctk_source_undo_manager_can_undo_changed          (GtkSourceUndoManager *manager);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-void      gtk_source_undo_manager_can_redo_changed          (GtkSourceUndoManager *manager);
+void      ctk_source_undo_manager_can_redo_changed          (GtkSourceUndoManager *manager);
 
 G_END_DECLS
 

@@ -21,14 +21,14 @@
 #ifndef GTK_SOURCE_GUTTER_RENDERER_LINES_H
 #define GTK_SOURCE_GUTTER_RENDERER_LINES_H
 
-#include <gtk/gtk.h>
-#include "gtksourcetypes.h"
-#include "gtksourcetypes-private.h"
-#include "gtksourcegutterrenderertext.h"
+#include <ctk/ctk.h>
+#include "ctksourcetypes.h"
+#include "ctksourcetypes-private.h"
+#include "ctksourcegutterrenderertext.h"
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_GUTTER_RENDERER_LINES		(gtk_source_gutter_renderer_lines_get_type ())
+#define GTK_SOURCE_TYPE_GUTTER_RENDERER_LINES		(ctk_source_gutter_renderer_lines_get_type ())
 #define GTK_SOURCE_GUTTER_RENDERER_LINES(obj)		(G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_GUTTER_RENDERER_LINES, GtkSourceGutterRendererLines))
 #define GTK_SOURCE_GUTTER_RENDERER_LINES_CONST(obj)	(G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_GUTTER_RENDERER_LINES, GtkSourceGutterRendererLines const))
 #define GTK_SOURCE_GUTTER_RENDERER_LINES_CLASS(klass)	(G_TYPE_CHECK_CLASS_CAST ((klass), GTK_SOURCE_TYPE_GUTTER_RENDERER_LINES, GtkSourceGutterRendererLinesClass))
@@ -58,10 +58,10 @@ struct _GtkSourceGutterRendererLinesClass
 };
 
 G_GNUC_INTERNAL
-GType gtk_source_gutter_renderer_lines_get_type (void) G_GNUC_CONST;
+GType ctk_source_gutter_renderer_lines_get_type (void) G_GNUC_CONST;
 
 G_GNUC_INTERNAL
-GtkSourceGutterRenderer *gtk_source_gutter_renderer_lines_new (void);
+GtkSourceGutterRenderer *ctk_source_gutter_renderer_lines_new (void);
 
 G_END_DECLS
 

@@ -23,5 +23,5 @@
 
 input_file=$1
 
-uncrustify --replace --no-backup -c gtksourceview-uncrustify.cfg $input_file
+uncrustify --replace --no-backup -c ctksourceview-uncrustify.cfg $input_file
 gcu-lineup-parameters --tabs $input_file
