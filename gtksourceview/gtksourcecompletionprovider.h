@@ -23,16 +23,16 @@
 #define GTK_SOURCE_COMPLETION_PROVIDER_H
 
 #if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
-#error "Only <gtksourceview/gtksource.h> can be included directly."
+#error "Only <ctksourceview/ctksource.h> can be included directly."
 #endif
 
-#include <gtk/gtk.h>
-#include <gtksourceview/gtksourcecompletioncontext.h>
-#include <gtksourceview/gtksourcetypes.h>
+#include <ctk/ctk.h>
+#include <ctksourceview/ctksourcecompletioncontext.h>
+#include <ctksourceview/ctksourcetypes.h>
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_COMPLETION_PROVIDER 			(gtk_source_completion_provider_get_type ())
+#define GTK_SOURCE_TYPE_COMPLETION_PROVIDER 			(ctk_source_completion_provider_get_type ())
 #define GTK_SOURCE_COMPLETION_PROVIDER(obj) 			(G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_COMPLETION_PROVIDER, GtkSourceCompletionProvider))
 #define GTK_SOURCE_IS_COMPLETION_PROVIDER(obj) 			(G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_SOURCE_TYPE_COMPLETION_PROVIDER))
 #define GTK_SOURCE_COMPLETION_PROVIDER_GET_INTERFACE(obj) 	(G_TYPE_INSTANCE_GET_INTERFACE ((obj), GTK_SOURCE_TYPE_COMPLETION_PROVIDER, GtkSourceCompletionProviderIface))
@@ -42,31 +42,31 @@ typedef struct _GtkSourceCompletionProviderIface GtkSourceCompletionProviderIfac
 /**
  * GtkSourceCompletionProviderIface:
  * @g_iface: The parent interface.
- * @get_name: The virtual function pointer for gtk_source_completion_provider_get_name().
+ * @get_name: The virtual function pointer for ctk_source_completion_provider_get_name().
  * Must be implemented.
- * @get_icon: The virtual function pointer for gtk_source_completion_provider_get_icon().
+ * @get_icon: The virtual function pointer for ctk_source_completion_provider_get_icon().
  * By default, %NULL is returned.
- * @get_icon_name: The virtual function pointer for gtk_source_completion_provider_get_icon_name().
+ * @get_icon_name: The virtual function pointer for ctk_source_completion_provider_get_icon_name().
  * By default, %NULL is returned.
- * @get_gicon: The virtual function pointer for gtk_source_completion_provider_get_gicon().
+ * @get_gicon: The virtual function pointer for ctk_source_completion_provider_get_gicon().
  * By default, %NULL is returned.
- * @populate: The virtual function pointer for gtk_source_completion_provider_populate().
+ * @populate: The virtual function pointer for ctk_source_completion_provider_populate().
  * Add no proposals by default.
- * @match: The virtual function pointer for gtk_source_completion_provider_match().
+ * @match: The virtual function pointer for ctk_source_completion_provider_match().
  * By default, %TRUE is returned.
- * @get_activation: The virtual function pointer for gtk_source_completion_provider_get_activation().
+ * @get_activation: The virtual function pointer for ctk_source_completion_provider_get_activation().
  * The combination of all #GtkSourceCompletionActivation is returned by default.
- * @get_info_widget: The virtual function pointer for gtk_source_completion_provider_get_info_widget().
+ * @get_info_widget: The virtual function pointer for ctk_source_completion_provider_get_info_widget().
  * By default, %NULL is returned.
- * @update_info: The virtual function pointer for gtk_source_completion_provider_update_info().
+ * @update_info: The virtual function pointer for ctk_source_completion_provider_update_info().
  * Does nothing by default.
- * @get_start_iter: The virtual function pointer for gtk_source_completion_provider_get_start_iter().
+ * @get_start_iter: The virtual function pointer for ctk_source_completion_provider_get_start_iter().
  * By default, %FALSE is returned.
- * @activate_proposal: The virtual function pointer for gtk_source_completion_provider_activate_proposal().
+ * @activate_proposal: The virtual function pointer for ctk_source_completion_provider_activate_proposal().
  * By default, %FALSE is returned.
- * @get_interactive_delay: The virtual function pointer for gtk_source_completion_provider_get_interactive_delay().
+ * @get_interactive_delay: The virtual function pointer for ctk_source_completion_provider_get_interactive_delay().
  * By default, -1 is returned.
- * @get_priority: The virtual function pointer for gtk_source_completion_provider_get_priority().
+ * @get_priority: The virtual function pointer for ctk_source_completion_provider_get_priority().
  * By default, 0 is returned.
  *
  * The virtual function table for #GtkSourceCompletionProvider.
@@ -109,57 +109,57 @@ struct _GtkSourceCompletionProviderIface
 };
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-GType		 gtk_source_completion_provider_get_type	(void);
+GType		 ctk_source_completion_provider_get_type	(void);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-gchar		*gtk_source_completion_provider_get_name	(GtkSourceCompletionProvider *provider);
+gchar		*ctk_source_completion_provider_get_name	(GtkSourceCompletionProvider *provider);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-GdkPixbuf	*gtk_source_completion_provider_get_icon	(GtkSourceCompletionProvider *provider);
+GdkPixbuf	*ctk_source_completion_provider_get_icon	(GtkSourceCompletionProvider *provider);
 
 GTK_SOURCE_AVAILABLE_IN_3_18
-const gchar	*gtk_source_completion_provider_get_icon_name	(GtkSourceCompletionProvider *provider);
+const gchar	*ctk_source_completion_provider_get_icon_name	(GtkSourceCompletionProvider *provider);
 
 GTK_SOURCE_AVAILABLE_IN_3_18
-GIcon		*gtk_source_completion_provider_get_gicon	(GtkSourceCompletionProvider *provider);
+GIcon		*ctk_source_completion_provider_get_gicon	(GtkSourceCompletionProvider *provider);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-void		 gtk_source_completion_provider_populate	(GtkSourceCompletionProvider *provider,
+void		 ctk_source_completion_provider_populate	(GtkSourceCompletionProvider *provider,
 								 GtkSourceCompletionContext  *context);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
 GtkSourceCompletionActivation
-		 gtk_source_completion_provider_get_activation (GtkSourceCompletionProvider *provider);
+		 ctk_source_completion_provider_get_activation (GtkSourceCompletionProvider *provider);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-gboolean	 gtk_source_completion_provider_match 		(GtkSourceCompletionProvider *provider,
+gboolean	 ctk_source_completion_provider_match 		(GtkSourceCompletionProvider *provider,
 		                                                 GtkSourceCompletionContext  *context);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-GtkWidget	*gtk_source_completion_provider_get_info_widget	(GtkSourceCompletionProvider *provider,
+GtkWidget	*ctk_source_completion_provider_get_info_widget	(GtkSourceCompletionProvider *provider,
 								 GtkSourceCompletionProposal *proposal);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-void 		 gtk_source_completion_provider_update_info	(GtkSourceCompletionProvider *provider,
+void 		 ctk_source_completion_provider_update_info	(GtkSourceCompletionProvider *provider,
 								 GtkSourceCompletionProposal *proposal,
 								 GtkSourceCompletionInfo     *info);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-gboolean	 gtk_source_completion_provider_get_start_iter	(GtkSourceCompletionProvider *provider,
+gboolean	 ctk_source_completion_provider_get_start_iter	(GtkSourceCompletionProvider *provider,
 								 GtkSourceCompletionContext  *context,
 								 GtkSourceCompletionProposal *proposal,
 								 GtkTextIter                 *iter);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-gboolean	 gtk_source_completion_provider_activate_proposal (GtkSourceCompletionProvider *provider,
+gboolean	 ctk_source_completion_provider_activate_proposal (GtkSourceCompletionProvider *provider,
 								   GtkSourceCompletionProposal *proposal,
 								   GtkTextIter                 *iter);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-gint		 gtk_source_completion_provider_get_interactive_delay (GtkSourceCompletionProvider *provider);
+gint		 ctk_source_completion_provider_get_interactive_delay (GtkSourceCompletionProvider *provider);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-gint		 gtk_source_completion_provider_get_priority	(GtkSourceCompletionProvider *provider);
+gint		 ctk_source_completion_provider_get_priority	(GtkSourceCompletionProvider *provider);
 
 G_END_DECLS
 

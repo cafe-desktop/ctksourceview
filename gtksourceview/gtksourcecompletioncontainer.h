@@ -21,12 +21,12 @@
 #ifndef GTK_SOURCE_COMPLETION_CONTAINER_H
 #define GTK_SOURCE_COMPLETION_CONTAINER_H
 
-#include <gtk/gtk.h>
-#include "gtksourcetypes-private.h"
+#include <ctk/ctk.h>
+#include "ctksourcetypes-private.h"
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_COMPLETION_CONTAINER             (_gtk_source_completion_container_get_type ())
+#define GTK_SOURCE_TYPE_COMPLETION_CONTAINER             (_ctk_source_completion_container_get_type ())
 #define GTK_SOURCE_COMPLETION_CONTAINER(obj)             (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_COMPLETION_CONTAINER, GtkSourceCompletionContainer))
 #define GTK_SOURCE_COMPLETION_CONTAINER_CLASS(klass)     (G_TYPE_CHECK_CLASS_CAST ((klass), GTK_SOURCE_TYPE_COMPLETION_CONTAINER, GtkSourceCompletionContainerClass)
 #define GTK_SOURCE_IS_COMPLETION_CONTAINER(obj)          (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_SOURCE_TYPE_COMPLETION_CONTAINER))
@@ -46,11 +46,11 @@ struct _GtkSourceCompletionContainerClass
 };
 
 G_GNUC_INTERNAL
-GType		 _gtk_source_completion_container_get_type		(void) G_GNUC_CONST;
+GType		 _ctk_source_completion_container_get_type		(void) G_GNUC_CONST;
 
 G_GNUC_INTERNAL
 GtkSourceCompletionContainer *
-		 _gtk_source_completion_container_new			(void);
+		 _ctk_source_completion_container_new			(void);
 
 G_END_DECLS
 

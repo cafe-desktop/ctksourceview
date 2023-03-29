@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <glade-catalog version="4.0"
-               supports="gtkbuilder"
-               name="gtksourceview"
-               library="gtksourceview-@GSV_API_VERSION@"
-               depends="gtk+"
-               book="gtksourceview-@GSV_API_VERSION@">
+               supports="ctkbuilder"
+               name="ctksourceview"
+               library="ctksourceview-@GSV_API_VERSION@"
+               depends="ctk+"
+               book="ctksourceview-@GSV_API_VERSION@">
   <glade-widget-classes>
-    <glade-widget-class name="GtkSourceView" title="GtkSourceView" generic-name="gtksourceview">
+    <glade-widget-class name="GtkSourceView" title="GtkSourceView" generic-name="ctksourceview">
       <properties>
         <property id="auto-indent" default="False" />
         <property id="highlight-current-line" default="False" />
@@ -27,11 +27,11 @@
         <property id="tab-width" default="8" />
       </properties>
     </glade-widget-class>
-    <glade-widget-class name="GtkSourceMap" title="GtkSourceMap" generic-name="gtksourcemap">
+    <glade-widget-class name="GtkSourceMap" title="GtkSourceMap" generic-name="ctksourcemap">
     </glade-widget-class>
-    <glade-widget-class name="GtkSourceStyleSchemeChooserWidget" title="GtkSourceStyleSchemeChooserWidget" generic-name="gtksourcestyleschemechooserwidget">
+    <glade-widget-class name="GtkSourceStyleSchemeChooserWidget" title="GtkSourceStyleSchemeChooserWidget" generic-name="ctksourcestyleschemechooserwidget">
     </glade-widget-class>
-    <glade-widget-class name="GtkSourceStyleSchemeChooserButton" title="GtkSourceStyleSchemeChooserButton" generic-name="gtksourcestyleschemechooserbutton">
+    <glade-widget-class name="GtkSourceStyleSchemeChooserButton" title="GtkSourceStyleSchemeChooserButton" generic-name="ctksourcestyleschemechooserbutton">
     </glade-widget-class>
   </glade-widget-classes>
 

@@ -22,8 +22,8 @@
 #include <config.h>
 #endif
 
-#include "gtksourcestyle.h"
-#include "gtksourcestyle-private.h"
+#include "ctksourcestyle.h"
+#include "ctksourcestyle-private.h"
 
 /**
  * SECTION:style
@@ -35,12 +35,12 @@
  * which are set when given style is used.
  */
 
-static void	gtk_source_style_set_property	(GObject      *object,
+static void	ctk_source_style_set_property	(GObject      *object,
 						 guint         prop_id,
 						 const GValue *value,
 						 GParamSpec   *pspec);
 
-static void	gtk_source_style_get_property	(GObject      *object,
+static void	ctk_source_style_get_property	(GObject      *object,
 						 guint         prop_id,
 						 GValue       *value,
 						 GParamSpec   *pspec);
@@ -50,7 +50,7 @@ struct _GtkSourceStyleClass
 	GObjectClass parent_class;
 };
 
-G_DEFINE_TYPE (GtkSourceStyle, gtk_source_style, G_TYPE_OBJECT)
+G_DEFINE_TYPE (GtkSourceStyle, ctk_source_style, G_TYPE_OBJECT)
 
 enum
 {
@@ -76,12 +76,12 @@ enum
 };
 
 static void
-gtk_source_style_class_init (GtkSourceStyleClass *klass)
+ctk_source_style_class_init (GtkSourceStyleClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-	object_class->set_property = gtk_source_style_set_property;
-	object_class->get_property = gtk_source_style_get_property;
+	object_class->set_property = ctk_source_style_set_property;
+	object_class->get_property = ctk_source_style_get_property;
 
 	/* All properties are CONSTRUCT_ONLY so we can safely return references
 	 * from style_scheme_get_style(). But style scheme is of course cheating
@@ -234,7 +234,7 @@ gtk_source_style_class_init (GtkSourceStyleClass *klass)
 }
 
 static void
-gtk_source_style_init (GtkSourceStyle *style)
+ctk_source_style_init (GtkSourceStyle *style)
 {
 	style->foreground = NULL;
 	style->background = NULL;
@@ -256,7 +256,7 @@ G_STMT_START {					\
 	g_value_set_boolean (value, ((style)->mask & GTK_SOURCE_STYLE_USE_##name) != 0)
 
 static void
-gtk_source_style_set_property (GObject      *object,
+ctk_source_style_set_property (GObject      *object,
 			       guint         prop_id,
 			       const GValue *value,
 			       GParamSpec   *pspec)
@@ -399,7 +399,7 @@ gtk_source_style_set_property (GObject      *object,
 }
 
 static void
-gtk_source_style_get_property (GObject      *object,
+ctk_source_style_get_property (GObject      *object,
 			       guint         prop_id,
 			       GValue       *value,
 			       GParamSpec   *pspec)
@@ -487,7 +487,7 @@ gtk_source_style_get_property (GObject      *object,
 }
 
 /**
- * gtk_source_style_copy:
+ * ctk_source_style_copy:
  * @style: a #GtkSourceStyle structure to copy.
  *
  * Creates a copy of @style, that is a new #GtkSourceStyle instance which
@@ -499,7 +499,7 @@ gtk_source_style_get_property (GObject      *object,
  * Since: 2.0
  */
 GtkSourceStyle *
-gtk_source_style_copy (const GtkSourceStyle *style)
+ctk_source_style_copy (const GtkSourceStyle *style)
 {
 	GtkSourceStyle *copy;
 
@@ -522,7 +522,7 @@ gtk_source_style_copy (const GtkSourceStyle *style)
 }
 
 /**
- * gtk_source_style_apply:
+ * ctk_source_style_apply:
  * @style: (nullable): a #GtkSourceStyle to apply, or %NULL.
  * @tag: a #GtkTextTag to apply styles to.
  *
@@ -537,7 +537,7 @@ gtk_source_style_copy (const GtkSourceStyle *style)
  * Since: 3.22
  */
 void
-gtk_source_style_apply (const GtkSourceStyle *style,
+ctk_source_style_apply (const GtkSourceStyle *style,
 			GtkTextTag           *tag)
 {
 	g_return_if_fail (GTK_IS_TEXT_TAG (tag));

@@ -21,11 +21,11 @@
 #ifndef GTK_SOURCE_COMPLETION_PIVATE_H
 #define GTK_SOURCE_COMPLETION_PIVATE_H
 
-#include <gtk/gtk.h>
-#include <gtksourceview/gtksourcetypes.h>
+#include <ctk/ctk.h>
+#include <ctksourceview/ctksourcetypes.h>
 
 G_GNUC_INTERNAL
-GtkSourceCompletion *gtk_source_completion_new (GtkSourceView *source_view);
+GtkSourceCompletion *ctk_source_completion_new (GtkSourceView *source_view);
 
 #endif /* GTK_SOURCE_COMPLETION_PIVATE_H */
 

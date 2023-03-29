@@ -21,16 +21,16 @@
 #define GTK_SOURCE_MAP_H
 
 #if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
-#error "Only <gtksourceview/gtksource.h> can be included directly."
+#error "Only <ctksourceview/ctksource.h> can be included directly."
 #endif
 
-#include <gtk/gtk.h>
-#include <gtksourceview/gtksourcetypes.h>
-#include <gtksourceview/gtksourceview.h>
+#include <ctk/ctk.h>
+#include <ctksourceview/ctksourcetypes.h>
+#include <ctksourceview/ctksourceview.h>
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_MAP            (gtk_source_map_get_type())
+#define GTK_SOURCE_TYPE_MAP            (ctk_source_map_get_type())
 #define GTK_SOURCE_MAP(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_MAP, GtkSourceMap))
 #define GTK_SOURCE_MAP_CONST(obj)      (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_MAP, GtkSourceMap const))
 #define GTK_SOURCE_MAP_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass),  GTK_SOURCE_TYPE_MAP, GtkSourceMapClass))
@@ -53,17 +53,17 @@ struct _GtkSourceMapClass
 };
 
 GTK_SOURCE_AVAILABLE_IN_3_18
-GType			 gtk_source_map_get_type	(void);
+GType			 ctk_source_map_get_type	(void);
 
 GTK_SOURCE_AVAILABLE_IN_3_18
-GtkWidget		*gtk_source_map_new		(void);
+GtkWidget		*ctk_source_map_new		(void);
 
 GTK_SOURCE_AVAILABLE_IN_3_18
-void			 gtk_source_map_set_view	(GtkSourceMap  *map,
+void			 ctk_source_map_set_view	(GtkSourceMap  *map,
 							 GtkSourceView *view);
 
 GTK_SOURCE_AVAILABLE_IN_3_18
-GtkSourceView		*gtk_source_map_get_view	(GtkSourceMap  *map);
+GtkSourceView		*ctk_source_map_get_view	(GtkSourceMap  *map);
 
 G_END_DECLS
 

@@ -22,7 +22,7 @@
 #include <config.h>
 #endif
 
-#include "gtksourcemarkssequence.h"
+#include "ctksourcemarkssequence.h"
 
 /* An object for storing GtkTextMarks. The text marks are sorted internally with
  * a GSequence. Going to the previous or next text mark has a O(1) complexity.
@@ -54,7 +54,7 @@ struct _GtkSourceMarksSequencePrivate
 	GQuark quark;
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceMarksSequence, _gtk_source_marks_sequence, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceMarksSequence, _ctk_source_marks_sequence, G_TYPE_OBJECT)
 
 static void
 remove_qdata (GtkTextMark            *mark,
@@ -91,14 +91,14 @@ compare_marks (GtkTextMark *mark1,
 	g_assert (GTK_IS_TEXT_MARK (mark1));
 	g_assert (GTK_IS_TEXT_MARK (mark2));
 
-	buffer = gtk_text_mark_get_buffer (mark1);
+	buffer = ctk_text_mark_get_buffer (mark1);
 
-	g_assert (buffer == gtk_text_mark_get_buffer (mark2));
+	g_assert (buffer == ctk_text_mark_get_buffer (mark2));
 
-	gtk_text_buffer_get_iter_at_mark (buffer, &iter1, mark1);
-	gtk_text_buffer_get_iter_at_mark (buffer, &iter2, mark2);
+	ctk_text_buffer_get_iter_at_mark (buffer, &iter1, mark1);
+	ctk_text_buffer_get_iter_at_mark (buffer, &iter2, mark2);
 
-	return gtk_text_iter_compare (&iter1, &iter2);
+	return ctk_text_iter_compare (&iter1, &iter2);
 }
 
 static void
@@ -124,7 +124,7 @@ mark_deleted_cb (GtkTextBuffer          *buffer,
 		 GtkTextMark            *mark,
 		 GtkSourceMarksSequence *seq)
 {
-	_gtk_source_marks_sequence_remove (seq, mark);
+	_ctk_source_marks_sequence_remove (seq, mark);
 }
 
 static void
@@ -152,7 +152,7 @@ set_buffer (GtkSourceMarksSequence *seq,
 }
 
 static void
-_gtk_source_marks_sequence_dispose (GObject *object)
+_ctk_source_marks_sequence_dispose (GObject *object)
 {
 	GtkSourceMarksSequence *seq = GTK_SOURCE_MARKS_SEQUENCE (object);
 
@@ -166,11 +166,11 @@ _gtk_source_marks_sequence_dispose (GObject *object)
 
 	free_sequence (seq);
 
-	G_OBJECT_CLASS (_gtk_source_marks_sequence_parent_class)->dispose (object);
+	G_OBJECT_CLASS (_ctk_source_marks_sequence_parent_class)->dispose (object);
 }
 
 static void
-_gtk_source_marks_sequence_get_property (GObject    *object,
+_ctk_source_marks_sequence_get_property (GObject    *object,
 					 guint       prop_id,
 					 GValue     *value,
 					 GParamSpec *pspec)
@@ -194,7 +194,7 @@ _gtk_source_marks_sequence_get_property (GObject    *object,
 }
 
 static void
-_gtk_source_marks_sequence_set_property (GObject      *object,
+_ctk_source_marks_sequence_set_property (GObject      *object,
 					 guint         prop_id,
 					 const GValue *value,
 					 GParamSpec   *pspec)
@@ -218,13 +218,13 @@ _gtk_source_marks_sequence_set_property (GObject      *object,
 }
 
 static void
-_gtk_source_marks_sequence_class_init (GtkSourceMarksSequenceClass *klass)
+_ctk_source_marks_sequence_class_init (GtkSourceMarksSequenceClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-	object_class->dispose = _gtk_source_marks_sequence_dispose;
-	object_class->get_property = _gtk_source_marks_sequence_get_property;
-	object_class->set_property = _gtk_source_marks_sequence_set_property;
+	object_class->dispose = _ctk_source_marks_sequence_dispose;
+	object_class->get_property = _ctk_source_marks_sequence_get_property;
+	object_class->set_property = _ctk_source_marks_sequence_set_property;
 
 	g_object_class_install_property (object_class,
 					 PROP_BUFFER,
@@ -238,21 +238,21 @@ _gtk_source_marks_sequence_class_init (GtkSourceMarksSequenceClass *klass)
 }
 
 static void
-_gtk_source_marks_sequence_init (GtkSourceMarksSequence *seq)
+_ctk_source_marks_sequence_init (GtkSourceMarksSequence *seq)
 {
 	gchar *unique_str;
 
-	seq->priv = _gtk_source_marks_sequence_get_instance_private (seq);
+	seq->priv = _ctk_source_marks_sequence_get_instance_private (seq);
 
 	seq->priv->seq = g_sequence_new ((GDestroyNotify)g_object_unref);
 
-	unique_str = g_strdup_printf ("gtk-source-marks-sequence-%p", seq);
+	unique_str = g_strdup_printf ("ctk-source-marks-sequence-%p", seq);
 	seq->priv->quark = g_quark_from_string (unique_str);
 	g_free (unique_str);
 }
 
 GtkSourceMarksSequence *
-_gtk_source_marks_sequence_new (GtkTextBuffer *buffer)
+_ctk_source_marks_sequence_new (GtkTextBuffer *buffer)
 {
 	g_return_val_if_fail (GTK_IS_TEXT_BUFFER (buffer), NULL);
 
@@ -262,7 +262,7 @@ _gtk_source_marks_sequence_new (GtkTextBuffer *buffer)
 }
 
 gboolean
-_gtk_source_marks_sequence_is_empty (GtkSourceMarksSequence *seq)
+_ctk_source_marks_sequence_is_empty (GtkSourceMarksSequence *seq)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_MARKS_SEQUENCE (seq), TRUE);
 
@@ -270,14 +270,14 @@ _gtk_source_marks_sequence_is_empty (GtkSourceMarksSequence *seq)
 }
 
 void
-_gtk_source_marks_sequence_add (GtkSourceMarksSequence *seq,
+_ctk_source_marks_sequence_add (GtkSourceMarksSequence *seq,
 				GtkTextMark            *mark)
 {
 	GSequenceIter *seq_iter;
 
 	g_return_if_fail (GTK_SOURCE_IS_MARKS_SEQUENCE (seq));
 	g_return_if_fail (GTK_IS_TEXT_MARK (mark));
-	g_return_if_fail (gtk_text_mark_get_buffer (mark) == seq->priv->buffer);
+	g_return_if_fail (ctk_text_mark_get_buffer (mark) == seq->priv->buffer);
 
 	seq_iter = g_object_get_qdata (G_OBJECT (mark), seq->priv->quark);
 
@@ -299,7 +299,7 @@ _gtk_source_marks_sequence_add (GtkSourceMarksSequence *seq,
 }
 
 void
-_gtk_source_marks_sequence_remove (GtkSourceMarksSequence *seq,
+_ctk_source_marks_sequence_remove (GtkSourceMarksSequence *seq,
 				   GtkTextMark            *mark)
 {
 	GSequenceIter *seq_iter;
@@ -317,14 +317,14 @@ _gtk_source_marks_sequence_remove (GtkSourceMarksSequence *seq,
 }
 
 GtkTextMark *
-_gtk_source_marks_sequence_next (GtkSourceMarksSequence *seq,
+_ctk_source_marks_sequence_next (GtkSourceMarksSequence *seq,
 				 GtkTextMark            *mark)
 {
 	GSequenceIter *seq_iter;
 
 	g_return_val_if_fail (GTK_SOURCE_IS_MARKS_SEQUENCE (seq), NULL);
 	g_return_val_if_fail (GTK_IS_TEXT_MARK (mark), NULL);
-	g_return_val_if_fail (gtk_text_mark_get_buffer (mark) == seq->priv->buffer, NULL);
+	g_return_val_if_fail (ctk_text_mark_get_buffer (mark) == seq->priv->buffer, NULL);
 
 	seq_iter = g_object_get_qdata (G_OBJECT (mark), seq->priv->quark);
 
@@ -336,14 +336,14 @@ _gtk_source_marks_sequence_next (GtkSourceMarksSequence *seq,
 }
 
 GtkTextMark *
-_gtk_source_marks_sequence_prev (GtkSourceMarksSequence *seq,
+_ctk_source_marks_sequence_prev (GtkSourceMarksSequence *seq,
 				 GtkTextMark            *mark)
 {
 	GSequenceIter *seq_iter;
 
 	g_return_val_if_fail (GTK_SOURCE_IS_MARKS_SEQUENCE (seq), NULL);
 	g_return_val_if_fail (GTK_IS_TEXT_MARK (mark), NULL);
-	g_return_val_if_fail (gtk_text_mark_get_buffer (mark) == seq->priv->buffer, NULL);
+	g_return_val_if_fail (ctk_text_mark_get_buffer (mark) == seq->priv->buffer, NULL);
 
 	seq_iter = g_object_get_qdata (G_OBJECT (mark), seq->priv->quark);
 
@@ -363,7 +363,7 @@ _gtk_source_marks_sequence_prev (GtkSourceMarksSequence *seq,
  * Returns %TRUE if @iter was moved.
  */
 gboolean
-_gtk_source_marks_sequence_forward_iter (GtkSourceMarksSequence *seq,
+_ctk_source_marks_sequence_forward_iter (GtkSourceMarksSequence *seq,
 					 GtkTextIter            *iter)
 {
 	GtkTextMark *mark;
@@ -371,9 +371,9 @@ _gtk_source_marks_sequence_forward_iter (GtkSourceMarksSequence *seq,
 
 	g_return_val_if_fail (GTK_SOURCE_IS_MARKS_SEQUENCE (seq), FALSE);
 	g_return_val_if_fail (iter != NULL, FALSE);
-	g_return_val_if_fail (gtk_text_iter_get_buffer (iter) == seq->priv->buffer, FALSE);
+	g_return_val_if_fail (ctk_text_iter_get_buffer (iter) == seq->priv->buffer, FALSE);
 
-	mark = gtk_text_buffer_create_mark (seq->priv->buffer,
+	mark = ctk_text_buffer_create_mark (seq->priv->buffer,
 					    NULL,
 					    iter,
 					    TRUE);
@@ -383,16 +383,16 @@ _gtk_source_marks_sequence_forward_iter (GtkSourceMarksSequence *seq,
 				      (GCompareDataFunc)compare_marks,
 				      NULL);
 
-	gtk_text_buffer_delete_mark (seq->priv->buffer, mark);
+	ctk_text_buffer_delete_mark (seq->priv->buffer, mark);
 
 	while (!g_sequence_iter_is_end (seq_iter))
 	{
 		GtkTextMark *cur_mark = g_sequence_get (seq_iter);
 		GtkTextIter cur_iter;
 
-		gtk_text_buffer_get_iter_at_mark (seq->priv->buffer, &cur_iter, cur_mark);
+		ctk_text_buffer_get_iter_at_mark (seq->priv->buffer, &cur_iter, cur_mark);
 
-		if (gtk_text_iter_compare (iter, &cur_iter) < 0)
+		if (ctk_text_iter_compare (iter, &cur_iter) < 0)
 		{
 			*iter = cur_iter;
 			return TRUE;
@@ -408,7 +408,7 @@ _gtk_source_marks_sequence_forward_iter (GtkSourceMarksSequence *seq,
  * mark. Returns %TRUE if @iter was moved.
  */
 gboolean
-_gtk_source_marks_sequence_backward_iter (GtkSourceMarksSequence *seq,
+_ctk_source_marks_sequence_backward_iter (GtkSourceMarksSequence *seq,
 					  GtkTextIter            *iter)
 {
 	GtkTextMark *mark;
@@ -416,9 +416,9 @@ _gtk_source_marks_sequence_backward_iter (GtkSourceMarksSequence *seq,
 
 	g_return_val_if_fail (GTK_SOURCE_IS_MARKS_SEQUENCE (seq), FALSE);
 	g_return_val_if_fail (iter != NULL, FALSE);
-	g_return_val_if_fail (gtk_text_iter_get_buffer (iter) == seq->priv->buffer, FALSE);
+	g_return_val_if_fail (ctk_text_iter_get_buffer (iter) == seq->priv->buffer, FALSE);
 
-	mark = gtk_text_buffer_create_mark (seq->priv->buffer,
+	mark = ctk_text_buffer_create_mark (seq->priv->buffer,
 					    NULL,
 					    iter,
 					    TRUE);
@@ -428,7 +428,7 @@ _gtk_source_marks_sequence_backward_iter (GtkSourceMarksSequence *seq,
 				      (GCompareDataFunc)compare_marks,
 				      NULL);
 
-	gtk_text_buffer_delete_mark (seq->priv->buffer, mark);
+	ctk_text_buffer_delete_mark (seq->priv->buffer, mark);
 
 	if (g_sequence_iter_is_end (seq_iter))
 	{
@@ -448,9 +448,9 @@ _gtk_source_marks_sequence_backward_iter (GtkSourceMarksSequence *seq,
 
 		cur_mark = g_sequence_get (seq_iter);
 
-		gtk_text_buffer_get_iter_at_mark (seq->priv->buffer, &cur_iter, cur_mark);
+		ctk_text_buffer_get_iter_at_mark (seq->priv->buffer, &cur_iter, cur_mark);
 
-		if (gtk_text_iter_compare (&cur_iter, iter) < 0)
+		if (ctk_text_iter_compare (&cur_iter, iter) < 0)
 		{
 			*iter = cur_iter;
 			return TRUE;
@@ -468,7 +468,7 @@ _gtk_source_marks_sequence_backward_iter (GtkSourceMarksSequence *seq,
 }
 
 GSList *
-_gtk_source_marks_sequence_get_marks_in_range (GtkSourceMarksSequence *seq,
+_ctk_source_marks_sequence_get_marks_in_range (GtkSourceMarksSequence *seq,
 					       const GtkTextIter      *iter1,
 					       const GtkTextIter      *iter2)
 {
@@ -482,15 +482,15 @@ _gtk_source_marks_sequence_get_marks_in_range (GtkSourceMarksSequence *seq,
 	g_return_val_if_fail (GTK_SOURCE_IS_MARKS_SEQUENCE (seq), NULL);
 	g_return_val_if_fail (iter1 != NULL, NULL);
 	g_return_val_if_fail (iter2 != NULL, NULL);
-	g_return_val_if_fail (gtk_text_iter_get_buffer (iter1) == seq->priv->buffer, NULL);
-	g_return_val_if_fail (gtk_text_iter_get_buffer (iter2) == seq->priv->buffer, NULL);
+	g_return_val_if_fail (ctk_text_iter_get_buffer (iter1) == seq->priv->buffer, NULL);
+	g_return_val_if_fail (ctk_text_iter_get_buffer (iter2) == seq->priv->buffer, NULL);
 
 	start = *iter1;
 	end = *iter2;
 
-	gtk_text_iter_order (&start, &end);
+	ctk_text_iter_order (&start, &end);
 
-	mark_start = gtk_text_buffer_create_mark (seq->priv->buffer,
+	mark_start = ctk_text_buffer_create_mark (seq->priv->buffer,
 						  NULL,
 						  &start,
 						  TRUE);
@@ -500,7 +500,7 @@ _gtk_source_marks_sequence_get_marks_in_range (GtkSourceMarksSequence *seq,
 				      (GCompareDataFunc)compare_marks,
 				      NULL);
 
-	gtk_text_buffer_delete_mark (seq->priv->buffer, mark_start);
+	ctk_text_buffer_delete_mark (seq->priv->buffer, mark_start);
 
 	if (g_sequence_iter_is_end (seq_iter))
 	{
@@ -521,9 +521,9 @@ _gtk_source_marks_sequence_get_marks_in_range (GtkSourceMarksSequence *seq,
 		GtkTextIter cur_iter;
 
 		cur_mark = g_sequence_get (seq_iter);
-		gtk_text_buffer_get_iter_at_mark (seq->priv->buffer, &cur_iter, cur_mark);
+		ctk_text_buffer_get_iter_at_mark (seq->priv->buffer, &cur_iter, cur_mark);
 
-		if (gtk_text_iter_compare (&cur_iter, &start) < 0)
+		if (ctk_text_iter_compare (&cur_iter, &start) < 0)
 		{
 			break;
 		}
@@ -554,9 +554,9 @@ _gtk_source_marks_sequence_get_marks_in_range (GtkSourceMarksSequence *seq,
 		GtkTextIter cur_iter;
 
 		cur_mark = g_sequence_get (seq_iter);
-		gtk_text_buffer_get_iter_at_mark (seq->priv->buffer, &cur_iter, cur_mark);
+		ctk_text_buffer_get_iter_at_mark (seq->priv->buffer, &cur_iter, cur_mark);
 
-		if (gtk_text_iter_compare (&end, &cur_iter) < 0)
+		if (ctk_text_iter_compare (&end, &cur_iter) < 0)
 		{
 			break;
 		}
@@ -568,8 +568,8 @@ _gtk_source_marks_sequence_get_marks_in_range (GtkSourceMarksSequence *seq,
 }
 
 GSList *
-_gtk_source_marks_sequence_get_marks_at_iter (GtkSourceMarksSequence *seq,
+_ctk_source_marks_sequence_get_marks_at_iter (GtkSourceMarksSequence *seq,
 					      const GtkTextIter      *iter)
 {
-	return _gtk_source_marks_sequence_get_marks_in_range (seq, iter, iter);
+	return _ctk_source_marks_sequence_get_marks_in_range (seq, iter, iter);
 }

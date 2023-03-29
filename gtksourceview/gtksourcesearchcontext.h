@@ -22,15 +22,15 @@
 #define GTK_SOURCE_SEARCH_CONTEXT_H
 
 #if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
-#error "Only <gtksourceview/gtksource.h> can be included directly."
+#error "Only <ctksourceview/ctksource.h> can be included directly."
 #endif
 
-#include <gtk/gtk.h>
-#include <gtksourceview/gtksourcetypes.h>
+#include <ctk/ctk.h>
+#include <ctksourceview/ctksourcetypes.h>
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_SEARCH_CONTEXT             (gtk_source_search_context_get_type ())
+#define GTK_SOURCE_TYPE_SEARCH_CONTEXT             (ctk_source_search_context_get_type ())
 #define GTK_SOURCE_SEARCH_CONTEXT(obj)             (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_SEARCH_CONTEXT, GtkSourceSearchContext))
 #define GTK_SOURCE_SEARCH_CONTEXT_CLASS(klass)     (G_TYPE_CHECK_CLASS_CAST ((klass), GTK_SOURCE_TYPE_SEARCH_CONTEXT, GtkSourceSearchContextClass))
 #define GTK_SOURCE_IS_SEARCH_CONTEXT(obj)          (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_SOURCE_TYPE_SEARCH_CONTEXT))
@@ -55,59 +55,59 @@ struct _GtkSourceSearchContextClass
 };
 
 GTK_SOURCE_AVAILABLE_IN_3_10
-GType			 gtk_source_search_context_get_type			(void) G_GNUC_CONST;
+GType			 ctk_source_search_context_get_type			(void) G_GNUC_CONST;
 
 GTK_SOURCE_AVAILABLE_IN_3_10
-GtkSourceSearchContext	*gtk_source_search_context_new				(GtkSourceBuffer	 *buffer,
+GtkSourceSearchContext	*ctk_source_search_context_new				(GtkSourceBuffer	 *buffer,
 										 GtkSourceSearchSettings *settings);
 
 GTK_SOURCE_AVAILABLE_IN_3_10
-GtkSourceBuffer		*gtk_source_search_context_get_buffer			(GtkSourceSearchContext  *search);
+GtkSourceBuffer		*ctk_source_search_context_get_buffer			(GtkSourceSearchContext  *search);
 
 GTK_SOURCE_AVAILABLE_IN_3_10
-GtkSourceSearchSettings	*gtk_source_search_context_get_settings			(GtkSourceSearchContext	 *search);
+GtkSourceSearchSettings	*ctk_source_search_context_get_settings			(GtkSourceSearchContext	 *search);
 
 GTK_SOURCE_AVAILABLE_IN_3_10
-gboolean		 gtk_source_search_context_get_highlight		(GtkSourceSearchContext  *search);
+gboolean		 ctk_source_search_context_get_highlight		(GtkSourceSearchContext  *search);
 
 GTK_SOURCE_AVAILABLE_IN_3_10
-void			 gtk_source_search_context_set_highlight		(GtkSourceSearchContext  *search,
+void			 ctk_source_search_context_set_highlight		(GtkSourceSearchContext  *search,
 										 gboolean                 highlight);
 
 GTK_SOURCE_AVAILABLE_IN_3_16
-GtkSourceStyle		*gtk_source_search_context_get_match_style		(GtkSourceSearchContext  *search);
+GtkSourceStyle		*ctk_source_search_context_get_match_style		(GtkSourceSearchContext  *search);
 
 GTK_SOURCE_AVAILABLE_IN_3_16
-void			 gtk_source_search_context_set_match_style		(GtkSourceSearchContext  *search,
+void			 ctk_source_search_context_set_match_style		(GtkSourceSearchContext  *search,
 										 GtkSourceStyle          *match_style);
 
 GTK_SOURCE_AVAILABLE_IN_3_10
-GError			*gtk_source_search_context_get_regex_error		(GtkSourceSearchContext	 *search);
+GError			*ctk_source_search_context_get_regex_error		(GtkSourceSearchContext	 *search);
 
 GTK_SOURCE_AVAILABLE_IN_3_10
-gint			 gtk_source_search_context_get_occurrences_count	(GtkSourceSearchContext	 *search);
+gint			 ctk_source_search_context_get_occurrences_count	(GtkSourceSearchContext	 *search);
 
 GTK_SOURCE_AVAILABLE_IN_3_10
-gint			 gtk_source_search_context_get_occurrence_position	(GtkSourceSearchContext	 *search,
+gint			 ctk_source_search_context_get_occurrence_position	(GtkSourceSearchContext	 *search,
 										 const GtkTextIter	 *match_start,
 										 const GtkTextIter	 *match_end);
 
 GTK_SOURCE_AVAILABLE_IN_4_0
-gboolean		 gtk_source_search_context_forward			(GtkSourceSearchContext *search,
+gboolean		 ctk_source_search_context_forward			(GtkSourceSearchContext *search,
 										 const GtkTextIter      *iter,
 										 GtkTextIter            *match_start,
 										 GtkTextIter            *match_end,
 										 gboolean               *has_wrapped_around);
 
 GTK_SOURCE_AVAILABLE_IN_3_10
-void			 gtk_source_search_context_forward_async		(GtkSourceSearchContext	 *search,
+void			 ctk_source_search_context_forward_async		(GtkSourceSearchContext	 *search,
 										 const GtkTextIter	 *iter,
 										 GCancellable		 *cancellable,
 										 GAsyncReadyCallback	  callback,
 										 gpointer		  user_data);
 
 GTK_SOURCE_AVAILABLE_IN_4_0
-gboolean		 gtk_source_search_context_forward_finish		(GtkSourceSearchContext  *search,
+gboolean		 ctk_source_search_context_forward_finish		(GtkSourceSearchContext  *search,
 										 GAsyncResult            *result,
 										 GtkTextIter             *match_start,
 										 GtkTextIter             *match_end,
@@ -115,21 +115,21 @@ gboolean		 gtk_source_search_context_forward_finish		(GtkSourceSearchContext  *s
 										 GError                 **error);
 
 GTK_SOURCE_AVAILABLE_IN_4_0
-gboolean		 gtk_source_search_context_backward			(GtkSourceSearchContext *search,
+gboolean		 ctk_source_search_context_backward			(GtkSourceSearchContext *search,
 										 const GtkTextIter      *iter,
 										 GtkTextIter            *match_start,
 										 GtkTextIter            *match_end,
 										 gboolean               *has_wrapped_around);
 
 GTK_SOURCE_AVAILABLE_IN_3_10
-void			 gtk_source_search_context_backward_async		(GtkSourceSearchContext	 *search,
+void			 ctk_source_search_context_backward_async		(GtkSourceSearchContext	 *search,
 										 const GtkTextIter	 *iter,
 										 GCancellable		 *cancellable,
 										 GAsyncReadyCallback	  callback,
 										 gpointer		  user_data);
 
 GTK_SOURCE_AVAILABLE_IN_4_0
-gboolean		 gtk_source_search_context_backward_finish		(GtkSourceSearchContext  *search,
+gboolean		 ctk_source_search_context_backward_finish		(GtkSourceSearchContext  *search,
 										 GAsyncResult            *result,
 										 GtkTextIter             *match_start,
 										 GtkTextIter             *match_end,
@@ -137,7 +137,7 @@ gboolean		 gtk_source_search_context_backward_finish		(GtkSourceSearchContext  *
 										 GError                 **error);
 
 GTK_SOURCE_AVAILABLE_IN_4_0
-gboolean		 gtk_source_search_context_replace			(GtkSourceSearchContext  *search,
+gboolean		 ctk_source_search_context_replace			(GtkSourceSearchContext  *search,
 										 GtkTextIter             *match_start,
 										 GtkTextIter             *match_end,
 										 const gchar             *replace,
@@ -145,13 +145,13 @@ gboolean		 gtk_source_search_context_replace			(GtkSourceSearchContext  *search,
 										 GError                 **error);
 
 GTK_SOURCE_AVAILABLE_IN_3_10
-guint			 gtk_source_search_context_replace_all			(GtkSourceSearchContext	 *search,
+guint			 ctk_source_search_context_replace_all			(GtkSourceSearchContext	 *search,
 										 const gchar		 *replace,
 										 gint			  replace_length,
 										 GError			**error);
 
 G_GNUC_INTERNAL
-void			 _gtk_source_search_context_update_highlight		(GtkSourceSearchContext	 *search,
+void			 _ctk_source_search_context_update_highlight		(GtkSourceSearchContext	 *search,
 										 const GtkTextIter	 *start,
 										 const GtkTextIter	 *end,
 										 gboolean		  synchronous);

@@ -18,8 +18,8 @@
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <gtksourceview/gtksource.h>
-#include "gtksourceview/gtksourceencoding-private.h"
+#include <ctksourceview/ctksource.h>
+#include "ctksourceview/ctksourceencoding-private.h"
 
 static void
 test_remove_duplicates (void)
@@ -28,8 +28,8 @@ test_remove_duplicates (void)
 	const GtkSourceEncoding *utf8;
 	const GtkSourceEncoding *iso;
 
-	utf8 = gtk_source_encoding_get_utf8 ();
-	iso = gtk_source_encoding_get_from_charset ("ISO-8859-15");
+	utf8 = ctk_source_encoding_get_utf8 ();
+	iso = ctk_source_encoding_get_from_charset ("ISO-8859-15");
 
 	/* Before: [UTF-8, ISO-8859-15, UTF-8] */
 	list = g_slist_prepend (list, (gpointer) utf8);
@@ -37,7 +37,7 @@ test_remove_duplicates (void)
 	list = g_slist_prepend (list, (gpointer) utf8);
 
 	/* After: [UTF-8, ISO-8859-15] */
-	list = _gtk_source_encoding_remove_duplicates (list, GTK_SOURCE_ENCODING_DUPLICATES_KEEP_FIRST);
+	list = _ctk_source_encoding_remove_duplicates (list, GTK_SOURCE_ENCODING_DUPLICATES_KEEP_FIRST);
 
 	g_assert_cmpint (2, ==, g_slist_length (list));
 	g_assert_true (list->data == utf8);
@@ -47,7 +47,7 @@ test_remove_duplicates (void)
 	list = g_slist_append (list, (gpointer) utf8);
 
 	/* After: [ISO-8859-15, UTF-8] */
-	list = _gtk_source_encoding_remove_duplicates (list, GTK_SOURCE_ENCODING_DUPLICATES_KEEP_LAST);
+	list = _ctk_source_encoding_remove_duplicates (list, GTK_SOURCE_ENCODING_DUPLICATES_KEEP_LAST);
 
 	g_assert_cmpint (2, ==, g_slist_length (list));
 	g_assert_true (list->data == iso);
@@ -59,7 +59,7 @@ test_remove_duplicates (void)
 int
 main (int argc, char **argv)
 {
-	gtk_test_init (&argc, &argv);
+	ctk_test_init (&argc, &argv);
 
 	g_test_add_func ("/Encoding/remove_duplicates", test_remove_duplicates);
 

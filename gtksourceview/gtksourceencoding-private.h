@@ -22,7 +22,7 @@
 #define GTK_SOURCE_ENCODING_PRIVATE_H
 
 #include <glib.h>
-#include "gtksourcetypes-private.h"
+#include "ctksourcetypes-private.h"
 
 G_BEGIN_DECLS
 
@@ -32,7 +32,7 @@ G_BEGIN_DECLS
  * @GTK_SOURCE_ENCODING_DUPLICATES_KEEP_LAST: Keep the last occurrence.
  *
  * Specifies which encoding occurrence to keep when removing duplicated
- * encodings in a list with gtk_source_encoding_remove_duplicates().
+ * encodings in a list with ctk_source_encoding_remove_duplicates().
  *
  * Since: 3.14
  */
@@ -43,7 +43,7 @@ typedef enum _GtkSourceEncodingDuplicates
 } GtkSourceEncodingDuplicates;
 
 GTK_SOURCE_INTERNAL
-GSList *		_gtk_source_encoding_remove_duplicates		(GSList                      *encodings,
+GSList *		_ctk_source_encoding_remove_duplicates		(GSList                      *encodings,
 									 GtkSourceEncodingDuplicates  removal_type);
 
 G_END_DECLS

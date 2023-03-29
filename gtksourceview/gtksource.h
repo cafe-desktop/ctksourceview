@@ -1,12 +1,12 @@
 /*
- * This file is part of gtksourceview
+ * This file is part of ctksourceview
  *
- * gtksourceview is free software; you can redistribute it and/or
+ * ctksourceview is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * gtksourceview is distributed in the hope that it will be useful,
+ * ctksourceview is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -20,47 +20,47 @@
 
 #define GTK_SOURCE_H_INSIDE
 
-#include <gtksourceview/completion-providers/words/gtksourcecompletionwords.h>
-#include <gtksourceview/gtksourcetypes.h>
-#include <gtksourceview/gtksourcebuffer.h>
-#include <gtksourceview/gtksourcecompletioncontext.h>
-#include <gtksourceview/gtksourcecompletion.h>
-#include <gtksourceview/gtksourcecompletioninfo.h>
-#include <gtksourceview/gtksourcecompletionitem.h>
-#include <gtksourceview/gtksourcecompletionproposal.h>
-#include <gtksourceview/gtksourcecompletionprovider.h>
-#include <gtksourceview/gtksourceencoding.h>
-#include <gtksourceview/gtksourcefile.h>
-#include <gtksourceview/gtksourcefileloader.h>
-#include <gtksourceview/gtksourcefilesaver.h>
-#include <gtksourceview/gtksourcegutter.h>
-#include <gtksourceview/gtksourcegutterrenderer.h>
-#include <gtksourceview/gtksourcegutterrenderertext.h>
-#include <gtksourceview/gtksourcegutterrendererpixbuf.h>
-#include <gtksourceview/gtksourceinit.h>
-#include <gtksourceview/gtksourcelanguage.h>
-#include <gtksourceview/gtksourcelanguagemanager.h>
-#include <gtksourceview/gtksourcemap.h>
-#include <gtksourceview/gtksourcemark.h>
-#include <gtksourceview/gtksourcemarkattributes.h>
-#include <gtksourceview/gtksourceprintcompositor.h>
-#include <gtksourceview/gtksourceregion.h>
-#include <gtksourceview/gtksourcesearchcontext.h>
-#include <gtksourceview/gtksourcesearchsettings.h>
-#include <gtksourceview/gtksourcespacedrawer.h>
-#include <gtksourceview/gtksourcestyle.h>
-#include <gtksourceview/gtksourcestylescheme.h>
-#include <gtksourceview/gtksourcestyleschemechooser.h>
-#include <gtksourceview/gtksourcestyleschemechooserbutton.h>
-#include <gtksourceview/gtksourcestyleschemechooserwidget.h>
-#include <gtksourceview/gtksourcestyleschememanager.h>
-#include <gtksourceview/gtksourcetag.h>
-#include <gtksourceview/gtksourceundomanager.h>
-#include <gtksourceview/gtksourceutils.h>
-#include <gtksourceview/gtksourceversion.h>
-#include <gtksourceview/gtksourceview.h>
-#include <gtksourceview/gtksource-enumtypes.h>
-#include <gtksourceview/gtksourceautocleanups.h>
+#include <ctksourceview/completion-providers/words/ctksourcecompletionwords.h>
+#include <ctksourceview/ctksourcetypes.h>
+#include <ctksourceview/ctksourcebuffer.h>
+#include <ctksourceview/ctksourcecompletioncontext.h>
+#include <ctksourceview/ctksourcecompletion.h>
+#include <ctksourceview/ctksourcecompletioninfo.h>
+#include <ctksourceview/ctksourcecompletionitem.h>
+#include <ctksourceview/ctksourcecompletionproposal.h>
+#include <ctksourceview/ctksourcecompletionprovider.h>
+#include <ctksourceview/ctksourceencoding.h>
+#include <ctksourceview/ctksourcefile.h>
+#include <ctksourceview/ctksourcefileloader.h>
+#include <ctksourceview/ctksourcefilesaver.h>
+#include <ctksourceview/ctksourcegutter.h>
+#include <ctksourceview/ctksourcegutterrenderer.h>
+#include <ctksourceview/ctksourcegutterrenderertext.h>
+#include <ctksourceview/ctksourcegutterrendererpixbuf.h>
+#include <ctksourceview/ctksourceinit.h>
+#include <ctksourceview/ctksourcelanguage.h>
+#include <ctksourceview/ctksourcelanguagemanager.h>
+#include <ctksourceview/ctksourcemap.h>
+#include <ctksourceview/ctksourcemark.h>
+#include <ctksourceview/ctksourcemarkattributes.h>
+#include <ctksourceview/ctksourceprintcompositor.h>
+#include <ctksourceview/ctksourceregion.h>
+#include <ctksourceview/ctksourcesearchcontext.h>
+#include <ctksourceview/ctksourcesearchsettings.h>
+#include <ctksourceview/ctksourcespacedrawer.h>
+#include <ctksourceview/ctksourcestyle.h>
+#include <ctksourceview/ctksourcestylescheme.h>
+#include <ctksourceview/ctksourcestyleschemechooser.h>
+#include <ctksourceview/ctksourcestyleschemechooserbutton.h>
+#include <ctksourceview/ctksourcestyleschemechooserwidget.h>
+#include <ctksourceview/ctksourcestyleschememanager.h>
+#include <ctksourceview/ctksourcetag.h>
+#include <ctksourceview/ctksourceundomanager.h>
+#include <ctksourceview/ctksourceutils.h>
+#include <ctksourceview/ctksourceversion.h>
+#include <ctksourceview/ctksourceview.h>
+#include <ctksourceview/ctksource-enumtypes.h>
+#include <ctksourceview/ctksourceautocleanups.h>
 
 #undef GTK_SOURCE_H_INSIDE
 

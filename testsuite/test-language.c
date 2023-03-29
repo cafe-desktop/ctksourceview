@@ -23,8 +23,8 @@
 #endif
 
 #include <stdlib.h>
-#include <gtk/gtk.h>
-#include <gtksourceview/gtksource.h>
+#include <ctk/ctk.h>
+#include <ctksourceview/ctksource.h>
 
 typedef struct _TestFixture TestFixture;
 
@@ -44,7 +44,7 @@ test_fixture_setup (TestFixture   *fixture,
 
 	dir = g_build_filename (TOP_SRCDIR, "data", "language-specs", NULL);
 
-	fixture->manager = gtk_source_language_manager_get_default ();
+	fixture->manager = ctk_source_language_manager_get_default ();
 
 	if (g_file_test (dir, G_FILE_TEST_IS_DIR))
 	{
@@ -59,7 +59,7 @@ test_fixture_setup (TestFixture   *fixture,
 
 		g_free (dir);
 
-		current = gtk_source_language_manager_get_search_path (fixture->manager);
+		current = ctk_source_language_manager_get_search_path (fixture->manager);
 		lang_dirs = g_new0 (gchar *, g_strv_length ((gchar **)current) + 2);
 		for (i = 0; current[i] != NULL; i++)
 		{
@@ -68,7 +68,7 @@ test_fixture_setup (TestFixture   *fixture,
 		lang_dirs[i] = g_test_build_filename (G_TEST_DIST, "language-specs", NULL);
 	}
 
-	gtk_source_language_manager_set_search_path (fixture->manager, lang_dirs);
+	ctk_source_language_manager_set_search_path (fixture->manager, lang_dirs);
 	g_strfreev (lang_dirs);
 }
 
@@ -117,27 +117,27 @@ check_language (GtkSourceLanguage  *language,
 	gchar **glob;
 	gchar **styles;
 
-	g_assert_cmpstr (gtk_source_language_get_id (language), ==, id);
-	g_assert_cmpstr (gtk_source_language_get_name (language), ==, expected_name);
-	g_assert_cmpstr (gtk_source_language_get_section (language), ==, expected_section);
-	g_assert_cmpint (gtk_source_language_get_hidden (language), ==, expected_hidden);
-	g_assert_cmpstr (gtk_source_language_get_metadata (language, "extra-meta"), ==, expected_extra_meta);
+	g_assert_cmpstr (ctk_source_language_get_id (language), ==, id);
+	g_assert_cmpstr (ctk_source_language_get_name (language), ==, expected_name);
+	g_assert_cmpstr (ctk_source_language_get_section (language), ==, expected_section);
+	g_assert_cmpint (ctk_source_language_get_hidden (language), ==, expected_hidden);
+	g_assert_cmpstr (ctk_source_language_get_metadata (language, "extra-meta"), ==, expected_extra_meta);
 
-	mime = gtk_source_language_get_mime_types (language);
+	mime = ctk_source_language_get_mime_types (language);
 	compare_strv_unordered ((const gchar **) mime, expected_mime);
 	g_strfreev (mime);
 
-	glob = gtk_source_language_get_globs (language);
+	glob = ctk_source_language_get_globs (language);
 	compare_strv_unordered ((const gchar **) glob, expected_glob);
 	g_strfreev (glob);
 
-	styles = gtk_source_language_get_style_ids (language);
+	styles = ctk_source_language_get_style_ids (language);
 	compare_strv_unordered ((const gchar **) styles, expected_styles);
 	g_strfreev (styles);
 
 	if (expected_style_name != NULL)
 	{
-		g_assert_cmpstr (gtk_source_language_get_style_name (language, style_id), ==, expected_style_name);
+		g_assert_cmpstr (ctk_source_language_get_style_name (language, style_id), ==, expected_style_name);
 	}
 }
 
@@ -150,17 +150,17 @@ test_language (TestFixture   *fixture,
 	const gchar *glob[] = { "*.test", "*.tst", NULL};
 	const gchar *styles[] = { "test-full:keyword", "test-full:string", NULL};
 
-	language = gtk_source_language_manager_get_language (fixture->manager, "test-full");
+	language = ctk_source_language_manager_get_language (fixture->manager, "test-full");
 	check_language (language, "test-full", "Test Full", "Sources", FALSE, "extra", mime, glob, styles, "test-full:string", "String");
 
-	language = gtk_source_language_manager_get_language (fixture->manager, "test-empty");
+	language = ctk_source_language_manager_get_language (fixture->manager, "test-empty");
 	check_language (language, "test-empty", "Test Empty", "Others", TRUE, NULL, NULL, NULL, NULL, NULL, NULL);
 }
 
 int
 main (int argc, char** argv)
 {
-	gtk_test_init (&argc, &argv);
+	ctk_test_init (&argc, &argv);
 
 	g_test_add ("/Language/language-properties", TestFixture, NULL, test_fixture_setup, test_language, test_fixture_teardown);
 

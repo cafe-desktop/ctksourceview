@@ -25,9 +25,9 @@
 #include <config.h>
 #endif
 
-#include "gtksourceundomanagerdefault.h"
+#include "ctksourceundomanagerdefault.h"
 #include <string.h>
-#include "gtksourceundomanager.h"
+#include "ctksourceundomanager.h"
 
 /* unlimited by default */
 #define DEFAULT_MAX_UNDO_LEVELS -1
@@ -95,8 +95,8 @@ struct _ActionGroup
 	/* One or several Action's that forms a single undo or redo step. The
 	 * most recent action is at the end of the list.
 	 * In fact, actions can be grouped with
-	 * gtk_text_buffer_begin_user_action() and
-	 * gtk_text_buffer_end_user_action().
+	 * ctk_text_buffer_begin_user_action() and
+	 * ctk_text_buffer_end_user_action().
 	 */
 	GQueue *actions;
 
@@ -139,7 +139,7 @@ struct _GtkSourceUndoManagerDefaultPrivate
 	ActionGroup *new_action_group;
 
 	/* The number of nested calls to
-	 * gtk_source_buffer_begin_not_undoable_action().
+	 * ctk_source_buffer_begin_not_undoable_action().
 	 */
 	guint running_not_undoable_actions;
 
@@ -147,7 +147,7 @@ struct _GtkSourceUndoManagerDefaultPrivate
 	gint max_undo_levels;
 
 	/* The location in 'action_groups' where the buffer is saved. I.e. when
-	 * gtk_text_buffer_set_modified (buffer, FALSE) was called for the last
+	 * ctk_text_buffer_set_modified (buffer, FALSE) was called for the last
 	 * time.
 	 * NULL is for the end of 'action_groups'.
 	 * 'has_saved_location' is FALSE if the history doesn't contain a saved
@@ -180,17 +180,17 @@ enum
 	PROP_MAX_UNDO_LEVELS
 };
 
-static void gtk_source_undo_manager_iface_init (GtkSourceUndoManagerIface *iface);
+static void ctk_source_undo_manager_iface_init (GtkSourceUndoManagerIface *iface);
 
 static gboolean action_merge (Action *action,
 			      Action *new_action);
 
 G_DEFINE_TYPE_WITH_CODE (GtkSourceUndoManagerDefault,
-			 gtk_source_undo_manager_default,
+			 ctk_source_undo_manager_default,
 			 G_TYPE_OBJECT,
 			 G_ADD_PRIVATE (GtkSourceUndoManagerDefault)
                          G_IMPLEMENT_INTERFACE (GTK_SOURCE_TYPE_UNDO_MANAGER,
-                                                gtk_source_undo_manager_iface_init))
+                                                ctk_source_undo_manager_iface_init))
 
 /* Utility functions */
 
@@ -264,13 +264,13 @@ update_can_undo_can_redo (GtkSourceUndoManagerDefault *manager)
 	if (manager->priv->can_undo != can_undo)
 	{
 		manager->priv->can_undo = can_undo;
-		gtk_source_undo_manager_can_undo_changed (GTK_SOURCE_UNDO_MANAGER (manager));
+		ctk_source_undo_manager_can_undo_changed (GTK_SOURCE_UNDO_MANAGER (manager));
 	}
 
 	if (manager->priv->can_redo != can_redo)
 	{
 		manager->priv->can_redo = can_redo;
-		gtk_source_undo_manager_can_redo_changed (GTK_SOURCE_UNDO_MANAGER (manager));
+		ctk_source_undo_manager_can_redo_changed (GTK_SOURCE_UNDO_MANAGER (manager));
 	}
 }
 
@@ -558,12 +558,12 @@ delete_text (GtkTextBuffer *buffer,
 	GtkTextIter start_iter;
 	GtkTextIter end_iter;
 
-	gtk_text_buffer_get_iter_at_offset (buffer, &start_iter, start);
-	gtk_text_buffer_get_iter_at_offset (buffer, &end_iter, end);
+	ctk_text_buffer_get_iter_at_offset (buffer, &start_iter, start);
+	ctk_text_buffer_get_iter_at_offset (buffer, &end_iter, end);
 
-	gtk_text_buffer_begin_user_action (buffer);
-	gtk_text_buffer_delete (buffer, &start_iter, &end_iter);
-	gtk_text_buffer_end_user_action (buffer);
+	ctk_text_buffer_begin_user_action (buffer);
+	ctk_text_buffer_delete (buffer, &start_iter, &end_iter);
+	ctk_text_buffer_end_user_action (buffer);
 }
 
 static void
@@ -573,11 +573,11 @@ insert_text (GtkTextBuffer *buffer,
 {
 	GtkTextIter iter;
 
-	gtk_text_buffer_get_iter_at_offset (buffer, &iter, offset);
+	ctk_text_buffer_get_iter_at_offset (buffer, &iter, offset);
 
-	gtk_text_buffer_begin_user_action (buffer);
-	gtk_text_buffer_insert (buffer, &iter, text, -1);
-	gtk_text_buffer_end_user_action (buffer);
+	ctk_text_buffer_begin_user_action (buffer);
+	ctk_text_buffer_insert (buffer, &iter, text, -1);
+	ctk_text_buffer_end_user_action (buffer);
 }
 
 static gunichar
@@ -697,14 +697,14 @@ action_insert_restore_selection (GtkTextBuffer *buffer,
 
 	if (undo)
 	{
-		gtk_text_buffer_get_iter_at_offset (buffer, &iter, action->start);
+		ctk_text_buffer_get_iter_at_offset (buffer, &iter, action->start);
 	}
 	else /* redo */
 	{
-		gtk_text_buffer_get_iter_at_offset (buffer, &iter, action->end);
+		ctk_text_buffer_get_iter_at_offset (buffer, &iter, action->end);
 	}
 
-	gtk_text_buffer_place_cursor (buffer, &iter);
+	ctk_text_buffer_place_cursor (buffer, &iter);
 }
 
 /* ActionDelete implementation */
@@ -909,31 +909,31 @@ action_delete_restore_selection (GtkTextBuffer *buffer,
 
 			g_assert_cmpint (action->selection_bound, ==, -1);
 
-			gtk_text_buffer_get_iter_at_offset (buffer, &iter, action->end);
-			gtk_text_buffer_place_cursor (buffer, &iter);
+			ctk_text_buffer_get_iter_at_offset (buffer, &iter, action->end);
+			ctk_text_buffer_place_cursor (buffer, &iter);
 		}
 		else
 		{
 			GtkTextIter insert_iter;
 			GtkTextIter bound_iter;
 
-			gtk_text_buffer_get_iter_at_offset (buffer,
+			ctk_text_buffer_get_iter_at_offset (buffer,
 							    &insert_iter,
 							    action->selection_insert);
 
-			gtk_text_buffer_get_iter_at_offset (buffer,
+			ctk_text_buffer_get_iter_at_offset (buffer,
 							    &bound_iter,
 							    action->selection_bound);
 
-			gtk_text_buffer_select_range (buffer, &insert_iter, &bound_iter);
+			ctk_text_buffer_select_range (buffer, &insert_iter, &bound_iter);
 		}
 	}
 	else /* redo */
 	{
 		GtkTextIter iter;
 
-		gtk_text_buffer_get_iter_at_offset (buffer, &iter, action->start);
-		gtk_text_buffer_place_cursor (buffer, &iter);
+		ctk_text_buffer_get_iter_at_offset (buffer, &iter, action->start);
+		ctk_text_buffer_place_cursor (buffer, &iter);
 	}
 }
 
@@ -1054,14 +1054,14 @@ set_selection_bounds (GtkTextBuffer *buffer,
 	GtkTextIter insert_iter;
 	GtkTextIter bound_iter;
 
-	insert_mark = gtk_text_buffer_get_insert (buffer);
-	bound_mark = gtk_text_buffer_get_selection_bound (buffer);
+	insert_mark = ctk_text_buffer_get_insert (buffer);
+	bound_mark = ctk_text_buffer_get_selection_bound (buffer);
 
-	gtk_text_buffer_get_iter_at_mark (buffer, &insert_iter, insert_mark);
-	gtk_text_buffer_get_iter_at_mark (buffer, &bound_iter, bound_mark);
+	ctk_text_buffer_get_iter_at_mark (buffer, &insert_iter, insert_mark);
+	ctk_text_buffer_get_iter_at_mark (buffer, &bound_iter, bound_mark);
 
-	action->selection_insert = gtk_text_iter_get_offset (&insert_iter);
-	action->selection_bound = gtk_text_iter_get_offset (&bound_iter);
+	action->selection_insert = ctk_text_iter_get_offset (&insert_iter);
+	action->selection_bound = ctk_text_iter_get_offset (&bound_iter);
 }
 
 static void
@@ -1074,7 +1074,7 @@ insert_text_cb (GtkTextBuffer               *buffer,
 	Action *action = action_new ();
 
 	action->type = ACTION_TYPE_INSERT;
-	action->start = gtk_text_iter_get_offset (location);
+	action->start = ctk_text_iter_get_offset (location);
 	action->text = g_strndup (text, length);
 	action->end = action->start + g_utf8_strlen (action->text, -1);
 
@@ -1105,9 +1105,9 @@ delete_range_cb (GtkTextBuffer               *buffer,
 	Action *action = action_new ();
 
 	action->type = ACTION_TYPE_DELETE;
-	action->start = gtk_text_iter_get_offset (start);
-	action->end = gtk_text_iter_get_offset (end);
-	action->text = gtk_text_buffer_get_slice (buffer, start, end, TRUE);
+	action->start = ctk_text_iter_get_offset (start);
+	action->end = ctk_text_iter_get_offset (end);
+	action->text = ctk_text_buffer_get_slice (buffer, start, end, TRUE);
 
 	g_assert_cmpint (action->start, <, action->end);
 
@@ -1147,7 +1147,7 @@ static void
 modified_changed_cb (GtkTextBuffer               *buffer,
 		     GtkSourceUndoManagerDefault *manager)
 {
-	if (gtk_text_buffer_get_modified (buffer))
+	if (ctk_text_buffer_get_modified (buffer))
 	{
 		/* It can happen for example when the file on disk has been
 		 * deleted.
@@ -1272,7 +1272,7 @@ set_buffer (GtkSourceUndoManagerDefault *manager,
 /* GObject construction, destruction and properties */
 
 static void
-gtk_source_undo_manager_default_set_property (GObject      *object,
+ctk_source_undo_manager_default_set_property (GObject      *object,
                                               guint         prop_id,
                                               const GValue *value,
                                               GParamSpec   *pspec)
@@ -1286,7 +1286,7 @@ gtk_source_undo_manager_default_set_property (GObject      *object,
 			break;
 
 		case PROP_MAX_UNDO_LEVELS:
-			gtk_source_undo_manager_default_set_max_undo_levels (manager, g_value_get_int (value));
+			ctk_source_undo_manager_default_set_max_undo_levels (manager, g_value_get_int (value));
 			break;
 
 		default:
@@ -1296,7 +1296,7 @@ gtk_source_undo_manager_default_set_property (GObject      *object,
 }
 
 static void
-gtk_source_undo_manager_default_get_property (GObject    *object,
+ctk_source_undo_manager_default_get_property (GObject    *object,
                                               guint       prop_id,
                                               GValue     *value,
                                               GParamSpec *pspec)
@@ -1320,7 +1320,7 @@ gtk_source_undo_manager_default_get_property (GObject    *object,
 }
 
 static void
-gtk_source_undo_manager_default_dispose (GObject *object)
+ctk_source_undo_manager_default_dispose (GObject *object)
 {
 	GtkSourceUndoManagerDefault *manager = GTK_SOURCE_UNDO_MANAGER_DEFAULT (object);
 
@@ -1332,11 +1332,11 @@ gtk_source_undo_manager_default_dispose (GObject *object)
 		manager->priv->buffer = NULL;
 	}
 
-	G_OBJECT_CLASS (gtk_source_undo_manager_default_parent_class)->dispose (object);
+	G_OBJECT_CLASS (ctk_source_undo_manager_default_parent_class)->dispose (object);
 }
 
 static void
-gtk_source_undo_manager_default_finalize (GObject *object)
+ctk_source_undo_manager_default_finalize (GObject *object)
 {
 	GtkSourceUndoManagerDefault *manager = GTK_SOURCE_UNDO_MANAGER_DEFAULT (object);
 
@@ -1345,18 +1345,18 @@ gtk_source_undo_manager_default_finalize (GObject *object)
 
 	action_group_free (manager->priv->new_action_group);
 
-	G_OBJECT_CLASS (gtk_source_undo_manager_default_parent_class)->finalize (object);
+	G_OBJECT_CLASS (ctk_source_undo_manager_default_parent_class)->finalize (object);
 }
 
 static void
-gtk_source_undo_manager_default_class_init (GtkSourceUndoManagerDefaultClass *klass)
+ctk_source_undo_manager_default_class_init (GtkSourceUndoManagerDefaultClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-	object_class->set_property = gtk_source_undo_manager_default_set_property;
-	object_class->get_property = gtk_source_undo_manager_default_get_property;
-	object_class->dispose = gtk_source_undo_manager_default_dispose;
-	object_class->finalize = gtk_source_undo_manager_default_finalize;
+	object_class->set_property = ctk_source_undo_manager_default_set_property;
+	object_class->get_property = ctk_source_undo_manager_default_get_property;
+	object_class->dispose = ctk_source_undo_manager_default_dispose;
+	object_class->finalize = ctk_source_undo_manager_default_finalize;
 
 	g_object_class_install_property (object_class,
 	                                 PROP_BUFFER,
@@ -1381,9 +1381,9 @@ gtk_source_undo_manager_default_class_init (GtkSourceUndoManagerDefaultClass *kl
 }
 
 static void
-gtk_source_undo_manager_default_init (GtkSourceUndoManagerDefault *manager)
+ctk_source_undo_manager_default_init (GtkSourceUndoManagerDefault *manager)
 {
-	manager->priv = gtk_source_undo_manager_default_get_instance_private (manager);
+	manager->priv = ctk_source_undo_manager_default_get_instance_private (manager);
 
 	manager->priv->action_groups = g_queue_new ();
 	manager->priv->max_undo_levels = DEFAULT_MAX_UNDO_LEVELS;
@@ -1392,14 +1392,14 @@ gtk_source_undo_manager_default_init (GtkSourceUndoManagerDefault *manager)
 /* Interface implementation */
 
 static gboolean
-gtk_source_undo_manager_can_undo_impl (GtkSourceUndoManager *undo_manager)
+ctk_source_undo_manager_can_undo_impl (GtkSourceUndoManager *undo_manager)
 {
 	GtkSourceUndoManagerDefault *manager = GTK_SOURCE_UNDO_MANAGER_DEFAULT (undo_manager);
 	return manager->priv->can_undo;
 }
 
 static gboolean
-gtk_source_undo_manager_can_redo_impl (GtkSourceUndoManager *undo_manager)
+ctk_source_undo_manager_can_redo_impl (GtkSourceUndoManager *undo_manager)
 {
 	GtkSourceUndoManagerDefault *manager = GTK_SOURCE_UNDO_MANAGER_DEFAULT (undo_manager);
 	return manager->priv->can_redo;
@@ -1414,17 +1414,17 @@ restore_modified_state (GtkSourceUndoManagerDefault *manager,
 	{
 		if (old_location == manager->priv->saved_location)
 		{
-			gtk_text_buffer_set_modified (manager->priv->buffer, TRUE);
+			ctk_text_buffer_set_modified (manager->priv->buffer, TRUE);
 		}
 		else if (new_location == manager->priv->saved_location)
 		{
-			gtk_text_buffer_set_modified (manager->priv->buffer, FALSE);
+			ctk_text_buffer_set_modified (manager->priv->buffer, FALSE);
 		}
 	}
 }
 
 static void
-gtk_source_undo_manager_undo_impl (GtkSourceUndoManager *undo_manager)
+ctk_source_undo_manager_undo_impl (GtkSourceUndoManager *undo_manager)
 {
 	GtkSourceUndoManagerDefault *manager = GTK_SOURCE_UNDO_MANAGER_DEFAULT (undo_manager);
 	GList *old_location;
@@ -1474,7 +1474,7 @@ gtk_source_undo_manager_undo_impl (GtkSourceUndoManager *undo_manager)
 }
 
 static void
-gtk_source_undo_manager_redo_impl (GtkSourceUndoManager *undo_manager)
+ctk_source_undo_manager_redo_impl (GtkSourceUndoManager *undo_manager)
 {
 	GtkSourceUndoManagerDefault *manager = GTK_SOURCE_UNDO_MANAGER_DEFAULT (undo_manager);
 	GList *old_location;
@@ -1523,7 +1523,7 @@ gtk_source_undo_manager_redo_impl (GtkSourceUndoManager *undo_manager)
 }
 
 static void
-gtk_source_undo_manager_begin_not_undoable_action_impl (GtkSourceUndoManager *undo_manager)
+ctk_source_undo_manager_begin_not_undoable_action_impl (GtkSourceUndoManager *undo_manager)
 {
 	GtkSourceUndoManagerDefault *manager = GTK_SOURCE_UNDO_MANAGER_DEFAULT (undo_manager);
 	manager->priv->running_not_undoable_actions++;
@@ -1535,7 +1535,7 @@ gtk_source_undo_manager_begin_not_undoable_action_impl (GtkSourceUndoManager *un
 }
 
 static void
-gtk_source_undo_manager_end_not_undoable_action_impl (GtkSourceUndoManager *undo_manager)
+ctk_source_undo_manager_end_not_undoable_action_impl (GtkSourceUndoManager *undo_manager)
 {
 	GtkSourceUndoManagerDefault *manager = GTK_SOURCE_UNDO_MANAGER_DEFAULT (undo_manager);
 
@@ -1552,20 +1552,20 @@ gtk_source_undo_manager_end_not_undoable_action_impl (GtkSourceUndoManager *undo
 }
 
 static void
-gtk_source_undo_manager_iface_init (GtkSourceUndoManagerIface *iface)
+ctk_source_undo_manager_iface_init (GtkSourceUndoManagerIface *iface)
 {
-	iface->can_undo = gtk_source_undo_manager_can_undo_impl;
-	iface->can_redo = gtk_source_undo_manager_can_redo_impl;
-	iface->undo = gtk_source_undo_manager_undo_impl;
-	iface->redo = gtk_source_undo_manager_redo_impl;
-	iface->begin_not_undoable_action = gtk_source_undo_manager_begin_not_undoable_action_impl;
-	iface->end_not_undoable_action = gtk_source_undo_manager_end_not_undoable_action_impl;
+	iface->can_undo = ctk_source_undo_manager_can_undo_impl;
+	iface->can_redo = ctk_source_undo_manager_can_redo_impl;
+	iface->undo = ctk_source_undo_manager_undo_impl;
+	iface->redo = ctk_source_undo_manager_redo_impl;
+	iface->begin_not_undoable_action = ctk_source_undo_manager_begin_not_undoable_action_impl;
+	iface->end_not_undoable_action = ctk_source_undo_manager_end_not_undoable_action_impl;
 }
 
 /* Public functions */
 
 void
-gtk_source_undo_manager_default_set_max_undo_levels (GtkSourceUndoManagerDefault *manager,
+ctk_source_undo_manager_default_set_max_undo_levels (GtkSourceUndoManagerDefault *manager,
                                                      gint                         max_undo_levels)
 {
 	g_return_if_fail (GTK_SOURCE_IS_UNDO_MANAGER_DEFAULT (manager));

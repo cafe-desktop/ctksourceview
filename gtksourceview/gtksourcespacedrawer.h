@@ -22,15 +22,15 @@
 #define GTK_SOURCE_SPACE_DRAWER_H
 
 #if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
-#error "Only <gtksourceview/gtksource.h> can be included directly."
+#error "Only <ctksourceview/ctksource.h> can be included directly."
 #endif
 
-#include <gtk/gtk.h>
-#include <gtksourceview/gtksourcetypes.h>
+#include <ctk/ctk.h>
+#include <ctksourceview/ctksourcetypes.h>
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_SPACE_DRAWER             (gtk_source_space_drawer_get_type ())
+#define GTK_SOURCE_TYPE_SPACE_DRAWER             (ctk_source_space_drawer_get_type ())
 #define GTK_SOURCE_SPACE_DRAWER(obj)             (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_SPACE_DRAWER, GtkSourceSpaceDrawer))
 #define GTK_SOURCE_SPACE_DRAWER_CLASS(klass)     (G_TYPE_CHECK_CLASS_CAST ((klass), GTK_SOURCE_TYPE_SPACE_DRAWER, GtkSourceSpaceDrawerClass))
 #define GTK_SOURCE_IS_SPACE_DRAWER(obj)          (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_SOURCE_TYPE_SPACE_DRAWER))
@@ -105,36 +105,36 @@ typedef enum _GtkSourceSpaceLocationFlags
 } GtkSourceSpaceLocationFlags;
 
 GTK_SOURCE_AVAILABLE_IN_3_24
-GType			gtk_source_space_drawer_get_type		(void) G_GNUC_CONST;
+GType			ctk_source_space_drawer_get_type		(void) G_GNUC_CONST;
 
 GTK_SOURCE_AVAILABLE_IN_3_24
-GtkSourceSpaceDrawer *	gtk_source_space_drawer_new			(void);
+GtkSourceSpaceDrawer *	ctk_source_space_drawer_new			(void);
 
 GTK_SOURCE_AVAILABLE_IN_3_24
-GtkSourceSpaceTypeFlags	gtk_source_space_drawer_get_types_for_locations	(GtkSourceSpaceDrawer        *drawer,
+GtkSourceSpaceTypeFlags	ctk_source_space_drawer_get_types_for_locations	(GtkSourceSpaceDrawer        *drawer,
 									 GtkSourceSpaceLocationFlags  locations);
 
 GTK_SOURCE_AVAILABLE_IN_3_24
-void			gtk_source_space_drawer_set_types_for_locations	(GtkSourceSpaceDrawer        *drawer,
+void			ctk_source_space_drawer_set_types_for_locations	(GtkSourceSpaceDrawer        *drawer,
 									 GtkSourceSpaceLocationFlags  locations,
 									 GtkSourceSpaceTypeFlags      types);
 
 GTK_SOURCE_AVAILABLE_IN_3_24
-GVariant *		gtk_source_space_drawer_get_matrix		(GtkSourceSpaceDrawer *drawer);
+GVariant *		ctk_source_space_drawer_get_matrix		(GtkSourceSpaceDrawer *drawer);
 
 GTK_SOURCE_AVAILABLE_IN_3_24
-void			gtk_source_space_drawer_set_matrix		(GtkSourceSpaceDrawer *drawer,
+void			ctk_source_space_drawer_set_matrix		(GtkSourceSpaceDrawer *drawer,
 									 GVariant             *matrix);
 
 GTK_SOURCE_AVAILABLE_IN_3_24
-gboolean		gtk_source_space_drawer_get_enable_matrix	(GtkSourceSpaceDrawer *drawer);
+gboolean		ctk_source_space_drawer_get_enable_matrix	(GtkSourceSpaceDrawer *drawer);
 
 GTK_SOURCE_AVAILABLE_IN_3_24
-void			gtk_source_space_drawer_set_enable_matrix	(GtkSourceSpaceDrawer *drawer,
+void			ctk_source_space_drawer_set_enable_matrix	(GtkSourceSpaceDrawer *drawer,
 									 gboolean              enable_matrix);
 
 GTK_SOURCE_AVAILABLE_IN_3_24
-void			gtk_source_space_drawer_bind_matrix_setting	(GtkSourceSpaceDrawer *drawer,
+void			ctk_source_space_drawer_bind_matrix_setting	(GtkSourceSpaceDrawer *drawer,
 									 GSettings            *settings,
 									 const gchar          *key,
 									 GSettingsBindFlags    flags);

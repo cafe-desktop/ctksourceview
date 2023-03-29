@@ -22,18 +22,18 @@
 #include <config.h>
 #endif
 
-#include "gtksourceview-gresources.h"
+#include "ctksourceview-gresources.h"
 
-#include "gtksourceinit.h"
+#include "ctksourceinit.h"
 #include <glib/gi18n-lib.h>
-#include "gtksourcelanguagemanager.h"
-#include "gtksourcestyleschememanager.h"
+#include "ctksourcelanguagemanager.h"
+#include "ctksourcestyleschememanager.h"
 
 #ifdef G_OS_WIN32
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
-static HMODULE gtk_source_dll;
+static HMODULE ctk_source_dll;
 
 BOOL WINAPI DllMain (HINSTANCE hinstDLL,
 		     DWORD     fdwReason,
@@ -47,7 +47,7 @@ DllMain (HINSTANCE hinstDLL,
 	switch (fdwReason)
 	{
 		case DLL_PROCESS_ATTACH:
-			gtk_source_dll = hinstDLL;
+			ctk_source_dll = hinstDLL;
 			break;
 
 		default:
@@ -120,7 +120,7 @@ get_locale_dir (void)
 #if defined (G_OS_WIN32)
 	gchar *win32_dir;
 
-	win32_dir = g_win32_get_package_installation_directory_of_module (gtk_source_dll);
+	win32_dir = g_win32_get_package_installation_directory_of_module (ctk_source_dll);
 
 	locale_dir = g_build_filename (win32_dir, "share", "locale", NULL);
 
@@ -135,7 +135,7 @@ get_locale_dir (void)
 }
 
 /**
- * gtk_source_init:
+ * ctk_source_init:
  *
  * Initializes the GtkSourceView library (e.g. for the internationalization).
  *
@@ -145,7 +145,7 @@ get_locale_dir (void)
  * Since: 4.0
  */
 void
-gtk_source_init (void)
+ctk_source_init (void)
 {
 	static gboolean done = FALSE;
 
@@ -164,7 +164,7 @@ gtk_source_init (void)
 }
 
 /**
- * gtk_source_finalize:
+ * ctk_source_finalize:
  *
  * Free the resources allocated by GtkSourceView. For example it unrefs the
  * singleton objects.
@@ -178,7 +178,7 @@ gtk_source_init (void)
 
 /* Another way is to use a DSO destructor, see gconstructor.h in GLib.
  *
- * The advantage of calling gtk_source_finalize() at the end of main() is that
+ * The advantage of calling ctk_source_finalize() at the end of main() is that
  * gobject-list [1] correctly reports that all GtkSource* objects have been
  * finalized when quitting the application. On the other hand a DSO destructor
  * runs after the gobject-list's last output, so it's much less convenient, see:
@@ -188,7 +188,7 @@ gtk_source_init (void)
  * https://github.com/danni/gobject-list
  */
 void
-gtk_source_finalize (void)
+ctk_source_finalize (void)
 {
 	static gboolean done = FALSE;
 
@@ -203,12 +203,12 @@ gtk_source_finalize (void)
 		GtkSourceLanguageManager *language_manager;
 		GtkSourceStyleSchemeManager *style_scheme_manager;
 
-		g_resources_register (gtksourceview_get_resource ());
+		g_resources_register (ctksourceview_get_resource ());
 
-		language_manager = _gtk_source_language_manager_peek_default ();
+		language_manager = _ctk_source_language_manager_peek_default ();
 		g_clear_object (&language_manager);
 
-		style_scheme_manager = _gtk_source_style_scheme_manager_peek_default ();
+		style_scheme_manager = _ctk_source_style_scheme_manager_peek_default ();
 		g_clear_object (&style_scheme_manager);
 
 		done = TRUE;

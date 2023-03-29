@@ -1,5 +1,5 @@
 #
-# gtksourceview.spec
+# ctksourceview.spec
 #
 
 %define api_version	1.0
@@ -7,19 +7,19 @@
 %define lib_name	%mklibname %{name}- %{api_version} %{lib_major}
 
 Summary:	Source code viewing library
-Name:		gtksourceview
+Name:		ctksourceview
 Version: 	1.7.2
 Release:	%mkrel 1
 License:	GPL
 Group:		Editors
-URL:		http://people.ecsc.co.uk/~matt/downloads/rpms/gtksourceview/
+URL:		http://people.ecsc.co.uk/~matt/downloads/rpms/ctksourceview/
 Source0:	https://download.gnome.org/sources/%{name}/%{name}-%{version}.tar.xz
 BuildRoot:	%{_tmppath}/%{name}-%{version}
-BuildRequires:	libgtk+2-devel >= 2.3.0
+BuildRequires:	libctk+2-devel >= 2.3.0
 BuildRequires:  libgnome-vfs2-devel >= 2.2.0
 BuildRequires:  libgnomeprintui-devel >= 2.7.0
 BuildRequires:  perl-XML-Parser
-Conflicts:	gtksourceview-sharp <= 0.5-3mdk
+Conflicts:	ctksourceview-sharp <= 0.5-3mdk
 
 %description
 GtkSourceview is a library that adds syntax highlighting,
@@ -31,10 +31,10 @@ Summary:	Source code viewing library
 Group:		Editors
 Requires:	%{name} >= %{version}-%{release}
 Provides:	lib%{name} = %{version}-%{release}
-Provides:	libgtksourceview0 = %{version}-%{release}
-Obsoletes:	libgtksourceview0
-Provides:   libgtksourceview1.0 = %{version}-%{release}
-Obsoletes:  libgtksourceview1.0
+Provides:	libctksourceview0 = %{version}-%{release}
+Obsoletes:	libctksourceview0
+Provides:   libctksourceview1.0 = %{version}-%{release}
+Obsoletes:  libctksourceview1.0
 
 %description -n %{lib_name}
 GtkSourceview is a library that adds syntax highlighting,
@@ -48,10 +48,10 @@ Requires:       %{lib_name} = %{version}
 Provides:	%{name}-devel = %{version}-%{release}
 Provides:	lib%{name}-devel = %{version}-%{release}
 Provides:	lib%{name}-%{api_version}-devel = %{version}-%{release}
-Provides:	libgtksourceview0-devel = %{version}-%{release}
-Obsoletes:	libgtksourceview0-devel
-Provides:   libgtksourceview1.0-devel = %{version}-%{release}
-Obsoletes:   libgtksourceview1.0-devel
+Provides:	libctksourceview0-devel = %{version}-%{release}
+Obsoletes:	libctksourceview0-devel
+Provides:   libctksourceview1.0-devel = %{version}-%{release}
+Obsoletes:   libctksourceview1.0-devel
 
 %description -n %{lib_name}-devel
 GtkSourceView development files
@@ -83,7 +83,7 @@ rm -rf %{buildroot}
 %files -f %{name}-%{api_version}.lang
 %defattr(-,root,root)
 %doc AUTHORS ChangeLog NEWS README TODO
-%{_datadir}/gtksourceview-%{api_version}
+%{_datadir}/ctksourceview-%{api_version}
 
 %files -n %{lib_name}
 %defattr(-,root,root)
@@ -91,7 +91,7 @@ rm -rf %{buildroot}
 
 %files -n %{lib_name}-devel
 %defattr(-,root,root)
-%doc %{_datadir}/gtk-doc/html/gtksourceview
+%doc %{_datadir}/ctk-doc/html/ctksourceview
 %{_libdir}/*.so
 %attr(644,root,root) %{_libdir}/*.la
 %{_includedir}/*

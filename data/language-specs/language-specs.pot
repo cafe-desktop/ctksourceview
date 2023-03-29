@@ -160,7 +160,7 @@ msgstr ""
 #. (itstool) path: erb-html.lang/language@_section
 #. (itstool) path: erb-js.lang/language@_section
 #. (itstool) path: erb.lang/language@_section
-#. (itstool) path: gtk-doc.lang/language@_section
+#. (itstool) path: ctk-doc.lang/language@_section
 #. (itstool) path: haddock.lang/language@_section
 #. (itstool) path: html.lang/language@_section
 #. (itstool) path: jade.lang/language@_section
@@ -185,7 +185,7 @@ msgstr ""
 #: erb-html.lang:20
 #: erb-js.lang:20
 #: erb.lang:20
-#: gtk-doc.lang:24
+#: ctk-doc.lang:24
 #: haddock.lang:23
 #: html.lang:25
 #: jade.lang:24
@@ -285,7 +285,7 @@ msgstr ""
 #. (itstool) path: dpatch.lang/language@_section
 #. (itstool) path: ftl.lang/language@_section
 #. (itstool) path: gdb-log.lang/language@_section
-#. (itstool) path: gtkrc.lang/language@_section
+#. (itstool) path: ctkrc.lang/language@_section
 #. (itstool) path: ini.lang/language@_section
 #. (itstool) path: json.lang/language@_section
 #. (itstool) path: less.lang/language@_section
@@ -314,7 +314,7 @@ msgstr ""
 #: dpatch.lang:23
 #: ftl.lang:23
 #: gdb-log.lang:18
-#: gtkrc.lang:24
+#: ctkrc.lang:24
 #: ini.lang:22
 #: json.lang:29
 #: less.lang:23

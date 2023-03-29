@@ -21,11 +21,11 @@
 #define GTK_SOURCE_TYPES_H
 
 #if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
-#error "Only <gtksourceview/gtksource.h> can be included directly."
+#error "Only <ctksourceview/ctksource.h> can be included directly."
 #endif
 
 #include <glib.h>
-#include <gtksourceview/gtksourceversion.h>
+#include <ctksourceview/ctksourceversion.h>
 
 G_BEGIN_DECLS
 

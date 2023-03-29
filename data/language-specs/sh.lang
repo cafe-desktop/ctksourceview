@@ -227,7 +227,7 @@
     </context>
 
     <!-- Treated separately, not including itself nor command-like contexts
-      (see https://gitlab.gnome.org/GNOME/gtksourceview/issues/94) -->
+      (see https://gitlab.gnome.org/GNOME/ctksourceview/issues/94) -->
     <context id="backtick-subshell" style-ref="subshell" class="no-spell-check">
       <start>`</start>
       <end>`</end>

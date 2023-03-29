@@ -5,12 +5,12 @@
  * Copyright (C) 2009 - Jesse van den Kieboom
  * Copyright (C) 2013 - Sébastien Wilmet
  *
- * gtksourceview is free software; you can redistribute it and/or
+ * ctksourceview is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * gtksourceview is distributed in the hope that it will be useful,
+ * ctksourceview is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -23,7 +23,7 @@
 #include <config.h>
 #endif
 
-#include "gtksourcecompletionwordsutils.h"
+#include "ctksourcecompletionwordsutils.h"
 #include <string.h>
 
 /* Here, we work on strings. It is more efficient than working with
@@ -103,7 +103,7 @@ find_next_word (gchar *text,
  * g_slist_free().
  */
 GSList *
-_gtk_source_completion_words_utils_scan_words (gchar *text,
+_ctk_source_completion_words_utils_scan_words (gchar *text,
 					       guint  minimum_word_size)
 {
 	GSList *words = NULL;
@@ -138,7 +138,7 @@ _gtk_source_completion_words_utils_scan_words (gchar *text,
  * Free the return value with g_free().
  */
 gchar *
-_gtk_source_completion_words_utils_get_end_word (gchar *text)
+_ctk_source_completion_words_utils_get_end_word (gchar *text)
 {
 	gchar *cur_char = text + strlen (text);
 	gboolean word_found = FALSE;
@@ -183,21 +183,21 @@ _gtk_source_completion_words_utils_get_end_word (gchar *text)
  * word. Uses only valid_word_char().
  */
 void
-_gtk_source_completion_words_utils_adjust_region (GtkTextIter *start,
+_ctk_source_completion_words_utils_adjust_region (GtkTextIter *start,
 						  GtkTextIter *end)
 {
-	g_return_if_fail (gtk_text_iter_compare (start, end) <= 0);
+	g_return_if_fail (ctk_text_iter_compare (start, end) <= 0);
 
 	while (TRUE)
 	{
 		GtkTextIter iter = *start;
 
-		if (!gtk_text_iter_backward_char (&iter))
+		if (!ctk_text_iter_backward_char (&iter))
 		{
 			break;
 		}
 
-		if (!valid_word_char (gtk_text_iter_get_char (&iter)))
+		if (!valid_word_char (ctk_text_iter_get_char (&iter)))
 		{
 			break;
 		}
@@ -205,31 +205,31 @@ _gtk_source_completion_words_utils_adjust_region (GtkTextIter *start,
 		*start = iter;
 	}
 
-	while (valid_word_char (gtk_text_iter_get_char (end)))
+	while (valid_word_char (ctk_text_iter_get_char (end)))
 	{
-		gtk_text_iter_forward_char (end);
+		ctk_text_iter_forward_char (end);
 	}
 }
 
 /* @iter here is a vertical bar between two characters, not the character
  * pointed by @iter. So "inside word" means really "inside word", not the
- * definition used by gtk_text_iter_inside_word().
+ * definition used by ctk_text_iter_inside_word().
  */
 static gboolean
 iter_inside_word (const GtkTextIter *iter)
 {
 	GtkTextIter prev;
 
-	if (gtk_text_iter_is_start (iter) || gtk_text_iter_is_end (iter))
+	if (ctk_text_iter_is_start (iter) || ctk_text_iter_is_end (iter))
 	{
 		return FALSE;
 	}
 
 	prev = *iter;
-	gtk_text_iter_backward_char (&prev);
+	ctk_text_iter_backward_char (&prev);
 
-	return (valid_word_char (gtk_text_iter_get_char (&prev)) &&
-		valid_word_char (gtk_text_iter_get_char (iter)));
+	return (valid_word_char (ctk_text_iter_get_char (&prev)) &&
+		valid_word_char (ctk_text_iter_get_char (iter)));
 }
 
 /* Checks if @start and @end are well placed for scanning the region between the
@@ -238,10 +238,10 @@ iter_inside_word (const GtkTextIter *iter)
  * inconsistent with the words present in the text buffer.
  */
 void
-_gtk_source_completion_words_utils_check_scan_region (const GtkTextIter *start,
+_ctk_source_completion_words_utils_check_scan_region (const GtkTextIter *start,
 						      const GtkTextIter *end)
 {
-	g_return_if_fail (gtk_text_iter_compare (start, end) <= 0);
+	g_return_if_fail (ctk_text_iter_compare (start, end) <= 0);
 
 	if (iter_inside_word (start))
 	{

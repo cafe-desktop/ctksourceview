@@ -22,15 +22,15 @@
 #define GTK_SOURCE_LANGUAGE_MANAGER_H
 
 #if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
-#error "Only <gtksourceview/gtksource.h> can be included directly."
+#error "Only <ctksourceview/ctksource.h> can be included directly."
 #endif
 
 #include <glib-object.h>
-#include <gtksourceview/gtksourcetypes.h>
+#include <ctksourceview/ctksourcetypes.h>
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_LANGUAGE_MANAGER		(gtk_source_language_manager_get_type ())
+#define GTK_SOURCE_TYPE_LANGUAGE_MANAGER		(ctk_source_language_manager_get_type ())
 #define GTK_SOURCE_LANGUAGE_MANAGER(obj)		(G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_SOURCE_TYPE_LANGUAGE_MANAGER, GtkSourceLanguageManager))
 #define GTK_SOURCE_LANGUAGE_MANAGER_CLASS(klass)	(G_TYPE_CHECK_CLASS_CAST((klass), GTK_SOURCE_TYPE_LANGUAGE_MANAGER, GtkSourceLanguageManagerClass))
 #define GTK_SOURCE_IS_LANGUAGE_MANAGER(obj)		(G_TYPE_CHECK_INSTANCE_TYPE((obj), GTK_SOURCE_TYPE_LANGUAGE_MANAGER))
@@ -57,35 +57,35 @@ struct _GtkSourceLanguageManagerClass
 };
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-GType			  gtk_source_language_manager_get_type			(void) G_GNUC_CONST;
+GType			  ctk_source_language_manager_get_type			(void) G_GNUC_CONST;
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-GtkSourceLanguageManager *gtk_source_language_manager_new			(void);
+GtkSourceLanguageManager *ctk_source_language_manager_new			(void);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-GtkSourceLanguageManager *gtk_source_language_manager_get_default		(void);
+GtkSourceLanguageManager *ctk_source_language_manager_get_default		(void);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-const gchar * const *	  gtk_source_language_manager_get_search_path		(GtkSourceLanguageManager *lm);
+const gchar * const *	  ctk_source_language_manager_get_search_path		(GtkSourceLanguageManager *lm);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-void			  gtk_source_language_manager_set_search_path		(GtkSourceLanguageManager *lm,
+void			  ctk_source_language_manager_set_search_path		(GtkSourceLanguageManager *lm,
 										 gchar                   **dirs);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-const gchar * const *	  gtk_source_language_manager_get_language_ids		(GtkSourceLanguageManager *lm);
+const gchar * const *	  ctk_source_language_manager_get_language_ids		(GtkSourceLanguageManager *lm);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-GtkSourceLanguage	 *gtk_source_language_manager_get_language		(GtkSourceLanguageManager *lm,
+GtkSourceLanguage	 *ctk_source_language_manager_get_language		(GtkSourceLanguageManager *lm,
 										 const gchar              *id);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-GtkSourceLanguage	 *gtk_source_language_manager_guess_language		(GtkSourceLanguageManager *lm,
+GtkSourceLanguage	 *ctk_source_language_manager_guess_language		(GtkSourceLanguageManager *lm,
 										 const gchar		  *filename,
 										 const gchar		  *content_type);
 
 G_GNUC_INTERNAL
-GtkSourceLanguageManager *_gtk_source_language_manager_peek_default		(void);
+GtkSourceLanguageManager *_ctk_source_language_manager_peek_default		(void);
 
 G_END_DECLS
 

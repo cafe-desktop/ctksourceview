@@ -22,7 +22,7 @@
 #include <config.h>
 #endif
 
-#include "gtksourcepixbufhelper.h"
+#include "ctksourcepixbufhelper.h"
 
 typedef enum _IconType
 {
@@ -42,13 +42,13 @@ struct _GtkSourcePixbufHelper
 };
 
 GtkSourcePixbufHelper *
-gtk_source_pixbuf_helper_new (void)
+ctk_source_pixbuf_helper_new (void)
 {
 	return g_slice_new0 (GtkSourcePixbufHelper);
 }
 
 void
-gtk_source_pixbuf_helper_free (GtkSourcePixbufHelper *helper)
+ctk_source_pixbuf_helper_free (GtkSourcePixbufHelper *helper)
 {
 	if (helper->pixbuf)
 	{
@@ -93,7 +93,7 @@ clear_cache (GtkSourcePixbufHelper *helper)
 }
 
 void
-gtk_source_pixbuf_helper_set_pixbuf (GtkSourcePixbufHelper *helper,
+ctk_source_pixbuf_helper_set_pixbuf (GtkSourcePixbufHelper *helper,
                                      const GdkPixbuf       *pixbuf)
 {
 	helper->type = ICON_TYPE_PIXBUF;
@@ -113,13 +113,13 @@ gtk_source_pixbuf_helper_set_pixbuf (GtkSourcePixbufHelper *helper,
 }
 
 GdkPixbuf *
-gtk_source_pixbuf_helper_get_pixbuf (GtkSourcePixbufHelper *helper)
+ctk_source_pixbuf_helper_get_pixbuf (GtkSourcePixbufHelper *helper)
 {
 	return helper->pixbuf;
 }
 
 void
-gtk_source_pixbuf_helper_set_icon_name (GtkSourcePixbufHelper *helper,
+ctk_source_pixbuf_helper_set_icon_name (GtkSourcePixbufHelper *helper,
                                         const gchar           *icon_name)
 {
 	helper->type = ICON_TYPE_NAME;
@@ -135,13 +135,13 @@ gtk_source_pixbuf_helper_set_icon_name (GtkSourcePixbufHelper *helper,
 }
 
 const gchar *
-gtk_source_pixbuf_helper_get_icon_name (GtkSourcePixbufHelper *helper)
+ctk_source_pixbuf_helper_get_icon_name (GtkSourcePixbufHelper *helper)
 {
 	return helper->icon_name;
 }
 
 void
-gtk_source_pixbuf_helper_set_gicon (GtkSourcePixbufHelper *helper,
+ctk_source_pixbuf_helper_set_gicon (GtkSourcePixbufHelper *helper,
                                     GIcon                 *gicon)
 {
 	helper->type = ICON_TYPE_GICON;
@@ -161,7 +161,7 @@ gtk_source_pixbuf_helper_set_gicon (GtkSourcePixbufHelper *helper,
 }
 
 GIcon *
-gtk_source_pixbuf_helper_get_gicon (GtkSourcePixbufHelper *helper)
+ctk_source_pixbuf_helper_get_gicon (GtkSourcePixbufHelper *helper)
 {
 	return helper->gicon;
 }
@@ -203,19 +203,19 @@ from_gicon (GtkSourcePixbufHelper *helper,
 	GtkIconInfo *info;
 	GtkIconLookupFlags flags;
 
-	screen = gtk_widget_get_screen (widget);
-	icon_theme = gtk_icon_theme_get_for_screen (screen);
+	screen = ctk_widget_get_screen (widget);
+	icon_theme = ctk_icon_theme_get_for_screen (screen);
 
 	flags = GTK_ICON_LOOKUP_USE_BUILTIN;
 
-	info = gtk_icon_theme_lookup_by_gicon (icon_theme,
+	info = ctk_icon_theme_lookup_by_gicon (icon_theme,
 	                                       helper->gicon,
 	                                       size,
 	                                       flags);
 
 	if (info)
 	{
-		set_cache (helper, gtk_icon_info_load_icon (info, NULL));
+		set_cache (helper, ctk_icon_info_load_icon (info, NULL));
 	}
 }
 
@@ -230,13 +230,13 @@ from_name (GtkSourcePixbufHelper *helper,
 	GtkIconLookupFlags flags;
 	gint scale;
 
-	screen = gtk_widget_get_screen (widget);
-	icon_theme = gtk_icon_theme_get_for_screen (screen);
+	screen = ctk_widget_get_screen (widget);
+	icon_theme = ctk_icon_theme_get_for_screen (screen);
 
 	flags = GTK_ICON_LOOKUP_USE_BUILTIN;
-        scale = gtk_widget_get_scale_factor (widget);
+        scale = ctk_widget_get_scale_factor (widget);
 
-	info = gtk_icon_theme_lookup_icon_for_scale (icon_theme,
+	info = ctk_icon_theme_lookup_icon_for_scale (icon_theme,
 	                                             helper->icon_name,
 	                                             size,
 	                                             scale,
@@ -246,16 +246,16 @@ from_name (GtkSourcePixbufHelper *helper,
 	{
 		GdkPixbuf *pixbuf;
 
-		if (gtk_icon_info_is_symbolic (info))
+		if (ctk_icon_info_is_symbolic (info))
 		{
 			GtkStyleContext *context;
 
-			context = gtk_widget_get_style_context (widget);
-			pixbuf = gtk_icon_info_load_symbolic_for_context (info, context, NULL, NULL);
+			context = ctk_widget_get_style_context (widget);
+			pixbuf = ctk_icon_info_load_symbolic_for_context (info, context, NULL, NULL);
 		}
 		else
 		{
-			pixbuf = gtk_icon_info_load_icon (info, NULL);
+			pixbuf = ctk_icon_info_load_icon (info, NULL);
 		}
 
 		set_cache (helper, pixbuf);
@@ -263,7 +263,7 @@ from_name (GtkSourcePixbufHelper *helper,
 }
 
 GdkPixbuf *
-gtk_source_pixbuf_helper_render (GtkSourcePixbufHelper *helper,
+ctk_source_pixbuf_helper_render (GtkSourcePixbufHelper *helper,
                                  GtkWidget             *widget,
                                  gint                   size)
 {

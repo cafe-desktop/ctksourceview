@@ -22,15 +22,15 @@
 #define GTK_SOURCE_GUTTER_RENDERER_TEXT_H
 
 #if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
-#error "Only <gtksourceview/gtksource.h> can be included directly."
+#error "Only <ctksourceview/ctksource.h> can be included directly."
 #endif
 
-#include <gtksourceview/gtksourcetypes.h>
-#include <gtksourceview/gtksourcegutterrenderer.h>
+#include <ctksourceview/ctksourcetypes.h>
+#include <ctksourceview/ctksourcegutterrenderer.h>
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_GUTTER_RENDERER_TEXT		(gtk_source_gutter_renderer_text_get_type ())
+#define GTK_SOURCE_TYPE_GUTTER_RENDERER_TEXT		(ctk_source_gutter_renderer_text_get_type ())
 #define GTK_SOURCE_GUTTER_RENDERER_TEXT(obj)		(G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_GUTTER_RENDERER_TEXT, GtkSourceGutterRendererText))
 #define GTK_SOURCE_GUTTER_RENDERER_TEXT_CONST(obj)	(G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_GUTTER_RENDERER_TEXT, GtkSourceGutterRendererText const))
 #define GTK_SOURCE_GUTTER_RENDERER_TEXT_CLASS(klass)	(G_TYPE_CHECK_CLASS_CAST ((klass), GTK_SOURCE_TYPE_GUTTER_RENDERER_TEXT, GtkSourceGutterRendererTextClass))
@@ -60,29 +60,29 @@ struct _GtkSourceGutterRendererTextClass
 };
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-GType gtk_source_gutter_renderer_text_get_type (void) G_GNUC_CONST;
+GType ctk_source_gutter_renderer_text_get_type (void) G_GNUC_CONST;
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-GtkSourceGutterRenderer *gtk_source_gutter_renderer_text_new (void);
+GtkSourceGutterRenderer *ctk_source_gutter_renderer_text_new (void);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-void gtk_source_gutter_renderer_text_set_markup (GtkSourceGutterRendererText *renderer,
+void ctk_source_gutter_renderer_text_set_markup (GtkSourceGutterRendererText *renderer,
                                                  const gchar                 *markup,
                                                  gint                         length);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-void gtk_source_gutter_renderer_text_set_text (GtkSourceGutterRendererText *renderer,
+void ctk_source_gutter_renderer_text_set_text (GtkSourceGutterRendererText *renderer,
                                                const gchar                 *text,
                                                gint                         length);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-void gtk_source_gutter_renderer_text_measure (GtkSourceGutterRendererText *renderer,
+void ctk_source_gutter_renderer_text_measure (GtkSourceGutterRendererText *renderer,
                                               const gchar                 *text,
                                               gint                        *width,
                                               gint                        *height);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-void gtk_source_gutter_renderer_text_measure_markup (GtkSourceGutterRendererText *renderer,
+void ctk_source_gutter_renderer_text_measure_markup (GtkSourceGutterRendererText *renderer,
                                                      const gchar                 *markup,
                                                      gint                        *width,
                                                      gint                        *height);

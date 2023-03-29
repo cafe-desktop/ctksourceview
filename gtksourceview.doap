@@ -4,7 +4,7 @@
          xmlns:foaf="http://xmlns.com/foaf/0.1/"
          xmlns:gnome="http://api.gnome.org/doap-extensions#"
          xmlns="http://usefulinc.com/ns/doap#">
-  <name xml:lang="en">gtksourceview</name>
+  <name xml:lang="en">ctksourceview</name>
   <shortdesc xml:lang="en">Source code editing widget</shortdesc>
   <description>GtkSourceView is a GNOME library that extends GtkTextView, the
 standard GTK+ widget for multiline text editing. GtkSourceView adds support for
@@ -14,8 +14,8 @@ typical of a source code editor.</description>
 
   <homepage rdf:resource="https://wiki.gnome.org/Projects/GtkSourceView" />
   <mailing-list rdf:resource="https://mail.gnome.org/mailman/listinfo/gnome-devtools" />
-  <download-page rdf:resource="https://download.gnome.org/sources/gtksourceview/" />
-  <bug-database rdf:resource="https://gitlab.gnome.org/GNOME/gtksourceview/issues" />
+  <download-page rdf:resource="https://download.gnome.org/sources/ctksourceview/" />
+  <bug-database rdf:resource="https://gitlab.gnome.org/GNOME/ctksourceview/issues" />
   <category rdf:resource="http://api.gnome.org/doap-extensions#core" />
 
   <programming-language>C</programming-language>

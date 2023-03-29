@@ -23,14 +23,14 @@
 #define GTK_SOURCE_BUFFER_INPUT_STREAM_H
 
 #include <gio/gio.h>
-#include <gtk/gtk.h>
-#include "gtksourcetypes-private.h"
-#include "gtksourcebuffer.h"
-#include "gtksourcefile.h"
+#include <ctk/ctk.h>
+#include "ctksourcetypes-private.h"
+#include "ctksourcebuffer.h"
+#include "ctksourcefile.h"
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_BUFFER_INPUT_STREAM		(_gtk_source_buffer_input_stream_get_type ())
+#define GTK_SOURCE_TYPE_BUFFER_INPUT_STREAM		(_ctk_source_buffer_input_stream_get_type ())
 #define GTK_SOURCE_BUFFER_INPUT_STREAM(obj)		(G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_BUFFER_INPUT_STREAM, GtkSourceBufferInputStream))
 #define GTK_SOURCE_BUFFER_INPUT_STREAM_CLASS(klass)	(G_TYPE_CHECK_CLASS_CAST ((klass), GTK_SOURCE_TYPE_BUFFER_INPUT_STREAM, GtkSourceBufferInputStreamClass))
 #define GTK_SOURCE_IS_BUFFER_INPUT_STREAM(obj)		(G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_SOURCE_TYPE_BUFFER_INPUT_STREAM))
@@ -53,19 +53,19 @@ struct _GtkSourceBufferInputStreamClass
 };
 
 GTK_SOURCE_INTERNAL
-GType		 _gtk_source_buffer_input_stream_get_type		(void) G_GNUC_CONST;
+GType		 _ctk_source_buffer_input_stream_get_type		(void) G_GNUC_CONST;
 
 GTK_SOURCE_INTERNAL
 GtkSourceBufferInputStream
-		*_gtk_source_buffer_input_stream_new			(GtkTextBuffer              *buffer,
+		*_ctk_source_buffer_input_stream_new			(GtkTextBuffer              *buffer,
 									 GtkSourceNewlineType        type,
 									 gboolean                    add_trailing_newline);
 
 GTK_SOURCE_INTERNAL
-gsize		 _gtk_source_buffer_input_stream_get_total_size		(GtkSourceBufferInputStream *stream);
+gsize		 _ctk_source_buffer_input_stream_get_total_size		(GtkSourceBufferInputStream *stream);
 
 GTK_SOURCE_INTERNAL
-gsize		 _gtk_source_buffer_input_stream_tell			(GtkSourceBufferInputStream *stream);
+gsize		 _ctk_source_buffer_input_stream_tell			(GtkSourceBufferInputStream *stream);
 
 G_END_DECLS
 

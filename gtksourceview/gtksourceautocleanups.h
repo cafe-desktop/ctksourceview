@@ -1,12 +1,12 @@
 /*
- * This file is part of gtksourceview
+ * This file is part of ctksourceview
  *
- * gtksourceview is free software; you can redistribute it and/or
+ * ctksourceview is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * gtksourceview is distributed in the hope that it will be useful,
+ * ctksourceview is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -19,11 +19,11 @@
 #define GTK_SOURCE_AUTOCLEANUPS_H
 
 #if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
-#error "Only <gtksourceview/gtksource.h> can be included directly."
+#error "Only <ctksourceview/ctksource.h> can be included directly."
 #endif
 
 #include <glib.h>
-#include <gtksourceview/gtksourcetypes.h>
+#include <ctksourceview/ctksourcetypes.h>
 
 G_BEGIN_DECLS
 

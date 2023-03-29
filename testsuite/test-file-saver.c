@@ -20,11 +20,11 @@
  */
 
 #include <gio/gio.h>
-#include <gtk/gtk.h>
+#include <ctk/ctk.h>
 #include <string.h>
 #include <sys/stat.h>
 #include <glib/gprintf.h>
-#include <gtksourceview/gtksource.h>
+#include <ctksourceview/ctksource.h>
 
 #define ENABLE_REMOTE_TESTS	FALSE
 
@@ -34,9 +34,9 @@
 #endif
 
 #define DEFAULT_REMOTE_URI_DIR "sftp://localhost/tmp/"
-#define DEFAULT_TEST_TEXT_FILE "gtksourceview-file-saver-test.txt"
-#define DEFAULT_TEST_UNOWNED_TEXT_FILE "gtksourceview-file-saver-unowned-group.txt"
-#define DEFAULT_UNOWNED_DIR "gtksourceview-file-saver-unowned"
+#define DEFAULT_TEST_TEXT_FILE "ctksourceview-file-saver-test.txt"
+#define DEFAULT_TEST_UNOWNED_TEXT_FILE "ctksourceview-file-saver-unowned-group.txt"
+#define DEFAULT_UNOWNED_DIR "ctksourceview-file-saver-unowned"
 
 #define DEFAULT_REMOTE_URI DEFAULT_REMOTE_URI_DIR DEFAULT_TEST_TEXT_FILE
 #define DEFAULT_CONTENT "hello world!"
@@ -89,7 +89,7 @@ save_file_cb (GtkSourceFileSaver *saver,
 {
 	GError *error = NULL;
 
-	gtk_source_file_saver_save_finish (saver, result, &error);
+	ctk_source_file_saver_save_finish (saver, result, &error);
 
 	g_assert_no_error (error);
 
@@ -106,7 +106,7 @@ save_file_cb (GtkSourceFileSaver *saver,
 	}
 
 	/* finished */
-	gtk_main_quit ();
+	ctk_main_quit ();
 }
 
 static void
@@ -114,7 +114,7 @@ save_file (SaverTestData *data)
 {
 	data->file_existed = g_file_query_exists (data->location, NULL);
 
-	gtk_source_file_saver_save_async (data->saver,
+	ctk_source_file_saver_save_async (data->saver,
 					  G_PRIORITY_DEFAULT,
 					  NULL, NULL, NULL, NULL,
 					  (GAsyncReadyCallback) save_file_cb,
@@ -153,7 +153,7 @@ check_mounted (SaverTestData *data)
 		return;
 	}
 
-	mount_operation = gtk_mount_operation_new (NULL);
+	mount_operation = ctk_mount_operation_new (NULL);
 
 	g_file_mount_enclosing_volume (data->location,
 	                               G_MOUNT_MOUNT_NONE,
@@ -181,14 +181,14 @@ test_saver (const gchar            *filename_or_uri,
 
 	location = g_file_new_for_commandline_arg (filename_or_uri);
 
-	buffer = gtk_source_buffer_new (NULL);
-	gtk_text_buffer_set_text (GTK_TEXT_BUFFER (buffer), buffer_contents, -1);
+	buffer = ctk_source_buffer_new (NULL);
+	ctk_text_buffer_set_text (GTK_TEXT_BUFFER (buffer), buffer_contents, -1);
 
-	file = gtk_source_file_new ();
-	saver = gtk_source_file_saver_new_with_target (buffer, file, location);
+	file = ctk_source_file_new ();
+	saver = ctk_source_file_saver_new_with_target (buffer, file, location);
 
-	gtk_source_file_saver_set_newline_type (saver, newline_type);
-	gtk_source_file_saver_set_encoding (saver, gtk_source_encoding_get_utf8 ());
+	ctk_source_file_saver_set_newline_type (saver, newline_type);
+	ctk_source_file_saver_set_encoding (saver, ctk_source_encoding_get_utf8 ());
 
 	data = g_slice_new (SaverTestData);
 	data->saver = saver;
@@ -198,7 +198,7 @@ test_saver (const gchar            *filename_or_uri,
 	data->userdata = userdata;
 
 	check_mounted (data);
-	gtk_main ();
+	ctk_main ();
 
 	g_object_unref (location);
 	g_object_unref (buffer);
@@ -787,7 +787,7 @@ gint
 main (gint   argc,
       gchar *argv[])
 {
-	gtk_test_init (&argc, &argv);
+	ctk_test_init (&argc, &argv);
 
 	g_test_add_func ("/file-saver", all_tests);
 

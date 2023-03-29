@@ -389,7 +389,7 @@
 
     <context id="vala" class="no-spell-check">
       <include>
-        <context ref="gtk-doc:inline-docs-section"/>
+        <context ref="ctk-doc:inline-docs-section"/>
         <context ref="line-comment"/>
         <context ref="multiline-comment"/>
         <context ref="close-comment-outside-comment"/>

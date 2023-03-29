@@ -1,4 +1,4 @@
-# Swedish messages for gtksourceview.
+# Swedish messages for ctksourceview.
 # Copyright © 2003-2017 Free Software Foundation, Inc.
 # Christian Rose <menthos@menthos.com>, 2003, 2004, 2005.
 # Daniel Nylander <po@danielnylander.se>, 2006, 2007, 2008, 2009, 2010, 2011, 2012.
@@ -6,8 +6,8 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gtksourceview\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gtksourceview/issues\n"
+"Project-Id-Version: ctksourceview\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/ctksourceview/issues\n"
 "POT-Creation-Date: 2018-08-07 19:06+0000\n"
 "PO-Revision-Date: 2018-08-07 22:06+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
@@ -19,64 +19,64 @@ msgstr ""
 "X-Generator: Poedit 2.0.9\n"
 
 #. (itstool) path: displayable-values/value@name
-#: gtksourceview.xml:23
+#: ctksourceview.xml:23
 msgid "Disabled"
 msgstr "Inaktiverad"
 
 #. (itstool) path: displayable-values/value@name
-#: gtksourceview.xml:24
+#: ctksourceview.xml:24
 msgid "Before"
 msgstr "Före"
 
 #. (itstool) path: displayable-values/value@name
-#: gtksourceview.xml:25
+#: ctksourceview.xml:25
 msgid "After"
 msgstr "Efter"
 
 #. (itstool) path: displayable-values/value@name
-#: gtksourceview.xml:26
+#: ctksourceview.xml:26
 msgid "Always"
 msgstr "Alltid"
 
 #. (itstool) path: displayable-values/value@name
-#: gtksourceview.xml:32
+#: ctksourceview.xml:32
 msgid "Space"
 msgstr "Blanksteg"
 
 #. (itstool) path: displayable-values/value@name
-#: gtksourceview.xml:33
+#: ctksourceview.xml:33
 msgid "Tab"
 msgstr "Tabulator"
 
 #. (itstool) path: displayable-values/value@name
-#: gtksourceview.xml:34
+#: ctksourceview.xml:34
 msgid "Newline"
 msgstr "Nyrad"
 
 #. (itstool) path: displayable-values/value@name
-#: gtksourceview.xml:35
+#: ctksourceview.xml:35
 msgid "Non Breaking Whitespace"
 msgstr "Icke-brytande blanksteg"
 
 #. (itstool) path: displayable-values/value@name
-#: gtksourceview.xml:36
+#: ctksourceview.xml:36
 msgid "Leading"
 msgstr "Inledande"
 
 #. (itstool) path: displayable-values/value@name
-#: gtksourceview.xml:37
+#: ctksourceview.xml:37
 msgid "Text"
 msgstr "Text"
 
 #. (itstool) path: displayable-values/value@name
-#: gtksourceview.xml:38
+#: ctksourceview.xml:38
 msgid "Trailing"
 msgstr "Efterföljande"
 
 #. (itstool) path: displayable-values/value@name
 #. Translators: "All" is used as a label in the status bar of the
 #. popup, telling that all completion pages are shown.
-#: gtksourceview.xml:39 gtksourceview/gtksourcecompletion.c:833
+#: ctksourceview.xml:39 ctksourceview/ctksourcecompletion.c:833
 msgid "All"
 msgstr "Alla"
 
@@ -182,7 +182,7 @@ msgstr "Skript"
 #. (itstool) path: docbook.lang/language@_section
 #. (itstool) path: dtd.lang/language@_section
 #. (itstool) path: dtl.lang/language@_section
-#. (itstool) path: gtk-doc.lang/language@_section
+#. (itstool) path: ctk-doc.lang/language@_section
 #. (itstool) path: haddock.lang/language@_section
 #. (itstool) path: html.lang/language@_section
 #. (itstool) path: jade.lang/language@_section
@@ -198,7 +198,7 @@ msgstr "Skript"
 #. (itstool) path: texinfo.lang/language@_section
 #. (itstool) path: xml.lang/language@_section
 #. (itstool) path: xslt.lang/language@_section
-#: bibtex.lang:23 docbook.lang:23 dtd.lang:23 dtl.lang:25 gtk-doc.lang:24
+#: bibtex.lang:23 docbook.lang:23 dtd.lang:23 dtl.lang:25 ctk-doc.lang:24
 #: haddock.lang:23 html.lang:24 jade.lang:24 latex.lang:24 mallard.lang:22
 #: markdown.lang:25 mediawiki.lang:22 mxml.lang:23 rst.lang:22 sweave.lang:24
 #: t2t.lang:23 tera.lang:23 texinfo.lang:24 xml.lang:25 xslt.lang:23
@@ -219,7 +219,7 @@ msgstr "CG Shader Language"
 #. (itstool) path: dot.lang/language@_section
 #. (itstool) path: dpatch.lang/language@_section
 #. (itstool) path: gdb-log.lang/language@_section
-#. (itstool) path: gtkrc.lang/language@_section
+#. (itstool) path: ctkrc.lang/language@_section
 #. (itstool) path: ini.lang/language@_section
 #. (itstool) path: json.lang/language@_section
 #. (itstool) path: less.lang/language@_section
@@ -237,7 +237,7 @@ msgstr "CG Shader Language"
 #. (itstool) path: yacc.lang/language@_section
 #. (itstool) path: yaml.lang/language@_section
 #: changelog.lang:24 cmake.lang:23 css.lang:26 csv.lang:23 desktop.lang:24
-#: diff.lang:23 dot.lang:23 dpatch.lang:23 gdb-log.lang:18 gtkrc.lang:24
+#: diff.lang:23 dot.lang:23 dpatch.lang:23 gdb-log.lang:18 ctkrc.lang:24
 #: ini.lang:22 json.lang:29 less.lang:23 libtool.lang:23 logcat.lang:23
 #: nsis.lang:23 ocl.lang:32 pkgconfig.lang:23 po.lang:23 protobuf.lang:21
 #: puppet.lang:23 rpmspec.lang:24 scss.lang:23 toml.lang:23 yacc.lang:23
@@ -384,51 +384,51 @@ msgstr "Tango"
 msgid "Color scheme using Tango color palette"
 msgstr "Färgschema som använder Tango-färgpalett"
 
-#: gtksourceview/completion-providers/words/gtksourcecompletionwords.c:334
+#: ctksourceview/completion-providers/words/ctksourcecompletionwords.c:334
 msgid "Document Words"
 msgstr "Dokumentord"
 
-#: gtksourceview/gtksourcebufferoutputstream.c:843
+#: ctksourceview/ctksourcebufferoutputstream.c:843
 msgid "Invalid byte sequence in conversion input"
 msgstr "Ogiltig bytesekvens i konverteringsindata"
 
-#: gtksourceview/gtksourcebufferoutputstream.c:849
+#: ctksourceview/ctksourcebufferoutputstream.c:849
 #, c-format
 msgid "Error during conversion: %s"
 msgstr "Fel under konvertering: %s"
 
-#: gtksourceview/gtksourcebufferoutputstream.c:930
+#: ctksourceview/ctksourcebufferoutputstream.c:930
 #, c-format
 msgid "Conversion from character set “%s” to “UTF-8” is not supported"
 msgstr "Konvertering från teckenuppsättningen ”%s” till ”UTF-8” stöds inte"
 
-#: gtksourceview/gtksourcebufferoutputstream.c:936
+#: ctksourceview/ctksourcebufferoutputstream.c:936
 #, c-format
 msgid "Could not open converter from “%s” to “UTF-8”"
 msgstr "Kunde inte öppna konverterare från ”%s” till ”UTF-8”"
 
-#: gtksourceview/gtksourcebufferoutputstream.c:996
+#: ctksourceview/ctksourcebufferoutputstream.c:996
 msgid "Invalid object, not initialized"
 msgstr "Ogiltigt objekt, ej initierat"
 
-#: gtksourceview/gtksourcebufferoutputstream.c:1188
+#: ctksourceview/ctksourcebufferoutputstream.c:1188
 msgid "Incomplete UTF-8 sequence in input"
 msgstr "Ofullständig UTF-8-sekvens i indata"
 
 #. Tooltip style
-#: gtksourceview/gtksourcecompletioninfo.c:271
+#: ctksourceview/ctksourcecompletioninfo.c:271
 msgid "Completion Info"
 msgstr "Kompletteringsinfo"
 
-#: gtksourceview/gtksourcecompletionmodel.c:495
+#: ctksourceview/ctksourcecompletionmodel.c:495
 msgid "Provider"
 msgstr "Leverantör"
 
-#: gtksourceview/gtksourcecompletion.ui:87
+#: ctksourceview/ctksourcecompletion.ui:87
 msgid "Show detailed proposal information"
 msgstr "Visa detaljerad förslagsinformation"
 
-#: gtksourceview/gtksourcecompletion.ui:89
+#: ctksourceview/ctksourcecompletion.ui:89
 msgid "_Details…"
 msgstr "_Detaljer…"
 
@@ -436,7 +436,7 @@ msgstr "_Detaljer…"
 #. * named sub-patterns with the same name or if resulting regex is
 #. * too long. In this case fixing lang file helps (e.g. renaming
 #. * subpatterns, making huge keywords use bigger prefixes, etc.)
-#: gtksourceview/gtksourcecontextengine.c:3141
+#: ctksourceview/ctksourcecontextengine.c:3141
 #, c-format
 msgid ""
 "Cannot create a regex for all the transitions, the syntax highlighting "
@@ -447,7 +447,7 @@ msgstr ""
 "syntaxmärkningsprocessen kommer att vara\n"
 "långsammare än vanligt. Felet var: %s"
 
-#: gtksourceview/gtksourcecontextengine.c:4464
+#: ctksourceview/ctksourcecontextengine.c:4464
 msgid ""
 "Highlighting a single line took too much time, syntax highlighting will be "
 "disabled"
@@ -455,19 +455,19 @@ msgstr ""
 "Färgmarkering av en enda rad tog för lång tid, syntaxmarkering kommer att "
 "inaktiveras"
 
-#: gtksourceview/gtksourcecontextengine.c:5712
+#: ctksourceview/ctksourcecontextengine.c:5712
 #, c-format
 msgid "context “%s” cannot contain a \\%%{...@start} command"
 msgstr "kontexten ”%s” får inte innehålla kommandot \\%%{...@start}"
 
-#: gtksourceview/gtksourcecontextengine.c:5875
-#: gtksourceview/gtksourcecontextengine.c:5965
+#: ctksourceview/ctksourcecontextengine.c:5875
+#: ctksourceview/ctksourcecontextengine.c:5965
 #, c-format
 msgid "duplicated context id “%s”"
 msgstr "dubblett av kontext-id ”%s”"
 
-#: gtksourceview/gtksourcecontextengine.c:6079
-#: gtksourceview/gtksourcecontextengine.c:6139
+#: ctksourceview/ctksourcecontextengine.c:6079
+#: ctksourceview/ctksourcecontextengine.c:6139
 #, c-format
 msgid ""
 "style override used with wildcard context reference in language “%s” in ref "
@@ -476,135 +476,135 @@ msgstr ""
 "åsidosättning av stil används i kontextreferens med jokertecken för språket "
 "”%s” i referensen ”%s”"
 
-#: gtksourceview/gtksourcecontextengine.c:6153
+#: ctksourceview/ctksourcecontextengine.c:6153
 #, c-format
 msgid "invalid context reference “%s”"
 msgstr "ogiltig kontextreferens ”%s”"
 
-#: gtksourceview/gtksourcecontextengine.c:6172
-#: gtksourceview/gtksourcecontextengine.c:6182
+#: ctksourceview/ctksourcecontextengine.c:6172
+#: ctksourceview/ctksourcecontextengine.c:6182
 #, c-format
 msgid "unknown context “%s”"
 msgstr "okänd kontext ”%s”"
 
-#: gtksourceview/gtksourcecontextengine.c:6281
+#: ctksourceview/ctksourcecontextengine.c:6281
 #, c-format
 msgid "Missing main language definition (id = \"%s\".)"
 msgstr "Saknar huvudspråkdefinition (id = \"%s\".)"
 
-#: gtksourceview/gtksourceencoding.c:141 gtksourceview/gtksourceencoding.c:184
-#: gtksourceview/gtksourceencoding.c:186 gtksourceview/gtksourceencoding.c:188
-#: gtksourceview/gtksourceencoding.c:190 gtksourceview/gtksourceencoding.c:192
-#: gtksourceview/gtksourceencoding.c:194 gtksourceview/gtksourceencoding.c:196
+#: ctksourceview/ctksourceencoding.c:141 ctksourceview/ctksourceencoding.c:184
+#: ctksourceview/ctksourceencoding.c:186 ctksourceview/ctksourceencoding.c:188
+#: ctksourceview/ctksourceencoding.c:190 ctksourceview/ctksourceencoding.c:192
+#: ctksourceview/ctksourceencoding.c:194 ctksourceview/ctksourceencoding.c:196
 msgid "Unicode"
 msgstr "Unicode"
 
-#: gtksourceview/gtksourceencoding.c:155 gtksourceview/gtksourceencoding.c:179
-#: gtksourceview/gtksourceencoding.c:229 gtksourceview/gtksourceencoding.c:272
+#: ctksourceview/ctksourceencoding.c:155 ctksourceview/ctksourceencoding.c:179
+#: ctksourceview/ctksourceencoding.c:229 ctksourceview/ctksourceencoding.c:272
 msgid "Western"
 msgstr "Västerländsk"
 
-#: gtksourceview/gtksourceencoding.c:157 gtksourceview/gtksourceencoding.c:231
-#: gtksourceview/gtksourceencoding.c:268
+#: ctksourceview/ctksourceencoding.c:157 ctksourceview/ctksourceencoding.c:231
+#: ctksourceview/ctksourceencoding.c:268
 msgid "Central European"
 msgstr "Centraleuropeisk"
 
-#: gtksourceview/gtksourceencoding.c:159
+#: ctksourceview/ctksourceencoding.c:159
 msgid "South European"
 msgstr "Sydeuropeisk"
 
-#: gtksourceview/gtksourceencoding.c:161 gtksourceview/gtksourceencoding.c:175
-#: gtksourceview/gtksourceencoding.c:282
+#: ctksourceview/ctksourceencoding.c:161 ctksourceview/ctksourceencoding.c:175
+#: ctksourceview/ctksourceencoding.c:282
 msgid "Baltic"
 msgstr "Baltisk"
 
-#: gtksourceview/gtksourceencoding.c:163 gtksourceview/gtksourceencoding.c:233
-#: gtksourceview/gtksourceencoding.c:246 gtksourceview/gtksourceencoding.c:250
-#: gtksourceview/gtksourceencoding.c:252 gtksourceview/gtksourceencoding.c:270
+#: ctksourceview/ctksourceencoding.c:163 ctksourceview/ctksourceencoding.c:233
+#: ctksourceview/ctksourceencoding.c:246 ctksourceview/ctksourceencoding.c:250
+#: ctksourceview/ctksourceencoding.c:252 ctksourceview/ctksourceencoding.c:270
 msgid "Cyrillic"
 msgstr "Kyrillisk"
 
-#: gtksourceview/gtksourceencoding.c:165 gtksourceview/gtksourceencoding.c:239
-#: gtksourceview/gtksourceencoding.c:280
+#: ctksourceview/ctksourceencoding.c:165 ctksourceview/ctksourceencoding.c:239
+#: ctksourceview/ctksourceencoding.c:280
 msgid "Arabic"
 msgstr "Arabisk"
 
-#: gtksourceview/gtksourceencoding.c:167 gtksourceview/gtksourceencoding.c:274
+#: ctksourceview/ctksourceencoding.c:167 ctksourceview/ctksourceencoding.c:274
 msgid "Greek"
 msgstr "Grekisk"
 
-#: gtksourceview/gtksourceencoding.c:169
+#: ctksourceview/ctksourceencoding.c:169
 msgid "Hebrew Visual"
 msgstr "Hebreisk (visuell)"
 
-#: gtksourceview/gtksourceencoding.c:171 gtksourceview/gtksourceencoding.c:235
-#: gtksourceview/gtksourceencoding.c:276
+#: ctksourceview/ctksourceencoding.c:171 ctksourceview/ctksourceencoding.c:235
+#: ctksourceview/ctksourceencoding.c:276
 msgid "Turkish"
 msgstr "Turkisk"
 
-#: gtksourceview/gtksourceencoding.c:173
+#: ctksourceview/ctksourceencoding.c:173
 msgid "Nordic"
 msgstr "Nordisk"
 
-#: gtksourceview/gtksourceencoding.c:177
+#: ctksourceview/ctksourceencoding.c:177
 msgid "Celtic"
 msgstr "Keltisk"
 
-#: gtksourceview/gtksourceencoding.c:181
+#: ctksourceview/ctksourceencoding.c:181
 msgid "Romanian"
 msgstr "Rumänsk"
 
-#: gtksourceview/gtksourceencoding.c:199
+#: ctksourceview/ctksourceencoding.c:199
 msgid "Armenian"
 msgstr "Armenisk"
 
-#: gtksourceview/gtksourceencoding.c:201 gtksourceview/gtksourceencoding.c:203
-#: gtksourceview/gtksourceencoding.c:217
+#: ctksourceview/ctksourceencoding.c:201 ctksourceview/ctksourceencoding.c:203
+#: ctksourceview/ctksourceencoding.c:217
 msgid "Chinese Traditional"
 msgstr "Traditionell kinesisk"
 
-#: gtksourceview/gtksourceencoding.c:205
+#: ctksourceview/ctksourceencoding.c:205
 msgid "Cyrillic/Russian"
 msgstr "Kyrillisk/Rysk"
 
-#: gtksourceview/gtksourceencoding.c:208 gtksourceview/gtksourceencoding.c:210
-#: gtksourceview/gtksourceencoding.c:212 gtksourceview/gtksourceencoding.c:242
-#: gtksourceview/gtksourceencoding.c:257
+#: ctksourceview/ctksourceencoding.c:208 ctksourceview/ctksourceencoding.c:210
+#: ctksourceview/ctksourceencoding.c:212 ctksourceview/ctksourceencoding.c:242
+#: ctksourceview/ctksourceencoding.c:257
 msgid "Japanese"
 msgstr "Japansk"
 
-#: gtksourceview/gtksourceencoding.c:215 gtksourceview/gtksourceencoding.c:244
-#: gtksourceview/gtksourceencoding.c:248 gtksourceview/gtksourceencoding.c:263
+#: ctksourceview/ctksourceencoding.c:215 ctksourceview/ctksourceencoding.c:244
+#: ctksourceview/ctksourceencoding.c:248 ctksourceview/ctksourceencoding.c:263
 msgid "Korean"
 msgstr "Koreansk"
 
-#: gtksourceview/gtksourceencoding.c:220 gtksourceview/gtksourceencoding.c:222
-#: gtksourceview/gtksourceencoding.c:224
+#: ctksourceview/ctksourceencoding.c:220 ctksourceview/ctksourceencoding.c:222
+#: ctksourceview/ctksourceencoding.c:224
 msgid "Chinese Simplified"
 msgstr "Förenklad kinesisk"
 
-#: gtksourceview/gtksourceencoding.c:226
+#: ctksourceview/ctksourceencoding.c:226
 msgid "Georgian"
 msgstr "Georgisk"
 
-#: gtksourceview/gtksourceencoding.c:237 gtksourceview/gtksourceencoding.c:278
+#: ctksourceview/ctksourceencoding.c:237 ctksourceview/ctksourceencoding.c:278
 msgid "Hebrew"
 msgstr "Hebreisk"
 
-#: gtksourceview/gtksourceencoding.c:254
+#: ctksourceview/ctksourceencoding.c:254
 msgid "Cyrillic/Ukrainian"
 msgstr "Kyrillisk/Ukrainsk"
 
-#: gtksourceview/gtksourceencoding.c:259 gtksourceview/gtksourceencoding.c:265
-#: gtksourceview/gtksourceencoding.c:284
+#: ctksourceview/ctksourceencoding.c:259 ctksourceview/ctksourceencoding.c:265
+#: ctksourceview/ctksourceencoding.c:284
 msgid "Vietnamese"
 msgstr "Vietnamesisk"
 
-#: gtksourceview/gtksourceencoding.c:261
+#: ctksourceview/ctksourceencoding.c:261
 msgid "Thai"
 msgstr "Thailändsk"
 
-#: gtksourceview/gtksourceencoding.c:495
+#: ctksourceview/ctksourceencoding.c:495
 msgid "Unknown"
 msgstr "Okänd"
 
@@ -618,15 +618,15 @@ msgstr "Okänd"
 #. * value used by GtkSourceView and it represents the encoding for the
 #. * current locale, so please don't translate the "CURRENT" term.  Only
 #. * recognized encodings are used. See
-#. * https://git.gnome.org/browse/gtksourceview/tree/gtksourceview/gtksourceencoding.c#n147
+#. * https://git.gnome.org/browse/ctksourceview/tree/ctksourceview/ctksourceencoding.c#n147
 #. * for a list of supported encodings.
 #. * Keep the same format: square brackets, single quotes, commas.
 #.
-#: gtksourceview/gtksourceencoding.c:639
+#: ctksourceview/ctksourceencoding.c:639
 msgid "['UTF-8', 'CURRENT', 'ISO-8859-15', 'UTF-16']"
 msgstr "['UTF-8', 'CURRENT', 'ISO-8859-15', 'UTF-16']"
 
-#: gtksourceview/gtksourcefileloader.c:516
+#: ctksourceview/ctksourcefileloader.c:516
 msgid ""
 "There was a character encoding conversion error and it was needed to use a "
 "fallback character."
@@ -634,19 +634,19 @@ msgstr ""
 "Ett teckenkodningskonverteringsfel inträffade och behovet uppstod att "
 "använda ett tecken att falla tillbaka på."
 
-#: gtksourceview/gtksourcefileloader.c:623
+#: ctksourceview/ctksourcefileloader.c:623
 msgid "File too big."
 msgstr "Filen är för stor."
 
-#: gtksourceview/gtksourcefileloader.c:777
+#: ctksourceview/ctksourcefileloader.c:777
 msgid "Not a regular file."
 msgstr "Inte en vanlig fil."
 
-#: gtksourceview/gtksourcefilesaver.c:976
+#: ctksourceview/ctksourcefilesaver.c:976
 msgid "The file is externally modified."
 msgstr "Filen har ändrats externt."
 
-#: gtksourceview/gtksourcefilesaver.c:1428
+#: ctksourceview/ctksourcefilesaver.c:1428
 msgid "The buffer contains invalid characters."
 msgstr "Bufferten innehåller ogiltiga tecken."
 
@@ -660,66 +660,66 @@ msgstr "Bufferten innehåller ogiltiga tecken."
 #. * syntax highlighting and [context classes][context-classes].
 #. *
 #. * Use #GtkSourceLanguageManager to obtain a #GtkSourceLanguage instance, and
-#. * gtk_source_buffer_set_language() to apply it to a #GtkSourceBuffer.
+#. * ctk_source_buffer_set_language() to apply it to a #GtkSourceBuffer.
 #.
-#: gtksourceview/gtksourcelanguage.c:56
+#: ctksourceview/ctksourcelanguage.c:56
 msgid "Others"
 msgstr "Andra"
 
-#: gtksourceview/gtksourcelanguage-parser-2.c:950
+#: ctksourceview/ctksourcelanguage-parser-2.c:950
 #, c-format
 msgid "Unknown id “%s” in regex “%s”"
 msgstr "Okänt id ”%s” i regex ”%s”"
 
-#: gtksourceview/gtksourcelanguage-parser-2.c:1180
+#: ctksourceview/ctksourcelanguage-parser-2.c:1180
 #, c-format
 msgid "in regex “%s”: backreferences are not supported"
 msgstr "i regex ”%s”: bakåtreferenser stöds inte"
 
-#: gtksourceview/gtksourceregex.c:129
+#: ctksourceview/ctksourceregex.c:129
 msgid "using \\C is not supported in language definitions"
 msgstr "användning av \\C stöds inte i språkdefinitioner"
 
 #. TODO: have a ChooserDialog?
-#: gtksourceview/gtksourcestyleschemechooserbutton.c:185
+#: ctksourceview/ctksourcestyleschemechooserbutton.c:185
 msgid "Select a Style"
 msgstr "Välj en stil"
 
-#: gtksourceview/gtksourcestyleschemechooserbutton.c:189
+#: ctksourceview/ctksourcestyleschemechooserbutton.c:189
 msgid "_Cancel"
 msgstr "_Avbryt"
 
-#: gtksourceview/gtksourcestyleschemechooserbutton.c:190
+#: ctksourceview/ctksourcestyleschemechooserbutton.c:190
 msgid "_Select"
 msgstr "_Välj"
 
 #. create redo menu_item.
-#: gtksourceview/gtksourceview.c:1781
+#: ctksourceview/ctksourceview.c:1781
 msgid "_Redo"
 msgstr "Gö_r om"
 
 #. create undo menu_item.
-#: gtksourceview/gtksourceview.c:1792
+#: ctksourceview/ctksourceview.c:1792
 msgid "_Undo"
 msgstr "Å_ngra"
 
-#: gtksourceview/gtksourceview.c:1811
+#: ctksourceview/ctksourceview.c:1811
 msgid "All _Upper Case"
 msgstr "Alla _versaler"
 
-#: gtksourceview/gtksourceview.c:1821
+#: ctksourceview/ctksourceview.c:1821
 msgid "All _Lower Case"
 msgstr "Alla _gemener"
 
-#: gtksourceview/gtksourceview.c:1831
+#: ctksourceview/ctksourceview.c:1831
 msgid "_Invert Case"
 msgstr "_Invertera skiftläge"
 
-#: gtksourceview/gtksourceview.c:1841
+#: ctksourceview/ctksourceview.c:1841
 msgid "_Title Case"
 msgstr "Versaler inleder _ord"
 
-#: gtksourceview/gtksourceview.c:1851
+#: ctksourceview/ctksourceview.c:1851
 msgid "C_hange Case"
 msgstr "Ändra _skiftläge"
 
@@ -1377,8 +1377,8 @@ msgstr "Ändra _skiftläge"
 #~ msgid "Imaginary number"
 #~ msgstr "Imaginärtal"
 
-#~ msgid "gtk-doc"
-#~ msgstr "gtk-doc"
+#~ msgid "ctk-doc"
+#~ msgstr "ctk-doc"
 
 #~ msgid "Inline Documentation Section"
 #~ msgstr "Avsnitt inuti dokumentation"

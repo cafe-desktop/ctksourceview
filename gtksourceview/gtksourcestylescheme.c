@@ -22,15 +22,15 @@
 #include <config.h>
 #endif
 
-#include "gtksourcestylescheme.h"
+#include "ctksourcestylescheme.h"
 #include <libxml/parser.h>
 #include <string.h>
 #include <glib/gi18n-lib.h>
-#include "gtksourcestyleschememanager.h"
-#include "gtksourcestyle.h"
-#include "gtksourcestyle-private.h"
-#include "gtksourceview.h"
-#include "gtksourcelanguage-private.h"
+#include "ctksourcestyleschememanager.h"
+#include "ctksourcestyle.h"
+#include "ctksourcestyle-private.h"
+#include "ctksourceview.h"
+#include "ctksourcelanguage-private.h"
 
 /**
  * SECTION:stylescheme
@@ -95,10 +95,10 @@ struct _GtkSourceStyleSchemePrivate
 	GtkCssProvider *css_provider_cursors;
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceStyleScheme, gtk_source_style_scheme, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceStyleScheme, ctk_source_style_scheme, G_TYPE_OBJECT)
 
 static void
-gtk_source_style_scheme_dispose (GObject *object)
+ctk_source_style_scheme_dispose (GObject *object)
 {
 	GtkSourceStyleScheme *scheme = GTK_SOURCE_STYLE_SCHEME (object);
 
@@ -124,11 +124,11 @@ gtk_source_style_scheme_dispose (GObject *object)
 	g_clear_object (&scheme->priv->css_provider);
 	g_clear_object (&scheme->priv->css_provider_cursors);
 
-	G_OBJECT_CLASS (gtk_source_style_scheme_parent_class)->dispose (object);
+	G_OBJECT_CLASS (ctk_source_style_scheme_parent_class)->dispose (object);
 }
 
 static void
-gtk_source_style_scheme_finalize (GObject *object)
+ctk_source_style_scheme_finalize (GObject *object)
 {
 	GtkSourceStyleScheme *scheme = GTK_SOURCE_STYLE_SCHEME (object);
 
@@ -143,11 +143,11 @@ gtk_source_style_scheme_finalize (GObject *object)
 	g_free (scheme->priv->name);
 	g_free (scheme->priv->parent_id);
 
-	G_OBJECT_CLASS (gtk_source_style_scheme_parent_class)->finalize (object);
+	G_OBJECT_CLASS (ctk_source_style_scheme_parent_class)->finalize (object);
 }
 
 static void
-gtk_source_style_scheme_set_property (GObject 	   *object,
+ctk_source_style_scheme_set_property (GObject 	   *object,
 				      guint         prop_id,
 				      const GValue *value,
 				      GParamSpec   *pspec)
@@ -168,7 +168,7 @@ gtk_source_style_scheme_set_property (GObject 	   *object,
 }
 
 static void
-gtk_source_style_scheme_get_property (GObject 	 *object,
+ctk_source_style_scheme_get_property (GObject 	 *object,
 				      guint 	  prop_id,
 				      GValue 	 *value,
 				      GParamSpec *pspec)
@@ -200,14 +200,14 @@ gtk_source_style_scheme_get_property (GObject 	 *object,
 }
 
 static void
-gtk_source_style_scheme_class_init (GtkSourceStyleSchemeClass *klass)
+ctk_source_style_scheme_class_init (GtkSourceStyleSchemeClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-	object_class->dispose = gtk_source_style_scheme_dispose;
-	object_class->finalize = gtk_source_style_scheme_finalize;
-	object_class->set_property = gtk_source_style_scheme_set_property;
-	object_class->get_property = gtk_source_style_scheme_get_property;
+	object_class->dispose = ctk_source_style_scheme_dispose;
+	object_class->finalize = ctk_source_style_scheme_finalize;
+	object_class->set_property = ctk_source_style_scheme_set_property;
+	object_class->get_property = ctk_source_style_scheme_get_property;
 
 	/**
 	 * GtkSourceStyleScheme:id:
@@ -273,9 +273,9 @@ unref_if_not_null (gpointer object)
 }
 
 static void
-gtk_source_style_scheme_init (GtkSourceStyleScheme *scheme)
+ctk_source_style_scheme_init (GtkSourceStyleScheme *scheme)
 {
-	scheme->priv = gtk_source_style_scheme_get_instance_private (scheme);
+	scheme->priv = ctk_source_style_scheme_get_instance_private (scheme);
 
 	scheme->priv->defined_styles = g_hash_table_new_full (g_str_hash, g_str_equal,
 							      g_free, g_object_unref);
@@ -286,11 +286,11 @@ gtk_source_style_scheme_init (GtkSourceStyleScheme *scheme)
 	scheme->priv->named_colors = g_hash_table_new_full (g_str_hash, g_str_equal,
 							    g_free, g_free);
 
-	scheme->priv->css_provider = gtk_css_provider_new ();
+	scheme->priv->css_provider = ctk_css_provider_new ();
 }
 
 /**
- * gtk_source_style_scheme_get_id:
+ * ctk_source_style_scheme_get_id:
  * @scheme: a #GtkSourceStyleScheme.
  *
  * Returns: @scheme id.
@@ -298,7 +298,7 @@ gtk_source_style_scheme_init (GtkSourceStyleScheme *scheme)
  * Since: 2.0
  */
 const gchar *
-gtk_source_style_scheme_get_id (GtkSourceStyleScheme *scheme)
+ctk_source_style_scheme_get_id (GtkSourceStyleScheme *scheme)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_STYLE_SCHEME (scheme), NULL);
 	g_return_val_if_fail (scheme->priv->id != NULL, "");
@@ -307,7 +307,7 @@ gtk_source_style_scheme_get_id (GtkSourceStyleScheme *scheme)
 }
 
 /**
- * gtk_source_style_scheme_get_name:
+ * ctk_source_style_scheme_get_name:
  * @scheme: a #GtkSourceStyleScheme.
  *
  * Returns: @scheme name.
@@ -315,7 +315,7 @@ gtk_source_style_scheme_get_id (GtkSourceStyleScheme *scheme)
  * Since: 2.0
  */
 const gchar *
-gtk_source_style_scheme_get_name (GtkSourceStyleScheme *scheme)
+ctk_source_style_scheme_get_name (GtkSourceStyleScheme *scheme)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_STYLE_SCHEME (scheme), NULL);
 	g_return_val_if_fail (scheme->priv->name != NULL, "");
@@ -324,7 +324,7 @@ gtk_source_style_scheme_get_name (GtkSourceStyleScheme *scheme)
 }
 
 /**
- * gtk_source_style_scheme_get_description:
+ * ctk_source_style_scheme_get_description:
  * @scheme: a #GtkSourceStyleScheme.
  *
  * Returns: (nullable): @scheme description (if defined), or %NULL.
@@ -332,7 +332,7 @@ gtk_source_style_scheme_get_name (GtkSourceStyleScheme *scheme)
  * Since: 2.0
  */
 const gchar *
-gtk_source_style_scheme_get_description (GtkSourceStyleScheme *scheme)
+ctk_source_style_scheme_get_description (GtkSourceStyleScheme *scheme)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_STYLE_SCHEME (scheme), NULL);
 
@@ -340,7 +340,7 @@ gtk_source_style_scheme_get_description (GtkSourceStyleScheme *scheme)
 }
 
 /**
- * gtk_source_style_scheme_get_authors:
+ * ctk_source_style_scheme_get_authors:
  * @scheme: a #GtkSourceStyleScheme.
  *
  * Returns: (nullable) (array zero-terminated=1) (transfer none): a
@@ -350,7 +350,7 @@ gtk_source_style_scheme_get_description (GtkSourceStyleScheme *scheme)
  * Since: 2.0
  */
 const gchar * const *
-gtk_source_style_scheme_get_authors (GtkSourceStyleScheme *scheme)
+ctk_source_style_scheme_get_authors (GtkSourceStyleScheme *scheme)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_STYLE_SCHEME (scheme), NULL);
 
@@ -363,7 +363,7 @@ gtk_source_style_scheme_get_authors (GtkSourceStyleScheme *scheme)
 }
 
 /**
- * gtk_source_style_scheme_get_filename:
+ * ctk_source_style_scheme_get_filename:
  * @scheme: a #GtkSourceStyleScheme.
  *
  * Returns: (nullable): @scheme file name if the scheme was created
@@ -372,7 +372,7 @@ gtk_source_style_scheme_get_authors (GtkSourceStyleScheme *scheme)
  * Since: 2.0
  */
 const gchar *
-gtk_source_style_scheme_get_filename (GtkSourceStyleScheme *scheme)
+ctk_source_style_scheme_get_filename (GtkSourceStyleScheme *scheme)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_STYLE_SCHEME (scheme), NULL);
 
@@ -468,7 +468,7 @@ fix_style_colors (GtkSourceStyleScheme *scheme,
 		{ GTK_SOURCE_STYLE_USE_UNDERLINE_COLOR, G_STRUCT_OFFSET (GtkSourceStyle, underline_color) }
 	};
 
-	style = gtk_source_style_copy (real_style);
+	style = ctk_source_style_copy (real_style);
 
 	for (i = 0; i < G_N_ELEMENTS (attributes); i++)
 	{
@@ -494,7 +494,7 @@ fix_style_colors (GtkSourceStyleScheme *scheme,
 }
 
 static GtkSourceStyle *
-gtk_source_style_scheme_get_style_internal (GtkSourceStyleScheme *scheme,
+ctk_source_style_scheme_get_style_internal (GtkSourceStyleScheme *scheme,
 					    const gchar          *style_id)
 {
 	GtkSourceStyle *style = NULL;
@@ -514,7 +514,7 @@ gtk_source_style_scheme_get_style_internal (GtkSourceStyleScheme *scheme,
 	{
 		if (scheme->priv->parent != NULL)
 		{
-			style = gtk_source_style_scheme_get_style (scheme->priv->parent,
+			style = ctk_source_style_scheme_get_style (scheme->priv->parent,
 								   style_id);
 		}
 		if (style != NULL)
@@ -535,7 +535,7 @@ gtk_source_style_scheme_get_style_internal (GtkSourceStyleScheme *scheme,
 }
 
 /**
- * gtk_source_style_scheme_get_style:
+ * ctk_source_style_scheme_get_style:
  * @scheme: a #GtkSourceStyleScheme.
  * @style_id: id of the style to retrieve.
  *
@@ -557,7 +557,7 @@ gtk_source_style_scheme_get_style_internal (GtkSourceStyleScheme *scheme,
  * have real colors.
  */
 GtkSourceStyle *
-gtk_source_style_scheme_get_style (GtkSourceStyleScheme *scheme,
+ctk_source_style_scheme_get_style (GtkSourceStyleScheme *scheme,
 				   const gchar          *style_id)
 {
 	GtkSourceStyle *style;
@@ -566,7 +566,7 @@ gtk_source_style_scheme_get_style (GtkSourceStyleScheme *scheme,
 	g_return_val_if_fail (style_id != NULL, NULL);
 
 
-	style = gtk_source_style_scheme_get_style_internal (scheme, style_id);
+	style = ctk_source_style_scheme_get_style_internal (scheme, style_id);
 
 	if (style == NULL)
 	{
@@ -586,7 +586,7 @@ gtk_source_style_scheme_get_style (GtkSourceStyleScheme *scheme,
 		 */
 		if (g_str_equal (style_id, "def:net-address"))
 		{
-			style = gtk_source_style_scheme_get_style_internal (scheme, "def:underlined");
+			style = ctk_source_style_scheme_get_style_internal (scheme, "def:underlined");
 		}
 	}
 
@@ -594,27 +594,27 @@ gtk_source_style_scheme_get_style (GtkSourceStyleScheme *scheme,
 }
 
 GtkSourceStyle *
-_gtk_source_style_scheme_get_matching_brackets_style (GtkSourceStyleScheme *scheme)
+_ctk_source_style_scheme_get_matching_brackets_style (GtkSourceStyleScheme *scheme)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_STYLE_SCHEME (scheme), NULL);
 
-	return gtk_source_style_scheme_get_style (scheme, STYLE_BRACKET_MATCH);
+	return ctk_source_style_scheme_get_style (scheme, STYLE_BRACKET_MATCH);
 }
 
 GtkSourceStyle *
-_gtk_source_style_scheme_get_right_margin_style (GtkSourceStyleScheme *scheme)
+_ctk_source_style_scheme_get_right_margin_style (GtkSourceStyleScheme *scheme)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_STYLE_SCHEME (scheme), NULL);
 
-	return gtk_source_style_scheme_get_style (scheme, STYLE_RIGHT_MARGIN);
+	return ctk_source_style_scheme_get_style (scheme, STYLE_RIGHT_MARGIN);
 }
 
 GtkSourceStyle *
-_gtk_source_style_scheme_get_draw_spaces_style (GtkSourceStyleScheme *scheme)
+_ctk_source_style_scheme_get_draw_spaces_style (GtkSourceStyleScheme *scheme)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_STYLE_SCHEME (scheme), NULL);
 
-	return gtk_source_style_scheme_get_style (scheme, STYLE_DRAW_SPACES);
+	return ctk_source_style_scheme_get_style (scheme, STYLE_DRAW_SPACES);
 }
 
 static gboolean
@@ -658,7 +658,7 @@ get_color (GtkSourceStyle *style,
  * Returns TRUE if the style for current-line is set in the scheme
  */
 gboolean
-_gtk_source_style_scheme_get_current_line_color (GtkSourceStyleScheme *scheme,
+_ctk_source_style_scheme_get_current_line_color (GtkSourceStyleScheme *scheme,
 						 GdkRGBA              *color)
 {
 	GtkSourceStyle *style;
@@ -666,7 +666,7 @@ _gtk_source_style_scheme_get_current_line_color (GtkSourceStyleScheme *scheme,
 	g_return_val_if_fail (GTK_SOURCE_IS_STYLE_SCHEME (scheme), FALSE);
 	g_return_val_if_fail (color != NULL, FALSE);
 
-	style = gtk_source_style_scheme_get_style (scheme, STYLE_CURRENT_LINE);
+	style = ctk_source_style_scheme_get_style (scheme, STYLE_CURRENT_LINE);
 
 	return get_color (style, FALSE, color);
 }
@@ -675,7 +675,7 @@ _gtk_source_style_scheme_get_current_line_color (GtkSourceStyleScheme *scheme,
  * Returns TRUE if the style for background-pattern-color is set in the scheme
  */
 gboolean
-_gtk_source_style_scheme_get_background_pattern_color (GtkSourceStyleScheme *scheme,
+_ctk_source_style_scheme_get_background_pattern_color (GtkSourceStyleScheme *scheme,
                                                        GdkRGBA              *color)
 {
 	GtkSourceStyle *style;
@@ -683,7 +683,7 @@ _gtk_source_style_scheme_get_background_pattern_color (GtkSourceStyleScheme *sch
 	g_return_val_if_fail (GTK_SOURCE_IS_STYLE_SCHEME (scheme), FALSE);
 	g_return_val_if_fail (color != NULL, FALSE);
 
-	style = gtk_source_style_scheme_get_style (scheme, STYLE_BACKGROUND_PATTERN);
+	style = ctk_source_style_scheme_get_style (scheme, STYLE_BACKGROUND_PATTERN);
 
 	return get_color (style, FALSE, color);
 }
@@ -701,8 +701,8 @@ get_cursors_css_style (GtkSourceStyleScheme *scheme,
 	gchar *secondary_color_str;
 	GString *css;
 
-	primary_style = gtk_source_style_scheme_get_style (scheme, STYLE_CURSOR);
-	secondary_style = gtk_source_style_scheme_get_style (scheme, STYLE_SECONDARY_CURSOR);
+	primary_style = ctk_source_style_scheme_get_style (scheme, STYLE_CURSOR);
+	secondary_style = ctk_source_style_scheme_get_style (scheme, STYLE_SECONDARY_CURSOR);
 
 	primary_color_set = get_color (primary_style, TRUE, &primary_color);
 	secondary_color_set = get_color (secondary_style, TRUE, &secondary_color);
@@ -732,17 +732,17 @@ get_cursors_css_style (GtkSourceStyleScheme *scheme,
 
 		g_assert (primary_color_set);
 
-		context = gtk_widget_get_style_context (widget);
+		context = ctk_widget_get_style_context (widget);
 
-		gtk_style_context_save (context);
-		gtk_style_context_set_state (context, GTK_STATE_FLAG_NORMAL);
+		ctk_style_context_save (context);
+		ctk_style_context_set_state (context, GTK_STATE_FLAG_NORMAL);
 
-		gtk_style_context_get (context,
-				       gtk_style_context_get_state (context),
+		ctk_style_context_get (context,
+				       ctk_style_context_get_state (context),
 				       "background-color", &background_color,
 				       NULL);
 
-		gtk_style_context_restore (context);
+		ctk_style_context_restore (context);
 
 		/* Blend primary cursor color with background color. */
 		secondary_color.red = (primary_color.red + background_color->red) * 0.5;
@@ -755,7 +755,7 @@ get_cursors_css_style (GtkSourceStyleScheme *scheme,
 
 	secondary_color_str = gdk_rgba_to_string (&secondary_color);
 	g_string_append_printf (css,
-				"\t-gtk-secondary-caret-color: %s;\n",
+				"\t-ctk-secondary-caret-color: %s;\n",
 				secondary_color_str);
 	g_free (secondary_color_str);
 
@@ -786,9 +786,9 @@ get_css_provider_cursors (GtkSourceStyleScheme *scheme,
 		return NULL;
 	}
 
-	provider = gtk_css_provider_new ();
+	provider = ctk_css_provider_new ();
 
-	gtk_css_provider_load_from_data (provider, css, -1, &error);
+	ctk_css_provider_load_from_data (provider, css, -1, &error);
 	g_free (css);
 
 	if (error != NULL)
@@ -802,7 +802,7 @@ get_css_provider_cursors (GtkSourceStyleScheme *scheme,
 }
 
 /**
- * _gtk_source_style_scheme_apply:
+ * _ctk_source_style_scheme_apply:
  * @scheme:: a #GtkSourceStyleScheme.
  * @view: a #GtkSourceView to apply styles to.
  *
@@ -811,7 +811,7 @@ get_css_provider_cursors (GtkSourceStyleScheme *scheme,
  * Since: 2.0
  */
 void
-_gtk_source_style_scheme_apply (GtkSourceStyleScheme *scheme,
+_ctk_source_style_scheme_apply (GtkSourceStyleScheme *scheme,
 				GtkSourceView        *view)
 {
 	GtkStyleContext *context;
@@ -819,14 +819,14 @@ _gtk_source_style_scheme_apply (GtkSourceStyleScheme *scheme,
 	g_return_if_fail (GTK_SOURCE_IS_STYLE_SCHEME (scheme));
 	g_return_if_fail (GTK_SOURCE_IS_VIEW (view));
 
-	context = gtk_widget_get_style_context (GTK_WIDGET (view));
-	gtk_style_context_add_provider (context,
+	context = ctk_widget_get_style_context (GTK_WIDGET (view));
+	ctk_style_context_add_provider (context,
 	                                GTK_STYLE_PROVIDER (scheme->priv->css_provider),
 	                                GTK_SOURCE_STYLE_PROVIDER_PRIORITY);
 
 	G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
 	/* See https://bugzilla.gnome.org/show_bug.cgi?id=708583 */
-	gtk_style_context_invalidate (context);
+	ctk_style_context_invalidate (context);
 	G_GNUC_END_IGNORE_DEPRECATIONS;
 
 	/* The CssProvider for the cursors needs that the first provider is
@@ -840,18 +840,18 @@ _gtk_source_style_scheme_apply (GtkSourceStyleScheme *scheme,
 
 	if (scheme->priv->css_provider_cursors != NULL)
 	{
-		gtk_style_context_add_provider (context,
+		ctk_style_context_add_provider (context,
 						GTK_STYLE_PROVIDER (scheme->priv->css_provider_cursors),
 						GTK_SOURCE_STYLE_PROVIDER_PRIORITY);
 
 		G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
-		gtk_style_context_invalidate (context);
+		ctk_style_context_invalidate (context);
 		G_GNUC_END_IGNORE_DEPRECATIONS;
 	}
 }
 
 /**
- * _gtk_source_style_scheme_unapply:
+ * _ctk_source_style_scheme_unapply:
  * @scheme: (nullable): a #GtkSourceStyleScheme or %NULL.
  * @view: a #GtkSourceView to unapply styles to.
  *
@@ -860,7 +860,7 @@ _gtk_source_style_scheme_apply (GtkSourceStyleScheme *scheme,
  * Since: 3.0
  */
 void
-_gtk_source_style_scheme_unapply (GtkSourceStyleScheme *scheme,
+_ctk_source_style_scheme_unapply (GtkSourceStyleScheme *scheme,
 				  GtkSourceView        *view)
 {
 	GtkStyleContext *context;
@@ -868,25 +868,25 @@ _gtk_source_style_scheme_unapply (GtkSourceStyleScheme *scheme,
 	g_return_if_fail (GTK_SOURCE_IS_STYLE_SCHEME (scheme));
 	g_return_if_fail (GTK_SOURCE_IS_VIEW (view));
 
-	context = gtk_widget_get_style_context (GTK_WIDGET (view));
-	gtk_style_context_remove_provider (context,
+	context = ctk_widget_get_style_context (GTK_WIDGET (view));
+	ctk_style_context_remove_provider (context,
 	                                   GTK_STYLE_PROVIDER (scheme->priv->css_provider));
 
 	if (scheme->priv->css_provider_cursors != NULL)
 	{
-		gtk_style_context_remove_provider (context,
+		ctk_style_context_remove_provider (context,
 						   GTK_STYLE_PROVIDER (scheme->priv->css_provider_cursors));
 	}
 
 	G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
 	/* See https://bugzilla.gnome.org/show_bug.cgi?id=708583 */
-	gtk_style_context_invalidate (context);
+	ctk_style_context_invalidate (context);
 	G_GNUC_END_IGNORE_DEPRECATIONS;
 }
 
 /* --- PARSER ---------------------------------------------------------------- */
 
-#define ERROR_QUARK (g_quark_from_static_string ("gtk-source-style-scheme-parser-error"))
+#define ERROR_QUARK (g_quark_from_static_string ("ctk-source-style-scheme-parser-error"))
 
 static void
 get_css_color_style (GtkSourceStyle *style,
@@ -952,25 +952,25 @@ generate_css_style (GtkSourceStyleScheme *scheme)
 
 	final_style = g_string_new ("");
 
-	style = gtk_source_style_scheme_get_style (scheme, STYLE_TEXT);
+	style = ctk_source_style_scheme_get_style (scheme, STYLE_TEXT);
 	append_css_style (final_style, style, "textview text");
 
-	style = gtk_source_style_scheme_get_style (scheme, STYLE_SELECTED);
+	style = ctk_source_style_scheme_get_style (scheme, STYLE_SELECTED);
 	append_css_style (final_style, style, "textview:focus text selection");
 
-	style2 = gtk_source_style_scheme_get_style (scheme, STYLE_SELECTED_UNFOCUSED);
+	style2 = ctk_source_style_scheme_get_style (scheme, STYLE_SELECTED_UNFOCUSED);
 	append_css_style (final_style,
 			  style2 != NULL ? style2 : style,
 			  "textview text selection");
 
 	/* For now we use "line numbers" colors for all the gutters */
-	style = gtk_source_style_scheme_get_style (scheme, STYLE_LINE_NUMBERS);
+	style = ctk_source_style_scheme_get_style (scheme, STYLE_LINE_NUMBERS);
 	if (style != NULL)
 	{
 		append_css_style (final_style, style, "textview border");
 
 		/* Needed for GtkSourceGutter. In the ::draw callback,
-		 * gtk_style_context_add_class() is called to add e.g. the
+		 * ctk_style_context_add_class() is called to add e.g. the
 		 * "left" class. Because as of GTK+ 3.20 we cannot do the same
 		 * to add the "border" subnode.
 		 */
@@ -988,7 +988,7 @@ generate_css_style (GtkSourceStyleScheme *scheme)
 		append_css_style (final_style, style, "textview");
 	}
 
-	style = gtk_source_style_scheme_get_style (scheme, STYLE_CURRENT_LINE_NUMBER);
+	style = ctk_source_style_scheme_get_style (scheme, STYLE_CURRENT_LINE_NUMBER);
 	if (style != NULL)
 	{
 		append_css_style (final_style, style, "textview .current-line-number");
@@ -998,7 +998,7 @@ generate_css_style (GtkSourceStyleScheme *scheme)
 	{
 		GError *error = NULL;
 
-		gtk_css_provider_load_from_data (scheme->priv->css_provider,
+		ctk_css_provider_load_from_data (scheme->priv->css_provider,
 						 final_style->str,
 						 final_style->len,
 						 &error);
@@ -1073,7 +1073,7 @@ parse_style (GtkSourceStyleScheme *scheme,
 	tmp = xmlGetProp (node, BAD_CAST "use-style");
 	if (tmp != NULL)
 	{
-		use_style = gtk_source_style_scheme_get_style (scheme, (char*) tmp);
+		use_style = ctk_source_style_scheme_get_style (scheme, (char*) tmp);
 
 		if (use_style == NULL)
 		{
@@ -1361,7 +1361,7 @@ parse_style_scheme_element (GtkSourceStyleScheme *scheme,
 }
 
 /**
- * _gtk_source_style_scheme_new_from_file:
+ * _ctk_source_style_scheme_new_from_file:
  * @filename: file to parse.
  *
  * Returns: (nullable): new #GtkSourceStyleScheme created from file,
@@ -1370,7 +1370,7 @@ parse_style_scheme_element (GtkSourceStyleScheme *scheme,
  * Since: 2.0
  */
 GtkSourceStyleScheme *
-_gtk_source_style_scheme_new_from_file (const gchar *filename)
+_ctk_source_style_scheme_new_from_file (const gchar *filename)
 {
 	GtkSourceStyleScheme *scheme;
 	gchar *text;
@@ -1441,7 +1441,7 @@ _gtk_source_style_scheme_new_from_file (const gchar *filename)
 }
 
 /**
- * _gtk_source_style_scheme_get_parent_id:
+ * _ctk_source_style_scheme_get_parent_id:
  * @scheme: a #GtkSourceStyleScheme.
  *
  * Returns: (nullable): parent style scheme id or %NULL.
@@ -1449,7 +1449,7 @@ _gtk_source_style_scheme_new_from_file (const gchar *filename)
  * Since: 2.0
  */
 const gchar *
-_gtk_source_style_scheme_get_parent_id (GtkSourceStyleScheme *scheme)
+_ctk_source_style_scheme_get_parent_id (GtkSourceStyleScheme *scheme)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_STYLE_SCHEME (scheme), NULL);
 
@@ -1457,7 +1457,7 @@ _gtk_source_style_scheme_get_parent_id (GtkSourceStyleScheme *scheme)
 }
 
 /**
- * _gtk_source_style_scheme_set_parent:
+ * _ctk_source_style_scheme_set_parent:
  * @scheme: a #GtkSourceStyleScheme.
  * @parent_scheme: parent #GtkSourceStyleScheme for @scheme.
  *
@@ -1468,7 +1468,7 @@ _gtk_source_style_scheme_get_parent_id (GtkSourceStyleScheme *scheme)
  * Since: 2.0
  */
 void
-_gtk_source_style_scheme_set_parent (GtkSourceStyleScheme *scheme,
+_ctk_source_style_scheme_set_parent (GtkSourceStyleScheme *scheme,
 				     GtkSourceStyleScheme *parent_scheme)
 {
 	g_return_if_fail (GTK_SOURCE_IS_STYLE_SCHEME (scheme));
@@ -1494,7 +1494,7 @@ _gtk_source_style_scheme_set_parent (GtkSourceStyleScheme *scheme,
 }
 
 /**
- * _gtk_source_style_scheme_get_default:
+ * _ctk_source_style_scheme_get_default:
  *
  * Returns: default style scheme to be used when user didn't set
  * style scheme explicitly.
@@ -1502,12 +1502,12 @@ _gtk_source_style_scheme_set_parent (GtkSourceStyleScheme *scheme,
  * Since: 2.0
  */
 GtkSourceStyleScheme *
-_gtk_source_style_scheme_get_default (void)
+_ctk_source_style_scheme_get_default (void)
 {
 	GtkSourceStyleSchemeManager *manager;
 
-	manager = gtk_source_style_scheme_manager_get_default ();
+	manager = ctk_source_style_scheme_manager_get_default ();
 
-	return gtk_source_style_scheme_manager_get_scheme (manager,
+	return ctk_source_style_scheme_manager_get_scheme (manager,
 							   DEFAULT_STYLE_SCHEME);
 }

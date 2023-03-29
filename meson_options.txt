@@ -14,6 +14,6 @@ option('vapi',
        type: 'boolean', value: true,
        description: 'Generate vapi data (requires vapigen)')
 
-option('gtk_doc',
+option('ctk_doc',
        type: 'boolean', value: false,
-       description: 'Build reference manual (requires gtk-doc)')
+       description: 'Build reference manual (requires ctk-doc)')

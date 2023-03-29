@@ -1,5 +1,5 @@
 /* -*- Mode: C; tab-width: 8; indent-tabs-mode: t; c-basic-offset: 8; coding: utf-8 -*-
- * gtksourceversion.h
+ * ctksourceversion.h
  * This file is part of GtkSourceView
  *
  * Copyright (C) 2015 - Paolo Borelli <pborelli@gnome.org>
@@ -28,7 +28,7 @@ G_BEGIN_DECLS
 /**
  * GTK_SOURCE_MAJOR_VERSION:
  *
- * Like gtk_source_get_major_version(), but from the headers used at
+ * Like ctk_source_get_major_version(), but from the headers used at
  * application compile time, rather than from the library linked
  * against at application run time.
  *
@@ -39,7 +39,7 @@ G_BEGIN_DECLS
 /**
  * GTK_SOURCE_MINOR_VERSION:
  *
- * Like gtk_source_get_minor_version(), but from the headers used at
+ * Like ctk_source_get_minor_version(), but from the headers used at
  * application compile time, rather than from the library linked
  * against at application run time.
  *
@@ -50,7 +50,7 @@ G_BEGIN_DECLS
 /**
  * GTK_SOURCE_MICRO_VERSION:
  *
- * Like gtk_source_get_micro_version(), but from the headers used at
+ * Like ctk_source_get_micro_version(), but from the headers used at
  * application compile time, rather than from the library linked
  * against at application run time.
  *
@@ -248,7 +248,7 @@ G_BEGIN_DECLS
  * GTK_SOURCE_VERSION_MIN_REQUIRED:
  *
  * A macro that should be defined by the user prior to including
- * the gtksource.h header.
+ * the ctksource.h header.
  * The definition should be one of the predefined version
  * macros: %GTK_SOURCE_VERSION_3_0, %GTK_SOURCE_VERSION_3_2, ...
  *
@@ -273,7 +273,7 @@ G_BEGIN_DECLS
  * GTK_SOURCE_VERSION_MAX_ALLOWED:
  *
  * A macro that should be defined by the user prior to including
- * the gtksource.h header.
+ * the ctksource.h header.
  * The definition should be one of the predefined version
  * macros: %GTK_SOURCE_VERSION_3_0, %GTK_SOURCE_VERSION_3_2, ...
  *
@@ -560,16 +560,16 @@ G_BEGIN_DECLS
 #endif /* __GTK_DOC_IGNORE__ */
 
 GTK_SOURCE_AVAILABLE_IN_3_20
-guint		gtk_source_get_major_version		(void);
+guint		ctk_source_get_major_version		(void);
 
 GTK_SOURCE_AVAILABLE_IN_3_20
-guint		gtk_source_get_minor_version		(void);
+guint		ctk_source_get_minor_version		(void);
 
 GTK_SOURCE_AVAILABLE_IN_3_20
-guint		gtk_source_get_micro_version		(void);
+guint		ctk_source_get_micro_version		(void);
 
 GTK_SOURCE_AVAILABLE_IN_3_20
-gboolean	gtk_source_check_version		(guint major,
+gboolean	ctk_source_check_version		(guint major,
 							 guint minor,
 							 guint micro);
 

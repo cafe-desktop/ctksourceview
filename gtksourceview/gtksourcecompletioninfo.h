@@ -23,15 +23,15 @@
 #define GTK_SOURCE_COMPLETION_INFO_H
 
 #if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
-#error "Only <gtksourceview/gtksource.h> can be included directly."
+#error "Only <ctksourceview/ctksource.h> can be included directly."
 #endif
 
-#include <gtk/gtk.h>
-#include <gtksourceview/gtksourcetypes.h>
+#include <ctk/ctk.h>
+#include <ctksourceview/ctksourcetypes.h>
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_COMPLETION_INFO             (gtk_source_completion_info_get_type ())
+#define GTK_SOURCE_TYPE_COMPLETION_INFO             (ctk_source_completion_info_get_type ())
 #define GTK_SOURCE_COMPLETION_INFO(obj)             (G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_COMPLETION_INFO, GtkSourceCompletionInfo))
 #define GTK_SOURCE_COMPLETION_INFO_CLASS(klass)     (G_TYPE_CHECK_CLASS_CAST ((klass), GTK_SOURCE_TYPE_COMPLETION_INFO, GtkSourceCompletionInfoClass)
 #define GTK_SOURCE_IS_COMPLETION_INFO(obj)          (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_SOURCE_TYPE_COMPLETION_INFO))
@@ -57,19 +57,19 @@ struct _GtkSourceCompletionInfoClass
 };
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-GType		 gtk_source_completion_info_get_type		(void) G_GNUC_CONST;
+GType		 ctk_source_completion_info_get_type		(void) G_GNUC_CONST;
 
 GTK_SOURCE_AVAILABLE_IN_ALL
 GtkSourceCompletionInfo *
-		 gtk_source_completion_info_new			(void);
+		 ctk_source_completion_info_new			(void);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-void		 gtk_source_completion_info_move_to_iter	(GtkSourceCompletionInfo *info,
+void		 ctk_source_completion_info_move_to_iter	(GtkSourceCompletionInfo *info,
 								 GtkTextView             *view,
 								 GtkTextIter             *iter);
 
 G_GNUC_INTERNAL
-void		 _gtk_source_completion_info_set_xoffset	(GtkSourceCompletionInfo *info,
+void		 _ctk_source_completion_info_set_xoffset	(GtkSourceCompletionInfo *info,
 								 gint                     xoffset);
 
 G_END_DECLS

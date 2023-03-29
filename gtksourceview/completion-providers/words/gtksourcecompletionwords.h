@@ -4,12 +4,12 @@
  *
  * Copyright (C) 2009 - Jesse van den Kieboom
  *
- * gtksourceview is free software; you can redistribute it and/or
+ * ctksourceview is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * gtksourceview is distributed in the hope that it will be useful,
+ * ctksourceview is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -22,15 +22,15 @@
 #define GTK_SOURCE_COMPLETION_WORDS_H
 
 #if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
-#error "Only <gtksourceview/gtksource.h> can be included directly."
+#error "Only <ctksourceview/ctksource.h> can be included directly."
 #endif
 
-#include <gtksourceview/gtksourcecompletionprovider.h>
-#include <gtk/gtk.h>
+#include <ctksourceview/ctksourcecompletionprovider.h>
+#include <ctk/ctk.h>
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_COMPLETION_WORDS		(gtk_source_completion_words_get_type ())
+#define GTK_SOURCE_TYPE_COMPLETION_WORDS		(ctk_source_completion_words_get_type ())
 #define GTK_SOURCE_COMPLETION_WORDS(obj)		(G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_COMPLETION_WORDS, GtkSourceCompletionWords))
 #define GTK_SOURCE_COMPLETION_WORDS_CLASS(klass)	(G_TYPE_CHECK_CLASS_CAST ((klass), GTK_SOURCE_TYPE_COMPLETION_WORDS, GtkSourceCompletionWordsClass))
 #define GTK_SOURCE_IS_COMPLETION_WORDS(obj)		(G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_SOURCE_TYPE_COMPLETION_WORDS))
@@ -52,19 +52,19 @@ struct _GtkSourceCompletionWordsClass {
 };
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-GType		gtk_source_completion_words_get_type	(void) G_GNUC_CONST;
+GType		ctk_source_completion_words_get_type	(void) G_GNUC_CONST;
 
 GTK_SOURCE_AVAILABLE_IN_ALL
 GtkSourceCompletionWords *
-		gtk_source_completion_words_new 	(const gchar              *name,
+		ctk_source_completion_words_new 	(const gchar              *name,
 		                                         GdkPixbuf                *icon);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-void 		gtk_source_completion_words_register 	(GtkSourceCompletionWords *words,
+void 		ctk_source_completion_words_register 	(GtkSourceCompletionWords *words,
                                                          GtkTextBuffer            *buffer);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-void 		gtk_source_completion_words_unregister 	(GtkSourceCompletionWords *words,
+void 		ctk_source_completion_words_unregister 	(GtkSourceCompletionWords *words,
                                                          GtkTextBuffer            *buffer);
 
 G_END_DECLS

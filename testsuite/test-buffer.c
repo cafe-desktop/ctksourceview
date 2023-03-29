@@ -21,8 +21,8 @@
  */
 
 #include <stdlib.h>
-#include <gtksourceview/gtksource.h>
-#include "gtksourceview/gtksourcebuffer-private.h"
+#include <ctksourceview/ctksource.h>
+#include "ctksourceview/ctksourcebuffer-private.h"
 
 static const char *c_snippet =
 	"#include <foo.h>\n"
@@ -34,9 +34,9 @@ static const char *c_snippet =
 static void
 flush_queue (void)
 {
-	while (gtk_events_pending ())
+	while (ctk_events_pending ())
 	{
-		gtk_main_iteration ();
+		ctk_main_iteration ();
 	}
 }
 
@@ -52,10 +52,10 @@ init_default_manager (void)
 
 	if (g_file_test (dir, G_FILE_TEST_IS_DIR))
 	{
-		GtkSourceLanguageManager *lm = gtk_source_language_manager_get_default ();
+		GtkSourceLanguageManager *lm = ctk_source_language_manager_get_default ();
 		gchar *lang_dirs[2] = {dir, NULL};
 
-		gtk_source_language_manager_set_search_path (lm, lang_dirs);
+		ctk_source_language_manager_set_search_path (lm, lang_dirs);
 	}
 
 	g_free (dir);
@@ -67,9 +67,9 @@ test_get_buffer (void)
 	GtkWidget *view;
 	GtkSourceBuffer *buffer;
 
-	view = gtk_source_view_new ();
+	view = ctk_source_view_new ();
 
-	buffer = GTK_SOURCE_BUFFER (gtk_text_view_get_buffer (GTK_TEXT_VIEW (view)));
+	buffer = GTK_SOURCE_BUFFER (ctk_text_view_get_buffer (GTK_TEXT_VIEW (view)));
 
 	g_assert_nonnull (buffer);
 	g_assert_true (GTK_SOURCE_IS_BUFFER (buffer));
@@ -96,35 +96,35 @@ test_get_context_classes (void)
 	char **classes;
 
 	/* test plain text */
-	buffer = gtk_source_buffer_new (NULL);
-	gtk_text_buffer_set_text (GTK_TEXT_BUFFER (buffer), "some text", -1);
-	gtk_text_buffer_get_bounds (GTK_TEXT_BUFFER (buffer), &start, &end);
-	gtk_source_buffer_ensure_highlight (buffer, &start, &end);
+	buffer = ctk_source_buffer_new (NULL);
+	ctk_text_buffer_set_text (GTK_TEXT_BUFFER (buffer), "some text", -1);
+	ctk_text_buffer_get_bounds (GTK_TEXT_BUFFER (buffer), &start, &end);
+	ctk_source_buffer_ensure_highlight (buffer, &start, &end);
 
-	gtk_text_buffer_get_start_iter (GTK_TEXT_BUFFER (buffer), &i);
-	classes = gtk_source_buffer_get_context_classes_at_iter (buffer, &i);
+	ctk_text_buffer_get_start_iter (GTK_TEXT_BUFFER (buffer), &i);
+	classes = ctk_source_buffer_get_context_classes_at_iter (buffer, &i);
 	g_assert_cmpuint (g_strv_length (classes), ==, 0);
 	g_strfreev (classes);
 
 	g_object_unref (buffer);
 
 	/* test C */
-	lm = gtk_source_language_manager_get_default ();
-	lang = gtk_source_language_manager_get_language (lm, "c");
+	lm = ctk_source_language_manager_get_default ();
+	lang = ctk_source_language_manager_get_language (lm, "c");
 	g_assert_true (GTK_SOURCE_IS_LANGUAGE (lang));
-	buffer = gtk_source_buffer_new_with_language (lang);
-	gtk_text_buffer_set_text (GTK_TEXT_BUFFER (buffer), c_snippet, -1);
-	gtk_text_buffer_get_bounds (GTK_TEXT_BUFFER (buffer), &start, &end);
-	gtk_source_buffer_ensure_highlight (buffer, &start, &end);
+	buffer = ctk_source_buffer_new_with_language (lang);
+	ctk_text_buffer_set_text (GTK_TEXT_BUFFER (buffer), c_snippet, -1);
+	ctk_text_buffer_get_bounds (GTK_TEXT_BUFFER (buffer), &start, &end);
+	ctk_source_buffer_ensure_highlight (buffer, &start, &end);
 
-	gtk_text_buffer_get_start_iter (GTK_TEXT_BUFFER (buffer), &i);
-	classes = gtk_source_buffer_get_context_classes_at_iter (buffer, &i);
+	ctk_text_buffer_get_start_iter (GTK_TEXT_BUFFER (buffer), &i);
+	classes = ctk_source_buffer_get_context_classes_at_iter (buffer, &i);
 	g_assert_cmpuint (g_strv_length (classes), ==, 1);
 	g_assert_cmpstr (classes[0], ==, "no-spell-check");
 	g_strfreev (classes);
 
-	gtk_text_buffer_get_iter_at_line_offset (GTK_TEXT_BUFFER (buffer), &i, 2, 5);
-	classes = gtk_source_buffer_get_context_classes_at_iter (buffer, &i);
+	ctk_text_buffer_get_iter_at_line_offset (GTK_TEXT_BUFFER (buffer), &i, 2, 5);
+	classes = ctk_source_buffer_get_context_classes_at_iter (buffer, &i);
 	g_assert_cmpuint (g_strv_length (classes), ==, 1);
 	g_assert_cmpstr (classes[0], ==, "comment");
 	g_strfreev (classes);
@@ -144,13 +144,13 @@ do_test_change_case (GtkSourceBuffer         *buffer,
 	gchar *changed_normalized;
 	gchar *expected_normalized;
 
-	gtk_text_buffer_set_text (GTK_TEXT_BUFFER (buffer), text, -1);
+	ctk_text_buffer_set_text (GTK_TEXT_BUFFER (buffer), text, -1);
 
-	gtk_text_buffer_get_bounds (GTK_TEXT_BUFFER (buffer), &start, &end);
-	gtk_source_buffer_change_case (buffer, case_type, &start, &end);
+	ctk_text_buffer_get_bounds (GTK_TEXT_BUFFER (buffer), &start, &end);
+	ctk_source_buffer_change_case (buffer, case_type, &start, &end);
 
-	gtk_text_buffer_get_bounds (GTK_TEXT_BUFFER (buffer), &start, &end);
-	changed = gtk_text_buffer_get_text (GTK_TEXT_BUFFER (buffer), &start, &end, TRUE);
+	ctk_text_buffer_get_bounds (GTK_TEXT_BUFFER (buffer), &start, &end);
+	changed = ctk_text_buffer_get_text (GTK_TEXT_BUFFER (buffer), &start, &end, TRUE);
 
 	changed_normalized = g_utf8_normalize (changed, -1, G_NORMALIZE_DEFAULT);
 	expected_normalized = g_utf8_normalize (expected, -1, G_NORMALIZE_DEFAULT);
@@ -167,7 +167,7 @@ test_change_case (void)
 {
 	GtkSourceBuffer *buffer;
 
-	buffer = gtk_source_buffer_new (NULL);
+	buffer = ctk_source_buffer_new (NULL);
 
 	do_test_change_case (buffer, GTK_SOURCE_CHANGE_CASE_LOWER, "some TEXT", "some text");
 	do_test_change_case (buffer, GTK_SOURCE_CHANGE_CASE_UPPER, "some TEXT", "SOME TEXT");
@@ -206,15 +206,15 @@ do_test_join_lines (GtkSourceBuffer *buffer,
 	GtkTextIter end;
 	gchar *changed;
 
-	gtk_text_buffer_set_text (GTK_TEXT_BUFFER (buffer), text, -1);
+	ctk_text_buffer_set_text (GTK_TEXT_BUFFER (buffer), text, -1);
 
-	gtk_text_buffer_get_iter_at_offset (GTK_TEXT_BUFFER (buffer), &start, start_offset);
-	gtk_text_buffer_get_iter_at_offset (GTK_TEXT_BUFFER (buffer), &end, end_offset);
+	ctk_text_buffer_get_iter_at_offset (GTK_TEXT_BUFFER (buffer), &start, start_offset);
+	ctk_text_buffer_get_iter_at_offset (GTK_TEXT_BUFFER (buffer), &end, end_offset);
 
-	gtk_source_buffer_join_lines (buffer, &start, &end);
+	ctk_source_buffer_join_lines (buffer, &start, &end);
 
-	gtk_text_buffer_get_bounds (GTK_TEXT_BUFFER (buffer), &start, &end);
-	changed = gtk_text_buffer_get_text (GTK_TEXT_BUFFER (buffer), &start, &end, TRUE);
+	ctk_text_buffer_get_bounds (GTK_TEXT_BUFFER (buffer), &start, &end);
+	changed = ctk_text_buffer_get_text (GTK_TEXT_BUFFER (buffer), &start, &end, TRUE);
 
 	g_assert_cmpstr (changed, ==, expected);
 
@@ -226,7 +226,7 @@ test_join_lines (void)
 {
 	GtkSourceBuffer *buffer;
 
-	buffer = gtk_source_buffer_new (NULL);
+	buffer = ctk_source_buffer_new (NULL);
 
 	do_test_join_lines (buffer, "some text", "some text", 0, -1);
 	do_test_join_lines (buffer, "some\ntext", "some text", 0, -1);
@@ -255,15 +255,15 @@ do_test_sort_lines (GtkSourceBuffer    *buffer,
 	GtkTextIter end;
 	gchar *changed;
 
-	gtk_text_buffer_set_text (GTK_TEXT_BUFFER (buffer), text, -1);
+	ctk_text_buffer_set_text (GTK_TEXT_BUFFER (buffer), text, -1);
 
-	gtk_text_buffer_get_iter_at_offset (GTK_TEXT_BUFFER (buffer), &start, start_offset);
-	gtk_text_buffer_get_iter_at_offset (GTK_TEXT_BUFFER (buffer), &end, end_offset);
+	ctk_text_buffer_get_iter_at_offset (GTK_TEXT_BUFFER (buffer), &start, start_offset);
+	ctk_text_buffer_get_iter_at_offset (GTK_TEXT_BUFFER (buffer), &end, end_offset);
 
-	gtk_source_buffer_sort_lines (buffer, &start, &end, flags, column);
+	ctk_source_buffer_sort_lines (buffer, &start, &end, flags, column);
 
-	gtk_text_buffer_get_bounds (GTK_TEXT_BUFFER (buffer), &start, &end);
-	changed = gtk_text_buffer_get_text (GTK_TEXT_BUFFER (buffer), &start, &end, TRUE);
+	ctk_text_buffer_get_bounds (GTK_TEXT_BUFFER (buffer), &start, &end);
+	changed = ctk_text_buffer_get_text (GTK_TEXT_BUFFER (buffer), &start, &end, TRUE);
 
 	g_assert_cmpstr (changed, ==, expected);
 
@@ -275,7 +275,7 @@ test_sort_lines (void)
 {
 	GtkSourceBuffer *buffer;
 
-	buffer = gtk_source_buffer_new (NULL);
+	buffer = ctk_source_buffer_new (NULL);
 
 	do_test_sort_lines (buffer, "aaa\nbbb\n", "aaa\nbbb\n", 0, -1, 0, 0);
 	do_test_sort_lines (buffer, "bbb\naaa\n", "aaa\nbbb\n", 0, -1, 0, 0);
@@ -306,16 +306,16 @@ do_test_move_words (GtkSourceView      *view,
 	GtkTextIter end;
 	gchar *changed;
 
-	gtk_text_buffer_set_text (GTK_TEXT_BUFFER (buffer), text, -1);
+	ctk_text_buffer_set_text (GTK_TEXT_BUFFER (buffer), text, -1);
 
-	gtk_text_buffer_get_iter_at_offset (GTK_TEXT_BUFFER (buffer), &start, start_offset);
-	gtk_text_buffer_get_iter_at_offset (GTK_TEXT_BUFFER (buffer), &end, end_offset);
-	gtk_text_buffer_select_range (GTK_TEXT_BUFFER (buffer), &start, &end);
+	ctk_text_buffer_get_iter_at_offset (GTK_TEXT_BUFFER (buffer), &start, start_offset);
+	ctk_text_buffer_get_iter_at_offset (GTK_TEXT_BUFFER (buffer), &end, end_offset);
+	ctk_text_buffer_select_range (GTK_TEXT_BUFFER (buffer), &start, &end);
 
 	g_signal_emit_by_name (view, "move-words", step);
 
-	gtk_text_buffer_get_bounds (GTK_TEXT_BUFFER (buffer), &start, &end);
-	changed = gtk_text_buffer_get_text (GTK_TEXT_BUFFER (buffer), &start, &end, TRUE);
+	ctk_text_buffer_get_bounds (GTK_TEXT_BUFFER (buffer), &start, &end);
+	changed = ctk_text_buffer_get_text (GTK_TEXT_BUFFER (buffer), &start, &end, TRUE);
 
 	g_assert_cmpstr (changed, ==, expected);
 
@@ -328,10 +328,10 @@ test_move_words (void)
 	GtkSourceView *view;
 	GtkSourceBuffer *buffer;
 
-	buffer = gtk_source_buffer_new (NULL);
-	view = g_object_ref_sink (GTK_SOURCE_VIEW (gtk_source_view_new ()));
+	buffer = ctk_source_buffer_new (NULL);
+	view = g_object_ref_sink (GTK_SOURCE_VIEW (ctk_source_view_new ()));
 
-	gtk_text_view_set_buffer (GTK_TEXT_VIEW (view), GTK_TEXT_BUFFER (buffer));
+	ctk_text_view_set_buffer (GTK_TEXT_VIEW (view), GTK_TEXT_BUFFER (buffer));
 
 	do_test_move_words (view, buffer, "a > b", "a b >", 2, 3, 1);
 	do_test_move_words (view, buffer, "a>b", "ab>", 1, 2, 1);
@@ -357,16 +357,16 @@ do_test_bracket_matching (GtkSourceBuffer           *source_buffer,
 	GtkTextIter bracket_match;
 	GtkSourceBracketMatchType result;
 
-	gtk_text_buffer_set_text (text_buffer, text, -1);
+	ctk_text_buffer_set_text (text_buffer, text, -1);
 
 	/* Ensure that the syntax highlighting engine has finished, and that
 	 * context classes are correctly defined.
 	 */
 	flush_queue ();
 
-	gtk_text_buffer_get_iter_at_offset (text_buffer, &iter, offset);
+	ctk_text_buffer_get_iter_at_offset (text_buffer, &iter, offset);
 
-	result = _gtk_source_buffer_find_bracket_match (source_buffer,
+	result = _ctk_source_buffer_find_bracket_match (source_buffer,
 							&iter,
 							&bracket,
 							&bracket_match);
@@ -377,8 +377,8 @@ do_test_bracket_matching (GtkSourceBuffer           *source_buffer,
 		gint offset_bracket;
 		gint offset_match;
 
-		offset_bracket = gtk_text_iter_get_offset (&bracket);
-		offset_match = gtk_text_iter_get_offset (&bracket_match);
+		offset_bracket = ctk_text_iter_get_offset (&bracket);
+		offset_match = ctk_text_iter_get_offset (&bracket_match);
 
 		g_assert_cmpint (offset_bracket, ==, expected_offset_bracket);
 		g_assert_cmpint (offset_match, ==, expected_offset_match);
@@ -393,12 +393,12 @@ test_bracket_matching (void)
 	GtkSourceLanguage *c_language;
 	GtkTextTagTable *table;
 
-	buffer = gtk_source_buffer_new (NULL);
+	buffer = ctk_source_buffer_new (NULL);
 
-	language_manager = gtk_source_language_manager_get_default ();
-	c_language = gtk_source_language_manager_get_language (language_manager, "c");
+	language_manager = ctk_source_language_manager_get_default ();
+	c_language = ctk_source_language_manager_get_language (language_manager, "c");
 	g_assert_nonnull (c_language);
-	gtk_source_buffer_set_language (buffer, c_language);
+	ctk_source_buffer_set_language (buffer, c_language);
 
 	/* Basics */
 
@@ -469,7 +469,7 @@ test_bracket_matching (void)
 	 * hack in the implementation to avoid trying to match brackets before
 	 * the tag-table property is set. But now the hack is no longer needed.
 	 */
-	table = gtk_text_tag_table_new ();
+	table = ctk_text_tag_table_new ();
 
 	buffer = g_object_new (GTK_SOURCE_TYPE_BUFFER,
 			       "highlight-matching-brackets", FALSE,
@@ -489,7 +489,7 @@ test_bracket_matching (void)
 int
 main (int argc, char** argv)
 {
-	gtk_test_init (&argc, &argv);
+	ctk_test_init (&argc, &argv);
 
 	init_default_manager ();
 

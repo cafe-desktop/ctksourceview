@@ -4,12 +4,12 @@
  *
  * Copyright (C) 2009 - Jesse van den Kieboom
  *
- * gtksourceview is free software; you can redistribute it and/or
+ * ctksourceview is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
  *
- * gtksourceview is distributed in the hope that it will be useful,
+ * ctksourceview is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
@@ -22,13 +22,13 @@
 #define GTK_SOURCE_COMPLETION_WORDS_PROPOSAL_H
 
 #include <glib-object.h>
-#include <gtksourceview/gtksourcecompletionproposal.h>
+#include <ctksourceview/ctksourcecompletionproposal.h>
 
-#include "gtksourceview/gtksourcetypes-private.h"
+#include "ctksourceview/ctksourcetypes-private.h"
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_COMPLETION_WORDS_PROPOSAL			(gtk_source_completion_words_proposal_get_type ())
+#define GTK_SOURCE_TYPE_COMPLETION_WORDS_PROPOSAL			(ctk_source_completion_words_proposal_get_type ())
 #define GTK_SOURCE_COMPLETION_WORDS_PROPOSAL(obj)			(G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_COMPLETION_WORDS_PROPOSAL, GtkSourceCompletionWordsProposal))
 #define GTK_SOURCE_COMPLETION_WORDS_PROPOSAL_CONST(obj)			(G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_COMPLETION_WORDS_PROPOSAL, GtkSourceCompletionWordsProposal const))
 #define GTK_SOURCE_COMPLETION_WORDS_PROPOSAL_CLASS(klass)		(G_TYPE_CHECK_CLASS_CAST ((klass), GTK_SOURCE_TYPE_COMPLETION_WORDS_PROPOSAL, GtkSourceCompletionWordsProposalClass))
@@ -51,20 +51,20 @@ struct _GtkSourceCompletionWordsProposalClass {
 };
 
 GTK_SOURCE_INTERNAL
-GType		 gtk_source_completion_words_proposal_get_type	(void) G_GNUC_CONST;
+GType		 ctk_source_completion_words_proposal_get_type	(void) G_GNUC_CONST;
 
 GTK_SOURCE_INTERNAL
 GtkSourceCompletionWordsProposal *
-		 gtk_source_completion_words_proposal_new 	(const gchar                      *word);
+		 ctk_source_completion_words_proposal_new 	(const gchar                      *word);
 
 GTK_SOURCE_INTERNAL
-const gchar 	*gtk_source_completion_words_proposal_get_word 	(GtkSourceCompletionWordsProposal *proposal);
+const gchar 	*ctk_source_completion_words_proposal_get_word 	(GtkSourceCompletionWordsProposal *proposal);
 
 GTK_SOURCE_INTERNAL
-void		 gtk_source_completion_words_proposal_use 	(GtkSourceCompletionWordsProposal *proposal);
+void		 ctk_source_completion_words_proposal_use 	(GtkSourceCompletionWordsProposal *proposal);
 
 GTK_SOURCE_INTERNAL
-void		 gtk_source_completion_words_proposal_unuse 	(GtkSourceCompletionWordsProposal *proposal);
+void		 ctk_source_completion_words_proposal_unuse 	(GtkSourceCompletionWordsProposal *proposal);
 
 G_END_DECLS
 

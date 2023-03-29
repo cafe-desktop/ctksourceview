@@ -112,7 +112,7 @@
 
     <!--
     contexts with end-parent="true" are written as container contexts to work around
-    https://gitlab.gnome.org/GNOME/gtksourceview/issues/14
+    https://gitlab.gnome.org/GNOME/ctksourceview/issues/14
     -->
 
     <!-- global -->

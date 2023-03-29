@@ -22,7 +22,7 @@
 #include <config.h>
 #endif
 
-#include "gtksourcesearchsettings.h"
+#include "ctksourcesearchsettings.h"
 
 /**
  * SECTION:searchsettings
@@ -54,20 +54,20 @@ struct _GtkSourceSearchSettingsPrivate
 	guint regex_enabled : 1;
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceSearchSettings, gtk_source_search_settings, G_TYPE_OBJECT)
+G_DEFINE_TYPE_WITH_PRIVATE (GtkSourceSearchSettings, ctk_source_search_settings, G_TYPE_OBJECT)
 
 static void
-gtk_source_search_settings_finalize (GObject *object)
+ctk_source_search_settings_finalize (GObject *object)
 {
 	GtkSourceSearchSettings *settings = GTK_SOURCE_SEARCH_SETTINGS (object);
 
 	g_free (settings->priv->search_text);
 
-	G_OBJECT_CLASS (gtk_source_search_settings_parent_class)->finalize (object);
+	G_OBJECT_CLASS (ctk_source_search_settings_parent_class)->finalize (object);
 }
 
 static void
-gtk_source_search_settings_get_property (GObject    *object,
+ctk_source_search_settings_get_property (GObject    *object,
 					 guint       prop_id,
 					 GValue     *value,
 					 GParamSpec *pspec)
@@ -107,7 +107,7 @@ gtk_source_search_settings_get_property (GObject    *object,
 }
 
 static void
-gtk_source_search_settings_set_property (GObject      *object,
+ctk_source_search_settings_set_property (GObject      *object,
 					 guint         prop_id,
 					 const GValue *value,
 					 GParamSpec   *pspec)
@@ -121,7 +121,7 @@ gtk_source_search_settings_set_property (GObject      *object,
 	switch (prop_id)
 	{
 		case PROP_SEARCH_TEXT:
-			gtk_source_search_settings_set_search_text (settings, g_value_get_string (value));
+			ctk_source_search_settings_set_search_text (settings, g_value_get_string (value));
 			break;
 
 		case PROP_CASE_SENSITIVE:
@@ -147,13 +147,13 @@ gtk_source_search_settings_set_property (GObject      *object,
 }
 
 static void
-gtk_source_search_settings_class_init (GtkSourceSearchSettingsClass *klass)
+ctk_source_search_settings_class_init (GtkSourceSearchSettingsClass *klass)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-	object_class->finalize = gtk_source_search_settings_finalize;
-	object_class->get_property = gtk_source_search_settings_get_property;
-	object_class->set_property = gtk_source_search_settings_set_property;
+	object_class->finalize = ctk_source_search_settings_finalize;
+	object_class->get_property = ctk_source_search_settings_get_property;
+	object_class->set_property = ctk_source_search_settings_set_property;
 
 	/**
 	 * GtkSourceSearchSettings:search-text:
@@ -248,13 +248,13 @@ gtk_source_search_settings_class_init (GtkSourceSearchSettingsClass *klass)
 }
 
 static void
-gtk_source_search_settings_init (GtkSourceSearchSettings *self)
+ctk_source_search_settings_init (GtkSourceSearchSettings *self)
 {
-	self->priv = gtk_source_search_settings_get_instance_private (self);
+	self->priv = ctk_source_search_settings_get_instance_private (self);
 }
 
 /**
- * gtk_source_search_settings_new:
+ * ctk_source_search_settings_new:
  *
  * Creates a new search settings object.
  *
@@ -262,13 +262,13 @@ gtk_source_search_settings_init (GtkSourceSearchSettings *self)
  * Since: 3.10
  */
 GtkSourceSearchSettings *
-gtk_source_search_settings_new (void)
+ctk_source_search_settings_new (void)
 {
 	return g_object_new (GTK_SOURCE_TYPE_SEARCH_SETTINGS, NULL);
 }
 
 /**
- * gtk_source_search_settings_set_search_text:
+ * ctk_source_search_settings_set_search_text:
  * @settings: a #GtkSourceSearchSettings.
  * @search_text: (nullable): the nul-terminated text to search, or %NULL to disable the search.
  *
@@ -276,13 +276,13 @@ gtk_source_search_settings_new (void)
  * will be disabled. A copy of @search_text will be made, so you can safely free
  * @search_text after a call to this function.
  *
- * You may be interested to call gtk_source_utils_unescape_search_text() before
+ * You may be interested to call ctk_source_utils_unescape_search_text() before
  * this function.
  *
  * Since: 3.10
  */
 void
-gtk_source_search_settings_set_search_text (GtkSourceSearchSettings *settings,
+ctk_source_search_settings_set_search_text (GtkSourceSearchSettings *settings,
 					    const gchar             *search_text)
 {
 	g_return_if_fail (GTK_SOURCE_IS_SEARCH_SETTINGS (settings));
@@ -310,19 +310,19 @@ gtk_source_search_settings_set_search_text (GtkSourceSearchSettings *settings,
 }
 
 /**
- * gtk_source_search_settings_get_search_text:
+ * ctk_source_search_settings_get_search_text:
  * @settings: a #GtkSourceSearchSettings.
  *
  * Gets the text to search. The return value must not be freed.
  *
- * You may be interested to call gtk_source_utils_escape_search_text() after
+ * You may be interested to call ctk_source_utils_escape_search_text() after
  * this function.
  *
  * Returns: (nullable): the text to search, or %NULL if the search is disabled.
  * Since: 3.10
  */
 const gchar *
-gtk_source_search_settings_get_search_text (GtkSourceSearchSettings *settings)
+ctk_source_search_settings_get_search_text (GtkSourceSearchSettings *settings)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_SEARCH_SETTINGS (settings), NULL);
 
@@ -330,7 +330,7 @@ gtk_source_search_settings_get_search_text (GtkSourceSearchSettings *settings)
 }
 
 /**
- * gtk_source_search_settings_set_case_sensitive:
+ * ctk_source_search_settings_set_case_sensitive:
  * @settings: a #GtkSourceSearchSettings.
  * @case_sensitive: the setting.
  *
@@ -339,7 +339,7 @@ gtk_source_search_settings_get_search_text (GtkSourceSearchSettings *settings)
  * Since: 3.10
  */
 void
-gtk_source_search_settings_set_case_sensitive (GtkSourceSearchSettings *settings,
+ctk_source_search_settings_set_case_sensitive (GtkSourceSearchSettings *settings,
 					       gboolean                 case_sensitive)
 {
 	g_return_if_fail (GTK_SOURCE_IS_SEARCH_SETTINGS (settings));
@@ -354,14 +354,14 @@ gtk_source_search_settings_set_case_sensitive (GtkSourceSearchSettings *settings
 }
 
 /**
- * gtk_source_search_settings_get_case_sensitive:
+ * ctk_source_search_settings_get_case_sensitive:
  * @settings: a #GtkSourceSearchSettings.
  *
  * Returns: whether the search is case sensitive.
  * Since: 3.10
  */
 gboolean
-gtk_source_search_settings_get_case_sensitive (GtkSourceSearchSettings *settings)
+ctk_source_search_settings_get_case_sensitive (GtkSourceSearchSettings *settings)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_SEARCH_SETTINGS (settings), FALSE);
 
@@ -369,19 +369,19 @@ gtk_source_search_settings_get_case_sensitive (GtkSourceSearchSettings *settings
 }
 
 /**
- * gtk_source_search_settings_set_at_word_boundaries:
+ * ctk_source_search_settings_set_at_word_boundaries:
  * @settings: a #GtkSourceSearchSettings.
  * @at_word_boundaries: the setting.
  *
  * Change whether the search is done at word boundaries. If @at_word_boundaries
  * is %TRUE, a search match must start and end a word. The match can span
- * multiple words. See also gtk_text_iter_starts_word() and
- * gtk_text_iter_ends_word().
+ * multiple words. See also ctk_text_iter_starts_word() and
+ * ctk_text_iter_ends_word().
  *
  * Since: 3.10
  */
 void
-gtk_source_search_settings_set_at_word_boundaries (GtkSourceSearchSettings *settings,
+ctk_source_search_settings_set_at_word_boundaries (GtkSourceSearchSettings *settings,
 						   gboolean                 at_word_boundaries)
 {
 	g_return_if_fail (GTK_SOURCE_IS_SEARCH_SETTINGS (settings));
@@ -396,14 +396,14 @@ gtk_source_search_settings_set_at_word_boundaries (GtkSourceSearchSettings *sett
 }
 
 /**
- * gtk_source_search_settings_get_at_word_boundaries:
+ * ctk_source_search_settings_get_at_word_boundaries:
  * @settings: a #GtkSourceSearchSettings.
  *
  * Returns: whether to search at word boundaries.
  * Since: 3.10
  */
 gboolean
-gtk_source_search_settings_get_at_word_boundaries (GtkSourceSearchSettings *settings)
+ctk_source_search_settings_get_at_word_boundaries (GtkSourceSearchSettings *settings)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_SEARCH_SETTINGS (settings), FALSE);
 
@@ -411,7 +411,7 @@ gtk_source_search_settings_get_at_word_boundaries (GtkSourceSearchSettings *sett
 }
 
 /**
- * gtk_source_search_settings_set_wrap_around:
+ * ctk_source_search_settings_set_wrap_around:
  * @settings: a #GtkSourceSearchSettings.
  * @wrap_around: the setting.
  *
@@ -423,7 +423,7 @@ gtk_source_search_settings_get_at_word_boundaries (GtkSourceSearchSettings *sett
  * Since: 3.10
  */
 void
-gtk_source_search_settings_set_wrap_around (GtkSourceSearchSettings *settings,
+ctk_source_search_settings_set_wrap_around (GtkSourceSearchSettings *settings,
 					    gboolean                 wrap_around)
 {
 	g_return_if_fail (GTK_SOURCE_IS_SEARCH_SETTINGS (settings));
@@ -438,14 +438,14 @@ gtk_source_search_settings_set_wrap_around (GtkSourceSearchSettings *settings,
 }
 
 /**
- * gtk_source_search_settings_get_wrap_around:
+ * ctk_source_search_settings_get_wrap_around:
  * @settings: a #GtkSourceSearchSettings.
  *
  * Returns: whether to wrap around the search.
  * Since: 3.10
  */
 gboolean
-gtk_source_search_settings_get_wrap_around (GtkSourceSearchSettings *settings)
+ctk_source_search_settings_get_wrap_around (GtkSourceSearchSettings *settings)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_SEARCH_SETTINGS (settings), FALSE);
 
@@ -453,7 +453,7 @@ gtk_source_search_settings_get_wrap_around (GtkSourceSearchSettings *settings)
 }
 
 /**
- * gtk_source_search_settings_set_regex_enabled:
+ * ctk_source_search_settings_set_regex_enabled:
  * @settings: a #GtkSourceSearchSettings.
  * @regex_enabled: the setting.
  *
@@ -468,7 +468,7 @@ gtk_source_search_settings_get_wrap_around (GtkSourceSearchSettings *settings)
  * Since: 3.10
  */
 void
-gtk_source_search_settings_set_regex_enabled (GtkSourceSearchSettings *settings,
+ctk_source_search_settings_set_regex_enabled (GtkSourceSearchSettings *settings,
 					      gboolean                 regex_enabled)
 {
 	g_return_if_fail (GTK_SOURCE_IS_SEARCH_SETTINGS (settings));
@@ -483,14 +483,14 @@ gtk_source_search_settings_set_regex_enabled (GtkSourceSearchSettings *settings,
 }
 
 /**
- * gtk_source_search_settings_get_regex_enabled:
+ * ctk_source_search_settings_get_regex_enabled:
  * @settings: a #GtkSourceSearchSettings.
  *
  * Returns: whether to search by regular expressions.
  * Since: 3.10
  */
 gboolean
-gtk_source_search_settings_get_regex_enabled (GtkSourceSearchSettings *settings)
+ctk_source_search_settings_get_regex_enabled (GtkSourceSearchSettings *settings)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_SEARCH_SETTINGS (settings), FALSE);
 

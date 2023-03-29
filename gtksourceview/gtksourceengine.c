@@ -24,18 +24,18 @@
 #include <config.h>
 #endif
 
-#include "gtksourceengine.h"
-#include "gtksourcestylescheme.h"
+#include "ctksourceengine.h"
+#include "ctksourcestylescheme.h"
 
-G_DEFINE_INTERFACE (GtkSourceEngine, _gtk_source_engine, G_TYPE_OBJECT)
+G_DEFINE_INTERFACE (GtkSourceEngine, _ctk_source_engine, G_TYPE_OBJECT)
 
 static void
-_gtk_source_engine_default_init (GtkSourceEngineInterface *interface)
+_ctk_source_engine_default_init (GtkSourceEngineInterface *interface)
 {
 }
 
 void
-_gtk_source_engine_attach_buffer (GtkSourceEngine *engine,
+_ctk_source_engine_attach_buffer (GtkSourceEngine *engine,
 				  GtkTextBuffer   *buffer)
 {
 	g_return_if_fail (GTK_SOURCE_IS_ENGINE (engine));
@@ -45,7 +45,7 @@ _gtk_source_engine_attach_buffer (GtkSourceEngine *engine,
 }
 
 void
-_gtk_source_engine_text_inserted (GtkSourceEngine *engine,
+_ctk_source_engine_text_inserted (GtkSourceEngine *engine,
 				  gint             start_offset,
 				  gint             end_offset)
 {
@@ -58,7 +58,7 @@ _gtk_source_engine_text_inserted (GtkSourceEngine *engine,
 }
 
 void
-_gtk_source_engine_text_deleted (GtkSourceEngine *engine,
+_ctk_source_engine_text_deleted (GtkSourceEngine *engine,
 				 gint             offset,
 				 gint             length)
 {
@@ -71,7 +71,7 @@ _gtk_source_engine_text_deleted (GtkSourceEngine *engine,
 }
 
 void
-_gtk_source_engine_update_highlight (GtkSourceEngine   *engine,
+_ctk_source_engine_update_highlight (GtkSourceEngine   *engine,
 				     const GtkTextIter *start,
 				     const GtkTextIter *end,
 				     gboolean           synchronous)
@@ -87,7 +87,7 @@ _gtk_source_engine_update_highlight (GtkSourceEngine   *engine,
 }
 
 void
-_gtk_source_engine_set_style_scheme (GtkSourceEngine      *engine,
+_ctk_source_engine_set_style_scheme (GtkSourceEngine      *engine,
 				     GtkSourceStyleScheme *scheme)
 {
 	g_return_if_fail (GTK_SOURCE_IS_ENGINE (engine));

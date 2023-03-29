@@ -9,7 +9,7 @@ requires:
     - expect #required for unbuffer
     - git
     - gobject-introspection
-    - gtk-doc-tools
+    - ctk-doc-tools
     - intltool
     - libatk1.0-dev
     - libfribidi-dev

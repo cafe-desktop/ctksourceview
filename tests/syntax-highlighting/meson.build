@@ -1,4 +1,4 @@
-project('gtksourceview', 'c')
+project('ctksourceview', 'c')
 glib = dependency('glib-2.0')
 escapes = 'backslash \\ single quote \' newline \n octal \777 and more'
 executable(

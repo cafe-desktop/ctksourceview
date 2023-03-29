@@ -21,8 +21,8 @@
  * along with this library; if not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <gtk/gtk.h>
-#include <gtksourceview/gtksource.h>
+#include <ctk/ctk.h>
+#include <ctksourceview/ctksource.h>
 
 /* If we are running from the source dir (e.g. during make check)
  * we override the path to read from the data dir
@@ -39,12 +39,12 @@ init_default_manager (void)
 		GtkSourceLanguageManager *lm;
 		gchar **lang_dirs;
 
-		lm = gtk_source_language_manager_get_default ();
+		lm = ctk_source_language_manager_get_default ();
 
 		lang_dirs = g_new0 (gchar *, 2);
 		lang_dirs[0] = dir;
 
-		gtk_source_language_manager_set_search_path (lm, lang_dirs);
+		ctk_source_language_manager_set_search_path (lm, lang_dirs);
 		g_strfreev (lang_dirs);
 	}
 	else
@@ -58,8 +58,8 @@ test_get_default (void)
 {
 	GtkSourceLanguageManager *lm1, *lm2;
 
-	lm1 = gtk_source_language_manager_get_default ();
-	lm2 = gtk_source_language_manager_get_default ();
+	lm1 = ctk_source_language_manager_get_default ();
+	lm2 = ctk_source_language_manager_get_default ();
 	g_assert_true (lm1 == lm2);
 }
 
@@ -69,21 +69,21 @@ test_get_language (void)
 	GtkSourceLanguageManager *lm;
 	const gchar * const *ids;
 
-	lm = gtk_source_language_manager_get_default ();
-	ids = gtk_source_language_manager_get_language_ids (lm);
+	lm = ctk_source_language_manager_get_default ();
+	ids = ctk_source_language_manager_get_language_ids (lm);
 	g_assert_nonnull (ids);
 
 	while (*ids != NULL)
 	{
 		GtkSourceLanguage *lang1, *lang2;
 
-		lang1 = gtk_source_language_manager_get_language (lm, *ids);
+		lang1 = ctk_source_language_manager_get_language (lm, *ids);
 		g_assert_nonnull (lang1);
 		g_assert_true (GTK_SOURCE_IS_LANGUAGE (lang1));
-		g_assert_cmpstr (*ids, == , gtk_source_language_get_id (lang1));
+		g_assert_cmpstr (*ids, == , ctk_source_language_get_id (lang1));
 
 		/* langs are owned by the manager */
-		lang2 = gtk_source_language_manager_get_language (lm, *ids);
+		lang2 = ctk_source_language_manager_get_language (lm, *ids);
 		g_assert_true (lang1 == lang2);
 
 		++ids;
@@ -93,33 +93,33 @@ test_get_language (void)
 static void
 test_guess_language_null_null (void)
 {
-	GtkSourceLanguageManager *lm = gtk_source_language_manager_get_default ();
+	GtkSourceLanguageManager *lm = ctk_source_language_manager_get_default ();
 
-	gtk_source_language_manager_guess_language (lm, NULL, NULL);
+	ctk_source_language_manager_guess_language (lm, NULL, NULL);
 }
 
 static void
 test_guess_language_empty_null (void)
 {
-	GtkSourceLanguageManager *lm = gtk_source_language_manager_get_default ();
+	GtkSourceLanguageManager *lm = ctk_source_language_manager_get_default ();
 
-	gtk_source_language_manager_guess_language (lm, "", NULL);
+	ctk_source_language_manager_guess_language (lm, "", NULL);
 }
 
 static void
 test_guess_language_null_empty (void)
 {
-	GtkSourceLanguageManager *lm = gtk_source_language_manager_get_default ();
+	GtkSourceLanguageManager *lm = ctk_source_language_manager_get_default ();
 
-	gtk_source_language_manager_guess_language (lm, NULL, "");
+	ctk_source_language_manager_guess_language (lm, NULL, "");
 }
 
 static void
 test_guess_language_empty_empty (void)
 {
-	GtkSourceLanguageManager *lm = gtk_source_language_manager_get_default ();
+	GtkSourceLanguageManager *lm = ctk_source_language_manager_get_default ();
 
-	gtk_source_language_manager_guess_language (lm, "", "");
+	ctk_source_language_manager_guess_language (lm, "", "");
 }
 
 static void
@@ -128,7 +128,7 @@ test_guess_language (void)
 	GtkSourceLanguageManager *lm;
 	GtkSourceLanguage *l;
 
-	lm = gtk_source_language_manager_get_default ();
+	lm = ctk_source_language_manager_get_default ();
 
 	g_test_trap_subprocess ("/LanguageManager/guess-language/subprocess/null_null", 0, 0);
 	g_test_trap_assert_failed ();
@@ -142,52 +142,52 @@ test_guess_language (void)
 	g_test_trap_subprocess ("/LanguageManager/guess-language/subprocess/empty_empty", 0, 0);
 	g_test_trap_assert_failed ();
 
-	l = gtk_source_language_manager_guess_language (lm, "foo.abcdef", NULL);
+	l = ctk_source_language_manager_guess_language (lm, "foo.abcdef", NULL);
 	g_assert_null (l);
 
-	l = gtk_source_language_manager_guess_language (lm, "foo.abcdef", "");
+	l = ctk_source_language_manager_guess_language (lm, "foo.abcdef", "");
 	g_assert_null (l);
 
-	l = gtk_source_language_manager_guess_language (lm, NULL, "image/png");
+	l = ctk_source_language_manager_guess_language (lm, NULL, "image/png");
 	g_assert_null (l);
 
-	l = gtk_source_language_manager_guess_language (lm, "", "image/png");
+	l = ctk_source_language_manager_guess_language (lm, "", "image/png");
 	g_assert_null (l);
 
-	l = gtk_source_language_manager_guess_language (lm, "foo.c", NULL);
-	g_assert_cmpstr (gtk_source_language_get_id (l), ==, "c");
+	l = ctk_source_language_manager_guess_language (lm, "foo.c", NULL);
+	g_assert_cmpstr (ctk_source_language_get_id (l), ==, "c");
 
-	l = gtk_source_language_manager_guess_language (lm, "foo.c", "");
-	g_assert_cmpstr (gtk_source_language_get_id (l), ==, "c");
+	l = ctk_source_language_manager_guess_language (lm, "foo.c", "");
+	g_assert_cmpstr (ctk_source_language_get_id (l), ==, "c");
 
-	l = gtk_source_language_manager_guess_language (lm, NULL, "text/x-csrc");
-	g_assert_cmpstr (gtk_source_language_get_id (l), ==, "c");
+	l = ctk_source_language_manager_guess_language (lm, NULL, "text/x-csrc");
+	g_assert_cmpstr (ctk_source_language_get_id (l), ==, "c");
 
-	l = gtk_source_language_manager_guess_language (lm, "", "text/x-csrc");
-	g_assert_cmpstr (gtk_source_language_get_id (l), ==, "c");
+	l = ctk_source_language_manager_guess_language (lm, "", "text/x-csrc");
+	g_assert_cmpstr (ctk_source_language_get_id (l), ==, "c");
 
-	l = gtk_source_language_manager_guess_language (lm, "foo.c", "text/x-csrc");
-	g_assert_cmpstr (gtk_source_language_get_id (l), ==, "c");
+	l = ctk_source_language_manager_guess_language (lm, "foo.c", "text/x-csrc");
+	g_assert_cmpstr (ctk_source_language_get_id (l), ==, "c");
 
-	l = gtk_source_language_manager_guess_language (lm, "foo.mo", "text/x-modelica");
-	g_assert_cmpstr (gtk_source_language_get_id (l), ==, "modelica");
+	l = ctk_source_language_manager_guess_language (lm, "foo.mo", "text/x-modelica");
+	g_assert_cmpstr (ctk_source_language_get_id (l), ==, "modelica");
 
-	l = gtk_source_language_manager_guess_language (lm, "foo.mo", "");
-	g_assert_cmpstr (gtk_source_language_get_id (l), ==, "modelica");
+	l = ctk_source_language_manager_guess_language (lm, "foo.mo", "");
+	g_assert_cmpstr (ctk_source_language_get_id (l), ==, "modelica");
 
 	/* when in disagreement, glob wins */
-	l = gtk_source_language_manager_guess_language (lm, "foo.c", "text/x-fortran");
-	g_assert_cmpstr (gtk_source_language_get_id (l), ==, "c");
+	l = ctk_source_language_manager_guess_language (lm, "foo.c", "text/x-fortran");
+	g_assert_cmpstr (ctk_source_language_get_id (l), ==, "c");
 
 	/* when content type is a descendent of the mime matched by the glob, mime wins */
-	l = gtk_source_language_manager_guess_language (lm, "foo.xml", "application/xslt+xml");
-	g_assert_cmpstr (gtk_source_language_get_id (l), ==, "xslt");
+	l = ctk_source_language_manager_guess_language (lm, "foo.xml", "application/xslt+xml");
+	g_assert_cmpstr (ctk_source_language_get_id (l), ==, "xslt");
 }
 
 int
 main (int argc, char** argv)
 {
-	gtk_test_init (&argc, &argv);
+	ctk_test_init (&argc, &argv);
 
 	init_default_manager ();
 

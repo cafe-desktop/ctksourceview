@@ -1,11 +1,11 @@
-#include <gtksourceview/gtksource.h>
+#include <ctksourceview/ctksource.h>
 
 static GHashTable *skipped;
 
 static void
 test_func (gconstpointer data)
 {
-	GtkSourceLanguageManager *lm = gtk_source_language_manager_get_default ();
+	GtkSourceLanguageManager *lm = ctk_source_language_manager_get_default ();
 	const char *language_id = data;
 	GtkSourceLanguage *l;
 	GtkSourceBuffer *buffer;
@@ -21,7 +21,7 @@ test_func (gconstpointer data)
 		return;
 	}
 
-	l = gtk_source_language_manager_get_language (lm, language_id);
+	l = ctk_source_language_manager_get_language (lm, language_id);
 	g_assert_nonnull (l);
 
 	buffer = g_object_new (GTK_SOURCE_TYPE_BUFFER,
@@ -51,7 +51,7 @@ main (int   argc,
 	search_path[1] = 0;
 
 	g_test_init (&argc, &argv, NULL);
-	gtk_source_init ();
+	ctk_source_init ();
 
 	skipped = g_hash_table_new (g_str_hash, g_str_equal);
 
@@ -71,14 +71,14 @@ main (int   argc,
 	g_hash_table_add (skipped, (char *)"typescript-type-expr");
 	g_hash_table_add (skipped, (char *)"typescript-type-gen");
 	g_hash_table_add (skipped, (char *)"typescript-type-lit");
-	g_hash_table_add (skipped, (char *)"gtk-doc");
+	g_hash_table_add (skipped, (char *)"ctk-doc");
 	g_hash_table_add (skipped, (char *)"testv1");
 
 	strings = g_ptr_array_new_with_free_func (g_free);
-	lm = gtk_source_language_manager_get_default ();
-	gtk_source_language_manager_set_search_path (lm, search_path);
+	lm = ctk_source_language_manager_get_default ();
+	ctk_source_language_manager_set_search_path (lm, search_path);
 
-	ids = gtk_source_language_manager_get_language_ids (lm);
+	ids = ctk_source_language_manager_get_language_ids (lm);
 
 	for (guint i = 0; ids[i]; i++)
 	{

@@ -114,11 +114,11 @@
 
     <define-regex id="function-prefix" extended="true">
       (?&lt;!\$)  # not preceded by a $ which suggest a dataframe field
-      \%[         # default gtksourceview prefix
+      \%[         # default ctksourceview prefix
     </define-regex>
 
     <define-regex id="function-suffix" extended="true">
-      \%[         # default gtksourceview suffix
+      \%[         # default ctksourceview suffix
       (?=\s*\()   # followed by open brackets and maybe some whitespace
     </define-regex>
 

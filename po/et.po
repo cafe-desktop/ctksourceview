@@ -1,9 +1,9 @@
-# gtksourceview'i eesti keele tõlge.
-# Estonian translation of gtksourceview.
+# ctksourceview'i eesti keele tõlge.
+# Estonian translation of ctksourceview.
 #
 # Copyright (C) 2003, 2005, 2006 Free Software Foundation, Inc.
 # Copyright (C) 2007–2011 The GNOME Project.
-# This file is distributed under the same license as the gtksourceview package.
+# This file is distributed under the same license as the ctksourceview package.
 #
 # Tõivo Leedjärv <toivo linux ee>, 2003.
 # Priit Laes <amd store20 com>, 2005.
@@ -12,9 +12,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gtksourceview MASTER\n"
+"Project-Id-Version: ctksourceview MASTER\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=gtksourceview&component=general\n"
+"product=ctksourceview&component=general\n"
 "POT-Creation-Date: 2011-01-02 23:03+0000\n"
 "PO-Revision-Date: 2011-01-08 11:00+0200\n"
 "Last-Translator: Ivar Smolin <okul@linux.ee>\n"
@@ -236,7 +236,7 @@ msgstr "Nimi"
 #. *
 #. * #GtkSourceLanguage encapsulates syntax and highlighting styles for a
 #. * particular language. Use #GtkSourceLanguageManager to obtain a
-#. * #GtkSourceLanguage instance, and gtk_source_buffer_set_language() to apply it
+#. * #GtkSourceLanguage instance, and ctk_source_buffer_set_language() to apply it
 #. * to a #GtkSourceBuffer.
 #.
 msgid "Others"
@@ -370,7 +370,7 @@ msgid "Defaults"
 msgstr "Vaikeväärtused"
 
 #. A special comment containing documentation like in javadoc or
-#. gtk-doc
+#. ctk-doc
 msgid "Documentation comment"
 msgstr "Dokumenteerimiskommentaar"
 
@@ -681,8 +681,8 @@ msgstr "Alates"
 msgid "Type"
 msgstr "Tüübid"
 
-msgid "gtk-doc"
-msgstr "gtk-doc"
+msgid "ctk-doc"
+msgstr "ctk-doc"
 
 msgid "GtkRC"
 msgstr "GtkRC"

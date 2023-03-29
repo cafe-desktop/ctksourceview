@@ -1,4 +1,4 @@
-project('gtksourceview', 'c',
+project('ctksourceview', 'c',
           version: '4.8.4',
           license: 'LGPL-2.1-or-later',
     meson_version: '>= 0.50.0',
@@ -56,38 +56,38 @@ vapidir = join_paths(datadir, 'vala', 'vapi')
 mandir = join_paths(prefix, get_option('mandir'))
 testexecdir = join_paths(libexecdir, 'installed-tests', package_string)
 testdatadir = join_paths(datadir, 'installed-tests', package_string)
-docpath = join_paths(datadir, 'gtk-doc', 'html', package_string)
+docpath = join_paths(datadir, 'ctk-doc', 'html', package_string)
 
 # Options
 install_glade_catalog = get_option('glade_catalog')
 generate_gir = get_option('gir')
 generate_vapi = generate_gir and get_option('vapi')
-build_gtk_doc = get_option('gtk_doc')
+build_ctk_doc = get_option('ctk_doc')
 
 # Dependencies
 cc = meson.get_compiler('c')
 
 glib_req_version = '2.48'
-gtk_req_version = '3.24'
+ctk_req_version = '3.24'
 
 libm_dep = cc.find_library('m', required: false)
 
 glib_req = '>= @0@'.format(glib_req_version)
-gtk_req = '>= @0@'.format(gtk_req_version)
+ctk_req = '>= @0@'.format(ctk_req_version)
 libxml_req = '>= 2.6'
 gladeui_req = '>= 3.9'
 introspection_req  = '>= 1.42.0'
-gtk_doc_req = '>= 1.25'
+ctk_doc_req = '>= 1.25'
 fribidi_req = '>= 0.19.7'
 
 glib_dep = dependency('glib-2.0', version: glib_req)
 gobject_dep = dependency('gobject-2.0', version: glib_req)
 gio_dep = dependency('gio-2.0', version: glib_req)
-gtk_dep = dependency('gtk+-3.0', version: gtk_req)
+ctk_dep = dependency('ctk+-3.0', version: ctk_req)
 libxml_dep = dependency('libxml-2.0', version: libxml_req, required: cc.get_id() != 'msvc')
 fribidi_dep = dependency('fribidi', version: fribidi_req)
 
-gtk_quartz_dep = dependency('gtk+-quartz-3.0', version: gtk_doc_req, required: false)
+ctk_quartz_dep = dependency('ctk+-quartz-3.0', version: ctk_doc_req, required: false)
 
 if install_glade_catalog
   gladeui_dep = dependency('gladeui-2.0', version: gladeui_req)
@@ -107,10 +107,10 @@ else
   vapigen_dep = []
 endif
 
-if build_gtk_doc
-  gtk_doc_dep = dependency('gtk-doc', version: gtk_doc_req)
+if build_ctk_doc
+  ctk_doc_dep = dependency('ctk-doc', version: ctk_doc_req)
 else
-  gtk_doc_dep = []
+  ctk_doc_dep = []
 endif
 
 # Look for the libxml2 library manually on Visual Studio if
@@ -128,9 +128,9 @@ glib_version_arr = glib_req_version.split('.')
 glib_major_version = glib_version_arr[0]
 glib_minor_version = glib_version_arr[1]
 
-gtk_version_arr = gtk_req_version.split('.')
-gtk_major_version = gtk_version_arr[0]
-gtk_minor_version = gtk_version_arr[1]
+ctk_version_arr = ctk_req_version.split('.')
+ctk_major_version = ctk_version_arr[0]
+ctk_minor_version = ctk_version_arr[1]
 
 # Configurations
 add_project_arguments([
@@ -138,8 +138,8 @@ add_project_arguments([
   '-DGDK_DISABLE_DEPRECATED',
   '-DGTK_DISABLE_DEPRECATED',
   '-DGDK_PIXBUF_DISABLE_DEPRECATED',
-  '-DGDK_VERSION_MIN_REQUIRED=GDK_VERSION_@0@_@1@'.format(gtk_major_version, gtk_minor_version),
-  '-DGDK_VERSION_MAX_ALLOWED=GDK_VERSION_@0@_@1@'.format(gtk_major_version, gtk_minor_version),
+  '-DGDK_VERSION_MIN_REQUIRED=GDK_VERSION_@0@_@1@'.format(ctk_major_version, ctk_minor_version),
+  '-DGDK_VERSION_MAX_ALLOWED=GDK_VERSION_@0@_@1@'.format(ctk_major_version, ctk_minor_version),
   '-DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_@0@_@1@'.format(glib_major_version, glib_minor_version),
   '-DGLIB_VERSION_MAX_ALLOWED=GLIB_VERSION_@0@_@1@'.format(glib_major_version, glib_minor_version),
 ], language: 'c')
@@ -160,7 +160,7 @@ foreach header: check_headers
   endif
 endforeach
 
-if build_machine.system() == 'darwin' and gtk_quartz_dep.found()
+if build_machine.system() == 'darwin' and ctk_quartz_dep.found()
   cocoa_dep = dependency('appleframeworks', modules: 'Cocoa', required: false)
   assert(cocoa_dep.found(), 'Dependency appleframeworks not found')
   config_h.set_quoted('OS_OSX', 'yes')
@@ -282,7 +282,7 @@ configure_file(
   configuration: config_h
 )
 
-subdir('gtksourceview')
+subdir('ctksourceview')
 subdir('data')
 subdir('docs')
 subdir('po')
@@ -294,7 +294,7 @@ summary = [
   '------',
   'GtkSourceView @0@ (@1@)'.format(version, api_version),
   '',
-  '  Documentation: @0@'.format(build_gtk_doc),
+  '  Documentation: @0@'.format(build_ctk_doc),
   '  Glade catalog: @0@'.format(install_glade_catalog),
   '  Install tests: @0@'.format(get_option('install_tests')),
   '  Introspection: @0@'.format(generate_gir),

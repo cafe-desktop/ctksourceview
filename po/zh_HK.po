@@ -1,4 +1,4 @@
-# Chinese (Hong Kong) translation of gtksourceview.
+# Chinese (Hong Kong) translation of ctksourceview.
 # Copyright (C) 2003-07 Free Software Foundation, Inc.
 # Anthony Tang <tkyanthony@yahoo.com.hk>, 2004.
 # Abel Cheung <abel@oaka.org>, 2003, 05.
@@ -8,9 +8,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gtksourceview 3.3.4\n"
+"Project-Id-Version: ctksourceview 3.3.4\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=gtksourceview&keywords=I18N+L10N&component=general\n"
+"product=ctksourceview&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2014-08-19 09:11+0000\n"
 "PO-Revision-Date: 2014-08-21 18:52+0800\n"
 "Last-Translator: Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>\n"
@@ -22,61 +22,61 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 1.6.5\n"
 
-#: ../data/glade/gtksourceview.xml.in.h:1
+#: ../data/glade/ctksourceview.xml.in.h:1
 msgid "GtkSourceView"
 msgstr "GtkSourceView"
 
 #. Translators: It is related to an option of a set of values
-#: ../data/glade/gtksourceview.xml.in.h:3
+#: ../data/glade/ctksourceview.xml.in.h:3
 msgid "Disabled"
 msgstr "已停用"
 
-#: ../data/glade/gtksourceview.xml.in.h:4
+#: ../data/glade/ctksourceview.xml.in.h:4
 msgid "Before"
 msgstr "早於"
 
-#: ../data/glade/gtksourceview.xml.in.h:5
+#: ../data/glade/ctksourceview.xml.in.h:5
 msgid "After"
 msgstr "晚於"
 
-#: ../data/glade/gtksourceview.xml.in.h:6
+#: ../data/glade/ctksourceview.xml.in.h:6
 msgid "Always"
 msgstr "永遠"
 
-#: ../data/glade/gtksourceview.xml.in.h:7
+#: ../data/glade/ctksourceview.xml.in.h:7
 msgid "Space"
 msgstr "Space"
 
-#: ../data/glade/gtksourceview.xml.in.h:8
+#: ../data/glade/ctksourceview.xml.in.h:8
 msgid "Tab"
 msgstr "Tab"
 
-#: ../data/glade/gtksourceview.xml.in.h:9
+#: ../data/glade/ctksourceview.xml.in.h:9
 msgid "Newline"
 msgstr "換列"
 
-#: ../data/glade/gtksourceview.xml.in.h:10
+#: ../data/glade/ctksourceview.xml.in.h:10
 msgid "Non Breaking Whitespace"
 msgstr "不斷行空白"
 
-#: ../data/glade/gtksourceview.xml.in.h:11
+#: ../data/glade/ctksourceview.xml.in.h:11
 msgid "Leading"
 msgstr "開頭"
 
-#: ../data/glade/gtksourceview.xml.in.h:12
-#: ../gtksourceview/gtksourcecompletionitem.c:262
-#: ../gtksourceview/gtksourcegutterrenderertext.c:409
+#: ../data/glade/ctksourceview.xml.in.h:12
+#: ../ctksourceview/ctksourcecompletionitem.c:262
+#: ../ctksourceview/ctksourcegutterrenderertext.c:409
 msgid "Text"
 msgstr "文字"
 
-#: ../data/glade/gtksourceview.xml.in.h:13
+#: ../data/glade/ctksourceview.xml.in.h:13
 msgid "Trailing"
 msgstr "結尾"
 
 #. Translators: "All" is used as a label in the status bar of the
 #. popup, telling that all completion pages are shown.
-#: ../data/glade/gtksourceview.xml.in.h:14
-#: ../gtksourceview/gtksourcecompletion.c:788
+#: ../data/glade/ctksourceview.xml.in.h:14
+#: ../ctksourceview/ctksourcecompletion.c:788
 msgid "All"
 msgstr "全部"
 
@@ -137,7 +137,7 @@ msgstr "ActionScript"
 #: ../data/language-specs/forth.lang.h:3
 #: ../data/language-specs/fortran.lang.h:3
 #: ../data/language-specs/fsharp.lang.h:3 ../data/language-specs/gap.lang.h:3
-#: ../data/language-specs/go.lang.h:3 ../data/language-specs/gtkrc.lang.h:3
+#: ../data/language-specs/go.lang.h:3 ../data/language-specs/ctkrc.lang.h:3
 #: ../data/language-specs/haskell.lang.h:4
 #: ../data/language-specs/html.lang.h:3
 #: ../data/language-specs/idl-exelis.lang.h:3
@@ -201,7 +201,7 @@ msgstr "錯誤"
 #: ../data/language-specs/fortran.lang.h:4
 #: ../data/language-specs/fsharp.lang.h:7
 #: ../data/language-specs/gdb-log.lang.h:8 ../data/language-specs/go.lang.h:5
-#: ../data/language-specs/gtkrc.lang.h:4
+#: ../data/language-specs/ctkrc.lang.h:4
 #: ../data/language-specs/haskell.lang.h:9
 #: ../data/language-specs/idl-exelis.lang.h:7
 #: ../data/language-specs/idl.lang.h:7 ../data/language-specs/imagej.lang.h:10
@@ -279,7 +279,7 @@ msgstr "範圍宣告"
 #: ../data/language-specs/fortran.lang.h:6
 #: ../data/language-specs/fsharp.lang.h:8 ../data/language-specs/gap.lang.h:5
 #: ../data/language-specs/glsl.lang.h:5 ../data/language-specs/go.lang.h:7
-#: ../data/language-specs/gtkrc.lang.h:5
+#: ../data/language-specs/ctkrc.lang.h:5
 #: ../data/language-specs/haskell.lang.h:7
 #: ../data/language-specs/idl-exelis.lang.h:6
 #: ../data/language-specs/idl.lang.h:6 ../data/language-specs/imagej.lang.h:8
@@ -335,7 +335,7 @@ msgstr "NULL"
 #: ../data/language-specs/csharp.lang.h:14
 #: ../data/language-specs/def.lang.h:34
 #: ../data/language-specs/fsharp.lang.h:19 ../data/language-specs/go.lang.h:16
-#: ../data/language-specs/gtkrc.lang.h:10 ../data/language-specs/ini.lang.h:10
+#: ../data/language-specs/ctkrc.lang.h:10 ../data/language-specs/ini.lang.h:10
 #: ../data/language-specs/java.lang.h:14 ../data/language-specs/llvm.lang.h:11
 #: ../data/language-specs/lua.lang.h:10
 #: ../data/language-specs/nemerle.lang.h:11
@@ -382,7 +382,7 @@ msgstr "保留字"
 #: ../data/language-specs/fortran.lang.h:10
 #: ../data/language-specs/fsharp.lang.h:11
 #: ../data/language-specs/glsl.lang.h:4 ../data/language-specs/go.lang.h:8
-#: ../data/language-specs/gtkrc.lang.h:7
+#: ../data/language-specs/ctkrc.lang.h:7
 #: ../data/language-specs/haskell.lang.h:8
 #: ../data/language-specs/idl-exelis.lang.h:4
 #: ../data/language-specs/idl.lang.h:4 ../data/language-specs/ini.lang.h:9
@@ -505,7 +505,7 @@ msgstr "文字"
 #: ../data/language-specs/ansforth94.lang.h:10
 #: ../data/language-specs/cmake.lang.h:5 ../data/language-specs/cobol.lang.h:7
 #: ../data/language-specs/def.lang.h:13
-#: ../data/language-specs/gtk-doc.lang.h:8
+#: ../data/language-specs/ctk-doc.lang.h:8
 #: ../data/language-specs/libtool.lang.h:3
 #: ../data/language-specs/ruby.lang.h:18
 msgid "Constant"
@@ -554,7 +554,7 @@ msgstr "ASP"
 #: ../data/language-specs/changelog.lang.h:9
 #: ../data/language-specs/css.lang.h:8 ../data/language-specs/def.lang.h:38
 #: ../data/language-specs/gap.lang.h:6 ../data/language-specs/gdb-log.lang.h:7
-#: ../data/language-specs/gtk-doc.lang.h:10
+#: ../data/language-specs/ctk-doc.lang.h:10
 #: ../data/language-specs/idl-exelis.lang.h:10
 #: ../data/language-specs/javascript.lang.h:9
 #: ../data/language-specs/llvm.lang.h:6 ../data/language-specs/lua.lang.h:8
@@ -696,7 +696,7 @@ msgstr "16 進位數數值"
 
 #: ../data/language-specs/bibtex.lang.h:1
 #: ../data/language-specs/docbook.lang.h:1 ../data/language-specs/dtd.lang.h:1
-#: ../data/language-specs/gtk-doc.lang.h:1
+#: ../data/language-specs/ctk-doc.lang.h:1
 #: ../data/language-specs/haddock.lang.h:1
 #: ../data/language-specs/html.lang.h:1 ../data/language-specs/latex.lang.h:1
 #: ../data/language-specs/mallard.lang.h:1
@@ -706,8 +706,8 @@ msgstr "16 進位數數值"
 #: ../data/language-specs/sweave.lang.h:1 ../data/language-specs/t2t.lang.h:1
 #: ../data/language-specs/texinfo.lang.h:1 ../data/language-specs/xml.lang.h:1
 #: ../data/language-specs/xslt.lang.h:1
-#: ../gtksourceview/gtksourcecompletionitem.c:249
-#: ../gtksourceview/gtksourcegutterrenderertext.c:401
+#: ../ctksourceview/ctksourcecompletionitem.c:249
+#: ../ctksourceview/ctksourcegutterrenderertext.c:401
 msgid "Markup"
 msgstr "標記"
 
@@ -745,7 +745,7 @@ msgid "Import BVI"
 msgstr "匯入 BVI"
 
 #: ../data/language-specs/bluespec.lang.h:8
-#: ../data/language-specs/gtk-doc.lang.h:9
+#: ../data/language-specs/ctk-doc.lang.h:9
 #: ../data/language-specs/julia.lang.h:15
 #: ../data/language-specs/systemverilog.lang.h:6
 #: ../data/language-specs/verilog.lang.h:13
@@ -841,7 +841,7 @@ msgstr "內置"
 #: ../data/language-specs/diff.lang.h:1 ../data/language-specs/dot.lang.h:1
 #: ../data/language-specs/dpatch.lang.h:1
 #: ../data/language-specs/gdb-log.lang.h:1
-#: ../data/language-specs/gtkrc.lang.h:1 ../data/language-specs/ini.lang.h:1
+#: ../data/language-specs/ctkrc.lang.h:1 ../data/language-specs/ini.lang.h:1
 #: ../data/language-specs/json.lang.h:1
 #: ../data/language-specs/libtool.lang.h:1
 #: ../data/language-specs/nsis.lang.h:1 ../data/language-specs/ocl.lang.h:1
@@ -970,7 +970,7 @@ msgstr "其它 3"
 #. Translator: it is a type of number
 #: ../data/language-specs/css.lang.h:10 ../data/language-specs/fcl.lang.h:7
 #: ../data/language-specs/fortran.lang.h:9 ../data/language-specs/gap.lang.h:7
-#: ../data/language-specs/gtkrc.lang.h:6
+#: ../data/language-specs/ctkrc.lang.h:6
 #: ../data/language-specs/haskell.lang.h:13
 #: ../data/language-specs/ini.lang.h:7 ../data/language-specs/json.lang.h:8
 #: ../data/language-specs/modelica.lang.h:10
@@ -1030,7 +1030,7 @@ msgid "Shebang"
 msgstr "Shebang(#!)"
 
 #. A special comment containing documentation like in javadoc or
-#. gtk-doc
+#. ctk-doc
 #: ../data/language-specs/def.lang.h:8
 msgid "Documentation comment"
 msgstr "文件註解"
@@ -1153,8 +1153,8 @@ msgid "Exec parameter"
 msgstr "Exec 參數"
 
 #: ../data/language-specs/desktop.lang.h:11
-#: ../gtksourceview/gtksourcefile.c:184
-#: ../gtksourceview/gtksourcefilesaver.c:390
+#: ../ctksourceview/ctksourcefile.c:184
+#: ../ctksourceview/ctksourcefilesaver.c:390
 msgid "Encoding"
 msgstr "編碼"
 
@@ -1195,9 +1195,9 @@ msgstr "特殊情況"
 
 #. String
 #: ../data/language-specs/diff.lang.h:11 ../data/language-specs/po.lang.h:4
-#: ../gtksourceview/gtksourcefile.c:167
-#: ../gtksourceview/gtksourcefileloader.c:394
-#: ../gtksourceview/gtksourcefilesaver.c:373
+#: ../ctksourceview/ctksourcefile.c:167
+#: ../ctksourceview/ctksourcefileloader.c:394
+#: ../ctksourceview/ctksourcefilesaver.c:373
 msgid "Location"
 msgstr "位置"
 
@@ -1512,52 +1512,52 @@ msgstr "前往"
 msgid "Imaginary number"
 msgstr "圖片的數目"
 
-#: ../data/language-specs/gtk-doc.lang.h:2
-msgid "gtk-doc"
-msgstr "gtk-doc"
+#: ../data/language-specs/ctk-doc.lang.h:2
+msgid "ctk-doc"
+msgstr "ctk-doc"
 
-#: ../data/language-specs/gtk-doc.lang.h:3
+#: ../data/language-specs/ctk-doc.lang.h:3
 msgid "Inline Documentation Section"
 msgstr "行內文件節區"
 
-#: ../data/language-specs/gtk-doc.lang.h:4
+#: ../data/language-specs/ctk-doc.lang.h:4
 #: ../data/language-specs/python.lang.h:19
 msgid "Function Name"
 msgstr "函數名稱"
 
-#: ../data/language-specs/gtk-doc.lang.h:5
+#: ../data/language-specs/ctk-doc.lang.h:5
 msgid "Signal Name"
 msgstr "訊號名稱"
 
-#: ../data/language-specs/gtk-doc.lang.h:6
+#: ../data/language-specs/ctk-doc.lang.h:6
 msgid "Property Name"
 msgstr "屬性名稱"
 
-#: ../data/language-specs/gtk-doc.lang.h:7
+#: ../data/language-specs/ctk-doc.lang.h:7
 msgid "Parameter"
 msgstr "參數"
 
-#: ../data/language-specs/gtk-doc.lang.h:11
+#: ../data/language-specs/ctk-doc.lang.h:11
 msgid "Return"
 msgstr "回傳"
 
-#: ../data/language-specs/gtk-doc.lang.h:12
+#: ../data/language-specs/ctk-doc.lang.h:12
 msgid "Since"
 msgstr "版本歷程"
 
-#: ../data/language-specs/gtk-doc.lang.h:13
+#: ../data/language-specs/ctk-doc.lang.h:13
 msgid "Deprecated"
 msgstr "已廢棄"
 
-#: ../data/language-specs/gtkrc.lang.h:2
+#: ../data/language-specs/ctkrc.lang.h:2
 msgid "GtkRC"
 msgstr "GtkRC"
 
-#: ../data/language-specs/gtkrc.lang.h:8
+#: ../data/language-specs/ctkrc.lang.h:8
 msgid "Widget State"
 msgstr "介面工具集狀態"
 
-#: ../data/language-specs/gtkrc.lang.h:9
+#: ../data/language-specs/ctkrc.lang.h:9
 msgid "Include directive"
 msgstr "包括命令"
 
@@ -2025,7 +2025,7 @@ msgid "Link Text"
 msgstr "連結文字"
 
 #: ../data/language-specs/markdown.lang.h:10
-#: ../gtksourceview/gtksourcecompletionitem.c:236
+#: ../ctksourceview/ctksourcecompletionitem.c:236
 msgid "Label"
 msgstr "標籤"
 
@@ -2538,11 +2538,11 @@ msgstr "變數定義"
 #. *
 #. * #GtkSourceLanguage encapsulates syntax and highlighting styles for a
 #. * particular language. Use #GtkSourceLanguageManager to obtain a
-#. * #GtkSourceLanguage instance, and gtk_source_buffer_set_language() to apply it
+#. * #GtkSourceLanguage instance, and ctk_source_buffer_set_language() to apply it
 #. * to a #GtkSourceBuffer.
 #.
 #: ../data/language-specs/sh.lang.h:10 ../data/language-specs/texinfo.lang.h:5
-#: ../gtksourceview/gtksourcelanguage.c:54
+#: ../ctksourceview/ctksourcelanguage.c:54
 msgid "Others"
 msgstr "其他"
 
@@ -2634,13 +2634,13 @@ msgstr "第 4 節"
 msgid "Section 5"
 msgstr "第 5 節"
 
-#: ../data/language-specs/t2t.lang.h:14 ../gtksourceview/gtksourcestyle.c:121
-#: ../gtksourceview/gtksourcestyle.c:122
+#: ../data/language-specs/t2t.lang.h:14 ../ctksourceview/ctksourcestyle.c:121
+#: ../ctksourceview/ctksourcestyle.c:122
 msgid "Italic"
 msgstr "斜體"
 
-#: ../data/language-specs/t2t.lang.h:15 ../gtksourceview/gtksourcestyle.c:113
-#: ../gtksourceview/gtksourcestyle.c:114
+#: ../data/language-specs/t2t.lang.h:15 ../ctksourceview/ctksourcestyle.c:113
+#: ../ctksourceview/ctksourcestyle.c:114
 msgid "Bold"
 msgstr "粗體"
 
@@ -2821,308 +2821,308 @@ msgstr "Tango"
 msgid "Color scheme using Tango color palette"
 msgstr "使用 Tango 調色盤的色彩架構"
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:327
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:327
 msgid "Document Words"
 msgstr "文件字詞"
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:429
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:429
 msgctxt "Object"
 msgid "Name"
 msgstr "名稱"
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:430
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:430
 msgid "The provider name"
 msgstr "提供者名稱"
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:437
-#: ../gtksourceview/gtksourcecompletionitem.c:275
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:437
+#: ../ctksourceview/ctksourcecompletionitem.c:275
 msgid "Icon"
 msgstr "圖示"
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:438
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:438
 msgid "The provider icon"
 msgstr "提供者圖示"
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:445
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:445
 msgid "Proposals Batch Size"
 msgstr "建議批次檔大小"
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:446
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:446
 msgid "Number of proposals added in one batch"
 msgstr "在一個批次檔中加入的建議數"
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:455
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:455
 msgid "Scan Batch Size"
 msgstr "掃描批次檔大小"
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:456
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:456
 msgid "Number of lines scanned in one batch"
 msgstr "在一個批次檔中掃描的列數"
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:465
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:465
 msgid "Minimum Word Size"
 msgstr "字詞最小的長度"
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:466
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:466
 msgid "The minimum word size to complete"
 msgstr "使用自動補齊的字詞最小長度"
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:475
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:475
 msgid "Interactive Delay"
 msgstr "互動項目延遲"
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:476
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:476
 msgid "The delay before initiating interactive completion"
 msgstr "在初始化互動補齊前延遲的時間"
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:485
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:485
 msgid "Priority"
 msgstr "優先等級"
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:486
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:486
 msgid "Provider priority"
 msgstr "提供者優先權"
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:502
-#: ../gtksourceview/gtksourcecompletioncontext.c:298
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:502
+#: ../ctksourceview/ctksourcecompletioncontext.c:298
 msgid "Activation"
 msgstr "啟用"
 
-#: ../gtksourceview/completion-providers/words/gtksourcecompletionwords.c:503
-#: ../gtksourceview/gtksourcecompletioncontext.c:299
+#: ../ctksourceview/completion-providers/words/ctksourcecompletionwords.c:503
+#: ../ctksourceview/ctksourcecompletioncontext.c:299
 msgid "The type of activation"
 msgstr "啟用的類型"
 
-#: ../gtksourceview/gtksourcebuffer.c:277
-#: ../gtksourceview/gtksourceprintcompositor.c:505
+#: ../ctksourceview/ctksourcebuffer.c:277
+#: ../ctksourceview/ctksourceprintcompositor.c:505
 msgid "Highlight Syntax"
 msgstr "語法高亮度顯示"
 
-#: ../gtksourceview/gtksourcebuffer.c:278
+#: ../ctksourceview/ctksourcebuffer.c:278
 msgid "Whether to highlight syntax in the buffer"
 msgstr "是否加強顯示緩衝區內容中的語法"
 
-#: ../gtksourceview/gtksourcebuffer.c:291
+#: ../ctksourceview/ctksourcebuffer.c:291
 msgid "Highlight Matching Brackets"
 msgstr "高亮度顯示成對的括號"
 
-#: ../gtksourceview/gtksourcebuffer.c:292
+#: ../ctksourceview/ctksourcebuffer.c:292
 msgid "Whether to highlight matching brackets"
 msgstr "是否高亮度顯示成對的括號"
 
-#: ../gtksourceview/gtksourcebuffer.c:305
-#: ../gtksourceview/gtksourceundomanagerdefault.c:411
+#: ../ctksourceview/ctksourcebuffer.c:305
+#: ../ctksourceview/ctksourceundomanagerdefault.c:411
 msgid "Maximum Undo Levels"
 msgstr "復原次數上限"
 
-#: ../gtksourceview/gtksourcebuffer.c:306
-#: ../gtksourceview/gtksourceundomanagerdefault.c:412
+#: ../ctksourceview/ctksourcebuffer.c:306
+#: ../ctksourceview/ctksourceundomanagerdefault.c:412
 msgid "Number of undo levels for the buffer"
 msgstr "緩衝區內容可以復原的次數"
 
 #. Translators: throughout GtkSourceView "language" stands
 #. * for "programming language", not "spoken language"
-#: ../gtksourceview/gtksourcebuffer.c:318
+#: ../ctksourceview/ctksourcebuffer.c:318
 msgid "Language"
 msgstr "程式語言"
 
-#: ../gtksourceview/gtksourcebuffer.c:319
+#: ../ctksourceview/ctksourcebuffer.c:319
 msgid "Language object to get highlighting patterns from"
 msgstr "從指定語言讀取會加強顯示的樣式"
 
-#: ../gtksourceview/gtksourcebuffer.c:327
+#: ../ctksourceview/ctksourcebuffer.c:327
 msgid "Can undo"
 msgstr "可復原"
 
-#: ../gtksourceview/gtksourcebuffer.c:328
+#: ../ctksourceview/ctksourcebuffer.c:328
 msgid "Whether Undo operation is possible"
 msgstr "是否可進行復原動作"
 
-#: ../gtksourceview/gtksourcebuffer.c:335
+#: ../ctksourceview/ctksourcebuffer.c:335
 msgid "Can redo"
 msgstr "可重做"
 
-#: ../gtksourceview/gtksourcebuffer.c:336
+#: ../ctksourceview/ctksourcebuffer.c:336
 msgid "Whether Redo operation is possible"
 msgstr "是否可進行重做動作"
 
-#: ../gtksourceview/gtksourcebuffer.c:350
-#: ../gtksourceview/gtksourcebuffer.c:351
+#: ../ctksourceview/ctksourcebuffer.c:350
+#: ../ctksourceview/ctksourcebuffer.c:351
 msgid "Style scheme"
 msgstr "樣式架構"
 
-#: ../gtksourceview/gtksourcebuffer.c:358
+#: ../ctksourceview/ctksourcebuffer.c:358
 msgid "Undo manager"
 msgstr "復原管理員"
 
-#: ../gtksourceview/gtksourcebuffer.c:359
+#: ../ctksourceview/ctksourcebuffer.c:359
 msgid "The buffer undo manager"
 msgstr "緩衝區復原管理員"
 
-#: ../gtksourceview/gtksourcebuffer.c:373
+#: ../ctksourceview/ctksourcebuffer.c:373
 msgid "Implicit trailing newline"
 msgstr "隱含 Newline 結尾"
 
-#: ../gtksourceview/gtksourcebufferoutputstream.c:838
+#: ../ctksourceview/ctksourcebufferoutputstream.c:838
 msgid "Invalid byte sequence in conversion input"
 msgstr "轉換輸入資料時遇到不正確的位元組次序"
 
-#: ../gtksourceview/gtksourcebufferoutputstream.c:844
+#: ../ctksourceview/ctksourcebufferoutputstream.c:844
 #, c-format
 #| msgid "String Conversion"
 msgid "Error during conversion: %s"
 msgstr "轉換時發生錯誤：%s"
 
-#: ../gtksourceview/gtksourcebufferoutputstream.c:925
+#: ../ctksourceview/ctksourcebufferoutputstream.c:925
 #, c-format
 msgid "Conversion from character set '%s' to 'UTF-8' is not supported"
 msgstr "不支援將字符集‘%s’轉換成‘UTF-8’"
 
-#: ../gtksourceview/gtksourcebufferoutputstream.c:931
+#: ../ctksourceview/ctksourcebufferoutputstream.c:931
 #, c-format
 msgid "Could not open converter from '%s' to 'UTF-8'"
 msgstr "無法開啟將‘%s’轉換至‘UTF-8’的轉換器"
 
-#: ../gtksourceview/gtksourcebufferoutputstream.c:986
+#: ../ctksourceview/ctksourcebufferoutputstream.c:986
 msgid "Invalid object, not initialized"
 msgstr "無效的物件，尚未初始化"
 
-#: ../gtksourceview/gtksourcebufferoutputstream.c:1178
+#: ../ctksourceview/ctksourcebufferoutputstream.c:1178
 #, c-format
 #| msgid "Incomplete Sequence"
 msgid "Incomplete UTF-8 sequence in input"
 msgstr "在輸入中出現不完整的 UTF-8 次序"
 
-#: ../gtksourceview/gtksourcecompletion.c:2162
-#: ../gtksourceview/gtksourcegutter.c:549
+#: ../ctksourceview/ctksourcecompletion.c:2162
+#: ../ctksourceview/ctksourcegutter.c:549
 msgid "View"
 msgstr "檢視"
 
-#: ../gtksourceview/gtksourcecompletion.c:2163
+#: ../ctksourceview/ctksourcecompletion.c:2163
 msgid "The GtkSourceView bound to the completion"
 msgstr "與這個補齊關聯的 GtkSourceView"
 
-#: ../gtksourceview/gtksourcecompletion.c:2177
+#: ../ctksourceview/ctksourcecompletion.c:2177
 msgid "Remember Info Visibility"
 msgstr "記住資訊的可視性"
 
-#: ../gtksourceview/gtksourcecompletion.c:2178
+#: ../ctksourceview/ctksourcecompletion.c:2178
 msgid "Remember the last info window visibility state"
 msgstr "記住上次資訊視窗的可視性狀態"
 
-#: ../gtksourceview/gtksourcecompletion.c:2190
+#: ../ctksourceview/ctksourcecompletion.c:2190
 msgid "Select on Show"
 msgstr "顯示即選擇"
 
-#: ../gtksourceview/gtksourcecompletion.c:2191
+#: ../ctksourceview/ctksourcecompletion.c:2191
 msgid "Select first proposal when completion is shown"
 msgstr "在自動補齊顯示時選擇第一個建議"
 
-#: ../gtksourceview/gtksourcecompletion.c:2204
+#: ../ctksourceview/ctksourcecompletion.c:2204
 msgid "Show Headers"
 msgstr "顯示標頭"
 
-#: ../gtksourceview/gtksourcecompletion.c:2205
+#: ../ctksourceview/ctksourcecompletion.c:2205
 msgid ""
 "Show provider headers when proposals from multiple providers are available"
 msgstr "當建議來自多個提供者時顯示提供者標頭"
 
-#: ../gtksourceview/gtksourcecompletion.c:2218
+#: ../ctksourceview/ctksourcecompletion.c:2218
 msgid "Show Icons"
 msgstr "顯示圖示"
 
-#: ../gtksourceview/gtksourcecompletion.c:2219
+#: ../ctksourceview/ctksourcecompletion.c:2219
 msgid "Show provider and proposal icons in the completion popup"
 msgstr "在自動補齊彈出視窗中顯示提供者和建議的圖示"
 
-#: ../gtksourceview/gtksourcecompletion.c:2233
+#: ../ctksourceview/ctksourcecompletion.c:2233
 msgid "Accelerators"
 msgstr "捷徑鍵"
 
-#: ../gtksourceview/gtksourcecompletion.c:2234
+#: ../ctksourceview/ctksourcecompletion.c:2234
 msgid "Number of proposal accelerators to show"
 msgstr "要顯示的建議加速選單數目"
 
-#: ../gtksourceview/gtksourcecompletion.c:2249
+#: ../ctksourceview/ctksourcecompletion.c:2249
 msgid "Auto Complete Delay"
 msgstr "自動補齊延遲"
 
-#: ../gtksourceview/gtksourcecompletion.c:2250
+#: ../ctksourceview/ctksourcecompletion.c:2250
 msgid "Completion popup delay for interactive completion"
 msgstr "互動式補齊彈出視窗前的延遲"
 
-#: ../gtksourceview/gtksourcecompletion.c:2266
+#: ../ctksourceview/ctksourcecompletion.c:2266
 msgid "Provider Page Size"
 msgstr "提供者頁面大小"
 
-#: ../gtksourceview/gtksourcecompletion.c:2267
+#: ../ctksourceview/ctksourcecompletion.c:2267
 msgid "Provider scrolling page size"
 msgstr "提供者捲動頁面大小"
 
-#: ../gtksourceview/gtksourcecompletion.c:2287
+#: ../ctksourceview/ctksourcecompletion.c:2287
 msgid "Proposal Page Size"
 msgstr "建議頁面大小"
 
-#: ../gtksourceview/gtksourcecompletion.c:2288
+#: ../ctksourceview/ctksourcecompletion.c:2288
 msgid "Proposal scrolling page size"
 msgstr "建議捲動頁面大小"
 
-#: ../gtksourceview/gtksourcecompletioncontext.c:271
-#: ../gtksourceview/gtksourceview.c:313
+#: ../ctksourceview/ctksourcecompletioncontext.c:271
+#: ../ctksourceview/ctksourceview.c:313
 msgid "Completion"
 msgstr "自動補齊"
 
-#: ../gtksourceview/gtksourcecompletioncontext.c:272
+#: ../ctksourceview/ctksourcecompletioncontext.c:272
 msgid "The completion object to which the context belongs"
 msgstr "此選項所屬的自動補齊物件"
 
 #. Translators: The GtkTextIter at which the completion was invoked
-#: ../gtksourceview/gtksourcecompletioncontext.c:285
+#: ../ctksourceview/ctksourcecompletioncontext.c:285
 msgid "Iterator"
 msgstr "迭代器"
 
-#: ../gtksourceview/gtksourcecompletioncontext.c:286
+#: ../ctksourceview/ctksourcecompletioncontext.c:286
 msgid "The GtkTextIter at which the completion was invoked"
 msgstr "呼叫自動補齊時的 GtkTextIter"
 
 #. Tooltip style
-#: ../gtksourceview/gtksourcecompletioninfo.c:253
+#: ../ctksourceview/ctksourcecompletioninfo.c:253
 msgid "Completion Info"
 msgstr "自動補齊資訊"
 
-#: ../gtksourceview/gtksourcecompletionitem.c:237
+#: ../ctksourceview/ctksourcecompletionitem.c:237
 msgid "Label to be shown for this item"
 msgstr "這個項目所顯示的標籤"
 
-#: ../gtksourceview/gtksourcecompletionitem.c:250
+#: ../ctksourceview/ctksourcecompletionitem.c:250
 msgid "Markup to be shown for this item"
 msgstr "這個項目所顯示的標記"
 
-#: ../gtksourceview/gtksourcecompletionitem.c:263
+#: ../ctksourceview/ctksourcecompletionitem.c:263
 msgid "Item text"
 msgstr "項目文字"
 
-#: ../gtksourceview/gtksourcecompletionitem.c:276
+#: ../ctksourceview/ctksourcecompletionitem.c:276
 msgid "Icon to be shown for this item"
 msgstr "這個項目所顯示的圖示"
 
-#: ../gtksourceview/gtksourcecompletionitem.c:288
+#: ../ctksourceview/ctksourcecompletionitem.c:288
 msgid "Info"
 msgstr "資訊"
 
-#: ../gtksourceview/gtksourcecompletionitem.c:289
+#: ../ctksourceview/ctksourcecompletionitem.c:289
 msgid "Info to be shown for this item"
 msgstr "這個項目所顯示的資訊"
 
-#: ../gtksourceview/gtksourcecompletionmodel.c:491
+#: ../ctksourceview/ctksourcecompletionmodel.c:491
 msgid "Provider"
 msgstr "提供者"
 
-#: ../gtksourceview/gtksourcecompletion.ui.h:1
+#: ../ctksourceview/ctksourcecompletion.ui.h:1
 msgid "Show detailed proposal information"
 msgstr "顯示詳細的計畫資訊"
 
-#: ../gtksourceview/gtksourcecompletion.ui.h:2
+#: ../ctksourceview/ctksourcecompletion.ui.h:2
 msgid "_Details..."
 msgstr "詳細資料(_D)…"
 
@@ -3130,7 +3130,7 @@ msgstr "詳細資料(_D)…"
 #. * named sub-patterns with the same name or if resulting regex is
 #. * too long. In this case fixing lang file helps (e.g. renaming
 #. * subpatterns, making huge keywords use bigger prefixes, etc.)
-#: ../gtksourceview/gtksourcecontextengine.c:3139
+#: ../ctksourceview/ctksourcecontextengine.c:3139
 #, c-format
 msgid ""
 "Cannot create a regex for all the transitions, the syntax highlighting "
@@ -3140,183 +3140,183 @@ msgstr ""
 "不能建立所有轉變的正規表示式，語法高亮度的過程會比平常更慢。\n"
 "這個錯誤是：%s"
 
-#: ../gtksourceview/gtksourcecontextengine.c:4462
+#: ../ctksourceview/ctksourcecontextengine.c:4462
 msgid ""
 "Highlighting a single line took too much time, syntax highlighting will be "
 "disabled"
 msgstr "高亮度顯示單行花費太多時間，語法高亮度顯示功能將被停用"
 
-#: ../gtksourceview/gtksourcecontextengine.c:5706
+#: ../ctksourceview/ctksourcecontextengine.c:5706
 #, c-format
 msgid "context '%s' cannot contain a \\%%{...@start} command"
 msgstr "上下文「%s」不能包含 \\%%{…@start} 指命"
 
-#: ../gtksourceview/gtksourcecontextengine.c:5867
-#: ../gtksourceview/gtksourcecontextengine.c:5956
+#: ../ctksourceview/ctksourcecontextengine.c:5867
+#: ../ctksourceview/ctksourcecontextengine.c:5956
 #, c-format
 msgid "duplicated context id '%s'"
 msgstr "重複的上下文 id 「%s」"
 
-#: ../gtksourceview/gtksourcecontextengine.c:6070
-#: ../gtksourceview/gtksourcecontextengine.c:6130
+#: ../ctksourceview/ctksourcecontextengine.c:6070
+#: ../ctksourceview/ctksourcecontextengine.c:6130
 #, c-format
 msgid ""
 "style override used with wildcard context reference in language '%s' in ref "
 "'%s'"
 msgstr "在語言「%s」參考「%s」中與萬用字符上下文參照共同使用的樣式覆蓋"
 
-#: ../gtksourceview/gtksourcecontextengine.c:6144
+#: ../ctksourceview/ctksourcecontextengine.c:6144
 #, c-format
 msgid "invalid context reference '%s'"
 msgstr "無效的上下文參照「%s」"
 
-#: ../gtksourceview/gtksourcecontextengine.c:6163
-#: ../gtksourceview/gtksourcecontextengine.c:6173
+#: ../ctksourceview/ctksourcecontextengine.c:6163
+#: ../ctksourceview/ctksourcecontextengine.c:6173
 #, c-format
 msgid "unknown context '%s'"
 msgstr "未知的上下文「%s」"
 
-#: ../gtksourceview/gtksourcecontextengine.c:6272
+#: ../ctksourceview/ctksourcecontextengine.c:6272
 #, c-format
 msgid "Missing main language definition (id = \"%s\".)"
 msgstr "失去主要語言定義(id = 「%s」。)"
 
-#: ../gtksourceview/gtksourceencoding.c:137
-#: ../gtksourceview/gtksourceencoding.c:180
-#: ../gtksourceview/gtksourceencoding.c:182
-#: ../gtksourceview/gtksourceencoding.c:184
-#: ../gtksourceview/gtksourceencoding.c:186
-#: ../gtksourceview/gtksourceencoding.c:188
-#: ../gtksourceview/gtksourceencoding.c:190
-#: ../gtksourceview/gtksourceencoding.c:192
+#: ../ctksourceview/ctksourceencoding.c:137
+#: ../ctksourceview/ctksourceencoding.c:180
+#: ../ctksourceview/ctksourceencoding.c:182
+#: ../ctksourceview/ctksourceencoding.c:184
+#: ../ctksourceview/ctksourceencoding.c:186
+#: ../ctksourceview/ctksourceencoding.c:188
+#: ../ctksourceview/ctksourceencoding.c:190
+#: ../ctksourceview/ctksourceencoding.c:192
 msgid "Unicode"
 msgstr "萬國碼"
 
-#: ../gtksourceview/gtksourceencoding.c:151
-#: ../gtksourceview/gtksourceencoding.c:175
-#: ../gtksourceview/gtksourceencoding.c:225
-#: ../gtksourceview/gtksourceencoding.c:268
+#: ../ctksourceview/ctksourceencoding.c:151
+#: ../ctksourceview/ctksourceencoding.c:175
+#: ../ctksourceview/ctksourceencoding.c:225
+#: ../ctksourceview/ctksourceencoding.c:268
 msgid "Western"
 msgstr "西歐語系"
 
-#: ../gtksourceview/gtksourceencoding.c:153
-#: ../gtksourceview/gtksourceencoding.c:227
-#: ../gtksourceview/gtksourceencoding.c:264
+#: ../ctksourceview/ctksourceencoding.c:153
+#: ../ctksourceview/ctksourceencoding.c:227
+#: ../ctksourceview/ctksourceencoding.c:264
 msgid "Central European"
 msgstr "中歐語系"
 
-#: ../gtksourceview/gtksourceencoding.c:155
+#: ../ctksourceview/ctksourceencoding.c:155
 msgid "South European"
 msgstr "南歐語系"
 
-#: ../gtksourceview/gtksourceencoding.c:157
-#: ../gtksourceview/gtksourceencoding.c:171
-#: ../gtksourceview/gtksourceencoding.c:278
+#: ../ctksourceview/ctksourceencoding.c:157
+#: ../ctksourceview/ctksourceencoding.c:171
+#: ../ctksourceview/ctksourceencoding.c:278
 msgid "Baltic"
 msgstr "波羅的海語系"
 
-#: ../gtksourceview/gtksourceencoding.c:159
-#: ../gtksourceview/gtksourceencoding.c:229
-#: ../gtksourceview/gtksourceencoding.c:242
-#: ../gtksourceview/gtksourceencoding.c:246
-#: ../gtksourceview/gtksourceencoding.c:248
-#: ../gtksourceview/gtksourceencoding.c:266
+#: ../ctksourceview/ctksourceencoding.c:159
+#: ../ctksourceview/ctksourceencoding.c:229
+#: ../ctksourceview/ctksourceencoding.c:242
+#: ../ctksourceview/ctksourceencoding.c:246
+#: ../ctksourceview/ctksourceencoding.c:248
+#: ../ctksourceview/ctksourceencoding.c:266
 msgid "Cyrillic"
 msgstr "斯拉夫語"
 
-#: ../gtksourceview/gtksourceencoding.c:161
-#: ../gtksourceview/gtksourceencoding.c:235
-#: ../gtksourceview/gtksourceencoding.c:276
+#: ../ctksourceview/ctksourceencoding.c:161
+#: ../ctksourceview/ctksourceencoding.c:235
+#: ../ctksourceview/ctksourceencoding.c:276
 msgid "Arabic"
 msgstr "阿拉伯語"
 
-#: ../gtksourceview/gtksourceencoding.c:163
-#: ../gtksourceview/gtksourceencoding.c:270
+#: ../ctksourceview/ctksourceencoding.c:163
+#: ../ctksourceview/ctksourceencoding.c:270
 msgid "Greek"
 msgstr "希臘語"
 
-#: ../gtksourceview/gtksourceencoding.c:165
+#: ../ctksourceview/ctksourceencoding.c:165
 msgid "Hebrew Visual"
 msgstr "希伯來文-視覺"
 
-#: ../gtksourceview/gtksourceencoding.c:167
-#: ../gtksourceview/gtksourceencoding.c:231
-#: ../gtksourceview/gtksourceencoding.c:272
+#: ../ctksourceview/ctksourceencoding.c:167
+#: ../ctksourceview/ctksourceencoding.c:231
+#: ../ctksourceview/ctksourceencoding.c:272
 msgid "Turkish"
 msgstr "土耳其文"
 
-#: ../gtksourceview/gtksourceencoding.c:169
+#: ../ctksourceview/ctksourceencoding.c:169
 msgid "Nordic"
 msgstr "北歐語系"
 
-#: ../gtksourceview/gtksourceencoding.c:173
+#: ../ctksourceview/ctksourceencoding.c:173
 msgid "Celtic"
 msgstr "塞爾特語"
 
-#: ../gtksourceview/gtksourceencoding.c:177
+#: ../ctksourceview/ctksourceencoding.c:177
 msgid "Romanian"
 msgstr "羅馬尼亞文"
 
-#: ../gtksourceview/gtksourceencoding.c:195
+#: ../ctksourceview/ctksourceencoding.c:195
 msgid "Armenian"
 msgstr "阿美尼亞語"
 
-#: ../gtksourceview/gtksourceencoding.c:197
-#: ../gtksourceview/gtksourceencoding.c:199
-#: ../gtksourceview/gtksourceencoding.c:213
+#: ../ctksourceview/ctksourceencoding.c:197
+#: ../ctksourceview/ctksourceencoding.c:199
+#: ../ctksourceview/ctksourceencoding.c:213
 msgid "Chinese Traditional"
 msgstr "繁體中文"
 
-#: ../gtksourceview/gtksourceencoding.c:201
+#: ../ctksourceview/ctksourceencoding.c:201
 msgid "Cyrillic/Russian"
 msgstr "斯拉夫語系/俄文"
 
-#: ../gtksourceview/gtksourceencoding.c:204
-#: ../gtksourceview/gtksourceencoding.c:206
-#: ../gtksourceview/gtksourceencoding.c:208
-#: ../gtksourceview/gtksourceencoding.c:238
-#: ../gtksourceview/gtksourceencoding.c:253
+#: ../ctksourceview/ctksourceencoding.c:204
+#: ../ctksourceview/ctksourceencoding.c:206
+#: ../ctksourceview/ctksourceencoding.c:208
+#: ../ctksourceview/ctksourceencoding.c:238
+#: ../ctksourceview/ctksourceencoding.c:253
 msgid "Japanese"
 msgstr "日文"
 
-#: ../gtksourceview/gtksourceencoding.c:211
-#: ../gtksourceview/gtksourceencoding.c:240
-#: ../gtksourceview/gtksourceencoding.c:244
-#: ../gtksourceview/gtksourceencoding.c:259
+#: ../ctksourceview/ctksourceencoding.c:211
+#: ../ctksourceview/ctksourceencoding.c:240
+#: ../ctksourceview/ctksourceencoding.c:244
+#: ../ctksourceview/ctksourceencoding.c:259
 msgid "Korean"
 msgstr "韓文"
 
-#: ../gtksourceview/gtksourceencoding.c:216
-#: ../gtksourceview/gtksourceencoding.c:218
-#: ../gtksourceview/gtksourceencoding.c:220
+#: ../ctksourceview/ctksourceencoding.c:216
+#: ../ctksourceview/ctksourceencoding.c:218
+#: ../ctksourceview/ctksourceencoding.c:220
 msgid "Chinese Simplified"
 msgstr "簡體中文"
 
-#: ../gtksourceview/gtksourceencoding.c:222
+#: ../ctksourceview/ctksourceencoding.c:222
 msgid "Georgian"
 msgstr "格魯吉亞語"
 
-#: ../gtksourceview/gtksourceencoding.c:233
-#: ../gtksourceview/gtksourceencoding.c:274
+#: ../ctksourceview/ctksourceencoding.c:233
+#: ../ctksourceview/ctksourceencoding.c:274
 msgid "Hebrew"
 msgstr "希伯來語"
 
-#: ../gtksourceview/gtksourceencoding.c:250
+#: ../ctksourceview/ctksourceencoding.c:250
 msgid "Cyrillic/Ukrainian"
 msgstr "斯拉夫/烏克蘭語系"
 
-#: ../gtksourceview/gtksourceencoding.c:255
-#: ../gtksourceview/gtksourceencoding.c:261
-#: ../gtksourceview/gtksourceencoding.c:280
+#: ../ctksourceview/ctksourceencoding.c:255
+#: ../ctksourceview/ctksourceencoding.c:261
+#: ../ctksourceview/ctksourceencoding.c:280
 #| msgid "Filename"
 msgid "Vietnamese"
 msgstr "越南文"
 
-#: ../gtksourceview/gtksourceencoding.c:257
+#: ../ctksourceview/ctksourceencoding.c:257
 msgid "Thai"
 msgstr "泰語"
 
-#: ../gtksourceview/gtksourceencoding.c:491
+#: ../ctksourceview/ctksourceencoding.c:491
 msgid "Unknown"
 msgstr "不明"
 
@@ -3330,678 +3330,678 @@ msgstr "不明"
 #. * value used by GtkSourceView and it represents the encoding for the
 #. * current locale, so please don't translate the "CURRENT" term.  Only
 #. * recognized encodings are used. See
-#. * https://git.gnome.org/browse/gtksourceview/tree/gtksourceview/gtksourceencoding.c#n147
+#. * https://git.gnome.org/browse/ctksourceview/tree/ctksourceview/ctksourceencoding.c#n147
 #. * for a list of supported encodings.
 #.
-#: ../gtksourceview/gtksourceencoding.c:647
+#: ../ctksourceview/ctksourceencoding.c:647
 msgid "['UTF-8', 'CURRENT', 'ISO-8859-15', 'UTF-16']"
 msgstr "['UTF-8', 'CURRENT', 'ISO-8859-15', 'UTF-16']"
 
-#: ../gtksourceview/gtksourcefile.c:200
-#: ../gtksourceview/gtksourcefilesaver.c:407
+#: ../ctksourceview/ctksourcefile.c:200
+#: ../ctksourceview/ctksourcefilesaver.c:407
 #| msgid "Newline"
 msgid "Newline type"
 msgstr "換列類型"
 
-#: ../gtksourceview/gtksourcefile.c:217
-#: ../gtksourceview/gtksourcefilesaver.c:425
+#: ../ctksourceview/ctksourcefile.c:217
+#: ../ctksourceview/ctksourcefilesaver.c:425
 #| msgid "Expression"
 msgid "Compression type"
 msgstr "壓縮類型"
 
-#: ../gtksourceview/gtksourcefileloader.c:411
+#: ../ctksourceview/ctksourcefileloader.c:411
 msgid "Input stream"
 msgstr "輸入串流"
 
-#: ../gtksourceview/gtksourcefilesaver.c:443
+#: ../ctksourceview/ctksourcefilesaver.c:443
 msgid "Flags"
 msgstr "旗標"
 
 #. Translators: gutters can be used to display information
 #. * on the left or on the right of the text view. To draw the
 #. * line numbers for example.
-#: ../gtksourceview/gtksourcegutter.c:553
+#: ../ctksourceview/ctksourcegutter.c:553
 msgid "The gutters' GtkSourceView"
 msgstr "The gutters GtkSourceView"
 
-#: ../gtksourceview/gtksourcegutter.c:565
-#: ../gtksourceview/gtksourcegutterrenderer.c:741
+#: ../ctksourceview/ctksourcegutter.c:565
+#: ../ctksourceview/ctksourcegutterrenderer.c:741
 msgid "Window Type"
 msgstr "視窗類型"
 
-#: ../gtksourceview/gtksourcegutter.c:566
+#: ../ctksourceview/ctksourcegutter.c:566
 msgid "The gutters' text window type"
 msgstr "The gutters 文字視窗類型"
 
-#: ../gtksourceview/gtksourcegutter.c:582
-#: ../gtksourceview/gtksourcegutterrenderer.c:524
+#: ../ctksourceview/ctksourcegutter.c:582
+#: ../ctksourceview/ctksourcegutterrenderer.c:524
 msgid "X Padding"
 msgstr "X 填充"
 
-#: ../gtksourceview/gtksourcegutter.c:583
-#: ../gtksourceview/gtksourcegutterrenderer.c:525
+#: ../ctksourceview/ctksourcegutter.c:583
+#: ../ctksourceview/ctksourcegutterrenderer.c:525
 msgid "The x-padding"
 msgstr "X 填充"
 
-#: ../gtksourceview/gtksourcegutter.c:600
-#: ../gtksourceview/gtksourcegutterrenderer.c:539
+#: ../ctksourceview/ctksourcegutter.c:600
+#: ../ctksourceview/ctksourcegutterrenderer.c:539
 msgid "Y Padding"
 msgstr "Y 填充"
 
-#: ../gtksourceview/gtksourcegutter.c:601
-#: ../gtksourceview/gtksourcegutterrenderer.c:540
+#: ../ctksourceview/ctksourcegutter.c:601
+#: ../ctksourceview/ctksourcegutterrenderer.c:540
 msgid "The y-padding"
 msgstr "Y 填充"
 
-#: ../gtksourceview/gtksourcegutterrenderer.c:511
-#: ../gtksourceview/gtksourcegutterrenderer.c:512
+#: ../ctksourceview/ctksourcegutterrenderer.c:511
+#: ../ctksourceview/ctksourcegutterrenderer.c:512
 msgid "Visible"
 msgstr "顯示"
 
-#: ../gtksourceview/gtksourcegutterrenderer.c:556
+#: ../ctksourceview/ctksourcegutterrenderer.c:556
 msgid "X Alignment"
 msgstr "X 對齊"
 
-#: ../gtksourceview/gtksourcegutterrenderer.c:557
+#: ../ctksourceview/ctksourcegutterrenderer.c:557
 msgid "The x-alignment"
 msgstr "X 對齊"
 
-#: ../gtksourceview/gtksourcegutterrenderer.c:573
+#: ../ctksourceview/ctksourcegutterrenderer.c:573
 msgid "Y Alignment"
 msgstr "Y 對齊"
 
-#: ../gtksourceview/gtksourcegutterrenderer.c:574
+#: ../ctksourceview/ctksourcegutterrenderer.c:574
 msgid "The y-alignment"
 msgstr "Y 對齊"
 
-#: ../gtksourceview/gtksourcegutterrenderer.c:708
+#: ../ctksourceview/ctksourcegutterrenderer.c:708
 msgid "The View"
 msgstr "檢視"
 
-#: ../gtksourceview/gtksourcegutterrenderer.c:709
+#: ../ctksourceview/ctksourcegutterrenderer.c:709
 msgid "The view"
 msgstr "檢視"
 
-#: ../gtksourceview/gtksourcegutterrenderer.c:725
+#: ../ctksourceview/ctksourcegutterrenderer.c:725
 msgid "Alignment Mode"
 msgstr "對齊模式"
 
-#: ../gtksourceview/gtksourcegutterrenderer.c:726
+#: ../ctksourceview/ctksourcegutterrenderer.c:726
 msgid "The alignment mode"
 msgstr "對齊模式"
 
-#: ../gtksourceview/gtksourcegutterrenderer.c:742
+#: ../ctksourceview/ctksourcegutterrenderer.c:742
 msgid "The window type"
 msgstr "視窗類型"
 
-#: ../gtksourceview/gtksourcegutterrenderer.c:750
+#: ../ctksourceview/ctksourcegutterrenderer.c:750
 msgid "Size"
 msgstr "大小"
 
-#: ../gtksourceview/gtksourcegutterrenderer.c:751
+#: ../ctksourceview/ctksourcegutterrenderer.c:751
 msgid "The size"
 msgstr "大小"
 
-#: ../gtksourceview/gtksourcegutterrendererpixbuf.c:298
-#: ../gtksourceview/gtksourcemarkattributes.c:315
+#: ../ctksourceview/ctksourcegutterrendererpixbuf.c:298
+#: ../ctksourceview/ctksourcemarkattributes.c:315
 msgid "Pixbuf"
 msgstr "Pixbuf"
 
-#: ../gtksourceview/gtksourcegutterrendererpixbuf.c:299
-#: ../gtksourceview/gtksourcemarkattributes.c:316
+#: ../ctksourceview/ctksourcegutterrendererpixbuf.c:299
+#: ../ctksourceview/ctksourcemarkattributes.c:316
 msgid "The pixbuf"
 msgstr "Pixbuf"
 
-#: ../gtksourceview/gtksourcegutterrendererpixbuf.c:313
-#: ../gtksourceview/gtksourcemarkattributes.c:302
+#: ../ctksourceview/ctksourcegutterrendererpixbuf.c:313
+#: ../ctksourceview/ctksourcemarkattributes.c:302
 msgid "Stock Id"
 msgstr "內置代碼"
 
-#: ../gtksourceview/gtksourcegutterrendererpixbuf.c:314
-#: ../gtksourceview/gtksourcemarkattributes.c:303
+#: ../ctksourceview/ctksourcegutterrendererpixbuf.c:314
+#: ../ctksourceview/ctksourcemarkattributes.c:303
 msgid "The stock id"
 msgstr "內置代碼"
 
-#: ../gtksourceview/gtksourcegutterrendererpixbuf.c:321
-#: ../gtksourceview/gtksourcemarkattributes.c:328
+#: ../ctksourceview/ctksourcegutterrendererpixbuf.c:321
+#: ../ctksourceview/ctksourcemarkattributes.c:328
 msgid "Icon Name"
 msgstr "圖示名稱"
 
-#: ../gtksourceview/gtksourcegutterrendererpixbuf.c:322
-#: ../gtksourceview/gtksourcemarkattributes.c:329
+#: ../ctksourceview/ctksourcegutterrendererpixbuf.c:322
+#: ../ctksourceview/ctksourcemarkattributes.c:329
 msgid "The icon name"
 msgstr "圖示名稱"
 
-#: ../gtksourceview/gtksourcegutterrendererpixbuf.c:329
-#: ../gtksourceview/gtksourcemarkattributes.c:341
+#: ../ctksourceview/ctksourcegutterrendererpixbuf.c:329
+#: ../ctksourceview/ctksourcemarkattributes.c:341
 msgid "GIcon"
 msgstr "GIcon"
 
-#: ../gtksourceview/gtksourcegutterrendererpixbuf.c:330
+#: ../ctksourceview/ctksourcegutterrendererpixbuf.c:330
 msgid "The gicon"
 msgstr "gicon"
 
-#: ../gtksourceview/gtksourcegutterrenderertext.c:402
+#: ../ctksourceview/ctksourcegutterrenderertext.c:402
 msgid "The markup"
 msgstr "標記"
 
-#: ../gtksourceview/gtksourcegutterrenderertext.c:410
+#: ../ctksourceview/ctksourcegutterrenderertext.c:410
 msgid "The text"
 msgstr "文字"
 
-#: ../gtksourceview/gtksourcelanguage.c:227
-#: ../gtksourceview/gtksourcelanguage.c:228
+#: ../ctksourceview/ctksourcelanguage.c:227
+#: ../ctksourceview/ctksourcelanguage.c:228
 msgid "Language id"
 msgstr "語言 id"
 
-#: ../gtksourceview/gtksourcelanguage.c:235
-#: ../gtksourceview/gtksourcelanguage.c:236
+#: ../ctksourceview/ctksourcelanguage.c:235
+#: ../ctksourceview/ctksourcelanguage.c:236
 msgid "Language name"
 msgstr "語言名稱"
 
-#: ../gtksourceview/gtksourcelanguage.c:243
-#: ../gtksourceview/gtksourcelanguage.c:244
+#: ../ctksourceview/ctksourcelanguage.c:243
+#: ../ctksourceview/ctksourcelanguage.c:244
 msgid "Language section"
 msgstr "語言節區"
 
-#: ../gtksourceview/gtksourcelanguage.c:251
+#: ../ctksourceview/ctksourcelanguage.c:251
 msgid "Hidden"
 msgstr "隱藏"
 
-#: ../gtksourceview/gtksourcelanguage.c:252
+#: ../ctksourceview/ctksourcelanguage.c:252
 msgid "Whether the language should be hidden from the user"
 msgstr "語言是否對此使用者隱藏"
 
-#: ../gtksourceview/gtksourcelanguagemanager.c:149
+#: ../ctksourceview/ctksourcelanguagemanager.c:149
 msgid "Language specification directories"
 msgstr "存放程式語言規格的目錄"
 
-#: ../gtksourceview/gtksourcelanguagemanager.c:150
+#: ../ctksourceview/ctksourcelanguagemanager.c:150
 msgid ""
 "List of directories where the language specification files (.lang) are "
 "located"
 msgstr "一系列的目錄，而這些目錄裏可以找到程式語言規格檔案 (.lang)"
 
-#: ../gtksourceview/gtksourcelanguagemanager.c:159
+#: ../ctksourceview/ctksourcelanguagemanager.c:159
 msgid "Language ids"
 msgstr "語言 ids"
 
-#: ../gtksourceview/gtksourcelanguagemanager.c:160
+#: ../ctksourceview/ctksourcelanguagemanager.c:160
 msgid "List of the ids of the available languages"
 msgstr "可用語言的 id 清單"
 
-#: ../gtksourceview/gtksourcelanguage-parser-2.c:950
+#: ../ctksourceview/ctksourcelanguage-parser-2.c:950
 #, c-format
 msgid "Unknown id '%s' in regex '%s'"
 msgstr "正規表示式「%s」中的不明 id「%s」"
 
-#: ../gtksourceview/gtksourcelanguage-parser-2.c:1178
+#: ../ctksourceview/ctksourcelanguage-parser-2.c:1178
 #, c-format
 msgid "in regex '%s': backreferences are not supported"
 msgstr "於正規表示式「%s」：不支援後方參照"
 
-#: ../gtksourceview/gtksourcemarkattributes.c:287
-#: ../gtksourceview/gtksourcestyle.c:97
+#: ../ctksourceview/ctksourcemarkattributes.c:287
+#: ../ctksourceview/ctksourcestyle.c:97
 msgid "Background"
 msgstr "背景"
 
-#: ../gtksourceview/gtksourcemarkattributes.c:288
+#: ../ctksourceview/ctksourcemarkattributes.c:288
 msgid "The background"
 msgstr "背景"
 
-#: ../gtksourceview/gtksourcemarkattributes.c:342
+#: ../ctksourceview/ctksourcemarkattributes.c:342
 msgid "The GIcon"
 msgstr "GIcon"
 
-#: ../gtksourceview/gtksourcemark.c:140
+#: ../ctksourceview/ctksourcemark.c:140
 msgid "category"
 msgstr "分類"
 
-#: ../gtksourceview/gtksourcemark.c:141
+#: ../ctksourceview/ctksourcemark.c:141
 msgid "The mark category"
 msgstr "標記的分類"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:445
+#: ../ctksourceview/ctksourceprintcompositor.c:445
 msgid "Source Buffer"
 msgstr "原始碼緩衝區內容"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:446
+#: ../ctksourceview/ctksourceprintcompositor.c:446
 msgid "The GtkSourceBuffer object to print"
 msgstr "準備列印的 GtkSourceBuffer 物件"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:463
-#: ../gtksourceview/gtksourceview.c:351
+#: ../ctksourceview/ctksourceprintcompositor.c:463
+#: ../ctksourceview/ctksourceview.c:351
 msgid "Tab Width"
 msgstr "Tab 字符闊度"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:464
-#: ../gtksourceview/gtksourceview.c:352
+#: ../ctksourceview/ctksourceprintcompositor.c:464
+#: ../ctksourceview/ctksourceview.c:352
 msgid "Width of a tab character expressed in spaces"
 msgstr "tab 字符轉為空白字符時的闊度"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:484
+#: ../ctksourceview/ctksourceprintcompositor.c:484
 msgid "Wrap Mode"
 msgstr "換列模式"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:485
+#: ../ctksourceview/ctksourceprintcompositor.c:485
 msgid ""
 "Whether to wrap lines never, at word boundaries, or at character boundaries."
 msgstr "不使用文字換列，或根據文字換列，或根據字符換列。"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:506
+#: ../ctksourceview/ctksourceprintcompositor.c:506
 msgid "Whether to print the document with highlighted syntax"
 msgstr "打印文件時是否加強顯示不同的語法"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:527
+#: ../ctksourceview/ctksourceprintcompositor.c:527
 msgid "Print Line Numbers"
 msgstr "列印列號"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:528
+#: ../ctksourceview/ctksourceprintcompositor.c:528
 msgid "Interval of printed line numbers (0 means no numbers)"
 msgstr "列印列號的間隔 (0 表示不使用列號)"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:550
+#: ../ctksourceview/ctksourceprintcompositor.c:550
 msgid "Print Header"
 msgstr "列印頁首"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:551
+#: ../ctksourceview/ctksourceprintcompositor.c:551
 msgid "Whether to print a header in each page"
 msgstr "是否每頁都印出頁首"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:573
+#: ../ctksourceview/ctksourceprintcompositor.c:573
 msgid "Print Footer"
 msgstr "列印頁尾"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:574
+#: ../ctksourceview/ctksourceprintcompositor.c:574
 msgid "Whether to print a footer in each page"
 msgstr "是否每頁都印出頁尾"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:596
+#: ../ctksourceview/ctksourceprintcompositor.c:596
 msgid "Body Font Name"
 msgstr "內文字體名稱"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:597
+#: ../ctksourceview/ctksourceprintcompositor.c:597
 msgid "Name of the font to use for the text body (e.g. \"Monospace 10\")"
 msgstr "文件內容所使用的字型名稱 (例如 “Monospace 10”)"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:620
+#: ../ctksourceview/ctksourceprintcompositor.c:620
 msgid "Line Numbers Font Name"
 msgstr "列號字型名稱"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:621
+#: ../ctksourceview/ctksourceprintcompositor.c:621
 msgid "Name of the font to use for the line numbers (e.g. \"Monospace 10\")"
 msgstr "列號所使用的字型名稱 (例如 “Monospace 10”)"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:644
+#: ../ctksourceview/ctksourceprintcompositor.c:644
 msgid "Header Font Name"
 msgstr "頁首字型名稱"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:645
+#: ../ctksourceview/ctksourceprintcompositor.c:645
 msgid "Name of the font to use for the page header (e.g. \"Monospace 10\")"
 msgstr "頁首所使用的字型名稱 (例如 “Monospace 10”)"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:668
+#: ../ctksourceview/ctksourceprintcompositor.c:668
 msgid "Footer Font Name"
 msgstr "頁尾字型名稱"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:669
+#: ../ctksourceview/ctksourceprintcompositor.c:669
 msgid "Name of the font to use for the page footer (e.g. \"Monospace 10\")"
 msgstr "頁尾所使用的字型名稱 (例如 “Monospace 10”)"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:685
+#: ../ctksourceview/ctksourceprintcompositor.c:685
 msgid "Number of pages"
 msgstr "頁數"
 
-#: ../gtksourceview/gtksourceprintcompositor.c:686
+#: ../ctksourceview/ctksourceprintcompositor.c:686
 msgid ""
 "The number of pages in the document (-1 means the document has not been "
 "completely paginated)."
 msgstr "文件中的頁數（-1 表示該文件尚未完整的標上頁數）"
 
-#: ../gtksourceview/gtksourceregex.c:125
+#: ../ctksourceview/ctksourceregex.c:125
 msgid "using \\C is not supported in language definitions"
 msgstr "在語言定義中不支援使用 \\C"
 
-#: ../gtksourceview/gtksourcesearchcontext.c:2742
-#: ../gtksourceview/gtksourceundomanagerdefault.c:403
+#: ../ctksourceview/ctksourcesearchcontext.c:2742
+#: ../ctksourceview/ctksourceundomanagerdefault.c:403
 msgid "Buffer"
 msgstr "緩衝區"
 
-#: ../gtksourceview/gtksourcesearchcontext.c:2743
+#: ../ctksourceview/ctksourcesearchcontext.c:2743
 msgid "The associated GtkSourceBuffer"
 msgstr "已關連的 GtkSourceBuffer"
 
-#: ../gtksourceview/gtksourcesearchcontext.c:2757
+#: ../ctksourceview/ctksourcesearchcontext.c:2757
 msgid "Settings"
 msgstr "設定值"
 
-#: ../gtksourceview/gtksourcesearchcontext.c:2758
+#: ../ctksourceview/ctksourcesearchcontext.c:2758
 msgid "The associated GtkSourceSearchSettings"
 msgstr "已關連的 GtkSourceSearchSettings"
 
-#: ../gtksourceview/gtksourcesearchcontext.c:2772
+#: ../ctksourceview/ctksourcesearchcontext.c:2772
 msgid "Highlight"
 msgstr "標示"
 
-#: ../gtksourceview/gtksourcesearchcontext.c:2773
+#: ../ctksourceview/ctksourcesearchcontext.c:2773
 msgid "Highlight search occurrences"
 msgstr "標示搜尋出現的地方"
 
-#: ../gtksourceview/gtksourcesearchcontext.c:2789
+#: ../ctksourceview/ctksourcesearchcontext.c:2789
 msgid "Occurrences count"
 msgstr "出現次數計數"
 
-#: ../gtksourceview/gtksourcesearchcontext.c:2790
+#: ../ctksourceview/ctksourcesearchcontext.c:2790
 msgid "Total number of search occurrences"
 msgstr "搜尋結果發生的總次數"
 
-#: ../gtksourceview/gtksourcesearchcontext.c:2809
+#: ../ctksourceview/ctksourcesearchcontext.c:2809
 msgid "Regex error"
 msgstr "正規表示式錯誤"
 
-#: ../gtksourceview/gtksourcesearchcontext.c:2810
+#: ../ctksourceview/ctksourcesearchcontext.c:2810
 msgid "Regular expression error"
 msgstr "正規表示式錯誤"
 
-#: ../gtksourceview/gtksourcesearchsettings.c:168
+#: ../ctksourceview/ctksourcesearchsettings.c:168
 msgid "Search text"
 msgstr "搜尋文字"
 
-#: ../gtksourceview/gtksourcesearchsettings.c:169
+#: ../ctksourceview/ctksourcesearchsettings.c:169
 msgid "The text to search"
 msgstr "要搜尋的文字"
 
-#: ../gtksourceview/gtksourcesearchsettings.c:183
-#: ../gtksourceview/gtksourcesearchsettings.c:184
+#: ../ctksourceview/ctksourcesearchsettings.c:183
+#: ../ctksourceview/ctksourcesearchsettings.c:184
 msgid "Case sensitive"
 msgstr "區分大小寫"
 
-#: ../gtksourceview/gtksourcesearchsettings.c:199
+#: ../ctksourceview/ctksourcesearchsettings.c:199
 msgid "At word boundaries"
 msgstr "於字詞邊界"
 
-#: ../gtksourceview/gtksourcesearchsettings.c:200
+#: ../ctksourceview/ctksourcesearchsettings.c:200
 msgid "Search at word boundaries"
 msgstr "古文字邊界搜尋"
 
-#: ../gtksourceview/gtksourcesearchsettings.c:216
-#: ../gtksourceview/gtksourcesearchsettings.c:217
+#: ../ctksourceview/ctksourcesearchsettings.c:216
+#: ../ctksourceview/ctksourcesearchsettings.c:217
 msgid "Wrap around"
 msgstr "折返搜尋"
 
-#: ../gtksourceview/gtksourcesearchsettings.c:232
+#: ../ctksourceview/ctksourcesearchsettings.c:232
 msgid "Regex enabled"
 msgstr "已啟用正規表示式"
 
-#: ../gtksourceview/gtksourcesearchsettings.c:233
+#: ../ctksourceview/ctksourcesearchsettings.c:233
 msgid "Whether to search by regular expression"
 msgstr "是否以正規表示式搜尋"
 
-#: ../gtksourceview/gtksourcestyle.c:89
+#: ../ctksourceview/ctksourcestyle.c:89
 msgid "Line background"
 msgstr "行的背景"
 
-#: ../gtksourceview/gtksourcestyle.c:90
+#: ../ctksourceview/ctksourcestyle.c:90
 msgid "Line background color"
 msgstr "行的背景顏色"
 
-#: ../gtksourceview/gtksourcestyle.c:98
+#: ../ctksourceview/ctksourcestyle.c:98
 msgid "Background color"
 msgstr "背景顏色"
 
-#: ../gtksourceview/gtksourcestyle.c:105
+#: ../ctksourceview/ctksourcestyle.c:105
 msgid "Foreground"
 msgstr "前景"
 
-#: ../gtksourceview/gtksourcestyle.c:106
+#: ../ctksourceview/ctksourcestyle.c:106
 msgid "Foreground color"
 msgstr "前景顏色"
 
-#: ../gtksourceview/gtksourcestyle.c:129 ../gtksourceview/gtksourcestyle.c:130
+#: ../ctksourceview/ctksourcestyle.c:129 ../ctksourceview/ctksourcestyle.c:130
 msgid "Underline"
 msgstr "底線"
 
-#: ../gtksourceview/gtksourcestyle.c:137 ../gtksourceview/gtksourcestyle.c:138
+#: ../ctksourceview/ctksourcestyle.c:137 ../ctksourceview/ctksourcestyle.c:138
 msgid "Strikethrough"
 msgstr "刪除線"
 
-#: ../gtksourceview/gtksourcestyle.c:145
+#: ../ctksourceview/ctksourcestyle.c:145
 msgid "Scale"
 msgstr "縮放"
 
-#: ../gtksourceview/gtksourcestyle.c:146
+#: ../ctksourceview/ctksourcestyle.c:146
 msgid "Text scale factor"
 msgstr "文字縮放因素"
 
-#: ../gtksourceview/gtksourcestyle.c:153
+#: ../ctksourceview/ctksourcestyle.c:153
 msgid "Line background set"
 msgstr "行的背景設定"
 
-#: ../gtksourceview/gtksourcestyle.c:154
+#: ../ctksourceview/ctksourcestyle.c:154
 msgid "Whether line background color is set"
 msgstr "行的背景顏色是否設定"
 
-#: ../gtksourceview/gtksourcestyle.c:161
+#: ../ctksourceview/ctksourcestyle.c:161
 msgid "Foreground set"
 msgstr "前景設定"
 
-#: ../gtksourceview/gtksourcestyle.c:162
+#: ../ctksourceview/ctksourcestyle.c:162
 msgid "Whether foreground color is set"
 msgstr "前景顏色是否設定"
 
-#: ../gtksourceview/gtksourcestyle.c:169
+#: ../ctksourceview/ctksourcestyle.c:169
 msgid "Background set"
 msgstr "背景設定"
 
-#: ../gtksourceview/gtksourcestyle.c:170
+#: ../ctksourceview/ctksourcestyle.c:170
 msgid "Whether background color is set"
 msgstr "背景顏色是否設定"
 
-#: ../gtksourceview/gtksourcestyle.c:177
+#: ../ctksourceview/ctksourcestyle.c:177
 msgid "Bold set"
 msgstr "粗體設定"
 
-#: ../gtksourceview/gtksourcestyle.c:178
+#: ../ctksourceview/ctksourcestyle.c:178
 msgid "Whether bold attribute is set"
 msgstr "是否設定粗體屬性"
 
-#: ../gtksourceview/gtksourcestyle.c:185
+#: ../ctksourceview/ctksourcestyle.c:185
 msgid "Italic set"
 msgstr "斜體設定"
 
-#: ../gtksourceview/gtksourcestyle.c:186
+#: ../ctksourceview/ctksourcestyle.c:186
 msgid "Whether italic attribute is set"
 msgstr "是否設定斜體屬性"
 
-#: ../gtksourceview/gtksourcestyle.c:193
+#: ../ctksourceview/ctksourcestyle.c:193
 msgid "Underline set"
 msgstr "底線設定"
 
-#: ../gtksourceview/gtksourcestyle.c:194
+#: ../ctksourceview/ctksourcestyle.c:194
 msgid "Whether underline attribute is set"
 msgstr "是否設定加底線屬性"
 
-#: ../gtksourceview/gtksourcestyle.c:201
+#: ../ctksourceview/ctksourcestyle.c:201
 msgid "Strikethrough set"
 msgstr "刪除線設定"
 
-#: ../gtksourceview/gtksourcestyle.c:202
+#: ../ctksourceview/ctksourcestyle.c:202
 msgid "Whether strikethrough attribute is set"
 msgstr "是否設定刪除線屬性"
 
-#: ../gtksourceview/gtksourcestyle.c:209
+#: ../ctksourceview/ctksourcestyle.c:209
 msgid "Scale set"
 msgstr "縮放設定"
 
-#: ../gtksourceview/gtksourcestyle.c:210
+#: ../ctksourceview/ctksourcestyle.c:210
 msgid "Whether scale attribute is set"
 msgstr "是否設定縮放屬性"
 
-#: ../gtksourceview/gtksourcestylescheme.c:211
-#: ../gtksourceview/gtksourcestylescheme.c:212
+#: ../ctksourceview/ctksourcestylescheme.c:211
+#: ../ctksourceview/ctksourcestylescheme.c:212
 msgid "Style scheme id"
 msgstr "樣式架構 id"
 
-#: ../gtksourceview/gtksourcestylescheme.c:224
-#: ../gtksourceview/gtksourcestylescheme.c:225
+#: ../ctksourceview/ctksourcestylescheme.c:224
+#: ../ctksourceview/ctksourcestylescheme.c:225
 msgid "Style scheme name"
 msgstr "樣式架構名稱"
 
-#: ../gtksourceview/gtksourcestylescheme.c:237
-#: ../gtksourceview/gtksourcestylescheme.c:238
+#: ../ctksourceview/ctksourcestylescheme.c:237
+#: ../ctksourceview/ctksourcestylescheme.c:238
 msgid "Style scheme description"
 msgstr "樣式架構描述"
 
-#: ../gtksourceview/gtksourcestylescheme.c:250
-#: ../gtksourceview/gtksourcestylescheme.c:251
+#: ../ctksourceview/ctksourcestylescheme.c:250
+#: ../ctksourceview/ctksourcestylescheme.c:251
 msgid "Style scheme filename"
 msgstr "樣式架構檔案名稱"
 
-#: ../gtksourceview/gtksourcestyleschememanager.c:152
+#: ../ctksourceview/ctksourcestyleschememanager.c:152
 msgid "Style scheme search path"
 msgstr "樣式架構搜尋路徑"
 
-#: ../gtksourceview/gtksourcestyleschememanager.c:153
+#: ../ctksourceview/ctksourcestyleschememanager.c:153
 msgid "List of directories and files where the style schemes are located"
 msgstr "樣式架構所在的目錄和檔案的清單"
 
-#: ../gtksourceview/gtksourcestyleschememanager.c:161
+#: ../ctksourceview/ctksourcestyleschememanager.c:161
 msgid "Scheme ids"
 msgstr "架構 ids"
 
-#: ../gtksourceview/gtksourcestyleschememanager.c:162
+#: ../ctksourceview/ctksourcestyleschememanager.c:162
 msgid "List of the ids of the available style schemes"
 msgstr "可用樣式架構的 id 清單"
 
-#: ../gtksourceview/gtksourceundomanagerdefault.c:404
+#: ../ctksourceview/ctksourceundomanagerdefault.c:404
 msgid "The text buffer to add undo support on"
 msgstr "要加入復原支援的文字緩衝區"
 
-#: ../gtksourceview/gtksourceview.c:314
+#: ../ctksourceview/ctksourceview.c:314
 msgid "The completion object associated with the view"
 msgstr "與這個檢視關聯的自動補齊物件"
 
-#: ../gtksourceview/gtksourceview.c:326
+#: ../ctksourceview/ctksourceview.c:326
 msgid "Show Line Numbers"
 msgstr "顯示列號"
 
-#: ../gtksourceview/gtksourceview.c:327
+#: ../ctksourceview/ctksourceview.c:327
 msgid "Whether to display line numbers"
 msgstr "是否顯示列號"
 
-#: ../gtksourceview/gtksourceview.c:338
+#: ../ctksourceview/ctksourceview.c:338
 msgid "Show Line Marks"
 msgstr "每列顯示標記"
 
-#: ../gtksourceview/gtksourceview.c:339
+#: ../ctksourceview/ctksourceview.c:339
 msgid "Whether to display line mark pixbufs"
 msgstr "是否顯示表示每列開始的 pixbuf 標記"
 
-#: ../gtksourceview/gtksourceview.c:366
+#: ../ctksourceview/ctksourceview.c:366
 msgid "Indent Width"
 msgstr "縮排闊度"
 
-#: ../gtksourceview/gtksourceview.c:367
+#: ../ctksourceview/ctksourceview.c:367
 msgid "Number of spaces to use for each step of indent"
 msgstr "每一階縮排要使用的空白數"
 
-#: ../gtksourceview/gtksourceview.c:376
+#: ../ctksourceview/ctksourceview.c:376
 msgid "Auto Indentation"
 msgstr "自動縮排"
 
-#: ../gtksourceview/gtksourceview.c:377
+#: ../ctksourceview/ctksourceview.c:377
 msgid "Whether to enable auto indentation"
 msgstr "是否啟用自動縮排"
 
-#: ../gtksourceview/gtksourceview.c:384
+#: ../ctksourceview/ctksourceview.c:384
 msgid "Insert Spaces Instead of Tabs"
 msgstr "使用空格代替 Tab 字符"
 
-#: ../gtksourceview/gtksourceview.c:385
+#: ../ctksourceview/ctksourceview.c:385
 msgid "Whether to insert spaces instead of tabs"
 msgstr "是否使用空格代替 Tab 字符"
 
-#: ../gtksourceview/gtksourceview.c:397
+#: ../ctksourceview/ctksourceview.c:397
 msgid "Show Right Margin"
 msgstr "顯示右邊邊界"
 
-#: ../gtksourceview/gtksourceview.c:398
+#: ../ctksourceview/ctksourceview.c:398
 msgid "Whether to display the right margin"
 msgstr "是否顯示右邊邊界"
 
-#: ../gtksourceview/gtksourceview.c:410
+#: ../ctksourceview/ctksourceview.c:410
 msgid "Right Margin Position"
 msgstr "右邊界位置"
 
-#: ../gtksourceview/gtksourceview.c:411
+#: ../ctksourceview/ctksourceview.c:411
 msgid "Position of the right margin"
 msgstr "右邊邊界的位置"
 
-#: ../gtksourceview/gtksourceview.c:427
+#: ../ctksourceview/ctksourceview.c:427
 msgid "Smart Home/End"
 msgstr "智慧式 Home/End"
 
-#: ../gtksourceview/gtksourceview.c:428
+#: ../ctksourceview/ctksourceview.c:428
 msgid ""
 "HOME and END keys move to first/last non whitespace characters on line "
 "before going to the start/end of the line"
 msgstr "HOME 或 END 鍵會先令游標移至該行第一個/最後一個非空格的字符，然後才會移至該行的開始或結束位置"
 
-#: ../gtksourceview/gtksourceview.c:438
+#: ../ctksourceview/ctksourceview.c:438
 msgid "Highlight current line"
 msgstr "加強標示所在行"
 
-#: ../gtksourceview/gtksourceview.c:439
+#: ../ctksourceview/ctksourceview.c:439
 msgid "Whether to highlight the current line"
 msgstr "是否加強顯示游標所在的一列"
 
-#: ../gtksourceview/gtksourceview.c:446
+#: ../ctksourceview/ctksourceview.c:446
 msgid "Indent on tab"
 msgstr "按下 tab 鍵縮排"
 
-#: ../gtksourceview/gtksourceview.c:447
+#: ../ctksourceview/ctksourceview.c:447
 msgid "Whether to indent the selected text when the tab key is pressed"
 msgstr "按下 tab 鍵時已選的文字是否縮排"
 
-#: ../gtksourceview/gtksourceview.c:461
+#: ../ctksourceview/ctksourceview.c:461
 msgid "Draw Spaces"
 msgstr "繪出空白字符"
 
-#: ../gtksourceview/gtksourceview.c:462
+#: ../ctksourceview/ctksourceview.c:462
 msgid "Set if and how the spaces should be visualized"
 msgstr "設定是否以視覺化的方式表現空白字符"
 
 #. create redo menu_item.
-#: ../gtksourceview/gtksourceview.c:1237
+#: ../ctksourceview/ctksourceview.c:1237
 msgid "_Redo"
 msgstr "重複(_R)"
 
 #. create undo menu_item.
-#: ../gtksourceview/gtksourceview.c:1248
+#: ../ctksourceview/ctksourceview.c:1248
 msgid "_Undo"
 msgstr "復原(_U)"
 
-#: ../gtksourceview/gtksourceview.c:1266
+#: ../ctksourceview/ctksourceview.c:1266
 msgid "All _Upper Case"
 msgstr "全部大寫(_U)"
 
-#: ../gtksourceview/gtksourceview.c:1276
+#: ../ctksourceview/ctksourceview.c:1276
 msgid "All _Lower Case"
 msgstr "全部小寫(_L)"
 
-#: ../gtksourceview/gtksourceview.c:1286
+#: ../ctksourceview/ctksourceview.c:1286
 msgid "_Invert Case"
 msgstr "反轉大小寫(_I)"
 
-#: ../gtksourceview/gtksourceview.c:1296
+#: ../ctksourceview/ctksourceview.c:1296
 msgid "_Title Case"
 msgstr "標題大小寫(_T)"
 
-#: ../gtksourceview/gtksourceview.c:1306
+#: ../ctksourceview/ctksourceview.c:1306
 msgid "C_hange Case"
 msgstr "更改大小寫(_H)"
 
-#: ../gtksourceview/gtksourceview-i18n.c:72
+#: ../ctksourceview/ctksourceview-i18n.c:72
 msgid "translator-credits"
 msgstr ""
 "如對翻譯有任何意見，請送一封電子郵件給\n"

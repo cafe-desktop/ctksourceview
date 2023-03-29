@@ -22,15 +22,15 @@
 #define GTK_SOURCE_COMPLETION_CONTEXT_H
 
 #if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
-#error "Only <gtksourceview/gtksource.h> can be included directly."
+#error "Only <ctksourceview/ctksource.h> can be included directly."
 #endif
 
-#include <gtk/gtk.h>
-#include <gtksourceview/gtksourcetypes.h>
+#include <ctk/ctk.h>
+#include <ctksourceview/ctksourcetypes.h>
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_COMPLETION_CONTEXT		(gtk_source_completion_context_get_type ())
+#define GTK_SOURCE_TYPE_COMPLETION_CONTEXT		(ctk_source_completion_context_get_type ())
 #define GTK_SOURCE_COMPLETION_CONTEXT(obj)		(G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_COMPLETION_CONTEXT, GtkSourceCompletionContext))
 #define GTK_SOURCE_COMPLETION_CONTEXT_CLASS(klass)	(G_TYPE_CHECK_CLASS_CAST ((klass), GTK_SOURCE_TYPE_COMPLETION_CONTEXT, GtkSourceCompletionContextClass))
 #define GTK_SOURCE_IS_COMPLETION_CONTEXT(obj)		(G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_SOURCE_TYPE_COMPLETION_CONTEXT))
@@ -45,7 +45,7 @@ typedef struct _GtkSourceCompletionContextPrivate	GtkSourceCompletionContextPriv
  * @GTK_SOURCE_COMPLETION_ACTIVATION_NONE: None.
  * @GTK_SOURCE_COMPLETION_ACTIVATION_INTERACTIVE: Interactive activation. By
  * default, it occurs on each insertion in the #GtkTextBuffer. This can be
- * blocked temporarily with gtk_source_completion_block_interactive().
+ * blocked temporarily with ctk_source_completion_block_interactive().
  * @GTK_SOURCE_COMPLETION_ACTIVATION_USER_REQUESTED: User requested activation.
  * By default, it occurs when the user presses
  * <keycombo><keycap>Control</keycap><keycap>space</keycap></keycombo>.
@@ -73,29 +73,29 @@ struct _GtkSourceCompletionContextClass {
 };
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-GType		 gtk_source_completion_context_get_type (void) G_GNUC_CONST;
+GType		 ctk_source_completion_context_get_type (void) G_GNUC_CONST;
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-void		 gtk_source_completion_context_add_proposals 	(GtkSourceCompletionContext   *context,
+void		 ctk_source_completion_context_add_proposals 	(GtkSourceCompletionContext   *context,
 								 GtkSourceCompletionProvider  *provider,
 								 GList                        *proposals,
 								 gboolean                      finished);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-gboolean	 gtk_source_completion_context_get_iter		(GtkSourceCompletionContext   *context,
+gboolean	 ctk_source_completion_context_get_iter		(GtkSourceCompletionContext   *context,
 								 GtkTextIter                  *iter);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
 GtkSourceCompletionActivation
-		 gtk_source_completion_context_get_activation	(GtkSourceCompletionContext   *context);
+		 ctk_source_completion_context_get_activation	(GtkSourceCompletionContext   *context);
 
 G_GNUC_INTERNAL
 GtkSourceCompletionContext *
-		_gtk_source_completion_context_new		(GtkSourceCompletion          *completion,
+		_ctk_source_completion_context_new		(GtkSourceCompletion          *completion,
 								 GtkTextIter                  *position);
 
 G_GNUC_INTERNAL
-void		_gtk_source_completion_context_cancel		(GtkSourceCompletionContext   *context);
+void		_ctk_source_completion_context_cancel		(GtkSourceCompletionContext   *context);
 
 G_END_DECLS
 

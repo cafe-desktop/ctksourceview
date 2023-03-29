@@ -1,9 +1,9 @@
 # -- THEME AUTO-WRITTEN DO NOT EDIT
-include "/usr/share/themes/Clearlooks/gtk-2.0/gtkrc"
+include "/usr/share/themes/Clearlooks/ctk-2.0/ctkrc"
 style "user-font"
 {
   font_name="Tahoma 11"
 }
 widget_class "*" style "user-font"
-include "/home/muntyan/.gtkrc-2.0.mine"
+include "/home/muntyan/.ctkrc-2.0.mine"
 # -- THEME AUTO-WRITTEN DO NOT EDIT

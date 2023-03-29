@@ -24,11 +24,11 @@
 #define GTK_SOURCE_UNDO_MANAGER_DEFAULT_H
 
 #include <glib-object.h>
-#include "gtksourcetypes-private.h"
+#include "ctksourcetypes-private.h"
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_UNDO_MANAGER_DEFAULT		(gtk_source_undo_manager_default_get_type ())
+#define GTK_SOURCE_TYPE_UNDO_MANAGER_DEFAULT		(ctk_source_undo_manager_default_get_type ())
 #define GTK_SOURCE_UNDO_MANAGER_DEFAULT(obj)		(G_TYPE_CHECK_INSTANCE_CAST((obj), GTK_SOURCE_TYPE_UNDO_MANAGER_DEFAULT, GtkSourceUndoManagerDefault))
 #define GTK_SOURCE_UNDO_MANAGER_DEFAULT_CLASS(klass)	(G_TYPE_CHECK_CLASS_CAST((klass), GTK_SOURCE_TYPE_UNDO_MANAGER_DEFAULT, GtkSourceUndoManagerDefaultClass))
 #define GTK_SOURCE_IS_UNDO_MANAGER_DEFAULT(obj)		(G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_SOURCE_TYPE_UNDO_MANAGER_DEFAULT))
@@ -51,10 +51,10 @@ struct _GtkSourceUndoManagerDefaultClass
 };
 
 G_GNUC_INTERNAL
-GType gtk_source_undo_manager_default_get_type (void) G_GNUC_CONST;
+GType ctk_source_undo_manager_default_get_type (void) G_GNUC_CONST;
 
 G_GNUC_INTERNAL
-void gtk_source_undo_manager_default_set_max_undo_levels (GtkSourceUndoManagerDefault *manager,
+void ctk_source_undo_manager_default_set_max_undo_levels (GtkSourceUndoManagerDefault *manager,
                                                           gint                         max_undo_levels);
 
 G_END_DECLS

@@ -23,7 +23,7 @@
 #include <config.h>
 #endif
 
-#include "gtksourcecompletionproposal.h"
+#include "ctksourcecompletionproposal.h"
 
 /**
  * SECTION:completionproposal
@@ -55,77 +55,77 @@ static guint signals[N_SIGNALS];
 
 typedef GtkSourceCompletionProposalIface GtkSourceCompletionProposalInterface;
 
-G_DEFINE_INTERFACE (GtkSourceCompletionProposal, gtk_source_completion_proposal, G_TYPE_OBJECT)
+G_DEFINE_INTERFACE (GtkSourceCompletionProposal, ctk_source_completion_proposal, G_TYPE_OBJECT)
 
 static gchar *
-gtk_source_completion_proposal_get_label_default (GtkSourceCompletionProposal *proposal)
+ctk_source_completion_proposal_get_label_default (GtkSourceCompletionProposal *proposal)
 {
 	return NULL;
 }
 
 static gchar *
-gtk_source_completion_proposal_get_markup_default (GtkSourceCompletionProposal *proposal)
+ctk_source_completion_proposal_get_markup_default (GtkSourceCompletionProposal *proposal)
 {
 	return NULL;
 }
 
 static gchar *
-gtk_source_completion_proposal_get_text_default (GtkSourceCompletionProposal *proposal)
+ctk_source_completion_proposal_get_text_default (GtkSourceCompletionProposal *proposal)
 {
 	return NULL;
 }
 
 static GdkPixbuf *
-gtk_source_completion_proposal_get_icon_default (GtkSourceCompletionProposal *proposal)
+ctk_source_completion_proposal_get_icon_default (GtkSourceCompletionProposal *proposal)
 {
 	return NULL;
 }
 
 static const gchar *
-gtk_source_completion_proposal_get_icon_name_default (GtkSourceCompletionProposal *proposal)
+ctk_source_completion_proposal_get_icon_name_default (GtkSourceCompletionProposal *proposal)
 {
 	return NULL;
 }
 
 static GIcon *
-gtk_source_completion_proposal_get_gicon_default (GtkSourceCompletionProposal *proposal)
+ctk_source_completion_proposal_get_gicon_default (GtkSourceCompletionProposal *proposal)
 {
 	return NULL;
 }
 
 static gchar *
-gtk_source_completion_proposal_get_info_default (GtkSourceCompletionProposal *proposal)
+ctk_source_completion_proposal_get_info_default (GtkSourceCompletionProposal *proposal)
 {
 	return NULL;
 }
 
 static guint
-gtk_source_completion_proposal_hash_default (GtkSourceCompletionProposal *proposal)
+ctk_source_completion_proposal_hash_default (GtkSourceCompletionProposal *proposal)
 {
 	return g_direct_hash (proposal);
 }
 
 static gboolean
-gtk_source_completion_proposal_equal_default (GtkSourceCompletionProposal *proposal,
+ctk_source_completion_proposal_equal_default (GtkSourceCompletionProposal *proposal,
                                               GtkSourceCompletionProposal *other)
 {
 	return g_direct_equal (proposal, other);
 }
 
 static void
-gtk_source_completion_proposal_default_init (GtkSourceCompletionProposalIface *iface)
+ctk_source_completion_proposal_default_init (GtkSourceCompletionProposalIface *iface)
 {
 	static gboolean initialized = FALSE;
 
-	iface->get_label = gtk_source_completion_proposal_get_label_default;
-	iface->get_markup = gtk_source_completion_proposal_get_markup_default;
-	iface->get_text = gtk_source_completion_proposal_get_text_default;
-	iface->get_icon = gtk_source_completion_proposal_get_icon_default;
-	iface->get_icon_name = gtk_source_completion_proposal_get_icon_name_default;
-	iface->get_gicon = gtk_source_completion_proposal_get_gicon_default;
-	iface->get_info = gtk_source_completion_proposal_get_info_default;
-	iface->hash = gtk_source_completion_proposal_hash_default;
-	iface->equal = gtk_source_completion_proposal_equal_default;
+	iface->get_label = ctk_source_completion_proposal_get_label_default;
+	iface->get_markup = ctk_source_completion_proposal_get_markup_default;
+	iface->get_text = ctk_source_completion_proposal_get_text_default;
+	iface->get_icon = ctk_source_completion_proposal_get_icon_default;
+	iface->get_icon_name = ctk_source_completion_proposal_get_icon_name_default;
+	iface->get_gicon = ctk_source_completion_proposal_get_gicon_default;
+	iface->get_info = ctk_source_completion_proposal_get_info_default;
+	iface->hash = ctk_source_completion_proposal_hash_default;
+	iface->equal = ctk_source_completion_proposal_equal_default;
 
 	if (!initialized)
 	{
@@ -154,18 +154,18 @@ gtk_source_completion_proposal_default_init (GtkSourceCompletionProposalIface *i
 }
 
 /**
- * gtk_source_completion_proposal_get_label:
+ * ctk_source_completion_proposal_get_label:
  * @proposal: a #GtkSourceCompletionProposal.
  *
  * Gets the label of @proposal. The label is shown in the list of proposals as
  * plain text. If you need any markup (such as bold or italic text), you have
- * to implement gtk_source_completion_proposal_get_markup(). The returned string
+ * to implement ctk_source_completion_proposal_get_markup(). The returned string
  * must be freed with g_free().
  *
  * Returns: a new string containing the label of @proposal.
  */
 gchar *
-gtk_source_completion_proposal_get_label (GtkSourceCompletionProposal *proposal)
+ctk_source_completion_proposal_get_label (GtkSourceCompletionProposal *proposal)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_COMPLETION_PROPOSAL (proposal), NULL);
 
@@ -173,18 +173,18 @@ gtk_source_completion_proposal_get_label (GtkSourceCompletionProposal *proposal)
 }
 
 /**
- * gtk_source_completion_proposal_get_markup:
+ * ctk_source_completion_proposal_get_markup:
  * @proposal: a #GtkSourceCompletionProposal.
  *
  * Gets the label of @proposal with markup. The label is shown in the list of
  * proposals and may contain markup. This will be used instead of
- * gtk_source_completion_proposal_get_label() if implemented. The returned string
+ * ctk_source_completion_proposal_get_label() if implemented. The returned string
  * must be freed with g_free().
  *
  * Returns: a new string containing the label of @proposal with markup.
  */
 gchar *
-gtk_source_completion_proposal_get_markup (GtkSourceCompletionProposal *proposal)
+ctk_source_completion_proposal_get_markup (GtkSourceCompletionProposal *proposal)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_COMPLETION_PROPOSAL (proposal), NULL);
 
@@ -192,20 +192,20 @@ gtk_source_completion_proposal_get_markup (GtkSourceCompletionProposal *proposal
 }
 
 /**
- * gtk_source_completion_proposal_get_text:
+ * ctk_source_completion_proposal_get_text:
  * @proposal: a #GtkSourceCompletionProposal.
  *
  * Gets the text of @proposal. The text that is inserted into
  * the text buffer when the proposal is activated by the default activation.
  * You are free to implement a custom activation handler in the provider and
  * not implement this function. For more information, see
- * gtk_source_completion_provider_activate_proposal(). The returned string must
+ * ctk_source_completion_provider_activate_proposal(). The returned string must
  * be freed with g_free().
  *
  * Returns: a new string containing the text of @proposal.
  */
 gchar *
-gtk_source_completion_proposal_get_text (GtkSourceCompletionProposal *proposal)
+ctk_source_completion_proposal_get_text (GtkSourceCompletionProposal *proposal)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_COMPLETION_PROPOSAL (proposal), NULL);
 
@@ -213,7 +213,7 @@ gtk_source_completion_proposal_get_text (GtkSourceCompletionProposal *proposal)
 }
 
 /**
- * gtk_source_completion_proposal_get_icon:
+ * ctk_source_completion_proposal_get_icon:
  * @proposal: a #GtkSourceCompletionProposal.
  *
  * Gets the #GdkPixbuf for the icon of @proposal.
@@ -221,7 +221,7 @@ gtk_source_completion_proposal_get_text (GtkSourceCompletionProposal *proposal)
  * Returns: (nullable) (transfer none): A #GdkPixbuf with the icon of @proposal.
  */
 GdkPixbuf *
-gtk_source_completion_proposal_get_icon (GtkSourceCompletionProposal *proposal)
+ctk_source_completion_proposal_get_icon (GtkSourceCompletionProposal *proposal)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_COMPLETION_PROPOSAL (proposal), NULL);
 
@@ -229,7 +229,7 @@ gtk_source_completion_proposal_get_icon (GtkSourceCompletionProposal *proposal)
 }
 
 /**
- * gtk_source_completion_proposal_get_icon_name:
+ * ctk_source_completion_proposal_get_icon_name:
  * @proposal: a #GtkSourceCompletionProposal.
  *
  * Gets the icon name of @proposal.
@@ -239,7 +239,7 @@ gtk_source_completion_proposal_get_icon (GtkSourceCompletionProposal *proposal)
  * Since: 3.18
  */
 const gchar *
-gtk_source_completion_proposal_get_icon_name (GtkSourceCompletionProposal *proposal)
+ctk_source_completion_proposal_get_icon_name (GtkSourceCompletionProposal *proposal)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_COMPLETION_PROPOSAL (proposal), NULL);
 
@@ -247,7 +247,7 @@ gtk_source_completion_proposal_get_icon_name (GtkSourceCompletionProposal *propo
 }
 
 /**
- * gtk_source_completion_proposal_get_gicon:
+ * ctk_source_completion_proposal_get_gicon:
  * @proposal: a #GtkSourceCompletionProposal.
  *
  * Gets the #GIcon for the icon of @proposal.
@@ -257,7 +257,7 @@ gtk_source_completion_proposal_get_icon_name (GtkSourceCompletionProposal *propo
  * Since: 3.18
  */
 GIcon *
-gtk_source_completion_proposal_get_gicon (GtkSourceCompletionProposal *proposal)
+ctk_source_completion_proposal_get_gicon (GtkSourceCompletionProposal *proposal)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_COMPLETION_PROPOSAL (proposal), NULL);
 
@@ -265,7 +265,7 @@ gtk_source_completion_proposal_get_gicon (GtkSourceCompletionProposal *proposal)
 }
 
 /**
- * gtk_source_completion_proposal_get_info:
+ * ctk_source_completion_proposal_get_info:
  * @proposal: a #GtkSourceCompletionProposal.
  *
  * Gets extra information associated to the proposal. This information will be
@@ -277,7 +277,7 @@ gtk_source_completion_proposal_get_gicon (GtkSourceCompletionProposal *proposal)
  * to @proposal.
  */
 gchar *
-gtk_source_completion_proposal_get_info (GtkSourceCompletionProposal *proposal)
+ctk_source_completion_proposal_get_info (GtkSourceCompletionProposal *proposal)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_COMPLETION_PROPOSAL (proposal), NULL);
 
@@ -285,17 +285,17 @@ gtk_source_completion_proposal_get_info (GtkSourceCompletionProposal *proposal)
 }
 
 /**
- * gtk_source_completion_proposal_hash:
+ * ctk_source_completion_proposal_hash:
  * @proposal: a #GtkSourceCompletionProposal.
  *
  * Get the hash value of @proposal. This is used to (together with
- * gtk_source_completion_proposal_equal()) to match proposals in the completion
+ * ctk_source_completion_proposal_equal()) to match proposals in the completion
  * model. By default, it uses a direct hash (g_direct_hash()).
  *
  * Returns: The hash value of @proposal.
  */
 guint
-gtk_source_completion_proposal_hash (GtkSourceCompletionProposal *proposal)
+ctk_source_completion_proposal_hash (GtkSourceCompletionProposal *proposal)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_COMPLETION_PROPOSAL (proposal), 0);
 
@@ -303,18 +303,18 @@ gtk_source_completion_proposal_hash (GtkSourceCompletionProposal *proposal)
 }
 
 /**
- * gtk_source_completion_proposal_equal:
+ * ctk_source_completion_proposal_equal:
  * @proposal: a #GtkSourceCompletionProposal.
  * @other: a #GtkSourceCompletionProposal.
  *
  * Get whether two proposal objects are the same.  This is used to (together
- * with gtk_source_completion_proposal_hash()) to match proposals in the
+ * with ctk_source_completion_proposal_hash()) to match proposals in the
  * completion model. By default, it uses direct equality (g_direct_equal()).
  *
  * Returns: %TRUE if @proposal and @object are the same proposal
  */
 gboolean
-gtk_source_completion_proposal_equal (GtkSourceCompletionProposal *proposal,
+ctk_source_completion_proposal_equal (GtkSourceCompletionProposal *proposal,
                                       GtkSourceCompletionProposal *other)
 {
 	g_return_val_if_fail (GTK_SOURCE_IS_COMPLETION_PROPOSAL (proposal), FALSE);
@@ -324,7 +324,7 @@ gtk_source_completion_proposal_equal (GtkSourceCompletionProposal *proposal,
 }
 
 /**
- * gtk_source_completion_proposal_changed:
+ * ctk_source_completion_proposal_changed:
  * @proposal: a #GtkSourceCompletionProposal.
  *
  * Emits the "changed" signal on @proposal. This should be called by
@@ -332,7 +332,7 @@ gtk_source_completion_proposal_equal (GtkSourceCompletionProposal *proposal,
  * changed.
  */
 void
-gtk_source_completion_proposal_changed (GtkSourceCompletionProposal *proposal)
+ctk_source_completion_proposal_changed (GtkSourceCompletionProposal *proposal)
 {
 	g_return_if_fail (GTK_SOURCE_IS_COMPLETION_PROPOSAL (proposal));
 	g_signal_emit (proposal, signals[CHANGED], 0);

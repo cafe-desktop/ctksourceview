@@ -22,15 +22,15 @@
 #define GTK_SOURCE_GUTTER_H
 
 #if !defined (GTK_SOURCE_H_INSIDE) && !defined (GTK_SOURCE_COMPILATION)
-#error "Only <gtksourceview/gtksource.h> can be included directly."
+#error "Only <ctksourceview/ctksource.h> can be included directly."
 #endif
 
-#include <gtk/gtk.h>
-#include <gtksourceview/gtksourcetypes.h>
+#include <ctk/ctk.h>
+#include <ctksourceview/ctksourcetypes.h>
 
 G_BEGIN_DECLS
 
-#define GTK_SOURCE_TYPE_GUTTER			(gtk_source_gutter_get_type ())
+#define GTK_SOURCE_TYPE_GUTTER			(ctk_source_gutter_get_type ())
 #define GTK_SOURCE_GUTTER(obj)			(G_TYPE_CHECK_INSTANCE_CAST ((obj), GTK_SOURCE_TYPE_GUTTER, GtkSourceGutter))
 #define GTK_SOURCE_GUTTER_CLASS(klass)		(G_TYPE_CHECK_CLASS_CAST ((klass), GTK_SOURCE_TYPE_GUTTER, GtkSourceGutterClass))
 #define GTK_SOURCE_IS_GUTTER(obj)		(G_TYPE_CHECK_INSTANCE_TYPE ((obj), GTK_SOURCE_TYPE_GUTTER))
@@ -55,36 +55,36 @@ struct _GtkSourceGutterClass
 };
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-GType gtk_source_gutter_get_type 		(void) G_GNUC_CONST;
+GType ctk_source_gutter_get_type 		(void) G_GNUC_CONST;
 
 GTK_SOURCE_AVAILABLE_IN_3_24
 GtkSourceView *
-     gtk_source_gutter_get_view			(GtkSourceGutter         *gutter);
+     ctk_source_gutter_get_view			(GtkSourceGutter         *gutter);
 
 GTK_SOURCE_AVAILABLE_IN_3_24
 GtkTextWindowType
-     gtk_source_gutter_get_window_type		(GtkSourceGutter         *gutter);
+     ctk_source_gutter_get_window_type		(GtkSourceGutter         *gutter);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-gboolean gtk_source_gutter_insert               (GtkSourceGutter         *gutter,
+gboolean ctk_source_gutter_insert               (GtkSourceGutter         *gutter,
                                                  GtkSourceGutterRenderer *renderer,
                                                  gint                     position);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-void gtk_source_gutter_reorder			(GtkSourceGutter	 *gutter,
+void ctk_source_gutter_reorder			(GtkSourceGutter	 *gutter,
                                                  GtkSourceGutterRenderer *renderer,
                                                  gint                     position);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-void gtk_source_gutter_remove			(GtkSourceGutter         *gutter,
+void ctk_source_gutter_remove			(GtkSourceGutter         *gutter,
                                                  GtkSourceGutterRenderer *renderer);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
-void gtk_source_gutter_queue_draw		(GtkSourceGutter         *gutter);
+void ctk_source_gutter_queue_draw		(GtkSourceGutter         *gutter);
 
 GTK_SOURCE_AVAILABLE_IN_ALL
 GtkSourceGutterRenderer *
-     gtk_source_gutter_get_renderer_at_pos      (GtkSourceGutter         *gutter,
+     ctk_source_gutter_get_renderer_at_pos      (GtkSourceGutter         *gutter,
                                                  gint                     x,
                                                  gint                     y);
 

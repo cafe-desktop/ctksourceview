@@ -21,18 +21,18 @@
 #ifndef GTK_SOURCE_SPACE_DRAWER_PRIVATE_H
 #define GTK_SOURCE_SPACE_DRAWER_PRIVATE_H
 
-#include <gtk/gtk.h>
-#include "gtksourcetypes.h"
-#include "gtksourcetypes-private.h"
+#include <ctk/ctk.h>
+#include "ctksourcetypes.h"
+#include "ctksourcetypes-private.h"
 
 G_BEGIN_DECLS
 
 GTK_SOURCE_INTERNAL
-void			_gtk_source_space_drawer_update_color		(GtkSourceSpaceDrawer *drawer,
+void			_ctk_source_space_drawer_update_color		(GtkSourceSpaceDrawer *drawer,
 									 GtkSourceView        *view);
 
 GTK_SOURCE_INTERNAL
-void			_gtk_source_space_drawer_draw			(GtkSourceSpaceDrawer *drawer,
+void			_ctk_source_space_drawer_draw			(GtkSourceSpaceDrawer *drawer,
 									 GtkSourceView        *view,
 									 cairo_t              *cr);
 
