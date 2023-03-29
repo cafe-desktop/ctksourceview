@@ -106,7 +106,7 @@ ctk_source_pixbuf_helper_set_pixbuf (CtkSourcePixbufHelper *helper,
 
 	if (pixbuf)
 	{
-		helper->pixbuf = cdk_pixbuf_copy (pixbuf);
+		helper->pixbuf = gdk_pixbuf_copy (pixbuf);
 	}
 
 	clear_cache (helper);
@@ -176,18 +176,18 @@ from_pixbuf (CtkSourcePixbufHelper *helper,
 		return;
 	}
 
-	if (cdk_pixbuf_get_width (helper->pixbuf) <= size)
+	if (gdk_pixbuf_get_width (helper->pixbuf) <= size)
 	{
 		if (!helper->cached_pixbuf)
 		{
-			set_cache (helper, cdk_pixbuf_copy (helper->pixbuf));
+			set_cache (helper, gdk_pixbuf_copy (helper->pixbuf));
 		}
 
 		return;
 	}
 
 	/* Make smaller */
-	set_cache (helper, cdk_pixbuf_scale_simple (helper->pixbuf,
+	set_cache (helper, gdk_pixbuf_scale_simple (helper->pixbuf,
 	                                            size,
 	                                            size,
 	                                            CDK_INTERP_BILINEAR));
@@ -268,7 +268,7 @@ ctk_source_pixbuf_helper_render (CtkSourcePixbufHelper *helper,
                                  gint                   size)
 {
 	if (helper->cached_pixbuf &&
-	    cdk_pixbuf_get_width (helper->cached_pixbuf) == size)
+	    gdk_pixbuf_get_width (helper->cached_pixbuf) == size)
 	{
 		return helper->cached_pixbuf;
 	}
