@@ -276,7 +276,7 @@ ctk_source_mark_attributes_class_init (CtkSourceMarkAttributesClass *klass)
 	                                 g_param_spec_object ("pixbuf",
 	                                                      "Pixbuf",
 	                                                      "The pixbuf",
-	                                                      CDK_TYPE_PIXBUF,
+	                                                      GDK_TYPE_PIXBUF,
 	                                                      G_PARAM_READWRITE |
 							      G_PARAM_STATIC_STRINGS));
 
