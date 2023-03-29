@@ -743,10 +743,10 @@ ctk_source_completion_activate_proposal (CtkSourceCompletion *completion)
 static void
 update_info_position (CtkSourceCompletion *completion)
 {
-	GdkDisplay *display;
-	GdkMonitor *monitor;
-	GdkWindow *window;
-	GdkRectangle geom;
+	CdkDisplay *display;
+	CdkMonitor *monitor;
+	CdkWindow *window;
+	CdkRectangle geom;
 	gint x, y;
 	gint width, height;
 	gint info_width;
@@ -1266,7 +1266,7 @@ selection_changed_cb (CtkTreeSelection    *selection,
 
 static gboolean
 ctk_source_completion_configure_event (CtkWidget           *widget,
-                                       GdkEventConfigure   *event,
+                                       CdkEventConfigure   *event,
                                        CtkSourceCompletion *completion)
 {
 	update_info_position (completion);
@@ -1282,12 +1282,12 @@ hide_completion_cb (CtkSourceCompletion *completion)
 
 static gboolean
 view_key_press_event_cb (CtkSourceView       *view,
-			 GdkEventKey         *event,
+			 CdkEventKey         *event,
 			 CtkSourceCompletion *completion)
 {
 	static gboolean mnemonic_keyval_set = FALSE;
 	static guint mnemonic_keyval = CDK_KEY_VoidSymbol;
-	GdkModifierType mod;
+	CdkModifierType mod;
 	CtkBindingSet *binding_set;
 
 	if (!ctk_widget_get_visible (CTK_WIDGET (completion->priv->main_window)))
@@ -1987,7 +1987,7 @@ cell_icon_func (CtkTreeViewColumn *column,
                 CtkTreeIter       *iter,
                 gpointer           data)
 {
-	GdkPixbuf *pixbuf;
+	CdkPixbuf *pixbuf;
 	gchar *icon_name;
 	GIcon *gicon;
 	gboolean set = FALSE;
@@ -2033,8 +2033,8 @@ init_tree_view (CtkSourceCompletion *completion,
 	CtkTreeViewColumn *column;
 	CtkCellRenderer *cell_renderer;
 	CtkStyleContext *style_context;
-	GdkRGBA* background_color = NULL;
-	GdkRGBA foreground_color;
+	CdkRGBA* background_color = NULL;
+	CdkRGBA foreground_color;
 
 	completion->priv->tree_view_proposals = CTK_TREE_VIEW (ctk_builder_get_object (builder, "tree_view_proposals"));
 

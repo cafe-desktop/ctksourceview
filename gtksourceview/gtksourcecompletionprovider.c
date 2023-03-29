@@ -36,7 +36,7 @@
  *
  * The provider may be displayed in the completion window as a header row, showing
  * its name and optionally an icon.
- * The icon may be specified as a #GdkPixbuf, as an icon name or as a #GIcon by
+ * The icon may be specified as a #CdkPixbuf, as an icon name or as a #GIcon by
  * implementing the corresponding get function. At most one of those get functions
  * should return a value different from %NULL, if they all return %NULL no icon
  * will be used.
@@ -53,7 +53,7 @@ ctk_source_completion_provider_get_name_default (CtkSourceCompletionProvider *pr
 	g_return_val_if_reached (NULL);
 }
 
-static GdkPixbuf *
+static CdkPixbuf *
 ctk_source_completion_provider_get_icon_default (CtkSourceCompletionProvider *provider)
 {
 	return NULL;
@@ -182,12 +182,12 @@ ctk_source_completion_provider_get_name (CtkSourceCompletionProvider *provider)
  * ctk_source_completion_provider_get_icon:
  * @provider: The #CtkSourceCompletionProvider
  *
- * Get the #GdkPixbuf for the icon of the @provider.
+ * Get the #CdkPixbuf for the icon of the @provider.
  *
  * Returns: (nullable) (transfer none): The icon to be used for the provider,
  *          or %NULL if the provider does not have a special icon.
  */
-GdkPixbuf *
+CdkPixbuf *
 ctk_source_completion_provider_get_icon (CtkSourceCompletionProvider *provider)
 {
 	g_return_val_if_fail (CTK_SOURCE_IS_COMPLETION_PROVIDER (provider), NULL);

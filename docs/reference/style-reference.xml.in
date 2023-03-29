@@ -100,7 +100,7 @@ Same as <code>description</code> except it will be localized.
 These define color names to be used in <code>style</code> tags.
 It has two attributes: <code>name</code> and <code>value</code>.
 <code>value</code> is the hexadecimal color specification like
-"#000000" or named color understood by Gdk prefixed with "#",
+"#000000" or named color understood by Cdk prefixed with "#",
 e.g. "#beige".
 </para></listitem>
 </varlistentry>
@@ -132,7 +132,7 @@ bookmarks.
 <listitem><para>
 Foreground color. It may be name defined in one of <code>color</code> tags, or value in
 hexadecimal format, e.g. "#000000", or symbolic name understood
-by Gdk, prefixed with "#", e.g. "#magenta" or "#darkred".
+by Cdk, prefixed with "#", e.g. "#magenta" or "#darkred".
 </para></listitem>
 </varlistentry>
 <varlistentry>

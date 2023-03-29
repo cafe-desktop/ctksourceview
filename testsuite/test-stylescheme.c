@@ -150,7 +150,7 @@ test_named_color_alpha (TestFixture   *fixture,
                         gconstpointer  data)
 {
 	CtkSourceStyleScheme *scheme;
-	GdkRGBA color1, color2;
+	CdkRGBA color1, color2;
 	gboolean res;
 
 	scheme = ctk_source_style_scheme_manager_get_scheme (fixture->manager, "test");

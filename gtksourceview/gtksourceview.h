@@ -103,7 +103,7 @@ struct _CtkSourceViewClass
 	void (*redo) (CtkSourceView *view);
 	void (*line_mark_activated) (CtkSourceView *view,
 	                             CtkTextIter   *iter,
-	                             GdkEvent      *event);
+	                             CdkEvent      *event);
 	void (*show_completion) (CtkSourceView *view);
 	void (*move_lines) (CtkSourceView *view,
 			    gboolean       down);

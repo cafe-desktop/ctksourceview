@@ -93,12 +93,12 @@ measure_line_height (CtkSourceView *view)
 	return height - 2;
 }
 
-static GdkPixbuf *
+static CdkPixbuf *
 composite_marks (CtkSourceView *view,
                  GSList        *marks,
                  gint           size)
 {
-	GdkPixbuf *composite;
+	CdkPixbuf *composite;
 	gint mark_width;
 	gint mark_height;
 
@@ -114,7 +114,7 @@ composite_marks (CtkSourceView *view,
 	{
 		CtkSourceMark *mark;
 		CtkSourceMarkAttributes *attrs;
-		const GdkPixbuf *pixbuf;
+		const CdkPixbuf *pixbuf;
 
 		mark = marks->data;
 		attrs = ctk_source_view_get_mark_attributes (view,
@@ -172,7 +172,7 @@ gutter_renderer_query_data (CtkSourceGutterRenderer      *renderer,
 			    CtkSourceGutterRendererState  state)
 {
 	GSList *marks;
-	GdkPixbuf *pixbuf = NULL;
+	CdkPixbuf *pixbuf = NULL;
 	gint size = 0;
 	CtkSourceView *view;
 	CtkSourceBuffer *buffer;
@@ -222,7 +222,7 @@ set_tooltip_widget_from_marks (CtkSourceView *view,
 		gchar *text;
 		gboolean ismarkup = FALSE;
 		CtkWidget *label;
-		const GdkPixbuf *pixbuf;
+		const CdkPixbuf *pixbuf;
 
 		mark = marks->data;
 		category = ctk_source_mark_get_category (mark);
@@ -283,7 +283,7 @@ set_tooltip_widget_from_marks (CtkSourceView *view,
 		else
 		{
 			CtkWidget *image;
-			GdkPixbuf *copy;
+			CdkPixbuf *copy;
 
 			/* FIXME why a copy is needed? */
 			copy = cdk_pixbuf_copy (pixbuf);
@@ -328,7 +328,7 @@ set_tooltip_widget_from_marks (CtkSourceView *view,
 static gboolean
 gutter_renderer_query_tooltip (CtkSourceGutterRenderer *renderer,
                                CtkTextIter             *iter,
-                               GdkRectangle            *area,
+                               CdkRectangle            *area,
                                gint                     x,
                                gint                     y,
                                CtkTooltip              *tooltip)
@@ -366,8 +366,8 @@ gutter_renderer_query_tooltip (CtkSourceGutterRenderer *renderer,
 static gboolean
 gutter_renderer_query_activatable (CtkSourceGutterRenderer *renderer,
                                    CtkTextIter             *iter,
-                                   GdkRectangle            *area,
-                                   GdkEvent                *event)
+                                   CdkRectangle            *area,
+                                   CdkEvent                *event)
 {
 	return TRUE;
 }

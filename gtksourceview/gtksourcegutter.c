@@ -86,20 +86,20 @@ struct _CtkSourceGutterPrivate
 G_DEFINE_TYPE_WITH_PRIVATE (CtkSourceGutter, ctk_source_gutter, G_TYPE_OBJECT)
 
 static gboolean on_view_motion_notify_event (CtkSourceView   *view,
-                                             GdkEventMotion  *event,
+                                             CdkEventMotion  *event,
                                              CtkSourceGutter *gutter);
 
 
 static gboolean on_view_enter_notify_event (CtkSourceView    *view,
-                                            GdkEventCrossing *event,
+                                            CdkEventCrossing *event,
                                             CtkSourceGutter  *gutter);
 
 static gboolean on_view_leave_notify_event (CtkSourceView    *view,
-                                            GdkEventCrossing *event,
+                                            CdkEventCrossing *event,
                                             CtkSourceGutter  *gutter);
 
 static gboolean on_view_button_press_event (CtkSourceView    *view,
-                                            GdkEventButton   *event,
+                                            CdkEventButton   *event,
                                             CtkSourceGutter  *gutter);
 
 static gboolean on_view_query_tooltip (CtkSourceView   *view,
@@ -115,7 +115,7 @@ static void on_view_style_updated (CtkSourceView    *view,
 static void do_redraw (CtkSourceGutter *gutter);
 static void update_gutter_size (CtkSourceGutter *gutter);
 
-static GdkWindow *
+static CdkWindow *
 get_window (CtkSourceGutter *gutter)
 {
 	return ctk_text_view_get_window (CTK_TEXT_VIEW (gutter->priv->view),
@@ -321,7 +321,7 @@ set_view (CtkSourceGutter *gutter,
 static void
 do_redraw (CtkSourceGutter *gutter)
 {
-	GdkWindow *window;
+	CdkWindow *window;
 
 	window = ctk_text_view_get_window (CTK_TEXT_VIEW (gutter->priv->view),
 	                                   gutter->priv->window_type);
@@ -820,9 +820,9 @@ static gboolean
 get_clip_rectangle (CtkSourceGutter *gutter,
 		    CtkSourceView   *view,
 		    cairo_t         *cr,
-		    GdkRectangle    *clip)
+		    CdkRectangle    *clip)
 {
-	GdkWindow *window = get_window (gutter);
+	CdkWindow *window = get_window (gutter);
 
 	if (window == NULL || !ctk_cairo_should_draw_window (cr, window))
 	{
@@ -841,7 +841,7 @@ apply_style (CtkSourceGutter *gutter,
 	     cairo_t         *cr)
 {
 	const gchar *class;
-	GdkRGBA fg_color;
+	CdkRGBA fg_color;
 
 	switch (gutter->priv->window_type)
 	{
@@ -887,8 +887,8 @@ begin_draw (CtkSourceGutter *gutter,
 	    LinesInfo       *info,
 	    cairo_t         *cr)
 {
-	GdkRectangle background_area = { 0 };
-	GdkRectangle cell_area;
+	CdkRectangle background_area = { 0 };
+	CdkRectangle cell_area;
 	GList *l;
 	gint renderer_num;
 
@@ -989,7 +989,7 @@ draw_cells (CtkSourceGutter *gutter,
 	while (i < info->lines_count)
 	{
 		CtkTextIter end;
-		GdkRectangle background_area;
+		CdkRectangle background_area;
 		CtkSourceGutterRendererState state;
 		gint pos;
 		gint line_to_paint;
@@ -1050,7 +1050,7 @@ draw_cells (CtkSourceGutter *gutter,
 		     l = l->next, renderer_num++)
 		{
 			Renderer *renderer;
-			GdkRectangle cell_area;
+			CdkRectangle cell_area;
 			gint width;
 			gint xpad;
 			gint ypad;
@@ -1134,7 +1134,7 @@ _ctk_source_gutter_draw (CtkSourceGutter *gutter,
 			 CtkSourceView   *view,
 			 cairo_t         *cr)
 {
-	GdkRectangle clip;
+	CdkRectangle clip;
 	CtkTextView *text_view;
 	gint first_y_window_coord;
 	gint last_y_window_coord;
@@ -1263,7 +1263,7 @@ get_renderer_rect (CtkSourceGutter *gutter,
                    Renderer        *renderer,
                    CtkTextIter     *iter,
                    gint             line,
-                   GdkRectangle    *rectangle,
+                   CdkRectangle    *rectangle,
                    gint             start)
 {
 	gint y;
@@ -1296,17 +1296,17 @@ get_renderer_rect (CtkSourceGutter *gutter,
 static gboolean
 renderer_query_activatable (CtkSourceGutter *gutter,
                             Renderer        *renderer,
-                            GdkEvent        *event,
+                            CdkEvent        *event,
                             gint             x,
                             gint             y,
                             CtkTextIter     *line_iter,
-                            GdkRectangle    *rect,
+                            CdkRectangle    *rect,
                             gint             start)
 {
 	gint y_buf;
 	gint yline;
 	CtkTextIter iter;
-	GdkRectangle r;
+	CdkRectangle r;
 
 	if (!renderer)
 	{
@@ -1355,7 +1355,7 @@ renderer_query_activatable (CtkSourceGutter *gutter,
 
 static gboolean
 redraw_for_window (CtkSourceGutter *gutter,
-		   GdkEvent        *event,
+		   CdkEvent        *event,
 		   gboolean         act_on_window,
 		   gint             x,
 		   gint             y)
@@ -1422,11 +1422,11 @@ redraw_for_window (CtkSourceGutter *gutter,
 
 static gboolean
 on_view_motion_notify_event (CtkSourceView    *view,
-                             GdkEventMotion   *event,
+                             CdkEventMotion   *event,
                              CtkSourceGutter  *gutter)
 {
 	return redraw_for_window (gutter,
-	                          (GdkEvent *)event,
+	                          (CdkEvent *)event,
 	                          TRUE,
 	                          (gint)event->x,
 	                          (gint)event->y);
@@ -1434,11 +1434,11 @@ on_view_motion_notify_event (CtkSourceView    *view,
 
 static gboolean
 on_view_enter_notify_event (CtkSourceView     *view,
-                            GdkEventCrossing  *event,
+                            CdkEventCrossing  *event,
                             CtkSourceGutter   *gutter)
 {
 	return redraw_for_window (gutter,
-	                          (GdkEvent *)event,
+	                          (CdkEvent *)event,
 	                          TRUE,
 	                          (gint)event->x,
 	                          (gint)event->y);
@@ -1446,11 +1446,11 @@ on_view_enter_notify_event (CtkSourceView     *view,
 
 static gboolean
 on_view_leave_notify_event (CtkSourceView     *view,
-                            GdkEventCrossing  *event,
+                            CdkEventCrossing  *event,
                             CtkSourceGutter   *gutter)
 {
 	return redraw_for_window (gutter,
-	                          (GdkEvent *)event,
+	                          (CdkEvent *)event,
 	                          FALSE,
 	                          (gint)event->x,
 	                          (gint)event->y);
@@ -1458,13 +1458,13 @@ on_view_leave_notify_event (CtkSourceView     *view,
 
 static gboolean
 on_view_button_press_event (CtkSourceView    *view,
-                            GdkEventButton   *event,
+                            CdkEventButton   *event,
                             CtkSourceGutter  *gutter)
 {
 	Renderer *renderer;
 	CtkTextIter line_iter;
 	gint start = -1;
-	GdkRectangle rect;
+	CdkRectangle rect;
 
 	if (event->window != get_window (gutter))
 	{
@@ -1481,7 +1481,7 @@ on_view_button_press_event (CtkSourceView    *view,
 
 	if (renderer_query_activatable (gutter,
 	                                renderer,
-	                                (GdkEvent *)event,
+	                                (CdkEvent *)event,
 	                                (gint)event->x,
 	                                (gint)event->y,
 	                                &line_iter,
@@ -1491,7 +1491,7 @@ on_view_button_press_event (CtkSourceView    *view,
 		ctk_source_gutter_renderer_activate (renderer->renderer,
 		                                     &line_iter,
 		                                     &rect,
-		                                     (GdkEvent *)event);
+		                                     (CdkEvent *)event);
 
 		do_redraw (gutter);
 
@@ -1516,7 +1516,7 @@ on_view_query_tooltip (CtkSourceView   *view,
 	gint y_buf;
 	gint yline;
 	CtkTextIter line_iter;
-	GdkRectangle rect;
+	CdkRectangle rect;
 
 	if (keyboard_mode)
 	{
@@ -1581,7 +1581,7 @@ on_view_style_updated (CtkSourceView   *view,
 /* TODO: better document this function. The (x,y) position is different from
  * the position passed to ctk_source_gutter_insert() and
  * ctk_source_gutter_reorder(). The (x,y) coordinate can come from a click
- * event, for example? Is the (x,y) a coordinate of the Gutter's GdkWindow?
+ * event, for example? Is the (x,y) a coordinate of the Gutter's CdkWindow?
  * Where is the (0,0)? And so on.
  * Also, this function doesn't seem to be used.
  */

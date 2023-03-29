@@ -73,7 +73,7 @@ struct _CtkSourceCompletionProposalIface
 	gchar		*(*get_markup)		(CtkSourceCompletionProposal *proposal);
 	gchar		*(*get_text)		(CtkSourceCompletionProposal *proposal);
 
-	GdkPixbuf	*(*get_icon)		(CtkSourceCompletionProposal *proposal);
+	CdkPixbuf	*(*get_icon)		(CtkSourceCompletionProposal *proposal);
 	const gchar	*(*get_icon_name)	(CtkSourceCompletionProposal *proposal);
 	GIcon		*(*get_gicon)		(CtkSourceCompletionProposal *proposal);
 
@@ -100,7 +100,7 @@ CTK_SOURCE_AVAILABLE_IN_ALL
 gchar			*ctk_source_completion_proposal_get_text	(CtkSourceCompletionProposal *proposal);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
-GdkPixbuf		*ctk_source_completion_proposal_get_icon	(CtkSourceCompletionProposal *proposal);
+CdkPixbuf		*ctk_source_completion_proposal_get_icon	(CtkSourceCompletionProposal *proposal);
 
 CTK_SOURCE_AVAILABLE_IN_3_18
 const gchar		*ctk_source_completion_proposal_get_icon_name	(CtkSourceCompletionProposal *proposal);

@@ -150,7 +150,7 @@ typedef struct
 	CtkTextBuffer *buffer;
 
 	/* The location of the scrubber in widget coordinate space. */
-	GdkRectangle scrubber_area;
+	CdkRectangle scrubber_area;
 
 	/* Weak pointer view to child view bindings */
 	GBinding *buffer_binding;
@@ -186,9 +186,9 @@ update_scrubber_position (CtkSourceMap *map)
 {
 	CtkSourceMapPrivate *priv;
 	CtkTextIter iter;
-	GdkRectangle visible_area;
-	GdkRectangle iter_area;
-	GdkRectangle scrubber_area;
+	CdkRectangle visible_area;
+	CdkRectangle iter_area;
+	CdkRectangle scrubber_area;
 	CtkAllocation alloc;
 	CtkAllocation view_alloc;
 	gint child_height;
@@ -227,7 +227,7 @@ update_scrubber_position (CtkSourceMap *map)
 
 	if (memcmp (&scrubber_area, &priv->scrubber_area, sizeof scrubber_area) != 0)
 	{
-		GdkWindow *window;
+		CdkWindow *window;
 
 		/*
 		 * NOTE:
@@ -236,7 +236,7 @@ update_scrubber_position (CtkSourceMap *map)
 		 * that we would hit the pixel cache and everything would be
 		 * fine. However, it actually has a noticible improvement on
 		 * interactivity to simply invalidate the old and new region
-		 * in the widgets primary GdkWindow. Since the window is
+		 * in the widgets primary CdkWindow. Since the window is
 		 * not the CTK_TEXT_WINDOW_TEXT, we don't seem to invalidate
 		 * the pixel cache. This makes things as interactive as they
 		 * were when drawing the scrubber from a parent widget.
@@ -336,7 +336,7 @@ ctk_source_map_rebuild_css (CtkSourceMap *map)
 	if (background == NULL)
 	{
 		CtkStyleContext *context;
-		GdkRGBA color;
+		CdkRGBA color;
 
 		/*
 		 * We failed to locate a style for both "map-overlay" and for
@@ -368,7 +368,7 @@ ctk_source_map_rebuild_css (CtkSourceMap *map)
 
 	if (alter_alpha)
 	{
-		GdkRGBA color;
+		CdkRGBA color;
 
 		cdk_rgba_parse (&color, background);
 		color.alpha = 0.75;
@@ -635,7 +635,7 @@ ctk_source_map_get_preferred_height (CtkWidget *widget,
  */
 static void
 scroll_to_child_point (CtkSourceMap   *map,
-                       const GdkPoint *point)
+                       const CdkPoint *point)
 {
 	CtkSourceMapPrivate *priv;
 
@@ -895,11 +895,11 @@ ctk_source_map_set_property (GObject      *object,
 
 static gboolean
 ctk_source_map_button_press_event (CtkWidget      *widget,
-                                   GdkEventButton *event)
+                                   CdkEventButton *event)
 {
 	CtkSourceMap *map = CTK_SOURCE_MAP (widget);
 	CtkSourceMapPrivate *priv;
-	GdkPoint point;
+	CdkPoint point;
 
 	priv = ctk_source_map_get_instance_private (map);
 
@@ -922,7 +922,7 @@ ctk_source_map_button_press_event (CtkWidget      *widget,
 
 static gboolean
 ctk_source_map_button_release_event (CtkWidget      *widget,
-                                     GdkEventButton *event)
+                                     CdkEventButton *event)
 {
 	CtkSourceMap *map = CTK_SOURCE_MAP (widget);
 	CtkSourceMapPrivate *priv;
@@ -939,7 +939,7 @@ ctk_source_map_button_release_event (CtkWidget      *widget,
 
 static gboolean
 ctk_source_map_motion_notify_event (CtkWidget      *widget,
-                                    GdkEventMotion *event)
+                                    CdkEventMotion *event)
 {
 	CtkSourceMap *map = CTK_SOURCE_MAP (widget);
 	CtkSourceMapPrivate *priv;
@@ -950,9 +950,9 @@ ctk_source_map_motion_notify_event (CtkWidget      *widget,
 	{
 		CtkTextBuffer *buffer;
 		CtkAllocation alloc;
-		GdkRectangle area;
+		CdkRectangle area;
 		CtkTextIter iter;
-		GdkPoint point;
+		CdkPoint point;
 		gdouble yratio;
 		gint height;
 
@@ -980,7 +980,7 @@ ctk_source_map_motion_notify_event (CtkWidget      *widget,
 
 static gboolean
 ctk_source_map_scroll_event (CtkWidget      *widget,
-                             GdkEventScroll *event)
+                             CdkEventScroll *event)
 {
 	CtkSourceMap *map = CTK_SOURCE_MAP (widget);
 	CtkSourceMapPrivate *priv;
@@ -1010,7 +1010,7 @@ ctk_source_map_scroll_event (CtkWidget      *widget,
 		}
 		else
 		{
-			cdk_event_get_scroll_deltas ((GdkEvent *)event, &x, &y);
+			cdk_event_get_scroll_deltas ((CdkEvent *)event, &x, &y);
 
 			if (y > 0)
 			{
@@ -1036,7 +1036,7 @@ ctk_source_map_scroll_event (CtkWidget      *widget,
 static void
 set_view_cursor (CtkSourceMap *map)
 {
-	GdkWindow *window;
+	CdkWindow *window;
 
 	window = ctk_text_view_get_window (CTK_TEXT_VIEW (map),
 	                                   CTK_TEXT_WINDOW_TEXT);

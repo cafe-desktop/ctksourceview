@@ -98,7 +98,7 @@
 struct _CtkSourceSpaceDrawerPrivate
 {
 	CtkSourceSpaceTypeFlags *matrix;
-	GdkRGBA *color;
+	CdkRGBA *color;
 	guint enable_matrix : 1;
 };
 
@@ -728,7 +728,7 @@ _ctk_source_space_drawer_update_color (CtkSourceSpaceDrawer *drawer,
 		{
 			gchar *color_str = NULL;
 			gboolean color_set;
-			GdkRGBA color;
+			CdkRGBA color;
 
 			g_object_get (style,
 				      "foreground", &color_str,
@@ -749,7 +749,7 @@ _ctk_source_space_drawer_update_color (CtkSourceSpaceDrawer *drawer,
 	if (drawer->priv->color == NULL)
 	{
 		CtkStyleContext *context;
-		GdkRGBA color;
+		CdkRGBA color;
 
 		context = ctk_widget_get_style_context (CTK_WIDGET (view));
 		ctk_style_context_save (context);
@@ -810,7 +810,7 @@ is_whitespace (gunichar ch)
 
 static void
 draw_space_at_pos (cairo_t      *cr,
-		   GdkRectangle  rect)
+		   CdkRectangle  rect)
 {
 	gint x, y;
 	gdouble w;
@@ -829,7 +829,7 @@ draw_space_at_pos (cairo_t      *cr,
 
 static void
 draw_tab_at_pos (cairo_t      *cr,
-		 GdkRectangle  rect)
+		 CdkRectangle  rect)
 {
 	gint x, y;
 	gdouble w, h;
@@ -852,7 +852,7 @@ draw_tab_at_pos (cairo_t      *cr,
 
 static void
 draw_newline_at_pos (cairo_t      *cr,
-		     GdkRectangle  rect)
+		     CdkRectangle  rect)
 {
 	gint x, y;
 	gdouble w, h;
@@ -890,7 +890,7 @@ draw_newline_at_pos (cairo_t      *cr,
 
 static void
 draw_nbsp_at_pos (cairo_t      *cr,
-		  GdkRectangle  rect,
+		  CdkRectangle  rect,
 		  gboolean      narrowed)
 {
 	gint x, y;
@@ -926,7 +926,7 @@ draw_whitespace_at_iter (CtkTextView *text_view,
 			 cairo_t     *cr)
 {
 	gunichar ch;
-	GdkRectangle rect;
+	CdkRectangle rect;
 
 	ctk_text_view_get_iter_location (text_view, iter, &rect);
 
@@ -1099,7 +1099,7 @@ get_line_end (CtkTextView       *text_view,
 {
 	gint min;
 	gint max;
-	GdkRectangle rect;
+	CdkRectangle rect;
 
 	*line_end = *start_iter;
 	if (!ctk_text_iter_ends_line (line_end))
@@ -1150,7 +1150,7 @@ _ctk_source_space_drawer_draw (CtkSourceSpaceDrawer *drawer,
 {
 	CtkTextView *text_view;
 	CtkTextBuffer *buffer;
-	GdkRectangle clip;
+	CdkRectangle clip;
 	gint min_x;
 	gint min_y;
 	gint max_x;

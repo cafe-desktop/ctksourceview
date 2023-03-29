@@ -47,11 +47,11 @@ get_max_width (CtkSourceCompletionContainer *container)
 {
 	if (ctk_widget_get_realized (CTK_WIDGET (container)))
 	{
-		GdkDisplay *display;
-		GdkMonitor *monitor;
+		CdkDisplay *display;
+		CdkMonitor *monitor;
 		CtkWidget *toplevel;
-		GdkWindow *window;
-		GdkRectangle geom;
+		CdkWindow *window;
+		CdkRectangle geom;
 		gint max_width;
 		gint xorigin;
 

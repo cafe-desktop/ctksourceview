@@ -245,7 +245,7 @@ static gint
 get_last_visible_line_number (CtkSourceGutterRendererLines *lines)
 {
 	CtkTextView *view;
-	GdkRectangle visible_rect;
+	CdkRectangle visible_rect;
 	CtkTextIter iter;
 
 	view = ctk_source_gutter_renderer_get_view (CTK_SOURCE_GUTTER_RENDERER (lines));
@@ -379,8 +379,8 @@ select_line (CtkSourceGutterRendererLines *renderer,
 static void
 gutter_renderer_activate (CtkSourceGutterRenderer *renderer,
                           CtkTextIter             *iter,
-                          GdkRectangle            *rect,
-                          GdkEvent                *event)
+                          CdkRectangle            *rect,
+                          CdkEvent                *event)
 {
 	CtkSourceGutterRendererLines *lines;
 
@@ -417,8 +417,8 @@ gutter_renderer_activate (CtkSourceGutterRenderer *renderer,
 static gboolean
 gutter_renderer_query_activatable (CtkSourceGutterRenderer *renderer,
                                    CtkTextIter             *iter,
-                                   GdkRectangle            *area,
-                                   GdkEvent                *event)
+                                   CdkRectangle            *area,
+                                   CdkEvent                *event)
 {
 	return get_buffer (CTK_SOURCE_GUTTER_RENDERER_LINES (renderer)) != NULL;
 }

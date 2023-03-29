@@ -90,15 +90,15 @@ struct _CtkSourceGutterRendererClass
 	/*< public >*/
 	void (*begin)               (CtkSourceGutterRenderer     *renderer,
 	                             cairo_t                     *cr,
-	                             GdkRectangle                *background_area,
-	                             GdkRectangle                *cell_area,
+	                             CdkRectangle                *background_area,
+	                             CdkRectangle                *cell_area,
 	                             CtkTextIter                 *start,
 	                             CtkTextIter                 *end);
 
 	void (*draw)                (CtkSourceGutterRenderer      *renderer,
 	                             cairo_t                      *cr,
-	                             GdkRectangle                 *background_area,
-	                             GdkRectangle                 *cell_area,
+	                             CdkRectangle                 *background_area,
+	                             CdkRectangle                 *cell_area,
 	                             CtkTextIter                  *start,
 	                             CtkTextIter                  *end,
 	                             CtkSourceGutterRendererState  state);
@@ -128,19 +128,19 @@ struct _CtkSourceGutterRendererClass
 	/* Signal handlers */
 	gboolean (*query_activatable) (CtkSourceGutterRenderer      *renderer,
 	                               CtkTextIter                  *iter,
-	                               GdkRectangle                 *area,
-	                               GdkEvent                     *event);
+	                               CdkRectangle                 *area,
+	                               CdkEvent                     *event);
 
 	void (*activate)            (CtkSourceGutterRenderer      *renderer,
 	                             CtkTextIter                  *iter,
-	                             GdkRectangle                 *area,
-	                             GdkEvent                     *event);
+	                             CdkRectangle                 *area,
+	                             CdkEvent                     *event);
 
 	void (*queue_draw)          (CtkSourceGutterRenderer      *renderer);
 
 	gboolean (*query_tooltip)   (CtkSourceGutterRenderer      *renderer,
 	                             CtkTextIter                  *iter,
-	                             GdkRectangle                 *area,
+	                             CdkRectangle                 *area,
 	                             gint                          x,
 	                             gint                          y,
 	                             CtkTooltip                   *tooltip);
@@ -159,16 +159,16 @@ GType    ctk_source_gutter_renderer_get_type (void) G_GNUC_CONST;
 CTK_SOURCE_AVAILABLE_IN_ALL
 void     ctk_source_gutter_renderer_begin           (CtkSourceGutterRenderer      *renderer,
                                                      cairo_t                      *cr,
-                                                     GdkRectangle                 *background_area,
-                                                     GdkRectangle                 *cell_area,
+                                                     CdkRectangle                 *background_area,
+                                                     CdkRectangle                 *cell_area,
                                                      CtkTextIter                  *start,
                                                      CtkTextIter                  *end);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
 void     ctk_source_gutter_renderer_draw            (CtkSourceGutterRenderer      *renderer,
                                                      cairo_t                      *cr,
-                                                     GdkRectangle                 *background_area,
-                                                     GdkRectangle                 *cell_area,
+                                                     CdkRectangle                 *background_area,
+                                                     CdkRectangle                 *cell_area,
                                                      CtkTextIter                  *start,
                                                      CtkTextIter                  *end,
                                                      CtkSourceGutterRendererState  state);
@@ -227,25 +227,25 @@ CtkSourceGutterRendererAlignmentMode
 
 CTK_SOURCE_AVAILABLE_IN_ALL
 gboolean ctk_source_gutter_renderer_get_background  (CtkSourceGutterRenderer      *renderer,
-                                                     GdkRGBA                      *color);
+                                                     CdkRGBA                      *color);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
 void     ctk_source_gutter_renderer_set_background  (CtkSourceGutterRenderer      *renderer,
-                                                     const GdkRGBA                *color);
+                                                     const CdkRGBA                *color);
 
 /* Emits the 'activate' signal */
 CTK_SOURCE_AVAILABLE_IN_ALL
 void     ctk_source_gutter_renderer_activate        (CtkSourceGutterRenderer      *renderer,
                                                      CtkTextIter                  *iter,
-                                                     GdkRectangle                 *area,
-                                                     GdkEvent                     *event);
+                                                     CdkRectangle                 *area,
+                                                     CdkEvent                     *event);
 
 /* Emits the 'query-activatable' signal */
 CTK_SOURCE_AVAILABLE_IN_ALL
 gboolean ctk_source_gutter_renderer_query_activatable (CtkSourceGutterRenderer      *renderer,
                                                        CtkTextIter                  *iter,
-                                                       GdkRectangle                 *area,
-                                                       GdkEvent                     *event);
+                                                       CdkRectangle                 *area,
+                                                       CdkEvent                     *event);
 
 /* Emits the 'queue-draw' signal */
 CTK_SOURCE_AVAILABLE_IN_ALL
@@ -255,7 +255,7 @@ void     ctk_source_gutter_renderer_queue_draw      (CtkSourceGutterRenderer    
 CTK_SOURCE_AVAILABLE_IN_ALL
 gboolean ctk_source_gutter_renderer_query_tooltip   (CtkSourceGutterRenderer      *renderer,
                                                      CtkTextIter                  *iter,
-                                                     GdkRectangle                 *area,
+                                                     CdkRectangle                 *area,
                                                      gint                          x,
                                                      gint                          y,
                                                      CtkTooltip                   *tooltip);

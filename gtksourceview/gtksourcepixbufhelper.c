@@ -33,10 +33,10 @@ typedef enum _IconType
 
 struct _CtkSourcePixbufHelper
 {
-	GdkPixbuf *cached_pixbuf;
+	CdkPixbuf *cached_pixbuf;
 	IconType type;
 
-	GdkPixbuf *pixbuf;
+	CdkPixbuf *pixbuf;
 	gchar *icon_name;
 	GIcon *gicon;
 };
@@ -72,7 +72,7 @@ ctk_source_pixbuf_helper_free (CtkSourcePixbufHelper *helper)
 
 static void
 set_cache (CtkSourcePixbufHelper *helper,
-           GdkPixbuf             *pixbuf)
+           CdkPixbuf             *pixbuf)
 {
 	if (helper->cached_pixbuf)
 	{
@@ -94,7 +94,7 @@ clear_cache (CtkSourcePixbufHelper *helper)
 
 void
 ctk_source_pixbuf_helper_set_pixbuf (CtkSourcePixbufHelper *helper,
-                                     const GdkPixbuf       *pixbuf)
+                                     const CdkPixbuf       *pixbuf)
 {
 	helper->type = ICON_TYPE_PIXBUF;
 
@@ -112,7 +112,7 @@ ctk_source_pixbuf_helper_set_pixbuf (CtkSourcePixbufHelper *helper,
 	clear_cache (helper);
 }
 
-GdkPixbuf *
+CdkPixbuf *
 ctk_source_pixbuf_helper_get_pixbuf (CtkSourcePixbufHelper *helper)
 {
 	return helper->pixbuf;
@@ -198,7 +198,7 @@ from_gicon (CtkSourcePixbufHelper *helper,
             CtkWidget             *widget,
             gint                   size)
 {
-	GdkScreen *screen;
+	CdkScreen *screen;
 	CtkIconTheme *icon_theme;
 	CtkIconInfo *info;
 	CtkIconLookupFlags flags;
@@ -224,7 +224,7 @@ from_name (CtkSourcePixbufHelper *helper,
            CtkWidget             *widget,
            gint                   size)
 {
-	GdkScreen *screen;
+	CdkScreen *screen;
 	CtkIconTheme *icon_theme;
 	CtkIconInfo *info;
 	CtkIconLookupFlags flags;
@@ -244,7 +244,7 @@ from_name (CtkSourcePixbufHelper *helper,
 
 	if (info)
 	{
-		GdkPixbuf *pixbuf;
+		CdkPixbuf *pixbuf;
 
 		if (ctk_icon_info_is_symbolic (info))
 		{
@@ -262,7 +262,7 @@ from_name (CtkSourcePixbufHelper *helper,
 	}
 }
 
-GdkPixbuf *
+CdkPixbuf *
 ctk_source_pixbuf_helper_render (CtkSourcePixbufHelper *helper,
                                  CtkWidget             *widget,
                                  gint                   size)
