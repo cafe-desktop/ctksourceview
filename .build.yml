@@ -32,7 +32,7 @@ before_scripts:
 
 build_scripts:
   - ./before-build
-  - ./make-scanbuild meson
+  - ./make-scanbuild meson 'setup'
   - ./after-build
 
 after_scripts:
