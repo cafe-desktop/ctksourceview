@@ -22,7 +22,6 @@ requires:
     - libgirepository1.0-dev
     - libpango1.0-doc
     - meson
-    - valac
     - xauth
     - xvfb
 
