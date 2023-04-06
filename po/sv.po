@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ctksourceview\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-06 10:31+0200\n"
+"POT-Creation-Date: 2023-04-06 13:25+0200\n"
 "PO-Revision-Date: 2018-08-07 22:06+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -17,6 +17,25 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.0.9\n"
+
+#. (itstool) path: R.lang/language@_section
+#. (itstool) path: fcl.lang/language@_section
+#. (itstool) path: gap.lang/language@_section
+#. (itstool) path: idl-exelis.lang/language@_section
+#. (itstool) path: imagej.lang/language@_section
+#. (itstool) path: julia.lang/language@_section
+#. (itstool) path: matlab.lang/language@_section
+#. (itstool) path: maxima.lang/language@_section
+#. (itstool) path: modelica.lang/language@_section
+#. (itstool) path: octave.lang/language@_section
+#. (itstool) path: scilab.lang/language@_section
+#. (itstool) path: spice.lang/language@_section
+#. (itstool) path: star.lang/language@_section
+#: R.lang:25 fcl.lang:23 gap.lang:23 idl-exelis.lang:20 imagej.lang:23
+#: julia.lang:23 matlab.lang:25 maxima.lang:24 modelica.lang:25 octave.lang:25
+#: scilab.lang:23 spice.lang:75 star.lang:28
+msgid "Scientific"
+msgstr "Vetenskaplig"
 
 #. (itstool) path: abnf.lang/language@_section
 #. (itstool) path: actionscript.lang/language@_section
@@ -27,17 +46,17 @@ msgstr ""
 #. (itstool) path: bennugd.lang/language@_section
 #. (itstool) path: bluespec.lang/language@_section
 #. (itstool) path: boo.lang/language@_section
+#. (itstool) path: c.lang/language@_section
 #. (itstool) path: cg.lang/language@_section
 #. (itstool) path: chdr.lang/language@_section
-#. (itstool) path: c.lang/language@_section
 #. (itstool) path: cobol.lang/language@_section
 #. (itstool) path: commonlisp.lang/language@_section
-#. (itstool) path: cpphdr.lang/language@_section
 #. (itstool) path: cpp.lang/language@_section
+#. (itstool) path: cpphdr.lang/language@_section
 #. (itstool) path: csharp.lang/language@_section
 #. (itstool) path: cuda.lang/language@_section
-#. (itstool) path: dart.lang/language@_section
 #. (itstool) path: d.lang/language@_section
+#. (itstool) path: dart.lang/language@_section
 #. (itstool) path: docker.lang/language@_section
 #. (itstool) path: eiffel.lang/language@_section
 #. (itstool) path: erlang.lang/language@_section
@@ -49,12 +68,12 @@ msgstr ""
 #. (itstool) path: go.lang/language@_section
 #. (itstool) path: gradle.lang/language@_section
 #. (itstool) path: groovy.lang/language@_section
-#. (itstool) path: haskell.lang/language@_section
 #. (itstool) path: haskell-literate.lang/language@_section
+#. (itstool) path: haskell.lang/language@_section
 #. (itstool) path: haxe.lang/language@_section
 #. (itstool) path: idl.lang/language@_section
-#. (itstool) path: java.lang/language@_section
 #. (itstool) path: j.lang/language@_section
+#. (itstool) path: java.lang/language@_section
 #. (itstool) path: kotlin.lang/language@_section
 #. (itstool) path: lean.lang/language@_section
 #. (itstool) path: lex.lang/language@_section
@@ -89,13 +108,13 @@ msgstr ""
 #. (itstool) path: verilog.lang/language@_section
 #. (itstool) path: vhdl.lang/language@_section
 #: abnf.lang:30 actionscript.lang:24 ada.lang:25 ansforth94.lang:24 asp.lang:23
-#: automake.lang:23 bennugd.lang:22 bluespec.lang:21 boo.lang:23 cg.lang:23
-#: chdr.lang:24 c.lang:24 cobol.lang:26 commonlisp.lang:24 cpphdr.lang:24
-#: cpp.lang:25 csharp.lang:26 cuda.lang:22 dart.lang:22 d.lang:29
+#: automake.lang:23 bennugd.lang:22 bluespec.lang:21 boo.lang:23 c.lang:24
+#: cg.lang:23 chdr.lang:24 cobol.lang:26 commonlisp.lang:24 cpp.lang:25
+#: cpphdr.lang:24 csharp.lang:26 cuda.lang:22 d.lang:29 dart.lang:22
 #: docker.lang:21 eiffel.lang:23 erlang.lang:23 forth.lang:23 fortran.lang:24
 #: fsharp.lang:24 genie.lang:23 glsl.lang:30 go.lang:24 gradle.lang:21
-#: groovy.lang:24 haskell.lang:24 haskell-literate.lang:23 haxe.lang:34
-#: idl.lang:23 java.lang:24 j.lang:23 kotlin.lang:24 lean.lang:23 lex.lang:24
+#: groovy.lang:24 haskell-literate.lang:23 haskell.lang:24 haxe.lang:34
+#: idl.lang:23 j.lang:23 java.lang:24 kotlin.lang:24 lean.lang:23 lex.lang:24
 #: llvm.lang:22 logtalk.lang:23 makefile.lang:22 meson.lang:23 nemerle.lang:23
 #: netrexx.lang:23 objc.lang:23 objj.lang:26 ocaml.lang:26 ooc.lang:23
 #: opal.lang:23 opencl.lang:23 pascal.lang:24 pig.lang:26 powershell.lang:23
@@ -146,18 +165,18 @@ msgstr "Märkning"
 #. (itstool) path: gdscript.lang/language@_section
 #. (itstool) path: javascript-expressions.lang/language@_section
 #. (itstool) path: javascript-functions-classes.lang/language@_section
-#. (itstool) path: javascript.lang/language@_section
 #. (itstool) path: javascript-literals.lang/language@_section
 #. (itstool) path: javascript-modules.lang/language@_section
 #. (itstool) path: javascript-statements.lang/language@_section
 #. (itstool) path: javascript-values.lang/language@_section
+#. (itstool) path: javascript.lang/language@_section
 #. (itstool) path: jsx.lang/language@_section
 #. (itstool) path: lua.lang/language@_section
 #. (itstool) path: m4.lang/language@_section
 #. (itstool) path: perl.lang/language@_section
 #. (itstool) path: php.lang/language@_section
-#. (itstool) path: python3.lang/language@_section
 #. (itstool) path: python.lang/language@_section
+#. (itstool) path: python3.lang/language@_section
 #. (itstool) path: ruby.lang/language@_section
 #. (itstool) path: sh.lang/language@_section
 #. (itstool) path: tcl.lang/language@_section
@@ -167,21 +186,21 @@ msgstr "Märkning"
 #. (itstool) path: typescript-js-modules.lang/language@_section
 #. (itstool) path: typescript-js-statements.lang/language@_section
 #. (itstool) path: typescript-jsx.lang/language@_section
-#. (itstool) path: typescript.lang/language@_section
 #. (itstool) path: typescript-type-expressions.lang/language@_section
 #. (itstool) path: typescript-type-generics.lang/language@_section
 #. (itstool) path: typescript-type-literals.lang/language@_section
+#. (itstool) path: typescript.lang/language@_section
 #: awk.lang:23 dosbatch.lang:23 fish.lang:19 gdscript.lang:22
 #: javascript-expressions.lang:27 javascript-functions-classes.lang:27
-#: javascript.lang:27 javascript-literals.lang:27 javascript-modules.lang:27
-#: javascript-statements.lang:27 javascript-values.lang:27 jsx.lang:23
-#: lua.lang:23 m4.lang:23 perl.lang:25 php.lang:28 python3.lang:23
-#: python.lang:27 ruby.lang:27 sh.lang:24 tcl.lang:23
+#: javascript-literals.lang:27 javascript-modules.lang:27
+#: javascript-statements.lang:27 javascript-values.lang:27 javascript.lang:27
+#: jsx.lang:23 lua.lang:23 m4.lang:23 perl.lang:25 php.lang:28 python.lang:27
+#: python3.lang:23 ruby.lang:27 sh.lang:24 tcl.lang:23
 #: typescript-js-expressions.lang:23 typescript-js-functions-classes.lang:23
 #: typescript-js-literals.lang:23 typescript-js-modules.lang:23
-#: typescript-js-statements.lang:23 typescript-jsx.lang:23 typescript.lang:23
+#: typescript-js-statements.lang:23 typescript-jsx.lang:23
 #: typescript-type-expressions.lang:23 typescript-type-generics.lang:23
-#: typescript-type-literals.lang:23
+#: typescript-type-literals.lang:23 typescript.lang:23
 msgid "Script"
 msgstr "Skript"
 
@@ -194,13 +213,13 @@ msgstr "CG Shader Language"
 #. (itstool) path: cmake.lang/language@_section
 #. (itstool) path: css.lang/language@_section
 #. (itstool) path: csv.lang/language@_section
+#. (itstool) path: ctkrc.lang/language@_section
 #. (itstool) path: desktop.lang/language@_section
 #. (itstool) path: diff.lang/language@_section
 #. (itstool) path: dot.lang/language@_section
 #. (itstool) path: dpatch.lang/language@_section
 #. (itstool) path: ftl.lang/language@_section
 #. (itstool) path: gdb-log.lang/language@_section
-#. (itstool) path: ctkrc.lang/language@_section
 #. (itstool) path: ini.lang/language@_section
 #. (itstool) path: json.lang/language@_section
 #. (itstool) path: less.lang/language@_section
@@ -219,9 +238,9 @@ msgstr "CG Shader Language"
 #. (itstool) path: yacc.lang/language@_section
 #. (itstool) path: yaml.lang/language@_section
 #. (itstool) path: yara.lang/language@_section
-#: changelog.lang:24 cmake.lang:23 css.lang:26 csv.lang:23 desktop.lang:24
-#: diff.lang:23 dot.lang:23 dpatch.lang:23 ftl.lang:23 gdb-log.lang:18
-#: ctkrc.lang:24 ini.lang:22 json.lang:29 less.lang:23 libtool.lang:23
+#: changelog.lang:24 cmake.lang:23 css.lang:26 csv.lang:23 ctkrc.lang:24
+#: desktop.lang:24 diff.lang:23 dot.lang:23 dpatch.lang:23 ftl.lang:23
+#: gdb-log.lang:18 ini.lang:22 json.lang:29 less.lang:23 libtool.lang:23
 #: logcat.lang:23 nsis.lang:23 ocl.lang:32 pkgconfig.lang:23 po.lang:23
 #: protobuf.lang:21 puppet.lang:23 rpmspec.lang:24 scss.lang:23
 #: terraform.lang:23 toml.lang:23 yacc.lang:23 yaml.lang:21 yara.lang:26
@@ -247,24 +266,6 @@ msgstr "Dos-batch"
 #: dtl.lang:25
 msgid "Django Template"
 msgstr "Django-mall"
-
-#. (itstool) path: fcl.lang/language@_section
-#. (itstool) path: gap.lang/language@_section
-#. (itstool) path: idl-exelis.lang/language@_section
-#. (itstool) path: imagej.lang/language@_section
-#. (itstool) path: julia.lang/language@_section
-#. (itstool) path: matlab.lang/language@_section
-#. (itstool) path: maxima.lang/language@_section
-#. (itstool) path: modelica.lang/language@_section
-#. (itstool) path: octave.lang/language@_section
-#. (itstool) path: R.lang/language@_section
-#. (itstool) path: scilab.lang/language@_section
-#. (itstool) path: star.lang/language@_section
-#: fcl.lang:23 gap.lang:23 idl-exelis.lang:20 imagej.lang:23 julia.lang:23
-#: matlab.lang:25 maxima.lang:24 modelica.lang:25 octave.lang:25 R.lang:25
-#: scilab.lang:23 star.lang:28
-msgid "Scientific"
-msgstr "Vetenskaplig"
 
 #. (itstool) path: gdb-log.lang/language@_name
 #: gdb-log.lang:18
