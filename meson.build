@@ -1,5 +1,5 @@
 project('ctksourceview', 'c',
-          version: '4.8.4',
+          version: '4.9.0',
           license: 'LGPL-2.1-or-later',
     meson_version: '>= 0.58.0',
   default_options: [ 'c_std=gnu99',
