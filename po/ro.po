@@ -10,8 +10,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ctksourceview\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/ctksourceview/issues\n"
-"POT-Creation-Date: 2018-08-07 18:41+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-06 10:31+0200\n"
 "PO-Revision-Date: 2018-08-07 22:28+0200\n"
 "Last-Translator: Daniel Șerbănescu <daniel [at] serbanescu [dot] dk>\n"
 "Language-Team: Romanian Gnome Team <gnomero-list@lists.sourceforge.net>\n"
@@ -37,11 +37,14 @@ msgstr ""
 #. (itstool) path: chdr.lang/language@_section
 #. (itstool) path: c.lang/language@_section
 #. (itstool) path: cobol.lang/language@_section
+#. (itstool) path: commonlisp.lang/language@_section
 #. (itstool) path: cpphdr.lang/language@_section
 #. (itstool) path: cpp.lang/language@_section
 #. (itstool) path: csharp.lang/language@_section
 #. (itstool) path: cuda.lang/language@_section
+#. (itstool) path: dart.lang/language@_section
 #. (itstool) path: d.lang/language@_section
+#. (itstool) path: docker.lang/language@_section
 #. (itstool) path: eiffel.lang/language@_section
 #. (itstool) path: erlang.lang/language@_section
 #. (itstool) path: forth.lang/language@_section
@@ -59,6 +62,7 @@ msgstr ""
 #. (itstool) path: java.lang/language@_section
 #. (itstool) path: j.lang/language@_section
 #. (itstool) path: kotlin.lang/language@_section
+#. (itstool) path: lean.lang/language@_section
 #. (itstool) path: lex.lang/language@_section
 #. (itstool) path: llvm.lang/language@_section
 #. (itstool) path: logtalk.lang/language@_section
@@ -74,11 +78,13 @@ msgstr ""
 #. (itstool) path: opencl.lang/language@_section
 #. (itstool) path: pascal.lang/language@_section
 #. (itstool) path: pig.lang/language@_section
+#. (itstool) path: powershell.lang/language@_section
 #. (itstool) path: prolog.lang/language@_section
 #. (itstool) path: rust.lang/language@_section
 #. (itstool) path: scala.lang/language@_section
 #. (itstool) path: scheme.lang/language@_section
 #. (itstool) path: sml.lang/language@_section
+#. (itstool) path: solidity.lang/language@_section
 #. (itstool) path: sparql.lang/language@_section
 #. (itstool) path: sql.lang/language@_section
 #. (itstool) path: swift.lang/language@_section
@@ -90,46 +96,35 @@ msgstr ""
 #. (itstool) path: vhdl.lang/language@_section
 #: abnf.lang:30 actionscript.lang:24 ada.lang:25 ansforth94.lang:24 asp.lang:23
 #: automake.lang:23 bennugd.lang:22 bluespec.lang:21 boo.lang:23 cg.lang:23
-#: chdr.lang:24 c.lang:24 cobol.lang:26 cpphdr.lang:24 cpp.lang:24
-#: csharp.lang:26 cuda.lang:22 d.lang:29 eiffel.lang:23 erlang.lang:23
-#: forth.lang:23 fortran.lang:24 fsharp.lang:24 genie.lang:23 glsl.lang:30
-#: go.lang:24 gradle.lang:21 groovy.lang:24 haskell.lang:24
-#: haskell-literate.lang:23 haxe.lang:34 idl.lang:23 java.lang:24 j.lang:23
-#: kotlin.lang:24 lex.lang:24 llvm.lang:22 logtalk.lang:23 makefile.lang:22
-#: meson.lang:23 nemerle.lang:23 netrexx.lang:23 objc.lang:23 objj.lang:25
-#: ocaml.lang:26 ooc.lang:23 opal.lang:23 opencl.lang:23 pascal.lang:24
-#: pig.lang:26 prolog.lang:23 rust.lang:35 scala.lang:24 scheme.lang:23
-#: sml.lang:23 sparql.lang:23 sql.lang:23 swift.lang:24 systemverilog.lang:21
-#: thrift.lang:20 vala.lang:27 vbnet.lang:23 verilog.lang:23 vhdl.lang:23
+#: chdr.lang:24 c.lang:24 cobol.lang:26 commonlisp.lang:24 cpphdr.lang:24
+#: cpp.lang:25 csharp.lang:26 cuda.lang:22 dart.lang:22 d.lang:29
+#: docker.lang:21 eiffel.lang:23 erlang.lang:23 forth.lang:23 fortran.lang:24
+#: fsharp.lang:24 genie.lang:23 glsl.lang:30 go.lang:24 gradle.lang:21
+#: groovy.lang:24 haskell.lang:24 haskell-literate.lang:23 haxe.lang:34
+#: idl.lang:23 java.lang:24 j.lang:23 kotlin.lang:24 lean.lang:23 lex.lang:24
+#: llvm.lang:22 logtalk.lang:23 makefile.lang:22 meson.lang:23 nemerle.lang:23
+#: netrexx.lang:23 objc.lang:23 objj.lang:26 ocaml.lang:26 ooc.lang:23
+#: opal.lang:23 opencl.lang:23 pascal.lang:24 pig.lang:26 powershell.lang:23
+#: prolog.lang:23 rust.lang:35 scala.lang:24 scheme.lang:23 sml.lang:23
+#: solidity.lang:28 sparql.lang:23 sql.lang:23 swift.lang:24
+#: systemverilog.lang:21 thrift.lang:20 vala.lang:27 vbnet.lang:23
+#: verilog.lang:23 vhdl.lang:23
 msgid "Source"
 msgstr "Sursă"
 
-#. (itstool) path: awk.lang/language@_section
-#. (itstool) path: dosbatch.lang/language@_section
-#. (itstool) path: javascript.lang/language@_section
-#. (itstool) path: lua.lang/language@_section
-#. (itstool) path: m4.lang/language@_section
-#. (itstool) path: perl.lang/language@_section
-#. (itstool) path: php.lang/language@_section
-#. (itstool) path: python3.lang/language@_section
-#. (itstool) path: python.lang/language@_section
-#. (itstool) path: ruby.lang/language@_section
-#. (itstool) path: sh.lang/language@_section
-#. (itstool) path: tcl.lang/language@_section
-#: awk.lang:23 dosbatch.lang:23 javascript.lang:27 lua.lang:23 m4.lang:23
-#: perl.lang:25 php.lang:28 python3.lang:23 python.lang:27 ruby.lang:26
-#: sh.lang:24 tcl.lang:23
-msgid "Script"
-msgstr "Script"
-
+#. (itstool) path: asciidoc.lang/language@_section
 #. (itstool) path: bibtex.lang/language@_section
 #. (itstool) path: docbook.lang/language@_section
 #. (itstool) path: dtd.lang/language@_section
 #. (itstool) path: dtl.lang/language@_section
+#. (itstool) path: erb-html.lang/language@_section
+#. (itstool) path: erb-js.lang/language@_section
+#. (itstool) path: erb.lang/language@_section
 #. (itstool) path: gtk-doc.lang/language@_section
 #. (itstool) path: haddock.lang/language@_section
 #. (itstool) path: html.lang/language@_section
 #. (itstool) path: jade.lang/language@_section
+#. (itstool) path: jsdoc.lang/language@_section
 #. (itstool) path: latex.lang/language@_section
 #. (itstool) path: mallard.lang/language@_section
 #. (itstool) path: markdown.lang/language@_section
@@ -142,12 +137,58 @@ msgstr "Script"
 #. (itstool) path: texinfo.lang/language@_section
 #. (itstool) path: xml.lang/language@_section
 #. (itstool) path: xslt.lang/language@_section
-#: bibtex.lang:23 docbook.lang:23 dtd.lang:23 dtl.lang:25 gtk-doc.lang:24
-#: haddock.lang:23 html.lang:24 jade.lang:24 latex.lang:24 mallard.lang:22
+#: asciidoc.lang:22 bibtex.lang:23 docbook.lang:23 dtd.lang:23 dtl.lang:25
+#: erb-html.lang:20 erb-js.lang:20 erb.lang:20 gtk-doc.lang:24 haddock.lang:23
+#: html.lang:25 jade.lang:24 jsdoc.lang:23 latex.lang:24 mallard.lang:22
 #: markdown.lang:25 mediawiki.lang:22 mxml.lang:23 rst.lang:22 sweave.lang:24
-#: t2t.lang:23 tera.lang:23 texinfo.lang:24 xml.lang:25 xslt.lang:23
+#: t2t.lang:23 tera.lang:23 texinfo.lang:24 xml.lang:26 xslt.lang:23
 msgid "Markup"
 msgstr "Marcaj"
+
+#. (itstool) path: awk.lang/language@_section
+#. (itstool) path: dosbatch.lang/language@_section
+#. (itstool) path: fish.lang/language@_section
+#. (itstool) path: gdscript.lang/language@_section
+#. (itstool) path: javascript-expressions.lang/language@_section
+#. (itstool) path: javascript-functions-classes.lang/language@_section
+#. (itstool) path: javascript.lang/language@_section
+#. (itstool) path: javascript-literals.lang/language@_section
+#. (itstool) path: javascript-modules.lang/language@_section
+#. (itstool) path: javascript-statements.lang/language@_section
+#. (itstool) path: javascript-values.lang/language@_section
+#. (itstool) path: jsx.lang/language@_section
+#. (itstool) path: lua.lang/language@_section
+#. (itstool) path: m4.lang/language@_section
+#. (itstool) path: perl.lang/language@_section
+#. (itstool) path: php.lang/language@_section
+#. (itstool) path: python3.lang/language@_section
+#. (itstool) path: python.lang/language@_section
+#. (itstool) path: ruby.lang/language@_section
+#. (itstool) path: sh.lang/language@_section
+#. (itstool) path: tcl.lang/language@_section
+#. (itstool) path: typescript-js-expressions.lang/language@_section
+#. (itstool) path: typescript-js-functions-classes.lang/language@_section
+#. (itstool) path: typescript-js-literals.lang/language@_section
+#. (itstool) path: typescript-js-modules.lang/language@_section
+#. (itstool) path: typescript-js-statements.lang/language@_section
+#. (itstool) path: typescript-jsx.lang/language@_section
+#. (itstool) path: typescript.lang/language@_section
+#. (itstool) path: typescript-type-expressions.lang/language@_section
+#. (itstool) path: typescript-type-generics.lang/language@_section
+#. (itstool) path: typescript-type-literals.lang/language@_section
+#: awk.lang:23 dosbatch.lang:23 fish.lang:19 gdscript.lang:22
+#: javascript-expressions.lang:27 javascript-functions-classes.lang:27
+#: javascript.lang:27 javascript-literals.lang:27 javascript-modules.lang:27
+#: javascript-statements.lang:27 javascript-values.lang:27 jsx.lang:23
+#: lua.lang:23 m4.lang:23 perl.lang:25 php.lang:28 python3.lang:23
+#: python.lang:27 ruby.lang:27 sh.lang:24 tcl.lang:23
+#: typescript-js-expressions.lang:23 typescript-js-functions-classes.lang:23
+#: typescript-js-literals.lang:23 typescript-js-modules.lang:23
+#: typescript-js-statements.lang:23 typescript-jsx.lang:23 typescript.lang:23
+#: typescript-type-expressions.lang:23 typescript-type-generics.lang:23
+#: typescript-type-literals.lang:23
+msgid "Script"
+msgstr "Script"
 
 #. (itstool) path: cg.lang/language@_name
 #: cg.lang:23
@@ -162,6 +203,7 @@ msgstr "Limbajul de shader CG"
 #. (itstool) path: diff.lang/language@_section
 #. (itstool) path: dot.lang/language@_section
 #. (itstool) path: dpatch.lang/language@_section
+#. (itstool) path: ftl.lang/language@_section
 #. (itstool) path: gdb-log.lang/language@_section
 #. (itstool) path: ctkrc.lang/language@_section
 #. (itstool) path: ini.lang/language@_section
@@ -177,15 +219,17 @@ msgstr "Limbajul de shader CG"
 #. (itstool) path: puppet.lang/language@_section
 #. (itstool) path: rpmspec.lang/language@_section
 #. (itstool) path: scss.lang/language@_section
+#. (itstool) path: terraform.lang/language@_section
 #. (itstool) path: toml.lang/language@_section
 #. (itstool) path: yacc.lang/language@_section
 #. (itstool) path: yaml.lang/language@_section
+#. (itstool) path: yara.lang/language@_section
 #: changelog.lang:24 cmake.lang:23 css.lang:26 csv.lang:23 desktop.lang:24
-#: diff.lang:23 dot.lang:23 dpatch.lang:23 gdb-log.lang:18 ctkrc.lang:24
-#: ini.lang:22 json.lang:29 less.lang:23 libtool.lang:23 logcat.lang:23
-#: nsis.lang:23 ocl.lang:32 pkgconfig.lang:23 po.lang:23 protobuf.lang:21
-#: puppet.lang:23 rpmspec.lang:24 scss.lang:23 toml.lang:23 yacc.lang:23
-#: yaml.lang:21
+#: diff.lang:23 dot.lang:23 dpatch.lang:23 ftl.lang:23 gdb-log.lang:18
+#: ctkrc.lang:24 ini.lang:22 json.lang:29 less.lang:23 libtool.lang:23
+#: logcat.lang:23 nsis.lang:23 ocl.lang:32 pkgconfig.lang:23 po.lang:23
+#: protobuf.lang:21 puppet.lang:23 rpmspec.lang:24 scss.lang:23
+#: terraform.lang:23 toml.lang:23 yacc.lang:23 yaml.lang:21 yara.lang:26
 msgid "Other"
 msgstr "Altele"
 
@@ -220,9 +264,10 @@ msgstr "Șablon Django"
 #. (itstool) path: octave.lang/language@_section
 #. (itstool) path: R.lang/language@_section
 #. (itstool) path: scilab.lang/language@_section
+#. (itstool) path: star.lang/language@_section
 #: fcl.lang:23 gap.lang:23 idl-exelis.lang:20 imagej.lang:23 julia.lang:23
 #: matlab.lang:25 maxima.lang:24 modelica.lang:25 octave.lang:25 R.lang:25
-#: scilab.lang:23
+#: scilab.lang:23 star.lang:28
 msgid "Scientific"
 msgstr "Științific"
 
@@ -349,12 +394,13 @@ msgid "Invalid object, not initialized"
 msgstr "Obiect nevalid, neinițializat"
 
 #: ctksourceview/ctksourcebufferoutputstream.c:1187
+#, c-format
 msgid "Incomplete UTF-8 sequence in input"
 msgstr "Secvență incompletă UTF-8 în intrare"
 
 #. Translators: "All" is used as a label in the status bar of the
 #. popup, telling that all completion pages are shown.
-#: ctksourceview/ctksourcecompletion.c:833
+#: ctksourceview/ctksourcecompletion.c:838
 msgid "All"
 msgstr "Toate"
 
@@ -390,7 +436,7 @@ msgstr ""
 "evidențiere a sintaxei va fi mai lent decât deobicei.\n"
 "Eroare a fost: %s"
 
-#: ctksourceview/ctksourcecontextengine.c:4472
+#: ctksourceview/ctksourcecontextengine.c:4474
 msgid ""
 "Highlighting a single line took too much time, syntax highlighting will be "
 "disabled"
@@ -398,19 +444,19 @@ msgstr ""
 "Evidențierea sintaxei pentru o singură linie a durat prea mult timp, "
 "evidențierea sintaxei va fi dezactivată"
 
-#: ctksourceview/ctksourcecontextengine.c:5720
+#: ctksourceview/ctksourcecontextengine.c:5724
 #, c-format
 msgid "context “%s” cannot contain a \\%%{...@start} command"
 msgstr "contextul „%s” nu poate conține o comandă \\%%{...@start}"
 
-#: ctksourceview/ctksourcecontextengine.c:5883
-#: ctksourceview/ctksourcecontextengine.c:5973
+#: ctksourceview/ctksourcecontextengine.c:5887
+#: ctksourceview/ctksourcecontextengine.c:5977
 #, c-format
 msgid "duplicated context id “%s”"
 msgstr "identificator de context duplicat „%s”"
 
-#: ctksourceview/ctksourcecontextengine.c:6087
-#: ctksourceview/ctksourcecontextengine.c:6147
+#: ctksourceview/ctksourcecontextengine.c:6091
+#: ctksourceview/ctksourcecontextengine.c:6151
 #, c-format
 msgid ""
 "style override used with wildcard context reference in language “%s” in ref "
@@ -419,135 +465,135 @@ msgstr ""
 "suprascrierea stilului folosit cu referința contextului unui metacaracter în "
 "limba „%s” în ref „%s”"
 
-#: ctksourceview/ctksourcecontextengine.c:6161
+#: ctksourceview/ctksourcecontextengine.c:6165
 #, c-format
 msgid "invalid context reference “%s”"
 msgstr "referință la context nevalidă „%s”"
 
-#: ctksourceview/ctksourcecontextengine.c:6180
-#: ctksourceview/ctksourcecontextengine.c:6190
+#: ctksourceview/ctksourcecontextengine.c:6184
+#: ctksourceview/ctksourcecontextengine.c:6194
 #, c-format
 msgid "unknown context “%s”"
 msgstr "context necunoscut „%s”"
 
-#: ctksourceview/ctksourcecontextengine.c:6289
+#: ctksourceview/ctksourcecontextengine.c:6293
 #, c-format
 msgid "Missing main language definition (id = \"%s\".)"
 msgstr "Definiția principală de limbaj lipsește (id = „%s”.)"
 
-#: ctksourceview/ctksourceencoding.c:146 ctksourceview/ctksourceencoding.c:189
-#: ctksourceview/ctksourceencoding.c:191 ctksourceview/ctksourceencoding.c:193
-#: ctksourceview/ctksourceencoding.c:195 ctksourceview/ctksourceencoding.c:197
-#: ctksourceview/ctksourceencoding.c:199 ctksourceview/ctksourceencoding.c:201
+#: ctksourceview/ctksourceencoding.c:140 ctksourceview/ctksourceencoding.c:183
+#: ctksourceview/ctksourceencoding.c:185 ctksourceview/ctksourceencoding.c:187
+#: ctksourceview/ctksourceencoding.c:189 ctksourceview/ctksourceencoding.c:191
+#: ctksourceview/ctksourceencoding.c:193 ctksourceview/ctksourceencoding.c:195
 msgid "Unicode"
 msgstr "Unicode"
 
-#: ctksourceview/ctksourceencoding.c:160 ctksourceview/ctksourceencoding.c:184
-#: ctksourceview/ctksourceencoding.c:234 ctksourceview/ctksourceencoding.c:277
+#: ctksourceview/ctksourceencoding.c:154 ctksourceview/ctksourceencoding.c:178
+#: ctksourceview/ctksourceencoding.c:228 ctksourceview/ctksourceencoding.c:271
 msgid "Western"
 msgstr "Vestic"
 
-#: ctksourceview/ctksourceencoding.c:162 ctksourceview/ctksourceencoding.c:236
-#: ctksourceview/ctksourceencoding.c:273
+#: ctksourceview/ctksourceencoding.c:156 ctksourceview/ctksourceencoding.c:230
+#: ctksourceview/ctksourceencoding.c:267
 msgid "Central European"
 msgstr "European central"
 
-#: ctksourceview/ctksourceencoding.c:164
+#: ctksourceview/ctksourceencoding.c:158
 msgid "South European"
 msgstr "European de sud"
 
-#: ctksourceview/ctksourceencoding.c:166 ctksourceview/ctksourceencoding.c:180
-#: ctksourceview/ctksourceencoding.c:287
+#: ctksourceview/ctksourceencoding.c:160 ctksourceview/ctksourceencoding.c:174
+#: ctksourceview/ctksourceencoding.c:281
 msgid "Baltic"
 msgstr "Baltic"
 
-#: ctksourceview/ctksourceencoding.c:168 ctksourceview/ctksourceencoding.c:238
-#: ctksourceview/ctksourceencoding.c:251 ctksourceview/ctksourceencoding.c:255
-#: ctksourceview/ctksourceencoding.c:257 ctksourceview/ctksourceencoding.c:275
+#: ctksourceview/ctksourceencoding.c:162 ctksourceview/ctksourceencoding.c:232
+#: ctksourceview/ctksourceencoding.c:245 ctksourceview/ctksourceencoding.c:249
+#: ctksourceview/ctksourceencoding.c:251 ctksourceview/ctksourceencoding.c:269
 msgid "Cyrillic"
 msgstr "Chirilic"
 
-#: ctksourceview/ctksourceencoding.c:170 ctksourceview/ctksourceencoding.c:244
-#: ctksourceview/ctksourceencoding.c:285
+#: ctksourceview/ctksourceencoding.c:164 ctksourceview/ctksourceencoding.c:238
+#: ctksourceview/ctksourceencoding.c:279
 msgid "Arabic"
 msgstr "Arabă"
 
-#: ctksourceview/ctksourceencoding.c:172 ctksourceview/ctksourceencoding.c:279
+#: ctksourceview/ctksourceencoding.c:166 ctksourceview/ctksourceencoding.c:273
 msgid "Greek"
 msgstr "Greacă"
 
-#: ctksourceview/ctksourceencoding.c:174
+#: ctksourceview/ctksourceencoding.c:168
 msgid "Hebrew Visual"
 msgstr "Ebraică vizual"
 
-#: ctksourceview/ctksourceencoding.c:176 ctksourceview/ctksourceencoding.c:240
-#: ctksourceview/ctksourceencoding.c:281
+#: ctksourceview/ctksourceencoding.c:170 ctksourceview/ctksourceencoding.c:234
+#: ctksourceview/ctksourceencoding.c:275
 msgid "Turkish"
 msgstr "Turcă"
 
-#: ctksourceview/ctksourceencoding.c:178
+#: ctksourceview/ctksourceencoding.c:172
 msgid "Nordic"
 msgstr "Nordic"
 
-#: ctksourceview/ctksourceencoding.c:182
+#: ctksourceview/ctksourceencoding.c:176
 msgid "Celtic"
 msgstr "Celtă"
 
-#: ctksourceview/ctksourceencoding.c:186
+#: ctksourceview/ctksourceencoding.c:180
 msgid "Romanian"
 msgstr "Română"
 
-#: ctksourceview/ctksourceencoding.c:204
+#: ctksourceview/ctksourceencoding.c:198
 msgid "Armenian"
 msgstr "Armeană"
 
-#: ctksourceview/ctksourceencoding.c:206 ctksourceview/ctksourceencoding.c:208
-#: ctksourceview/ctksourceencoding.c:222
+#: ctksourceview/ctksourceencoding.c:200 ctksourceview/ctksourceencoding.c:202
+#: ctksourceview/ctksourceencoding.c:216
 msgid "Chinese Traditional"
 msgstr "Chineză tradițională"
 
-#: ctksourceview/ctksourceencoding.c:210
+#: ctksourceview/ctksourceencoding.c:204
 msgid "Cyrillic/Russian"
 msgstr "Chirilic / rusă"
 
-#: ctksourceview/ctksourceencoding.c:213 ctksourceview/ctksourceencoding.c:215
-#: ctksourceview/ctksourceencoding.c:217 ctksourceview/ctksourceencoding.c:247
-#: ctksourceview/ctksourceencoding.c:262
+#: ctksourceview/ctksourceencoding.c:207 ctksourceview/ctksourceencoding.c:209
+#: ctksourceview/ctksourceencoding.c:211 ctksourceview/ctksourceencoding.c:241
+#: ctksourceview/ctksourceencoding.c:256
 msgid "Japanese"
 msgstr "Japoneză"
 
-#: ctksourceview/ctksourceencoding.c:220 ctksourceview/ctksourceencoding.c:249
-#: ctksourceview/ctksourceencoding.c:253 ctksourceview/ctksourceencoding.c:268
+#: ctksourceview/ctksourceencoding.c:214 ctksourceview/ctksourceencoding.c:243
+#: ctksourceview/ctksourceencoding.c:247 ctksourceview/ctksourceencoding.c:262
 msgid "Korean"
 msgstr "Coreeană"
 
-#: ctksourceview/ctksourceencoding.c:225 ctksourceview/ctksourceencoding.c:227
-#: ctksourceview/ctksourceencoding.c:229
+#: ctksourceview/ctksourceencoding.c:219 ctksourceview/ctksourceencoding.c:221
+#: ctksourceview/ctksourceencoding.c:223
 msgid "Chinese Simplified"
 msgstr "Chineză simplificată"
 
-#: ctksourceview/ctksourceencoding.c:231
+#: ctksourceview/ctksourceencoding.c:225
 msgid "Georgian"
 msgstr "Georgiană"
 
-#: ctksourceview/ctksourceencoding.c:242 ctksourceview/ctksourceencoding.c:283
+#: ctksourceview/ctksourceencoding.c:236 ctksourceview/ctksourceencoding.c:277
 msgid "Hebrew"
 msgstr "Ebraică"
 
-#: ctksourceview/ctksourceencoding.c:259
+#: ctksourceview/ctksourceencoding.c:253
 msgid "Cyrillic/Ukrainian"
 msgstr "Chirilic / ucraineană"
 
-#: ctksourceview/ctksourceencoding.c:264 ctksourceview/ctksourceencoding.c:270
-#: ctksourceview/ctksourceencoding.c:289
+#: ctksourceview/ctksourceencoding.c:258 ctksourceview/ctksourceencoding.c:264
+#: ctksourceview/ctksourceencoding.c:283
 msgid "Vietnamese"
 msgstr "Vietnameză"
 
-#: ctksourceview/ctksourceencoding.c:266
+#: ctksourceview/ctksourceencoding.c:260
 msgid "Thai"
 msgstr "Thailandeză"
 
-#: ctksourceview/ctksourceencoding.c:500
+#: ctksourceview/ctksourceencoding.c:494
 msgid "Unknown"
 msgstr "Necunoscută"
 
@@ -565,11 +611,11 @@ msgstr "Necunoscută"
 #. * for a list of supported encodings.
 #. * Keep the same format: square brackets, single quotes, commas.
 #.
-#: ctksourceview/ctksourceencoding.c:644
+#: ctksourceview/ctksourceencoding.c:638
 msgid "['UTF-8', 'CURRENT', 'ISO-8859-15', 'UTF-16']"
 msgstr "['UTF-8', 'CURRENT', 'ISO-8859-15', 'UTF-16']"
 
-#: ctksourceview/ctksourcefileloader.c:522
+#: ctksourceview/ctksourcefileloader.c:515
 msgid ""
 "There was a character encoding conversion error and it was needed to use a "
 "fallback character."
@@ -577,19 +623,19 @@ msgstr ""
 "A apărut o eroare de conversie a codării de caracter și a fost nevoie să fie "
 "utilizat un caracter de rezervă."
 
-#: ctksourceview/ctksourcefileloader.c:629
+#: ctksourceview/ctksourcefileloader.c:622
 msgid "File too big."
 msgstr "Fișier prea mare."
 
-#: ctksourceview/ctksourcefileloader.c:783
+#: ctksourceview/ctksourcefileloader.c:776
 msgid "Not a regular file."
 msgstr "Nu este un fișier obișnuit."
 
-#: ctksourceview/ctksourcefilesaver.c:981
+#: ctksourceview/ctksourcefilesaver.c:975
 msgid "The file is externally modified."
 msgstr "Fișierul este modificat extern."
 
-#: ctksourceview/ctksourcefilesaver.c:1433
+#: ctksourceview/ctksourcefilesaver.c:1427
 msgid "The buffer contains invalid characters."
 msgstr "Preîncărcarea conține caractere nevalide."
 
@@ -637,32 +683,32 @@ msgid "_Select"
 msgstr "_Selectează"
 
 #. create redo menu_item.
-#: ctksourceview/ctksourceview.c:1727
+#: ctksourceview/ctksourceview.c:1810
 msgid "_Redo"
 msgstr "_Refă"
 
 #. create undo menu_item.
-#: ctksourceview/ctksourceview.c:1738
+#: ctksourceview/ctksourceview.c:1821
 msgid "_Undo"
 msgstr "_Anulează"
 
-#: ctksourceview/ctksourceview.c:1757
+#: ctksourceview/ctksourceview.c:1840
 msgid "All _Upper Case"
 msgstr "Tot c_u majuscule"
 
-#: ctksourceview/ctksourceview.c:1767
+#: ctksourceview/ctksourceview.c:1850
 msgid "All _Lower Case"
 msgstr "Tot cu minuscu_le"
 
-#: ctksourceview/ctksourceview.c:1777
+#: ctksourceview/ctksourceview.c:1860
 msgid "_Invert Case"
 msgstr "_Inversează majuscule și minuscule"
 
-#: ctksourceview/ctksourceview.c:1787
+#: ctksourceview/ctksourceview.c:1870
 msgid "_Title Case"
 msgstr "Majuscule semnificative _titlu"
 
-#: ctksourceview/ctksourceview.c:1797
+#: ctksourceview/ctksourceview.c:1880
 msgid "C_hange Case"
 msgstr "Modifi_că majuscule semnificative"
 

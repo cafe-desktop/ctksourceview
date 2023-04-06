@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ctksourceview\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/ctksourceview/issues\n"
-"POT-Creation-Date: 2020-09-26 11:07+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-06 10:31+0200\n"
 "PO-Revision-Date: 2020-10-12 09:42+0200\n"
 "Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
 "Language-Team: slovenčina <>\n"
@@ -63,6 +63,7 @@ msgstr ""
 #. (itstool) path: java.lang/language@_section
 #. (itstool) path: j.lang/language@_section
 #. (itstool) path: kotlin.lang/language@_section
+#. (itstool) path: lean.lang/language@_section
 #. (itstool) path: lex.lang/language@_section
 #. (itstool) path: llvm.lang/language@_section
 #. (itstool) path: logtalk.lang/language@_section
@@ -101,8 +102,8 @@ msgstr ""
 #: docker.lang:21 eiffel.lang:23 erlang.lang:23 forth.lang:23 fortran.lang:24
 #: fsharp.lang:24 genie.lang:23 glsl.lang:30 go.lang:24 gradle.lang:21
 #: groovy.lang:24 haskell.lang:24 haskell-literate.lang:23 haxe.lang:34
-#: idl.lang:23 java.lang:24 j.lang:23 kotlin.lang:24 lex.lang:24 llvm.lang:22
-#: logtalk.lang:23 makefile.lang:22 meson.lang:23 nemerle.lang:23
+#: idl.lang:23 java.lang:24 j.lang:23 kotlin.lang:24 lean.lang:23 lex.lang:24
+#: llvm.lang:22 logtalk.lang:23 makefile.lang:22 meson.lang:23 nemerle.lang:23
 #: netrexx.lang:23 objc.lang:23 objj.lang:26 ocaml.lang:26 ooc.lang:23
 #: opal.lang:23 opencl.lang:23 pascal.lang:24 pig.lang:26 powershell.lang:23
 #: prolog.lang:23 rust.lang:35 scala.lang:24 scheme.lang:23 sml.lang:23
@@ -118,6 +119,9 @@ msgstr "Zdroj"
 #. (itstool) path: docbook.lang/language@_section
 #. (itstool) path: dtd.lang/language@_section
 #. (itstool) path: dtl.lang/language@_section
+#. (itstool) path: erb-html.lang/language@_section
+#. (itstool) path: erb-js.lang/language@_section
+#. (itstool) path: erb.lang/language@_section
 #. (itstool) path: gtk-doc.lang/language@_section
 #. (itstool) path: haddock.lang/language@_section
 #. (itstool) path: html.lang/language@_section
@@ -136,10 +140,10 @@ msgstr "Zdroj"
 #. (itstool) path: xml.lang/language@_section
 #. (itstool) path: xslt.lang/language@_section
 #: asciidoc.lang:22 bibtex.lang:23 docbook.lang:23 dtd.lang:23 dtl.lang:25
-#: gtk-doc.lang:24 haddock.lang:23 html.lang:25 jade.lang:24 jsdoc.lang:23
-#: latex.lang:24 mallard.lang:22 markdown.lang:25 mediawiki.lang:22
-#: mxml.lang:23 rst.lang:22 sweave.lang:24 t2t.lang:23 tera.lang:23
-#: texinfo.lang:24 xml.lang:26 xslt.lang:23
+#: erb-html.lang:20 erb-js.lang:20 erb.lang:20 gtk-doc.lang:24 haddock.lang:23
+#: html.lang:25 jade.lang:24 jsdoc.lang:23 latex.lang:24 mallard.lang:22
+#: markdown.lang:25 mediawiki.lang:22 mxml.lang:23 rst.lang:22 sweave.lang:24
+#: t2t.lang:23 tera.lang:23 texinfo.lang:24 xml.lang:26 xslt.lang:23
 msgid "Markup"
 msgstr "Značkovacie"
 
@@ -171,7 +175,6 @@ msgstr "Značkovacie"
 #. (itstool) path: typescript-js-literals.lang/language@_section
 #. (itstool) path: typescript-js-modules.lang/language@_section
 #. (itstool) path: typescript-js-statements.lang/language@_section
-#. (itstool) path: typescript-js-values.lang/language@_section
 #. (itstool) path: typescript-jsx.lang/language@_section
 #. (itstool) path: typescript.lang/language@_section
 #. (itstool) path: typescript-type-expressions.lang/language@_section
@@ -185,8 +188,7 @@ msgstr "Značkovacie"
 #: python.lang:27 ruby.lang:27 sh.lang:24 tcl.lang:23
 #: typescript-js-expressions.lang:23 typescript-js-functions-classes.lang:23
 #: typescript-js-literals.lang:23 typescript-js-modules.lang:23
-#: typescript-js-statements.lang:23 typescript-js-values.lang:23
-#: typescript-jsx.lang:23 typescript.lang:23
+#: typescript-js-statements.lang:23 typescript-jsx.lang:23 typescript.lang:23
 #: typescript-type-expressions.lang:23 typescript-type-generics.lang:23
 #: typescript-type-literals.lang:23
 msgid "Script"
@@ -223,6 +225,7 @@ msgstr "Jazyk CG Shader"
 #. (itstool) path: puppet.lang/language@_section
 #. (itstool) path: rpmspec.lang/language@_section
 #. (itstool) path: scss.lang/language@_section
+#. (itstool) path: terraform.lang/language@_section
 #. (itstool) path: toml.lang/language@_section
 #. (itstool) path: yacc.lang/language@_section
 #. (itstool) path: yaml.lang/language@_section
@@ -231,8 +234,8 @@ msgstr "Jazyk CG Shader"
 #: diff.lang:23 dot.lang:23 dpatch.lang:23 ftl.lang:23 gdb-log.lang:18
 #: ctkrc.lang:24 ini.lang:22 json.lang:29 less.lang:23 libtool.lang:23
 #: logcat.lang:23 nsis.lang:23 ocl.lang:32 pkgconfig.lang:23 po.lang:23
-#: protobuf.lang:21 puppet.lang:23 rpmspec.lang:24 scss.lang:23 toml.lang:23
-#: yacc.lang:23 yaml.lang:21 yara.lang:26
+#: protobuf.lang:21 puppet.lang:23 rpmspec.lang:24 scss.lang:23
+#: terraform.lang:23 toml.lang:23 yacc.lang:23 yaml.lang:21 yara.lang:26
 msgid "Other"
 msgstr "Ostatné"
 
@@ -273,9 +276,10 @@ msgstr "Šablóna Django"
 #. (itstool) path: octave.lang/language@_section
 #. (itstool) path: R.lang/language@_section
 #. (itstool) path: scilab.lang/language@_section
+#. (itstool) path: star.lang/language@_section
 #: fcl.lang:23 gap.lang:23 idl-exelis.lang:20 imagej.lang:23 julia.lang:23
 #: matlab.lang:25 maxima.lang:24 modelica.lang:25 octave.lang:25 R.lang:25
-#: scilab.lang:23
+#: scilab.lang:23 star.lang:28
 msgid "Scientific"
 msgstr "Vedecké"
 
@@ -471,7 +475,7 @@ msgstr ""
 "zvýrazňovania syntaxe bude pracovať pomalšie ako obvykle.\n"
 "Chyba bola: %s"
 
-#: ctksourceview/ctksourcecontextengine.c:4472
+#: ctksourceview/ctksourcecontextengine.c:4474
 msgid ""
 "Highlighting a single line took too much time, syntax highlighting will be "
 "disabled"
@@ -479,19 +483,19 @@ msgstr ""
 "Zvýrazňovanie jedného riadku zabralo príliš veľa času, zvýrazňovanie syntaxe "
 "bude zakázané"
 
-#: ctksourceview/ctksourcecontextengine.c:5722
+#: ctksourceview/ctksourcecontextengine.c:5724
 #, c-format
 msgid "context “%s” cannot contain a \\%%{...@start} command"
 msgstr "kontext „%s“ nemôže obsahovať príkaz \\%%{...@start}"
 
-#: ctksourceview/ctksourcecontextengine.c:5885
-#: ctksourceview/ctksourcecontextengine.c:5975
+#: ctksourceview/ctksourcecontextengine.c:5887
+#: ctksourceview/ctksourcecontextengine.c:5977
 #, c-format
 msgid "duplicated context id “%s”"
 msgstr "duplicitný identifikátor kontextu „%s“"
 
-#: ctksourceview/ctksourcecontextengine.c:6089
-#: ctksourceview/ctksourcecontextengine.c:6149
+#: ctksourceview/ctksourcecontextengine.c:6091
+#: ctksourceview/ctksourcecontextengine.c:6151
 #, c-format
 msgid ""
 "style override used with wildcard context reference in language “%s” in ref "
@@ -500,136 +504,136 @@ msgstr ""
 "prepisovanie štýlu použité s odkazmi na kontext pomocou náhradných znakov v "
 "jazyku „%s“ v odkaze „%s“"
 
-#: ctksourceview/ctksourcecontextengine.c:6163
+#: ctksourceview/ctksourcecontextengine.c:6165
 #, c-format
 msgid "invalid context reference “%s”"
 msgstr "neplatný kontextový odkaz „%s“"
 
-#: ctksourceview/ctksourcecontextengine.c:6182
-#: ctksourceview/ctksourcecontextengine.c:6192
+#: ctksourceview/ctksourcecontextengine.c:6184
+#: ctksourceview/ctksourcecontextengine.c:6194
 #, c-format
 msgid "unknown context “%s”"
 msgstr "neznámy kontext „%s“"
 
-#: ctksourceview/ctksourcecontextengine.c:6291
+#: ctksourceview/ctksourcecontextengine.c:6293
 #, c-format
 msgid "Missing main language definition (id = \"%s\".)"
 msgstr "Chýba hlavná definícia jazyka (identifikátor = „%s“.)"
 
-#: ctksourceview/ctksourceencoding.c:146 ctksourceview/ctksourceencoding.c:189
-#: ctksourceview/ctksourceencoding.c:191 ctksourceview/ctksourceencoding.c:193
-#: ctksourceview/ctksourceencoding.c:195 ctksourceview/ctksourceencoding.c:197
-#: ctksourceview/ctksourceencoding.c:199 ctksourceview/ctksourceencoding.c:201
+#: ctksourceview/ctksourceencoding.c:140 ctksourceview/ctksourceencoding.c:183
+#: ctksourceview/ctksourceencoding.c:185 ctksourceview/ctksourceencoding.c:187
+#: ctksourceview/ctksourceencoding.c:189 ctksourceview/ctksourceencoding.c:191
+#: ctksourceview/ctksourceencoding.c:193 ctksourceview/ctksourceencoding.c:195
 msgid "Unicode"
 msgstr "Unicode"
 
-#: ctksourceview/ctksourceencoding.c:160 ctksourceview/ctksourceencoding.c:184
-#: ctksourceview/ctksourceencoding.c:234 ctksourceview/ctksourceencoding.c:277
+#: ctksourceview/ctksourceencoding.c:154 ctksourceview/ctksourceencoding.c:178
+#: ctksourceview/ctksourceencoding.c:228 ctksourceview/ctksourceencoding.c:271
 msgid "Western"
 msgstr "západné"
 
-#: ctksourceview/ctksourceencoding.c:162 ctksourceview/ctksourceencoding.c:236
-#: ctksourceview/ctksourceencoding.c:273
+#: ctksourceview/ctksourceencoding.c:156 ctksourceview/ctksourceencoding.c:230
+#: ctksourceview/ctksourceencoding.c:267
 msgid "Central European"
 msgstr "stredoeurópske"
 
-#: ctksourceview/ctksourceencoding.c:164
+#: ctksourceview/ctksourceencoding.c:158
 msgid "South European"
 msgstr "juhoeurópske"
 
-#: ctksourceview/ctksourceencoding.c:166 ctksourceview/ctksourceencoding.c:180
-#: ctksourceview/ctksourceencoding.c:287
+#: ctksourceview/ctksourceencoding.c:160 ctksourceview/ctksourceencoding.c:174
+#: ctksourceview/ctksourceencoding.c:281
 msgid "Baltic"
 msgstr "pobaltské"
 
-#: ctksourceview/ctksourceencoding.c:168 ctksourceview/ctksourceencoding.c:238
-#: ctksourceview/ctksourceencoding.c:251 ctksourceview/ctksourceencoding.c:255
-#: ctksourceview/ctksourceencoding.c:257 ctksourceview/ctksourceencoding.c:275
+#: ctksourceview/ctksourceencoding.c:162 ctksourceview/ctksourceencoding.c:232
+#: ctksourceview/ctksourceencoding.c:245 ctksourceview/ctksourceencoding.c:249
+#: ctksourceview/ctksourceencoding.c:251 ctksourceview/ctksourceencoding.c:269
 msgid "Cyrillic"
 msgstr "Cyrilika"
 
-#: ctksourceview/ctksourceencoding.c:170 ctksourceview/ctksourceencoding.c:244
-#: ctksourceview/ctksourceencoding.c:285
+#: ctksourceview/ctksourceencoding.c:164 ctksourceview/ctksourceencoding.c:238
+#: ctksourceview/ctksourceencoding.c:279
 msgid "Arabic"
 msgstr "arabské"
 
-#: ctksourceview/ctksourceencoding.c:172 ctksourceview/ctksourceencoding.c:279
+#: ctksourceview/ctksourceencoding.c:166 ctksourceview/ctksourceencoding.c:273
 msgid "Greek"
 msgstr "grécke"
 
-#: ctksourceview/ctksourceencoding.c:174
+#: ctksourceview/ctksourceencoding.c:168
 msgid "Hebrew Visual"
 msgstr "hebrejské vizuálne"
 
-#: ctksourceview/ctksourceencoding.c:176 ctksourceview/ctksourceencoding.c:240
-#: ctksourceview/ctksourceencoding.c:281
+#: ctksourceview/ctksourceencoding.c:170 ctksourceview/ctksourceencoding.c:234
+#: ctksourceview/ctksourceencoding.c:275
 msgid "Turkish"
 msgstr "turecké"
 
-#: ctksourceview/ctksourceencoding.c:178
+#: ctksourceview/ctksourceencoding.c:172
 msgid "Nordic"
 msgstr "nordické"
 
-#: ctksourceview/ctksourceencoding.c:182
+#: ctksourceview/ctksourceencoding.c:176
 msgid "Celtic"
 msgstr "keltské"
 
-#: ctksourceview/ctksourceencoding.c:186
+#: ctksourceview/ctksourceencoding.c:180
 msgid "Romanian"
 msgstr "rumunské"
 
-#: ctksourceview/ctksourceencoding.c:204
+#: ctksourceview/ctksourceencoding.c:198
 msgid "Armenian"
 msgstr "arménske"
 
-#: ctksourceview/ctksourceencoding.c:206 ctksourceview/ctksourceencoding.c:208
-#: ctksourceview/ctksourceencoding.c:222
+#: ctksourceview/ctksourceencoding.c:200 ctksourceview/ctksourceencoding.c:202
+#: ctksourceview/ctksourceencoding.c:216
 msgid "Chinese Traditional"
 msgstr "čínske tradičné"
 
-#: ctksourceview/ctksourceencoding.c:210
+#: ctksourceview/ctksourceencoding.c:204
 msgid "Cyrillic/Russian"
 msgstr "Cyrilika/Ruština"
 
-#: ctksourceview/ctksourceencoding.c:213 ctksourceview/ctksourceencoding.c:215
-#: ctksourceview/ctksourceencoding.c:217 ctksourceview/ctksourceencoding.c:247
-#: ctksourceview/ctksourceencoding.c:262
+#: ctksourceview/ctksourceencoding.c:207 ctksourceview/ctksourceencoding.c:209
+#: ctksourceview/ctksourceencoding.c:211 ctksourceview/ctksourceencoding.c:241
+#: ctksourceview/ctksourceencoding.c:256
 msgid "Japanese"
 msgstr "japonské"
 
-#: ctksourceview/ctksourceencoding.c:220 ctksourceview/ctksourceencoding.c:249
-#: ctksourceview/ctksourceencoding.c:253 ctksourceview/ctksourceencoding.c:268
+#: ctksourceview/ctksourceencoding.c:214 ctksourceview/ctksourceencoding.c:243
+#: ctksourceview/ctksourceencoding.c:247 ctksourceview/ctksourceencoding.c:262
 msgid "Korean"
 msgstr "kórejské"
 
-#: ctksourceview/ctksourceencoding.c:225 ctksourceview/ctksourceencoding.c:227
-#: ctksourceview/ctksourceencoding.c:229
+#: ctksourceview/ctksourceencoding.c:219 ctksourceview/ctksourceencoding.c:221
+#: ctksourceview/ctksourceencoding.c:223
 msgid "Chinese Simplified"
 msgstr "čínske zjednodušené"
 
-#: ctksourceview/ctksourceencoding.c:231
+#: ctksourceview/ctksourceencoding.c:225
 msgid "Georgian"
 msgstr "gruzínske"
 
-#: ctksourceview/ctksourceencoding.c:242 ctksourceview/ctksourceencoding.c:283
+#: ctksourceview/ctksourceencoding.c:236 ctksourceview/ctksourceencoding.c:277
 msgid "Hebrew"
 msgstr "hebrejské"
 
-#: ctksourceview/ctksourceencoding.c:259
+#: ctksourceview/ctksourceencoding.c:253
 msgid "Cyrillic/Ukrainian"
 msgstr "Cyrilika/Ukrajinčina"
 
 #  style name
-#: ctksourceview/ctksourceencoding.c:264 ctksourceview/ctksourceencoding.c:270
-#: ctksourceview/ctksourceencoding.c:289
+#: ctksourceview/ctksourceencoding.c:258 ctksourceview/ctksourceencoding.c:264
+#: ctksourceview/ctksourceencoding.c:283
 msgid "Vietnamese"
 msgstr "vietnamské"
 
-#: ctksourceview/ctksourceencoding.c:266
+#: ctksourceview/ctksourceencoding.c:260
 msgid "Thai"
 msgstr "thajské"
 
-#: ctksourceview/ctksourceencoding.c:500
+#: ctksourceview/ctksourceencoding.c:494
 msgid "Unknown"
 msgstr "Neznáme"
 
@@ -647,11 +651,11 @@ msgstr "Neznáme"
 #. * for a list of supported encodings.
 #. * Keep the same format: square brackets, single quotes, commas.
 #.
-#: ctksourceview/ctksourceencoding.c:644
+#: ctksourceview/ctksourceencoding.c:638
 msgid "['UTF-8', 'CURRENT', 'ISO-8859-15', 'UTF-16']"
 msgstr "['UTF-8', 'CURRENT', 'ISO-8859-2', 'ISO-8859-15']"
 
-#: ctksourceview/ctksourcefileloader.c:522
+#: ctksourceview/ctksourcefileloader.c:515
 msgid ""
 "There was a character encoding conversion error and it was needed to use a "
 "fallback character."
@@ -659,19 +663,19 @@ msgstr ""
 "Nastala chyba konverzie pri kódovaní znakov a preto bolo potrebné použiť "
 "záchranný znak."
 
-#: ctksourceview/ctksourcefileloader.c:629
+#: ctksourceview/ctksourcefileloader.c:622
 msgid "File too big."
 msgstr "Súbor je príliš veľký."
 
-#: ctksourceview/ctksourcefileloader.c:783
+#: ctksourceview/ctksourcefileloader.c:776
 msgid "Not a regular file."
 msgstr "Nie je bežný súbor."
 
-#: ctksourceview/ctksourcefilesaver.c:981
+#: ctksourceview/ctksourcefilesaver.c:975
 msgid "The file is externally modified."
 msgstr "Súbor je upravovaný externe."
 
-#: ctksourceview/ctksourcefilesaver.c:1433
+#: ctksourceview/ctksourcefilesaver.c:1427
 msgid "The buffer contains invalid characters."
 msgstr "Zásobník obsahuje neplatné znaky."
 
@@ -722,33 +726,33 @@ msgid "_Select"
 msgstr "Vy_brať"
 
 #. create redo menu_item.
-#: ctksourceview/ctksourceview.c:1799
+#: ctksourceview/ctksourceview.c:1810
 msgid "_Redo"
 msgstr "_Znovu vykonať"
 
 #. create undo menu_item.
-#: ctksourceview/ctksourceview.c:1810
+#: ctksourceview/ctksourceview.c:1821
 msgid "_Undo"
 msgstr "Vrátiť _späť"
 
-#: ctksourceview/ctksourceview.c:1829
+#: ctksourceview/ctksourceview.c:1840
 msgid "All _Upper Case"
 msgstr "Všetko _veľkým písmom"
 
-#: ctksourceview/ctksourceview.c:1839
+#: ctksourceview/ctksourceview.c:1850
 msgid "All _Lower Case"
 msgstr "Všetko _malým písmom"
 
-#: ctksourceview/ctksourceview.c:1849
+#: ctksourceview/ctksourceview.c:1860
 msgid "_Invert Case"
 msgstr "Ob_rátiť veľkosť písma"
 
-#: ctksourceview/ctksourceview.c:1859
+#: ctksourceview/ctksourceview.c:1870
 msgid "_Title Case"
 msgstr "_Počiatočné písmeno veľkým"
 
 #  style name
-#: ctksourceview/ctksourceview.c:1869
+#: ctksourceview/ctksourceview.c:1880
 msgid "C_hange Case"
 msgstr "Z_meniť veľkosť písma"
 

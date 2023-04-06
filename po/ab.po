@@ -2,12 +2,12 @@
 # Copyright (C) 2022 ctksourceview's COPYRIGHT HOLDER
 # This file is distributed under the same license as the ctksourceview package.
 # Нанба Наала <naala-nanba@rambler.ru>, 2022.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: ctksourceview ctksourceview-4-8\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/ctksourceview/issues\n"
-"POT-Creation-Date: 2022-03-29 11:01+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-06 10:31+0200\n"
 "PO-Revision-Date: 2022-03-29 11:01+0000\n"
 "Last-Translator: Нанба Наала <naala-nanba@rambler.ru>\n"
 "Language-Team: Abkhazian <ab@li.org>\n"
@@ -423,14 +423,17 @@ msgid ""
 "Cannot create a regex for all the transitions, the syntax highlighting "
 "process will be slower than usual.\n"
 "The error was: %s"
-msgstr "Изалымшахеит аиҭеиҭакрақәа зегьы рзы еиԥырҟьам аҿаԥшылара аԥҵара , асинтаксис арлашара нагӡахалоит  имырццаыкӡакәа.\n"
+msgstr ""
+"Изалымшахеит аиҭеиҭакрақәа зегьы рзы еиԥырҟьам аҿаԥшылара аԥҵара , "
+"асинтаксис арлашара нагӡахалоит  имырццаыкӡакәа.\n"
 "Агха: %s"
 
 #: ctksourceview/ctksourcecontextengine.c:4474
 msgid ""
 "Highlighting a single line took too much time, syntax highlighting will be "
 "disabled"
-msgstr "Цәаҳәак аус адулара амцхә ирацәаны аамҭа агеит, асинтаксис арлашара аҿыххоит"
+msgstr ""
+"Цәаҳәак аус адулара амцхә ирацәаны аамҭа агеит, асинтаксис арлашара аҿыххоит"
 
 #: ctksourceview/ctksourcecontextengine.c:5724
 #, c-format
@@ -449,7 +452,9 @@ msgstr "Ҽазныктәи аконтекст “%s” аиԥшрагәаҭаг�
 msgid ""
 "style override used with wildcard context reference in language “%s” in ref "
 "“%s”"
-msgstr "астиль аиҭаҳәаақәҵара ,аконтексттә зхьарԥш нацҵаны ахархәара зауо аҵаргыларатә дырга ахь абызшәа “%s” аҟны азхьарԥш “%s” аҿы. "
+msgstr ""
+"астиль аиҭаҳәаақәҵара ,аконтексттә зхьарԥш нацҵаны ахархәара зауо "
+"аҵаргыларатә дырга ахь абызшәа “%s” аҟны азхьарԥш “%s” аҿы. "
 
 #: ctksourceview/ctksourcecontextengine.c:6165
 #, c-format
@@ -605,7 +610,9 @@ msgstr "['UTF-8', 'CURRENT', 'ISO-8859-15', 'UTF-16']"
 msgid ""
 "There was a character encoding conversion error and it was needed to use a "
 "fallback character."
-msgstr "Иҟалеит агха асимволқәа ркодркра аиҭеиҭакраан, уи иахарҟьаны арезервтә симовол ахархәара аиуит "
+msgstr ""
+"Иҟалеит агха асимволқәа ркодркра аиҭеиҭакраан, уи иахарҟьаны арезервтә "
+"симовол ахархәара аиуит "
 
 #: ctksourceview/ctksourcefileloader.c:622
 msgid "File too big."

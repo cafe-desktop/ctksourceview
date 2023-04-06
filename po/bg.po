@@ -12,8 +12,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ctksourceview master\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/ctksourceview/issues\n"
-"POT-Creation-Date: 2022-03-21 18:57+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-06 10:31+0200\n"
 "PO-Revision-Date: 2022-03-25 11:03+0100\n"
 "Last-Translator: Alexander Shopov <ash@kambanaria.org>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
@@ -316,7 +316,7 @@ msgid "Cobalt"
 msgstr "Cobalt"
 
 #. (itstool) path: style-scheme/_description
-#: cobalt.xml:27 cobalt-light.xml:22
+#: cobalt.xml:27
 msgid "Blue based color scheme"
 msgstr "Синя цветова схема"
 
@@ -326,12 +326,12 @@ msgid "Color scheme used in the Kate text editor"
 msgstr "Цветова схема използвана в текстовия редактор Kate"
 
 #. (itstool) path: oblivion.xml/style-scheme@_name
-#: oblivion.xml:24 oblivion.xml:23
+#: oblivion.xml:24
 msgid "Oblivion"
 msgstr "Oblivion"
 
 #. (itstool) path: style-scheme/_description
-#: oblivion.xml:27 oblivion.xml:25
+#: oblivion.xml:27
 msgid "Dark color scheme using the Tango color palette"
 msgstr "Тъмна цветова схема базирана на Tango"
 
@@ -366,40 +366,33 @@ msgid "Color scheme using Tango color palette"
 msgstr "Цветова схема базирана на Tango"
 
 #: ctksourceview/completion-providers/words/ctksourcecompletionwords.c:332
-#: ctksourceview/completion-providers/words/ctksourcecompletionwords.c:222
 msgid "Document Words"
 msgstr "Думи от документа"
 
 #: ctksourceview/ctksourcebufferoutputstream.c:842
-#: ctksourceview/ctksourcebufferoutputstream.c:838
 msgid "Invalid byte sequence in conversion input"
 msgstr "Неправилна последователност от байтове във входа за прекодиране"
 
 #: ctksourceview/ctksourcebufferoutputstream.c:848
-#: ctksourceview/ctksourcebufferoutputstream.c:844
 #, c-format
 msgid "Error during conversion: %s"
 msgstr "Грешка при прекодиране: %s"
 
 #: ctksourceview/ctksourcebufferoutputstream.c:929
-#: ctksourceview/ctksourcebufferoutputstream.c:925
 #, c-format
 msgid "Conversion from character set “%s” to “UTF-8” is not supported"
 msgstr "Не се поддържа прекодиране от „%s“ към „UTF-8“"
 
 #: ctksourceview/ctksourcebufferoutputstream.c:935
-#: ctksourceview/ctksourcebufferoutputstream.c:931
 #, c-format
 msgid "Could not open converter from “%s” to “UTF-8”"
 msgstr "Модулът за прекодиране от „%s“ към „UTF-8“ не може да бъде зареден"
 
 #: ctksourceview/ctksourcebufferoutputstream.c:995
-#: ctksourceview/ctksourcebufferoutputstream.c:991
 msgid "Invalid object, not initialized"
 msgstr "Неправилен, неинициализиран обект"
 
 #: ctksourceview/ctksourcebufferoutputstream.c:1187
-#: ctksourceview/ctksourcebufferoutputstream.c:1183
 #, c-format
 msgid "Incomplete UTF-8 sequence in input"
 msgstr "Непълна последователност в „UTF-8“ във входа за прекодиране"
@@ -432,7 +425,6 @@ msgstr "_Подробности…"
 #. * too long. In this case fixing lang file helps (e.g. renaming
 #. * subpatterns, making huge keywords use bigger prefixes, etc.)
 #: ctksourceview/ctksourcecontextengine.c:3140
-#: ctksourceview/ctksourcecontextengine.c:3124
 #, c-format
 msgid ""
 "Cannot create a regex for all the transitions, the syntax highlighting "
@@ -444,7 +436,6 @@ msgstr ""
 "Грешката е: %s"
 
 #: ctksourceview/ctksourcecontextengine.c:4474
-#: ctksourceview/ctksourcecontextengine.c:4458
 msgid ""
 "Highlighting a single line took too much time, syntax highlighting will be "
 "disabled"
@@ -453,23 +444,18 @@ msgstr ""
 "ще бъде изключено."
 
 #: ctksourceview/ctksourcecontextengine.c:5724
-#: ctksourceview/ctksourcecontextengine.c:5708
 #, c-format
 msgid "context “%s” cannot contain a \\%%{...@start} command"
 msgstr "контекстът „%s“ не може да съдържа команда „\\%%{…@start}“"
 
 #: ctksourceview/ctksourcecontextengine.c:5887
 #: ctksourceview/ctksourcecontextengine.c:5977
-#: ctksourceview/ctksourcecontextengine.c:5871
-#: ctksourceview/ctksourcecontextengine.c:5961
 #, c-format
 msgid "duplicated context id “%s”"
 msgstr "идентификаторът на контекст „%s“ се повтаря"
 
 #: ctksourceview/ctksourcecontextengine.c:6091
 #: ctksourceview/ctksourcecontextengine.c:6151
-#: ctksourceview/ctksourcecontextengine.c:6075
-#: ctksourceview/ctksourcecontextengine.c:6135
 #, c-format
 msgid ""
 "style override used with wildcard context reference in language “%s” in ref "
@@ -479,15 +465,12 @@ msgstr ""
 "езика „%s“, указател „%s“ "
 
 #: ctksourceview/ctksourcecontextengine.c:6165
-#: ctksourceview/ctksourcecontextengine.c:6149
 #, c-format
 msgid "invalid context reference “%s”"
 msgstr "неправилен указател към контекст „%s“"
 
 #: ctksourceview/ctksourcecontextengine.c:6184
 #: ctksourceview/ctksourcecontextengine.c:6194
-#: ctksourceview/ctksourcecontextengine.c:6168
-#: ctksourceview/ctksourcecontextengine.c:6178
 #, c-format
 msgid "unknown context “%s”"
 msgstr "непознат контекст „%s“"
@@ -501,135 +484,115 @@ msgstr "Основната дефиниция на език липсва (id = �
 #: ctksourceview/ctksourceencoding.c:185 ctksourceview/ctksourceencoding.c:187
 #: ctksourceview/ctksourceencoding.c:189 ctksourceview/ctksourceencoding.c:191
 #: ctksourceview/ctksourceencoding.c:193 ctksourceview/ctksourceencoding.c:195
-#: ctksourceview/ctksourceencoding.c:136 ctksourceview/ctksourceencoding.c:179
-#: ctksourceview/ctksourceencoding.c:181
 msgid "Unicode"
 msgstr "Уникод"
 
 #: ctksourceview/ctksourceencoding.c:154 ctksourceview/ctksourceencoding.c:178
 #: ctksourceview/ctksourceencoding.c:228 ctksourceview/ctksourceencoding.c:271
-#: ctksourceview/ctksourceencoding.c:150 ctksourceview/ctksourceencoding.c:174
-#: ctksourceview/ctksourceencoding.c:224 ctksourceview/ctksourceencoding.c:267
 msgid "Western"
 msgstr "Западноевропейско"
 
 #: ctksourceview/ctksourceencoding.c:156 ctksourceview/ctksourceencoding.c:230
-#: ctksourceview/ctksourceencoding.c:267 ctksourceview/ctksourceencoding.c:152
-#: ctksourceview/ctksourceencoding.c:226 ctksourceview/ctksourceencoding.c:263
+#: ctksourceview/ctksourceencoding.c:267
 msgid "Central European"
 msgstr "Централноевропейско"
 
-#: ctksourceview/ctksourceencoding.c:158 ctksourceview/ctksourceencoding.c:154
+#: ctksourceview/ctksourceencoding.c:158
 msgid "South European"
 msgstr "Южноевропейско"
 
 #: ctksourceview/ctksourceencoding.c:160 ctksourceview/ctksourceencoding.c:174
-#: ctksourceview/ctksourceencoding.c:281 ctksourceview/ctksourceencoding.c:156
-#: ctksourceview/ctksourceencoding.c:170 ctksourceview/ctksourceencoding.c:277
+#: ctksourceview/ctksourceencoding.c:281
 msgid "Baltic"
 msgstr "Балтийско"
 
 #: ctksourceview/ctksourceencoding.c:162 ctksourceview/ctksourceencoding.c:232
 #: ctksourceview/ctksourceencoding.c:245 ctksourceview/ctksourceencoding.c:249
 #: ctksourceview/ctksourceencoding.c:251 ctksourceview/ctksourceencoding.c:269
-#: ctksourceview/ctksourceencoding.c:158 ctksourceview/ctksourceencoding.c:228
-#: ctksourceview/ctksourceencoding.c:241 ctksourceview/ctksourceencoding.c:247
-#: ctksourceview/ctksourceencoding.c:265
 msgid "Cyrillic"
 msgstr "Кирилица"
 
 #: ctksourceview/ctksourceencoding.c:164 ctksourceview/ctksourceencoding.c:238
-#: ctksourceview/ctksourceencoding.c:279 ctksourceview/ctksourceencoding.c:160
-#: ctksourceview/ctksourceencoding.c:234 ctksourceview/ctksourceencoding.c:275
+#: ctksourceview/ctksourceencoding.c:279
 msgid "Arabic"
 msgstr "Арабско"
 
 #: ctksourceview/ctksourceencoding.c:166 ctksourceview/ctksourceencoding.c:273
-#: ctksourceview/ctksourceencoding.c:162 ctksourceview/ctksourceencoding.c:269
 msgid "Greek"
 msgstr "Гръцко"
 
-#: ctksourceview/ctksourceencoding.c:168 ctksourceview/ctksourceencoding.c:164
+#: ctksourceview/ctksourceencoding.c:168
 msgid "Hebrew Visual"
 msgstr "Визуален иврит"
 
 #: ctksourceview/ctksourceencoding.c:170 ctksourceview/ctksourceencoding.c:234
-#: ctksourceview/ctksourceencoding.c:275 ctksourceview/ctksourceencoding.c:166
-#: ctksourceview/ctksourceencoding.c:230 ctksourceview/ctksourceencoding.c:271
+#: ctksourceview/ctksourceencoding.c:275
 msgid "Turkish"
 msgstr "Турско"
 
-#: ctksourceview/ctksourceencoding.c:172 ctksourceview/ctksourceencoding.c:168
+#: ctksourceview/ctksourceencoding.c:172
 msgid "Nordic"
 msgstr "Скандинавско"
 
-#: ctksourceview/ctksourceencoding.c:176 ctksourceview/ctksourceencoding.c:172
+#: ctksourceview/ctksourceencoding.c:176
 msgid "Celtic"
 msgstr "Келтско"
 
-#: ctksourceview/ctksourceencoding.c:180 ctksourceview/ctksourceencoding.c:176
+#: ctksourceview/ctksourceencoding.c:180
 msgid "Romanian"
 msgstr "Румънско"
 
-#: ctksourceview/ctksourceencoding.c:198 ctksourceview/ctksourceencoding.c:194
+#: ctksourceview/ctksourceencoding.c:198
 msgid "Armenian"
 msgstr "Арменско"
 
 #: ctksourceview/ctksourceencoding.c:200 ctksourceview/ctksourceencoding.c:202
-#: ctksourceview/ctksourceencoding.c:216 ctksourceview/ctksourceencoding.c:196
-#: ctksourceview/ctksourceencoding.c:198 ctksourceview/ctksourceencoding.c:212
+#: ctksourceview/ctksourceencoding.c:216
 msgid "Chinese Traditional"
 msgstr "Китайско — традиционно"
 
-#: ctksourceview/ctksourceencoding.c:204 ctksourceview/ctksourceencoding.c:200
+#: ctksourceview/ctksourceencoding.c:204
 msgid "Cyrillic/Russian"
 msgstr "Кирилица — руска"
 
 #: ctksourceview/ctksourceencoding.c:207 ctksourceview/ctksourceencoding.c:209
 #: ctksourceview/ctksourceencoding.c:211 ctksourceview/ctksourceencoding.c:241
-#: ctksourceview/ctksourceencoding.c:256 ctksourceview/ctksourceencoding.c:203
-#: ctksourceview/ctksourceencoding.c:205 ctksourceview/ctksourceencoding.c:237
-#: ctksourceview/ctksourceencoding.c:252
+#: ctksourceview/ctksourceencoding.c:256
 msgid "Japanese"
 msgstr "Японско"
 
 #: ctksourceview/ctksourceencoding.c:214 ctksourceview/ctksourceencoding.c:243
 #: ctksourceview/ctksourceencoding.c:247 ctksourceview/ctksourceencoding.c:262
-#: ctksourceview/ctksourceencoding.c:210 ctksourceview/ctksourceencoding.c:239
-#: ctksourceview/ctksourceencoding.c:258
 msgid "Korean"
 msgstr "Корейско"
 
 #: ctksourceview/ctksourceencoding.c:219 ctksourceview/ctksourceencoding.c:221
-#: ctksourceview/ctksourceencoding.c:223 ctksourceview/ctksourceencoding.c:215
-#: ctksourceview/ctksourceencoding.c:217
+#: ctksourceview/ctksourceencoding.c:223
 msgid "Chinese Simplified"
 msgstr "Китайско — опростено"
 
-#: ctksourceview/ctksourceencoding.c:225 ctksourceview/ctksourceencoding.c:221
+#: ctksourceview/ctksourceencoding.c:225
 msgid "Georgian"
 msgstr "Грузинско"
 
 #: ctksourceview/ctksourceencoding.c:236 ctksourceview/ctksourceencoding.c:277
-#: ctksourceview/ctksourceencoding.c:232 ctksourceview/ctksourceencoding.c:273
 msgid "Hebrew"
 msgstr "Иврит"
 
-#: ctksourceview/ctksourceencoding.c:253 ctksourceview/ctksourceencoding.c:249
+#: ctksourceview/ctksourceencoding.c:253
 msgid "Cyrillic/Ukrainian"
 msgstr "Кирилица — украинска"
 
 #: ctksourceview/ctksourceencoding.c:258 ctksourceview/ctksourceencoding.c:264
-#: ctksourceview/ctksourceencoding.c:283 ctksourceview/ctksourceencoding.c:254
-#: ctksourceview/ctksourceencoding.c:260 ctksourceview/ctksourceencoding.c:279
+#: ctksourceview/ctksourceencoding.c:283
 msgid "Vietnamese"
 msgstr "Виетнамско"
 
-#: ctksourceview/ctksourceencoding.c:260 ctksourceview/ctksourceencoding.c:256
+#: ctksourceview/ctksourceencoding.c:260
 msgid "Thai"
 msgstr "Тайско"
 
-#: ctksourceview/ctksourceencoding.c:494 ctksourceview/ctksourceencoding.c:485
+#: ctksourceview/ctksourceencoding.c:494
 msgid "Unknown"
 msgstr "Непознато"
 
@@ -647,38 +610,32 @@ msgstr "Непознато"
 #. * for a list of supported encodings.
 #. * Keep the same format: square brackets, single quotes, commas.
 #.
-#: ctksourceview/ctksourceencoding.c:638 ctksourceview/ctksourceencoding.c:628
+#: ctksourceview/ctksourceencoding.c:638
 msgid "['UTF-8', 'CURRENT', 'ISO-8859-15', 'UTF-16']"
 msgstr "['UTF-8', 'CURRENT', 'WINDOWS-1251', 'UTF-16', 'KOI8-R']"
 
 #: ctksourceview/ctksourcefileloader.c:515
-#: ctksourceview/ctksourcefileloader.c:502
 msgid ""
 "There was a character encoding conversion error and it was needed to use a "
 "fallback character."
 msgstr "Грешка при прекодирането на знак, той бе заместен със знак за замяна."
 
 #: ctksourceview/ctksourcefileloader.c:622
-#: ctksourceview/ctksourcefileloader.c:617
 msgid "File too big."
 msgstr "Прекалено голям файл."
 
 #: ctksourceview/ctksourcefileloader.c:776
-#: ctksourceview/ctksourcefileloader.c:772
 msgid "Not a regular file."
 msgstr "Не е обикновен файл."
 
 #: ctksourceview/ctksourcefilesaver.c:975
-#: ctksourceview/ctksourcefilesaver.c:962
 msgid "The file is externally modified."
 msgstr "Файлът е променен от друга програма."
 
 #: ctksourceview/ctksourcefilesaver.c:1427
-#: ctksourceview/ctksourcefilesaver.c:1402
 msgid "The buffer contains invalid characters."
 msgstr "Буферът съдържа непознати знаци."
 
-#. #-#-#-#-#  ctksourceview.ctksourceview-4-8.pot (PACKAGE VERSION)  #-#-#-#-#
 #. *
 #. * SECTION:language
 #. * @Short_description: Represents a syntax highlighted language
@@ -691,30 +648,16 @@ msgstr "Буферът съдържа непознати знаци."
 #. * Use #CtkSourceLanguageManager to obtain a #CtkSourceLanguage instance, and
 #. * ctk_source_buffer_set_language() to apply it to a #CtkSourceBuffer.
 #.
-#. #-#-#-#-#  ctksourceview.master.pot (PACKAGE VERSION)  #-#-#-#-#
-#. *
-#. * CtkSourceLanguage:
-#. *
-#. * Represents a syntax highlighted language.
-#. *
-#. * A `CtkSourceLanguage` represents a programming or markup language, affecting
-#. * syntax highlighting and [context classes](./class.Buffer.html#context-classes).
-#. *
-#. * Use [class@LanguageManager] to obtain a `CtkSourceLanguage` instance, and
-#. * [method@Buffer.set_language] to apply it to a [class@Buffer].
-#.
-#: ctksourceview/ctksourcelanguage.c:56 ctksourceview/ctksourcelanguage.c:52
+#: ctksourceview/ctksourcelanguage.c:56
 msgid "Others"
 msgstr "Други"
 
 #: ctksourceview/ctksourcelanguage-parser-2.c:949
-#: ctksourceview/ctksourcelanguage-parser-2.c:946
 #, c-format
 msgid "Unknown id “%s” in regex “%s”"
 msgstr "Непознат идентификатор „%s“ в регулярния израз „%s“"
 
 #: ctksourceview/ctksourcelanguage-parser-2.c:1179
-#: ctksourceview/ctksourcelanguage-parser-2.c:1176
 #, c-format
 msgid "in regex “%s”: backreferences are not supported"
 msgstr ""
@@ -727,17 +670,14 @@ msgstr "използването на „\\C“ в дефинициите на �
 
 #. TODO: have a ChooserDialog?
 #: ctksourceview/ctksourcestyleschemechooserbutton.c:185
-#: ctksourceview/ctksourcestyleschemechooserbutton.c:178
 msgid "Select a Style"
 msgstr "Избор на стил"
 
 #: ctksourceview/ctksourcestyleschemechooserbutton.c:189
-#: ctksourceview/ctksourcestyleschemechooserbutton.c:182
 msgid "_Cancel"
 msgstr "_Отказ"
 
 #: ctksourceview/ctksourcestyleschemechooserbutton.c:190
-#: ctksourceview/ctksourcestyleschemechooserbutton.c:183
 msgid "_Select"
 msgstr "_Избор"
 
@@ -751,140 +691,106 @@ msgstr "_Повтаряне"
 msgid "_Undo"
 msgstr "_Отмяна"
 
-#: ctksourceview/ctksourceview.c:1840 ctksourceview/ctksourceview.c:1806
+#: ctksourceview/ctksourceview.c:1840
 msgid "All _Upper Case"
 msgstr "Да са _главни"
 
-#: ctksourceview/ctksourceview.c:1850 ctksourceview/ctksourceview.c:1810
+#: ctksourceview/ctksourceview.c:1850
 msgid "All _Lower Case"
 msgstr "Да са _малки"
 
-#: ctksourceview/ctksourceview.c:1860 ctksourceview/ctksourceview.c:1814
+#: ctksourceview/ctksourceview.c:1860
 msgid "_Invert Case"
 msgstr "_Обръщане на регистъра"
 
-#: ctksourceview/ctksourceview.c:1870 ctksourceview/ctksourceview.c:1818
+#: ctksourceview/ctksourceview.c:1870
 msgid "_Title Case"
 msgstr "_Заглавни начални букви"
 
-#: ctksourceview/ctksourceview.c:1880 ctksourceview/ctksourceview.c:1822
+#: ctksourceview/ctksourceview.c:1880
 msgid "C_hange Case"
 msgstr "_Смяна на регистъра"
 
-#. (itstool) path: Adwaita-dark.xml/style-scheme@_name
-#: Adwaita-dark.xml:20
-msgid "Adwaita Dark"
-msgstr "Adwaita, тъмна"
+#~ msgid "Adwaita Dark"
+#~ msgstr "Adwaita, тъмна"
 
-#. (itstool) path: style-scheme/_description
-#: Adwaita-dark.xml:22 Adwaita.xml:22
-msgid "An style scheme for Adwaita"
-msgstr "Стилова схема за Adwaita"
+#~ msgid "An style scheme for Adwaita"
+#~ msgstr "Стилова схема за Adwaita"
 
-#. (itstool) path: Adwaita.xml/style-scheme@_name
-#: Adwaita.xml:20
-msgid "Adwaita"
-msgstr "Adwaita"
+#~ msgid "Adwaita"
+#~ msgstr "Adwaita"
 
-#. (itstool) path: classic-dark.xml/style-scheme@_name
-#: classic-dark.xml:22
-msgid "Classic Dark"
-msgstr "Класическа, тъмна"
+#~ msgid "Classic Dark"
+#~ msgstr "Класическа, тъмна"
 
-#. (itstool) path: style-scheme/_description
-#: classic-dark.xml:24
-msgid "Classic dark color scheme"
-msgstr "Класическа тъмна цветова схема"
+#~ msgid "Classic dark color scheme"
+#~ msgstr "Класическа тъмна цветова схема"
 
-#. (itstool) path: cobalt-light.xml/style-scheme@_name
-#: cobalt-light.xml:20
-msgid "Cobalt Light"
-msgstr "Cobalt, светла"
+#~ msgid "Cobalt Light"
+#~ msgstr "Cobalt, светла"
 
-#. (itstool) path: style-scheme/_description
-#: kate-dark.xml:24
-msgid "Dark color scheme used in the Kate text editor"
-msgstr "Тъмна цветова схема използвана в текстовия редактор Kate"
+#~ msgid "Dark color scheme used in the Kate text editor"
+#~ msgstr "Тъмна цветова схема използвана в текстовия редактор Kate"
 
-#: ctksourceview/completion-providers/snippets/ctksourcecompletionsnippets.c:407
-msgid "Snippets"
-msgstr "Изрезки"
+#~ msgid "Snippets"
+#~ msgstr "Изрезки"
 
-#: ctksourceview/ctksourcecompletionlist.c:206
-#: ctksourceview/ctksourcecompletionlist.c:210
 #, c-format
-msgid "%d of %u"
-msgstr "%d от %u"
+#~ msgid "%d of %u"
+#~ msgstr "%d от %u"
 
-#: ctksourceview/ctksourcecompletionlist.ui:59
-msgid "_Details"
-msgstr "_Подробности"
+#~ msgid "_Details"
+#~ msgstr "_Подробности"
 
-#: ctksourceview/ctksourcecontextengine.c:6279
 #, c-format
-msgid "Missing main language definition (id = “%s”)."
-msgstr "Основната дефиниция на език липсва (id = „%s“)."
+#~ msgid "Missing main language definition (id = “%s”)."
+#~ msgstr "Основната дефиниция на език липсва (id = „%s“)."
 
-#: ctksourceview/implregex.c:609
-msgid "hexadecimal digit or “}” expected"
-msgstr "очаква се шестнадесетичен знак или „}“"
+#~ msgid "hexadecimal digit or “}” expected"
+#~ msgstr "очаква се шестнадесетичен знак или „}“"
 
-#: ctksourceview/implregex.c:625
-msgid "hexadecimal digit expected"
-msgstr "очаква се шестнадесетичен знак"
+#~ msgid "hexadecimal digit expected"
+#~ msgstr "очаква се шестнадесетичен знак"
 
-#: ctksourceview/implregex.c:665
-msgid "missing “<” in symbolic reference"
-msgstr "указател към знак, в който липсва „<“"
+#~ msgid "missing “<” in symbolic reference"
+#~ msgstr "указател към знак, в който липсва „<“"
 
-#: ctksourceview/implregex.c:674
-msgid "unfinished symbolic reference"
-msgstr "незавършен указател към знак"
+#~ msgid "unfinished symbolic reference"
+#~ msgstr "незавършен указател към знак"
 
-#: ctksourceview/implregex.c:681
-msgid "zero-length symbolic reference"
-msgstr "указател към знак с нулева дължина"
+#~ msgid "zero-length symbolic reference"
+#~ msgstr "указател към знак с нулева дължина"
 
-#: ctksourceview/implregex.c:692
-msgid "digit expected"
-msgstr "очаква се знак"
+#~ msgid "digit expected"
+#~ msgstr "очаква се знак"
 
-#: ctksourceview/implregex.c:710
-msgid "illegal symbolic reference"
-msgstr "неправилен указател към знак"
+#~ msgid "illegal symbolic reference"
+#~ msgstr "неправилен указател към знак"
 
-#: ctksourceview/implregex.c:773
-msgid "stray final “\\”"
-msgstr "излишен знак „\\“ в края"
+#~ msgid "stray final “\\”"
+#~ msgstr "излишен знак „\\“ в края"
 
-#: ctksourceview/implregex.c:777
-msgid "unknown escape sequence"
-msgstr "непозната екранираща последователност"
+#~ msgid "unknown escape sequence"
+#~ msgstr "непозната екранираща последователност"
 
-#: ctksourceview/implregex.c:787
 #, c-format
-msgid "Error while parsing replacement text “%s” at char %lu: %s"
-msgstr "Грешка при анализа на заместващия текст „%s“ при знак %lu: %s"
+#~ msgid "Error while parsing replacement text “%s” at char %lu: %s"
+#~ msgstr "Грешка при анализа на заместващия текст „%s“ при знак %lu: %s"
 
-#: ctksourceview/vim/ctksourceviminsert.c:490
-msgid "-- INSERT --"
-msgstr "-- ВМЪКНАТО --"
+#~ msgid "-- INSERT --"
+#~ msgstr "-- ВМЪКНАТО --"
 
-#: ctksourceview/vim/ctksourcevimreplace.c:125
-msgid "-- REPLACE --"
-msgstr "-- ЗАМЯНА --"
+#~ msgid "-- REPLACE --"
+#~ msgstr "-- ЗАМЯНА --"
 
-#: ctksourceview/vim/ctksourcevimvisual.c:299
-msgid "-- VISUAL --"
-msgstr "-- ВИДИМО --"
+#~ msgid "-- VISUAL --"
+#~ msgstr "-- ВИДИМО --"
 
-#: ctksourceview/vim/ctksourcevimvisual.c:302
-msgid "-- VISUAL LINE --"
-msgstr "-- ВИДИМА ЛИНИЯ --"
+#~ msgid "-- VISUAL LINE --"
+#~ msgstr "-- ВИДИМА ЛИНИЯ --"
 
-#: ctksourceview/vim/ctksourcevimvisual.c:305
-msgid "-- VISUAL BLOCK --"
-msgstr "-- ВИДИМ БЛОК --"
+#~ msgid "-- VISUAL BLOCK --"
+#~ msgstr "-- ВИДИМ БЛОК --"
 
 #~ msgid "Disabled"
 #~ msgstr "Изключени"

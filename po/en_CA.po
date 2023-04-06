@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ctksourceview 0.9.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-26 17:43-0400\n"
+"POT-Creation-Date: 2023-04-06 10:31+0200\n"
 "PO-Revision-Date: 2005-08-08 20:39-0500\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: Canadian English <adamw@gnome.org>\n"
@@ -17,76 +17,408 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../ctksourceview/ctksourcebuffer.c:169
-msgid "Highlight Syntax"
-msgstr "Highlight Syntax"
+#. (itstool) path: abnf.lang/language@_section
+#. (itstool) path: actionscript.lang/language@_section
+#. (itstool) path: ada.lang/language@_section
+#. (itstool) path: ansforth94.lang/language@_section
+#. (itstool) path: asp.lang/language@_section
+#. (itstool) path: automake.lang/language@_section
+#. (itstool) path: bennugd.lang/language@_section
+#. (itstool) path: bluespec.lang/language@_section
+#. (itstool) path: boo.lang/language@_section
+#. (itstool) path: cg.lang/language@_section
+#. (itstool) path: chdr.lang/language@_section
+#. (itstool) path: c.lang/language@_section
+#. (itstool) path: cobol.lang/language@_section
+#. (itstool) path: commonlisp.lang/language@_section
+#. (itstool) path: cpphdr.lang/language@_section
+#. (itstool) path: cpp.lang/language@_section
+#. (itstool) path: csharp.lang/language@_section
+#. (itstool) path: cuda.lang/language@_section
+#. (itstool) path: dart.lang/language@_section
+#. (itstool) path: d.lang/language@_section
+#. (itstool) path: docker.lang/language@_section
+#. (itstool) path: eiffel.lang/language@_section
+#. (itstool) path: erlang.lang/language@_section
+#. (itstool) path: forth.lang/language@_section
+#. (itstool) path: fortran.lang/language@_section
+#. (itstool) path: fsharp.lang/language@_section
+#. (itstool) path: genie.lang/language@_section
+#. (itstool) path: glsl.lang/language@_section
+#. (itstool) path: go.lang/language@_section
+#. (itstool) path: gradle.lang/language@_section
+#. (itstool) path: groovy.lang/language@_section
+#. (itstool) path: haskell.lang/language@_section
+#. (itstool) path: haskell-literate.lang/language@_section
+#. (itstool) path: haxe.lang/language@_section
+#. (itstool) path: idl.lang/language@_section
+#. (itstool) path: java.lang/language@_section
+#. (itstool) path: j.lang/language@_section
+#. (itstool) path: kotlin.lang/language@_section
+#. (itstool) path: lean.lang/language@_section
+#. (itstool) path: lex.lang/language@_section
+#. (itstool) path: llvm.lang/language@_section
+#. (itstool) path: logtalk.lang/language@_section
+#. (itstool) path: makefile.lang/language@_section
+#. (itstool) path: meson.lang/language@_section
+#. (itstool) path: nemerle.lang/language@_section
+#. (itstool) path: netrexx.lang/language@_section
+#. (itstool) path: objc.lang/language@_section
+#. (itstool) path: objj.lang/language@_section
+#. (itstool) path: ocaml.lang/language@_section
+#. (itstool) path: ooc.lang/language@_section
+#. (itstool) path: opal.lang/language@_section
+#. (itstool) path: opencl.lang/language@_section
+#. (itstool) path: pascal.lang/language@_section
+#. (itstool) path: pig.lang/language@_section
+#. (itstool) path: powershell.lang/language@_section
+#. (itstool) path: prolog.lang/language@_section
+#. (itstool) path: rust.lang/language@_section
+#. (itstool) path: scala.lang/language@_section
+#. (itstool) path: scheme.lang/language@_section
+#. (itstool) path: sml.lang/language@_section
+#. (itstool) path: solidity.lang/language@_section
+#. (itstool) path: sparql.lang/language@_section
+#. (itstool) path: sql.lang/language@_section
+#. (itstool) path: swift.lang/language@_section
+#. (itstool) path: systemverilog.lang/language@_section
+#. (itstool) path: thrift.lang/language@_section
+#. (itstool) path: vala.lang/language@_section
+#. (itstool) path: vbnet.lang/language@_section
+#. (itstool) path: verilog.lang/language@_section
+#. (itstool) path: vhdl.lang/language@_section
+#: abnf.lang:30 actionscript.lang:24 ada.lang:25 ansforth94.lang:24 asp.lang:23
+#: automake.lang:23 bennugd.lang:22 bluespec.lang:21 boo.lang:23 cg.lang:23
+#: chdr.lang:24 c.lang:24 cobol.lang:26 commonlisp.lang:24 cpphdr.lang:24
+#: cpp.lang:25 csharp.lang:26 cuda.lang:22 dart.lang:22 d.lang:29
+#: docker.lang:21 eiffel.lang:23 erlang.lang:23 forth.lang:23 fortran.lang:24
+#: fsharp.lang:24 genie.lang:23 glsl.lang:30 go.lang:24 gradle.lang:21
+#: groovy.lang:24 haskell.lang:24 haskell-literate.lang:23 haxe.lang:34
+#: idl.lang:23 java.lang:24 j.lang:23 kotlin.lang:24 lean.lang:23 lex.lang:24
+#: llvm.lang:22 logtalk.lang:23 makefile.lang:22 meson.lang:23 nemerle.lang:23
+#: netrexx.lang:23 objc.lang:23 objj.lang:26 ocaml.lang:26 ooc.lang:23
+#: opal.lang:23 opencl.lang:23 pascal.lang:24 pig.lang:26 powershell.lang:23
+#: prolog.lang:23 rust.lang:35 scala.lang:24 scheme.lang:23 sml.lang:23
+#: solidity.lang:28 sparql.lang:23 sql.lang:23 swift.lang:24
+#: systemverilog.lang:21 thrift.lang:20 vala.lang:27 vbnet.lang:23
+#: verilog.lang:23 vhdl.lang:23
+msgid "Source"
+msgstr ""
 
-#: ../ctksourceview/ctksourcebuffer.c:170
-msgid "Whether to highlight syntax in the buffer"
-msgstr "Whether to highlight syntax in the buffer"
+#. (itstool) path: asciidoc.lang/language@_section
+#. (itstool) path: bibtex.lang/language@_section
+#. (itstool) path: docbook.lang/language@_section
+#. (itstool) path: dtd.lang/language@_section
+#. (itstool) path: dtl.lang/language@_section
+#. (itstool) path: erb-html.lang/language@_section
+#. (itstool) path: erb-js.lang/language@_section
+#. (itstool) path: erb.lang/language@_section
+#. (itstool) path: gtk-doc.lang/language@_section
+#. (itstool) path: haddock.lang/language@_section
+#. (itstool) path: html.lang/language@_section
+#. (itstool) path: jade.lang/language@_section
+#. (itstool) path: jsdoc.lang/language@_section
+#. (itstool) path: latex.lang/language@_section
+#. (itstool) path: mallard.lang/language@_section
+#. (itstool) path: markdown.lang/language@_section
+#. (itstool) path: mediawiki.lang/language@_section
+#. (itstool) path: mxml.lang/language@_section
+#. (itstool) path: rst.lang/language@_section
+#. (itstool) path: sweave.lang/language@_section
+#. (itstool) path: t2t.lang/language@_section
+#. (itstool) path: tera.lang/language@_section
+#. (itstool) path: texinfo.lang/language@_section
+#. (itstool) path: xml.lang/language@_section
+#. (itstool) path: xslt.lang/language@_section
+#: asciidoc.lang:22 bibtex.lang:23 docbook.lang:23 dtd.lang:23 dtl.lang:25
+#: erb-html.lang:20 erb-js.lang:20 erb.lang:20 gtk-doc.lang:24 haddock.lang:23
+#: html.lang:25 jade.lang:24 jsdoc.lang:23 latex.lang:24 mallard.lang:22
+#: markdown.lang:25 mediawiki.lang:22 mxml.lang:23 rst.lang:22 sweave.lang:24
+#: t2t.lang:23 tera.lang:23 texinfo.lang:24 xml.lang:26 xslt.lang:23
+msgid "Markup"
+msgstr "Markup"
 
-#: ../ctksourceview/ctksourcebuffer.c:183
-msgid "Highlight Matching Brackets"
-msgstr "Highlight Matching Brackets"
+#. (itstool) path: awk.lang/language@_section
+#. (itstool) path: dosbatch.lang/language@_section
+#. (itstool) path: fish.lang/language@_section
+#. (itstool) path: gdscript.lang/language@_section
+#. (itstool) path: javascript-expressions.lang/language@_section
+#. (itstool) path: javascript-functions-classes.lang/language@_section
+#. (itstool) path: javascript.lang/language@_section
+#. (itstool) path: javascript-literals.lang/language@_section
+#. (itstool) path: javascript-modules.lang/language@_section
+#. (itstool) path: javascript-statements.lang/language@_section
+#. (itstool) path: javascript-values.lang/language@_section
+#. (itstool) path: jsx.lang/language@_section
+#. (itstool) path: lua.lang/language@_section
+#. (itstool) path: m4.lang/language@_section
+#. (itstool) path: perl.lang/language@_section
+#. (itstool) path: php.lang/language@_section
+#. (itstool) path: python3.lang/language@_section
+#. (itstool) path: python.lang/language@_section
+#. (itstool) path: ruby.lang/language@_section
+#. (itstool) path: sh.lang/language@_section
+#. (itstool) path: tcl.lang/language@_section
+#. (itstool) path: typescript-js-expressions.lang/language@_section
+#. (itstool) path: typescript-js-functions-classes.lang/language@_section
+#. (itstool) path: typescript-js-literals.lang/language@_section
+#. (itstool) path: typescript-js-modules.lang/language@_section
+#. (itstool) path: typescript-js-statements.lang/language@_section
+#. (itstool) path: typescript-jsx.lang/language@_section
+#. (itstool) path: typescript.lang/language@_section
+#. (itstool) path: typescript-type-expressions.lang/language@_section
+#. (itstool) path: typescript-type-generics.lang/language@_section
+#. (itstool) path: typescript-type-literals.lang/language@_section
+#: awk.lang:23 dosbatch.lang:23 fish.lang:19 gdscript.lang:22
+#: javascript-expressions.lang:27 javascript-functions-classes.lang:27
+#: javascript.lang:27 javascript-literals.lang:27 javascript-modules.lang:27
+#: javascript-statements.lang:27 javascript-values.lang:27 jsx.lang:23
+#: lua.lang:23 m4.lang:23 perl.lang:25 php.lang:28 python3.lang:23
+#: python.lang:27 ruby.lang:27 sh.lang:24 tcl.lang:23
+#: typescript-js-expressions.lang:23 typescript-js-functions-classes.lang:23
+#: typescript-js-literals.lang:23 typescript-js-modules.lang:23
+#: typescript-js-statements.lang:23 typescript-jsx.lang:23 typescript.lang:23
+#: typescript-type-expressions.lang:23 typescript-type-generics.lang:23
+#: typescript-type-literals.lang:23
+msgid "Script"
+msgstr ""
 
-#: ../ctksourceview/ctksourcebuffer.c:184
-msgid "Whether to highlight matching brackets"
-msgstr "Whether to highlight matching brackets"
+#. (itstool) path: cg.lang/language@_name
+#: cg.lang:23
+msgid "CG Shader Language"
+msgstr ""
 
-#: ../ctksourceview/ctksourcebuffer.c:191
-msgid "Maximum Undo Levels"
-msgstr "Maximum Undo Levels"
+#. (itstool) path: changelog.lang/language@_section
+#. (itstool) path: cmake.lang/language@_section
+#. (itstool) path: css.lang/language@_section
+#. (itstool) path: csv.lang/language@_section
+#. (itstool) path: desktop.lang/language@_section
+#. (itstool) path: diff.lang/language@_section
+#. (itstool) path: dot.lang/language@_section
+#. (itstool) path: dpatch.lang/language@_section
+#. (itstool) path: ftl.lang/language@_section
+#. (itstool) path: gdb-log.lang/language@_section
+#. (itstool) path: ctkrc.lang/language@_section
+#. (itstool) path: ini.lang/language@_section
+#. (itstool) path: json.lang/language@_section
+#. (itstool) path: less.lang/language@_section
+#. (itstool) path: libtool.lang/language@_section
+#. (itstool) path: logcat.lang/language@_section
+#. (itstool) path: nsis.lang/language@_section
+#. (itstool) path: ocl.lang/language@_section
+#. (itstool) path: pkgconfig.lang/language@_section
+#. (itstool) path: po.lang/language@_section
+#. (itstool) path: protobuf.lang/language@_section
+#. (itstool) path: puppet.lang/language@_section
+#. (itstool) path: rpmspec.lang/language@_section
+#. (itstool) path: scss.lang/language@_section
+#. (itstool) path: terraform.lang/language@_section
+#. (itstool) path: toml.lang/language@_section
+#. (itstool) path: yacc.lang/language@_section
+#. (itstool) path: yaml.lang/language@_section
+#. (itstool) path: yara.lang/language@_section
+#: changelog.lang:24 cmake.lang:23 css.lang:26 csv.lang:23 desktop.lang:24
+#: diff.lang:23 dot.lang:23 dpatch.lang:23 ftl.lang:23 gdb-log.lang:18
+#: ctkrc.lang:24 ini.lang:22 json.lang:29 less.lang:23 libtool.lang:23
+#: logcat.lang:23 nsis.lang:23 ocl.lang:32 pkgconfig.lang:23 po.lang:23
+#: protobuf.lang:21 puppet.lang:23 rpmspec.lang:24 scss.lang:23
+#: terraform.lang:23 toml.lang:23 yacc.lang:23 yaml.lang:21 yara.lang:26
+msgid "Other"
+msgstr ""
 
-#: ../ctksourceview/ctksourcebuffer.c:192
-msgid "Number of undo levels for the buffer"
-msgstr "Number of undo levels for the buffer"
+#. (itstool) path: chdr.lang/language@_name
+#: chdr.lang:24
+msgid "C/ObjC Header"
+msgstr ""
 
-#. Translators: "Language" stands for
-#. * "programming language", not "spoken language"
-#: ../ctksourceview/ctksourcebuffer.c:204
-msgid "Language"
-msgstr "Language"
+#. (itstool) path: cpphdr.lang/language@_name
+#: cpphdr.lang:24
+msgid "C++ Header"
+msgstr ""
 
-#: ../ctksourceview/ctksourcebuffer.c:205
-msgid "Language object to get highlighting patterns from"
-msgstr "Language object to get highlighting patterns from"
+#. (itstool) path: dosbatch.lang/language@_name
+#: dosbatch.lang:23
+msgid "DOS Batch"
+msgstr ""
 
-#: ../ctksourceview/ctksourcebuffer.c:213
-msgid "Can undo"
-msgstr "Can undo"
+#. (itstool) path: dtl.lang/language@_name
+#: dtl.lang:25
+msgid "Django Template"
+msgstr ""
 
-#: ../ctksourceview/ctksourcebuffer.c:214
-msgid "Whether Undo operation is possible"
-msgstr "Whether Undo operation is possible"
+#. (itstool) path: fcl.lang/language@_section
+#. (itstool) path: gap.lang/language@_section
+#. (itstool) path: idl-exelis.lang/language@_section
+#. (itstool) path: imagej.lang/language@_section
+#. (itstool) path: julia.lang/language@_section
+#. (itstool) path: matlab.lang/language@_section
+#. (itstool) path: maxima.lang/language@_section
+#. (itstool) path: modelica.lang/language@_section
+#. (itstool) path: octave.lang/language@_section
+#. (itstool) path: R.lang/language@_section
+#. (itstool) path: scilab.lang/language@_section
+#. (itstool) path: star.lang/language@_section
+#: fcl.lang:23 gap.lang:23 idl-exelis.lang:20 imagej.lang:23 julia.lang:23
+#: matlab.lang:25 maxima.lang:24 modelica.lang:25 octave.lang:25 R.lang:25
+#: scilab.lang:23 star.lang:28
+msgid "Scientific"
+msgstr "Scientific"
 
-#: ../ctksourceview/ctksourcebuffer.c:221
-msgid "Can redo"
-msgstr "Can redo"
+#. (itstool) path: gdb-log.lang/language@_name
+#: gdb-log.lang:18
+msgid "GDB Log"
+msgstr ""
 
-#: ../ctksourceview/ctksourcebuffer.c:222
-msgid "Whether Redo operation is possible"
-msgstr "Whether Redo operation is possible"
+#. (itstool) path: glsl.lang/language@_name
+#: glsl.lang:30
+msgid "OpenGL Shading Language"
+msgstr ""
 
-#: ../ctksourceview/ctksourcebuffer.c:236
-#: ../ctksourceview/ctksourcebuffer.c:237
-msgid "Style scheme"
-msgstr "Style scheme"
+#. (itstool) path: llvm.lang/language@_name
+#: llvm.lang:22
+msgid "LLVM IR"
+msgstr ""
 
-#: ../ctksourceview/ctksourcecontextengine.c:2260
+#. (itstool) path: po.lang/language@_name
+#: po.lang:23
+msgid "gettext translation"
+msgstr "gettext translation"
+
+#. (itstool) path: rpmspec.lang/language@_name
+#: rpmspec.lang:24
+msgid "RPM spec"
+msgstr "RPM spec"
+
+#. (itstool) path: tera.lang/language@_name
+#: tera.lang:23
+msgid "Tera Template"
+msgstr ""
+
+#. (itstool) path: classic.xml/style-scheme@_name
+#: classic.xml:23
+msgid "Classic"
+msgstr "Classic"
+
+#. (itstool) path: style-scheme/_description
+#: classic.xml:25
+msgid "Classic color scheme"
+msgstr "Classic colour scheme"
+
+#. (itstool) path: cobalt.xml/style-scheme@_name
+#: cobalt.xml:25
+msgid "Cobalt"
+msgstr ""
+
+#. (itstool) path: style-scheme/_description
+#: cobalt.xml:27
+msgid "Blue based color scheme"
+msgstr ""
+
+#. (itstool) path: style-scheme/_description
+#: kate.xml:25
+msgid "Color scheme used in the Kate text editor"
+msgstr "Colour scheme used in the Kate text editor"
+
+#. (itstool) path: oblivion.xml/style-scheme@_name
+#: oblivion.xml:24
+msgid "Oblivion"
+msgstr "Oblivion"
+
+#. (itstool) path: style-scheme/_description
+#: oblivion.xml:27
+msgid "Dark color scheme using the Tango color palette"
+msgstr "Dark colour scheme using the Tango colour palette"
+
+#. (itstool) path: solarized-dark.xml/style-scheme@_name
+#: solarized-dark.xml:23
+msgid "Solarized Dark"
+msgstr ""
+
+#. (itstool) path: style-scheme/_description
+#: solarized-dark.xml:25
+msgid "Color scheme using Solarized dark color palette"
+msgstr ""
+
+#. (itstool) path: solarized-light.xml/style-scheme@_name
+#: solarized-light.xml:23
+msgid "Solarized Light"
+msgstr ""
+
+#. (itstool) path: style-scheme/_description
+#: solarized-light.xml:25
+msgid "Color scheme using Solarized light color palette"
+msgstr ""
+
+#. (itstool) path: tango.xml/style-scheme@_name
+#: tango.xml:23
+msgid "Tango"
+msgstr "Tango"
+
+#. (itstool) path: style-scheme/_description
+#: tango.xml:25
+msgid "Color scheme using Tango color palette"
+msgstr "Colour scheme using Tango colour palette"
+
+#: ctksourceview/completion-providers/words/ctksourcecompletionwords.c:332
+msgid "Document Words"
+msgstr ""
+
+#: ctksourceview/ctksourcebufferoutputstream.c:842
+msgid "Invalid byte sequence in conversion input"
+msgstr ""
+
+#: ctksourceview/ctksourcebufferoutputstream.c:848
 #, c-format
-msgid "Missing main language definition (id = \"%s\".)"
-msgstr "Missing main language definition (ID = \"%s\".)"
+msgid "Error during conversion: %s"
+msgstr ""
 
-#: ../ctksourceview/ctksourcecontextengine.c:2566
+#: ctksourceview/ctksourcebufferoutputstream.c:929
 #, c-format
-msgid "using \\C is not supported in language definitions"
-msgstr "using \\C is not supported in language definitions"
+msgid "Conversion from character set “%s” to “UTF-8” is not supported"
+msgstr ""
+
+#: ctksourceview/ctksourcebufferoutputstream.c:935
+#, c-format
+msgid "Could not open converter from “%s” to “UTF-8”"
+msgstr ""
+
+#: ctksourceview/ctksourcebufferoutputstream.c:995
+msgid "Invalid object, not initialized"
+msgstr ""
+
+#: ctksourceview/ctksourcebufferoutputstream.c:1187
+#, c-format
+msgid "Incomplete UTF-8 sequence in input"
+msgstr ""
+
+#. Translators: "All" is used as a label in the status bar of the
+#. popup, telling that all completion pages are shown.
+#: ctksourceview/ctksourcecompletion.c:838
+msgid "All"
+msgstr ""
+
+#. Tooltip style
+#: ctksourceview/ctksourcecompletioninfo.c:262
+msgid "Completion Info"
+msgstr ""
+
+#: ctksourceview/ctksourcecompletionmodel.c:494
+msgid "Provider"
+msgstr ""
+
+#: ctksourceview/ctksourcecompletion.ui:86
+msgid "Show detailed proposal information"
+msgstr ""
+
+#: ctksourceview/ctksourcecompletion.ui:88
+msgid "_Details…"
+msgstr ""
 
 #. regex_new could fail, for instance if there are different
 #. * named sub-patterns with the same name or if resulting regex is
 #. * too long. In this case fixing lang file helps (e.g. renaming
 #. * subpatterns, making huge keywords use bigger prefixes, etc.)
-#: ../ctksourceview/ctksourcecontextengine.c:3167
+#: ctksourceview/ctksourcecontextengine.c:3140
 #, c-format
 msgid ""
 "Cannot create a regex for all the transitions, the syntax highlighting "
@@ -97,1766 +429,1317 @@ msgstr ""
 "process will be slower than usual.\n"
 "The error was: %s"
 
-#: ../ctksourceview/ctksourcecontextengine.c:5653
-#, c-format
-msgid "context '%s' cannot contain a \\%%{...@start} command"
-msgstr "context '%s' cannot contain a \\%%{...@start} command"
+#: ctksourceview/ctksourcecontextengine.c:4474
+msgid ""
+"Highlighting a single line took too much time, syntax highlighting will be "
+"disabled"
+msgstr ""
 
-#: ../ctksourceview/ctksourcecontextengine.c:5805
-#: ../ctksourceview/ctksourcecontextengine.c:5892
+#: ctksourceview/ctksourcecontextengine.c:5724
 #, c-format
-msgid "duplicated context id '%s'"
-msgstr "duplicated context ID '%s'"
+msgid "context “%s” cannot contain a \\%%{...@start} command"
+msgstr ""
 
-#: ../ctksourceview/ctksourcecontextengine.c:6005
-#: ../ctksourceview/ctksourcecontextengine.c:6065
+#: ctksourceview/ctksourcecontextengine.c:5887
+#: ctksourceview/ctksourcecontextengine.c:5977
+#, c-format
+msgid "duplicated context id “%s”"
+msgstr ""
+
+#: ctksourceview/ctksourcecontextengine.c:6091
+#: ctksourceview/ctksourcecontextengine.c:6151
 #, c-format
 msgid ""
-"style override used with wildcard context reference in language '%s' in ref "
-"'%s'"
+"style override used with wildcard context reference in language “%s” in ref "
+"“%s”"
 msgstr ""
-"style override used with wildcard context reference in language '%s' in ref "
-"'%s'"
 
-#: ../ctksourceview/ctksourcecontextengine.c:6079
+#: ctksourceview/ctksourcecontextengine.c:6165
 #, c-format
-msgid "invalid reference '%s'"
-msgstr "invalid reference '%s'"
+msgid "invalid context reference “%s”"
+msgstr ""
 
-#: ../ctksourceview/ctksourcecontextengine.c:6098
-#: ../ctksourceview/ctksourcecontextengine.c:6108
+#: ctksourceview/ctksourcecontextengine.c:6184
+#: ctksourceview/ctksourcecontextengine.c:6194
 #, c-format
-msgid "unknown context '%s'"
-msgstr "unknown context '%s'"
+msgid "unknown context “%s”"
+msgstr ""
 
-#: ../ctksourceview/ctksourcelanguage.c:42
-#: ../ctksourceview/language-specs/changelog.lang.h:2
-#: ../ctksourceview/language-specs/css.lang.h:10
-#: ../ctksourceview/language-specs/desktop.lang.h:11
-#: ../ctksourceview/language-specs/diff.lang.h:9
-#: ../ctksourceview/language-specs/dpatch.lang.h:2
-#: ../ctksourceview/language-specs/ctkrc.lang.h:8
-#: ../ctksourceview/language-specs/ini.lang.h:8
-#: ../ctksourceview/language-specs/libtool.lang.h:2
-#: ../ctksourceview/language-specs/msil.lang.h:2
-#: ../ctksourceview/language-specs/ocl.lang.h:6
-#: ../ctksourceview/language-specs/php.lang.h:15
-#: ../ctksourceview/language-specs/pkgconfig.lang.h:1
-#: ../ctksourceview/language-specs/po.lang.h:4
-#: ../ctksourceview/language-specs/rpmspec.lang.h:10
-#: ../ctksourceview/language-specs/texinfo.lang.h:8
-#: ../ctksourceview/language-specs/yacc.lang.h:2
+#: ctksourceview/ctksourcecontextengine.c:6293
+#, c-format
+msgid "Missing main language definition (id = \"%s\".)"
+msgstr "Missing main language definition (ID = \"%s\".)"
+
+#: ctksourceview/ctksourceencoding.c:140 ctksourceview/ctksourceencoding.c:183
+#: ctksourceview/ctksourceencoding.c:185 ctksourceview/ctksourceencoding.c:187
+#: ctksourceview/ctksourceencoding.c:189 ctksourceview/ctksourceencoding.c:191
+#: ctksourceview/ctksourceencoding.c:193 ctksourceview/ctksourceencoding.c:195
+msgid "Unicode"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:154 ctksourceview/ctksourceencoding.c:178
+#: ctksourceview/ctksourceencoding.c:228 ctksourceview/ctksourceencoding.c:271
+msgid "Western"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:156 ctksourceview/ctksourceencoding.c:230
+#: ctksourceview/ctksourceencoding.c:267
+msgid "Central European"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:158
+msgid "South European"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:160 ctksourceview/ctksourceencoding.c:174
+#: ctksourceview/ctksourceencoding.c:281
+msgid "Baltic"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:162 ctksourceview/ctksourceencoding.c:232
+#: ctksourceview/ctksourceencoding.c:245 ctksourceview/ctksourceencoding.c:249
+#: ctksourceview/ctksourceencoding.c:251 ctksourceview/ctksourceencoding.c:269
+msgid "Cyrillic"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:164 ctksourceview/ctksourceencoding.c:238
+#: ctksourceview/ctksourceencoding.c:279
+msgid "Arabic"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:166 ctksourceview/ctksourceencoding.c:273
+msgid "Greek"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:168
+msgid "Hebrew Visual"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:170 ctksourceview/ctksourceencoding.c:234
+#: ctksourceview/ctksourceencoding.c:275
+msgid "Turkish"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:172
+msgid "Nordic"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:176
+msgid "Celtic"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:180
+msgid "Romanian"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:198
+msgid "Armenian"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:200 ctksourceview/ctksourceencoding.c:202
+#: ctksourceview/ctksourceencoding.c:216
+msgid "Chinese Traditional"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:204
+msgid "Cyrillic/Russian"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:207 ctksourceview/ctksourceencoding.c:209
+#: ctksourceview/ctksourceencoding.c:211 ctksourceview/ctksourceencoding.c:241
+#: ctksourceview/ctksourceencoding.c:256
+msgid "Japanese"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:214 ctksourceview/ctksourceencoding.c:243
+#: ctksourceview/ctksourceencoding.c:247 ctksourceview/ctksourceencoding.c:262
+msgid "Korean"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:219 ctksourceview/ctksourceencoding.c:221
+#: ctksourceview/ctksourceencoding.c:223
+msgid "Chinese Simplified"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:225
+msgid "Georgian"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:236 ctksourceview/ctksourceencoding.c:277
+msgid "Hebrew"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:253
+msgid "Cyrillic/Ukrainian"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:258 ctksourceview/ctksourceencoding.c:264
+#: ctksourceview/ctksourceencoding.c:283
+msgid "Vietnamese"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:260
+msgid "Thai"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:494
+msgid "Unknown"
+msgstr ""
+
+#. Translators: This is the sorted list of encodings used by
+#. * CtkSourceView for automatic detection of the file encoding. You may
+#. * want to customize it adding encodings that are common in your
+#. * country, for instance the GB18030 encoding for the Chinese
+#. * translation. You may also want to remove the ISO-8859-15 encoding
+#. * (covering English and most Western European languages) if you think
+#. * people in your country will rarely use it.  "CURRENT" is a magic
+#. * value used by CtkSourceView and it represents the encoding for the
+#. * current locale, so please don't translate the "CURRENT" term.  Only
+#. * recognized encodings are used. See
+#. * https://gitlab.gnome.org/GNOME/ctksourceview/blob/master/ctksourceview/ctksourceencoding.c#L142
+#. * for a list of supported encodings.
+#. * Keep the same format: square brackets, single quotes, commas.
+#.
+#: ctksourceview/ctksourceencoding.c:638
+msgid "['UTF-8', 'CURRENT', 'ISO-8859-15', 'UTF-16']"
+msgstr ""
+
+#: ctksourceview/ctksourcefileloader.c:515
+msgid ""
+"There was a character encoding conversion error and it was needed to use a "
+"fallback character."
+msgstr ""
+
+#: ctksourceview/ctksourcefileloader.c:622
+msgid "File too big."
+msgstr ""
+
+#: ctksourceview/ctksourcefileloader.c:776
+msgid "Not a regular file."
+msgstr ""
+
+#: ctksourceview/ctksourcefilesaver.c:975
+msgid "The file is externally modified."
+msgstr ""
+
+#: ctksourceview/ctksourcefilesaver.c:1427
+msgid "The buffer contains invalid characters."
+msgstr ""
+
+#. *
+#. * SECTION:language
+#. * @Short_description: Represents a syntax highlighted language
+#. * @Title: CtkSourceLanguage
+#. * @See_also: #CtkSourceLanguageManager
+#. *
+#. * A #CtkSourceLanguage represents a programming or markup language, affecting
+#. * syntax highlighting and [context classes][context-classes].
+#. *
+#. * Use #CtkSourceLanguageManager to obtain a #CtkSourceLanguage instance, and
+#. * ctk_source_buffer_set_language() to apply it to a #CtkSourceBuffer.
+#.
+#: ctksourceview/ctksourcelanguage.c:56
 msgid "Others"
 msgstr "Others"
 
-#: ../ctksourceview/ctksourcelanguage.c:214
-#: ../ctksourceview/ctksourcelanguage.c:215
-msgid "Language id"
-msgstr "Language ID"
-
-#: ../ctksourceview/ctksourcelanguage.c:222
-#: ../ctksourceview/ctksourcelanguage.c:223
-msgid "Language name"
-msgstr "Language name"
-
-#: ../ctksourceview/ctksourcelanguage.c:230
-#: ../ctksourceview/ctksourcelanguage.c:231
-msgid "Language section"
-msgstr "Language section"
-
-#: ../ctksourceview/ctksourcelanguage.c:238
-msgid "Hidden"
-msgstr "Hidden"
-
-#: ../ctksourceview/ctksourcelanguage.c:239
-msgid "Whether the language should be hidden from the user"
-msgstr "Whether the language should be hidden from the user"
-
-#: ../ctksourceview/ctksourcelanguagemanager.c:126
-msgid "Language specification directories"
-msgstr "Language specification directories"
-
-#: ../ctksourceview/ctksourcelanguagemanager.c:127
-msgid ""
-"List of directories where the language specification files (.lang) are "
-"located"
-msgstr ""
-"List of directories where the language specification files (.lang) are "
-"located"
-
-#: ../ctksourceview/ctksourcelanguage-parser-2.c:876
+#: ctksourceview/ctksourcelanguage-parser-2.c:949
 #, c-format
-msgid "Unknown id '%s' in regex '%s'"
-msgstr "Unknown ID '%s' in regex '%s'"
-
-#: ../ctksourceview/ctksourcelanguage-parser-2.c:1104
-#, c-format
-msgid "in regex '%s': backreferences are not supported"
-msgstr "in regex '%s': backreferences are not supported"
-
-#: ../ctksourceview/ctksourcestyle.c:70
-msgid "Line background"
-msgstr "Line background"
-
-#: ../ctksourceview/ctksourcestyle.c:71
-msgid "Line background color"
-msgstr "Line background colour"
-
-#: ../ctksourceview/ctksourcestyle.c:78
-msgid "Background"
-msgstr "Background"
-
-#: ../ctksourceview/ctksourcestyle.c:79
-msgid "Background color"
-msgstr "Background colour"
-
-#: ../ctksourceview/ctksourcestyle.c:86
-msgid "Foreground"
-msgstr "Foreground"
-
-#: ../ctksourceview/ctksourcestyle.c:87
-msgid "Foreground color"
-msgstr "Foreground colour"
-
-#: ../ctksourceview/ctksourcestyle.c:94 ../ctksourceview/ctksourcestyle.c:95
-msgid "Bold"
-msgstr "Bold"
-
-#: ../ctksourceview/ctksourcestyle.c:102 ../ctksourceview/ctksourcestyle.c:103
-msgid "Italic"
-msgstr "Italic"
-
-#: ../ctksourceview/ctksourcestyle.c:110 ../ctksourceview/ctksourcestyle.c:111
-msgid "Underline"
-msgstr "Underline"
-
-#: ../ctksourceview/ctksourcestyle.c:118 ../ctksourceview/ctksourcestyle.c:119
-msgid "Strikethrough"
-msgstr "Strikethrough"
-
-#: ../ctksourceview/ctksourcestyle.c:126
-msgid "Line background set"
-msgstr "Line background set"
-
-#: ../ctksourceview/ctksourcestyle.c:127
-msgid "Whether line background color is set"
-msgstr "Whether line background colour is set"
-
-#: ../ctksourceview/ctksourcestyle.c:134
-msgid "Foreground set"
-msgstr "Foreground set"
-
-#: ../ctksourceview/ctksourcestyle.c:135
-msgid "Whether foreground color is set"
-msgstr "Whether foreground colour is set"
-
-#: ../ctksourceview/ctksourcestyle.c:142
-msgid "Background set"
-msgstr "Background set"
-
-#: ../ctksourceview/ctksourcestyle.c:143
-msgid "Whether background color is set"
-msgstr "Whether background colour is set"
-
-#: ../ctksourceview/ctksourcestyle.c:150
-msgid "Bold set"
-msgstr "Bold set"
-
-#: ../ctksourceview/ctksourcestyle.c:151
-msgid "Whether bold attribute is set"
-msgstr "Whether bold attribute is set"
-
-#: ../ctksourceview/ctksourcestyle.c:158
-msgid "Italic set"
-msgstr "Italic set"
-
-#: ../ctksourceview/ctksourcestyle.c:159
-msgid "Whether italic attribute is set"
-msgstr "Whether italic attribute is set"
-
-#: ../ctksourceview/ctksourcestyle.c:166
-msgid "Underline set"
-msgstr "Underline set"
-
-#: ../ctksourceview/ctksourcestyle.c:167
-msgid "Whether underline attribute is set"
-msgstr "Whether underline attribute is set"
-
-#: ../ctksourceview/ctksourcestyle.c:174
-msgid "Strikethrough set"
-msgstr "Strikethrough set"
-
-#: ../ctksourceview/ctksourcestyle.c:175
-msgid "Whether strikethrough attribute is set"
-msgstr "Whether strikethrough attribute is set"
-
-#: ../ctksourceview/ctksourcestylemanager.c:142
-msgid "Style scheme search path"
-msgstr "Style scheme search path"
-
-#: ../ctksourceview/ctksourcestylemanager.c:143
-msgid "List of directories and files where the style schemes are located"
-msgstr "List of directories and files where the style schemes are located"
-
-#: ../ctksourceview/ctksourcestylemanager.c:151
-msgid "Scheme ids"
-msgstr "Scheme IDs"
-
-#: ../ctksourceview/ctksourcestylemanager.c:152
-msgid "List of the ids of the available style schemes"
-msgstr "List of the IDs of the available style schemes"
-
-#: ../ctksourceview/ctksourcestylescheme.c:162
-#: ../ctksourceview/ctksourcestylescheme.c:163
-msgid "Style scheme id"
-msgstr "Style scheme ID"
-
-#: ../ctksourceview/ctksourcestylescheme.c:175
-#: ../ctksourceview/ctksourcestylescheme.c:176
-msgid "Style scheme name"
-msgstr "Style scheme name"
-
-#: ../ctksourceview/ctksourcestylescheme.c:188
-#: ../ctksourceview/ctksourcestylescheme.c:189
-msgid "Style scheme description"
-msgstr "Style scheme description"
-
-#: ../ctksourceview/ctksourcestylescheme.c:201
-#: ../ctksourceview/ctksourcestylescheme.c:202
-msgid "Style scheme filename"
-msgstr "Style scheme filename"
-
-#: ../ctksourceview/ctksourceview.c:235
-msgid "Show Line Numbers"
-msgstr "Show Line Numbers"
-
-#: ../ctksourceview/ctksourceview.c:236
-msgid "Whether to display line numbers"
-msgstr "Whether to display line numbers"
-
-#: ../ctksourceview/ctksourceview.c:243
-msgid "Show Line Markers"
-msgstr "Show Line Markers"
-
-#: ../ctksourceview/ctksourceview.c:244
-msgid "Whether to display line marker pixbufs"
-msgstr "Whether to display line marker pixbufs"
-
-#: ../ctksourceview/ctksourceview.c:256
-msgid "Tab Width"
-msgstr "Tab Width"
-
-#: ../ctksourceview/ctksourceview.c:257
-msgid "Width of a tab character expressed in spaces"
-msgstr "Width of a tab character expressed in spaces"
-
-#: ../ctksourceview/ctksourceview.c:271
-msgid "Indent Width"
-msgstr "Indent Width"
-
-#: ../ctksourceview/ctksourceview.c:272
-msgid "Number of spaces to use for each step of indent"
-msgstr "Number of spaces to use for each step of indent"
-
-#: ../ctksourceview/ctksourceview.c:281
-msgid "Auto Indentation"
-msgstr "Auto Indentation"
-
-#: ../ctksourceview/ctksourceview.c:282
-msgid "Whether to enable auto indentation"
-msgstr "Whether to enable auto indentation"
-
-#: ../ctksourceview/ctksourceview.c:289
-msgid "Insert Spaces Instead of Tabs"
-msgstr "Insert Spaces Instead of Tabs"
-
-#: ../ctksourceview/ctksourceview.c:290
-msgid "Whether to insert spaces instead of tabs"
-msgstr "Whether to insert spaces instead of tabs"
-
-#: ../ctksourceview/ctksourceview.c:297
-msgid "Show Right Margin"
-msgstr "Show Right Margin"
-
-#: ../ctksourceview/ctksourceview.c:298
-msgid "Whether to display the right margin"
-msgstr "Whether to display the right margin"
-
-#: ../ctksourceview/ctksourceview.c:305
-msgid "Margin position"
-msgstr "Margin position"
-
-#: ../ctksourceview/ctksourceview.c:306
-msgid "Position of the right margin"
-msgstr "Position of the right margin"
-
-#: ../ctksourceview/ctksourceview.c:322
-msgid "Smart Home/End"
-msgstr "Smart Home/End"
-
-#: ../ctksourceview/ctksourceview.c:323
-msgid ""
-"HOME and END keys move to first/last non whitespace characters on line "
-"before going to the start/end of the line"
+msgid "Unknown id “%s” in regex “%s”"
 msgstr ""
-"HOME and END keys move to first/last non-whitespace character on the line "
-"before going to the start/end of the line"
-
-#: ../ctksourceview/ctksourceview.c:333
-msgid "Highlight current line"
-msgstr "Highlight current line"
-
-#: ../ctksourceview/ctksourceview.c:334
-msgid "Whether to highlight the current line"
-msgstr "Whether to highlight the current line"
-
-#: ../ctksourceview/ctksourceview.c:341
-msgid "Indent on tab"
-msgstr "Indent on tab"
-
-#: ../ctksourceview/ctksourceview.c:342
-msgid "Whether to indent the selected text when the tab key is pressed"
-msgstr "Whether to indent the selected text when the tab key is pressed"
-
-#: ../ctksourceview/ctksourceview.c:358
-msgid "Margin Line Alpha"
-msgstr "Margin Line Alpha"
-
-#: ../ctksourceview/ctksourceview.c:359
-msgid "Transparency of the margin line"
-msgstr "Transparency of the margin line"
-
-#: ../ctksourceview/ctksourceview.c:376
-msgid "Margin Line Color"
-msgstr "Margin Line Colour"
-
-#: ../ctksourceview/ctksourceview.c:377
-msgid "Color to use for the right margin line"
-msgstr "Colour to use for the right margin line"
-
-#: ../ctksourceview/ctksourceview.c:393
-msgid "Margin Overlay Toggle"
-msgstr "Margin Overlay Toggle"
-
-#: ../ctksourceview/ctksourceview.c:394
-msgid "Whether to draw the right margin overlay"
-msgstr "Whether to draw the right margin overlay"
-
-#: ../ctksourceview/ctksourceview.c:410
-msgid "Margin Overlay Alpha"
-msgstr "Margin Overlay Alpha"
-
-#: ../ctksourceview/ctksourceview.c:411
-msgid "Transparency of the margin overlay"
-msgstr "Transparency of the margin overlay"
-
-#: ../ctksourceview/ctksourceview.c:428
-msgid "Margin Overlay Color"
-msgstr "Margin Overlay Colour"
-
-#: ../ctksourceview/ctksourceview.c:429
-msgid "Color to use for drawing the margin overlay"
-msgstr "Colour to use for drawing the margin overlay"
-
-#: ../ctksourceview/ctksourceview-i18n.c:38
-msgid "translator-credits"
-msgstr "Adam Weinberger <adamw@gnome.org>"
-
-#: ../ctksourceview/language-specs/ada.lang.h:1
-msgid "Ada"
-msgstr "Ada"
-
-#: ../ctksourceview/language-specs/ada.lang.h:2
-msgid "Arbitrary base number"
-msgstr "Arbitrary base number"
-
-#. A boolean constant: TRUE, false
-#: ../ctksourceview/language-specs/ada.lang.h:3
-#: ../ctksourceview/language-specs/c.lang.h:1
-#: ../ctksourceview/language-specs/csharp.lang.h:1
-#: ../ctksourceview/language-specs/def.lang.h:4
-#: ../ctksourceview/language-specs/ctkrc.lang.h:1
-#: ../ctksourceview/language-specs/ini.lang.h:2
-#: ../ctksourceview/language-specs/java.lang.h:1
-#: ../ctksourceview/language-specs/javascript.lang.h:1
-#: ../ctksourceview/language-specs/lua.lang.h:1
-#: ../ctksourceview/language-specs/nemerle.lang.h:2
-#: ../ctksourceview/language-specs/ocaml.lang.h:2
-#: ../ctksourceview/language-specs/php.lang.h:1
-#: ../ctksourceview/language-specs/R.lang.h:2
-#: ../ctksourceview/language-specs/ruby.lang.h:3
-#: ../ctksourceview/language-specs/vbnet.lang.h:1
-#: ../ctksourceview/language-specs/vhdl.lang.h:2
-msgid "Boolean value"
-msgstr "Boolean value"
-
-#. Any comment
-#: ../ctksourceview/language-specs/ada.lang.h:4
-#: ../ctksourceview/language-specs/boo.lang.h:4
-#: ../ctksourceview/language-specs/c.lang.h:4
-#: ../ctksourceview/language-specs/csharp.lang.h:3
-#: ../ctksourceview/language-specs/css.lang.h:3
-#: ../ctksourceview/language-specs/def.lang.h:11
-#: ../ctksourceview/language-specs/d.lang.h:3
-#: ../ctksourceview/language-specs/erlang.lang.h:4
-#: ../ctksourceview/language-specs/fortran.lang.h:2
-#: ../ctksourceview/language-specs/ctkrc.lang.h:2
-#: ../ctksourceview/language-specs/haskell.lang.h:2
-#: ../ctksourceview/language-specs/html.lang.h:3
-#: ../ctksourceview/language-specs/idl.lang.h:1
-#: ../ctksourceview/language-specs/ini.lang.h:3
-#: ../ctksourceview/language-specs/java.lang.h:2
-#: ../ctksourceview/language-specs/javascript.lang.h:2
-#: ../ctksourceview/language-specs/latex.lang.h:2
-#: ../ctksourceview/language-specs/lua.lang.h:2
-#: ../ctksourceview/language-specs/nemerle.lang.h:4
-#: ../ctksourceview/language-specs/ocaml.lang.h:4
-#: ../ctksourceview/language-specs/ocl.lang.h:1
-#: ../ctksourceview/language-specs/octave.lang.h:3
-#: ../ctksourceview/language-specs/pascal.lang.h:1
-#: ../ctksourceview/language-specs/perl.lang.h:2
-#: ../ctksourceview/language-specs/php.lang.h:2
-#: ../ctksourceview/language-specs/po.lang.h:1
-#: ../ctksourceview/language-specs/ruby.lang.h:5
-#: ../ctksourceview/language-specs/scheme.lang.h:2
-#: ../ctksourceview/language-specs/sh.lang.h:1
-#: ../ctksourceview/language-specs/sql.lang.h:1
-#: ../ctksourceview/language-specs/texinfo.lang.h:1
-#: ../ctksourceview/language-specs/vbnet.lang.h:2
-#: ../ctksourceview/language-specs/verilog.lang.h:2
-#: ../ctksourceview/language-specs/vhdl.lang.h:4
-#: ../ctksourceview/language-specs/xml.lang.h:4
-msgid "Comment"
-msgstr "Comment"
-
-#. map-to="def:others"
-#: ../ctksourceview/language-specs/ada.lang.h:5
-#: ../ctksourceview/language-specs/boo.lang.h:5
-#: ../ctksourceview/language-specs/c.lang.h:6
-#: ../ctksourceview/language-specs/cpp.lang.h:3
-#: ../ctksourceview/language-specs/csharp.lang.h:4
-#: ../ctksourceview/language-specs/d.lang.h:5
-#: ../ctksourceview/language-specs/fortran.lang.h:3
-#: ../ctksourceview/language-specs/ctkrc.lang.h:3
-#: ../ctksourceview/language-specs/haskell.lang.h:3
-#: ../ctksourceview/language-specs/idl.lang.h:2
-#: ../ctksourceview/language-specs/ini.lang.h:4
-#: ../ctksourceview/language-specs/java.lang.h:3
-#: ../ctksourceview/language-specs/javascript.lang.h:5
-#: ../ctksourceview/language-specs/nemerle.lang.h:5
-#: ../ctksourceview/language-specs/objc.lang.h:2
-#: ../ctksourceview/language-specs/ocaml.lang.h:5
-#: ../ctksourceview/language-specs/ocl.lang.h:2
-#: ../ctksourceview/language-specs/pascal.lang.h:2
-#: ../ctksourceview/language-specs/php.lang.h:3
-#: ../ctksourceview/language-specs/sql.lang.h:2
-#: ../ctksourceview/language-specs/vbnet.lang.h:3
-msgid "Data Type"
-msgstr "Data Type"
-
-#. A decimal number: 1234
-#: ../ctksourceview/language-specs/ada.lang.h:6
-#: ../ctksourceview/language-specs/c.lang.h:7
-#: ../ctksourceview/language-specs/csharp.lang.h:5
-#: ../ctksourceview/language-specs/def.lang.h:19
-#: ../ctksourceview/language-specs/d.lang.h:6
-#: ../ctksourceview/language-specs/erlang.lang.h:6
-#: ../ctksourceview/language-specs/nemerle.lang.h:6
-#: ../ctksourceview/language-specs/ocaml.lang.h:6
-#: ../ctksourceview/language-specs/php.lang.h:4
-#: ../ctksourceview/language-specs/python.lang.h:7
-#: ../ctksourceview/language-specs/ruby.lang.h:7
-msgid "Decimal number"
-msgstr "Decimal number"
-
-#: ../ctksourceview/language-specs/ada.lang.h:7
-#: ../ctksourceview/language-specs/c.lang.h:9
-#: ../ctksourceview/language-specs/haskell.lang.h:5
-#: ../ctksourceview/language-specs/lua.lang.h:3
-#: ../ctksourceview/language-specs/ocaml.lang.h:8
-#: ../ctksourceview/language-specs/php.lang.h:6
-#: ../ctksourceview/language-specs/python.lang.h:8
-#: ../ctksourceview/language-specs/ruby.lang.h:8
-msgid "Escaped Character"
-msgstr "Escaped Character"
-
-#. keywords: "if", "for", "while", etc.
-#: ../ctksourceview/language-specs/ada.lang.h:8
-#: ../ctksourceview/language-specs/awk.lang.h:1
-#: ../ctksourceview/language-specs/boo.lang.h:7
-#: ../ctksourceview/language-specs/c.lang.h:13
-#: ../ctksourceview/language-specs/cpp.lang.h:4
-#: ../ctksourceview/language-specs/csharp.lang.h:8
-#: ../ctksourceview/language-specs/css.lang.h:8
-#: ../ctksourceview/language-specs/def.lang.h:36
-#: ../ctksourceview/language-specs/d.lang.h:10
-#: ../ctksourceview/language-specs/erlang.lang.h:9
-#: ../ctksourceview/language-specs/fortran.lang.h:7
-#: ../ctksourceview/language-specs/ctkrc.lang.h:7
-#: ../ctksourceview/language-specs/haskell.lang.h:9
-#: ../ctksourceview/language-specs/idl.lang.h:4
-#: ../ctksourceview/language-specs/ini.lang.h:7
-#: ../ctksourceview/language-specs/java.lang.h:9
-#: ../ctksourceview/language-specs/javascript.lang.h:10
-#: ../ctksourceview/language-specs/lua.lang.h:5
-#: ../ctksourceview/language-specs/nemerle.lang.h:10
-#: ../ctksourceview/language-specs/objc.lang.h:3
-#: ../ctksourceview/language-specs/ocaml.lang.h:10
-#: ../ctksourceview/language-specs/ocl.lang.h:3
-#: ../ctksourceview/language-specs/octave.lang.h:7
-#: ../ctksourceview/language-specs/pascal.lang.h:4
-#: ../ctksourceview/language-specs/perl.lang.h:9
-#: ../ctksourceview/language-specs/php.lang.h:11
-#: ../ctksourceview/language-specs/po.lang.h:2
-#: ../ctksourceview/language-specs/python.lang.h:11
-#: ../ctksourceview/language-specs/R.lang.h:6
-#: ../ctksourceview/language-specs/ruby.lang.h:12
-#: ../ctksourceview/language-specs/scheme.lang.h:4
-#: ../ctksourceview/language-specs/sql.lang.h:6
-#: ../ctksourceview/language-specs/tcl.lang.h:1
-#: ../ctksourceview/language-specs/texinfo.lang.h:5
-#: ../ctksourceview/language-specs/vbnet.lang.h:4
-#: ../ctksourceview/language-specs/verilog.lang.h:6
-#: ../ctksourceview/language-specs/vhdl.lang.h:5
-msgid "Keyword"
-msgstr "Keyword"
-
-#: ../ctksourceview/language-specs/ada.lang.h:9
-#: ../ctksourceview/language-specs/c.lang.h:15
-#: ../ctksourceview/language-specs/csharp.lang.h:10
-#: ../ctksourceview/language-specs/haskell.lang.h:11
-#: ../ctksourceview/language-specs/idl.lang.h:5
-#: ../ctksourceview/language-specs/nemerle.lang.h:14
-#: ../ctksourceview/language-specs/pascal.lang.h:6
-#: ../ctksourceview/language-specs/vbnet.lang.h:5
-msgid "Preprocessor"
-msgstr "Preprocessor"
-
-#: ../ctksourceview/language-specs/ada.lang.h:10
-#: ../ctksourceview/language-specs/csharp.lang.h:11
-#: ../ctksourceview/language-specs/vhdl.lang.h:7
-msgid "Real number"
-msgstr "Real number"
-
-#: ../ctksourceview/language-specs/ada.lang.h:11
-#: ../ctksourceview/language-specs/boo.lang.h:13
-#: ../ctksourceview/language-specs/c.lang.h:16
-#: ../ctksourceview/language-specs/chdr.lang.h:2
-#: ../ctksourceview/language-specs/cpp.lang.h:5
-#: ../ctksourceview/language-specs/csharp.lang.h:12
-#: ../ctksourceview/language-specs/d.lang.h:13
-#: ../ctksourceview/language-specs/erlang.lang.h:11
-#: ../ctksourceview/language-specs/fortran.lang.h:8
-#: ../ctksourceview/language-specs/haskell-literate.lang.h:2
-#: ../ctksourceview/language-specs/haskell.lang.h:12
-#: ../ctksourceview/language-specs/idl.lang.h:6
-#: ../ctksourceview/language-specs/java.lang.h:13
-#: ../ctksourceview/language-specs/makefile.lang.h:2
-#: ../ctksourceview/language-specs/nemerle.lang.h:15
-#: ../ctksourceview/language-specs/objc.lang.h:5
-#: ../ctksourceview/language-specs/ocaml.lang.h:16
-#: ../ctksourceview/language-specs/pascal.lang.h:7
-#: ../ctksourceview/language-specs/scheme.lang.h:6
-#: ../ctksourceview/language-specs/sql.lang.h:9
-#: ../ctksourceview/language-specs/vbnet.lang.h:6
-#: ../ctksourceview/language-specs/verilog.lang.h:7
-#: ../ctksourceview/language-specs/vhdl.lang.h:8
-msgid "Sources"
-msgstr "Sources"
-
-#: ../ctksourceview/language-specs/ada.lang.h:12
-#: ../ctksourceview/language-specs/c.lang.h:17
-#: ../ctksourceview/language-specs/java.lang.h:14
-msgid "Storage Class"
-msgstr "Storage Class"
-
-#. A string constant: "this is a string"
-#: ../ctksourceview/language-specs/ada.lang.h:13
-#: ../ctksourceview/language-specs/boo.lang.h:15
-#: ../ctksourceview/language-specs/c.lang.h:18
-#: ../ctksourceview/language-specs/csharp.lang.h:13
-#: ../ctksourceview/language-specs/css.lang.h:13
-#: ../ctksourceview/language-specs/def.lang.h:57
-#: ../ctksourceview/language-specs/d.lang.h:15
-#: ../ctksourceview/language-specs/erlang.lang.h:12
-#: ../ctksourceview/language-specs/ctkrc.lang.h:9
-#: ../ctksourceview/language-specs/haskell.lang.h:13
-#: ../ctksourceview/language-specs/idl.lang.h:7
-#: ../ctksourceview/language-specs/ini.lang.h:9
-#: ../ctksourceview/language-specs/java.lang.h:15
-#: ../ctksourceview/language-specs/javascript.lang.h:15
-#: ../ctksourceview/language-specs/lua.lang.h:10
-#: ../ctksourceview/language-specs/nemerle.lang.h:16
-#: ../ctksourceview/language-specs/objc.lang.h:6
-#: ../ctksourceview/language-specs/ocaml.lang.h:17
-#: ../ctksourceview/language-specs/ocl.lang.h:7
-#: ../ctksourceview/language-specs/octave.lang.h:11
-#: ../ctksourceview/language-specs/pascal.lang.h:8
-#: ../ctksourceview/language-specs/perl.lang.h:18
-#: ../ctksourceview/language-specs/php.lang.h:18
-#: ../ctksourceview/language-specs/po.lang.h:5
-#: ../ctksourceview/language-specs/python.lang.h:17
-#: ../ctksourceview/language-specs/ruby.lang.h:21
-#: ../ctksourceview/language-specs/scheme.lang.h:7
-#: ../ctksourceview/language-specs/sql.lang.h:10
-#: ../ctksourceview/language-specs/texinfo.lang.h:9
-#: ../ctksourceview/language-specs/vbnet.lang.h:8
-#: ../ctksourceview/language-specs/vhdl.lang.h:9
-msgid "String"
-msgstr "String"
-
-#: ../ctksourceview/language-specs/awk.lang.h:2
-msgid "Pattern"
-msgstr "Pattern"
-
-#: ../ctksourceview/language-specs/awk.lang.h:3
-#: ../ctksourceview/language-specs/javascript.lang.h:14
-#: ../ctksourceview/language-specs/lua.lang.h:9
-#: ../ctksourceview/language-specs/m4.lang.h:1
-#: ../ctksourceview/language-specs/perl.lang.h:17
-#: ../ctksourceview/language-specs/php.lang.h:17
-#: ../ctksourceview/language-specs/python.lang.h:15
-#: ../ctksourceview/language-specs/R.lang.h:9
-#: ../ctksourceview/language-specs/ruby.lang.h:19
-#: ../ctksourceview/language-specs/sh.lang.h:2
-#: ../ctksourceview/language-specs/tcl.lang.h:2
-msgid "Scripts"
-msgstr "Scripts"
-
-#: ../ctksourceview/language-specs/awk.lang.h:4
-#: ../ctksourceview/language-specs/haskell.lang.h:15
-#: ../ctksourceview/language-specs/ini.lang.h:10
-#: ../ctksourceview/language-specs/perl.lang.h:20
-#: ../ctksourceview/language-specs/php.lang.h:19
-#: ../ctksourceview/language-specs/pkgconfig.lang.h:3
-#: ../ctksourceview/language-specs/ruby.lang.h:23
-#: ../ctksourceview/language-specs/tcl.lang.h:4
-msgid "Variable"
-msgstr "Variable"
-
-#: ../ctksourceview/language-specs/awk.lang.h:5
-msgid "awk"
-msgstr "AWK"
-
-#: ../ctksourceview/language-specs/boo.lang.h:1
-msgid "Boo"
-msgstr "Boo"
-
-#: ../ctksourceview/language-specs/boo.lang.h:2
-#: ../ctksourceview/language-specs/desktop.lang.h:2
-#: ../ctksourceview/language-specs/d.lang.h:2
-#: ../ctksourceview/language-specs/libtool.lang.h:1
-#: ../ctksourceview/language-specs/octave.lang.h:2
-#: ../ctksourceview/language-specs/python.lang.h:2
-#: ../ctksourceview/language-specs/scheme.lang.h:1
-msgid "Boolean"
-msgstr "Boolean"
-
-#: ../ctksourceview/language-specs/boo.lang.h:3
-#: ../ctksourceview/language-specs/perl.lang.h:1
-#: ../ctksourceview/language-specs/python.lang.h:4
-msgid "Builtin Function"
-msgstr "Built-in Function"
-
-#: ../ctksourceview/language-specs/boo.lang.h:6
-msgid "Definition"
-msgstr "Definition"
-
-#: ../ctksourceview/language-specs/boo.lang.h:8
-#: ../ctksourceview/language-specs/python.lang.h:13
-msgid "Multiline string"
-msgstr "Multiline string"
-
-#: ../ctksourceview/language-specs/boo.lang.h:9
-#: ../ctksourceview/language-specs/xml.lang.h:10
-msgid "Namespace"
-msgstr "Namespace"
-
-#: ../ctksourceview/language-specs/boo.lang.h:10
-#: ../ctksourceview/language-specs/csharp.lang.h:9
-#: ../ctksourceview/language-specs/d.lang.h:11
-#: ../ctksourceview/language-specs/java.lang.h:10
-#: ../ctksourceview/language-specs/javascript.lang.h:11
-#: ../ctksourceview/language-specs/nemerle.lang.h:12
-#: ../ctksourceview/language-specs/php.lang.h:12
-msgid "Null Value"
-msgstr "Null Value"
-
-#. A generic number constant
-#: ../ctksourceview/language-specs/boo.lang.h:11
-#: ../ctksourceview/language-specs/def.lang.h:40
-#: ../ctksourceview/language-specs/desktop.lang.h:10
-#: ../ctksourceview/language-specs/java.lang.h:11
-#: ../ctksourceview/language-specs/vhdl.lang.h:6
-msgid "Number"
-msgstr "Number"
-
-#: ../ctksourceview/language-specs/boo.lang.h:12
-#: ../ctksourceview/language-specs/perl.lang.h:16
-#: ../ctksourceview/language-specs/ruby.lang.h:17
-msgid "Regular Expression"
-msgstr "Regular Expression"
-
-#: ../ctksourceview/language-specs/boo.lang.h:14
-#: ../ctksourceview/language-specs/python.lang.h:16
-#: ../ctksourceview/language-specs/ruby.lang.h:20
-msgid "Special Variable"
-msgstr "Special Variable"
-
-#: ../ctksourceview/language-specs/changelog.lang.h:1
-msgid "ChangeLog"
-msgstr "ChangeLog"
-
-#: ../ctksourceview/language-specs/c.lang.h:2
-msgid "C"
-msgstr "C"
-
-#. A character constant: 'c'
-#: ../ctksourceview/language-specs/c.lang.h:3
-#: ../ctksourceview/language-specs/def.lang.h:9
-#: ../ctksourceview/language-specs/haskell.lang.h:1
-#: ../ctksourceview/language-specs/nemerle.lang.h:3
-#: ../ctksourceview/language-specs/vhdl.lang.h:3
-msgid "Character"
-msgstr "Character"
-
-#: ../ctksourceview/language-specs/c.lang.h:5
-#: ../ctksourceview/language-specs/cpp.lang.h:2
-#: ../ctksourceview/language-specs/objc.lang.h:1
-msgid "Common Defines"
-msgstr "Common Defines"
-
-#. Any erroneous construct
-#: ../ctksourceview/language-specs/c.lang.h:8
-#: ../ctksourceview/language-specs/csharp.lang.h:6
-#: ../ctksourceview/language-specs/css.lang.h:6
-#: ../ctksourceview/language-specs/def.lang.h:28
-#: ../ctksourceview/language-specs/d.lang.h:7
-#: ../ctksourceview/language-specs/html.lang.h:5
-#: ../ctksourceview/language-specs/java.lang.h:5
-#: ../ctksourceview/language-specs/javascript.lang.h:6
-#: ../ctksourceview/language-specs/nemerle.lang.h:7
-#: ../ctksourceview/language-specs/ocaml.lang.h:7
-#: ../ctksourceview/language-specs/perl.lang.h:4
-#: ../ctksourceview/language-specs/php.lang.h:5
-#: ../ctksourceview/language-specs/verilog.lang.h:4
-#: ../ctksourceview/language-specs/xml.lang.h:8
-msgid "Error"
-msgstr "Error"
-
-#. A floating point constant: 2.3e10
-#: ../ctksourceview/language-specs/c.lang.h:10
-#: ../ctksourceview/language-specs/def.lang.h:30
-#: ../ctksourceview/language-specs/d.lang.h:8
-#: ../ctksourceview/language-specs/erlang.lang.h:8
-#: ../ctksourceview/language-specs/nemerle.lang.h:8
-#: ../ctksourceview/language-specs/php.lang.h:7
-#: ../ctksourceview/language-specs/python.lang.h:9
-#: ../ctksourceview/language-specs/R.lang.h:4
-#: ../ctksourceview/language-specs/ruby.lang.h:9
-msgid "Floating point number"
-msgstr "Floating point number"
-
-#: ../ctksourceview/language-specs/c.lang.h:11
-#: ../ctksourceview/language-specs/csharp.lang.h:7
-#: ../ctksourceview/language-specs/d.lang.h:9
-#: ../ctksourceview/language-specs/nemerle.lang.h:9
-#: ../ctksourceview/language-specs/php.lang.h:10
-msgid "Hexadecimal number"
-msgstr "Hexadecimal number"
-
-#: ../ctksourceview/language-specs/c.lang.h:12
-msgid "Included File"
-msgstr "Included File"
-
-#: ../ctksourceview/language-specs/c.lang.h:14
-#: ../ctksourceview/language-specs/d.lang.h:12
-#: ../ctksourceview/language-specs/nemerle.lang.h:13
-#: ../ctksourceview/language-specs/php.lang.h:13
-msgid "Octal number"
-msgstr "Octal number"
-
-#: ../ctksourceview/language-specs/c.lang.h:19
-msgid "printf Conversion"
-msgstr "printf Conversion"
-
-#: ../ctksourceview/language-specs/chdr.lang.h:1
-msgid "C/C++/ObjC Header"
-msgstr "C/C++/ObjC Header"
-
-#: ../ctksourceview/language-specs/cpp.lang.h:1
-msgid "C++"
-msgstr "C++"
-
-#: ../ctksourceview/language-specs/csharp.lang.h:2
-msgid "C#"
-msgstr "C#"
-
-#: ../ctksourceview/language-specs/css.lang.h:1
-msgid "CSS"
-msgstr "CSS"
-
-#: ../ctksourceview/language-specs/css.lang.h:2
-msgid "Color"
-msgstr "Colour"
-
-#: ../ctksourceview/language-specs/css.lang.h:4
-#: ../ctksourceview/language-specs/fortran.lang.h:4
-#: ../ctksourceview/language-specs/ctkrc.lang.h:4
-#: ../ctksourceview/language-specs/haskell.lang.h:4
-#: ../ctksourceview/language-specs/ini.lang.h:5
-#: ../ctksourceview/language-specs/octave.lang.h:4
-#: ../ctksourceview/language-specs/pascal.lang.h:3
-#: ../ctksourceview/language-specs/sql.lang.h:3
-msgid "Decimal"
-msgstr "Decimal"
-
-#: ../ctksourceview/language-specs/css.lang.h:5
-msgid "Dimension"
-msgstr "Dimension"
-
-#. A function name (also: methods for classes)
-#: ../ctksourceview/language-specs/css.lang.h:7
-#: ../ctksourceview/language-specs/def.lang.h:32
-#: ../ctksourceview/language-specs/gtk-doc.lang.h:2
-#: ../ctksourceview/language-specs/javascript.lang.h:7
-#: ../ctksourceview/language-specs/lua.lang.h:4
-#: ../ctksourceview/language-specs/octave.lang.h:6
-#: ../ctksourceview/language-specs/scheme.lang.h:3
-#: ../ctksourceview/language-specs/sql.lang.h:5
-msgid "Function"
-msgstr "Function"
-
-#: ../ctksourceview/language-specs/css.lang.h:9
-msgid "Known Property Value"
-msgstr "Known Property Value"
-
-#: ../ctksourceview/language-specs/css.lang.h:11
-msgid "Others 2"
-msgstr "Others 2"
-
-#: ../ctksourceview/language-specs/css.lang.h:12
-msgid "Others 3"
-msgstr "Others 3"
-
-#: ../ctksourceview/language-specs/css.lang.h:14
-msgid "at-rules"
-msgstr "at-rules"
-
-#. A base-N number: 0xFFFF
-#: ../ctksourceview/language-specs/def.lang.h:2
-#: ../ctksourceview/language-specs/python.lang.h:1
-#: ../ctksourceview/language-specs/ruby.lang.h:2
-msgid "Base-N number"
-msgstr "Base-N number"
-
-#. A builtin name: like __import__, abs in Python
-#. (see http://docs.python.org/lib/built-in-funcs.html)
-#: ../ctksourceview/language-specs/def.lang.h:7
-msgid "Built-in identifier"
-msgstr "Built-in identifier"
-
-#. A complex number
-#: ../ctksourceview/language-specs/def.lang.h:13
-#: ../ctksourceview/language-specs/python.lang.h:6
-msgid "Complex number"
-msgstr "Complex number"
-
-#. Any constant
-#: ../ctksourceview/language-specs/def.lang.h:15
-#: ../ctksourceview/language-specs/gtk-doc.lang.h:1
-#: ../ctksourceview/language-specs/ruby.lang.h:6
-msgid "Constant"
-msgstr "Constant"
-
-#. A primitive data type: int, long, char, etc.
-#: ../ctksourceview/language-specs/def.lang.h:17
-msgid "Data type"
-msgstr "Data type"
-
-#: ../ctksourceview/language-specs/def.lang.h:20
-msgid "Defaults"
-msgstr "Defaults"
-
-#. A special comment containing documentation like in javadoc or
-#. gtk-doc
-#: ../ctksourceview/language-specs/def.lang.h:23
-msgid "Documentation comment"
-msgstr "Documentation comment"
-
-#. This style doesn't map to anything since it must be used as an additional
-#. style for text which is already styled as a "doc-comment"
-#: ../ctksourceview/language-specs/def.lang.h:26
-msgid "Documentation comment element"
-msgstr "Documentation comment element"
-
-#. Any variable name
-#: ../ctksourceview/language-specs/def.lang.h:34
-msgid "Identifier"
-msgstr "Identifier"
-
-#. Anything that needs extra attention; mostly the keywords TODO, FIXME and XXX
-#: ../ctksourceview/language-specs/def.lang.h:38
-msgid "Note (FIXME, TODO, XXX, etc.)"
-msgstr "Note (FIXME, TODO, XXX, etc.)"
-
-#. Operators: "+", "*", etc.
-#: ../ctksourceview/language-specs/def.lang.h:42
-#: ../ctksourceview/language-specs/erlang.lang.h:10
-#: ../ctksourceview/language-specs/perl.lang.h:11
-#: ../ctksourceview/language-specs/php.lang.h:14
-msgid "Operator"
-msgstr "Operator"
-
-#. This one is for '#include <foo.h>' and "#pragma blah", or 'use foobar', etc..
-#: ../ctksourceview/language-specs/def.lang.h:44
-msgid "Preprocessor directive"
-msgstr "Preprocessor directive"
-
-#. Reserved keywords: like "const" and "goto" in Java
-#: ../ctksourceview/language-specs/def.lang.h:46
-msgid "Reserved keyword"
-msgstr "Reserved keyword"
-
-#. A shebang: #!/bin/sh
-#: ../ctksourceview/language-specs/def.lang.h:48
-#: ../ctksourceview/language-specs/sh.lang.h:3
-msgid "Shebang"
-msgstr "Shebang"
-
-#. This style doesn't map to anything since it must be used as an additional
-#. style for text which is already styled as a "string"
-#: ../ctksourceview/language-specs/def.lang.h:51
-msgid "Special character (inside a string)"
-msgstr "Special character (inside a string)"
-
-#. A special constant like NULL in C or null in Java
-#: ../ctksourceview/language-specs/def.lang.h:53
-#: ../ctksourceview/language-specs/vbnet.lang.h:7
-msgid "Special constant"
-msgstr "Special constant"
-
-#. Any statement
-#: ../ctksourceview/language-specs/def.lang.h:55
-msgid "Statement"
-msgstr "Statement"
-
-#. Text that stands out, HTML links, e-mail addresses, etc.
-#: ../ctksourceview/language-specs/def.lang.h:59
-msgid "Underlined"
-msgstr "Underlined"
-
-#: ../ctksourceview/language-specs/desktop.lang.h:1
-msgid ".desktop"
-msgstr ".desktop"
-
-#: ../ctksourceview/language-specs/desktop.lang.h:3
-msgid "Category"
-msgstr "Category"
-
-#: ../ctksourceview/language-specs/desktop.lang.h:4
-msgid "Encoding"
-msgstr "Encoding"
-
-#: ../ctksourceview/language-specs/desktop.lang.h:5
-msgid "Exec parameter"
-msgstr "Exec parameter"
-
-#: ../ctksourceview/language-specs/desktop.lang.h:6
-msgid "Group"
-msgstr "Group"
-
-#. Translators: "Key" here means key value, that is the left hand
-#. side in a myoption=something line in a .desktop file
-#: ../ctksourceview/language-specs/desktop.lang.h:9
-msgid "Key"
-msgstr "Key"
-
-#: ../ctksourceview/language-specs/desktop.lang.h:12
-msgid "Translation"
-msgstr "Translation"
-
-#: ../ctksourceview/language-specs/diff.lang.h:1
-msgid "Added line"
-msgstr "Added line"
-
-#. Others 3
-#: ../ctksourceview/language-specs/diff.lang.h:3
-msgid "Changed line"
-msgstr "Changed line"
-
-#: ../ctksourceview/language-specs/diff.lang.h:4
-msgid "Diff"
-msgstr "Diff"
-
-#. Keyword
-#: ../ctksourceview/language-specs/diff.lang.h:6
-msgid "Ignore"
-msgstr "Ignore"
-
-#. String
-#: ../ctksourceview/language-specs/diff.lang.h:8
-#: ../ctksourceview/language-specs/po.lang.h:3
-msgid "Location"
-msgstr "Location"
-
-#. Others 2
-#: ../ctksourceview/language-specs/diff.lang.h:11
-msgid "Removed line"
-msgstr "Removed line"
-
-#. Preprocessor
-#: ../ctksourceview/language-specs/diff.lang.h:13
-msgid "Special case"
-msgstr "Special case"
-
-#: ../ctksourceview/language-specs/d.lang.h:1
-#: ../ctksourceview/language-specs/nemerle.lang.h:1
-msgid "Binary number"
-msgstr "Binary number"
-
-#: ../ctksourceview/language-specs/d.lang.h:4
-msgid "D"
-msgstr "D"
-
-#: ../ctksourceview/language-specs/d.lang.h:14
-msgid "Special Token"
-msgstr "Special Token"
-
-#: ../ctksourceview/language-specs/docbook.lang.h:1
-msgid "Docbook"
-msgstr "Docbook"
-
-#: ../ctksourceview/language-specs/docbook.lang.h:2
-msgid "Formatting Elements"
-msgstr "Formatting Elements"
-
-#: ../ctksourceview/language-specs/docbook.lang.h:3
-msgid "GUI Elements"
-msgstr "GUI Elements"
-
-#: ../ctksourceview/language-specs/docbook.lang.h:4
-msgid "Header Elements"
-msgstr "Header Elements"
-
-#: ../ctksourceview/language-specs/docbook.lang.h:5
-#: ../ctksourceview/language-specs/dtd.lang.h:2
-#: ../ctksourceview/language-specs/gtk-doc.lang.h:5
-#: ../ctksourceview/language-specs/haddock.lang.h:14
-#: ../ctksourceview/language-specs/html.lang.h:7
-#: ../ctksourceview/language-specs/latex.lang.h:6
-#: ../ctksourceview/language-specs/texinfo.lang.h:7
-#: ../ctksourceview/language-specs/xml.lang.h:9
-msgid "Markup"
-msgstr "Markup"
-
-#: ../ctksourceview/language-specs/docbook.lang.h:6
-msgid "Structural Elements"
-msgstr "Structural Elements"
-
-#: ../ctksourceview/language-specs/dpatch.lang.h:1
-msgid "DPatch"
-msgstr "DPatch"
-
-#: ../ctksourceview/language-specs/dpatch.lang.h:3
-msgid "patch-start"
-msgstr "patch-start"
-
-#: ../ctksourceview/language-specs/dtd.lang.h:1
-#: ../ctksourceview/language-specs/html.lang.h:4
-msgid "DTD"
-msgstr "DTD"
-
-#: ../ctksourceview/language-specs/erlang.lang.h:1
-msgid "Atom"
-msgstr "Atom"
-
-#: ../ctksourceview/language-specs/erlang.lang.h:2
-#: ../ctksourceview/language-specs/fortran.lang.h:1
-#: ../ctksourceview/language-specs/ocaml.lang.h:1
-#: ../ctksourceview/language-specs/octave.lang.h:1
-#: ../ctksourceview/language-specs/verilog.lang.h:1
-#: ../ctksourceview/language-specs/vhdl.lang.h:1
-msgid "Base-N Integer"
-msgstr "Base-N Integer"
-
-#: ../ctksourceview/language-specs/erlang.lang.h:3
-#: ../ctksourceview/language-specs/ruby.lang.h:4
-msgid "Builtin"
-msgstr "Built-in"
-
-#: ../ctksourceview/language-specs/erlang.lang.h:5
-#: ../ctksourceview/language-specs/verilog.lang.h:3
-msgid "Compiler Directive"
-msgstr "Compiler Directive"
-
-#: ../ctksourceview/language-specs/erlang.lang.h:7
-msgid "Erlang"
-msgstr "Erlang"
-
-#: ../ctksourceview/language-specs/fortran.lang.h:5
-#: ../ctksourceview/language-specs/ini.lang.h:6
-#: ../ctksourceview/language-specs/octave.lang.h:5
-#: ../ctksourceview/language-specs/sql.lang.h:4
-msgid "Floating Point"
-msgstr "Floating Point"
-
-#: ../ctksourceview/language-specs/fortran.lang.h:6
-msgid "Fortran 95"
-msgstr "Fortran 95"
-
-#: ../ctksourceview/language-specs/gap.lang.h:1
-msgid "GAP"
-msgstr "GAP"
-
-#: ../ctksourceview/language-specs/gap.lang.h:2
-#: ../ctksourceview/language-specs/octave.lang.h:10
-msgid "Scientific"
-msgstr "Scientific"
-
-#: ../ctksourceview/language-specs/gtk-doc.lang.h:3
-msgid "Function Name"
-msgstr "Function Name"
-
-#: ../ctksourceview/language-specs/gtk-doc.lang.h:4
-msgid "Inline Documentation Section"
-msgstr "Inline Documentation Section"
-
-#: ../ctksourceview/language-specs/gtk-doc.lang.h:6
-msgid "Parameter"
-msgstr "Parameter"
-
-#: ../ctksourceview/language-specs/gtk-doc.lang.h:7
-msgid "Property Name"
-msgstr "Property Name"
-
-#: ../ctksourceview/language-specs/gtk-doc.lang.h:8
-msgid "Return"
-msgstr "Return"
-
-#: ../ctksourceview/language-specs/gtk-doc.lang.h:9
-msgid "Signal Name"
-msgstr "Signal Name"
-
-#: ../ctksourceview/language-specs/gtk-doc.lang.h:10
-msgid "Since"
-msgstr "Since"
-
-#: ../ctksourceview/language-specs/gtk-doc.lang.h:11
-#: ../ctksourceview/language-specs/verilog.lang.h:8
-#: ../ctksourceview/language-specs/vhdl.lang.h:10
-msgid "Type"
-msgstr "Type"
-
-#: ../ctksourceview/language-specs/gtk-doc.lang.h:12
-msgid "gtk-doc"
-msgstr "gtk-doc"
-
-#: ../ctksourceview/language-specs/ctkrc.lang.h:5
-msgid "CtkRC"
-msgstr "CtkRC"
-
-#: ../ctksourceview/language-specs/ctkrc.lang.h:6
-msgid "Include directive"
-msgstr "Include directive"
-
-#: ../ctksourceview/language-specs/ctkrc.lang.h:10
-msgid "Widget State"
-msgstr "Widget State"
-
-#: ../ctksourceview/language-specs/haddock.lang.h:1
-msgid "Anchor"
-msgstr "Anchor"
-
-#: ../ctksourceview/language-specs/haddock.lang.h:2
-msgid "Code Block"
-msgstr "Code Block"
-
-#: ../ctksourceview/language-specs/haddock.lang.h:3
-msgid "Definition list"
-msgstr "Definition list"
-
-#: ../ctksourceview/language-specs/haddock.lang.h:4
-msgid "Emphasis"
-msgstr "Emphasis"
-
-#: ../ctksourceview/language-specs/haddock.lang.h:5
-msgid "Enumerated list"
-msgstr "Enumerated list"
-
-#: ../ctksourceview/language-specs/haddock.lang.h:6
-msgid "Escape"
-msgstr "Escape"
-
-#: ../ctksourceview/language-specs/haddock.lang.h:7
-msgid "Haddock"
-msgstr "Haddock"
-
-#: ../ctksourceview/language-specs/haddock.lang.h:8
-msgid "Haddock Directive"
-msgstr "Haddock Directive"
-
-#: ../ctksourceview/language-specs/haddock.lang.h:9
-msgid "Header Property"
-msgstr "Header Property"
-
-#: ../ctksourceview/language-specs/haddock.lang.h:10
-msgid "Hyperlinked Identifier"
-msgstr "Hyperlinked Identifier"
-
-#: ../ctksourceview/language-specs/haddock.lang.h:11
-msgid "Hyperlinked Module Name"
-msgstr "Hyperlinked Module Name"
-
-#: ../ctksourceview/language-specs/haddock.lang.h:12
-msgid "Inline Haddock Section"
-msgstr "Inline Haddock Section"
-
-#: ../ctksourceview/language-specs/haddock.lang.h:13
-msgid "Itemized list"
-msgstr "Itemized list"
-
-#: ../ctksourceview/language-specs/haddock.lang.h:15
-msgid "Monospace"
-msgstr "Monospace"
-
-#: ../ctksourceview/language-specs/haddock.lang.h:16
-msgid "URL"
-msgstr "URL"
-
-#: ../ctksourceview/language-specs/haskell-literate.lang.h:1
-msgid "Literate Haskell"
-msgstr "Literate Haskell"
-
-#: ../ctksourceview/language-specs/haskell.lang.h:6
-msgid "Float"
-msgstr "Float"
-
-#: ../ctksourceview/language-specs/haskell.lang.h:7
-msgid "Haskell"
-msgstr "Haskell"
-
-#: ../ctksourceview/language-specs/haskell.lang.h:8
-msgid "Hex"
-msgstr "Hex"
-
-#: ../ctksourceview/language-specs/haskell.lang.h:10
-msgid "Octal"
-msgstr "Octal"
-
-#: ../ctksourceview/language-specs/haskell.lang.h:14
-#: ../ctksourceview/language-specs/ruby.lang.h:22
-msgid "Symbol"
-msgstr "Symbol"
-
-#: ../ctksourceview/language-specs/html.lang.h:1
-msgid "Attribute Name"
-msgstr "Attribute Name"
-
-#: ../ctksourceview/language-specs/html.lang.h:2
-msgid "Attribute Value"
-msgstr "Attribute Value"
-
-#: ../ctksourceview/language-specs/html.lang.h:6
-msgid "HTML"
-msgstr "HTML"
-
-#: ../ctksourceview/language-specs/html.lang.h:8
-#: ../ctksourceview/language-specs/xml.lang.h:12
-msgid "Tag"
-msgstr "Tag"
-
-#: ../ctksourceview/language-specs/idl.lang.h:3
-msgid "IDL"
-msgstr "IDL"
-
-#: ../ctksourceview/language-specs/ini.lang.h:1
-msgid ".ini"
-msgstr ".ini"
-
-#: ../ctksourceview/language-specs/java.lang.h:4
-msgid "Declaration"
-msgstr "Declaration"
-
-#: ../ctksourceview/language-specs/java.lang.h:6
-msgid "External"
-msgstr "External"
-
-#: ../ctksourceview/language-specs/java.lang.h:7
-#: ../ctksourceview/language-specs/javascript.lang.h:8
-msgid "Future Reserved Keywords"
-msgstr "Future Reserved Keywords"
-
-#: ../ctksourceview/language-specs/java.lang.h:8
-msgid "Java"
-msgstr "Java"
-
-#: ../ctksourceview/language-specs/java.lang.h:12
-msgid "Scope Declaration"
-msgstr "Scope Declaration"
-
-#: ../ctksourceview/language-specs/javascript.lang.h:3
-msgid "Constructors"
-msgstr "Constructors"
-
-#: ../ctksourceview/language-specs/javascript.lang.h:9
-msgid "Javascript"
-msgstr "Javascript"
-
-#: ../ctksourceview/language-specs/javascript.lang.h:12
-msgid "Object"
-msgstr "Object"
-
-#: ../ctksourceview/language-specs/javascript.lang.h:13
-msgid "Properties"
-msgstr "Properties"
-
-#: ../ctksourceview/language-specs/latex.lang.h:1
-msgid "Command"
-msgstr "Command"
-
-#: ../ctksourceview/language-specs/latex.lang.h:3
-#: ../ctksourceview/language-specs/texinfo.lang.h:4
-msgid "Include"
-msgstr "Include"
-
-#: ../ctksourceview/language-specs/latex.lang.h:4
-msgid "Inline Math Mode"
-msgstr "Inline Math Mode"
-
-#: ../ctksourceview/language-specs/latex.lang.h:5
-msgid "LaTeX"
-msgstr "LaTeX"
-
-#: ../ctksourceview/language-specs/latex.lang.h:7
-msgid "Math Mode"
-msgstr "Math Mode"
-
-#: ../ctksourceview/language-specs/latex.lang.h:8
-msgid "Verbatim"
-msgstr "Verbatim"
-
-#: ../ctksourceview/language-specs/latex.lang.h:9
-msgid "math-bound"
-msgstr "math-bound"
-
-#: ../ctksourceview/language-specs/libtool.lang.h:3
-msgid "libtool"
-msgstr "libtool"
-
-#: ../ctksourceview/language-specs/lua.lang.h:6
-msgid "Lua"
-msgstr "Lua"
-
-#: ../ctksourceview/language-specs/lua.lang.h:7
-#: ../ctksourceview/language-specs/ruby.lang.h:14
-msgid "Nil Constant"
-msgstr "Nil Constant"
-
-#: ../ctksourceview/language-specs/lua.lang.h:8
-msgid "Reserved Identifier"
-msgstr "Reserved Identifier"
-
-#: ../ctksourceview/language-specs/m4.lang.h:2
-msgid "m4"
-msgstr "m4"
-
-#: ../ctksourceview/language-specs/makefile.lang.h:1
-msgid "Makefile"
-msgstr "Makefile"
-
-#: ../ctksourceview/language-specs/msil.lang.h:1
-msgid "MSIL"
-msgstr "MSIL"
-
-#: ../ctksourceview/language-specs/nemerle.lang.h:11
-msgid "Nemerle"
-msgstr "Nemerle"
-
-#: ../ctksourceview/language-specs/objc.lang.h:4
-msgid "Objective-C"
-msgstr "Objective-C"
-
-#: ../ctksourceview/language-specs/ocaml.lang.h:3
-msgid "Builtin-function keyword"
-msgstr "Builtin-function keyword"
-
-#: ../ctksourceview/language-specs/ocaml.lang.h:9
-msgid "Floating Point number"
-msgstr "Floating Point number"
-
-#: ../ctksourceview/language-specs/ocaml.lang.h:11
-msgid "Labeled argument"
-msgstr "Labelled argument"
-
-#: ../ctksourceview/language-specs/ocaml.lang.h:12
-msgid "Module Path"
-msgstr "Module Path"
-
-#: ../ctksourceview/language-specs/ocaml.lang.h:13
-msgid "Objective Caml"
-msgstr "Objective Caml"
-
-#: ../ctksourceview/language-specs/ocaml.lang.h:14
-msgid "Ocamldoc Comments"
-msgstr "Ocamldoc Comments"
-
-#: ../ctksourceview/language-specs/ocaml.lang.h:15
-msgid "Polymorphic Variant"
-msgstr "Polymorphic Variant"
-
-#: ../ctksourceview/language-specs/ocaml.lang.h:18
-msgid "Type Variable"
-msgstr "Type Variable"
-
-#: ../ctksourceview/language-specs/ocaml.lang.h:19
-msgid "Type, module or object keyword"
-msgstr "Type, module or object keyword"
-
-#: ../ctksourceview/language-specs/ocaml.lang.h:20
-msgid "Variant Constructor"
-msgstr "Variant Constructor"
-
-#: ../ctksourceview/language-specs/ocl.lang.h:4
-msgid "OCL"
-msgstr "OCL"
-
-#: ../ctksourceview/language-specs/ocl.lang.h:5
-msgid "Operation operator"
-msgstr "Operation operator"
-
-#: ../ctksourceview/language-specs/ocl.lang.h:8
-msgid "Type Operators"
-msgstr "Type Operators"
-
-#: ../ctksourceview/language-specs/octave.lang.h:8
-msgid "Octave"
-msgstr "Octave"
-
-#: ../ctksourceview/language-specs/octave.lang.h:9
-msgid "Reserved Constant"
-msgstr "Reserved Constant"
-
-#: ../ctksourceview/language-specs/pascal.lang.h:5
-msgid "Pascal"
-msgstr "Pascal"
-
-#: ../ctksourceview/language-specs/perl.lang.h:3
-msgid "Control"
-msgstr "Control"
-
-#: ../ctksourceview/language-specs/perl.lang.h:5
-msgid "File Descriptor"
-msgstr "File Descriptor"
-
-#: ../ctksourceview/language-specs/perl.lang.h:6
-#: ../ctksourceview/language-specs/php.lang.h:8
-#: ../ctksourceview/language-specs/ruby.lang.h:10
-msgid "Heredoc"
-msgstr "Heredoc"
-
-#: ../ctksourceview/language-specs/perl.lang.h:7
-#: ../ctksourceview/language-specs/php.lang.h:9
-#: ../ctksourceview/language-specs/ruby.lang.h:11
-msgid "Heredoc Bound"
-msgstr "Heredoc Bound"
-
-#: ../ctksourceview/language-specs/perl.lang.h:8
-msgid "Include Statement"
-msgstr "Include Statement"
-
-#: ../ctksourceview/language-specs/perl.lang.h:10
-msgid "Line Directive"
-msgstr "Line Directive"
-
-#: ../ctksourceview/language-specs/perl.lang.h:12
-msgid "POD Escape"
-msgstr "POD Escape"
-
-#: ../ctksourceview/language-specs/perl.lang.h:13
-msgid "POD heading"
-msgstr "POD heading"
-
-#: ../ctksourceview/language-specs/perl.lang.h:14
-msgid "POD keyword"
-msgstr "POD keyword"
-
-#: ../ctksourceview/language-specs/perl.lang.h:15
-msgid "Perl"
-msgstr "Perl"
-
-#: ../ctksourceview/language-specs/perl.lang.h:19
-msgid "System Command"
-msgstr "System Command"
-
-#: ../ctksourceview/language-specs/php.lang.h:16
-msgid "PHP"
-msgstr "PHP"
-
-#: ../ctksourceview/language-specs/pkgconfig.lang.h:2
-msgid "Package Info"
-msgstr "Package Info"
-
-#: ../ctksourceview/language-specs/pkgconfig.lang.h:4
-msgid "pkg-config"
-msgstr "pkg-config"
-
-#: ../ctksourceview/language-specs/po.lang.h:6
-msgid "gettext translation"
-msgstr "gettext translation"
-
-#: ../ctksourceview/language-specs/python.lang.h:3
-msgid "Builtin Constant"
-msgstr "Built-in Constant"
-
-#: ../ctksourceview/language-specs/python.lang.h:5
-msgid "Builtin Object"
-msgstr "Built-in Object"
-
-#: ../ctksourceview/language-specs/python.lang.h:10
-msgid "Format"
-msgstr "Format"
-
-#: ../ctksourceview/language-specs/python.lang.h:12
-msgid "Module Handler"
-msgstr "Module Handler"
-
-#: ../ctksourceview/language-specs/python.lang.h:14
-msgid "Python"
-msgstr "Python"
-
-#: ../ctksourceview/language-specs/python.lang.h:18
-msgid "string-conversion"
-msgstr "string-conversion"
-
-#: ../ctksourceview/language-specs/R.lang.h:1
-msgid "Assignment Operator"
-msgstr "Assignment Operator"
-
-#: ../ctksourceview/language-specs/R.lang.h:3
-msgid "Delimiter"
-msgstr "Delimiter"
-
-#: ../ctksourceview/language-specs/R.lang.h:5
-msgid "Integer Number"
-msgstr "Integer Number"
-
-#: ../ctksourceview/language-specs/R.lang.h:7
-msgid "R"
-msgstr "R"
-
-#: ../ctksourceview/language-specs/R.lang.h:8
-msgid "Reserved Class"
-msgstr "Reserved Class"
-
-#: ../ctksourceview/language-specs/R.lang.h:10
-msgid "Special Constant"
-msgstr "Special Constant"
-
-#: ../ctksourceview/language-specs/rpmspec.lang.h:1
-msgid "Command Macro"
-msgstr "Command Macro"
-
-#: ../ctksourceview/language-specs/rpmspec.lang.h:2
-msgid "Conditional Macro"
-msgstr "Conditional Macro"
-
-#: ../ctksourceview/language-specs/rpmspec.lang.h:3
-msgid "Date"
-msgstr "Date"
-
-#: ../ctksourceview/language-specs/rpmspec.lang.h:4
-msgid "Define"
-msgstr "Define"
-
-#: ../ctksourceview/language-specs/rpmspec.lang.h:5
-msgid "Directory Macro"
-msgstr "Directory Macro"
-
-#: ../ctksourceview/language-specs/rpmspec.lang.h:6
-msgid "Email"
-msgstr "Email"
-
-#: ../ctksourceview/language-specs/rpmspec.lang.h:7
-msgid "Flow Conditional"
-msgstr "Flow Conditional"
-
-#: ../ctksourceview/language-specs/rpmspec.lang.h:8
-msgid "Header"
-msgstr "Header"
-
-#: ../ctksourceview/language-specs/rpmspec.lang.h:9
-msgid "Other Macro"
-msgstr "Other Macro"
-
-#: ../ctksourceview/language-specs/rpmspec.lang.h:11
-msgid "RPM Variable"
-msgstr "RPM Variable"
-
-#: ../ctksourceview/language-specs/rpmspec.lang.h:12
-msgid "RPM spec"
-msgstr "RPM spec"
-
-#: ../ctksourceview/language-specs/rpmspec.lang.h:13
-msgid "Section"
-msgstr "Section"
-
-#: ../ctksourceview/language-specs/rpmspec.lang.h:14
-msgid "Spec Macro"
-msgstr "Spec Macro"
-
-#: ../ctksourceview/language-specs/rpmspec.lang.h:15
-msgid "Switch"
-msgstr "Switch"
-
-#: ../ctksourceview/language-specs/ruby.lang.h:1
-msgid "Attribute Definition"
-msgstr "Attribute Definition"
-
-#: ../ctksourceview/language-specs/ruby.lang.h:13
-msgid "Module handler"
-msgstr "Module handler"
-
-#: ../ctksourceview/language-specs/ruby.lang.h:15
-msgid "Numeric literal"
-msgstr "Numeric literal"
-
-#: ../ctksourceview/language-specs/ruby.lang.h:16
-msgid "Predefined Variable"
-msgstr "Predefined Variable"
-
-#: ../ctksourceview/language-specs/ruby.lang.h:18
-msgid "Ruby"
-msgstr "Ruby"
-
-#: ../ctksourceview/language-specs/scheme.lang.h:5
-msgid "Scheme"
-msgstr "Scheme"
-
-#: ../ctksourceview/language-specs/sh.lang.h:4
-msgid "sh"
-msgstr "sh"
-
-#: ../ctksourceview/language-specs/sql.lang.h:7
-msgid "No idea what it is"
-msgstr "No idea what it is"
-
-#: ../ctksourceview/language-specs/sql.lang.h:8
-msgid "SQL"
-msgstr "SQL"
-
-#: ../ctksourceview/language-specs/tcl.lang.h:3
-msgid "Tcl"
-msgstr "TCL"
-
-#: ../ctksourceview/language-specs/texinfo.lang.h:2
-msgid "File Attributes"
-msgstr "File Attributes"
-
-#: ../ctksourceview/language-specs/texinfo.lang.h:3
-msgid "Generated Content"
-msgstr "Generated Content"
-
-#: ../ctksourceview/language-specs/texinfo.lang.h:6
-msgid "Macros"
-msgstr "Macros"
-
-#: ../ctksourceview/language-specs/texinfo.lang.h:10
-msgid "Texinfo"
-msgstr "Texinfo"
-
-#: ../ctksourceview/language-specs/vbnet.lang.h:9
-msgid "VB.NET"
-msgstr "VB.NET"
-
-#: ../ctksourceview/language-specs/verilog.lang.h:5
-msgid "Gate"
-msgstr "Gate"
-
-#: ../ctksourceview/language-specs/verilog.lang.h:9
-msgid "Verilog"
-msgstr "Verilog"
-
-#: ../ctksourceview/language-specs/vhdl.lang.h:11
-msgid "VHDL"
-msgstr "VHDL"
-
-#: ../ctksourceview/language-specs/xml.lang.h:1
-msgid "Attribute name"
-msgstr "Attribute name"
-
-#: ../ctksourceview/language-specs/xml.lang.h:2
-msgid "Attribute value"
-msgstr "Attribute value"
-
-#: ../ctksourceview/language-specs/xml.lang.h:3
-msgid "CDATA delimiter"
-msgstr "CDATA delimiter"
-
-#: ../ctksourceview/language-specs/xml.lang.h:5
-msgid "DOCTYPE"
-msgstr "DOCTYPE"
-
-#: ../ctksourceview/language-specs/xml.lang.h:6
-msgid "Element name"
-msgstr "Element name"
-
-#: ../ctksourceview/language-specs/xml.lang.h:7
-msgid "Entity"
-msgstr "Entity"
-
-#: ../ctksourceview/language-specs/xml.lang.h:11
-msgid "Processing instruction"
-msgstr "Processing instruction"
-
-#: ../ctksourceview/language-specs/xml.lang.h:13
-msgid "XML"
-msgstr "XML"
-
-#: ../ctksourceview/language-specs/yacc.lang.h:1
-msgid "Inline C Code"
-msgstr "Inline C Code"
-
-#: ../ctksourceview/language-specs/yacc.lang.h:3
-msgid "Yacc"
-msgstr "Yacc"
-
-#: ../ctksourceview/language-specs/yacc.lang.h:4
-msgid "grammar"
-msgstr "grammar"
-
-#: ../ctksourceview/language-specs/yacc.lang.h:5
-msgid "keyword"
-msgstr "keyword"
-
-#: ../ctksourceview/language-specs/classic.xml.h:1
-msgid "Classic"
-msgstr "Classic"
-
-#: ../ctksourceview/language-specs/classic.xml.h:2
-msgid "Classic color scheme"
-msgstr "Classic colour scheme"
-
-#: ../ctksourceview/language-specs/kate.xml.h:1
-msgid "Color scheme used in the Kate text editor"
-msgstr "Colour scheme used in the Kate text editor"
-
-#: ../ctksourceview/language-specs/kate.xml.h:2
-msgid "Kate"
-msgstr "Kate"
-
-#: ../ctksourceview/language-specs/oblivion.xml.h:1
-msgid "Dark color scheme using the Tango color palette"
-msgstr "Dark colour scheme using the Tango colour palette"
-
-#: ../ctksourceview/language-specs/oblivion.xml.h:2
-msgid "Oblivion"
-msgstr "Oblivion"
-
-#: ../ctksourceview/language-specs/tango.xml.h:1
-msgid "Color scheme using Tango color palette"
-msgstr "Colour scheme using Tango colour palette"
-
-#: ../ctksourceview/language-specs/tango.xml.h:2
-msgid "Tango"
-msgstr "Tango"
+
+#: ctksourceview/ctksourcelanguage-parser-2.c:1179
+#, c-format
+msgid "in regex “%s”: backreferences are not supported"
+msgstr ""
+
+#: ctksourceview/ctksourceregex.c:128
+msgid "using \\C is not supported in language definitions"
+msgstr "using \\C is not supported in language definitions"
+
+#. TODO: have a ChooserDialog?
+#: ctksourceview/ctksourcestyleschemechooserbutton.c:185
+msgid "Select a Style"
+msgstr ""
+
+#: ctksourceview/ctksourcestyleschemechooserbutton.c:189
+msgid "_Cancel"
+msgstr ""
+
+#: ctksourceview/ctksourcestyleschemechooserbutton.c:190
+msgid "_Select"
+msgstr ""
+
+#. create redo menu_item.
+#: ctksourceview/ctksourceview.c:1810
+msgid "_Redo"
+msgstr ""
+
+#. create undo menu_item.
+#: ctksourceview/ctksourceview.c:1821
+msgid "_Undo"
+msgstr ""
+
+#: ctksourceview/ctksourceview.c:1840
+msgid "All _Upper Case"
+msgstr ""
+
+#: ctksourceview/ctksourceview.c:1850
+msgid "All _Lower Case"
+msgstr ""
+
+#: ctksourceview/ctksourceview.c:1860
+msgid "_Invert Case"
+msgstr ""
+
+#: ctksourceview/ctksourceview.c:1870
+msgid "_Title Case"
+msgstr ""
+
+#: ctksourceview/ctksourceview.c:1880
+msgid "C_hange Case"
+msgstr ""
+
+#~ msgid "Highlight Syntax"
+#~ msgstr "Highlight Syntax"
+
+#~ msgid "Whether to highlight syntax in the buffer"
+#~ msgstr "Whether to highlight syntax in the buffer"
+
+#~ msgid "Highlight Matching Brackets"
+#~ msgstr "Highlight Matching Brackets"
+
+#~ msgid "Whether to highlight matching brackets"
+#~ msgstr "Whether to highlight matching brackets"
+
+#~ msgid "Maximum Undo Levels"
+#~ msgstr "Maximum Undo Levels"
+
+#~ msgid "Number of undo levels for the buffer"
+#~ msgstr "Number of undo levels for the buffer"
+
+#~ msgid "Language"
+#~ msgstr "Language"
+
+#~ msgid "Language object to get highlighting patterns from"
+#~ msgstr "Language object to get highlighting patterns from"
+
+#~ msgid "Can undo"
+#~ msgstr "Can undo"
+
+#~ msgid "Whether Undo operation is possible"
+#~ msgstr "Whether Undo operation is possible"
+
+#~ msgid "Can redo"
+#~ msgstr "Can redo"
+
+#~ msgid "Whether Redo operation is possible"
+#~ msgstr "Whether Redo operation is possible"
+
+#~ msgid "Style scheme"
+#~ msgstr "Style scheme"
+
+#, c-format
+#~ msgid "context '%s' cannot contain a \\%%{...@start} command"
+#~ msgstr "context '%s' cannot contain a \\%%{...@start} command"
+
+#, c-format
+#~ msgid "duplicated context id '%s'"
+#~ msgstr "duplicated context ID '%s'"
+
+#, c-format
+#~ msgid ""
+#~ "style override used with wildcard context reference in language '%s' in "
+#~ "ref '%s'"
+#~ msgstr ""
+#~ "style override used with wildcard context reference in language '%s' in "
+#~ "ref '%s'"
+
+#, c-format
+#~ msgid "invalid reference '%s'"
+#~ msgstr "invalid reference '%s'"
+
+#, c-format
+#~ msgid "unknown context '%s'"
+#~ msgstr "unknown context '%s'"
+
+#~ msgid "Language id"
+#~ msgstr "Language ID"
+
+#~ msgid "Language name"
+#~ msgstr "Language name"
+
+#~ msgid "Language section"
+#~ msgstr "Language section"
+
+#~ msgid "Hidden"
+#~ msgstr "Hidden"
+
+#~ msgid "Whether the language should be hidden from the user"
+#~ msgstr "Whether the language should be hidden from the user"
+
+#~ msgid "Language specification directories"
+#~ msgstr "Language specification directories"
+
+#~ msgid ""
+#~ "List of directories where the language specification files (.lang) are "
+#~ "located"
+#~ msgstr ""
+#~ "List of directories where the language specification files (.lang) are "
+#~ "located"
+
+#, c-format
+#~ msgid "Unknown id '%s' in regex '%s'"
+#~ msgstr "Unknown ID '%s' in regex '%s'"
+
+#, c-format
+#~ msgid "in regex '%s': backreferences are not supported"
+#~ msgstr "in regex '%s': backreferences are not supported"
+
+#~ msgid "Line background"
+#~ msgstr "Line background"
+
+#~ msgid "Line background color"
+#~ msgstr "Line background colour"
+
+#~ msgid "Background"
+#~ msgstr "Background"
+
+#~ msgid "Background color"
+#~ msgstr "Background colour"
+
+#~ msgid "Foreground"
+#~ msgstr "Foreground"
+
+#~ msgid "Foreground color"
+#~ msgstr "Foreground colour"
+
+#~ msgid "Bold"
+#~ msgstr "Bold"
+
+#~ msgid "Italic"
+#~ msgstr "Italic"
+
+#~ msgid "Underline"
+#~ msgstr "Underline"
+
+#~ msgid "Strikethrough"
+#~ msgstr "Strikethrough"
+
+#~ msgid "Line background set"
+#~ msgstr "Line background set"
+
+#~ msgid "Whether line background color is set"
+#~ msgstr "Whether line background colour is set"
+
+#~ msgid "Foreground set"
+#~ msgstr "Foreground set"
+
+#~ msgid "Whether foreground color is set"
+#~ msgstr "Whether foreground colour is set"
+
+#~ msgid "Background set"
+#~ msgstr "Background set"
+
+#~ msgid "Whether background color is set"
+#~ msgstr "Whether background colour is set"
+
+#~ msgid "Bold set"
+#~ msgstr "Bold set"
+
+#~ msgid "Whether bold attribute is set"
+#~ msgstr "Whether bold attribute is set"
+
+#~ msgid "Italic set"
+#~ msgstr "Italic set"
+
+#~ msgid "Whether italic attribute is set"
+#~ msgstr "Whether italic attribute is set"
+
+#~ msgid "Underline set"
+#~ msgstr "Underline set"
+
+#~ msgid "Whether underline attribute is set"
+#~ msgstr "Whether underline attribute is set"
+
+#~ msgid "Strikethrough set"
+#~ msgstr "Strikethrough set"
+
+#~ msgid "Whether strikethrough attribute is set"
+#~ msgstr "Whether strikethrough attribute is set"
+
+#~ msgid "Style scheme search path"
+#~ msgstr "Style scheme search path"
+
+#~ msgid "List of directories and files where the style schemes are located"
+#~ msgstr "List of directories and files where the style schemes are located"
+
+#~ msgid "Scheme ids"
+#~ msgstr "Scheme IDs"
+
+#~ msgid "List of the ids of the available style schemes"
+#~ msgstr "List of the IDs of the available style schemes"
+
+#~ msgid "Style scheme id"
+#~ msgstr "Style scheme ID"
+
+#~ msgid "Style scheme name"
+#~ msgstr "Style scheme name"
+
+#~ msgid "Style scheme description"
+#~ msgstr "Style scheme description"
+
+#~ msgid "Style scheme filename"
+#~ msgstr "Style scheme filename"
+
+#~ msgid "Show Line Numbers"
+#~ msgstr "Show Line Numbers"
+
+#~ msgid "Whether to display line numbers"
+#~ msgstr "Whether to display line numbers"
+
+#~ msgid "Show Line Markers"
+#~ msgstr "Show Line Markers"
+
+#~ msgid "Whether to display line marker pixbufs"
+#~ msgstr "Whether to display line marker pixbufs"
+
+#~ msgid "Tab Width"
+#~ msgstr "Tab Width"
+
+#~ msgid "Width of a tab character expressed in spaces"
+#~ msgstr "Width of a tab character expressed in spaces"
+
+#~ msgid "Indent Width"
+#~ msgstr "Indent Width"
+
+#~ msgid "Number of spaces to use for each step of indent"
+#~ msgstr "Number of spaces to use for each step of indent"
+
+#~ msgid "Auto Indentation"
+#~ msgstr "Auto Indentation"
+
+#~ msgid "Whether to enable auto indentation"
+#~ msgstr "Whether to enable auto indentation"
+
+#~ msgid "Insert Spaces Instead of Tabs"
+#~ msgstr "Insert Spaces Instead of Tabs"
+
+#~ msgid "Whether to insert spaces instead of tabs"
+#~ msgstr "Whether to insert spaces instead of tabs"
+
+#~ msgid "Show Right Margin"
+#~ msgstr "Show Right Margin"
+
+#~ msgid "Whether to display the right margin"
+#~ msgstr "Whether to display the right margin"
+
+#~ msgid "Margin position"
+#~ msgstr "Margin position"
+
+#~ msgid "Position of the right margin"
+#~ msgstr "Position of the right margin"
+
+#~ msgid "Smart Home/End"
+#~ msgstr "Smart Home/End"
+
+#~ msgid ""
+#~ "HOME and END keys move to first/last non whitespace characters on line "
+#~ "before going to the start/end of the line"
+#~ msgstr ""
+#~ "HOME and END keys move to first/last non-whitespace character on the line "
+#~ "before going to the start/end of the line"
+
+#~ msgid "Highlight current line"
+#~ msgstr "Highlight current line"
+
+#~ msgid "Whether to highlight the current line"
+#~ msgstr "Whether to highlight the current line"
+
+#~ msgid "Indent on tab"
+#~ msgstr "Indent on tab"
+
+#~ msgid "Whether to indent the selected text when the tab key is pressed"
+#~ msgstr "Whether to indent the selected text when the tab key is pressed"
+
+#~ msgid "Margin Line Alpha"
+#~ msgstr "Margin Line Alpha"
+
+#~ msgid "Transparency of the margin line"
+#~ msgstr "Transparency of the margin line"
+
+#~ msgid "Margin Line Color"
+#~ msgstr "Margin Line Colour"
+
+#~ msgid "Color to use for the right margin line"
+#~ msgstr "Colour to use for the right margin line"
+
+#~ msgid "Margin Overlay Toggle"
+#~ msgstr "Margin Overlay Toggle"
+
+#~ msgid "Whether to draw the right margin overlay"
+#~ msgstr "Whether to draw the right margin overlay"
+
+#~ msgid "Margin Overlay Alpha"
+#~ msgstr "Margin Overlay Alpha"
+
+#~ msgid "Transparency of the margin overlay"
+#~ msgstr "Transparency of the margin overlay"
+
+#~ msgid "Margin Overlay Color"
+#~ msgstr "Margin Overlay Colour"
+
+#~ msgid "Color to use for drawing the margin overlay"
+#~ msgstr "Colour to use for drawing the margin overlay"
+
+#~ msgid "translator-credits"
+#~ msgstr "Adam Weinberger <adamw@gnome.org>"
+
+#~ msgid "Ada"
+#~ msgstr "Ada"
+
+#~ msgid "Arbitrary base number"
+#~ msgstr "Arbitrary base number"
+
+#~ msgid "Boolean value"
+#~ msgstr "Boolean value"
+
+#~ msgid "Comment"
+#~ msgstr "Comment"
+
+#~ msgid "Data Type"
+#~ msgstr "Data Type"
+
+#~ msgid "Decimal number"
+#~ msgstr "Decimal number"
+
+#~ msgid "Escaped Character"
+#~ msgstr "Escaped Character"
+
+#~ msgid "Keyword"
+#~ msgstr "Keyword"
+
+#~ msgid "Preprocessor"
+#~ msgstr "Preprocessor"
+
+#~ msgid "Real number"
+#~ msgstr "Real number"
+
+#~ msgid "Sources"
+#~ msgstr "Sources"
+
+#~ msgid "Storage Class"
+#~ msgstr "Storage Class"
+
+#~ msgid "String"
+#~ msgstr "String"
+
+#~ msgid "Pattern"
+#~ msgstr "Pattern"
+
+#~ msgid "Scripts"
+#~ msgstr "Scripts"
+
+#~ msgid "Variable"
+#~ msgstr "Variable"
+
+#~ msgid "awk"
+#~ msgstr "AWK"
+
+#~ msgid "Boo"
+#~ msgstr "Boo"
+
+#~ msgid "Boolean"
+#~ msgstr "Boolean"
+
+#~ msgid "Builtin Function"
+#~ msgstr "Built-in Function"
+
+#~ msgid "Definition"
+#~ msgstr "Definition"
+
+#~ msgid "Multiline string"
+#~ msgstr "Multiline string"
+
+#~ msgid "Namespace"
+#~ msgstr "Namespace"
+
+#~ msgid "Null Value"
+#~ msgstr "Null Value"
+
+#~ msgid "Number"
+#~ msgstr "Number"
+
+#~ msgid "Regular Expression"
+#~ msgstr "Regular Expression"
+
+#~ msgid "Special Variable"
+#~ msgstr "Special Variable"
+
+#~ msgid "ChangeLog"
+#~ msgstr "ChangeLog"
+
+#~ msgid "C"
+#~ msgstr "C"
+
+#~ msgid "Character"
+#~ msgstr "Character"
+
+#~ msgid "Common Defines"
+#~ msgstr "Common Defines"
+
+#~ msgid "Error"
+#~ msgstr "Error"
+
+#~ msgid "Floating point number"
+#~ msgstr "Floating point number"
+
+#~ msgid "Hexadecimal number"
+#~ msgstr "Hexadecimal number"
+
+#~ msgid "Included File"
+#~ msgstr "Included File"
+
+#~ msgid "Octal number"
+#~ msgstr "Octal number"
+
+#~ msgid "printf Conversion"
+#~ msgstr "printf Conversion"
+
+#~ msgid "C/C++/ObjC Header"
+#~ msgstr "C/C++/ObjC Header"
+
+#~ msgid "C++"
+#~ msgstr "C++"
+
+#~ msgid "C#"
+#~ msgstr "C#"
+
+#~ msgid "CSS"
+#~ msgstr "CSS"
+
+#~ msgid "Color"
+#~ msgstr "Colour"
+
+#~ msgid "Decimal"
+#~ msgstr "Decimal"
+
+#~ msgid "Dimension"
+#~ msgstr "Dimension"
+
+#~ msgid "Function"
+#~ msgstr "Function"
+
+#~ msgid "Known Property Value"
+#~ msgstr "Known Property Value"
+
+#~ msgid "Others 2"
+#~ msgstr "Others 2"
+
+#~ msgid "Others 3"
+#~ msgstr "Others 3"
+
+#~ msgid "at-rules"
+#~ msgstr "at-rules"
+
+#~ msgid "Base-N number"
+#~ msgstr "Base-N number"
+
+#~ msgid "Built-in identifier"
+#~ msgstr "Built-in identifier"
+
+#~ msgid "Complex number"
+#~ msgstr "Complex number"
+
+#~ msgid "Constant"
+#~ msgstr "Constant"
+
+#~ msgid "Data type"
+#~ msgstr "Data type"
+
+#~ msgid "Defaults"
+#~ msgstr "Defaults"
+
+#~ msgid "Documentation comment"
+#~ msgstr "Documentation comment"
+
+#~ msgid "Documentation comment element"
+#~ msgstr "Documentation comment element"
+
+#~ msgid "Identifier"
+#~ msgstr "Identifier"
+
+#~ msgid "Note (FIXME, TODO, XXX, etc.)"
+#~ msgstr "Note (FIXME, TODO, XXX, etc.)"
+
+#~ msgid "Operator"
+#~ msgstr "Operator"
+
+#~ msgid "Preprocessor directive"
+#~ msgstr "Preprocessor directive"
+
+#~ msgid "Reserved keyword"
+#~ msgstr "Reserved keyword"
+
+#~ msgid "Shebang"
+#~ msgstr "Shebang"
+
+#~ msgid "Special character (inside a string)"
+#~ msgstr "Special character (inside a string)"
+
+#~ msgid "Special constant"
+#~ msgstr "Special constant"
+
+#~ msgid "Statement"
+#~ msgstr "Statement"
+
+#~ msgid "Underlined"
+#~ msgstr "Underlined"
+
+#~ msgid ".desktop"
+#~ msgstr ".desktop"
+
+#~ msgid "Category"
+#~ msgstr "Category"
+
+#~ msgid "Encoding"
+#~ msgstr "Encoding"
+
+#~ msgid "Exec parameter"
+#~ msgstr "Exec parameter"
+
+#~ msgid "Group"
+#~ msgstr "Group"
+
+#~ msgid "Key"
+#~ msgstr "Key"
+
+#~ msgid "Translation"
+#~ msgstr "Translation"
+
+#~ msgid "Added line"
+#~ msgstr "Added line"
+
+#~ msgid "Changed line"
+#~ msgstr "Changed line"
+
+#~ msgid "Diff"
+#~ msgstr "Diff"
+
+#~ msgid "Ignore"
+#~ msgstr "Ignore"
+
+#~ msgid "Location"
+#~ msgstr "Location"
+
+#~ msgid "Removed line"
+#~ msgstr "Removed line"
+
+#~ msgid "Special case"
+#~ msgstr "Special case"
+
+#~ msgid "Binary number"
+#~ msgstr "Binary number"
+
+#~ msgid "D"
+#~ msgstr "D"
+
+#~ msgid "Special Token"
+#~ msgstr "Special Token"
+
+#~ msgid "Docbook"
+#~ msgstr "Docbook"
+
+#~ msgid "Formatting Elements"
+#~ msgstr "Formatting Elements"
+
+#~ msgid "GUI Elements"
+#~ msgstr "GUI Elements"
+
+#~ msgid "Header Elements"
+#~ msgstr "Header Elements"
+
+#~ msgid "Structural Elements"
+#~ msgstr "Structural Elements"
+
+#~ msgid "DPatch"
+#~ msgstr "DPatch"
+
+#~ msgid "patch-start"
+#~ msgstr "patch-start"
+
+#~ msgid "DTD"
+#~ msgstr "DTD"
+
+#~ msgid "Atom"
+#~ msgstr "Atom"
+
+#~ msgid "Base-N Integer"
+#~ msgstr "Base-N Integer"
+
+#~ msgid "Builtin"
+#~ msgstr "Built-in"
+
+#~ msgid "Compiler Directive"
+#~ msgstr "Compiler Directive"
+
+#~ msgid "Erlang"
+#~ msgstr "Erlang"
+
+#~ msgid "Floating Point"
+#~ msgstr "Floating Point"
+
+#~ msgid "Fortran 95"
+#~ msgstr "Fortran 95"
+
+#~ msgid "GAP"
+#~ msgstr "GAP"
+
+#~ msgid "Function Name"
+#~ msgstr "Function Name"
+
+#~ msgid "Inline Documentation Section"
+#~ msgstr "Inline Documentation Section"
+
+#~ msgid "Parameter"
+#~ msgstr "Parameter"
+
+#~ msgid "Property Name"
+#~ msgstr "Property Name"
+
+#~ msgid "Return"
+#~ msgstr "Return"
+
+#~ msgid "Signal Name"
+#~ msgstr "Signal Name"
+
+#~ msgid "Since"
+#~ msgstr "Since"
+
+#~ msgid "Type"
+#~ msgstr "Type"
+
+#~ msgid "gtk-doc"
+#~ msgstr "gtk-doc"
+
+#~ msgid "CtkRC"
+#~ msgstr "CtkRC"
+
+#~ msgid "Include directive"
+#~ msgstr "Include directive"
+
+#~ msgid "Widget State"
+#~ msgstr "Widget State"
+
+#~ msgid "Anchor"
+#~ msgstr "Anchor"
+
+#~ msgid "Code Block"
+#~ msgstr "Code Block"
+
+#~ msgid "Definition list"
+#~ msgstr "Definition list"
+
+#~ msgid "Emphasis"
+#~ msgstr "Emphasis"
+
+#~ msgid "Enumerated list"
+#~ msgstr "Enumerated list"
+
+#~ msgid "Escape"
+#~ msgstr "Escape"
+
+#~ msgid "Haddock"
+#~ msgstr "Haddock"
+
+#~ msgid "Haddock Directive"
+#~ msgstr "Haddock Directive"
+
+#~ msgid "Header Property"
+#~ msgstr "Header Property"
+
+#~ msgid "Hyperlinked Identifier"
+#~ msgstr "Hyperlinked Identifier"
+
+#~ msgid "Hyperlinked Module Name"
+#~ msgstr "Hyperlinked Module Name"
+
+#~ msgid "Inline Haddock Section"
+#~ msgstr "Inline Haddock Section"
+
+#~ msgid "Itemized list"
+#~ msgstr "Itemized list"
+
+#~ msgid "Monospace"
+#~ msgstr "Monospace"
+
+#~ msgid "URL"
+#~ msgstr "URL"
+
+#~ msgid "Literate Haskell"
+#~ msgstr "Literate Haskell"
+
+#~ msgid "Float"
+#~ msgstr "Float"
+
+#~ msgid "Haskell"
+#~ msgstr "Haskell"
+
+#~ msgid "Hex"
+#~ msgstr "Hex"
+
+#~ msgid "Octal"
+#~ msgstr "Octal"
+
+#~ msgid "Symbol"
+#~ msgstr "Symbol"
+
+#~ msgid "Attribute Name"
+#~ msgstr "Attribute Name"
+
+#~ msgid "Attribute Value"
+#~ msgstr "Attribute Value"
+
+#~ msgid "HTML"
+#~ msgstr "HTML"
+
+#~ msgid "Tag"
+#~ msgstr "Tag"
+
+#~ msgid "IDL"
+#~ msgstr "IDL"
+
+#~ msgid ".ini"
+#~ msgstr ".ini"
+
+#~ msgid "Declaration"
+#~ msgstr "Declaration"
+
+#~ msgid "External"
+#~ msgstr "External"
+
+#~ msgid "Future Reserved Keywords"
+#~ msgstr "Future Reserved Keywords"
+
+#~ msgid "Java"
+#~ msgstr "Java"
+
+#~ msgid "Scope Declaration"
+#~ msgstr "Scope Declaration"
+
+#~ msgid "Constructors"
+#~ msgstr "Constructors"
+
+#~ msgid "Javascript"
+#~ msgstr "Javascript"
+
+#~ msgid "Object"
+#~ msgstr "Object"
+
+#~ msgid "Properties"
+#~ msgstr "Properties"
+
+#~ msgid "Command"
+#~ msgstr "Command"
+
+#~ msgid "Include"
+#~ msgstr "Include"
+
+#~ msgid "Inline Math Mode"
+#~ msgstr "Inline Math Mode"
+
+#~ msgid "LaTeX"
+#~ msgstr "LaTeX"
+
+#~ msgid "Math Mode"
+#~ msgstr "Math Mode"
+
+#~ msgid "Verbatim"
+#~ msgstr "Verbatim"
+
+#~ msgid "math-bound"
+#~ msgstr "math-bound"
+
+#~ msgid "libtool"
+#~ msgstr "libtool"
+
+#~ msgid "Lua"
+#~ msgstr "Lua"
+
+#~ msgid "Nil Constant"
+#~ msgstr "Nil Constant"
+
+#~ msgid "Reserved Identifier"
+#~ msgstr "Reserved Identifier"
+
+#~ msgid "m4"
+#~ msgstr "m4"
+
+#~ msgid "Makefile"
+#~ msgstr "Makefile"
+
+#~ msgid "MSIL"
+#~ msgstr "MSIL"
+
+#~ msgid "Nemerle"
+#~ msgstr "Nemerle"
+
+#~ msgid "Objective-C"
+#~ msgstr "Objective-C"
+
+#~ msgid "Builtin-function keyword"
+#~ msgstr "Builtin-function keyword"
+
+#~ msgid "Floating Point number"
+#~ msgstr "Floating Point number"
+
+#~ msgid "Labeled argument"
+#~ msgstr "Labelled argument"
+
+#~ msgid "Module Path"
+#~ msgstr "Module Path"
+
+#~ msgid "Objective Caml"
+#~ msgstr "Objective Caml"
+
+#~ msgid "Ocamldoc Comments"
+#~ msgstr "Ocamldoc Comments"
+
+#~ msgid "Polymorphic Variant"
+#~ msgstr "Polymorphic Variant"
+
+#~ msgid "Type Variable"
+#~ msgstr "Type Variable"
+
+#~ msgid "Type, module or object keyword"
+#~ msgstr "Type, module or object keyword"
+
+#~ msgid "Variant Constructor"
+#~ msgstr "Variant Constructor"
+
+#~ msgid "OCL"
+#~ msgstr "OCL"
+
+#~ msgid "Operation operator"
+#~ msgstr "Operation operator"
+
+#~ msgid "Type Operators"
+#~ msgstr "Type Operators"
+
+#~ msgid "Octave"
+#~ msgstr "Octave"
+
+#~ msgid "Reserved Constant"
+#~ msgstr "Reserved Constant"
+
+#~ msgid "Pascal"
+#~ msgstr "Pascal"
+
+#~ msgid "Control"
+#~ msgstr "Control"
+
+#~ msgid "File Descriptor"
+#~ msgstr "File Descriptor"
+
+#~ msgid "Heredoc"
+#~ msgstr "Heredoc"
+
+#~ msgid "Heredoc Bound"
+#~ msgstr "Heredoc Bound"
+
+#~ msgid "Include Statement"
+#~ msgstr "Include Statement"
+
+#~ msgid "Line Directive"
+#~ msgstr "Line Directive"
+
+#~ msgid "POD Escape"
+#~ msgstr "POD Escape"
+
+#~ msgid "POD heading"
+#~ msgstr "POD heading"
+
+#~ msgid "POD keyword"
+#~ msgstr "POD keyword"
+
+#~ msgid "Perl"
+#~ msgstr "Perl"
+
+#~ msgid "System Command"
+#~ msgstr "System Command"
+
+#~ msgid "PHP"
+#~ msgstr "PHP"
+
+#~ msgid "Package Info"
+#~ msgstr "Package Info"
+
+#~ msgid "pkg-config"
+#~ msgstr "pkg-config"
+
+#~ msgid "Builtin Constant"
+#~ msgstr "Built-in Constant"
+
+#~ msgid "Builtin Object"
+#~ msgstr "Built-in Object"
+
+#~ msgid "Format"
+#~ msgstr "Format"
+
+#~ msgid "Module Handler"
+#~ msgstr "Module Handler"
+
+#~ msgid "Python"
+#~ msgstr "Python"
+
+#~ msgid "string-conversion"
+#~ msgstr "string-conversion"
+
+#~ msgid "Assignment Operator"
+#~ msgstr "Assignment Operator"
+
+#~ msgid "Delimiter"
+#~ msgstr "Delimiter"
+
+#~ msgid "Integer Number"
+#~ msgstr "Integer Number"
+
+#~ msgid "R"
+#~ msgstr "R"
+
+#~ msgid "Reserved Class"
+#~ msgstr "Reserved Class"
+
+#~ msgid "Special Constant"
+#~ msgstr "Special Constant"
+
+#~ msgid "Command Macro"
+#~ msgstr "Command Macro"
+
+#~ msgid "Conditional Macro"
+#~ msgstr "Conditional Macro"
+
+#~ msgid "Date"
+#~ msgstr "Date"
+
+#~ msgid "Define"
+#~ msgstr "Define"
+
+#~ msgid "Directory Macro"
+#~ msgstr "Directory Macro"
+
+#~ msgid "Email"
+#~ msgstr "Email"
+
+#~ msgid "Flow Conditional"
+#~ msgstr "Flow Conditional"
+
+#~ msgid "Header"
+#~ msgstr "Header"
+
+#~ msgid "Other Macro"
+#~ msgstr "Other Macro"
+
+#~ msgid "RPM Variable"
+#~ msgstr "RPM Variable"
+
+#~ msgid "Section"
+#~ msgstr "Section"
+
+#~ msgid "Spec Macro"
+#~ msgstr "Spec Macro"
+
+#~ msgid "Switch"
+#~ msgstr "Switch"
+
+#~ msgid "Attribute Definition"
+#~ msgstr "Attribute Definition"
+
+#~ msgid "Module handler"
+#~ msgstr "Module handler"
+
+#~ msgid "Numeric literal"
+#~ msgstr "Numeric literal"
+
+#~ msgid "Predefined Variable"
+#~ msgstr "Predefined Variable"
+
+#~ msgid "Ruby"
+#~ msgstr "Ruby"
+
+#~ msgid "Scheme"
+#~ msgstr "Scheme"
+
+#~ msgid "sh"
+#~ msgstr "sh"
+
+#~ msgid "No idea what it is"
+#~ msgstr "No idea what it is"
+
+#~ msgid "SQL"
+#~ msgstr "SQL"
+
+#~ msgid "Tcl"
+#~ msgstr "TCL"
+
+#~ msgid "File Attributes"
+#~ msgstr "File Attributes"
+
+#~ msgid "Generated Content"
+#~ msgstr "Generated Content"
+
+#~ msgid "Macros"
+#~ msgstr "Macros"
+
+#~ msgid "Texinfo"
+#~ msgstr "Texinfo"
+
+#~ msgid "VB.NET"
+#~ msgstr "VB.NET"
+
+#~ msgid "Gate"
+#~ msgstr "Gate"
+
+#~ msgid "Verilog"
+#~ msgstr "Verilog"
+
+#~ msgid "VHDL"
+#~ msgstr "VHDL"
+
+#~ msgid "Attribute name"
+#~ msgstr "Attribute name"
+
+#~ msgid "Attribute value"
+#~ msgstr "Attribute value"
+
+#~ msgid "CDATA delimiter"
+#~ msgstr "CDATA delimiter"
+
+#~ msgid "DOCTYPE"
+#~ msgstr "DOCTYPE"
+
+#~ msgid "Element name"
+#~ msgstr "Element name"
+
+#~ msgid "Entity"
+#~ msgstr "Entity"
+
+#~ msgid "Processing instruction"
+#~ msgstr "Processing instruction"
+
+#~ msgid "XML"
+#~ msgstr "XML"
+
+#~ msgid "Inline C Code"
+#~ msgstr "Inline C Code"
+
+#~ msgid "Yacc"
+#~ msgstr "Yacc"
+
+#~ msgid "grammar"
+#~ msgstr "grammar"
+
+#~ msgid "keyword"
+#~ msgstr "keyword"
+
+#~ msgid "Kate"
+#~ msgstr "Kate"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ctksourceview\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-04-01 10:24+0200\n"
+"POT-Creation-Date: 2023-04-06 10:31+0200\n"
 "PO-Revision-Date: 2005-03-18 00:40+0200\n"
 "Last-Translator: Canonical Ltd <translations@canonical.com>\n"
 "Language-Team: Xhosa <xh-translate@ubuntu.com>\n"
@@ -17,1486 +17,1566 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../ctksourceview/ctksourcebuffer.c:279
-msgid "Escape Character"
-msgstr "Uphawu Lokuphuma"
-
-#: ../ctksourceview/ctksourcebuffer.c:280
-msgid "Escaping character for syntax patterns"
-msgstr "Uphawu lokuphuma kwiipateni zolwakhiwo-zivakalisi"
-
-#: ../ctksourceview/ctksourcebuffer.c:288
-msgid "Check Brackets"
-msgstr "Izibiyeli Zokuqinisekisa"
-
-#: ../ctksourceview/ctksourcebuffer.c:289
-msgid "Whether to check and highlight matching brackets"
-msgstr "Nokuba ngaba uqinisekisa uqaqambisi izibiyeli ezihambelanayo"
-
-#: ../ctksourceview/ctksourcebuffer.c:297
-#: ../ctksourceview/ctksourceprintjob.c:295
-msgid "Highlight"
-msgstr "Qaqambisa"
-
-#: ../ctksourceview/ctksourcebuffer.c:298
-msgid "Whether to highlight syntax in the buffer"
-msgstr "Nokuba ngaba uqaqambisa ulwakhiwo-zivakalisi kwisigcini sethutyana"
-
-#: ../ctksourceview/ctksourcebuffer.c:306
-msgid "Maximum Undo Levels"
-msgstr "Awona Maqondo makhulu Okukhulula"
-
-#: ../ctksourceview/ctksourcebuffer.c:307
-msgid "Number of undo levels for the buffer"
-msgstr "Inani lamaqondo okukhulula esigcini sethutyana"
-
-#: ../ctksourceview/ctksourcebuffer.c:317
-#: ../ctksourceview/language-specs/desktop.lang.h:6
-#: ../ctksourceview/language-specs/ini.lang.h:7
-msgid "Language"
-msgstr "Ulwimi"
-
-#: ../ctksourceview/ctksourcebuffer.c:318
-msgid "Language object to get highlighting patterns from"
-msgstr "Umba wolwimi ofanele ukufumana iipateni zokuqaqambisa ezivela"
-
-#: ../ctksourceview/ctksourcelanguagesmanager.c:119
-msgid "Language specification directories"
-msgstr "Oovimba befayili bokucacisa ulwimi"
-
-#: ../ctksourceview/ctksourcelanguagesmanager.c:120
-msgid ""
-"List of directories where the language specification files (.lang) are "
-"located"
+#. (itstool) path: abnf.lang/language@_section
+#. (itstool) path: actionscript.lang/language@_section
+#. (itstool) path: ada.lang/language@_section
+#. (itstool) path: ansforth94.lang/language@_section
+#. (itstool) path: asp.lang/language@_section
+#. (itstool) path: automake.lang/language@_section
+#. (itstool) path: bennugd.lang/language@_section
+#. (itstool) path: bluespec.lang/language@_section
+#. (itstool) path: boo.lang/language@_section
+#. (itstool) path: cg.lang/language@_section
+#. (itstool) path: chdr.lang/language@_section
+#. (itstool) path: c.lang/language@_section
+#. (itstool) path: cobol.lang/language@_section
+#. (itstool) path: commonlisp.lang/language@_section
+#. (itstool) path: cpphdr.lang/language@_section
+#. (itstool) path: cpp.lang/language@_section
+#. (itstool) path: csharp.lang/language@_section
+#. (itstool) path: cuda.lang/language@_section
+#. (itstool) path: dart.lang/language@_section
+#. (itstool) path: d.lang/language@_section
+#. (itstool) path: docker.lang/language@_section
+#. (itstool) path: eiffel.lang/language@_section
+#. (itstool) path: erlang.lang/language@_section
+#. (itstool) path: forth.lang/language@_section
+#. (itstool) path: fortran.lang/language@_section
+#. (itstool) path: fsharp.lang/language@_section
+#. (itstool) path: genie.lang/language@_section
+#. (itstool) path: glsl.lang/language@_section
+#. (itstool) path: go.lang/language@_section
+#. (itstool) path: gradle.lang/language@_section
+#. (itstool) path: groovy.lang/language@_section
+#. (itstool) path: haskell.lang/language@_section
+#. (itstool) path: haskell-literate.lang/language@_section
+#. (itstool) path: haxe.lang/language@_section
+#. (itstool) path: idl.lang/language@_section
+#. (itstool) path: java.lang/language@_section
+#. (itstool) path: j.lang/language@_section
+#. (itstool) path: kotlin.lang/language@_section
+#. (itstool) path: lean.lang/language@_section
+#. (itstool) path: lex.lang/language@_section
+#. (itstool) path: llvm.lang/language@_section
+#. (itstool) path: logtalk.lang/language@_section
+#. (itstool) path: makefile.lang/language@_section
+#. (itstool) path: meson.lang/language@_section
+#. (itstool) path: nemerle.lang/language@_section
+#. (itstool) path: netrexx.lang/language@_section
+#. (itstool) path: objc.lang/language@_section
+#. (itstool) path: objj.lang/language@_section
+#. (itstool) path: ocaml.lang/language@_section
+#. (itstool) path: ooc.lang/language@_section
+#. (itstool) path: opal.lang/language@_section
+#. (itstool) path: opencl.lang/language@_section
+#. (itstool) path: pascal.lang/language@_section
+#. (itstool) path: pig.lang/language@_section
+#. (itstool) path: powershell.lang/language@_section
+#. (itstool) path: prolog.lang/language@_section
+#. (itstool) path: rust.lang/language@_section
+#. (itstool) path: scala.lang/language@_section
+#. (itstool) path: scheme.lang/language@_section
+#. (itstool) path: sml.lang/language@_section
+#. (itstool) path: solidity.lang/language@_section
+#. (itstool) path: sparql.lang/language@_section
+#. (itstool) path: sql.lang/language@_section
+#. (itstool) path: swift.lang/language@_section
+#. (itstool) path: systemverilog.lang/language@_section
+#. (itstool) path: thrift.lang/language@_section
+#. (itstool) path: vala.lang/language@_section
+#. (itstool) path: vbnet.lang/language@_section
+#. (itstool) path: verilog.lang/language@_section
+#. (itstool) path: vhdl.lang/language@_section
+#: abnf.lang:30 actionscript.lang:24 ada.lang:25 ansforth94.lang:24 asp.lang:23
+#: automake.lang:23 bennugd.lang:22 bluespec.lang:21 boo.lang:23 cg.lang:23
+#: chdr.lang:24 c.lang:24 cobol.lang:26 commonlisp.lang:24 cpphdr.lang:24
+#: cpp.lang:25 csharp.lang:26 cuda.lang:22 dart.lang:22 d.lang:29
+#: docker.lang:21 eiffel.lang:23 erlang.lang:23 forth.lang:23 fortran.lang:24
+#: fsharp.lang:24 genie.lang:23 glsl.lang:30 go.lang:24 gradle.lang:21
+#: groovy.lang:24 haskell.lang:24 haskell-literate.lang:23 haxe.lang:34
+#: idl.lang:23 java.lang:24 j.lang:23 kotlin.lang:24 lean.lang:23 lex.lang:24
+#: llvm.lang:22 logtalk.lang:23 makefile.lang:22 meson.lang:23 nemerle.lang:23
+#: netrexx.lang:23 objc.lang:23 objj.lang:26 ocaml.lang:26 ooc.lang:23
+#: opal.lang:23 opencl.lang:23 pascal.lang:24 pig.lang:26 powershell.lang:23
+#: prolog.lang:23 rust.lang:35 scala.lang:24 scheme.lang:23 sml.lang:23
+#: solidity.lang:28 sparql.lang:23 sql.lang:23 swift.lang:24
+#: systemverilog.lang:21 thrift.lang:20 vala.lang:27 vbnet.lang:23
+#: verilog.lang:23 vhdl.lang:23
+msgid "Source"
 msgstr ""
-"Uluhlu loovimba beefayili apho iifayili zokucacisa ulwimi (.lang) zibekwe "
-"khona"
 
-#: ../ctksourceview/ctksourceprintjob.c:264
-msgid "Configuration"
-msgstr "Ukumiselwa kwenkqubo"
-
-#: ../ctksourceview/ctksourceprintjob.c:265
-msgid "Configuration options for the print job"
-msgstr "Ukumiselwa kwenkqubo enokukhethelwa umsebenzi wokushicilela"
-
-#: ../ctksourceview/ctksourceprintjob.c:272
-msgid "Source Buffer"
-msgstr "Umthombo wesigcini sethutyana"
-
-#: ../ctksourceview/ctksourceprintjob.c:273
-msgid "CtkSourceBuffer object to print"
-msgstr "I-CtkSourceBuffer yomba wokushicilelwa"
-
-#: ../ctksourceview/ctksourceprintjob.c:279
-#: ../ctksourceview/ctksourceview.c:222 ../ctksourceview/ctksourceview.c:223
-msgid "Tabs Width"
-msgstr "Ububanzi Be-tab"
-
-#: ../ctksourceview/ctksourceprintjob.c:280
-msgid "Width in equivalent space characters of tabs"
-msgstr "Ububanzi kwisithuba esilinganayo seempawu zee-tab"
-
-#: ../ctksourceview/ctksourceprintjob.c:287
-msgid "Wrap Mode"
-msgstr "Inkqubo Yoqhubekeko"
-
-#: ../ctksourceview/ctksourceprintjob.c:288
-msgid "Word wrapping mode"
-msgstr "Inkqubo yoqhubekeko lwamagama"
-
-#: ../ctksourceview/ctksourceprintjob.c:296
-msgid "Whether to print the document with highlighted syntax"
-msgstr "Nokuba kushicilelwa uxwebhu olunoqaqambiso lolwakhiwo-zivakalisi"
-
-#: ../ctksourceview/ctksourceprintjob.c:304
-msgid "Font"
-msgstr "Ifonti"
-
-#: ../ctksourceview/ctksourceprintjob.c:305
-msgid "GnomeFont name to use for the document text (deprecated)"
-msgstr "Igama le-GnomeFont yokusetyenziswa kumbhalo woxwebhu (lokwaliwa)"
-
-#: ../ctksourceview/ctksourceprintjob.c:312
-msgid "Font Description"
-msgstr "Inkxazo Yefonti"
-
-#: ../ctksourceview/ctksourceprintjob.c:313
-msgid "Font to use for the document text (e.g. \"Monospace 10\")"
-msgstr "Ifonti yokusetyenziswa kumbhalo woxwebhu (umzkl. \"Monospace 10\")"
-
-#: ../ctksourceview/ctksourceprintjob.c:320
-#: ../ctksourceview/ctksourceprintjob.c:328
-msgid "Numbers Font"
-msgstr "Ifonti Yamanani"
-
-#: ../ctksourceview/ctksourceprintjob.c:321
-msgid "GnomeFont name to use for the line numbers (deprecated)"
-msgstr "Igama le-GnomeFont yokusetyenziswa kumanani omgca (ukwaliwa)"
-
-#: ../ctksourceview/ctksourceprintjob.c:329
-msgid "Font description to use for the line numbers"
-msgstr "Inkcazo yefonti yokusetyenziswa kumanani omgca"
-
-#: ../ctksourceview/ctksourceprintjob.c:336
-msgid "Print Line Numbers"
-msgstr "Shicilela Amanani Omgca"
-
-#: ../ctksourceview/ctksourceprintjob.c:337
-msgid "Interval of printed line numbers (0 means no numbers)"
-msgstr "Ikhefu lamanani omgca ashicilelweyo (0 lixela ukuba akukho manani)"
-
-#: ../ctksourceview/ctksourceprintjob.c:344
-msgid "Print Header"
-msgstr "Shicilela Umbhalo okumntla wephepha"
-
-#: ../ctksourceview/ctksourceprintjob.c:345
-msgid "Whether to print a header in each page"
-msgstr "Nokuba ushicilela umbhalo okumntla wephepha ngalinye"
-
-#: ../ctksourceview/ctksourceprintjob.c:352
-msgid "Print Footer"
-msgstr "Shicilela Umbhalo okumzantsi wephepha"
-
-#: ../ctksourceview/ctksourceprintjob.c:353
-msgid "Whether to print a footer in each page"
-msgstr "Nokuba ushicilela umbhalo okumzantsi wephepha ngalinye"
-
-#: ../ctksourceview/ctksourceprintjob.c:360
-msgid "Header and Footer Font"
-msgstr "Ifonti Yombhalo okumntla nomzantsi Wephepha"
-
-#: ../ctksourceview/ctksourceprintjob.c:361
-msgid "GnomeFont name to use for the header and footer (deprecated)"
-msgstr ""
-"Igama le-GnomeFont yokusetyenziswa kumbhalo okumntla nomzantsi wephepha "
-"(ukwaliwa)"
-
-#: ../ctksourceview/ctksourceprintjob.c:368
-msgid "Header and Footer Font Description"
-msgstr "Inkcazelo Yefonti yombhalo Okumntla nomzantsi Wephepha"
-
-#: ../ctksourceview/ctksourceprintjob.c:369
-msgid "Font to use for headers and footers (e.g. \"Monospace 10\")"
-msgstr ""
-"Ifonti yokusetyenziswa kwimibhalo esentla nesezantsi (umzkl. \"Monospace 10"
-"\")"
-
-#: ../ctksourceview/ctksourcestylescheme.c:262
-msgid "Base-N Integer"
-msgstr "Isiseko-N Senani elipheleleyo"
-
-#: ../ctksourceview/ctksourcestylescheme.c:267
-msgid "Character"
-msgstr "Uphawu"
-
-#: ../ctksourceview/ctksourcestylescheme.c:272
-#: ../ctksourceview/language-specs/latex.lang.h:1
-#: ../ctksourceview/language-specs/po.lang.h:1
-msgid "Comment"
-msgstr "Inkcazo"
-
-#. $this = (datatype)
-#: ../ctksourceview/ctksourcestylescheme.c:277
-#: ../ctksourceview/language-specs/php.lang.h:14
-msgid "Data Type"
-msgstr "Uhlobo Lwe-data"
-
-#.
-#. CSS functions, such as rgb(), clip(), or lang().
-#.
-#: ../ctksourceview/ctksourcestylescheme.c:282
-#: ../ctksourceview/language-specs/ada.lang.h:3
-#: ../ctksourceview/language-specs/css.lang.h:17
-msgid "Function"
-msgstr "Umsebenzi"
-
-#: ../ctksourceview/ctksourcestylescheme.c:287
-#: ../ctksourceview/language-specs/c.lang.h:6
-#: ../ctksourceview/language-specs/cpp.lang.h:6
-#: ../ctksourceview/language-specs/fortran.lang.h:1
-#: ../ctksourceview/language-specs/python.lang.h:2
-#: ../ctksourceview/language-specs/haskell.lang.h:3
-#: ../ctksourceview/language-specs/nemerle.lang.h:6
-msgid "Decimal"
-msgstr "Idesimali"
-
-#: ../ctksourceview/ctksourcestylescheme.c:292
-msgid "Floating Point"
-msgstr "Ichokoza Eliyi-float"
-
-#: ../ctksourceview/ctksourcestylescheme.c:297
-#: ../ctksourceview/language-specs/latex.lang.h:3
-#: ../ctksourceview/language-specs/po.lang.h:3
-#: ../ctksourceview/language-specs/texinfo.lang.h:8
-#: ../ctksourceview/language-specs/vhdl.lang.h:2
-#: ../ctksourceview/language-specs/R.lang.h:6
-#: ../ctksourceview/language-specs/ctkrc.lang.h:6
-msgid "Keyword"
-msgstr "Igama eliphambili"
-
-#: ../ctksourceview/ctksourcestylescheme.c:302
-msgid "Preprocessor"
-msgstr "Isanduleli sesixhobo sokusebenza"
-
-#: ../ctksourceview/ctksourcestylescheme.c:307
-#: ../ctksourceview/language-specs/ada.lang.h:9
-#: ../ctksourceview/language-specs/c.lang.h:15
-#: ../ctksourceview/language-specs/cpp.lang.h:15
-#: ../ctksourceview/language-specs/csharp.lang.h:8
-#: ../ctksourceview/language-specs/css.lang.h:63
-#: ../ctksourceview/language-specs/html.lang.h:8
-#: ../ctksourceview/language-specs/fortran.lang.h:12
-#: ../ctksourceview/language-specs/idl.lang.h:9
-#: ../ctksourceview/language-specs/java.lang.h:11
-#: ../ctksourceview/language-specs/javascript.lang.h:33
-#: ../ctksourceview/language-specs/lua.lang.h:10
-#: ../ctksourceview/language-specs/pascal.lang.h:18
-#: ../ctksourceview/language-specs/perl.lang.h:8
-#: ../ctksourceview/language-specs/po.lang.h:6
-#: ../ctksourceview/language-specs/python.lang.h:14
-#: ../ctksourceview/language-specs/ruby.lang.h:18
-#: ../ctksourceview/language-specs/sh.lang.h:13
-#: ../ctksourceview/language-specs/xml.lang.h:7
-#: ../ctksourceview/language-specs/haskell.lang.h:15
-#: ../ctksourceview/language-specs/vbnet.lang.h:7
-#: ../ctksourceview/language-specs/nemerle.lang.h:15
-#: ../ctksourceview/language-specs/tcl.lang.h:4
-#: ../ctksourceview/language-specs/vhdl.lang.h:6
-msgid "String"
-msgstr "Uluhlu lwamagama"
-
-#: ../ctksourceview/ctksourcestylescheme.c:312
-msgid "Specials"
-msgstr "Ezikhethekileyo"
-
-#.
-#. Proposed language specification for CSS (Cascading Style Sheet) files.
-#.
-#. Reference used:
-#. http://www.w3.org/TR/CSS2/
-#.
-#. Tested with:
-#. http://www.simplebits.com/css/simple.css
-#.
-#. Submitted by Scott Martin (scott@coffeeblack.org)
-#.
-#. FIXME: find the correct mimetype
-#: ../ctksourceview/ctksourcestylescheme.c:319
-#: ../ctksourceview/language-specs/css.lang.h:46
-#: ../ctksourceview/language-specs/desktop.lang.h:10
-#: ../ctksourceview/language-specs/diff.lang.h:7
-#: ../ctksourceview/language-specs/ini.lang.h:10
-#: ../ctksourceview/language-specs/msil.lang.h:2
-#: ../ctksourceview/language-specs/po.lang.h:5
-#: ../ctksourceview/language-specs/ctkrc.lang.h:9
-msgid "Others"
-msgstr "Ezinye"
-
-#: ../ctksourceview/ctksourcestylescheme.c:324
-msgid "Others 2"
-msgstr "Ezinye 2"
-
-#: ../ctksourceview/ctksourcestylescheme.c:329
-msgid "Others 3"
-msgstr "Ezinye 3"
-
-#: ../ctksourceview/ctksourcestylescheme.c:366
-msgid "Default"
-msgstr "Emiselweyo"
-
-#: ../ctksourceview/ctksourcetag.c:108
-msgid "Tag ID"
-msgstr "Isiphawuli se-ID"
-
-#: ../ctksourceview/ctksourcetag.c:109
-msgid "ID used to refer to the source tag"
-msgstr "I-ID esetyenziswa ukwalathisa kumthombo wesiphawuli"
-
-#: ../ctksourceview/ctksourcetag.c:116
-msgid "Tag style"
-msgstr "Isimbo sesiphawuli"
-
-#: ../ctksourceview/ctksourcetag.c:117
-msgid "The style associated to the source tag"
-msgstr "Isimbo esihambelana nomthombo wesiphawuli"
-
-#: ../ctksourceview/ctksourceview.c:206
-msgid "Show Line Numbers"
-msgstr "Bonisa Amanani Omgca"
-
-#: ../ctksourceview/ctksourceview.c:207
-msgid "Whether to display line numbers"
-msgstr "Nokuba ngaba ubonisa amanani omgca"
-
-#: ../ctksourceview/ctksourceview.c:214
-msgid "Show Line Markers"
-msgstr "Bonisa Iimpawu Zomgca"
-
-#: ../ctksourceview/ctksourceview.c:215
-msgid "Whether to display line marker pixbufs"
-msgstr "Nokuba ngaba ubonisa ii-pixbufs zophawu lomgca"
-
-#: ../ctksourceview/ctksourceview.c:232
-msgid "Auto Indentation"
-msgstr "Ukuqalisa nganeno Okuzenzekelayo"
-
-#: ../ctksourceview/ctksourceview.c:233
-msgid "Whether to enable auto indentation"
-msgstr "Nokuba ngaba wenza kusebenzi ukuqalisa nganeno okuzenzekelayo"
-
-#: ../ctksourceview/ctksourceview.c:239
-msgid "Insert Spaces Instead of Tabs"
-msgstr "Faka Izithuba Endaweni Yee-tab"
-
-#: ../ctksourceview/ctksourceview.c:240
-msgid "Whether to insert spaces instead of tabs"
-msgstr "Nokuba ngaba ufaka izithuba endaweni yee-tab"
-
-#: ../ctksourceview/ctksourceview.c:247
-msgid "Show Right Margin"
-msgstr "Bonisa Umda Wasekunene"
-
-#: ../ctksourceview/ctksourceview.c:248
-msgid "Whether to display the right margin"
-msgstr "Nokuba ngaba ubonisa umda wasekunene"
-
-#: ../ctksourceview/ctksourceview.c:255
-msgid "Margin position"
-msgstr "Indawo yomda"
-
-#: ../ctksourceview/ctksourceview.c:256
-msgid "Position of the right margin"
-msgstr "Indawo yomda wasekunene"
-
-#: ../ctksourceview/ctksourceview.c:265
-msgid "Use smart home/end"
-msgstr "Sebenzisa ikhaya/isiphelo esikrelekrele"
-
-#: ../ctksourceview/ctksourceview.c:266
-msgid ""
-"HOME and END keys move to first/last characters on line first before going "
-"to the start/end of the line"
-msgstr ""
-"Amaqhosha HOME neEND ashenxa ukuya kuphawu lokuqala/lokugqibela lomgca "
-"kuqala phambi kokuba aye ekuqaleni/ekupheleni komgca"
-
-#: ../ctksourceview/ctksourceview.c:275
-msgid "Highlight current line"
-msgstr "Qaqambisa umgca okuwo ngeli thuba"
-
-#: ../ctksourceview/ctksourceview.c:276
-msgid "Whether to highlight the current line"
-msgstr "Nokuba uqaqambisa umgca okuwo ngeli thuba"
-
-#: ../ctksourceview/language-specs/ada.lang.h:1
-msgid "Ada"
-msgstr "I-Ada"
-
-#: ../ctksourceview/language-specs/ada.lang.h:2
-#: ../ctksourceview/language-specs/c.lang.h:4
-#: ../ctksourceview/language-specs/cpp.lang.h:4
-#: ../ctksourceview/language-specs/haskell.lang.h:2
-#: ../ctksourceview/language-specs/nemerle.lang.h:3
-#: ../ctksourceview/language-specs/vhdl.lang.h:1
-msgid "Character Constant"
-msgstr "Ukuzinza Kophawu"
-
-#: ../ctksourceview/language-specs/ada.lang.h:4
-#: ../ctksourceview/language-specs/c.lang.h:10
-#: ../ctksourceview/language-specs/cpp.lang.h:10
-#: ../ctksourceview/language-specs/csharp.lang.h:3
-#: ../ctksourceview/language-specs/fortran.lang.h:7
-#: ../ctksourceview/language-specs/idl.lang.h:4
-#: ../ctksourceview/language-specs/javascript.lang.h:11
-#: ../ctksourceview/language-specs/lua.lang.h:3
-#: ../ctksourceview/language-specs/perl.lang.h:2
-#: ../ctksourceview/language-specs/python.lang.h:6
-#: ../ctksourceview/language-specs/ruby.lang.h:8
-#: ../ctksourceview/language-specs/verilog.lang.h:6
-#: ../ctksourceview/language-specs/haskell.lang.h:9
-#: ../ctksourceview/language-specs/vbnet.lang.h:1
-#: ../ctksourceview/language-specs/tcl.lang.h:1
-msgid "Keywords"
-msgstr "Amagama aziintloko"
-
-#: ../ctksourceview/language-specs/ada.lang.h:5
-#: ../ctksourceview/language-specs/c.lang.h:11
-#: ../ctksourceview/language-specs/cpp.lang.h:11
-#: ../ctksourceview/language-specs/csharp.lang.h:4
-#: ../ctksourceview/language-specs/css.lang.h:28
-#: ../ctksourceview/language-specs/desktop.lang.h:7
-#: ../ctksourceview/language-specs/diff.lang.h:5
-#: ../ctksourceview/language-specs/fortran.lang.h:8
-#: ../ctksourceview/language-specs/idl.lang.h:5
-#: ../ctksourceview/language-specs/ini.lang.h:8
-#: ../ctksourceview/language-specs/java.lang.h:5
-#: ../ctksourceview/language-specs/javascript.lang.h:12
-#: ../ctksourceview/language-specs/lua.lang.h:4
-#: ../ctksourceview/language-specs/pascal.lang.h:11
-#: ../ctksourceview/language-specs/perl.lang.h:3
-#: ../ctksourceview/language-specs/python.lang.h:7
-#: ../ctksourceview/language-specs/ruby.lang.h:9
-#: ../ctksourceview/language-specs/sh.lang.h:5
-#: ../ctksourceview/language-specs/sql.lang.h:11
-#: ../ctksourceview/language-specs/verilog.lang.h:7
-#: ../ctksourceview/language-specs/haskell.lang.h:10
-#: ../ctksourceview/language-specs/texinfo.lang.h:9
-#: ../ctksourceview/language-specs/vbnet.lang.h:2
-#: ../ctksourceview/language-specs/nemerle.lang.h:10
-#: ../ctksourceview/language-specs/tcl.lang.h:2
-#: ../ctksourceview/language-specs/vhdl.lang.h:3
-#: ../ctksourceview/language-specs/R.lang.h:7
-#: ../ctksourceview/language-specs/ctkrc.lang.h:7
-msgid "Line Comment"
-msgstr "Umgca Wenkcazo"
-
-#.
-#. For values like: z-index: 2;
-#. +/- before 0 is not allowed.
-#.
-#: ../ctksourceview/language-specs/ada.lang.h:6
-#: ../ctksourceview/language-specs/css.lang.h:33
-#: ../ctksourceview/language-specs/desktop.lang.h:9
-#: ../ctksourceview/language-specs/javascript.lang.h:15
-#: ../ctksourceview/language-specs/pascal.lang.h:14
-#: ../ctksourceview/language-specs/vhdl.lang.h:4
-#: ../ctksourceview/language-specs/ctkrc.lang.h:8
-msgid "Number"
-msgstr "Inani"
-
-#: ../ctksourceview/language-specs/ada.lang.h:7
-msgid "Preprocessor Keywords"
-msgstr "Isanduleli sesixhobo sokusebenza Samagama aziintloko"
-
-#: ../ctksourceview/language-specs/ada.lang.h:8
-#: ../ctksourceview/language-specs/c.lang.h:14
-#: ../ctksourceview/language-specs/cpp.lang.h:14
-#: ../ctksourceview/language-specs/csharp.lang.h:7
-#: ../ctksourceview/language-specs/fortran.lang.h:11
-#: ../ctksourceview/language-specs/idl.lang.h:8
-#: ../ctksourceview/language-specs/java.lang.h:10
-#: ../ctksourceview/language-specs/pascal.lang.h:17
-#: ../ctksourceview/language-specs/php.lang.h:23
-#: ../ctksourceview/language-specs/sql.lang.h:26
-#: ../ctksourceview/language-specs/verilog.lang.h:9
-#: ../ctksourceview/language-specs/haskell.lang.h:14
-#: ../ctksourceview/language-specs/vbnet.lang.h:6
-#: ../ctksourceview/language-specs/nemerle.lang.h:14
-#: ../ctksourceview/language-specs/vhdl.lang.h:5
-msgid "Sources"
-msgstr "Imithombo"
-
-#: ../ctksourceview/language-specs/ada.lang.h:10
-msgid "True And False"
-msgstr "Inyaniso Kunye Nemposiso"
-
-#: ../ctksourceview/language-specs/ada.lang.h:11
-#: ../ctksourceview/language-specs/c.lang.h:16
-#: ../ctksourceview/language-specs/cpp.lang.h:16
-#: ../ctksourceview/language-specs/fortran.lang.h:14
-#: ../ctksourceview/language-specs/idl.lang.h:10
-#: ../ctksourceview/language-specs/verilog.lang.h:10
-msgid "Types"
-msgstr "Iintlobo"
-
-#: ../ctksourceview/language-specs/c.lang.h:1
-#: ../ctksourceview/language-specs/cpp.lang.h:1
-msgid "'#if 0' Comment"
-msgstr "'#if 0' Inkcazo"
-
-#: ../ctksourceview/language-specs/c.lang.h:2
-#: ../ctksourceview/language-specs/cpp.lang.h:2
-#: ../ctksourceview/language-specs/csharp.lang.h:1
-#: ../ctksourceview/language-specs/css.lang.h:9
-#: ../ctksourceview/language-specs/html.lang.h:2
-#: ../ctksourceview/language-specs/idl.lang.h:1
-#: ../ctksourceview/language-specs/java.lang.h:1
-#: ../ctksourceview/language-specs/javascript.lang.h:2
-#: ../ctksourceview/language-specs/lua.lang.h:1
-#: ../ctksourceview/language-specs/sql.lang.h:5
-#: ../ctksourceview/language-specs/verilog.lang.h:2
-#: ../ctksourceview/language-specs/xml.lang.h:2
-#: ../ctksourceview/language-specs/haskell.lang.h:1
-#: ../ctksourceview/language-specs/texinfo.lang.h:1
-#: ../ctksourceview/language-specs/nemerle.lang.h:2
-msgid "Block Comment"
-msgstr "Inkcazo Yesithinteli"
-
-#: ../ctksourceview/language-specs/c.lang.h:3
-msgid "C"
-msgstr "C"
-
-#: ../ctksourceview/language-specs/c.lang.h:5
-#: ../ctksourceview/language-specs/cpp.lang.h:5
-msgid "Common Macro"
-msgstr "I-Macro eqhelekileyo"
-
-#: ../ctksourceview/language-specs/c.lang.h:7
-#: ../ctksourceview/language-specs/cpp.lang.h:7
-#: ../ctksourceview/language-specs/fortran.lang.h:2
-#: ../ctksourceview/language-specs/python.lang.h:3
-#: ../ctksourceview/language-specs/haskell.lang.h:4
-#: ../ctksourceview/language-specs/nemerle.lang.h:7
-#: ../ctksourceview/language-specs/R.lang.h:4
-msgid "Floating Point Number"
-msgstr "Inani Lechokoza Eliyi-float"
-
-#. FIXME WHY DOESN'T THIS WORK?
-#: ../ctksourceview/language-specs/c.lang.h:8
-#: ../ctksourceview/language-specs/cpp.lang.h:8
-#: ../ctksourceview/language-specs/fortran.lang.h:4
-#: ../ctksourceview/language-specs/pascal.lang.h:10
-#: ../ctksourceview/language-specs/python.lang.h:5
-#: ../ctksourceview/language-specs/haskell.lang.h:6
-#: ../ctksourceview/language-specs/nemerle.lang.h:8
-msgid "Hex Number"
-msgstr "Inani Lesithandathu"
-
-#: ../ctksourceview/language-specs/c.lang.h:9
-#: ../ctksourceview/language-specs/cpp.lang.h:9
-#: ../ctksourceview/language-specs/idl.lang.h:3
-#: ../ctksourceview/language-specs/haskell.lang.h:7
-msgid "Include/Pragma"
-msgstr "i-Include/i-Pragma"
-
-#: ../ctksourceview/language-specs/c.lang.h:12
-#: ../ctksourceview/language-specs/cpp.lang.h:12
-#: ../ctksourceview/language-specs/fortran.lang.h:9
-#: ../ctksourceview/language-specs/python.lang.h:11
-#: ../ctksourceview/language-specs/verilog.lang.h:8
-#: ../ctksourceview/language-specs/haskell.lang.h:11
-#: ../ctksourceview/language-specs/nemerle.lang.h:12
-msgid "Octal Number"
-msgstr "Inani Lesibhozo"
-
-#: ../ctksourceview/language-specs/c.lang.h:13
-#: ../ctksourceview/language-specs/cpp.lang.h:13
-#: ../ctksourceview/language-specs/csharp.lang.h:5
-#: ../ctksourceview/language-specs/idl.lang.h:6
-#: ../ctksourceview/language-specs/haskell.lang.h:13
-#: ../ctksourceview/language-specs/vbnet.lang.h:4
-msgid "Preprocessor Definitions"
-msgstr "Iinkcazelo Zesanduleli sesixhobo sokusebenza"
-
-#: ../ctksourceview/language-specs/cpp.lang.h:3
-msgid "C++"
-msgstr "C++"
-
-#: ../ctksourceview/language-specs/csharp.lang.h:2
-msgid "C#"
-msgstr "C#"
-
-#: ../ctksourceview/language-specs/csharp.lang.h:6
-#: ../ctksourceview/language-specs/java.lang.h:9
-#: ../ctksourceview/language-specs/vbnet.lang.h:5
-#: ../ctksourceview/language-specs/nemerle.lang.h:13
-msgid "Primitives"
-msgstr "Ezamandulo"
-
-#: ../ctksourceview/language-specs/csharp.lang.h:9
-#: ../ctksourceview/language-specs/css.lang.h:64
-#: ../ctksourceview/language-specs/fortran.lang.h:13
-#: ../ctksourceview/language-specs/java.lang.h:12
-#: ../ctksourceview/language-specs/javascript.lang.h:34
-#: ../ctksourceview/language-specs/lua.lang.h:11
-#: ../ctksourceview/language-specs/python.lang.h:15
-#: ../ctksourceview/language-specs/ruby.lang.h:19
-#: ../ctksourceview/language-specs/sh.lang.h:14
-#: ../ctksourceview/language-specs/vbnet.lang.h:8
-msgid "String 2"
-msgstr "Uluhlu lwamagama 2"
-
-#.
-#. At rules must occur at the start of a line.
-#.
-#: ../ctksourceview/language-specs/css.lang.h:4
-msgid "At Rules"
-msgstr "Imithetho ye-At"
-
-#.
-#. For CSS 2-style selectors: tag[attr="value"].
-#.
-#: ../ctksourceview/language-specs/css.lang.h:8
-msgid "Attribute Value Delimiters"
-msgstr "Izithinteli Zexabiso Lophawu"
-
-#.
-#. Value length specifier. Unless it is 0, must always be like: -1.2em.
-#.
-#: ../ctksourceview/language-specs/css.lang.h:13
-msgid "Dimension"
-msgstr "Imilinganiso"
-
-#.
-#. Hexadecimal method of specifying colors. Can either be 3 or 6 in
-#. length: #ffcc00 = #fc0.
-#.
-#: ../ctksourceview/language-specs/css.lang.h:22
-msgid "Hexadecimal Color"
-msgstr "Umbala Wedesimali yesithandathu"
-
-#.
-#. Upgrades a rule set's importance when several rule sets conflict.
-#.
-#: ../ctksourceview/language-specs/css.lang.h:26
-msgid "Importance Modifier"
-msgstr "Ukubaluleka Komlungisi"
-
-#: ../ctksourceview/language-specs/css.lang.h:27
-msgid "Known Property Values"
-msgstr "Amaxabiso Ophawu Olwaziwayo"
-
-#: ../ctksourceview/language-specs/css.lang.h:34
-#: ../ctksourceview/language-specs/javascript.lang.h:19
-#: ../ctksourceview/language-specs/php.lang.h:19
-#: ../ctksourceview/language-specs/sh.lang.h:8
-#: ../ctksourceview/language-specs/haskell.lang.h:12
-msgid "Operators"
-msgstr "Abasebenzi"
-
-#: ../ctksourceview/language-specs/css.lang.h:47
-msgid "Property Names"
-msgstr "Amagama Okwenene"
-
-#.
-#. Brackets define a declaration block, parentheses define functions.
-#.
-#: ../ctksourceview/language-specs/css.lang.h:51
-#: ../ctksourceview/language-specs/javascript.lang.h:20
-#: ../ctksourceview/language-specs/sh.lang.h:9
-msgid "Punctuators"
-msgstr "Iziphumlisi"
-
-#: ../ctksourceview/language-specs/css.lang.h:52
-msgid "Selector Grammar"
-msgstr "Igrama Yomkhethi"
-
-#.
-#. Pseudo-class rules. Good to have syntax highlighting for these
-#. for mistypings.
-#.
-#: ../ctksourceview/language-specs/css.lang.h:57
-msgid "Selector Pseudo Classes"
-msgstr "Iiklasi Zobuxoki Zomkhethi"
-
-#.
-#. Pseudo-element rules. Good to have syntax highlighting for these
-#. for mistypings.
-#.
-#: ../ctksourceview/language-specs/css.lang.h:62
-msgid "Selector Pseudo Elements"
-msgstr "Iziqalelo Zobuxoki Zomkhethi"
-
-#.
-#. Escaped unicode characters can contain either 6 hexadecimal characters
-#. or 1-5 hex characters followed by one whitespace character.
-#.
-#: ../ctksourceview/language-specs/css.lang.h:69
-msgid "Unicode Character Reference"
-msgstr "Isalathisi Sophawu Lwekhowudi yomdibaniso"
-
-#.
-#. Unicode range values.
-#.
-#: ../ctksourceview/language-specs/css.lang.h:73
-msgid "Unicode Range"
-msgstr "Uluhlu Lwekhowudi yomdibaniso"
-
-#: ../ctksourceview/language-specs/desktop.lang.h:1
-msgid ".desktop"
-msgstr "I-.desktop"
-
-#: ../ctksourceview/language-specs/desktop.lang.h:2
-#: ../ctksourceview/language-specs/ini.lang.h:2
-#: ../ctksourceview/language-specs/ctkrc.lang.h:1
-msgid "Boolean Value"
-msgstr "Ixabiso le-Boolean"
-
-#: ../ctksourceview/language-specs/desktop.lang.h:3
-msgid "Encoding"
-msgstr "Ukunxulumana"
-
-#: ../ctksourceview/language-specs/desktop.lang.h:4
-msgid "Exec Parameter"
-msgstr "Ixabiso lento ejika-jikayo Yokuphumeza"
-
-#: ../ctksourceview/language-specs/desktop.lang.h:5
-#: ../ctksourceview/language-specs/ini.lang.h:5
-msgid "Group"
-msgstr "Iqela"
-
-#: ../ctksourceview/language-specs/desktop.lang.h:8
-#: ../ctksourceview/language-specs/ini.lang.h:9
-msgid "Non Standard Key"
-msgstr "Iqhosa Elingekho Sikweni"
-
-#: ../ctksourceview/language-specs/desktop.lang.h:11
-msgid "Standard Key"
-msgstr "Iqhosa Elisesikweni"
-
-#: ../ctksourceview/language-specs/diff.lang.h:1
-msgid "Added line"
-msgstr "Umgca Ongeziweyo"
-
-#: ../ctksourceview/language-specs/diff.lang.h:2
-msgid "Changed line"
-msgstr "Umgca Otshintshiweyo"
-
-#: ../ctksourceview/language-specs/diff.lang.h:3
-msgid "Diff"
-msgstr "Umahluko"
-
-#: ../ctksourceview/language-specs/diff.lang.h:4
-msgid "Diff file"
-msgstr "Ifayili enomahluko"
-
-#: ../ctksourceview/language-specs/diff.lang.h:6
-#: ../ctksourceview/language-specs/po.lang.h:4
-msgid "Location"
-msgstr "Indawo"
-
-#: ../ctksourceview/language-specs/diff.lang.h:8
-msgid "Removed line"
-msgstr "Umgca osusiweyo"
-
-#: ../ctksourceview/language-specs/diff.lang.h:9
-msgid "Special case"
-msgstr "Imeko ekhethekileyo"
-
-#: ../ctksourceview/language-specs/html.lang.h:1
-#: ../ctksourceview/language-specs/xml.lang.h:1
-msgid "Attributes"
-msgstr "Iimpawu"
-
-#: ../ctksourceview/language-specs/html.lang.h:3
-#: ../ctksourceview/language-specs/xml.lang.h:3
-msgid "Closing Bracket"
-msgstr "Isibiyeli Esivalayo"
-
-#: ../ctksourceview/language-specs/html.lang.h:4
-msgid "DTD"
-msgstr "I-DTD"
-
-#: ../ctksourceview/language-specs/html.lang.h:5
-#: ../ctksourceview/language-specs/xml.lang.h:4
-msgid "Entity"
-msgstr "Impahla"
-
-#: ../ctksourceview/language-specs/html.lang.h:6
-msgid "HTML"
-msgstr "I-HTML"
-
-#: ../ctksourceview/language-specs/html.lang.h:7
-#: ../ctksourceview/language-specs/latex.lang.h:5
-#: ../ctksourceview/language-specs/xml.lang.h:6
-#: ../ctksourceview/language-specs/texinfo.lang.h:12
+#. (itstool) path: asciidoc.lang/language@_section
+#. (itstool) path: bibtex.lang/language@_section
+#. (itstool) path: docbook.lang/language@_section
+#. (itstool) path: dtd.lang/language@_section
+#. (itstool) path: dtl.lang/language@_section
+#. (itstool) path: erb-html.lang/language@_section
+#. (itstool) path: erb-js.lang/language@_section
+#. (itstool) path: erb.lang/language@_section
+#. (itstool) path: gtk-doc.lang/language@_section
+#. (itstool) path: haddock.lang/language@_section
+#. (itstool) path: html.lang/language@_section
+#. (itstool) path: jade.lang/language@_section
+#. (itstool) path: jsdoc.lang/language@_section
+#. (itstool) path: latex.lang/language@_section
+#. (itstool) path: mallard.lang/language@_section
+#. (itstool) path: markdown.lang/language@_section
+#. (itstool) path: mediawiki.lang/language@_section
+#. (itstool) path: mxml.lang/language@_section
+#. (itstool) path: rst.lang/language@_section
+#. (itstool) path: sweave.lang/language@_section
+#. (itstool) path: t2t.lang/language@_section
+#. (itstool) path: tera.lang/language@_section
+#. (itstool) path: texinfo.lang/language@_section
+#. (itstool) path: xml.lang/language@_section
+#. (itstool) path: xslt.lang/language@_section
+#: asciidoc.lang:22 bibtex.lang:23 docbook.lang:23 dtd.lang:23 dtl.lang:25
+#: erb-html.lang:20 erb-js.lang:20 erb.lang:20 gtk-doc.lang:24 haddock.lang:23
+#: html.lang:25 jade.lang:24 jsdoc.lang:23 latex.lang:24 mallard.lang:22
+#: markdown.lang:25 mediawiki.lang:22 mxml.lang:23 rst.lang:22 sweave.lang:24
+#: t2t.lang:23 tera.lang:23 texinfo.lang:24 xml.lang:26 xslt.lang:23
 msgid "Markup"
 msgstr "Ukunyusa ixabiso"
 
-#: ../ctksourceview/language-specs/html.lang.h:9
-msgid "Tags"
-msgstr "Iziphawuli"
-
-#: ../ctksourceview/language-specs/fortran.lang.h:3
-msgid "Fortran 95"
-msgstr "I-Fortran 95"
-
-#: ../ctksourceview/language-specs/fortran.lang.h:5
-msgid "Input/Output"
-msgstr "Ulwazi olungenisiweyo/Isiphumo"
-
-#: ../ctksourceview/language-specs/fortran.lang.h:6
-msgid "Intrinsics"
-msgstr "Amaxabiso ngokwemvelo"
-
-#: ../ctksourceview/language-specs/fortran.lang.h:10
-msgid "Read/Write"
-msgstr "Funda/Bhala"
-
-#: ../ctksourceview/language-specs/idl.lang.h:2
-msgid "IDL"
-msgstr "I-IDL"
-
-#: ../ctksourceview/language-specs/idl.lang.h:7
-msgid "Sectional"
-msgstr "Ngokwecandelo"
-
-#: ../ctksourceview/language-specs/ini.lang.h:1
-msgid ".ini"
-msgstr ".ini"
-
-#: ../ctksourceview/language-specs/ini.lang.h:3
-#: ../ctksourceview/language-specs/verilog.lang.h:3
-msgid "Decimal Number"
-msgstr "Inani Ledesimali"
-
-#: ../ctksourceview/language-specs/ini.lang.h:4
-#: ../ctksourceview/language-specs/R.lang.h:3
-#: ../ctksourceview/language-specs/ctkrc.lang.h:2
-msgid "Double Quote String"
-msgstr "Uluhlu Lwamagama olunophawu lokucaphula Oluphinda-phindiweyo"
-
-#: ../ctksourceview/language-specs/ini.lang.h:6
-msgid "Integer"
-msgstr "Inani elipheleleyo"
-
-#: ../ctksourceview/language-specs/ini.lang.h:11
-#: ../ctksourceview/language-specs/R.lang.h:11
-#: ../ctksourceview/language-specs/ctkrc.lang.h:10
-msgid "Single Quote String"
-msgstr "Isicaphuli Esinye Soluhlu lwamagama"
-
-#. $variable, $$dynamic-variable and even $$$more
-#: ../ctksourceview/language-specs/ini.lang.h:12
-#: ../ctksourceview/language-specs/php.lang.h:25
-#: ../ctksourceview/language-specs/ctkrc.lang.h:12
-msgid "Variable"
-msgstr "Ugcino lwamaxabiso aguqukayo"
-
-#: ../ctksourceview/language-specs/java.lang.h:2
-msgid "Declarations"
-msgstr "Izibhengezo"
-
-#: ../ctksourceview/language-specs/java.lang.h:3
-msgid "Flow"
-msgstr "Ukujinga"
-
-#: ../ctksourceview/language-specs/java.lang.h:4
-msgid "Java"
-msgstr "I-Java"
-
-#: ../ctksourceview/language-specs/java.lang.h:6
-msgid "Memory"
-msgstr "Uvimba wolwazi"
-
-#: ../ctksourceview/language-specs/java.lang.h:7
-msgid "Modifiers"
-msgstr "Izilungisi"
-
-#: ../ctksourceview/language-specs/java.lang.h:8
-msgid "Numeric"
-msgstr "Eyamanani"
-
-#: ../ctksourceview/language-specs/javascript.lang.h:1
-#: ../ctksourceview/language-specs/php.lang.h:1
-msgid "Array Operators"
-msgstr "Abasebenzi Boludwe"
-
-#: ../ctksourceview/language-specs/javascript.lang.h:3
-msgid "Constructors"
-msgstr "Abakhi"
-
-#: ../ctksourceview/language-specs/javascript.lang.h:4
-msgid "Error Handling"
-msgstr "Impazamo Yokuphatha"
-
-#: ../ctksourceview/language-specs/javascript.lang.h:5
-msgid "Floating-Point Number"
-msgstr "Inani Lechokoza le-Float"
-
-#: ../ctksourceview/language-specs/javascript.lang.h:6
-msgid "Flow Keywords"
-msgstr "Amagama ayintloko Okujinga"
-
-#: ../ctksourceview/language-specs/javascript.lang.h:7
-msgid "Future Reserved Words"
-msgstr "Amagama Agcinelwe Ingomso"
-
-#: ../ctksourceview/language-specs/javascript.lang.h:8
-msgid "Global Functions"
-msgstr "Imisebenzi Yehlabathi"
-
-#: ../ctksourceview/language-specs/javascript.lang.h:9
-msgid "Global Properties"
-msgstr "Iimpawu Zehlabathi"
-
-#: ../ctksourceview/language-specs/javascript.lang.h:10
-#: ../ctksourceview/language-specs/verilog.lang.h:5
-msgid "Hexadecimal Number"
-msgstr "Inani Ledesimali yesithandathu"
-
-#: ../ctksourceview/language-specs/javascript.lang.h:13
-msgid "Literals"
-msgstr "Oonombumba"
-
-#: ../ctksourceview/language-specs/javascript.lang.h:14
-msgid "Math Value Properties"
-msgstr "Iimpawu Zexabiso Lemathematika"
-
-#: ../ctksourceview/language-specs/javascript.lang.h:16
-msgid "Object Functions"
-msgstr "Imisebenzi Yento"
-
-#: ../ctksourceview/language-specs/javascript.lang.h:17
-msgid "Object Properties"
-msgstr "Iimpawu Zento"
-
-#: ../ctksourceview/language-specs/javascript.lang.h:18
-msgid "Objects"
-msgstr "Izinto"
-
-#.
-#. Proposed language specification for JavaScript files.
-#.
-#. Reference used:
-#. http://www.ecma-international.org/publications/files/ecma-st/ECMA-262.pdf
-#.
-#. Tested with:
-#. http://www.coffeeblack.org/scripts/map.js
-#.
-#. Submitted by Scott Martin (scott@coffeeblack.org)
-#.
-#: ../ctksourceview/language-specs/javascript.lang.h:32
-#: ../ctksourceview/language-specs/lua.lang.h:9
-#: ../ctksourceview/language-specs/perl.lang.h:7
-#: ../ctksourceview/language-specs/python.lang.h:13
-#: ../ctksourceview/language-specs/ruby.lang.h:17
-#: ../ctksourceview/language-specs/sh.lang.h:11
-#: ../ctksourceview/language-specs/tcl.lang.h:3
-#: ../ctksourceview/language-specs/R.lang.h:10
-msgid "Scripts"
-msgstr "Izikripti"
-
-#: ../ctksourceview/language-specs/javascript.lang.h:35
-msgid "Unicode Escape Sequence"
-msgstr "Ukulandelelana Kwekhowudi edibanisayo Yokuphuma"
-
-#: ../ctksourceview/language-specs/javascript.lang.h:36
-msgid "Word Operators"
-msgstr "Abasebenzi Begama"
-
-#: ../ctksourceview/language-specs/latex.lang.h:2
-#: ../ctksourceview/language-specs/texinfo.lang.h:6
-msgid "Include"
-msgstr "Quka"
-
-#: ../ctksourceview/language-specs/latex.lang.h:4
-msgid "LaTeX"
-msgstr "I-LaTeX"
-
-#: ../ctksourceview/language-specs/latex.lang.h:6
-msgid "Math"
-msgstr "Imathematika"
-
-#: ../ctksourceview/language-specs/latex.lang.h:7
-msgid "Most Used Commands"
-msgstr "Imiyalelo Esetyenziswa Kakhulu"
-
-#: ../ctksourceview/language-specs/lua.lang.h:2
-#: ../ctksourceview/language-specs/python.lang.h:4
-#: ../ctksourceview/language-specs/sh.lang.h:4
-msgid "Functions"
-msgstr "Imisebenzi"
-
-#: ../ctksourceview/language-specs/lua.lang.h:5
-msgid "Line Comment 2"
-msgstr "Inkcazo Yomgca 2"
-
-#: ../ctksourceview/language-specs/lua.lang.h:6
-msgid "Lua"
-msgstr "I-Lua"
-
-#: ../ctksourceview/language-specs/lua.lang.h:7
-#: ../ctksourceview/language-specs/python.lang.h:9
-#: ../ctksourceview/language-specs/sh.lang.h:6
-msgid "Multiline String"
-msgstr "Uluhlu lwamagama Lwemigca emininzi"
-
-#: ../ctksourceview/language-specs/lua.lang.h:8
-#: ../ctksourceview/language-specs/python.lang.h:10
-#: ../ctksourceview/language-specs/sh.lang.h:7
-msgid "Multiline String 2"
-msgstr "Uluhlu lwamagama Lwemigca emininzi 2"
-
-#: ../ctksourceview/language-specs/pascal.lang.h:1
-msgid "Block Comment 1"
-msgstr "Inkcazo Yesithinteli 1"
-
-#: ../ctksourceview/language-specs/pascal.lang.h:2
-msgid "Block Comment 2"
-msgstr "Inkcazo Yesithinteli 2"
-
-#: ../ctksourceview/language-specs/pascal.lang.h:3
-msgid "Boolean Bitwise Operators"
-msgstr "Abasebenzi Besuntsu lobulumko be-Boolean"
-
-#: ../ctksourceview/language-specs/pascal.lang.h:4
-msgid "Builtin Functions"
-msgstr "Imisebenzi Eyakhelweyo"
-
-#: ../ctksourceview/language-specs/pascal.lang.h:5
-msgid "Builtin Types"
-msgstr "Iintlobo Ezakhelweyo"
-
-#: ../ctksourceview/language-specs/pascal.lang.h:6
-msgid "Builtin Values"
-msgstr "Amaxabiso Awakhelweyo"
-
-#: ../ctksourceview/language-specs/pascal.lang.h:7
-msgid "Functions and Function Modifiers"
-msgstr "Imisebenzi Nomsebenzi Wezilungisi"
-
-#: ../ctksourceview/language-specs/pascal.lang.h:8
-msgid "General Format"
-msgstr "Ukulungiselela Ngokubanzi"
-
-#: ../ctksourceview/language-specs/pascal.lang.h:12
-msgid "Loop, Flow, and Exceptions Keywords"
-msgstr "Iseti yeengxelo, Ukujinga, Namagama ayintloko Anxaxhileyo"
-
-#: ../ctksourceview/language-specs/pascal.lang.h:13
-msgid "Math Operators"
-msgstr "Abasebenzi Bemathematika"
-
-#: ../ctksourceview/language-specs/pascal.lang.h:15
-msgid "Pascal"
-msgstr "I-Pascal"
-
-#: ../ctksourceview/language-specs/pascal.lang.h:16
-msgid "Preprocessor Defines"
-msgstr "Iinkcazelo Zesanduleli sesixhobo sokusebenza"
-
-#: ../ctksourceview/language-specs/pascal.lang.h:19
-msgid "Type, Class and Object Keywords"
-msgstr "Uhlobo, Udidi Namagama ayintloko Ento"
-
-#: ../ctksourceview/language-specs/perl.lang.h:1
-msgid "Function Call"
-msgstr "Ukunxulumanisa Umsebenzi"
-
-#: ../ctksourceview/language-specs/perl.lang.h:4
-msgid "Method Call"
-msgstr "Ukunxulumanisa Indlela yokusebenza"
-
-#: ../ctksourceview/language-specs/perl.lang.h:5
-msgid "POD"
-msgstr "I-POD"
-
-#: ../ctksourceview/language-specs/perl.lang.h:6
-msgid "Perl"
-msgstr "I-Perl"
-
-#: ../ctksourceview/language-specs/perl.lang.h:9
-#: ../ctksourceview/language-specs/tcl.lang.h:5
-msgid "String2"
-msgstr "Uluhlu lwamagama2"
-
-#: ../ctksourceview/language-specs/perl.lang.h:10
-msgid "String3"
-msgstr "Uluhlu lwamagama3"
-
-#: ../ctksourceview/language-specs/perl.lang.h:11
-#: ../ctksourceview/language-specs/tcl.lang.h:7
-msgid "Variables"
-msgstr "Ugcino lwamaxabiso aqukayo"
-
-#. `backticks-quoted strings`
-#: ../ctksourceview/language-specs/php.lang.h:3
-#: ../ctksourceview/language-specs/sh.lang.h:1
-msgid "Backtick String"
-msgstr "Uluhlu lwamagama e-Backtick"
-
-#. # Bourne Shell Line Comment
-#: ../ctksourceview/language-specs/php.lang.h:5
-msgid "Bash Line Comment"
-msgstr "Inkcazo Yomgca Wetoliki yemiyalelo"
-
-#. /* C Block Comment
-#: ../ctksourceview/language-specs/php.lang.h:7
-msgid "C Block Comment"
-msgstr "Inkcazo Yesithinteli C"
-
-#. // C++ Line Comment
-#: ../ctksourceview/language-specs/php.lang.h:9
-msgid "C++ Line Comment"
-msgstr "Inkcazo Yomgca C++"
-
-#: ../ctksourceview/language-specs/php.lang.h:10
-msgid "Case Insensitive Keyword"
-msgstr "Igama eliyintloko Elingachaphazelwa Yimeko"
-
-#. This are keywords, the are recognised by php
-#: ../ctksourceview/language-specs/php.lang.h:12
-msgid "Case Sensitive Keyword"
-msgstr "Igama eliyintloko Elichaphazelwa Yimeko"
-
-#. "duble-quoted strings"
-#: ../ctksourceview/language-specs/php.lang.h:16
-msgid "Double Quoted String"
-msgstr "Uluhlu lwamagama Lwesicaphuli Esiphinda kabini"
-
-#: ../ctksourceview/language-specs/php.lang.h:17
-msgid "First Open PHP Tag"
-msgstr "Vula Kuqala Isiphawuli se-PHP"
-
-#: ../ctksourceview/language-specs/php.lang.h:18
-msgid "HTML Block"
-msgstr "Isithinteli se-HTML"
-
-#: ../ctksourceview/language-specs/php.lang.h:20
-msgid "PHP"
-msgstr "I-PHP"
-
-#. 'single-quoted strings'
-#: ../ctksourceview/language-specs/php.lang.h:22
-msgid "Single Quoted String"
-msgstr "Uluhlu lwamagama Lwesicaphuli Esinye"
-
-#: ../ctksourceview/language-specs/po.lang.h:2
-msgid "Format"
-msgstr "Ukulungiselela"
-
-#: ../ctksourceview/language-specs/po.lang.h:7
+#. (itstool) path: awk.lang/language@_section
+#. (itstool) path: dosbatch.lang/language@_section
+#. (itstool) path: fish.lang/language@_section
+#. (itstool) path: gdscript.lang/language@_section
+#. (itstool) path: javascript-expressions.lang/language@_section
+#. (itstool) path: javascript-functions-classes.lang/language@_section
+#. (itstool) path: javascript.lang/language@_section
+#. (itstool) path: javascript-literals.lang/language@_section
+#. (itstool) path: javascript-modules.lang/language@_section
+#. (itstool) path: javascript-statements.lang/language@_section
+#. (itstool) path: javascript-values.lang/language@_section
+#. (itstool) path: jsx.lang/language@_section
+#. (itstool) path: lua.lang/language@_section
+#. (itstool) path: m4.lang/language@_section
+#. (itstool) path: perl.lang/language@_section
+#. (itstool) path: php.lang/language@_section
+#. (itstool) path: python3.lang/language@_section
+#. (itstool) path: python.lang/language@_section
+#. (itstool) path: ruby.lang/language@_section
+#. (itstool) path: sh.lang/language@_section
+#. (itstool) path: tcl.lang/language@_section
+#. (itstool) path: typescript-js-expressions.lang/language@_section
+#. (itstool) path: typescript-js-functions-classes.lang/language@_section
+#. (itstool) path: typescript-js-literals.lang/language@_section
+#. (itstool) path: typescript-js-modules.lang/language@_section
+#. (itstool) path: typescript-js-statements.lang/language@_section
+#. (itstool) path: typescript-jsx.lang/language@_section
+#. (itstool) path: typescript.lang/language@_section
+#. (itstool) path: typescript-type-expressions.lang/language@_section
+#. (itstool) path: typescript-type-generics.lang/language@_section
+#. (itstool) path: typescript-type-literals.lang/language@_section
+#: awk.lang:23 dosbatch.lang:23 fish.lang:19 gdscript.lang:22
+#: javascript-expressions.lang:27 javascript-functions-classes.lang:27
+#: javascript.lang:27 javascript-literals.lang:27 javascript-modules.lang:27
+#: javascript-statements.lang:27 javascript-values.lang:27 jsx.lang:23
+#: lua.lang:23 m4.lang:23 perl.lang:25 php.lang:28 python3.lang:23
+#: python.lang:27 ruby.lang:27 sh.lang:24 tcl.lang:23
+#: typescript-js-expressions.lang:23 typescript-js-functions-classes.lang:23
+#: typescript-js-literals.lang:23 typescript-js-modules.lang:23
+#: typescript-js-statements.lang:23 typescript-jsx.lang:23 typescript.lang:23
+#: typescript-type-expressions.lang:23 typescript-type-generics.lang:23
+#: typescript-type-literals.lang:23
+msgid "Script"
+msgstr ""
+
+#. (itstool) path: cg.lang/language@_name
+#: cg.lang:23
+msgid "CG Shader Language"
+msgstr ""
+
+#. (itstool) path: changelog.lang/language@_section
+#. (itstool) path: cmake.lang/language@_section
+#. (itstool) path: css.lang/language@_section
+#. (itstool) path: csv.lang/language@_section
+#. (itstool) path: desktop.lang/language@_section
+#. (itstool) path: diff.lang/language@_section
+#. (itstool) path: dot.lang/language@_section
+#. (itstool) path: dpatch.lang/language@_section
+#. (itstool) path: ftl.lang/language@_section
+#. (itstool) path: gdb-log.lang/language@_section
+#. (itstool) path: ctkrc.lang/language@_section
+#. (itstool) path: ini.lang/language@_section
+#. (itstool) path: json.lang/language@_section
+#. (itstool) path: less.lang/language@_section
+#. (itstool) path: libtool.lang/language@_section
+#. (itstool) path: logcat.lang/language@_section
+#. (itstool) path: nsis.lang/language@_section
+#. (itstool) path: ocl.lang/language@_section
+#. (itstool) path: pkgconfig.lang/language@_section
+#. (itstool) path: po.lang/language@_section
+#. (itstool) path: protobuf.lang/language@_section
+#. (itstool) path: puppet.lang/language@_section
+#. (itstool) path: rpmspec.lang/language@_section
+#. (itstool) path: scss.lang/language@_section
+#. (itstool) path: terraform.lang/language@_section
+#. (itstool) path: toml.lang/language@_section
+#. (itstool) path: yacc.lang/language@_section
+#. (itstool) path: yaml.lang/language@_section
+#. (itstool) path: yara.lang/language@_section
+#: changelog.lang:24 cmake.lang:23 css.lang:26 csv.lang:23 desktop.lang:24
+#: diff.lang:23 dot.lang:23 dpatch.lang:23 ftl.lang:23 gdb-log.lang:18
+#: ctkrc.lang:24 ini.lang:22 json.lang:29 less.lang:23 libtool.lang:23
+#: logcat.lang:23 nsis.lang:23 ocl.lang:32 pkgconfig.lang:23 po.lang:23
+#: protobuf.lang:21 puppet.lang:23 rpmspec.lang:24 scss.lang:23
+#: terraform.lang:23 toml.lang:23 yacc.lang:23 yaml.lang:21 yara.lang:26
+msgid "Other"
+msgstr ""
+
+#. (itstool) path: chdr.lang/language@_name
+#: chdr.lang:24
+msgid "C/ObjC Header"
+msgstr ""
+
+#. (itstool) path: cpphdr.lang/language@_name
+#: cpphdr.lang:24
+msgid "C++ Header"
+msgstr ""
+
+#. (itstool) path: dosbatch.lang/language@_name
+#: dosbatch.lang:23
+msgid "DOS Batch"
+msgstr ""
+
+#. (itstool) path: dtl.lang/language@_name
+#: dtl.lang:25
+msgid "Django Template"
+msgstr ""
+
+#. (itstool) path: fcl.lang/language@_section
+#. (itstool) path: gap.lang/language@_section
+#. (itstool) path: idl-exelis.lang/language@_section
+#. (itstool) path: imagej.lang/language@_section
+#. (itstool) path: julia.lang/language@_section
+#. (itstool) path: matlab.lang/language@_section
+#. (itstool) path: maxima.lang/language@_section
+#. (itstool) path: modelica.lang/language@_section
+#. (itstool) path: octave.lang/language@_section
+#. (itstool) path: R.lang/language@_section
+#. (itstool) path: scilab.lang/language@_section
+#. (itstool) path: star.lang/language@_section
+#: fcl.lang:23 gap.lang:23 idl-exelis.lang:20 imagej.lang:23 julia.lang:23
+#: matlab.lang:25 maxima.lang:24 modelica.lang:25 octave.lang:25 R.lang:25
+#: scilab.lang:23 star.lang:28
+msgid "Scientific"
+msgstr ""
+
+#. (itstool) path: gdb-log.lang/language@_name
+#: gdb-log.lang:18
+msgid "GDB Log"
+msgstr ""
+
+#. (itstool) path: glsl.lang/language@_name
+#: glsl.lang:30
+msgid "OpenGL Shading Language"
+msgstr ""
+
+#. (itstool) path: llvm.lang/language@_name
+#: llvm.lang:22
+msgid "LLVM IR"
+msgstr ""
+
+#. (itstool) path: po.lang/language@_name
+#: po.lang:23
 msgid "gettext translation"
 msgstr "uguqulelo lwe-gettext"
 
-#: ../ctksourceview/language-specs/python.lang.h:1
-#: ../ctksourceview/language-specs/ruby.lang.h:2
-msgid "Builtins"
-msgstr "Ezakhelweyo"
-
-#: ../ctksourceview/language-specs/python.lang.h:8
-msgid "Module Handler"
-msgstr "Umphathi Wemodyuli"
-
-#: ../ctksourceview/language-specs/python.lang.h:12
-msgid "Python"
-msgstr "I-Python"
-
-#: ../ctksourceview/language-specs/ruby.lang.h:1
-msgid "Attribute Definitions"
-msgstr "Iinkcazelo Zophawu"
-
-#: ../ctksourceview/language-specs/ruby.lang.h:3
-msgid "Class Variables"
-msgstr "Udidi Logcino lwamaxabiso aguqukayo"
-
-#: ../ctksourceview/language-specs/ruby.lang.h:4
-msgid "Constants"
-msgstr "Amanani angaguqukiyo"
-
-#: ../ctksourceview/language-specs/ruby.lang.h:5
-msgid "Definitions"
-msgstr "Iinkcazelo"
-
-#: ../ctksourceview/language-specs/ruby.lang.h:6
-msgid "Global Variables"
-msgstr "Ugcino lwamaxabiso angaguqukiyo Ehlabathi"
-
-#: ../ctksourceview/language-specs/ruby.lang.h:7
-msgid "Instance Variables"
-msgstr "Ugcino lwamaxabiso angaguqukiyo Lwemo"
-
-#: ../ctksourceview/language-specs/ruby.lang.h:10
-msgid "Module Handlers"
-msgstr "Abaphathi Bemodyuli"
-
-#: ../ctksourceview/language-specs/ruby.lang.h:11
-msgid "Multiline Comment"
-msgstr "Inkcazo Yemigca emininzi"
-
-#: ../ctksourceview/language-specs/ruby.lang.h:12
-msgid "Pseudo Variables"
-msgstr "Ugcino lwamaxabiso angaguqukiyo Lobuxoki"
-
-#: ../ctksourceview/language-specs/ruby.lang.h:13
-msgid "RegExp Variables"
-msgstr "Ugcino lwamaxabiso angaguqukiyo lwe-RegExp"
-
-#: ../ctksourceview/language-specs/ruby.lang.h:14
-msgid "Regular Expression"
-msgstr "Intetho Eqhelekileyo"
-
-#: ../ctksourceview/language-specs/ruby.lang.h:15
-msgid "Regular Expression 2"
-msgstr "Intetho Eqhelekileyo 2"
-
-#: ../ctksourceview/language-specs/ruby.lang.h:16
-msgid "Ruby"
-msgstr "i-Ruby"
-
-#: ../ctksourceview/language-specs/sh.lang.h:2
-msgid "Built-in Commands"
-msgstr "Imiyalelo Eyakhelweyo"
-
-#: ../ctksourceview/language-specs/sh.lang.h:3
-msgid "Common Commands"
-msgstr "Imiyalelo Eqhelekileyo"
-
-#: ../ctksourceview/language-specs/sh.lang.h:10
-msgid "Redirections"
-msgstr "Imiyalelo yokulandela icala kwakhona"
-
-#: ../ctksourceview/language-specs/sh.lang.h:12
-msgid "Self"
-msgstr "Ubuqu"
-
-#: ../ctksourceview/language-specs/sh.lang.h:15
-msgid "Variable1"
-msgstr "Ugcino lwamaxabiso angaguqukiyo1"
-
-#: ../ctksourceview/language-specs/sh.lang.h:16
-msgid "Variable2"
-msgstr "Ugcino lwamaxabiso angaguqukiyo2"
-
-#: ../ctksourceview/language-specs/sh.lang.h:17
-msgid "sh"
-msgstr "i-sh"
-
-#: ../ctksourceview/language-specs/sql.lang.h:1
-msgid "ANSI Datatypes"
-msgstr "Iintlobo zedata ze-ANSI"
-
-#: ../ctksourceview/language-specs/sql.lang.h:2
-msgid "ANSI Reserved Words"
-msgstr "Amagama Agciniweyo e-ANSI"
-
-#: ../ctksourceview/language-specs/sql.lang.h:3
-msgid "Aggregate Functions"
-msgstr "Imisebenzi Yengqokelela"
+#. (itstool) path: rpmspec.lang/language@_name
+#: rpmspec.lang:24
+msgid "RPM spec"
+msgstr ""
+
+#. (itstool) path: tera.lang/language@_name
+#: tera.lang:23
+msgid "Tera Template"
+msgstr ""
+
+#. (itstool) path: classic.xml/style-scheme@_name
+#: classic.xml:23
+msgid "Classic"
+msgstr ""
+
+#. (itstool) path: style-scheme/_description
+#: classic.xml:25
+msgid "Classic color scheme"
+msgstr ""
+
+#. (itstool) path: cobalt.xml/style-scheme@_name
+#: cobalt.xml:25
+msgid "Cobalt"
+msgstr ""
+
+#. (itstool) path: style-scheme/_description
+#: cobalt.xml:27
+msgid "Blue based color scheme"
+msgstr ""
+
+#. (itstool) path: style-scheme/_description
+#: kate.xml:25
+msgid "Color scheme used in the Kate text editor"
+msgstr ""
+
+#. (itstool) path: oblivion.xml/style-scheme@_name
+#: oblivion.xml:24
+msgid "Oblivion"
+msgstr ""
+
+#. (itstool) path: style-scheme/_description
+#: oblivion.xml:27
+msgid "Dark color scheme using the Tango color palette"
+msgstr ""
+
+#. (itstool) path: solarized-dark.xml/style-scheme@_name
+#: solarized-dark.xml:23
+msgid "Solarized Dark"
+msgstr ""
+
+#. (itstool) path: style-scheme/_description
+#: solarized-dark.xml:25
+msgid "Color scheme using Solarized dark color palette"
+msgstr ""
+
+#. (itstool) path: solarized-light.xml/style-scheme@_name
+#: solarized-light.xml:23
+msgid "Solarized Light"
+msgstr ""
+
+#. (itstool) path: style-scheme/_description
+#: solarized-light.xml:25
+msgid "Color scheme using Solarized light color palette"
+msgstr ""
+
+#. (itstool) path: tango.xml/style-scheme@_name
+#: tango.xml:23
+msgid "Tango"
+msgstr ""
+
+#. (itstool) path: style-scheme/_description
+#: tango.xml:25
+msgid "Color scheme using Tango color palette"
+msgstr ""
+
+#: ctksourceview/completion-providers/words/ctksourcecompletionwords.c:332
+msgid "Document Words"
+msgstr ""
+
+#: ctksourceview/ctksourcebufferoutputstream.c:842
+msgid "Invalid byte sequence in conversion input"
+msgstr ""
+
+#: ctksourceview/ctksourcebufferoutputstream.c:848
+#, c-format
+msgid "Error during conversion: %s"
+msgstr ""
+
+#: ctksourceview/ctksourcebufferoutputstream.c:929
+#, c-format
+msgid "Conversion from character set “%s” to “UTF-8” is not supported"
+msgstr ""
+
+#: ctksourceview/ctksourcebufferoutputstream.c:935
+#, c-format
+msgid "Could not open converter from “%s” to “UTF-8”"
+msgstr ""
+
+#: ctksourceview/ctksourcebufferoutputstream.c:995
+msgid "Invalid object, not initialized"
+msgstr ""
+
+#: ctksourceview/ctksourcebufferoutputstream.c:1187
+#, c-format
+msgid "Incomplete UTF-8 sequence in input"
+msgstr ""
+
+#. Translators: "All" is used as a label in the status bar of the
+#. popup, telling that all completion pages are shown.
+#: ctksourceview/ctksourcecompletion.c:838
+msgid "All"
+msgstr ""
+
+#. Tooltip style
+#: ctksourceview/ctksourcecompletioninfo.c:262
+msgid "Completion Info"
+msgstr ""
+
+#: ctksourceview/ctksourcecompletionmodel.c:494
+msgid "Provider"
+msgstr ""
+
+#: ctksourceview/ctksourcecompletion.ui:86
+msgid "Show detailed proposal information"
+msgstr ""
+
+#: ctksourceview/ctksourcecompletion.ui:88
+msgid "_Details…"
+msgstr ""
+
+#. regex_new could fail, for instance if there are different
+#. * named sub-patterns with the same name or if resulting regex is
+#. * too long. In this case fixing lang file helps (e.g. renaming
+#. * subpatterns, making huge keywords use bigger prefixes, etc.)
+#: ctksourceview/ctksourcecontextengine.c:3140
+#, c-format
+msgid ""
+"Cannot create a regex for all the transitions, the syntax highlighting "
+"process will be slower than usual.\n"
+"The error was: %s"
+msgstr ""
+
+#: ctksourceview/ctksourcecontextengine.c:4474
+msgid ""
+"Highlighting a single line took too much time, syntax highlighting will be "
+"disabled"
+msgstr ""
+
+#: ctksourceview/ctksourcecontextengine.c:5724
+#, c-format
+msgid "context “%s” cannot contain a \\%%{...@start} command"
+msgstr ""
+
+#: ctksourceview/ctksourcecontextengine.c:5887
+#: ctksourceview/ctksourcecontextengine.c:5977
+#, c-format
+msgid "duplicated context id “%s”"
+msgstr ""
+
+#: ctksourceview/ctksourcecontextengine.c:6091
+#: ctksourceview/ctksourcecontextengine.c:6151
+#, c-format
+msgid ""
+"style override used with wildcard context reference in language “%s” in ref "
+"“%s”"
+msgstr ""
+
+#: ctksourceview/ctksourcecontextengine.c:6165
+#, c-format
+msgid "invalid context reference “%s”"
+msgstr ""
+
+#: ctksourceview/ctksourcecontextengine.c:6184
+#: ctksourceview/ctksourcecontextengine.c:6194
+#, c-format
+msgid "unknown context “%s”"
+msgstr ""
+
+#: ctksourceview/ctksourcecontextengine.c:6293
+#, c-format
+msgid "Missing main language definition (id = \"%s\".)"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:140 ctksourceview/ctksourceencoding.c:183
+#: ctksourceview/ctksourceencoding.c:185 ctksourceview/ctksourceencoding.c:187
+#: ctksourceview/ctksourceencoding.c:189 ctksourceview/ctksourceencoding.c:191
+#: ctksourceview/ctksourceencoding.c:193 ctksourceview/ctksourceencoding.c:195
+msgid "Unicode"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:154 ctksourceview/ctksourceencoding.c:178
+#: ctksourceview/ctksourceencoding.c:228 ctksourceview/ctksourceencoding.c:271
+msgid "Western"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:156 ctksourceview/ctksourceencoding.c:230
+#: ctksourceview/ctksourceencoding.c:267
+msgid "Central European"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:158
+msgid "South European"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:160 ctksourceview/ctksourceencoding.c:174
+#: ctksourceview/ctksourceencoding.c:281
+msgid "Baltic"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:162 ctksourceview/ctksourceencoding.c:232
+#: ctksourceview/ctksourceencoding.c:245 ctksourceview/ctksourceencoding.c:249
+#: ctksourceview/ctksourceencoding.c:251 ctksourceview/ctksourceencoding.c:269
+msgid "Cyrillic"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:164 ctksourceview/ctksourceencoding.c:238
+#: ctksourceview/ctksourceencoding.c:279
+msgid "Arabic"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:166 ctksourceview/ctksourceencoding.c:273
+msgid "Greek"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:168
+msgid "Hebrew Visual"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:170 ctksourceview/ctksourceencoding.c:234
+#: ctksourceview/ctksourceencoding.c:275
+msgid "Turkish"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:172
+msgid "Nordic"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:176
+msgid "Celtic"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:180
+msgid "Romanian"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:198
+msgid "Armenian"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:200 ctksourceview/ctksourceencoding.c:202
+#: ctksourceview/ctksourceencoding.c:216
+msgid "Chinese Traditional"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:204
+msgid "Cyrillic/Russian"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:207 ctksourceview/ctksourceencoding.c:209
+#: ctksourceview/ctksourceencoding.c:211 ctksourceview/ctksourceencoding.c:241
+#: ctksourceview/ctksourceencoding.c:256
+msgid "Japanese"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:214 ctksourceview/ctksourceencoding.c:243
+#: ctksourceview/ctksourceencoding.c:247 ctksourceview/ctksourceencoding.c:262
+msgid "Korean"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:219 ctksourceview/ctksourceencoding.c:221
+#: ctksourceview/ctksourceencoding.c:223
+msgid "Chinese Simplified"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:225
+msgid "Georgian"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:236 ctksourceview/ctksourceencoding.c:277
+msgid "Hebrew"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:253
+msgid "Cyrillic/Ukrainian"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:258 ctksourceview/ctksourceencoding.c:264
+#: ctksourceview/ctksourceencoding.c:283
+msgid "Vietnamese"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:260
+msgid "Thai"
+msgstr ""
+
+#: ctksourceview/ctksourceencoding.c:494
+msgid "Unknown"
+msgstr ""
+
+#. Translators: This is the sorted list of encodings used by
+#. * CtkSourceView for automatic detection of the file encoding. You may
+#. * want to customize it adding encodings that are common in your
+#. * country, for instance the GB18030 encoding for the Chinese
+#. * translation. You may also want to remove the ISO-8859-15 encoding
+#. * (covering English and most Western European languages) if you think
+#. * people in your country will rarely use it.  "CURRENT" is a magic
+#. * value used by CtkSourceView and it represents the encoding for the
+#. * current locale, so please don't translate the "CURRENT" term.  Only
+#. * recognized encodings are used. See
+#. * https://gitlab.gnome.org/GNOME/ctksourceview/blob/master/ctksourceview/ctksourceencoding.c#L142
+#. * for a list of supported encodings.
+#. * Keep the same format: square brackets, single quotes, commas.
+#.
+#: ctksourceview/ctksourceencoding.c:638
+msgid "['UTF-8', 'CURRENT', 'ISO-8859-15', 'UTF-16']"
+msgstr ""
+
+#: ctksourceview/ctksourcefileloader.c:515
+msgid ""
+"There was a character encoding conversion error and it was needed to use a "
+"fallback character."
+msgstr ""
+
+#: ctksourceview/ctksourcefileloader.c:622
+msgid "File too big."
+msgstr ""
+
+#: ctksourceview/ctksourcefileloader.c:776
+msgid "Not a regular file."
+msgstr ""
+
+#: ctksourceview/ctksourcefilesaver.c:975
+msgid "The file is externally modified."
+msgstr ""
+
+#: ctksourceview/ctksourcefilesaver.c:1427
+msgid "The buffer contains invalid characters."
+msgstr ""
+
+#. *
+#. * SECTION:language
+#. * @Short_description: Represents a syntax highlighted language
+#. * @Title: CtkSourceLanguage
+#. * @See_also: #CtkSourceLanguageManager
+#. *
+#. * A #CtkSourceLanguage represents a programming or markup language, affecting
+#. * syntax highlighting and [context classes][context-classes].
+#. *
+#. * Use #CtkSourceLanguageManager to obtain a #CtkSourceLanguage instance, and
+#. * ctk_source_buffer_set_language() to apply it to a #CtkSourceBuffer.
+#.
+#: ctksourceview/ctksourcelanguage.c:56
+msgid "Others"
+msgstr "Ezinye"
+
+#: ctksourceview/ctksourcelanguage-parser-2.c:949
+#, c-format
+msgid "Unknown id “%s” in regex “%s”"
+msgstr ""
+
+#: ctksourceview/ctksourcelanguage-parser-2.c:1179
+#, c-format
+msgid "in regex “%s”: backreferences are not supported"
+msgstr ""
+
+#: ctksourceview/ctksourceregex.c:128
+msgid "using \\C is not supported in language definitions"
+msgstr ""
+
+#. TODO: have a ChooserDialog?
+#: ctksourceview/ctksourcestyleschemechooserbutton.c:185
+msgid "Select a Style"
+msgstr ""
+
+#: ctksourceview/ctksourcestyleschemechooserbutton.c:189
+msgid "_Cancel"
+msgstr ""
+
+#: ctksourceview/ctksourcestyleschemechooserbutton.c:190
+msgid "_Select"
+msgstr ""
+
+#. create redo menu_item.
+#: ctksourceview/ctksourceview.c:1810
+msgid "_Redo"
+msgstr ""
+
+#. create undo menu_item.
+#: ctksourceview/ctksourceview.c:1821
+msgid "_Undo"
+msgstr ""
+
+#: ctksourceview/ctksourceview.c:1840
+msgid "All _Upper Case"
+msgstr ""
+
+#: ctksourceview/ctksourceview.c:1850
+msgid "All _Lower Case"
+msgstr ""
+
+#: ctksourceview/ctksourceview.c:1860
+msgid "_Invert Case"
+msgstr ""
+
+#: ctksourceview/ctksourceview.c:1870
+msgid "_Title Case"
+msgstr ""
+
+#: ctksourceview/ctksourceview.c:1880
+msgid "C_hange Case"
+msgstr ""
+
+#~ msgid "Escape Character"
+#~ msgstr "Uphawu Lokuphuma"
+
+#~ msgid "Escaping character for syntax patterns"
+#~ msgstr "Uphawu lokuphuma kwiipateni zolwakhiwo-zivakalisi"
+
+#~ msgid "Check Brackets"
+#~ msgstr "Izibiyeli Zokuqinisekisa"
+
+#~ msgid "Whether to check and highlight matching brackets"
+#~ msgstr "Nokuba ngaba uqinisekisa uqaqambisi izibiyeli ezihambelanayo"
+
+#~ msgid "Highlight"
+#~ msgstr "Qaqambisa"
+
+#~ msgid "Whether to highlight syntax in the buffer"
+#~ msgstr "Nokuba ngaba uqaqambisa ulwakhiwo-zivakalisi kwisigcini sethutyana"
+
+#~ msgid "Maximum Undo Levels"
+#~ msgstr "Awona Maqondo makhulu Okukhulula"
+
+#~ msgid "Number of undo levels for the buffer"
+#~ msgstr "Inani lamaqondo okukhulula esigcini sethutyana"
+
+#~ msgid "Language"
+#~ msgstr "Ulwimi"
+
+#~ msgid "Language object to get highlighting patterns from"
+#~ msgstr "Umba wolwimi ofanele ukufumana iipateni zokuqaqambisa ezivela"
+
+#~ msgid "Language specification directories"
+#~ msgstr "Oovimba befayili bokucacisa ulwimi"
+
+#~ msgid ""
+#~ "List of directories where the language specification files (.lang) are "
+#~ "located"
+#~ msgstr ""
+#~ "Uluhlu loovimba beefayili apho iifayili zokucacisa ulwimi (.lang) zibekwe "
+#~ "khona"
+
+#~ msgid "Configuration"
+#~ msgstr "Ukumiselwa kwenkqubo"
+
+#~ msgid "Configuration options for the print job"
+#~ msgstr "Ukumiselwa kwenkqubo enokukhethelwa umsebenzi wokushicilela"
+
+#~ msgid "Source Buffer"
+#~ msgstr "Umthombo wesigcini sethutyana"
+
+#~ msgid "CtkSourceBuffer object to print"
+#~ msgstr "I-CtkSourceBuffer yomba wokushicilelwa"
+
+#~ msgid "Tabs Width"
+#~ msgstr "Ububanzi Be-tab"
+
+#~ msgid "Width in equivalent space characters of tabs"
+#~ msgstr "Ububanzi kwisithuba esilinganayo seempawu zee-tab"
+
+#~ msgid "Wrap Mode"
+#~ msgstr "Inkqubo Yoqhubekeko"
+
+#~ msgid "Word wrapping mode"
+#~ msgstr "Inkqubo yoqhubekeko lwamagama"
+
+#~ msgid "Whether to print the document with highlighted syntax"
+#~ msgstr "Nokuba kushicilelwa uxwebhu olunoqaqambiso lolwakhiwo-zivakalisi"
+
+#~ msgid "Font"
+#~ msgstr "Ifonti"
+
+#~ msgid "GnomeFont name to use for the document text (deprecated)"
+#~ msgstr "Igama le-GnomeFont yokusetyenziswa kumbhalo woxwebhu (lokwaliwa)"
+
+#~ msgid "Font Description"
+#~ msgstr "Inkxazo Yefonti"
+
+#~ msgid "Font to use for the document text (e.g. \"Monospace 10\")"
+#~ msgstr "Ifonti yokusetyenziswa kumbhalo woxwebhu (umzkl. \"Monospace 10\")"
+
+#~ msgid "Numbers Font"
+#~ msgstr "Ifonti Yamanani"
+
+#~ msgid "GnomeFont name to use for the line numbers (deprecated)"
+#~ msgstr "Igama le-GnomeFont yokusetyenziswa kumanani omgca (ukwaliwa)"
+
+#~ msgid "Font description to use for the line numbers"
+#~ msgstr "Inkcazo yefonti yokusetyenziswa kumanani omgca"
+
+#~ msgid "Print Line Numbers"
+#~ msgstr "Shicilela Amanani Omgca"
+
+#~ msgid "Interval of printed line numbers (0 means no numbers)"
+#~ msgstr "Ikhefu lamanani omgca ashicilelweyo (0 lixela ukuba akukho manani)"
+
+#~ msgid "Print Header"
+#~ msgstr "Shicilela Umbhalo okumntla wephepha"
+
+#~ msgid "Whether to print a header in each page"
+#~ msgstr "Nokuba ushicilela umbhalo okumntla wephepha ngalinye"
+
+#~ msgid "Print Footer"
+#~ msgstr "Shicilela Umbhalo okumzantsi wephepha"
+
+#~ msgid "Whether to print a footer in each page"
+#~ msgstr "Nokuba ushicilela umbhalo okumzantsi wephepha ngalinye"
+
+#~ msgid "Header and Footer Font"
+#~ msgstr "Ifonti Yombhalo okumntla nomzantsi Wephepha"
+
+#~ msgid "GnomeFont name to use for the header and footer (deprecated)"
+#~ msgstr ""
+#~ "Igama le-GnomeFont yokusetyenziswa kumbhalo okumntla nomzantsi wephepha "
+#~ "(ukwaliwa)"
+
+#~ msgid "Header and Footer Font Description"
+#~ msgstr "Inkcazelo Yefonti yombhalo Okumntla nomzantsi Wephepha"
+
+#~ msgid "Font to use for headers and footers (e.g. \"Monospace 10\")"
+#~ msgstr ""
+#~ "Ifonti yokusetyenziswa kwimibhalo esentla nesezantsi (umzkl. \"Monospace "
+#~ "10\")"
+
+#~ msgid "Base-N Integer"
+#~ msgstr "Isiseko-N Senani elipheleleyo"
+
+#~ msgid "Character"
+#~ msgstr "Uphawu"
+
+#~ msgid "Comment"
+#~ msgstr "Inkcazo"
+
+#~ msgid "Data Type"
+#~ msgstr "Uhlobo Lwe-data"
+
+#~ msgid "Function"
+#~ msgstr "Umsebenzi"
+
+#~ msgid "Decimal"
+#~ msgstr "Idesimali"
+
+#~ msgid "Floating Point"
+#~ msgstr "Ichokoza Eliyi-float"
+
+#~ msgid "Keyword"
+#~ msgstr "Igama eliphambili"
+
+#~ msgid "Preprocessor"
+#~ msgstr "Isanduleli sesixhobo sokusebenza"
+
+#~ msgid "String"
+#~ msgstr "Uluhlu lwamagama"
+
+#~ msgid "Specials"
+#~ msgstr "Ezikhethekileyo"
+
+#~ msgid "Others 2"
+#~ msgstr "Ezinye 2"
+
+#~ msgid "Others 3"
+#~ msgstr "Ezinye 3"
+
+#~ msgid "Default"
+#~ msgstr "Emiselweyo"
+
+#~ msgid "Tag ID"
+#~ msgstr "Isiphawuli se-ID"
+
+#~ msgid "ID used to refer to the source tag"
+#~ msgstr "I-ID esetyenziswa ukwalathisa kumthombo wesiphawuli"
+
+#~ msgid "Tag style"
+#~ msgstr "Isimbo sesiphawuli"
 
-#: ../ctksourceview/language-specs/sql.lang.h:4
-msgid "Analytic Functions"
-msgstr "Imisebenzi Yokuhlahlela"
+#~ msgid "The style associated to the source tag"
+#~ msgstr "Isimbo esihambelana nomthombo wesiphawuli"
 
-#: ../ctksourceview/language-specs/sql.lang.h:6
-msgid "Character Functions Returning Character Values"
-msgstr "Imisebenzi Yophawu Yokubuyisa Amaxabiso Ophawu"
+#~ msgid "Show Line Numbers"
+#~ msgstr "Bonisa Amanani Omgca"
 
-#: ../ctksourceview/language-specs/sql.lang.h:7
-msgid "Character Functions Returning Number Values"
-msgstr "Imisebenzi Yophawu Yokubuyisa Inani Lophawu"
+#~ msgid "Whether to display line numbers"
+#~ msgstr "Nokuba ngaba ubonisa amanani omgca"
 
-#: ../ctksourceview/language-specs/sql.lang.h:8
-msgid "Conversion Functions"
-msgstr "Imisebenzi Yokuguqula"
+#~ msgid "Show Line Markers"
+#~ msgstr "Bonisa Iimpawu Zomgca"
 
-#: ../ctksourceview/language-specs/sql.lang.h:9
-msgid "Datetime Functions"
-msgstr "Imisebenzi Yexesha lomhla"
+#~ msgid "Whether to display line marker pixbufs"
+#~ msgstr "Nokuba ngaba ubonisa ii-pixbufs zophawu lomgca"
 
-#: ../ctksourceview/language-specs/sql.lang.h:10
-msgid "Integer Literals"
-msgstr "Oonobumba Benani elipheleleyo"
+#~ msgid "Auto Indentation"
+#~ msgstr "Ukuqalisa nganeno Okuzenzekelayo"
 
-#: ../ctksourceview/language-specs/sql.lang.h:12
-msgid "Miscellaneous Single-Row Functions"
-msgstr "Imisebenzi Yomgca Owodwa Weentlobo ngeentlobo"
+#~ msgid "Whether to enable auto indentation"
+#~ msgstr "Nokuba ngaba wenza kusebenzi ukuqalisa nganeno okuzenzekelayo"
 
-#: ../ctksourceview/language-specs/sql.lang.h:13
-msgid "Null"
-msgstr "I-Null"
+#~ msgid "Insert Spaces Instead of Tabs"
+#~ msgstr "Faka Izithuba Endaweni Yee-tab"
 
-#: ../ctksourceview/language-specs/sql.lang.h:14
-msgid "Number Functions"
-msgstr "Imisebenzi Yenani"
+#~ msgid "Whether to insert spaces instead of tabs"
+#~ msgstr "Nokuba ngaba ufaka izithuba endaweni yee-tab"
 
-#: ../ctksourceview/language-specs/sql.lang.h:15
-msgid "Number Literals"
-msgstr "Oonobumba Benani"
+#~ msgid "Show Right Margin"
+#~ msgstr "Bonisa Umda Wasekunene"
 
-#: ../ctksourceview/language-specs/sql.lang.h:16
-msgid "Object Reference Functions"
-msgstr "Imisebenzi Yesalathisi Sento"
+#~ msgid "Whether to display the right margin"
+#~ msgstr "Nokuba ngaba ubonisa umda wasekunene"
 
-#: ../ctksourceview/language-specs/sql.lang.h:17
-msgid "Oracle Built-in Datatypes"
-msgstr "Iintlobo ze-data Eyakhelwe Impendulo"
+#~ msgid "Margin position"
+#~ msgstr "Indawo yomda"
 
-#: ../ctksourceview/language-specs/sql.lang.h:18
-msgid "Oracle Reserved Words"
-msgstr "Amagama Agcinelwe Impendulo"
+#~ msgid "Position of the right margin"
+#~ msgstr "Indawo yomda wasekunene"
 
-#: ../ctksourceview/language-specs/sql.lang.h:19
-msgid "SQL"
-msgstr "I-SQL"
+#~ msgid "Use smart home/end"
+#~ msgstr "Sebenzisa ikhaya/isiphelo esikrelekrele"
 
-#: ../ctksourceview/language-specs/sql.lang.h:20
-msgid "SQL*Plus At Sign"
-msgstr "I-SQL*Plus Nomqondiso we-At"
+#~ msgid ""
+#~ "HOME and END keys move to first/last characters on line first before "
+#~ "going to the start/end of the line"
+#~ msgstr ""
+#~ "Amaqhosha HOME neEND ashenxa ukuya kuphawu lokuqala/lokugqibela lomgca "
+#~ "kuqala phambi kokuba aye ekuqaleni/ekupheleni komgca"
 
-#: ../ctksourceview/language-specs/sql.lang.h:21
-msgid "SQL*Plus Commands"
-msgstr "I-SQL*Plus Nemiyalelo"
+#~ msgid "Highlight current line"
+#~ msgstr "Qaqambisa umgca okuwo ngeli thuba"
 
-#: ../ctksourceview/language-specs/sql.lang.h:22
-msgid "SQL*Plus Double At Sign"
-msgstr "I-SQL*Plus Nophawu Oluphindwe kabini lwe-At"
+#~ msgid "Whether to highlight the current line"
+#~ msgstr "Nokuba uqaqambisa umgca okuwo ngeli thuba"
 
-#: ../ctksourceview/language-specs/sql.lang.h:23
-msgid "SQL*Plus Slash"
-msgstr "I-SQL*Plus Ne-slash"
+#~ msgid "Ada"
+#~ msgstr "I-Ada"
 
-#: ../ctksourceview/language-specs/sql.lang.h:24
-msgid "SQL/DS and DB2 Datatypes"
-msgstr "Iintlobo ze-data ze-SQL/DS ne-DB2"
+#~ msgid "Character Constant"
+#~ msgstr "Ukuzinza Kophawu"
 
-#: ../ctksourceview/language-specs/sql.lang.h:25
-msgid "Size Clause"
-msgstr "Ubukhulu Besiqendu"
+#~ msgid "Keywords"
+#~ msgstr "Amagama aziintloko"
 
-#: ../ctksourceview/language-specs/sql.lang.h:27
-msgid "Text Literals"
-msgstr "Oonobumba Bombhalo"
+#~ msgid "Line Comment"
+#~ msgstr "Umgca Wenkcazo"
 
-#: ../ctksourceview/language-specs/sql.lang.h:28
-msgid "Unlimited"
-msgstr "Engenamda"
+#~ msgid "Number"
+#~ msgstr "Inani"
 
-#: ../ctksourceview/language-specs/verilog.lang.h:1
-#: ../ctksourceview/language-specs/nemerle.lang.h:1
-msgid "Binary Number"
-msgstr "Inani Ngezibini"
-
-#: ../ctksourceview/language-specs/verilog.lang.h:4
-msgid "Gates"
-msgstr "Amasango"
-
-#: ../ctksourceview/language-specs/verilog.lang.h:11
-msgid "Verilog"
-msgstr "I-Verilog"
-
-#: ../ctksourceview/language-specs/xml.lang.h:5
-msgid "Hexadecimal"
-msgstr "Idesimali yesithandathu"
-
-#: ../ctksourceview/language-specs/xml.lang.h:8
-msgid "Tag"
-msgstr "Isiphawuli"
-
-#: ../ctksourceview/language-specs/xml.lang.h:9
-msgid "XML"
-msgstr "I-XML"
-
-#: ../ctksourceview/language-specs/haskell.lang.h:5
-msgid "Haskell"
-msgstr "I-Haskell"
-
-#: ../ctksourceview/language-specs/haskell.lang.h:8
-msgid "Keysymbols"
-msgstr "Iimpawu eziyintloko"
-
-#: ../ctksourceview/language-specs/haskell.lang.h:16
-msgid "Type or Constructor"
-msgstr "Uhlobo okanye Umakhi"
-
-#: ../ctksourceview/language-specs/texinfo.lang.h:2
-msgid "Characters"
-msgstr "Iimpawu"
-
-#: ../ctksourceview/language-specs/texinfo.lang.h:3
-msgid "File Attributes"
-msgstr "Iimpawu Zefayili"
-
-#: ../ctksourceview/language-specs/texinfo.lang.h:4
-msgid "Formatting"
-msgstr "Ukulungiselela"
-
-#: ../ctksourceview/language-specs/texinfo.lang.h:5
-msgid "Generated Content"
-msgstr "Isiqulatho Esiyiliweyo"
-
-#: ../ctksourceview/language-specs/texinfo.lang.h:7
-msgid "Indexing"
-msgstr "Ukufaka izalathiso"
-
-#: ../ctksourceview/language-specs/texinfo.lang.h:10
-msgid "Macro Parameters"
-msgstr "I-Macro Yamaxabiso ento ejika-jikayo"
-
-#: ../ctksourceview/language-specs/texinfo.lang.h:11
-msgid "Macros"
-msgstr "Ii-Macro"
-
-#: ../ctksourceview/language-specs/texinfo.lang.h:13
-msgid "Markup (block)"
-msgstr "Ukwenyusa ixabiso (isithinteli)"
-
-#: ../ctksourceview/language-specs/texinfo.lang.h:14
-msgid "Markup (inline)"
-msgstr "Ukwenyusa ixabiso (emgceni)"
-
-#: ../ctksourceview/language-specs/texinfo.lang.h:15
-msgid "Sectioning"
-msgstr "Ukwenza iziqendu"
-
-#: ../ctksourceview/language-specs/texinfo.lang.h:16
-msgid "Texinfo"
-msgstr "Ulwazi lombhalo"
-
-#: ../ctksourceview/language-specs/vbnet.lang.h:3
-msgid "Old Style Comment"
-msgstr "Inkcazo Yesimbo Sakudala"
-
-#: ../ctksourceview/language-specs/vbnet.lang.h:9
-msgid "VB.NET"
-msgstr "I-VB.NET"
-
-#: ../ctksourceview/language-specs/nemerle.lang.h:4
-msgid "Core Keywords"
-msgstr "Amagama ayintloko Angundoqo"
-
-#: ../ctksourceview/language-specs/nemerle.lang.h:5
-msgid "Core Types"
-msgstr "Iintlobo Ezingundoqo"
-
-#: ../ctksourceview/language-specs/nemerle.lang.h:9
-msgid "Keywords Defined by Macros"
-msgstr "Amagama ayintloko Achazwa ngee-Macro"
-
-#: ../ctksourceview/language-specs/nemerle.lang.h:11
-msgid "Nemerle"
-msgstr "I-Nemerle"
-
-#: ../ctksourceview/language-specs/tcl.lang.h:6
-msgid "Tcl"
-msgstr "I-Tcl"
-
-#: ../ctksourceview/language-specs/vhdl.lang.h:7
-msgid "True and False"
-msgstr "Inyaniso neMposiso"
-
-#: ../ctksourceview/language-specs/vhdl.lang.h:8
-msgid "Type"
-msgstr "Uhlobo"
-
-#: ../ctksourceview/language-specs/vhdl.lang.h:9
-msgid "VHDL"
-msgstr "I-VHDL"
-
-#: ../ctksourceview/language-specs/R.lang.h:1
-msgid "Assignment Operator"
-msgstr "Umenzi Womsebenzi"
-
-#: ../ctksourceview/language-specs/R.lang.h:2
-msgid "Delimiter"
-msgstr "Isibeki-mda"
-
-#: ../ctksourceview/language-specs/R.lang.h:5
-msgid "Integer Number"
-msgstr "Inani lenani Elipheleleyo"
-
-#: ../ctksourceview/language-specs/R.lang.h:8
-msgid "Reserved Class"
-msgstr "Udidi Olugciniweyo"
-
-#: ../ctksourceview/language-specs/R.lang.h:9
-msgid "Reserved Constant"
-msgstr "Inani elingaguqukiyo Eligciniweyo"
-
-#: ../ctksourceview/language-specs/ctkrc.lang.h:3
-msgid "CtkRC"
-msgstr "I-CtkRC"
-
-#: ../ctksourceview/language-specs/ctkrc.lang.h:4
-msgid "Include Directive"
-msgstr "Iquka Umyalelo"
-
-#: ../ctksourceview/language-specs/ctkrc.lang.h:5
-msgid "Keysymbol"
-msgstr "Uphawu Oluyintloko"
-
-#: ../ctksourceview/language-specs/ctkrc.lang.h:11
-msgid "State"
-msgstr "Isimo"
+#~ msgid "Preprocessor Keywords"
+#~ msgstr "Isanduleli sesixhobo sokusebenza Samagama aziintloko"
+
+#~ msgid "Sources"
+#~ msgstr "Imithombo"
+
+#~ msgid "True And False"
+#~ msgstr "Inyaniso Kunye Nemposiso"
+
+#~ msgid "Types"
+#~ msgstr "Iintlobo"
+
+#~ msgid "'#if 0' Comment"
+#~ msgstr "'#if 0' Inkcazo"
+
+#~ msgid "Block Comment"
+#~ msgstr "Inkcazo Yesithinteli"
+
+#~ msgid "C"
+#~ msgstr "C"
+
+#~ msgid "Common Macro"
+#~ msgstr "I-Macro eqhelekileyo"
+
+#~ msgid "Floating Point Number"
+#~ msgstr "Inani Lechokoza Eliyi-float"
+
+#~ msgid "Hex Number"
+#~ msgstr "Inani Lesithandathu"
+
+#~ msgid "Include/Pragma"
+#~ msgstr "i-Include/i-Pragma"
+
+#~ msgid "Octal Number"
+#~ msgstr "Inani Lesibhozo"
+
+#~ msgid "Preprocessor Definitions"
+#~ msgstr "Iinkcazelo Zesanduleli sesixhobo sokusebenza"
+
+#~ msgid "C++"
+#~ msgstr "C++"
+
+#~ msgid "C#"
+#~ msgstr "C#"
+
+#~ msgid "Primitives"
+#~ msgstr "Ezamandulo"
+
+#~ msgid "String 2"
+#~ msgstr "Uluhlu lwamagama 2"
+
+#~ msgid "At Rules"
+#~ msgstr "Imithetho ye-At"
+
+#~ msgid "Attribute Value Delimiters"
+#~ msgstr "Izithinteli Zexabiso Lophawu"
+
+#~ msgid "Dimension"
+#~ msgstr "Imilinganiso"
+
+#~ msgid "Hexadecimal Color"
+#~ msgstr "Umbala Wedesimali yesithandathu"
+
+#~ msgid "Importance Modifier"
+#~ msgstr "Ukubaluleka Komlungisi"
+
+#~ msgid "Known Property Values"
+#~ msgstr "Amaxabiso Ophawu Olwaziwayo"
+
+#~ msgid "Operators"
+#~ msgstr "Abasebenzi"
+
+#~ msgid "Property Names"
+#~ msgstr "Amagama Okwenene"
+
+#~ msgid "Punctuators"
+#~ msgstr "Iziphumlisi"
+
+#~ msgid "Selector Grammar"
+#~ msgstr "Igrama Yomkhethi"
+
+#~ msgid "Selector Pseudo Classes"
+#~ msgstr "Iiklasi Zobuxoki Zomkhethi"
+
+#~ msgid "Selector Pseudo Elements"
+#~ msgstr "Iziqalelo Zobuxoki Zomkhethi"
+
+#~ msgid "Unicode Character Reference"
+#~ msgstr "Isalathisi Sophawu Lwekhowudi yomdibaniso"
+
+#~ msgid "Unicode Range"
+#~ msgstr "Uluhlu Lwekhowudi yomdibaniso"
+
+#~ msgid ".desktop"
+#~ msgstr "I-.desktop"
+
+#~ msgid "Boolean Value"
+#~ msgstr "Ixabiso le-Boolean"
+
+#~ msgid "Encoding"
+#~ msgstr "Ukunxulumana"
+
+#~ msgid "Exec Parameter"
+#~ msgstr "Ixabiso lento ejika-jikayo Yokuphumeza"
+
+#~ msgid "Group"
+#~ msgstr "Iqela"
+
+#~ msgid "Non Standard Key"
+#~ msgstr "Iqhosa Elingekho Sikweni"
+
+#~ msgid "Standard Key"
+#~ msgstr "Iqhosa Elisesikweni"
+
+#~ msgid "Added line"
+#~ msgstr "Umgca Ongeziweyo"
+
+#~ msgid "Changed line"
+#~ msgstr "Umgca Otshintshiweyo"
+
+#~ msgid "Diff"
+#~ msgstr "Umahluko"
+
+#~ msgid "Diff file"
+#~ msgstr "Ifayili enomahluko"
+
+#~ msgid "Location"
+#~ msgstr "Indawo"
+
+#~ msgid "Removed line"
+#~ msgstr "Umgca osusiweyo"
+
+#~ msgid "Special case"
+#~ msgstr "Imeko ekhethekileyo"
+
+#~ msgid "Attributes"
+#~ msgstr "Iimpawu"
+
+#~ msgid "Closing Bracket"
+#~ msgstr "Isibiyeli Esivalayo"
+
+#~ msgid "DTD"
+#~ msgstr "I-DTD"
+
+#~ msgid "Entity"
+#~ msgstr "Impahla"
+
+#~ msgid "HTML"
+#~ msgstr "I-HTML"
+
+#~ msgid "Tags"
+#~ msgstr "Iziphawuli"
+
+#~ msgid "Fortran 95"
+#~ msgstr "I-Fortran 95"
+
+#~ msgid "Input/Output"
+#~ msgstr "Ulwazi olungenisiweyo/Isiphumo"
+
+#~ msgid "Intrinsics"
+#~ msgstr "Amaxabiso ngokwemvelo"
+
+#~ msgid "Read/Write"
+#~ msgstr "Funda/Bhala"
+
+#~ msgid "IDL"
+#~ msgstr "I-IDL"
+
+#~ msgid "Sectional"
+#~ msgstr "Ngokwecandelo"
+
+#~ msgid ".ini"
+#~ msgstr ".ini"
+
+#~ msgid "Decimal Number"
+#~ msgstr "Inani Ledesimali"
+
+#~ msgid "Double Quote String"
+#~ msgstr "Uluhlu Lwamagama olunophawu lokucaphula Oluphinda-phindiweyo"
+
+#~ msgid "Integer"
+#~ msgstr "Inani elipheleleyo"
+
+#~ msgid "Single Quote String"
+#~ msgstr "Isicaphuli Esinye Soluhlu lwamagama"
+
+#~ msgid "Variable"
+#~ msgstr "Ugcino lwamaxabiso aguqukayo"
+
+#~ msgid "Declarations"
+#~ msgstr "Izibhengezo"
+
+#~ msgid "Flow"
+#~ msgstr "Ukujinga"
+
+#~ msgid "Java"
+#~ msgstr "I-Java"
+
+#~ msgid "Memory"
+#~ msgstr "Uvimba wolwazi"
+
+#~ msgid "Modifiers"
+#~ msgstr "Izilungisi"
+
+#~ msgid "Numeric"
+#~ msgstr "Eyamanani"
+
+#~ msgid "Array Operators"
+#~ msgstr "Abasebenzi Boludwe"
+
+#~ msgid "Constructors"
+#~ msgstr "Abakhi"
+
+#~ msgid "Error Handling"
+#~ msgstr "Impazamo Yokuphatha"
+
+#~ msgid "Floating-Point Number"
+#~ msgstr "Inani Lechokoza le-Float"
+
+#~ msgid "Flow Keywords"
+#~ msgstr "Amagama ayintloko Okujinga"
+
+#~ msgid "Future Reserved Words"
+#~ msgstr "Amagama Agcinelwe Ingomso"
+
+#~ msgid "Global Functions"
+#~ msgstr "Imisebenzi Yehlabathi"
+
+#~ msgid "Global Properties"
+#~ msgstr "Iimpawu Zehlabathi"
+
+#~ msgid "Hexadecimal Number"
+#~ msgstr "Inani Ledesimali yesithandathu"
+
+#~ msgid "Literals"
+#~ msgstr "Oonombumba"
+
+#~ msgid "Math Value Properties"
+#~ msgstr "Iimpawu Zexabiso Lemathematika"
+
+#~ msgid "Object Functions"
+#~ msgstr "Imisebenzi Yento"
+
+#~ msgid "Object Properties"
+#~ msgstr "Iimpawu Zento"
+
+#~ msgid "Objects"
+#~ msgstr "Izinto"
+
+#~ msgid "Scripts"
+#~ msgstr "Izikripti"
+
+#~ msgid "Unicode Escape Sequence"
+#~ msgstr "Ukulandelelana Kwekhowudi edibanisayo Yokuphuma"
+
+#~ msgid "Word Operators"
+#~ msgstr "Abasebenzi Begama"
+
+#~ msgid "Include"
+#~ msgstr "Quka"
+
+#~ msgid "LaTeX"
+#~ msgstr "I-LaTeX"
+
+#~ msgid "Math"
+#~ msgstr "Imathematika"
+
+#~ msgid "Most Used Commands"
+#~ msgstr "Imiyalelo Esetyenziswa Kakhulu"
+
+#~ msgid "Functions"
+#~ msgstr "Imisebenzi"
+
+#~ msgid "Line Comment 2"
+#~ msgstr "Inkcazo Yomgca 2"
+
+#~ msgid "Lua"
+#~ msgstr "I-Lua"
+
+#~ msgid "Multiline String"
+#~ msgstr "Uluhlu lwamagama Lwemigca emininzi"
+
+#~ msgid "Multiline String 2"
+#~ msgstr "Uluhlu lwamagama Lwemigca emininzi 2"
+
+#~ msgid "Block Comment 1"
+#~ msgstr "Inkcazo Yesithinteli 1"
+
+#~ msgid "Block Comment 2"
+#~ msgstr "Inkcazo Yesithinteli 2"
+
+#~ msgid "Boolean Bitwise Operators"
+#~ msgstr "Abasebenzi Besuntsu lobulumko be-Boolean"
+
+#~ msgid "Builtin Functions"
+#~ msgstr "Imisebenzi Eyakhelweyo"
+
+#~ msgid "Builtin Types"
+#~ msgstr "Iintlobo Ezakhelweyo"
+
+#~ msgid "Builtin Values"
+#~ msgstr "Amaxabiso Awakhelweyo"
+
+#~ msgid "Functions and Function Modifiers"
+#~ msgstr "Imisebenzi Nomsebenzi Wezilungisi"
+
+#~ msgid "General Format"
+#~ msgstr "Ukulungiselela Ngokubanzi"
+
+#~ msgid "Loop, Flow, and Exceptions Keywords"
+#~ msgstr "Iseti yeengxelo, Ukujinga, Namagama ayintloko Anxaxhileyo"
+
+#~ msgid "Math Operators"
+#~ msgstr "Abasebenzi Bemathematika"
+
+#~ msgid "Pascal"
+#~ msgstr "I-Pascal"
+
+#~ msgid "Preprocessor Defines"
+#~ msgstr "Iinkcazelo Zesanduleli sesixhobo sokusebenza"
+
+#~ msgid "Type, Class and Object Keywords"
+#~ msgstr "Uhlobo, Udidi Namagama ayintloko Ento"
+
+#~ msgid "Function Call"
+#~ msgstr "Ukunxulumanisa Umsebenzi"
+
+#~ msgid "Method Call"
+#~ msgstr "Ukunxulumanisa Indlela yokusebenza"
+
+#~ msgid "POD"
+#~ msgstr "I-POD"
+
+#~ msgid "Perl"
+#~ msgstr "I-Perl"
+
+#~ msgid "String2"
+#~ msgstr "Uluhlu lwamagama2"
+
+#~ msgid "String3"
+#~ msgstr "Uluhlu lwamagama3"
+
+#~ msgid "Variables"
+#~ msgstr "Ugcino lwamaxabiso aqukayo"
+
+#~ msgid "Backtick String"
+#~ msgstr "Uluhlu lwamagama e-Backtick"
+
+#~ msgid "Bash Line Comment"
+#~ msgstr "Inkcazo Yomgca Wetoliki yemiyalelo"
+
+#~ msgid "C Block Comment"
+#~ msgstr "Inkcazo Yesithinteli C"
+
+#~ msgid "C++ Line Comment"
+#~ msgstr "Inkcazo Yomgca C++"
+
+#~ msgid "Case Insensitive Keyword"
+#~ msgstr "Igama eliyintloko Elingachaphazelwa Yimeko"
+
+#~ msgid "Case Sensitive Keyword"
+#~ msgstr "Igama eliyintloko Elichaphazelwa Yimeko"
+
+#~ msgid "Double Quoted String"
+#~ msgstr "Uluhlu lwamagama Lwesicaphuli Esiphinda kabini"
+
+#~ msgid "First Open PHP Tag"
+#~ msgstr "Vula Kuqala Isiphawuli se-PHP"
+
+#~ msgid "HTML Block"
+#~ msgstr "Isithinteli se-HTML"
+
+#~ msgid "PHP"
+#~ msgstr "I-PHP"
+
+#~ msgid "Single Quoted String"
+#~ msgstr "Uluhlu lwamagama Lwesicaphuli Esinye"
+
+#~ msgid "Format"
+#~ msgstr "Ukulungiselela"
+
+#~ msgid "Builtins"
+#~ msgstr "Ezakhelweyo"
+
+#~ msgid "Module Handler"
+#~ msgstr "Umphathi Wemodyuli"
+
+#~ msgid "Python"
+#~ msgstr "I-Python"
+
+#~ msgid "Attribute Definitions"
+#~ msgstr "Iinkcazelo Zophawu"
+
+#~ msgid "Class Variables"
+#~ msgstr "Udidi Logcino lwamaxabiso aguqukayo"
+
+#~ msgid "Constants"
+#~ msgstr "Amanani angaguqukiyo"
+
+#~ msgid "Definitions"
+#~ msgstr "Iinkcazelo"
+
+#~ msgid "Global Variables"
+#~ msgstr "Ugcino lwamaxabiso angaguqukiyo Ehlabathi"
+
+#~ msgid "Instance Variables"
+#~ msgstr "Ugcino lwamaxabiso angaguqukiyo Lwemo"
+
+#~ msgid "Module Handlers"
+#~ msgstr "Abaphathi Bemodyuli"
+
+#~ msgid "Multiline Comment"
+#~ msgstr "Inkcazo Yemigca emininzi"
+
+#~ msgid "Pseudo Variables"
+#~ msgstr "Ugcino lwamaxabiso angaguqukiyo Lobuxoki"
+
+#~ msgid "RegExp Variables"
+#~ msgstr "Ugcino lwamaxabiso angaguqukiyo lwe-RegExp"
+
+#~ msgid "Regular Expression"
+#~ msgstr "Intetho Eqhelekileyo"
+
+#~ msgid "Regular Expression 2"
+#~ msgstr "Intetho Eqhelekileyo 2"
+
+#~ msgid "Ruby"
+#~ msgstr "i-Ruby"
+
+#~ msgid "Built-in Commands"
+#~ msgstr "Imiyalelo Eyakhelweyo"
+
+#~ msgid "Common Commands"
+#~ msgstr "Imiyalelo Eqhelekileyo"
+
+#~ msgid "Redirections"
+#~ msgstr "Imiyalelo yokulandela icala kwakhona"
+
+#~ msgid "Self"
+#~ msgstr "Ubuqu"
+
+#~ msgid "Variable1"
+#~ msgstr "Ugcino lwamaxabiso angaguqukiyo1"
+
+#~ msgid "Variable2"
+#~ msgstr "Ugcino lwamaxabiso angaguqukiyo2"
+
+#~ msgid "sh"
+#~ msgstr "i-sh"
+
+#~ msgid "ANSI Datatypes"
+#~ msgstr "Iintlobo zedata ze-ANSI"
+
+#~ msgid "ANSI Reserved Words"
+#~ msgstr "Amagama Agciniweyo e-ANSI"
+
+#~ msgid "Aggregate Functions"
+#~ msgstr "Imisebenzi Yengqokelela"
+
+#~ msgid "Analytic Functions"
+#~ msgstr "Imisebenzi Yokuhlahlela"
+
+#~ msgid "Character Functions Returning Character Values"
+#~ msgstr "Imisebenzi Yophawu Yokubuyisa Amaxabiso Ophawu"
+
+#~ msgid "Character Functions Returning Number Values"
+#~ msgstr "Imisebenzi Yophawu Yokubuyisa Inani Lophawu"
+
+#~ msgid "Conversion Functions"
+#~ msgstr "Imisebenzi Yokuguqula"
+
+#~ msgid "Datetime Functions"
+#~ msgstr "Imisebenzi Yexesha lomhla"
+
+#~ msgid "Integer Literals"
+#~ msgstr "Oonobumba Benani elipheleleyo"
+
+#~ msgid "Miscellaneous Single-Row Functions"
+#~ msgstr "Imisebenzi Yomgca Owodwa Weentlobo ngeentlobo"
+
+#~ msgid "Null"
+#~ msgstr "I-Null"
+
+#~ msgid "Number Functions"
+#~ msgstr "Imisebenzi Yenani"
+
+#~ msgid "Number Literals"
+#~ msgstr "Oonobumba Benani"
+
+#~ msgid "Object Reference Functions"
+#~ msgstr "Imisebenzi Yesalathisi Sento"
+
+#~ msgid "Oracle Built-in Datatypes"
+#~ msgstr "Iintlobo ze-data Eyakhelwe Impendulo"
+
+#~ msgid "Oracle Reserved Words"
+#~ msgstr "Amagama Agcinelwe Impendulo"
+
+#~ msgid "SQL"
+#~ msgstr "I-SQL"
+
+#~ msgid "SQL*Plus At Sign"
+#~ msgstr "I-SQL*Plus Nomqondiso we-At"
+
+#~ msgid "SQL*Plus Commands"
+#~ msgstr "I-SQL*Plus Nemiyalelo"
+
+#~ msgid "SQL*Plus Double At Sign"
+#~ msgstr "I-SQL*Plus Nophawu Oluphindwe kabini lwe-At"
+
+#~ msgid "SQL*Plus Slash"
+#~ msgstr "I-SQL*Plus Ne-slash"
+
+#~ msgid "SQL/DS and DB2 Datatypes"
+#~ msgstr "Iintlobo ze-data ze-SQL/DS ne-DB2"
+
+#~ msgid "Size Clause"
+#~ msgstr "Ubukhulu Besiqendu"
+
+#~ msgid "Text Literals"
+#~ msgstr "Oonobumba Bombhalo"
+
+#~ msgid "Unlimited"
+#~ msgstr "Engenamda"
+
+#~ msgid "Binary Number"
+#~ msgstr "Inani Ngezibini"
+
+#~ msgid "Gates"
+#~ msgstr "Amasango"
+
+#~ msgid "Verilog"
+#~ msgstr "I-Verilog"
+
+#~ msgid "Hexadecimal"
+#~ msgstr "Idesimali yesithandathu"
+
+#~ msgid "Tag"
+#~ msgstr "Isiphawuli"
+
+#~ msgid "XML"
+#~ msgstr "I-XML"
+
+#~ msgid "Haskell"
+#~ msgstr "I-Haskell"
+
+#~ msgid "Keysymbols"
+#~ msgstr "Iimpawu eziyintloko"
+
+#~ msgid "Type or Constructor"
+#~ msgstr "Uhlobo okanye Umakhi"
+
+#~ msgid "Characters"
+#~ msgstr "Iimpawu"
+
+#~ msgid "File Attributes"
+#~ msgstr "Iimpawu Zefayili"
+
+#~ msgid "Formatting"
+#~ msgstr "Ukulungiselela"
+
+#~ msgid "Generated Content"
+#~ msgstr "Isiqulatho Esiyiliweyo"
+
+#~ msgid "Indexing"
+#~ msgstr "Ukufaka izalathiso"
+
+#~ msgid "Macro Parameters"
+#~ msgstr "I-Macro Yamaxabiso ento ejika-jikayo"
+
+#~ msgid "Macros"
+#~ msgstr "Ii-Macro"
+
+#~ msgid "Markup (block)"
+#~ msgstr "Ukwenyusa ixabiso (isithinteli)"
+
+#~ msgid "Markup (inline)"
+#~ msgstr "Ukwenyusa ixabiso (emgceni)"
+
+#~ msgid "Sectioning"
+#~ msgstr "Ukwenza iziqendu"
+
+#~ msgid "Texinfo"
+#~ msgstr "Ulwazi lombhalo"
+
+#~ msgid "Old Style Comment"
+#~ msgstr "Inkcazo Yesimbo Sakudala"
+
+#~ msgid "VB.NET"
+#~ msgstr "I-VB.NET"
+
+#~ msgid "Core Keywords"
+#~ msgstr "Amagama ayintloko Angundoqo"
+
+#~ msgid "Core Types"
+#~ msgstr "Iintlobo Ezingundoqo"
+
+#~ msgid "Keywords Defined by Macros"
+#~ msgstr "Amagama ayintloko Achazwa ngee-Macro"
+
+#~ msgid "Nemerle"
+#~ msgstr "I-Nemerle"
+
+#~ msgid "Tcl"
+#~ msgstr "I-Tcl"
+
+#~ msgid "True and False"
+#~ msgstr "Inyaniso neMposiso"
+
+#~ msgid "Type"
+#~ msgstr "Uhlobo"
+
+#~ msgid "VHDL"
+#~ msgstr "I-VHDL"
+
+#~ msgid "Assignment Operator"
+#~ msgstr "Umenzi Womsebenzi"
+
+#~ msgid "Delimiter"
+#~ msgstr "Isibeki-mda"
+
+#~ msgid "Integer Number"
+#~ msgstr "Inani lenani Elipheleleyo"
+
+#~ msgid "Reserved Class"
+#~ msgstr "Udidi Olugciniweyo"
+
+#~ msgid "Reserved Constant"
+#~ msgstr "Inani elingaguqukiyo Eligciniweyo"
+
+#~ msgid "CtkRC"
+#~ msgstr "I-CtkRC"
+
+#~ msgid "Include Directive"
+#~ msgstr "Iquka Umyalelo"
+
+#~ msgid "Keysymbol"
+#~ msgstr "Uphawu Oluyintloko"
+
+#~ msgid "State"
+#~ msgstr "Isimo"

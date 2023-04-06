@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ctksourceview HEAD\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/ctksourceview/issues\n"
-"POT-Creation-Date: 2021-09-17 20:48+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-06 10:31+0200\n"
 "PO-Revision-Date: 2021-09-21 18:49+0430\n"
 "Last-Translator: Danial Behzadi <dani.behzi@ubuntu.com>\n"
 "Language-Team: Persian <farsi@lists.sharif.edu>\n"
@@ -58,6 +58,7 @@ msgstr ""
 #. (itstool) path: java.lang/language@_section
 #. (itstool) path: j.lang/language@_section
 #. (itstool) path: kotlin.lang/language@_section
+#. (itstool) path: lean.lang/language@_section
 #. (itstool) path: lex.lang/language@_section
 #. (itstool) path: llvm.lang/language@_section
 #. (itstool) path: logtalk.lang/language@_section
@@ -92,17 +93,18 @@ msgstr ""
 #: abnf.lang:30 actionscript.lang:24 ada.lang:25 ansforth94.lang:24 asp.lang:23
 #: automake.lang:23 bennugd.lang:22 bluespec.lang:21 boo.lang:23 cg.lang:23
 #: chdr.lang:24 c.lang:24 cobol.lang:26 commonlisp.lang:24 cpphdr.lang:24
-#: cpp.lang:25 csharp.lang:26 cuda.lang:22 dart.lang:22 d.lang:29 docker.lang:21
-#: eiffel.lang:23 erlang.lang:23 forth.lang:23 fortran.lang:24 fsharp.lang:24
-#: genie.lang:23 glsl.lang:30 go.lang:24 gradle.lang:21 groovy.lang:24
-#: haskell.lang:24 haskell-literate.lang:23 haxe.lang:34 idl.lang:23 java.lang:24
-#: j.lang:23 kotlin.lang:24 lex.lang:24 llvm.lang:22 logtalk.lang:23
-#: makefile.lang:22 meson.lang:23 nemerle.lang:23 netrexx.lang:23 objc.lang:23
-#: objj.lang:26 ocaml.lang:26 ooc.lang:23 opal.lang:23 opencl.lang:23
-#: pascal.lang:24 pig.lang:26 powershell.lang:23 prolog.lang:23 rust.lang:35
-#: scala.lang:24 scheme.lang:23 sml.lang:23 solidity.lang:28 sparql.lang:23
-#: sql.lang:23 swift.lang:24 systemverilog.lang:21 thrift.lang:20 vala.lang:27
-#: vbnet.lang:23 verilog.lang:23 vhdl.lang:23
+#: cpp.lang:25 csharp.lang:26 cuda.lang:22 dart.lang:22 d.lang:29
+#: docker.lang:21 eiffel.lang:23 erlang.lang:23 forth.lang:23 fortran.lang:24
+#: fsharp.lang:24 genie.lang:23 glsl.lang:30 go.lang:24 gradle.lang:21
+#: groovy.lang:24 haskell.lang:24 haskell-literate.lang:23 haxe.lang:34
+#: idl.lang:23 java.lang:24 j.lang:23 kotlin.lang:24 lean.lang:23 lex.lang:24
+#: llvm.lang:22 logtalk.lang:23 makefile.lang:22 meson.lang:23 nemerle.lang:23
+#: netrexx.lang:23 objc.lang:23 objj.lang:26 ocaml.lang:26 ooc.lang:23
+#: opal.lang:23 opencl.lang:23 pascal.lang:24 pig.lang:26 powershell.lang:23
+#: prolog.lang:23 rust.lang:35 scala.lang:24 scheme.lang:23 sml.lang:23
+#: solidity.lang:28 sparql.lang:23 sql.lang:23 swift.lang:24
+#: systemverilog.lang:21 thrift.lang:20 vala.lang:27 vbnet.lang:23
+#: verilog.lang:23 vhdl.lang:23
 msgid "Source"
 msgstr "منبع"
 
@@ -173,13 +175,14 @@ msgstr "نشانه‌گذاری"
 #: awk.lang:23 dosbatch.lang:23 fish.lang:19 gdscript.lang:22
 #: javascript-expressions.lang:27 javascript-functions-classes.lang:27
 #: javascript.lang:27 javascript-literals.lang:27 javascript-modules.lang:27
-#: javascript-statements.lang:27 javascript-values.lang:27 jsx.lang:23 lua.lang:23
-#: m4.lang:23 perl.lang:25 php.lang:28 python3.lang:23 python.lang:27 ruby.lang:27
-#: sh.lang:24 tcl.lang:23 typescript-js-expressions.lang:23
-#: typescript-js-functions-classes.lang:23 typescript-js-literals.lang:23
-#: typescript-js-modules.lang:23 typescript-js-statements.lang:23
-#: typescript-jsx.lang:23 typescript.lang:23 typescript-type-expressions.lang:23
-#: typescript-type-generics.lang:23 typescript-type-literals.lang:23
+#: javascript-statements.lang:27 javascript-values.lang:27 jsx.lang:23
+#: lua.lang:23 m4.lang:23 perl.lang:25 php.lang:28 python3.lang:23
+#: python.lang:27 ruby.lang:27 sh.lang:24 tcl.lang:23
+#: typescript-js-expressions.lang:23 typescript-js-functions-classes.lang:23
+#: typescript-js-literals.lang:23 typescript-js-modules.lang:23
+#: typescript-js-statements.lang:23 typescript-jsx.lang:23 typescript.lang:23
+#: typescript-type-expressions.lang:23 typescript-type-generics.lang:23
+#: typescript-type-literals.lang:23
 msgid "Script"
 msgstr "کد‌نوشته"
 
@@ -221,8 +224,8 @@ msgstr "زبان سایه‌زنی CG"
 #: diff.lang:23 dot.lang:23 dpatch.lang:23 ftl.lang:23 gdb-log.lang:18
 #: ctkrc.lang:24 ini.lang:22 json.lang:29 less.lang:23 libtool.lang:23
 #: logcat.lang:23 nsis.lang:23 ocl.lang:32 pkgconfig.lang:23 po.lang:23
-#: protobuf.lang:21 puppet.lang:23 rpmspec.lang:24 scss.lang:23 terraform.lang:23
-#: toml.lang:23 yacc.lang:23 yaml.lang:21 yara.lang:26
+#: protobuf.lang:21 puppet.lang:23 rpmspec.lang:24 scss.lang:23
+#: terraform.lang:23 toml.lang:23 yacc.lang:23 yaml.lang:21 yara.lang:26
 msgid "Other"
 msgstr "دیگر"
 
@@ -421,19 +424,20 @@ msgstr "_جزییات…"
 #: ctksourceview/ctksourcecontextengine.c:3140
 #, c-format
 msgid ""
-"Cannot create a regex for all the transitions, the syntax highlighting process "
-"will be slower than usual.\n"
+"Cannot create a regex for all the transitions, the syntax highlighting "
+"process will be slower than usual.\n"
 "The error was: %s"
 msgstr ""
-"نمی‌توان عبارت باقاعده‌ای برای تمامی تبدیل‌ها ساخت. فرایند مشخّص کردن ترکیب، کندتر "
-"از معمول خواهد بود.\n"
+"نمی‌توان عبارت باقاعده‌ای برای تمامی تبدیل‌ها ساخت. فرایند مشخّص کردن ترکیب، "
+"کندتر از معمول خواهد بود.\n"
 "خطا این بود: %s"
 
 #: ctksourceview/ctksourcecontextengine.c:4474
 msgid ""
 "Highlighting a single line took too much time, syntax highlighting will be "
 "disabled"
-msgstr "مشخّص کردن یک تک خط زمان زیادی طول کشید. مشخّص کردن ترکیب از کار خواهد افتاد"
+msgstr ""
+"مشخّص کردن یک تک خط زمان زیادی طول کشید. مشخّص کردن ترکیب از کار خواهد افتاد"
 
 #: ctksourceview/ctksourcecontextengine.c:5724
 #, c-format
@@ -450,8 +454,10 @@ msgstr "شناسهٔ بافتار تکراری «%s»"
 #: ctksourceview/ctksourcecontextengine.c:6151
 #, c-format
 msgid ""
-"style override used with wildcard context reference in language “%s” in ref “%s”"
-msgstr "پایمالی سبک استفاده شده با مرجع بافتار وایلدکارت در زبان «%s» در مرجع «%s»"
+"style override used with wildcard context reference in language “%s” in ref "
+"“%s”"
+msgstr ""
+"پایمالی سبک استفاده شده با مرجع بافتار وایلدکارت در زبان «%s» در مرجع «%s»"
 
 #: ctksourceview/ctksourcecontextengine.c:6165
 #, c-format
@@ -607,7 +613,8 @@ msgstr "['UTF-8', 'CURRENT', 'ISO-8859-15', 'UTF-16']"
 msgid ""
 "There was a character encoding conversion error and it was needed to use a "
 "fallback character."
-msgstr "یک خطای تبدیل رمزگذاری رخ داد و نیاز بود از یک نویسهٔ جایگزین استفاده شود."
+msgstr ""
+"یک خطای تبدیل رمزگذاری رخ داد و نیاز بود از یک نویسهٔ جایگزین استفاده شود."
 
 #: ctksourceview/ctksourcefileloader.c:622
 msgid "File too big."
@@ -729,7 +736,8 @@ msgstr "_تغییر بزرگی و کوچیکی"
 #~ msgstr "شاخه‌های مشخصه‌ی زبان"
 
 #~ msgid ""
-#~ "List of directories where the language specification files (.lang) are located"
+#~ "List of directories where the language specification files (.lang) are "
+#~ "located"
 #~ msgstr "فهرست شاخه‌هایی که پرونده‌های مشخصه‌ی زبان (‎.lang) در آنها قرار دارند."
 
 #~ msgid "Configuration"
@@ -898,11 +906,11 @@ msgstr "_تغییر بزرگی و کوچیکی"
 #~ msgstr "استفاده از کلیدهای آغازه و پایان‌بر هوشمند"
 
 #~ msgid ""
-#~ "HOME and END keys move to first/last non whitespace characters on line before "
-#~ "going to the start/end of the line"
+#~ "HOME and END keys move to first/last non whitespace characters on line "
+#~ "before going to the start/end of the line"
 #~ msgstr ""
-#~ "کلید‌های آغازه و پایان‌بر اول به اولین/آخرین نویسه‌های غیر فاصله‌ای سطر می‌روند و "
-#~ "سپس به اول/آخر سطر  "
+#~ "کلید‌های آغازه و پایان‌بر اول به اولین/آخرین نویسه‌های غیر فاصله‌ای سطر "
+#~ "می‌روند و سپس به اول/آخر سطر  "
 
 #~ msgid "Highlight current line"
 #~ msgstr "پررنگ کردن خط فعلی"
