@@ -695,37 +695,3 @@ msgstr "S_tafstaða titils"
 #: ctksourceview/ctksourceview.c:1880
 msgid "C_hange Case"
 msgstr "Bre_yta stafstöðu"
-
-#~ msgid "Adwaita Dark"
-#~ msgstr "Adwaita-dökkt"
-
-#~ msgid "A dark color scheme matching CTK's default theme"
-#~ msgstr "Dökkt litastef sem samsvarar sjálfgefna þema CTK"
-
-#~ msgid "Adwaita"
-#~ msgstr "Adwaita"
-
-#~ msgid "A color scheme matching CTK's default theme"
-#~ msgstr "Litastef sem samsvarar sjálfgefna þema CTK"
-
-#~ msgid "Snippets"
-#~ msgstr "Úrklippur (snippets)"
-
-#, c-format
-#~ msgid "%d of %u"
-#~ msgstr "%d af %u"
-
-#~ msgid "_Details"
-#~ msgstr "_Nánar"
-
-#~ msgid "hexadecimal digit or “}” expected"
-#~ msgstr "bjóst við sextándakerfisstaf eða “}”"
-
-#~ msgid "hexadecimal digit expected"
-#~ msgstr "bjóst við sextándakerfisstaf"
-
-#~ msgid "digit expected"
-#~ msgstr "bjóst við tölustaf"
-
-#~ msgid "unknown escape sequence"
-#~ msgstr "óþekkt lausnarruna"
