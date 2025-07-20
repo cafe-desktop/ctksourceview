@@ -7,9 +7,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: ctksourceview\n"
+"Project-Id-Version: ctksourceview 4.10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-06 13:25+0200\n"
+"POT-Creation-Date: 2025-07-20 16:41+0200\n"
 "PO-Revision-Date: 2016-10-17 23:42+0200\n"
 "Last-Translator: Xavi Ivars <xavi.ivars@gmail.com>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
@@ -651,12 +651,12 @@ msgstr ""
 msgid "Others"
 msgstr "Altres"
 
-#: ctksourceview/ctksourcelanguage-parser-2.c:949
+#: ctksourceview/ctksourcelanguage-parser-2.c:953
 #, fuzzy, c-format
 msgid "Unknown id “%s” in regex “%s”"
 msgstr "Identificador «%s» desconegut en l'expressió regular «%s»"
 
-#: ctksourceview/ctksourcelanguage-parser-2.c:1179
+#: ctksourceview/ctksourcelanguage-parser-2.c:1184
 #, fuzzy, c-format
 msgid "in regex “%s”: backreferences are not supported"
 msgstr "en l'expressió regular «%s»: no es permeten les referències anteriors"

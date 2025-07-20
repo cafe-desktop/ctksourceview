@@ -5,9 +5,9 @@
 # Shankar Prasad <svenkate@redhat.com>, 2008, 2009, 2011.
 msgid ""
 msgstr ""
-"Project-Id-Version: ctksourceview.master.kn\n"
+"Project-Id-Version: ctksourceview 4.10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-06 13:25+0200\n"
+"POT-Creation-Date: 2025-07-20 16:41+0200\n"
 "PO-Revision-Date: 2011-04-02 23:03+0530\n"
 "Last-Translator: Shankar Prasad <svenkate@redhat.com>\n"
 "Language-Team: Kannada <en@li.org>\n"
@@ -646,12 +646,12 @@ msgstr ""
 msgid "Others"
 msgstr "ಇತರೆ"
 
-#: ctksourceview/ctksourcelanguage-parser-2.c:949
+#: ctksourceview/ctksourcelanguage-parser-2.c:953
 #, c-format
 msgid "Unknown id “%s” in regex “%s”"
 msgstr ""
 
-#: ctksourceview/ctksourcelanguage-parser-2.c:1179
+#: ctksourceview/ctksourcelanguage-parser-2.c:1184
 #, c-format
 msgid "in regex “%s”: backreferences are not supported"
 msgstr ""

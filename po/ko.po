@@ -7,9 +7,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: ctksourceview\n"
+"Project-Id-Version: ctksourceview 4.10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-06 13:25+0200\n"
+"POT-Creation-Date: 2025-07-20 16:41+0200\n"
 "PO-Revision-Date: 2018-08-27 11:49+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team: GNOME Korean <gnome-kr@googlegroups.com>\n"
@@ -647,12 +647,12 @@ msgstr "버퍼에 올바르지 않은 문자가 들어 있습니다."
 msgid "Others"
 msgstr "그 외"
 
-#: ctksourceview/ctksourcelanguage-parser-2.c:949
+#: ctksourceview/ctksourcelanguage-parser-2.c:953
 #, c-format
 msgid "Unknown id “%s” in regex “%s”"
 msgstr "알 수 없는 ID “%s” (정규식 “%s”)"
 
-#: ctksourceview/ctksourcelanguage-parser-2.c:1179
+#: ctksourceview/ctksourcelanguage-parser-2.c:1184
 #, c-format
 msgid "in regex “%s”: backreferences are not supported"
 msgstr "정규식 “%s”: 후위 참조는 지원하지 않습니다"

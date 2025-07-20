@@ -7,9 +7,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: ctksourceview master\n"
+"Project-Id-Version: ctksourceview 4.10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-06 13:25+0200\n"
+"POT-Creation-Date: 2025-07-20 16:41+0200\n"
 "PO-Revision-Date: 2018-08-09 20:06+0200\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
@@ -654,12 +654,12 @@ msgstr "Medpomnilnik vsebuje neveljavne znake."
 msgid "Others"
 msgstr "Ostalo"
 
-#: ctksourceview/ctksourcelanguage-parser-2.c:949
+#: ctksourceview/ctksourcelanguage-parser-2.c:953
 #, c-format
 msgid "Unknown id “%s” in regex “%s”"
 msgstr "Naznan ID »%s« v logičnem izrazu »%s«"
 
-#: ctksourceview/ctksourcelanguage-parser-2.c:1179
+#: ctksourceview/ctksourcelanguage-parser-2.c:1184
 #, c-format
 msgid "in regex “%s”: backreferences are not supported"
 msgstr "v logičnem izrazu »%s«: povratne naveze niso podprte"

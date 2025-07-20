@@ -14,9 +14,9 @@
 # Efstathios Iosifidis <iosifidis@opensuse.org>, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: el\n"
+"Project-Id-Version: ctksourceview 4.10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-06 13:25+0200\n"
+"POT-Creation-Date: 2025-07-20 16:41+0200\n"
 "PO-Revision-Date: 2018-12-25 12:49+0200\n"
 "Last-Translator: Efstathios Iosifidis <iosifidis@opensuse.org>\n"
 "Language-Team: team@lists.gnome.gr\n"
@@ -660,12 +660,12 @@ msgstr "Η ενδιάμεση μνήμη περιέχει άκυρους χαρ�
 msgid "Others"
 msgstr "Άλλα"
 
-#: ctksourceview/ctksourcelanguage-parser-2.c:949
+#: ctksourceview/ctksourcelanguage-parser-2.c:953
 #, c-format
 msgid "Unknown id “%s” in regex “%s”"
 msgstr "Άγνωστο αναγνωριστικό «%s» στην κανονική έκφραση «%s»"
 
-#: ctksourceview/ctksourcelanguage-parser-2.c:1179
+#: ctksourceview/ctksourcelanguage-parser-2.c:1184
 #, c-format
 msgid "in regex “%s”: backreferences are not supported"
 msgstr "Στην κανονική έκφραση «%s» : δεν υποστηρίζονται τα backreferences"

@@ -7,9 +7,9 @@
 # Yuri Chornoivan <yurchor@ukr.net>, 2020.
 msgid ""
 msgstr ""
-"Project-Id-Version: ctksourceview\n"
+"Project-Id-Version: ctksourceview 4.10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-06 13:25+0200\n"
+"POT-Creation-Date: 2025-07-20 16:41+0200\n"
 "PO-Revision-Date: 2020-04-25 09:30+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -654,12 +654,12 @@ msgstr "У буфері містяться некоректні символи."
 msgid "Others"
 msgstr "Інше"
 
-#: ctksourceview/ctksourcelanguage-parser-2.c:949
+#: ctksourceview/ctksourcelanguage-parser-2.c:953
 #, c-format
 msgid "Unknown id “%s” in regex “%s”"
 msgstr "Невідомий ідентифікатор «%s» у формальному виразі «%s»"
 
-#: ctksourceview/ctksourcelanguage-parser-2.c:1179
+#: ctksourceview/ctksourcelanguage-parser-2.c:1184
 #, c-format
 msgid "in regex “%s”: backreferences are not supported"
 msgstr "у формальному виразі «%s»: підтримки зворотних посилань не передбачено"
