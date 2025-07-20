@@ -1,3 +1,12 @@
+News in 4.10.0
+--------------
+* ci: add debian sid build
+* ctksourceview,meson: set recursive in extract_all_objects
+* test-buffer-output-stream: Fix memory leak
+* ctksourcelanguage-parser-2: reduce the scope of some variables
+* update translations
+
+
 News in 4.9.0
 -------------
 * gtksourceview 4.8.4 fork
