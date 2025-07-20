@@ -231,7 +231,7 @@ subdir('completion-providers')
 # instead
 ctksource_objs = []
 foreach int_lib : ctksource_libs
-  ctksource_objs += int_lib.extract_all_objects()
+  ctksource_objs += int_lib.extract_all_objects(recursive: true)
 endforeach
 
 ctksource_lib = shared_library(package_string,
