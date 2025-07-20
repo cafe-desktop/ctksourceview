@@ -271,7 +271,8 @@ static CtkSourceContextFlags
 get_context_flags (ParserState *parser_state)
 {
 	guint i;
-	xmlChar *value;
+	xmlChar *value = NULL;
+
 	CtkSourceContextFlags flags = CTK_SOURCE_CONTEXT_EXTEND_PARENT;
 	const gchar *names[] = {
 		"extend-parent", "end-parent", "end-at-line-end",
@@ -705,7 +706,6 @@ handle_context_element (ParserState *parser_state)
 {
 	gchar *id, *parent_id, *style_ref;
 	xmlChar *ref, *sub_pattern, *tmp;
-	int is_empty;
 	gboolean success;
 	gboolean ignore_style = FALSE;
 	CtkSourceContextRefOptions options = 0;
@@ -810,6 +810,8 @@ handle_context_element (ParserState *parser_state)
 			}
 			else
 			{
+				int is_empty;
+
 				parent_id = g_queue_peek_head (
 						parser_state->curr_parents);
 
@@ -887,7 +889,7 @@ handle_language_element (ParserState *parser_state)
 {
 	/* FIXME: check that the language name, version, etc. are the
 	 * right ones - Paolo */
-	xmlChar *lang_id, *lang_version;
+	xmlChar *lang_version;
 	xmlChar *expected_version = BAD_CAST "2.0";
 
 	g_return_if_fail (parser_state->error == NULL);
@@ -906,6 +908,8 @@ handle_language_element (ParserState *parser_state)
 	}
 	else
 	{
+		xmlChar *lang_id;
+
 		lang_id = xmlTextReaderGetAttribute (parser_state->reader, BAD_CAST "id");
 		parser_state->current_lang_id = g_strdup ((gchar *) lang_id);
 		g_hash_table_insert (parser_state->loaded_lang_ids, lang_id, lang_id);
@@ -1120,15 +1124,16 @@ expand_regex_delimiters (ParserState *parser_state,
 	 * The first block is needed to ensure that the sequence is
 	 * not escaped.
 	 */
-	const gchar *re = "(?<!\\\\)(\\\\\\\\)*\\\\%(\\[|\\])";
 	gchar *expanded_regex;
 	static GRegex *egg_re;
 
 	if (regex == NULL)
 		return NULL;
 
-	if (egg_re == NULL)
+	if (egg_re == NULL) {
+		const gchar *re = "(?<!\\\\)(\\\\\\\\)*\\\\%(\\[|\\])";
 		egg_re = g_regex_new (re, G_REGEX_NEWLINE_LF | G_REGEX_OPTIMIZE, 0, NULL);
+	}
 
 	expanded_regex = g_regex_replace_eval (egg_re, regex, len, 0, 0,
 					       replace_delimiter, parser_state, NULL);
@@ -1501,13 +1506,13 @@ handle_keyword_char_class_element (ParserState *parser_state)
 static void
 handle_styles_element (ParserState *parser_state)
 {
-	int type;
-	const xmlChar *tag_name;
-
 	g_return_if_fail (parser_state->error == NULL);
 
 	while (parser_state->error == NULL)
 	{
+		int type;
+		const xmlChar *tag_name;
+
 		/* FIXME: is xmlTextReaderIsValid call needed here or
 		 * error func will be called? */
 		xmlTextReaderRead (parser_state->reader);
@@ -1564,13 +1569,13 @@ static void
 element_end (ParserState *parser_state)
 {
 	const xmlChar *name;
-	gchar *popped_id;
 
 	name = xmlTextReaderConstName (parser_state->reader);
 
 	if (xmlStrcmp (name, BAD_CAST "context") == 0)
 	{
 		/* pop the first element in the curr_parents list */
+		gchar *popped_id;
 		popped_id = g_queue_pop_head (parser_state->curr_parents);
 		g_free (popped_id);
 	}
