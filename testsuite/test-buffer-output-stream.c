@@ -392,6 +392,8 @@ test_utf16_utf8 (void)
 
 	aux = do_test (text, "UTF-16", NULL, aux_len, 1, NULL);
 	g_assert_cmpstr (aux, ==, "\xe2\xb4\xb2");
+
+	g_free (text);
 	g_free (aux);
 }
 
