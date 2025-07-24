@@ -350,11 +350,9 @@ ctk_source_map_rebuild_css (CtkSourceMap *map)
 		ctk_style_context_save (context);
 		ctk_style_context_add_class (context, "view");
 		ctk_style_context_set_state (context, CTK_STATE_FLAG_SELECTED);
-		G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
 		ctk_style_context_get_background_color (context,
 							ctk_style_context_get_state (context),
 							&color);
-		G_GNUC_END_IGNORE_DEPRECATIONS;
 		ctk_style_context_restore (context);
 		background = cdk_rgba_to_string (&color);
 

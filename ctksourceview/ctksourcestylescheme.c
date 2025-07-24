@@ -824,10 +824,8 @@ _ctk_source_style_scheme_apply (CtkSourceStyleScheme *scheme,
 	                                CTK_STYLE_PROVIDER (scheme->priv->css_provider),
 	                                CTK_SOURCE_STYLE_PROVIDER_PRIORITY);
 
-	G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
 	/* See https://bugzilla.gnome.org/show_bug.cgi?id=708583 */
 	ctk_style_context_invalidate (context);
-	G_GNUC_END_IGNORE_DEPRECATIONS;
 
 	/* The CssProvider for the cursors needs that the first provider is
 	 * applied, to get the background color.
@@ -844,9 +842,7 @@ _ctk_source_style_scheme_apply (CtkSourceStyleScheme *scheme,
 						CTK_STYLE_PROVIDER (scheme->priv->css_provider_cursors),
 						CTK_SOURCE_STYLE_PROVIDER_PRIORITY);
 
-		G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
 		ctk_style_context_invalidate (context);
-		G_GNUC_END_IGNORE_DEPRECATIONS;
 	}
 }
 
@@ -878,10 +874,8 @@ _ctk_source_style_scheme_unapply (CtkSourceStyleScheme *scheme,
 						   CTK_STYLE_PROVIDER (scheme->priv->css_provider_cursors));
 	}
 
-	G_GNUC_BEGIN_IGNORE_DEPRECATIONS;
 	/* See https://bugzilla.gnome.org/show_bug.cgi?id=708583 */
 	ctk_style_context_invalidate (context);
-	G_GNUC_END_IGNORE_DEPRECATIONS;
 }
 
 /* --- PARSER ---------------------------------------------------------------- */
