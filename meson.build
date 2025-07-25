@@ -132,18 +132,6 @@ ctk_version_arr = ctk_req_version.split('.')
 ctk_major_version = ctk_version_arr[0]
 ctk_minor_version = ctk_version_arr[1]
 
-# Configurations
-add_project_arguments([
-  '-DG_DISABLE_DEPRECATED',
-  '-DCDK_DISABLE_DEPRECATED',
-  '-DCTK_DISABLE_DEPRECATED',
-  '-DGDK_PIXBUF_DISABLE_DEPRECATED',
-  '-DCDK_VERSION_MIN_REQUIRED=CDK_VERSION_@0@_@1@'.format(ctk_major_version, ctk_minor_version),
-  '-DCDK_VERSION_MAX_ALLOWED=CDK_VERSION_@0@_@1@'.format(ctk_major_version, ctk_minor_version),
-  '-DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_@0@_@1@'.format(glib_major_version, glib_minor_version),
-  '-DGLIB_VERSION_MAX_ALLOWED=GLIB_VERSION_@0@_@1@'.format(glib_major_version, glib_minor_version),
-], language: 'c')
-
 config_h = configuration_data()
 config_h.set('GSV_API_VERSION', api_version)
 config_h.set_quoted('GSV_API_VERSION_S', api_version)
