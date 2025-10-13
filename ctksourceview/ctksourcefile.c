@@ -65,7 +65,7 @@ struct _CtkSourceFilePrivate
 	/* Last known modification time of 'location'. The value is updated on a
 	 * file loading or file saving.
 	 */
-	GTimeVal modification_time;
+	gint64 modification_time;
 
 	guint modification_time_set : 1;
 
@@ -449,7 +449,7 @@ _ctk_source_file_create_mount_operation (CtkSourceFile *file)
 
 gboolean
 _ctk_source_file_get_modification_time (CtkSourceFile *file,
-					GTimeVal      *modification_time)
+					gint64        *modification_time)
 {
 	g_assert (modification_time != NULL);
 
@@ -470,7 +470,7 @@ _ctk_source_file_get_modification_time (CtkSourceFile *file,
 
 void
 _ctk_source_file_set_modification_time (CtkSourceFile *file,
-					GTimeVal       modification_time)
+					gint64         modification_time)
 {
 	if (file != NULL)
 	{
@@ -546,18 +546,21 @@ ctk_source_file_check_file_on_disk (CtkSourceFile *file)
 	if (g_file_info_has_attribute (info, G_FILE_ATTRIBUTE_TIME_MODIFIED) &&
 	    file->priv->modification_time_set)
 	{
-		GTimeVal timeval;
+		GDateTime *dt;
+		gint64 mtime;
 
-		g_file_info_get_modification_time (info, &timeval);
+		dt = g_file_info_get_modification_date_time (info);
+		mtime = g_date_time_to_unix (dt);
 
 		/* Note that the modification time can even go backwards if the
 		 * user is copying over an old file.
 		 */
-		if (timeval.tv_sec != file->priv->modification_time.tv_sec ||
-		    timeval.tv_usec != file->priv->modification_time.tv_usec)
+		if (mtime != file->priv->modification_time)
 		{
 			file->priv->externally_modified = TRUE;
 		}
+
+		g_date_time_unref (dt);
 	}
 
 	if (g_file_info_has_attribute (info, G_FILE_ATTRIBUTE_ACCESS_CAN_WRITE))

@@ -172,11 +172,11 @@ GMountOperation	*_ctk_source_file_create_mount_operation	(CtkSourceFile *file);
 
 G_GNUC_INTERNAL
 gboolean	 _ctk_source_file_get_modification_time		(CtkSourceFile *file,
-								 GTimeVal      *modification_time);
+								 gint64        *modification_time);
 
 G_GNUC_INTERNAL
 void		 _ctk_source_file_set_modification_time		(CtkSourceFile *file,
-								 GTimeVal       modification_time);
+								 gint64         modification_time);
 
 G_GNUC_INTERNAL
 void		 _ctk_source_file_set_externally_modified	(CtkSourceFile *file,
