@@ -1,0 +1,4 @@
+avoid deprecated GTimeVal
+
+based in gtksourceview commit:
+https://gitlab.gnome.org/GNOME/gtksourceview/-/commit/bc0e2c57c7e7631ace7dca0079cd6beff54ce050
