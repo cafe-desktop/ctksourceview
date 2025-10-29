@@ -18,7 +18,6 @@ requires:
     - libgdk-pixbuf2.0-doc
     - libglib2.0-dev
     - libglib2.0-doc
-    - libgladeui-dev
     - libgirepository1.0-dev
     - libpango1.0-doc
     - meson
