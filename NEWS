@@ -1,3 +1,13 @@
+News in 4.11.0
+--------------
+* don't hide deprecations
+* meson: remove project arguments to enable deprecated warnings
+* ci: some improvements
+* avoid deprecated GTimeVal
+* meson_options: enable install tests
+* update translations
+
+
 News in 4.10.0
 --------------
 * ci: add debian sid build
