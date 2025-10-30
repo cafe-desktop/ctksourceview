@@ -1,0 +1,1729 @@
+Checking ctksourceview/completion-providers/words/ctksourcecompletionwords.c ...
+Checking ctksourceview/completion-providers/words/ctksourcecompletionwords.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+ctksourceview/completion-providers/words/ctksourcecompletionwords.c:97:1: error: There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_CODE is a macro then please configure it. [unknownMacro]
+G_DEFINE_TYPE_WITH_CODE (CtkSourceCompletionWords,
+^
+1/89 files checked 0% done
+Checking ctksourceview/completion-providers/words/ctksourcecompletionwordsbuffer.c ...
+ctksourceview/completion-providers/words/ctksourcecompletionwordsbuffer.c:57:1: error: There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it. [unknownMacro]
+G_DEFINE_TYPE_WITH_PRIVATE (CtkSourceCompletionWordsBuffer, ctk_source_completion_words_buffer, G_TYPE_OBJECT)
+^
+Checking ctksourceview/completion-providers/words/ctksourcecompletionwordsbuffer.c: HAVE_CONFIG_H...
+2/89 files checked 1% done
+Checking ctksourceview/completion-providers/words/ctksourcecompletionwordslibrary.c ...
+ctksourceview/completion-providers/words/ctksourcecompletionwordslibrary.c:45:1: error: There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it. [unknownMacro]
+G_DEFINE_TYPE_WITH_PRIVATE (CtkSourceCompletionWordsLibrary, ctk_source_completion_words_library, G_TYPE_OBJECT)
+^
+Checking ctksourceview/completion-providers/words/ctksourcecompletionwordslibrary.c: HAVE_CONFIG_H...
+3/89 files checked 2% done
+Checking ctksourceview/completion-providers/words/ctksourcecompletionwordsproposal.c ...
+ctksourceview/completion-providers/words/ctksourcecompletionwordsproposal.c:43:1: error: There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_CODE is a macro then please configure it. [unknownMacro]
+G_DEFINE_TYPE_WITH_CODE (CtkSourceCompletionWordsProposal,
+^
+Checking ctksourceview/completion-providers/words/ctksourcecompletionwordsproposal.c: HAVE_CONFIG_H...
+4/89 files checked 2% done
+Checking ctksourceview/completion-providers/words/ctksourcecompletionwordsutils.c ...
+Checking ctksourceview/completion-providers/words/ctksourcecompletionwordsutils.c: HAVE_CONFIG_H...
+5/89 files checked 2% done
+Checking ctksourceview/ctksourcebuffer.c ...
+Checking ctksourceview/ctksourcebuffer.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+ctksourceview/ctksourcebuffer.c:228:1: error: There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it. [unknownMacro]
+G_DEFINE_TYPE_WITH_PRIVATE (CtkSourceBuffer, ctk_source_buffer, CTK_TYPE_TEXT_BUFFER)
+^
+6/89 files checked 7% done
+Checking ctksourceview/ctksourcebufferinputstream.c ...
+Checking ctksourceview/ctksourcebufferinputstream.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+ctksourceview/ctksourcebufferinputstream.c:63:48: style: Parameter 'stream' can be declared as pointer to const [constParameterPointer]
+get_new_line_size (CtkSourceBufferInputStream *stream)
+                                               ^
+ctksourceview/ctksourcebufferinputstream.c:83:43: style: Parameter 'stream' can be declared as pointer to const [constParameterPointer]
+get_new_line (CtkSourceBufferInputStream *stream)
+                                          ^
+7/89 files checked 8% done
+Checking ctksourceview/ctksourcebufferinternal.c ...
+Checking ctksourceview/ctksourcebufferinternal.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+ctksourceview/ctksourcebufferinternal.c:49:1: error: There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE is a macro then please configure it. [unknownMacro]
+G_DEFINE_TYPE (CtkSourceBufferInternal, _ctk_source_buffer_internal, G_TYPE_OBJECT)
+^
+8/89 files checked 8% done
+Checking ctksourceview/ctksourcebufferoutputstream.c ...
+Checking ctksourceview/ctksourcebufferoutputstream.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+ctksourceview/ctksourcebufferoutputstream.c:97:1: error: There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it. [unknownMacro]
+G_DEFINE_TYPE_WITH_PRIVATE (CtkSourceBufferOutputStream, ctk_source_buffer_output_stream, G_TYPE_OUTPUT_STREAM)
+^
+9/89 files checked 10% done
+Checking ctksourceview/ctksourcecompletion.c ...
+Checking ctksourceview/ctksourcecompletion.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+ctksourceview/ctksourcecompletion.c:211:1: error: There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_CODE is a macro then please configure it. [unknownMacro]
+G_DEFINE_TYPE_WITH_CODE (CtkSourceCompletion, ctk_source_completion, G_TYPE_OBJECT,
+^
+10/89 files checked 14% done
+Checking ctksourceview/ctksourcecompletioncontainer.c ...
+ctksourceview/ctksourcecompletioncontainer.c:217:70: style: Parameter 'container' can be declared as pointer to const [constParameterPointer]
+_ctk_source_completion_container_init (CtkSourceCompletionContainer *container)
+                                                                     ^
+Checking ctksourceview/ctksourcecompletioncontainer.c: HAVE_CONFIG_H...
+Checking ctksourceview/ctksourcecompletioncontainer.c: _MSC_VER...
+11/89 files checked 15% done
+Checking ctksourceview/ctksourcecompletioncontext.c ...
+Checking ctksourceview/ctksourcecompletioncontext.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+ctksourceview/ctksourcecompletioncontext.c:95:1: error: There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it. [unknownMacro]
+G_DEFINE_TYPE_WITH_PRIVATE (CtkSourceCompletionContext, ctk_source_completion_context, G_TYPE_INITIALLY_UNOWNED)
+^
+12/89 files checked 15% done
+Checking ctksourceview/ctksourcecompletioninfo.c ...
+Checking ctksourceview/ctksourcecompletioninfo.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+ctksourceview/ctksourcecompletioninfo.c:140:57: style: Parameter 'widget' can be declared as pointer to const. However it seems that 'ctk_source_completion_info_get_request_mode' is a callback function, if 'widget' is declared with const you might also need to cast function pointer(s). [constParameterCallback]
+ctk_source_completion_info_get_request_mode (CtkWidget *widget)
+                                                        ^
+ctksourceview/ctksourcecompletioninfo.c:334:35: note: You might need to cast the function pointer here
+ widget_class->get_request_mode = ctk_source_completion_info_get_request_mode;
+                                  ^
+ctksourceview/ctksourcecompletioninfo.c:140:57: note: Parameter 'widget' can be declared as pointer to const
+ctk_source_completion_info_get_request_mode (CtkWidget *widget)
+                                                        ^
+13/89 files checked 16% done
+Checking ctksourceview/ctksourcecompletionitem.c ...
+Checking ctksourceview/ctksourcecompletionitem.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+ctksourceview/ctksourcecompletionitem.c:63:1: error: There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_CODE is a macro then please configure it. [unknownMacro]
+G_DEFINE_TYPE_WITH_CODE (CtkSourceCompletionItem,
+^
+14/89 files checked 17% done
+Checking ctksourceview/ctksourcecompletionmodel.c ...
+Checking ctksourceview/ctksourcecompletionmodel.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+ctksourceview/ctksourcecompletionmodel.c:74:1: error: There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_CODE is a macro then please configure it. [unknownMacro]
+G_DEFINE_TYPE_WITH_CODE (CtkSourceCompletionModel,
+^
+15/89 files checked 18% done
+Checking ctksourceview/ctksourcecompletionproposal.c ...
+Checking ctksourceview/ctksourcecompletionproposal.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+ctksourceview/ctksourcecompletionproposal.c:58:1: error: There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_INTERFACE is a macro then please configure it. [unknownMacro]
+G_DEFINE_INTERFACE (CtkSourceCompletionProposal, ctk_source_completion_proposal, G_TYPE_OBJECT)
+^
+16/89 files checked 19% done
+Checking ctksourceview/ctksourcecompletionprovider.c ...
+Checking ctksourceview/ctksourcecompletionprovider.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+ctksourceview/ctksourcecompletionprovider.c:47:1: error: There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_INTERFACE is a macro then please configure it. [unknownMacro]
+G_DEFINE_INTERFACE(CtkSourceCompletionProvider, ctk_source_completion_provider, G_TYPE_OBJECT)
+^
+17/89 files checked 20% done
+Checking ctksourceview/ctksourcecontextengine.c ...
+Checking ctksourceview/ctksourcecontextengine.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+ctksourceview/ctksourcecontextengine.c:2430:1: error: There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_CODE is a macro then please configure it. [unknownMacro]
+G_DEFINE_TYPE_WITH_CODE (CtkSourceContextEngine,
+^
+18/89 files checked 28% done
+Checking ctksourceview/ctksourceencoding.c ...
+Checking ctksourceview/ctksourceencoding.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+ctksourceview/ctksourceencoding.c:48:1: error: There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_BOXED_TYPE is a macro then please configure it. [unknownMacro]
+G_DEFINE_BOXED_TYPE (CtkSourceEncoding, ctk_source_encoding,
+^
+19/89 files checked 29% done
+Checking ctksourceview/ctksourceengine.c ...
+Checking ctksourceview/ctksourceengine.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+20/89 files checked 29% done
+Checking ctksourceview/ctksourcefile.c ...
+Checking ctksourceview/ctksourcefile.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+ctksourceview/ctksourcefile.c:77:1: error: There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it. [unknownMacro]
+G_DEFINE_TYPE_WITH_PRIVATE (CtkSourceFile, ctk_source_file, G_TYPE_OBJECT)
+^
+21/89 files checked 30% done
+Checking ctksourceview/ctksourcefileloader.c ...
+Checking ctksourceview/ctksourcefileloader.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+ctksourceview/ctksourcefileloader.c:142:1: error: There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it. [unknownMacro]
+G_DEFINE_TYPE_WITH_PRIVATE (CtkSourceFileLoader, ctk_source_file_loader, G_TYPE_OBJECT)
+^
+22/89 files checked 32% done
+Checking ctksourceview/ctksourcefilesaver.c ...
+Checking ctksourceview/ctksourcefilesaver.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+ctksourceview/ctksourcefilesaver.c:136:1: error: There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it. [unknownMacro]
+G_DEFINE_TYPE_WITH_PRIVATE (CtkSourceFileSaver, ctk_source_file_saver, G_TYPE_OBJECT)
+^
+23/89 files checked 34% done
+Checking ctksourceview/ctksourcegutter.c ...
+Checking ctksourceview/ctksourcegutter.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+ctksourceview/ctksourcegutter.c:919:26: error: syntax error [syntaxError]
+   g_assert_cmpint (width, ==, 0);
+                         ^
+24/89 files checked 36% done
+Checking ctksourceview/ctksourcegutterrenderer.c ...
+Checking ctksourceview/ctksourcegutterrenderer.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+25/89 files checked 39% done
+Checking ctksourceview/ctksourcegutterrendererlines.c ...
+Checking ctksourceview/ctksourcegutterrendererlines.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+ctksourceview/ctksourcegutterrendererlines.c:230:2: error: syntax error [syntaxError]
+ if G_LIKELY (!current_line)
+ ^
+26/89 files checked 39% done
+Checking ctksourceview/ctksourcegutterrenderermarks.c ...
+Checking ctksourceview/ctksourcegutterrenderermarks.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+ctksourceview/ctksourcegutterrenderermarks.c:367:61: style: Parameter 'renderer' can be declared as pointer to const. However it seems that 'gutter_renderer_query_activatable' is a callback function, if 'renderer' is declared with const you might also need to cast function pointer(s). [constParameterCallback]
+gutter_renderer_query_activatable (CtkSourceGutterRenderer *renderer,
+                                                            ^
+ctksourceview/ctksourcegutterrenderermarks.c:403:38: note: You might need to cast the function pointer here
+ renderer_class->query_activatable = gutter_renderer_query_activatable;
+                                     ^
+ctksourceview/ctksourcegutterrenderermarks.c:367:61: note: Parameter 'renderer' can be declared as pointer to const
+gutter_renderer_query_activatable (CtkSourceGutterRenderer *renderer,
+                                                            ^
+ctksourceview/ctksourcegutterrenderermarks.c:368:61: style: Parameter 'iter' can be declared as pointer to const. However it seems that 'gutter_renderer_query_activatable' is a callback function, if 'iter' is declared with const you might also need to cast function pointer(s). [constParameterCallback]
+                                   CtkTextIter             *iter,
+                                                            ^
+ctksourceview/ctksourcegutterrenderermarks.c:403:38: note: You might need to cast the function pointer here
+ renderer_class->query_activatable = gutter_renderer_query_activatable;
+                                     ^
+ctksourceview/ctksourcegutterrenderermarks.c:368:61: note: Parameter 'iter' can be declared as pointer to const
+                                   CtkTextIter             *iter,
+                                                            ^
+ctksourceview/ctksourcegutterrenderermarks.c:369:61: style: Parameter 'area' can be declared as pointer to const. However it seems that 'gutter_renderer_query_activatable' is a callback function, if 'area' is declared with const you might also need to cast function pointer(s). [constParameterCallback]
+                                   CdkRectangle            *area,
+                                                            ^
+ctksourceview/ctksourcegutterrenderermarks.c:403:38: note: You might need to cast the function pointer here
+ renderer_class->query_activatable = gutter_renderer_query_activatable;
+                                     ^
+ctksourceview/ctksourcegutterrenderermarks.c:369:61: note: Parameter 'area' can be declared as pointer to const
+                                   CdkRectangle            *area,
+                                                            ^
+ctksourceview/ctksourcegutterrenderermarks.c:370:61: style: Parameter 'event' can be declared as pointer to const. However it seems that 'gutter_renderer_query_activatable' is a callback function, if 'event' is declared with const you might also need to cast function pointer(s). [constParameterCallback]
+                                   CdkEvent                *event)
+                                                            ^
+ctksourceview/ctksourcegutterrenderermarks.c:403:38: note: You might need to cast the function pointer here
+ renderer_class->query_activatable = gutter_renderer_query_activatable;
+                                     ^
+ctksourceview/ctksourcegutterrenderermarks.c:370:61: note: Parameter 'event' can be declared as pointer to const
+                                   CdkEvent                *event)
+                                                            ^
+ctksourceview/ctksourcegutterrenderermarks.c:408:70: style: Parameter 'self' can be declared as pointer to const [constParameterPointer]
+ctk_source_gutter_renderer_marks_init (CtkSourceGutterRendererMarks *self)
+                                                                     ^
+ctksourceview/ctksourcegutterrenderermarks.c:176:12: style: Variable 'size' is assigned a value that is never used. [unreadVariable]
+ gint size = 0;
+           ^
+27/89 files checked 40% done
+Checking ctksourceview/ctksourcegutterrendererpixbuf.c ...
+Checking ctksourceview/ctksourcegutterrendererpixbuf.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+ctksourceview/ctksourcegutterrendererpixbuf.c:55:37: style: Parameter 'cell_area' can be declared as pointer to const [constParameterPointer]
+           CdkRectangle            *cell_area,
+                                    ^
+ctksourceview/ctksourcegutterrendererpixbuf.c:205:44: style: Parameter 'pixbuf' can be declared as pointer to const [constParameterPointer]
+            GdkPixbuf                     *pixbuf)
+                                           ^
+28/89 files checked 41% done
+Checking ctksourceview/ctksourcegutterrenderertext.c ...
+Checking ctksourceview/ctksourcegutterrenderertext.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+ctksourceview/ctksourcegutterrenderertext.c:84:26: style: Parameter 'cell_area' can be declared as pointer to const [constParameterPointer]
+           CdkRectangle *cell_area,
+                         ^
+29/89 files checked 41% done
+Checking ctksourceview/ctksourceinit.c ...
+Checking ctksourceview/ctksourceinit.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+30/89 files checked 42% done
+Checking ctksourceview/ctksourceiter.c ...
+Checking ctksourceview/ctksourceiter.c: HAVE_CONFIG_H...
+Checking ctksourceview/ctksourceiter.c: _MSC_VER...
+31/89 files checked 43% done
+Checking ctksourceview/ctksourcelanguage-parser-2.c ...
+Checking ctksourceview/ctksourcelanguage-parser-2.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+ctksourceview/ctksourcelanguage-parser-2.c:254:39: style: Parameter 'node' can be declared as pointer to const [constParameterPointer]
+get_regex_flags (xmlNode             *node,
+                                      ^
+ctksourceview/ctksourcelanguage-parser-2.c:257:11: style: Variable 'attr' can be declared as pointer to const [constVariablePointer]
+ xmlAttr *attr;
+          ^
+ctksourceview/ctksourcelanguage-parser-2.c:356:19: style: Parameter 'id' can be declared as pointer to const [constParameterPointer]
+     gchar       *id,
+                  ^
+ctksourceview/ctksourcelanguage-parser-2.c:357:19: style: Parameter 'parent_id' can be declared as pointer to const [constParameterPointer]
+     gchar       *parent_id,
+                  ^
+ctksourceview/ctksourcelanguage-parser-2.c:358:19: style: Parameter 'style' can be declared as pointer to const [constParameterPointer]
+     gchar       *style,
+                  ^
+ctksourceview/ctksourcelanguage-parser-2.c:366:11: style: Variable 'context_node' can be declared as pointer to const [constVariablePointer]
+ xmlNode *context_node, *child;
+          ^
+ctksourceview/ctksourcelanguage-parser-2.c:664:35: style: Parameter 'id' can be declared as pointer to const [constParameterPointer]
+                    gchar        *id,
+                                  ^
+ctksourceview/ctksourcelanguage-parser-2.c:665:35: style: Parameter 'sub_pattern' can be declared as pointer to const [constParameterPointer]
+                    gchar        *sub_pattern,
+                                  ^
+ctksourceview/ctksourcelanguage-parser-2.c:666:35: style: Parameter 'style' can be declared as pointer to const [constParameterPointer]
+                    gchar        *style,
+                                  ^
+32/89 files checked 45% done
+Checking ctksourceview/ctksourcelanguage.c ...
+Checking ctksourceview/ctksourcelanguage.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+ctksourceview/ctksourcelanguage.c:66:1: error: There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it. [unknownMacro]
+G_DEFINE_TYPE_WITH_PRIVATE (CtkSourceLanguage, ctk_source_language, G_TYPE_OBJECT)
+^
+33/89 files checked 46% done
+Checking ctksourceview/ctksourcelanguagemanager.c ...
+Checking ctksourceview/ctksourcelanguagemanager.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+ctksourceview/ctksourcelanguagemanager.c:71:1: error: There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it. [unknownMacro]
+G_DEFINE_TYPE_WITH_PRIVATE (CtkSourceLanguageManager, ctk_source_language_manager, G_TYPE_OBJECT)
+^
+34/89 files checked 47% done
+Checking ctksourceview/ctksourcemap.c ...
+Checking ctksourceview/ctksourcemap.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+ctksourceview/ctksourcemap.c:180:1: error: There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it. [unknownMacro]
+G_DEFINE_TYPE_WITH_PRIVATE (CtkSourceMap, ctk_source_map, CTK_SOURCE_TYPE_VIEW)
+^
+35/89 files checked 49% done
+Checking ctksourceview/ctksourcemark.c ...
+Checking ctksourceview/ctksourcemark.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+36/89 files checked 50% done
+Checking ctksourceview/ctksourcemarkattributes.c ...
+Checking ctksourceview/ctksourcemarkattributes.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+37/89 files checked 51% done
+Checking ctksourceview/ctksourcemarkssequence.c ...
+ctksourceview/ctksourcemarkssequence.c:57:1: error: There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it. [unknownMacro]
+G_DEFINE_TYPE_WITH_PRIVATE (CtkSourceMarksSequence, _ctk_source_marks_sequence, G_TYPE_OBJECT)
+^
+Checking ctksourceview/ctksourcemarkssequence.c: HAVE_CONFIG_H...
+Checking ctksourceview/ctksourcemarkssequence.c: _MSC_VER...
+38/89 files checked 51% done
+Checking ctksourceview/ctksourcepixbufhelper.c ...
+ctksourceview/ctksourcepixbufhelper.c:116:61: style: Parameter 'helper' can be declared as pointer to const [constParameterPointer]
+ctk_source_pixbuf_helper_get_pixbuf (CtkSourcePixbufHelper *helper)
+                                                            ^
+ctksourceview/ctksourcepixbufhelper.c:138:64: style: Parameter 'helper' can be declared as pointer to const [constParameterPointer]
+ctk_source_pixbuf_helper_get_icon_name (CtkSourcePixbufHelper *helper)
+                                                               ^
+ctksourceview/ctksourcepixbufhelper.c:164:60: style: Parameter 'helper' can be declared as pointer to const [constParameterPointer]
+ctk_source_pixbuf_helper_get_gicon (CtkSourcePixbufHelper *helper)
+                                                           ^
+Checking ctksourceview/ctksourcepixbufhelper.c: HAVE_CONFIG_H...
+Checking ctksourceview/ctksourcepixbufhelper.c: _MSC_VER...
+39/89 files checked 52% done
+Checking ctksourceview/ctksourceprintcompositor.c ...
+Checking ctksourceview/ctksourceprintcompositor.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+ctksourceview/ctksourceprintcompositor.c:198:1: error: There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it. [unknownMacro]
+G_DEFINE_TYPE_WITH_PRIVATE (CtkSourcePrintCompositor, ctk_source_print_compositor, G_TYPE_OBJECT)
+^
+40/89 files checked 56% done
+Checking ctksourceview/ctksourceregex.c ...
+ctksourceview/ctksourceutils-private.h:50:10: error: There is an unknown macro here somewhere. Configuration is required. If _ctk_source_utils_dgettext is a macro then please configure it. [unknownMacro]
+gchar *  _ctk_source_utils_dgettext   (const gchar *domain,
+         ^
+Checking ctksourceview/ctksourceregex.c: HAVE_CONFIG_H...
+Checking ctksourceview/ctksourceregex.c: _MSC_VER...
+41/89 files checked 57% done
+Checking ctksourceview/ctksourceregion.c ...
+Checking ctksourceview/ctksourceregion.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+ctksourceview/ctksourceregion.c:139:1: error: There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it. [unknownMacro]
+G_DEFINE_TYPE_WITH_PRIVATE (CtkSourceRegion, ctk_source_region, G_TYPE_OBJECT)
+^
+42/89 files checked 59% done
+Checking ctksourceview/ctksourcesearchcontext.c ...
+Checking ctksourceview/ctksourcesearchcontext.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+ctksourceview/ctksourcesearchcontext.c:3580:28: error: syntax error [syntaxError]
+ g_assert_cmpint (start_pos, >=, 0);
+                           ^
+43/89 files checked 64% done
+Checking ctksourceview/ctksourcesearchsettings.c ...
+Checking ctksourceview/ctksourcesearchsettings.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+ctksourceview/ctksourcesearchsettings.c:57:1: error: There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it. [unknownMacro]
+G_DEFINE_TYPE_WITH_PRIVATE (CtkSourceSearchSettings, ctk_source_search_settings, G_TYPE_OBJECT)
+^
+44/89 files checked 65% done
+Checking ctksourceview/ctksourcespacedrawer.c ...
+Checking ctksourceview/ctksourcespacedrawer.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+ctksourceview/ctksourcespacedrawer.c:115:1: error: There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it. [unknownMacro]
+G_DEFINE_TYPE_WITH_PRIVATE (CtkSourceSpaceDrawer, ctk_source_space_drawer, G_TYPE_OBJECT)
+^
+45/89 files checked 67% done
+Checking ctksourceview/ctksourcestyle.c ...
+Checking ctksourceview/ctksourcestyle.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+46/89 files checked 67% done
+Checking ctksourceview/ctksourcestylescheme.c ...
+Checking ctksourceview/ctksourcestylescheme.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+ctksourceview/ctksourcestylescheme.c:98:1: error: There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it. [unknownMacro]
+G_DEFINE_TYPE_WITH_PRIVATE (CtkSourceStyleScheme, ctk_source_style_scheme, G_TYPE_OBJECT)
+^
+47/89 files checked 69% done
+Checking ctksourceview/ctksourcestyleschemechooser.c ...
+Checking ctksourceview/ctksourcestyleschemechooser.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+48/89 files checked 70% done
+Checking ctksourceview/ctksourcestyleschemechooserbutton.c ...
+Checking ctksourceview/ctksourcestyleschemechooserbutton.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+ctksourceview/ctksourcestyleschemechooserbutton.c:62:26: error: There is an unknown macro here somewhere. Configuration is required. If G_ADD_PRIVATE is a macro then please configure it. [unknownMacro]
+                         G_ADD_PRIVATE (CtkSourceStyleSchemeChooserButton)
+                         ^
+49/89 files checked 70% done
+Checking ctksourceview/ctksourcestyleschemechooserwidget.c ...
+Checking ctksourceview/ctksourcestyleschemechooserwidget.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+ctksourceview/ctksourcestyleschemechooserwidget.c:64:26: error: There is an unknown macro here somewhere. Configuration is required. If G_ADD_PRIVATE is a macro then please configure it. [unknownMacro]
+                         G_ADD_PRIVATE (CtkSourceStyleSchemeChooserWidget)
+                         ^
+50/89 files checked 71% done
+Checking ctksourceview/ctksourcestyleschememanager.c ...
+Checking ctksourceview/ctksourcestyleschememanager.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+ctksourceview/ctksourcestyleschememanager.c:60:1: error: There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it. [unknownMacro]
+G_DEFINE_TYPE_WITH_PRIVATE (CtkSourceStyleSchemeManager, ctk_source_style_scheme_manager, G_TYPE_OBJECT)
+^
+51/89 files checked 72% done
+Checking ctksourceview/ctksourcetag.c ...
+Checking ctksourceview/ctksourcetag.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+ctksourceview/ctksourcetag.c:57:1: error: There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it. [unknownMacro]
+G_DEFINE_TYPE_WITH_PRIVATE (CtkSourceTag, ctk_source_tag, CTK_TYPE_TEXT_TAG)
+^
+52/89 files checked 72% done
+Checking ctksourceview/ctksourceundomanager.c ...
+Checking ctksourceview/ctksourceundomanager.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+ctksourceview/ctksourceundomanager.c:64:1: error: There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_INTERFACE is a macro then please configure it. [unknownMacro]
+G_DEFINE_INTERFACE (CtkSourceUndoManager, ctk_source_undo_manager, G_TYPE_OBJECT)
+^
+53/89 files checked 72% done
+Checking ctksourceview/ctksourceundomanagerdefault.c ...
+Checking ctksourceview/ctksourceundomanagerdefault.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+ctksourceview/ctksourceundomanagerdefault.c:465:48: error: syntax error [syntaxError]
+  g_assert_cmpuint (prev_group->actions->length, >, 0);
+                                               ^
+54/89 files checked 75% done
+Checking ctksourceview/ctksourceutils.c ...
+Checking ctksourceview/ctksourceutils.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+ctksourceview/ctksourceutils.c:602:2: error: syntax error [syntaxError]
+ if G_LIKELY (value == fi.value + 1)
+ ^
+55/89 files checked 75% done
+Checking ctksourceview/ctksourceversion.c ...
+Checking ctksourceview/ctksourceversion.c: HAVE_CONFIG_H...
+56/89 files checked 76% done
+Checking ctksourceview/ctksourceview.c ...
+Checking ctksourceview/ctksourceview.c: CTK_SOURCE_COMPILATION;CTK_SOURCE_H_INSIDE...
+ctksourceview/ctksourceview.c:244:1: error: There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_CODE is a macro then please configure it. [unknownMacro]
+G_DEFINE_TYPE_WITH_CODE (CtkSourceView, ctk_source_view, CTK_TYPE_TEXT_VIEW,
+^
+57/89 files checked 83% done
+Checking tests/syntax-highlighting/file.c ...
+tests/syntax-highlighting/file.c:7:11: style: Variable 'a' is assigned a value that is never used. [unreadVariable]
+    int a = 0x89;
+          ^
+tests/syntax-highlighting/file.c:8:11: style: Variable 'b' is assigned a value that is never used. [unreadVariable]
+    int b = 089;
+          ^
+tests/syntax-highlighting/file.c:9:11: style: Variable 'c' is assigned a value that is never used. [unreadVariable]
+    int c = 89.;
+          ^
+tests/syntax-highlighting/file.c:10:11: style: Variable 'd' is assigned a value that is never used. [unreadVariable]
+    int d = 'a';
+          ^
+tests/syntax-highlighting/file.c:11:42: style: Variable 'hexadecimal_floating_constant' is assigned a value that is never used. [unreadVariable]
+    double hexadecimal_floating_constant = 0x1.2p3;
+                                         ^
+tests/syntax-highlighting/file.c:7:9: style: Variable 'a' is assigned a value that is never used. [unreadVariable]
+    int a = 0x89;
+        ^
+tests/syntax-highlighting/file.c:8:9: style: Variable 'b' is assigned a value that is never used. [unreadVariable]
+    int b = 089;
+        ^
+tests/syntax-highlighting/file.c:9:9: style: Variable 'c' is assigned a value that is never used. [unreadVariable]
+    int c = 89.;
+        ^
+tests/syntax-highlighting/file.c:10:9: style: Variable 'd' is assigned a value that is never used. [unreadVariable]
+    int d = 'a';
+        ^
+tests/syntax-highlighting/file.c:11:12: style: Variable 'hexadecimal_floating_constant' is assigned a value that is never used. [unreadVariable]
+    double hexadecimal_floating_constant = 0x1.2p3;
+           ^
+58/89 files checked 83% done
+Checking tests/syntax-highlighting/file.cc ...
+59/89 files checked 83% done
+Checking tests/test-completion.c ...
+tests/test-completion.c:58:1: error: There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_CODE is a macro then please configure it. [unknownMacro]
+G_DEFINE_TYPE_WITH_CODE (TestProvider,
+^
+60/89 files checked 83% done
+Checking tests/test-int2str.c ...
+tests/test-int2str.c:62:24: error: syntax error [syntaxError]
+  g_assert_cmpint (len1, ==, len2);
+                       ^
+61/89 files checked 84% done
+Checking tests/test-search-performances.c ...
+62/89 files checked 84% done
+Checking tests/test-search.c ...
+tests/test-search.c:61:1: error: There is an unknown macro here somewhere. Configuration is required. If G_DEFINE_TYPE_WITH_PRIVATE is a macro then please configure it. [unknownMacro]
+G_DEFINE_TYPE_WITH_PRIVATE (TestSearch, test_search, CTK_TYPE_GRID)
+^
+63/89 files checked 85% done
+Checking tests/test-space-drawing.c ...
+64/89 files checked 85% done
+Checking tests/test-undo-manager-performances.c ...
+65/89 files checked 85% done
+Checking tests/test-widget.c ...
+tests/test-widget.c:545:84: error: syntax error [syntaxError]
+  g_assert_cmpint (ctk_source_print_compositor_get_pagination_progress (compositor), ==, 1.0);
+                                                                                   ^
+Checking tests/test-widget.c: SETUP_FROM_VIEW...
+66/89 files checked 87% done
+Checking testsuite/test-buffer-input-stream.c ...
+testsuite/test-buffer-input-stream.c:54:21: error: syntax error [syntaxError]
+  g_assert_cmpint (r, >=, 0);
+                    ^
+67/89 files checked 87% done
+Checking testsuite/test-buffer-output-stream.c ...
+testsuite/test-buffer-output-stream.c:55:21: error: syntax error [syntaxError]
+  g_assert_cmpint (w, >=, 0);
+                    ^
+68/89 files checked 88% done
+Checking testsuite/test-buffer.c ...
+testsuite/test-buffer.c:106:43: error: syntax error [syntaxError]
+ g_assert_cmpuint (g_strv_length (classes), ==, 0);
+                                          ^
+69/89 files checked 89% done
+Checking testsuite/test-completion-model.c ...
+testsuite/test-completion-model.c:541:29: error: syntax error [syntaxError]
+ g_assert_cmpint (indices[0], ==, nb_items - 1);
+                            ^
+70/89 files checked 90% done
+Checking testsuite/test-completion-words.c ...
+testsuite/test-completion-words.c:56:23: error: syntax error [syntaxError]
+ g_assert_cmpstr (word, ==, "bb");
+                      ^
+71/89 files checked 90% done
+Checking testsuite/test-encoding.c ...
+testsuite/test-encoding.c:42:20: error: syntax error [syntaxError]
+ g_assert_cmpint (2, ==, g_slist_length (list));
+                   ^
+72/89 files checked 90% done
+Checking testsuite/test-file-loader.c ...
+testsuite/test-file-loader.c:66:35: error: syntax error [syntaxError]
+  g_assert_cmpstr (buffer_contents, ==, data->expected_buffer_contents);
+                                  ^
+73/89 files checked 90% done
+Checking testsuite/test-file-saver.c ...
+testsuite/test-file-saver.c:96:47: error: syntax error [syntaxError]
+ g_assert_cmpstr (data->expected_file_contents, ==, read_file (data->location));
+                                              ^
+74/89 files checked 91% done
+Checking testsuite/test-iter.c ...
+testsuite/test-iter.c:46:32: error: syntax error [syntaxError]
+ g_assert_cmpint (result_offset, ==, ctk_text_iter_get_offset (&iter));
+                               ^
+75/89 files checked 92% done
+Checking testsuite/test-language-specs.c ...
+76/89 files checked 92% done
+Checking testsuite/test-language.c ...
+testsuite/test-language.c:89:52: error: syntax error [syntaxError]
+  g_assert_cmpuint (g_strv_length ((gchar **) strv), ==,
+                                                   ^
+Checking testsuite/test-language.c: HAVE_CONFIG_H...
+77/89 files checked 93% done
+Checking testsuite/test-languagemanager.c ...
+testsuite/test-languagemanager.c:83:24: error: syntax error [syntaxError]
+  g_assert_cmpstr (*ids, == , ctk_source_language_get_id (lang1));
+                       ^
+78/89 files checked 93% done
+Checking testsuite/test-mark.c ...
+testsuite/test-mark.c:31:27: error: syntax error [syntaxError]
+ g_assert_cmpstr ("Mark 1", ==, ctk_text_mark_get_name (CTK_TEXT_MARK (m)));
+                          ^
+79/89 files checked 93% done
+Checking testsuite/test-printcompositor.c ...
+80/89 files checked 93% done
+Checking testsuite/test-regex.c ...
+81/89 files checked 94% done
+Checking testsuite/test-region.c ...
+testsuite/test-region.c:103:29: error: syntax error [syntaxError]
+ g_assert_cmpstr (region_str, ==, expected_region_str);
+                            ^
+82/89 files checked 94% done
+Checking testsuite/test-search-context.c ...
+testsuite/test-search-context.c:106:36: error: syntax error [syntaxError]
+ g_assert_cmpint (occurrences_count, ==, 0);
+                                   ^
+83/89 files checked 96% done
+Checking testsuite/test-space-drawer.c ...
+testsuite/test-space-drawer.c:78:24: error: syntax error [syntaxError]
+ g_assert_cmpint (types, ==, matrix[LEADING_INDEX]);
+                       ^
+84/89 files checked 97% done
+Checking testsuite/test-stylescheme.c ...
+testsuite/test-stylescheme.c:92:28: error: syntax error [syntaxError]
+   g_assert_cmpstr (strv[i], ==, expected_strv[i]);
+                           ^
+Checking testsuite/test-stylescheme.c: HAVE_CONFIG_H...
+85/89 files checked 97% done
+Checking testsuite/test-styleschememanager.c ...
+testsuite/test-styleschememanager.c:51:24: error: syntax error [syntaxError]
+ g_assert_cmpstr (fname, ==, expected);
+                       ^
+86/89 files checked 97% done
+Checking testsuite/test-undo-manager.c ...
+testsuite/test-undo-manager.c:111:29: error: syntax error [syntaxError]
+ g_assert_cmpint (max_levels, >=, 0);
+                            ^
+87/89 files checked 99% done
+Checking testsuite/test-utils.c ...
+testsuite/test-utils.c:28:33: error: syntax error [syntaxError]
+ g_assert_cmpstr (unescaped_text, ==, "\n");
+                                ^
+88/89 files checked 99% done
+Checking testsuite/test-view.c ...
+testsuite/test-view.c:113:24: error: syntax error [syntaxError]
+  g_assert_cmpstr (text, ==,
+                       ^
+89/89 files checked 100% done
+ctksourceview/ctksourcegutterrenderer.c:1391:1: style: The function '_ctk_source_gutter_renderer_set_view' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+_ctk_source_gutter_renderer_set_view (CtkSourceGutterRenderer *renderer,
+^
+ctksourceview/ctksourceiter.c:57:1: style: The function '_ctk_source_iter_forward_full_word_end' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+_ctk_source_iter_forward_full_word_end (CtkTextIter *iter)
+^
+ctksourceview/ctksourceiter.c:96:1: style: The function '_ctk_source_iter_backward_full_word_start' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+_ctk_source_iter_backward_full_word_start (CtkTextIter *iter)
+^
+ctksourceview/ctksourceiter.c:146:1: style: The function '_ctk_source_iter_starts_full_word' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+_ctk_source_iter_starts_full_word (const CtkTextIter *iter)
+^
+ctksourceview/ctksourceiter.c:165:1: style: The function '_ctk_source_iter_ends_full_word' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+_ctk_source_iter_ends_full_word (const CtkTextIter *iter)
+^
+ctksourceview/ctksourceiter.c:183:1: style: The function '_ctk_source_iter_forward_extra_natural_word_end' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+_ctk_source_iter_forward_extra_natural_word_end (CtkTextIter *iter)
+^
+ctksourceview/ctksourceiter.c:236:1: style: The function '_ctk_source_iter_backward_extra_natural_word_start' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+_ctk_source_iter_backward_extra_natural_word_start (CtkTextIter *iter)
+^
+ctksourceview/ctksourceiter.c:304:1: style: The function '_ctk_source_iter_starts_extra_natural_word' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+_ctk_source_iter_starts_extra_natural_word (const CtkTextIter *iter,
+^
+ctksourceview/ctksourceiter.c:329:1: style: The function '_ctk_source_iter_ends_extra_natural_word' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+_ctk_source_iter_ends_extra_natural_word (const CtkTextIter *iter,
+^
+ctksourceview/ctksourceiter.c:370:1: style: The function '_ctk_source_iter_forward_visible_word_end' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+_ctk_source_iter_forward_visible_word_end (CtkTextIter *iter)
+^
+ctksourceview/ctksourceiter.c:442:1: style: The function '_ctk_source_iter_backward_visible_word_start' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+_ctk_source_iter_backward_visible_word_start (CtkTextIter *iter)
+^
+ctksourceview/ctksourceiter.c:514:1: style: The function '_ctk_source_iter_forward_visible_word_ends' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+_ctk_source_iter_forward_visible_word_ends (CtkTextIter *iter,
+^
+ctksourceview/ctksourceiter.c:538:1: style: The function '_ctk_source_iter_backward_visible_word_starts' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+_ctk_source_iter_backward_visible_word_starts (CtkTextIter *iter,
+^
+ctksourceview/ctksourceiter.c:561:1: style: The function '_ctk_source_iter_starts_word' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+_ctk_source_iter_starts_word (const CtkTextIter *iter)
+^
+ctksourceview/ctksourceiter.c:575:1: style: The function '_ctk_source_iter_ends_word' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+_ctk_source_iter_ends_word (const CtkTextIter *iter)
+^
+ctksourceview/ctksourceiter.c:589:1: style: The function '_ctk_source_iter_inside_word' should have static linkage since it is not used outside of its translation unit. [staticFunction]
+_ctk_source_iter_inside_word (const CtkTextIter *iter)
+^
+nofile:0:0: information: Active checkers: There was critical errors (use --checkers-report=<filename> to see details) [checkersReport]
+
+scan-build: Using '/usr/lib/llvm-19/bin/clang' for static analysis
+The Meson build system
+Version: 1.9.1
+Source dir: /rootdir
+Build dir: /rootdir/_build
+Build type: native build
+Project name: ctksourceview
+Project version: 4.10.0
+C compiler for the host machine: /usr/share/clang/scan-build-19/bin/../libexec/ccc-analyzer (gcc 15.2.0 "gcc (Debian 15.2.0-4) 15.2.0")
+C linker for the host machine: /usr/share/clang/scan-build-19/bin/../libexec/ccc-analyzer ld.bfd 2.45
+Host machine cpu family: x86_64
+Host machine cpu: x86_64
+Library m found: YES
+Found pkg-config: YES (/usr/bin/pkg-config) 1.8.1
+Run-time dependency glib-2.0 found: YES 2.86.1
+Run-time dependency gobject-2.0 found: YES 2.86.1
+Run-time dependency gio-2.0 found: YES 2.86.1
+Run-time dependency ctk+-3.0 found: YES 3.25.6
+Run-time dependency libxml-2.0 found: YES 2.14.6
+Run-time dependency fribidi found: YES 1.0.16
+Did not find CMake 'cmake'
+Found CMake: NO
+Run-time dependency ctk+-quartz-3.0 found: NO (tried pkgconfig and cmake)
+Run-time dependency gobject-introspection-1.0 found: YES 1.86.0
+Program xmllint found: YES (/usr/bin/xmllint)
+Has header "unistd.h" : YES 
+Compiler for C supports arguments -Wcast-align: YES 
+Compiler for C supports arguments -Wdeclaration-after-statement: YES 
+Compiler for C supports arguments -Werror=address: YES 
+Compiler for C supports arguments -Werror=array-bounds: YES 
+Compiler for C supports arguments -Werror=empty-body: YES 
+Compiler for C supports arguments -Werror=implicit: YES 
+Compiler for C supports arguments -Werror=implicit-function-declaration: YES 
+Compiler for C supports arguments -Werror=init-self: YES 
+Compiler for C supports arguments -Werror=int-conversion: YES 
+Compiler for C supports arguments -Werror=int-to-pointer-cast: YES 
+Compiler for C supports arguments -Werror=main: YES 
+Compiler for C supports arguments -Werror=misleading-indentation: YES 
+Compiler for C supports arguments -Werror=missing-braces: YES 
+Compiler for C supports arguments -Werror=missing-include-dirs: YES 
+Compiler for C supports arguments -Werror=nonnull: YES 
+Compiler for C supports arguments -Werror=overflow: YES 
+Compiler for C supports arguments -Werror=parenthesis: NO 
+Compiler for C supports arguments -Werror=pointer-arith: YES 
+Compiler for C supports arguments -Werror=pointer-to-int-cast: YES 
+Compiler for C supports arguments -Werror=return-type: YES 
+Compiler for C supports arguments -Werror=sequence-point: YES 
+Compiler for C supports arguments -Werror=shadow: YES 
+Compiler for C supports arguments -Werror=strict-prototypes: YES 
+Compiler for C supports arguments -Werror=trigraphs: YES 
+Compiler for C supports arguments -Werror=undef: YES 
+Compiler for C supports arguments -Werror=write-strings: YES 
+Compiler for C supports arguments -Wformat-nonliteral: YES 
+Compiler for C supports arguments -Werror=format-security -Werror=format=2: YES 
+Compiler for C supports arguments -Wignored-qualifiers: YES 
+Compiler for C supports arguments -Wimplicit-function-declaration: YES 
+Compiler for C supports arguments -Wlogical-op: YES 
+Compiler for C supports arguments -Wmissing-format-attribute: YES 
+Compiler for C supports arguments -Wmissing-include-dirs: YES 
+Compiler for C supports arguments -Wmissing-noreturn: YES 
+Compiler for C supports arguments -Wnested-externs: YES 
+Compiler for C supports arguments -Wno-cast-function-type: YES 
+Compiler for C supports arguments -Wno-missing-field-initializers: YES 
+Compiler for C supports arguments -Wno-sign-compare: YES 
+Compiler for C supports arguments -Wno-unused-parameter: YES 
+Compiler for C supports arguments -Wold-style-definition: YES 
+Compiler for C supports arguments -Wpointer-arith: YES 
+Compiler for C supports arguments -Wstrict-prototypes: YES 
+Compiler for C supports arguments -Wswitch-default: YES 
+Compiler for C supports arguments -Wswitch-enum: YES 
+Compiler for C supports arguments -Wundef: YES 
+Compiler for C supports arguments -Wuninitialized: YES 
+Compiler for C supports arguments -Wunused: YES 
+Compiler for C supports arguments -fno-strict-aliasing: YES 
+Compiler for C supports arguments -fstack-protector-strong: YES 
+Compiler for C supports arguments -Wmissing-declarations: YES 
+Compiler for C supports arguments -fvisibility=hidden: YES 
+Compiler for C supports link arguments -Wl,-z,defs: YES 
+Compiler for C supports link arguments -Wl,-z,now: YES 
+Compiler for C supports link arguments -Wl,-z,relro: YES 
+Configuring config.h using configuration
+Dependency glib-2.0 found: YES 2.86.1 (cached)
+Program /usr/bin/glib-genmarshal found: YES (/usr/bin/glib-genmarshal)
+Dependency glib-2.0 found: YES 2.86.1 (cached)
+Program /usr/bin/glib-mkenums found: YES (/usr/bin/glib-mkenums)
+Dependency glib-2.0 found: YES 2.86.1 (cached)
+Program /usr/bin/glib-mkenums found: YES (/usr/bin/glib-mkenums)
+Configuring ctksourceversion.h using configuration
+Dependency gio-2.0 found: YES 2.86.1 (cached)
+Program /usr/bin/glib-compile-resources found: YES (/usr/bin/glib-compile-resources)
+Dependency gobject-introspection-1.0 found: YES 1.86.0 (cached)
+Dependency gobject-introspection-1.0 found: YES 1.86.0 (cached)
+Program /usr/bin/x86_64-linux-gnu-g-ir-scanner found: YES (/usr/bin/x86_64-linux-gnu-g-ir-scanner)
+Dependency gobject-introspection-1.0 found: YES 1.86.0 (cached)
+Program /usr/bin/x86_64-linux-gnu-g-ir-compiler found: YES (/usr/bin/x86_64-linux-gnu-g-ir-compiler)
+Program msgfmt found: YES (/usr/bin/msgfmt)
+Program msginit found: YES (/usr/bin/msginit)
+Program msgmerge found: YES (/usr/bin/msgmerge)
+Program xgettext found: YES (/usr/bin/xgettext)
+Dependency gio-2.0 found: YES 2.86.1 (cached)
+Program /usr/bin/glib-compile-resources found: YES (/usr/bin/glib-compile-resources)
+Dependency gio-2.0 found: YES 2.86.1 (cached)
+Program /usr/bin/glib-compile-resources found: YES (/usr/bin/glib-compile-resources)
+Dependency gio-2.0 found: YES 2.86.1 (cached)
+Program /usr/bin/glib-compile-resources found: YES (/usr/bin/glib-compile-resources)
+Message: 
+------
+CtkSourceView 4.10.0 (4)
+
+  Documentation: false
+  Glade catalog: false
+  Install tests: false
+  Introspection: true
+      Vala vapi: false
+
+Directories:
+         prefix: /usr/local
+     includedir: /usr/local/include
+         libdir: /usr/local/lib/x86_64-linux-gnu
+        datadir: /usr/local/share
+------
+Build targets in project: 135
+
+Found ninja-1.12.1 at /usr/bin/ninja
+scan-build: Analysis run complete.
+scan-build: Removing directory '/tmp/scan-build-2025-10-29-202835-9893-1' because it contains no reports.
+scan-build: No bugs found.
+scan-build: Using '/usr/lib/llvm-19/bin/clang' for static analysis
+ninja: Entering directory `_build'
+[0/249] Generating glib marshaller header ctksourceview/ctksource-marshal_h[0/249] Generating GObject enum file ctksourceview/ctksource-enumtypes.c (wrapped by meson because command contains newlines, to capture output)[0/249] Generating GObject enum file ctksourceview/ctksource-enumtypes.h (wrapped by meson because command contains newlines, to capture output)[0/249] Generating ctksourceview/ctksourceview-gresources_c with a custom command[0/249] Generating ctksourceview/ctksourceview-gresources_h with a custom command[0/249] Generating tests/test-completion-resources_c with a custom command[1/249] Generating ctksourceview/ctksourceview-gresources_c with a custom command[1/249] Generating tests/test-completion-resources_h with a custom command[2/249] Generating ctksourceview/ctksourceview-gresources_h with a custom command[2/249] Generating tests/test-search-resources_c with a custom command[3/249] Generating tests/test-completion-resources_c with a custom command[3/249] Generating tests/test-search-resources_h with a custom command[4/249] Generating tests/test-search-resources_h with a custom command[4/249] Generating tests/test-widget-resources_c with a custom command[5/249] Generating tests/test-completion-resources_h with a custom command[5/249] Generating tests/test-widget-resources_h with a custom command[6/249] Generating tests/test-widget-resources_h with a custom command[6/249] Building translation po/ab/LC_MESSAGES/ctksourceview-4-ab.mo[7/249] Generating tests/test-search-resources_c with a custom command[7/249] Building translation po/ar/LC_MESSAGES/ctksourceview-4-ar.mo[8/249] Generating tests/test-widget-resources_c with a custom command[8/249] Building translation po/as/LC_MESSAGES/ctksourceview-4-as.mo[9/249] Generating glib marshaller header ctksourceview/ctksource-marshal_h[9/249] Generating glib marshaller source ctksourceview/ctksource-marshal_c[10/249] Building translation po/ab/LC_MESSAGES/ctksourceview-4-ab.mo[10/249] Building translation po/ast/LC_MESSAGES/ctksourceview-4-ast.mo[11/249] Building translation po/ar/LC_MESSAGES/ctksourceview-4-ar.mo[11/249] Building translation po/az/LC_MESSAGES/ctksourceview-4-az.mo[12/249] Building translation po/as/LC_MESSAGES/ctksourceview-4-as.mo[12/249] Building translation po/be/LC_MESSAGES/ctksourceview-4-be.mo[13/249] Building translation po/ast/LC_MESSAGES/ctksourceview-4-ast.mo[13/249] Building translation po/bg/LC_MESSAGES/ctksourceview-4-bg.mo[14/249] Building translation po/az/LC_MESSAGES/ctksourceview-4-az.mo[14/249] Building translation po/bn/LC_MESSAGES/ctksourceview-4-bn.mo[15/249] Building translation po/bn/LC_MESSAGES/ctksourceview-4-bn.mo[15/249] Building translation po/bn_IN/LC_MESSAGES/ctksourceview-4-bn_IN.mo[16/249] Building translation po/be/LC_MESSAGES/ctksourceview-4-be.mo[16/249] Building translation po/bs/LC_MESSAGES/ctksourceview-4-bs.mo[17/249] Building translation po/bg/LC_MESSAGES/ctksourceview-4-bg.mo[17/249] Building translation po/ca/LC_MESSAGES/ctksourceview-4-ca.mo[18/249] Building translation po/bn_IN/LC_MESSAGES/ctksourceview-4-bn_IN.mo[18/249] Building translation po/ca@valencia/LC_MESSAGES/ctksourceview-4-ca@valencia.mo[19/249] Building translation po/ca/LC_MESSAGES/ctksourceview-4-ca.mo[19/249] Building translation po/cs/LC_MESSAGES/ctksourceview-4-cs.mo[20/249] Building translation po/bs/LC_MESSAGES/ctksourceview-4-bs.mo[20/249] Building translation po/cy/LC_MESSAGES/ctksourceview-4-cy.mo[21/249] Building translation po/ca@valencia/LC_MESSAGES/ctksourceview-4-ca@valencia.mo[21/249] Building translation po/da/LC_MESSAGES/ctksourceview-4-da.mo[22/249] Building translation po/cy/LC_MESSAGES/ctksourceview-4-cy.mo[22/249] Building translation po/de/LC_MESSAGES/ctksourceview-4-de.mo[23/249] Building translation po/da/LC_MESSAGES/ctksourceview-4-da.mo[23/249] Building translation po/dz/LC_MESSAGES/ctksourceview-4-dz.mo[24/249] Building translation po/cs/LC_MESSAGES/ctksourceview-4-cs.mo[24/249] Building translation po/el/LC_MESSAGES/ctksourceview-4-el.mo[25/249] Generating glib marshaller source ctksourceview/ctksource-marshal_c[25/249] Building translation po/en_CA/LC_MESSAGES/ctksourceview-4-en_CA.mo[26/249] Building translation po/de/LC_MESSAGES/ctksourceview-4-de.mo[26/249] Building translation po/en_GB/LC_MESSAGES/ctksourceview-4-en_GB.mo[27/249] Building translation po/el/LC_MESSAGES/ctksourceview-4-el.mo[27/249] Building translation po/en@shaw/LC_MESSAGES/ctksourceview-4-en@shaw.mo[28/249] Building translation po/en_CA/LC_MESSAGES/ctksourceview-4-en_CA.mo[28/249] Building translation po/eo/LC_MESSAGES/ctksourceview-4-eo.mo[29/249] Building translation po/dz/LC_MESSAGES/ctksourceview-4-dz.mo[29/249] Building translation po/es/LC_MESSAGES/ctksourceview-4-es.mo[30/249] Building translation po/en@shaw/LC_MESSAGES/ctksourceview-4-en@shaw.mo[30/249] Building translation po/et/LC_MESSAGES/ctksourceview-4-et.mo[31/249] Building translation po/en_GB/LC_MESSAGES/ctksourceview-4-en_GB.mo[31/249] Building translation po/eu/LC_MESSAGES/ctksourceview-4-eu.mo[32/249] Building translation po/es/LC_MESSAGES/ctksourceview-4-es.mo[32/249] Building translation po/fa/LC_MESSAGES/ctksourceview-4-fa.mo[33/249] Building translation po/et/LC_MESSAGES/ctksourceview-4-et.mo[33/249] Building translation po/fi/LC_MESSAGES/ctksourceview-4-fi.mo[34/249] Building translation po/eo/LC_MESSAGES/ctksourceview-4-eo.mo[34/249] Building translation po/fr/LC_MESSAGES/ctksourceview-4-fr.mo[35/249] Building translation po/fi/LC_MESSAGES/ctksourceview-4-fi.mo[35/249] Building translation po/fur/LC_MESSAGES/ctksourceview-4-fur.mo[36/249] Building translation po/eu/LC_MESSAGES/ctksourceview-4-eu.mo[36/249] Building translation po/ga/LC_MESSAGES/ctksourceview-4-ga.mo[37/249] Building translation po/fur/LC_MESSAGES/ctksourceview-4-fur.mo[37/249] Building translation po/gl/LC_MESSAGES/ctksourceview-4-gl.mo[38/249] Building translation po/fa/LC_MESSAGES/ctksourceview-4-fa.mo[38/249] Building translation po/gu/LC_MESSAGES/ctksourceview-4-gu.mo[39/249] Building translation po/ga/LC_MESSAGES/ctksourceview-4-ga.mo[39/249] Building translation po/he/LC_MESSAGES/ctksourceview-4-he.mo[40/249] Building translation po/fr/LC_MESSAGES/ctksourceview-4-fr.mo[40/249] Building translation po/hi/LC_MESSAGES/ctksourceview-4-hi.mo[41/249] Building translation po/gl/LC_MESSAGES/ctksourceview-4-gl.mo[41/249] Building translation po/hr/LC_MESSAGES/ctksourceview-4-hr.mo[42/249] Building translation po/hi/LC_MESSAGES/ctksourceview-4-hi.mo[42/249] Building translation po/hu/LC_MESSAGES/ctksourceview-4-hu.mo[43/249] Building translation po/gu/LC_MESSAGES/ctksourceview-4-gu.mo[43/249] Building translation po/id/LC_MESSAGES/ctksourceview-4-id.mo[44/249] Building translation po/he/LC_MESSAGES/ctksourceview-4-he.mo[44/249] Building translation po/is/LC_MESSAGES/ctksourceview-4-is.mo[45/249] Building translation po/hu/LC_MESSAGES/ctksourceview-4-hu.mo[45/249] Building translation po/it/LC_MESSAGES/ctksourceview-4-it.mo[46/249] Generating GObject enum file ctksourceview/ctksource-enumtypes.c (wrapped by meson because command contains newlines, to capture output)[46/249] Building translation po/ja/LC_MESSAGES/ctksourceview-4-ja.mo[47/249] Building translation po/is/LC_MESSAGES/ctksourceview-4-is.mo[47/249] Building translation po/ka/LC_MESSAGES/ctksourceview-4-ka.mo[48/249] Building translation po/hr/LC_MESSAGES/ctksourceview-4-hr.mo[48/249] Building translation po/kk/LC_MESSAGES/ctksourceview-4-kk.mo[49/249] Building translation po/id/LC_MESSAGES/ctksourceview-4-id.mo[49/249] Building translation po/kn/LC_MESSAGES/ctksourceview-4-kn.mo[50/249] Building translation po/ja/LC_MESSAGES/ctksourceview-4-ja.mo[50/249] Building translation po/ko/LC_MESSAGES/ctksourceview-4-ko.mo[51/249] Building translation po/ka/LC_MESSAGES/ctksourceview-4-ka.mo[51/249] Building translation po/lt/LC_MESSAGES/ctksourceview-4-lt.mo[52/249] Building translation po/it/LC_MESSAGES/ctksourceview-4-it.mo[52/249] Building translation po/lv/LC_MESSAGES/ctksourceview-4-lv.mo[53/249] Building translation po/kn/LC_MESSAGES/ctksourceview-4-kn.mo[53/249] Building translation po/mai/LC_MESSAGES/ctksourceview-4-mai.mo[54/249] Building translation po/kk/LC_MESSAGES/ctksourceview-4-kk.mo[54/249] Building translation po/mg/LC_MESSAGES/ctksourceview-4-mg.mo[55/249] Generating GObject enum file ctksourceview/ctksource-enumtypes.h (wrapped by meson because command contains newlines, to capture output)[55/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/meson-generated_.._ctksource-enumtypes.c.o[56/249] Building translation po/ko/LC_MESSAGES/ctksourceview-4-ko.mo[56/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/meson-generated_.._ctksource-marshal.c.o[57/249] Building translation po/lt/LC_MESSAGES/ctksourceview-4-lt.mo[57/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/meson-generated_.._ctksourceview-gresources.c.o[58/249] Building translation po/lv/LC_MESSAGES/ctksourceview-4-lv.mo[58/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcebuffer.c.o[59/249] Building translation po/mg/LC_MESSAGES/ctksourceview-4-mg.mo[59/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcecompletion.c.o[60/249] Building translation po/mai/LC_MESSAGES/ctksourceview-4-mai.mo[60/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcecompletioncontext.c.o[61/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/meson-generated_.._ctksourceview-gresources.c.o
+ctksourceview/ctksourceview-gresources.c:298:9: warning: macro '__G_CONSTRUCTOR_H__' is not used [-Wunused-macros]
+  298 | #define __G_CONSTRUCTOR_H__
+      |         ^~~~~~~~~~~~~~~~~~~
+[61/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcecompletioninfo.c.o[62/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/meson-generated_.._ctksource-marshal.c.o
+ctksourceview/ctksource-marshal.c:32:9: warning: macro 'g_marshal_value_peek_char' is not used [-Wunused-macros]
+   32 | #define g_marshal_value_peek_char(v)     (v)->data[0].v_int
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~
+ctksourceview/ctksource-marshal.c:44:9: warning: macro 'g_marshal_value_peek_string' is not used [-Wunused-macros]
+   44 | #define g_marshal_value_peek_string(v)   (v)->data[0].v_pointer
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+ctksourceview/ctksource-marshal.c:47:9: warning: macro 'g_marshal_value_peek_pointer' is not used [-Wunused-macros]
+   47 | #define g_marshal_value_peek_pointer(v)  (v)->data[0].v_pointer
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ctksourceview/ctksource-marshal.c:49:9: warning: macro 'g_marshal_value_peek_variant' is not used [-Wunused-macros]
+   49 | #define g_marshal_value_peek_variant(v)  (v)->data[0].v_pointer
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ctksourceview/ctksource-marshal.c:39:9: warning: macro 'g_marshal_value_peek_uint64' is not used [-Wunused-macros]
+   39 | #define g_marshal_value_peek_uint64(v)   (v)->data[0].v_uint64
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+ctksourceview/ctksource-marshal.c:37:9: warning: macro 'g_marshal_value_peek_ulong' is not used [-Wunused-macros]
+   37 | #define g_marshal_value_peek_ulong(v)    (v)->data[0].v_ulong
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+ctksourceview/ctksource-marshal.c:38:9: warning: macro 'g_marshal_value_peek_int64' is not used [-Wunused-macros]
+   38 | #define g_marshal_value_peek_int64(v)    (v)->data[0].v_int64
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+ctksourceview/ctksource-marshal.c:35:9: warning: macro 'g_marshal_value_peek_uint' is not used [-Wunused-macros]
+   35 | #define g_marshal_value_peek_uint(v)     (v)->data[0].v_uint
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~
+ctksourceview/ctksource-marshal.c:31:9: warning: macro 'g_marshal_value_peek_boolean' is not used [-Wunused-macros]
+   31 | #define g_marshal_value_peek_boolean(v)  (v)->data[0].v_int
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ctksourceview/ctksource-marshal.c:33:9: warning: macro 'g_marshal_value_peek_uchar' is not used [-Wunused-macros]
+   33 | #define g_marshal_value_peek_uchar(v)    (v)->data[0].v_uint
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+ctksourceview/ctksource-marshal.c:43:9: warning: macro 'g_marshal_value_peek_double' is not used [-Wunused-macros]
+   43 | #define g_marshal_value_peek_double(v)   (v)->data[0].v_double
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+ctksourceview/ctksource-marshal.c:36:9: warning: macro 'g_marshal_value_peek_long' is not used [-Wunused-macros]
+   36 | #define g_marshal_value_peek_long(v)     (v)->data[0].v_long
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~
+ctksourceview/ctksource-marshal.c:42:9: warning: macro 'g_marshal_value_peek_float' is not used [-Wunused-macros]
+   42 | #define g_marshal_value_peek_float(v)    (v)->data[0].v_float
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+ctksourceview/ctksource-marshal.c:45:9: warning: macro 'g_marshal_value_peek_param' is not used [-Wunused-macros]
+   45 | #define g_marshal_value_peek_param(v)    (v)->data[0].v_pointer
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+[62/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcecompletionitem.c.o[63/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcecompletioncontext.c.o[63/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcecompletionproposal.c.o[64/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/meson-generated_.._ctksource-enumtypes.c.o[64/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcecompletionprovider.c.o[65/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcecompletioninfo.c.o[65/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourceencoding.c.o[66/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcecompletionproposal.c.o[66/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcefile.c.o[67/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcecompletionitem.c.o[67/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcefileloader.c.o[68/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcecompletionprovider.c.o[68/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcefilesaver.c.o[69/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourceencoding.c.o
+../ctksourceview/ctksourceencoding.c:642:39: warning: Casting a non-structure type to a structure type and accessing a field can lead to memory access errors or data corruption [alpha.core.CastToStruct]
+  642 |         encodings_variant = g_variant_parse (G_VARIANT_TYPE_STRING_ARRAY,
+      |                                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/glib-2.0/glib/gvarianttype.h:243:46: note: expanded from macro 'G_VARIANT_TYPE_STRING_ARRAY'
+  243 | #define G_VARIANT_TYPE_STRING_ARRAY         ((const GVariantType *) "as")
+      |                                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../ctksourceview/ctksourceencoding.c:661:40: warning: Casting a non-structure type to a structure type and accessing a field can lead to memory access errors or data corruption [alpha.core.CastToStruct]
+  661 |                 encodings_variant = g_variant_parse (G_VARIANT_TYPE_STRING_ARRAY,
+      |                                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/glib-2.0/glib/gvarianttype.h:243:46: note: expanded from macro 'G_VARIANT_TYPE_STRING_ARRAY'
+  243 | #define G_VARIANT_TYPE_STRING_ARRAY         ((const GVariantType *) "as")
+      |                                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+2 warnings generated.
+[69/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcegutter.c.o[70/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcefile.c.o[70/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcegutterrenderer.c.o[71/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcefileloader.c.o[71/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcegutterrendererpixbuf.c.o[72/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcefilesaver.c.o[72/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcegutterrenderertext.c.o[73/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcegutterrenderer.c.o[73/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourceinit.c.o[74/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourceinit.c.o[74/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcelanguage.c.o[75/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcegutterrendererpixbuf.c.o[75/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcelanguagemanager.c.o[76/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcegutterrenderertext.c.o[76/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcemap.c.o[77/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcecompletion.c.o[77/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcemark.c.o[78/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcemark.c.o[78/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcemarkattributes.c.o[79/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcemap.c.o[79/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourceprintcompositor.c.o[80/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcelanguage.c.o[80/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourceregion.c.o[81/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcelanguagemanager.c.o[81/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcesearchcontext.c.o[82/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcemarkattributes.c.o[82/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcesearchsettings.c.o[83/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcegutter.c.o[83/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcespacedrawer.c.o[84/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcesearchsettings.c.o[84/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcestyle.c.o[85/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcebuffer.c.o
+../ctksourceview/ctksourcebuffer.c:157:9: warning: macro 'DEBUG' is not used [-Wunused-macros]
+  157 | #define DEBUG(x)
+      |         ^~~~~
+../ctksourceview/ctksourcebuffer.c:163:9: warning: macro 'PROFILE' is not used [-Wunused-macros]
+  163 | #define PROFILE(x)
+      |         ^~~~~~~
+[85/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcestylescheme.c.o[86/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcestyle.c.o
+../ctksourceview/ctksourcestyle.c: In function 'ctk_source_style_set_property':
+../ctksourceview/ctksourcestyle.c:322:44: warning: cast from function call of type 'gint' {aka 'int'} to non-matching type 'enum <anonymous>' [-Wbad-function-cast]
+  322 |                         style->underline = (PangoUnderline) g_value_get_enum (value);
+      |                                            ^
+[86/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcestyleschemechooser.c.o[87/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcespacedrawer.c.o[87/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcestyleschemechooserbutton.c.o[88/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcestyleschemechooser.c.o[88/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcestyleschemechooserwidget.c.o[89/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourceprintcompositor.c.o
+../ctksourceview/ctksourceprintcompositor.c: In function 'calculate_header_footer_height':
+../ctksourceview/ctksourceprintcompositor.c:2030:18: warning: cast from function call of type 'int' to non-matching type 'double' [-Wbad-function-cast]
+ 2030 |         ascent = (gdouble) pango_font_metrics_get_ascent (font_metrics) / PANGO_SCALE;
+      |                  ^
+../ctksourceview/ctksourceprintcompositor.c:2031:19: warning: cast from function call of type 'int' to non-matching type 'double' [-Wbad-function-cast]
+ 2031 |         descent = (gdouble) pango_font_metrics_get_descent (font_metrics) / PANGO_SCALE;
+      |                   ^
+../ctksourceview/ctksourceprintcompositor.c: In function 'ctk_source_print_compositor_get_pagination_progress':
+../ctksourceview/ctksourceprintcompositor.c:2771:16: warning: cast from function call of type 'gint' {aka 'int'} to non-matching type 'double' [-Wbad-function-cast]
+ 2771 |         return (gdouble) ctk_text_iter_get_offset (&current) / (gdouble) char_count;
+      |                ^
+../ctksourceview/ctksourceprintcompositor.c: In function 'print_header_string':
+../ctksourceview/ctksourceprintcompositor.c:2802:28: warning: cast from function call of type 'int' to non-matching type 'double' [-Wbad-function-cast]
+ 2802 |                 baseline = (gdouble) pango_layout_iter_get_baseline (iter) / (gdouble) PANGO_SCALE;
+      |                            ^
+../ctksourceview/ctksourceprintcompositor.c: In function 'ctk_source_print_compositor_draw_page':
+../ctksourceview/ctksourceprintcompositor.c:3193:36: warning: cast from function call of type 'int' to non-matching type 'double' [-Wbad-function-cast]
+ 3193 |                         baseline = (double) pango_layout_iter_get_baseline (iter) / (double) PANGO_SCALE;
+      |                                    ^
+../ctksourceview/ctksourceprintcompositor.c:3197:39: warning: cast from function call of type 'int' to non-matching type 'double' [-Wbad-function-cast]
+ 3197 |                         ln_baseline = (double) pango_layout_iter_get_baseline (iter) / (double) PANGO_SCALE;
+      |                                       ^
+[89/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcestyleschememanager.c.o[90/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcestyleschemechooserbutton.c.o[90/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcetag.c.o[91/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourceregion.c.o
+../ctksourceview/ctksourceregion.c:504:4: warning: Value stored to 'l' is never read [deadcode.DeadStores]
+  504 |                         l = g_list_delete_link (l, l);
+      |                         ^   ~~~~~~~~~~~~~~~~~~~~~~~~~
+../ctksourceview/ctksourceregion.c:666:4: warning: Value stored to 'start_node' is never read [deadcode.DeadStores]
+  666 |                         start_node = g_list_insert_before (start_node, start_node->next, new_sr);
+      |                         ^            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2 warnings generated.
+[91/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourceundomanager.c.o[92/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcestyleschemechooserwidget.c.o[92/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourceutils.c.o[93/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcetag.c.o[93/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourceversion.c.o[94/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourceversion.c.o[94/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourceview.c.o[95/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourceundomanager.c.o[95/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcebufferinputstream.c.o[96/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcestylescheme.c.o
+../ctksourceview/ctksourcestylescheme.c: In function '_ctk_source_style_scheme_apply':
+../ctksourceview/ctksourcestylescheme.c:828:9: warning: 'ctk_style_context_invalidate' is deprecated [-Wdeprecated-declarations]
+  828 |         ctk_style_context_invalidate (context);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/ctk-3.0/ctk/ctkicontheme.h:27,
+                 from /usr/include/ctk-3.0/ctk/ctk.h:135,
+                 from ../ctksourceview/ctksourcestylescheme.h:28,
+                 from ../ctksourceview/ctksourcestylescheme.c:25:
+/usr/include/ctk-3.0/ctk/ctkstylecontext.h:1219:6: note: declared here
+ 1219 | void ctk_style_context_invalidate           (CtkStyleContext *context);
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../ctksourceview/ctksourcestylescheme.c:845:17: warning: 'ctk_style_context_invalidate' is deprecated [-Wdeprecated-declarations]
+  845 |                 ctk_style_context_invalidate (context);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/ctk-3.0/ctk/ctkstylecontext.h:1219:6: note: declared here
+ 1219 | void ctk_style_context_invalidate           (CtkStyleContext *context);
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../ctksourceview/ctksourcestylescheme.c: In function '_ctk_source_style_scheme_unapply':
+../ctksourceview/ctksourcestylescheme.c:878:9: warning: 'ctk_style_context_invalidate' is deprecated [-Wdeprecated-declarations]
+  878 |         ctk_style_context_invalidate (context);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/ctk-3.0/ctk/ctkstylecontext.h:1219:6: note: declared here
+ 1219 | void ctk_style_context_invalidate           (CtkStyleContext *context);
+      |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../ctksourceview/ctksourcestylescheme.c: At top level:
+../ctksourceview/ctksourcestylescheme.c:58:9: warning: macro 'STYLE_BRACKET_MISMATCH' is not used [-Wunused-macros]
+   58 | #define STYLE_BRACKET_MISMATCH          "bracket-mismatch"
+      |         ^~~~~~~~~~~~~~~~~~~~~~
+[96/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcebufferinternal.c.o[97/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcestyleschememanager.c.o[97/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcebufferoutputstream.c.o[98/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcebufferinternal.c.o[98/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcecompletioncontainer.c.o[99/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourceutils.c.o
+../ctksourceview/ctksourceutils.c:329:9: warning: macro 'FONT_SIZE' is not used [-Wunused-macros]
+  329 | #define FONT_SIZE    "font-size"
+      |         ^~~~~~~~~
+../ctksourceview/ctksourceutils.c:727:3: warning: Value stored to 'scroll_dest' is never read [deadcode.DeadStores]
+  727 |   scroll_dest = current_y_scroll;
+      |   ^             ~~~~~~~~~~~~~~~~
+../ctksourceview/ctksourceutils.c:754:3: warning: Value stored to 'scroll_dest' is never read [deadcode.DeadStores]
+  754 |   scroll_dest = current_x_scroll;
+      |   ^             ~~~~~~~~~~~~~~~~
+2 warnings generated.
+[99/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcecompletionmodel.c.o[100/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcecompletioncontainer.c.o[100/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcecontextengine.c.o[101/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcebufferinputstream.c.o[101/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourceengine.c.o[102/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourceengine.c.o[102/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcegutterrendererlines.c.o[103/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcesearchcontext.c.o[103/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcegutterrenderermarks.c.o[104/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcegutterrendererlines.c.o[104/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourceiter.c.o[105/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcegutterrenderermarks.c.o[105/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcelanguage-parser-2.c.o[106/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourceview.c.o
+In file included from /usr/include/glib-2.0/glib/gtypes.h:34,
+                 from /usr/include/glib-2.0/glib/galloca.h:34,
+                 from /usr/include/glib-2.0/glib.h:32,
+                 from /usr/include/ctk-3.0/cdk/cdkconfig.h:13,
+                 from /usr/include/ctk-3.0/cdk/cdk.h:30,
+                 from /usr/include/ctk-3.0/ctk/ctk.h:30,
+                 from ../ctksourceview/ctksourceview.h:30,
+                 from ../ctksourceview/ctksourceview.c:28:
+../ctksourceview/ctksourceview.c: In function 'menu_item_activate_change_case_cb':
+/usr/lib/x86_64-linux-gnu/glib-2.0/include/glibconfig.h:103:42: warning: cast from function call of type 'gpointer' {aka 'void *'} to non-matching type 'long int' [-Wbad-function-cast]
+  103 | #define GPOINTER_TO_INT(p)      ((gint)  (glong) (p))
+      |                                          ^
+../ctksourceview/ctksourceview.c:1765:29: note: in expansion of macro 'GPOINTER_TO_INT'
+ 1765 |                 case_type = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (menu_item), "change-case"));
+      |                             ^~~~~~~~~~~~~~~
+../ctksourceview/ctksourceview.c: At top level:
+../ctksourceview/ctksourceview.c:142:9: warning: macro 'GUTTER_PIXMAP' is not used [-Wunused-macros]
+  142 | #define GUTTER_PIXMAP                   16
+      |         ^~~~~~~~~~~~~
+../ctksourceview/ctksourceview.c:3634:44: warning: Division by zero [core.DivideZero]
+ 3634 |                 tabs = (preceding_spaces + equiv_spaces) / tab_width;
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~
+1 warning generated.
+[106/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcemarkssequence.c.o[107/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcebufferoutputstream.c.o
+../ctksourceview/ctksourcebufferoutputstream.c:283:9: warning: Access to field 'data' results in a dereference of a null pointer (loaded from field 'current_encoding') [core.NullDereference]
+  283 |         return stream->priv->current_encoding->data;
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 warning generated.
+[107/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcepixbufhelper.c.o[108/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcecompletionmodel.c.o[108/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourceregex.c.o[109/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcepixbufhelper.c.o[109/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourceundomanagerdefault.c.o[110/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcemarkssequence.c.o[110/249] Compiling C object ctksourceview/completion-providers/words/libctksourceview-4completionwords.a.p/ctksourcecompletionwords.c.o[111/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourceregex.c.o[111/249] Compiling C object ctksourceview/completion-providers/words/libctksourceview-4completionwords.a.p/ctksourcecompletionwordsbuffer.c.o[112/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourceiter.c.o[112/249] Compiling C object ctksourceview/completion-providers/words/libctksourceview-4completionwords.a.p/ctksourcecompletionwordslibrary.c.o[113/249] Compiling C object ctksourceview/completion-providers/words/libctksourceview-4completionwords.a.p/ctksourcecompletionwords.c.o[113/249] Compiling C object ctksourceview/completion-providers/words/libctksourceview-4completionwords.a.p/ctksourcecompletionwordsproposal.c.o[114/249] Compiling C object ctksourceview/completion-providers/words/libctksourceview-4completionwords.a.p/ctksourcecompletionwordsproposal.c.o[114/249] Compiling C object ctksourceview/completion-providers/words/libctksourceview-4completionwords.a.p/ctksourcecompletionwordsutils.c.o[115/249] Compiling C object ctksourceview/completion-providers/words/libctksourceview-4completionwords.a.p/ctksourcecompletionwordslibrary.c.o[115/249] Compiling C object tests/test-completion.p/meson-generated_.._test-completion-resources.c.o[116/249] Compiling C object tests/test-completion.p/meson-generated_.._test-completion-resources.c.o
+tests/test-completion-resources.c:774:9: warning: macro '__G_CONSTRUCTOR_H__' is not used [-Wunused-macros]
+  774 | #define __G_CONSTRUCTOR_H__
+      |         ^~~~~~~~~~~~~~~~~~~
+[116/249] Compiling C object tests/test-completion.p/test-completion.c.o[117/249] Compiling C object ctksourceview/completion-providers/words/libctksourceview-4completionwords.a.p/ctksourcecompletionwordsutils.c.o[117/249] Compiling C object tests/test-int2str.p/test-int2str.c.o[118/249] Compiling C object tests/test-completion.p/test-completion.c.o[118/249] Compiling C object tests/test-search.p/meson-generated_.._test-search-resources.c.o[119/249] Compiling C object tests/test-search.p/meson-generated_.._test-search-resources.c.o
+tests/test-search-resources.c:766:9: warning: macro '__G_CONSTRUCTOR_H__' is not used [-Wunused-macros]
+  766 | #define __G_CONSTRUCTOR_H__
+      |         ^~~~~~~~~~~~~~~~~~~
+[119/249] Compiling C object tests/test-search.p/test-search.c.o[120/249] Compiling C object tests/test-int2str.p/test-int2str.c.o[120/249] Compiling C object tests/test-search-performances.p/test-search-performances.c.o[121/249] Compiling C object tests/test-search-performances.p/test-search-performances.c.o[121/249] Compiling C object tests/test-space-drawing.p/test-space-drawing.c.o[122/249] Compiling C object tests/test-search.p/test-search.c.o
+../tests/test-search.c:29:9: warning: macro 'TEST_SEARCH_GET_CLASS' is not used [-Wunused-macros]
+   29 | #define TEST_SEARCH_GET_CLASS(obj)   (G_TYPE_INSTANCE_GET_CLASS ((obj), TEST_TYPE_SEARCH, TestSearchClass))
+      |         ^~~~~~~~~~~~~~~~~~~~~
+../tests/test-search.c:28:9: warning: macro 'TEST_IS_SEARCH_CLASS' is not used [-Wunused-macros]
+   28 | #define TEST_IS_SEARCH_CLASS(klass)  (G_TYPE_CHECK_CLASS_TYPE ((klass), TEST_TYPE_SEARCH))
+      |         ^~~~~~~~~~~~~~~~~~~~
+../tests/test-search.c:26:9: warning: macro 'TEST_SEARCH_CLASS' is not used [-Wunused-macros]
+   26 | #define TEST_SEARCH_CLASS(klass)     (G_TYPE_CHECK_CLASS_CAST ((klass), TEST_TYPE_SEARCH, TestSearchClass))
+      |         ^~~~~~~~~~~~~~~~~
+../tests/test-search.c:27:9: warning: macro 'TEST_IS_SEARCH' is not used [-Wunused-macros]
+   27 | #define TEST_IS_SEARCH(obj)          (G_TYPE_CHECK_INSTANCE_TYPE ((obj), TEST_TYPE_SEARCH))
+      |         ^~~~~~~~~~~~~~
+[122/249] Compiling C object tests/test-undo-manager-performances.p/test-undo-manager-performances.c.o[123/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourceundomanagerdefault.c.o[123/249] Compiling C object tests/test-widget.p/meson-generated_.._test-widget-resources.c.o[124/249] Compiling C object ctksourceview/completion-providers/words/libctksourceview-4completionwords.a.p/ctksourcecompletionwordsbuffer.c.o[124/249] Linking static target ctksourceview/completion-providers/words/libctksourceview-4completionwords.a[125/249] Linking static target ctksourceview/completion-providers/words/libctksourceview-4completionwords.a[125/249] Compiling C object tests/test-widget.p/test-widget.c.o[126/249] Compiling C object tests/test-space-drawing.p/test-space-drawing.c.o[126/249] Compiling C object testsuite/test-buffer.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o[127/249] Compiling C object tests/test-undo-manager-performances.p/test-undo-manager-performances.c.o[127/249] Compiling C object testsuite/test-buffer.p/test-buffer.c.o[128/249] Compiling C object tests/test-widget.p/meson-generated_.._test-widget-resources.c.o
+tests/test-widget-resources.c:1221:9: warning: macro '__G_CONSTRUCTOR_H__' is not used [-Wunused-macros]
+ 1221 | #define __G_CONSTRUCTOR_H__
+      |         ^~~~~~~~~~~~~~~~~~~
+[128/249] Compiling C object testsuite/test-buffer-input-stream.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o[129/249] Compiling C object testsuite/test-buffer.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o
+ctksourceview/ctksourceview-gresources.c:298:9: warning: macro '__G_CONSTRUCTOR_H__' is not used [-Wunused-macros]
+  298 | #define __G_CONSTRUCTOR_H__
+      |         ^~~~~~~~~~~~~~~~~~~
+[129/249] Compiling C object testsuite/test-buffer-input-stream.p/test-buffer-input-stream.c.o[130/249] Compiling C object testsuite/test-buffer-input-stream.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o
+ctksourceview/ctksourceview-gresources.c:298:9: warning: macro '__G_CONSTRUCTOR_H__' is not used [-Wunused-macros]
+  298 | #define __G_CONSTRUCTOR_H__
+      |         ^~~~~~~~~~~~~~~~~~~
+[130/249] Compiling C object testsuite/test-buffer-output-stream.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o[131/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcelanguage-parser-2.c.o
+../ctksourceview/ctksourcelanguage-parser-2.c: In function '_ctk_source_language_file_parse_version2':
+../ctksourceview/ctksourcelanguage-parser-2.c:1810:9: warning: 'xmlLineNumbersDefault' is deprecated [-Wdeprecated-declarations]
+ 1810 |         xmlLineNumbersDefault (1);
+      |         ^~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/libxml2/libxml/tree.h:17,
+                 from /usr/include/libxml2/libxml/xmlreader.h:14,
+                 from ../ctksourceview/ctksourcelanguage-parser-2.c:52:
+/usr/include/libxml2/libxml/parser.h:1125:17: note: declared here
+ 1125 |                 xmlLineNumbersDefault   (int val);
+      |                 ^~~~~~~~~~~~~~~~~~~~~
+../ctksourceview/ctksourcelanguage-parser-2.c:1811:9: warning: 'xmlSubstituteEntitiesDefault' is deprecated [-Wdeprecated-declarations]
+ 1811 |         xmlSubstituteEntitiesDefault (1);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/libxml2/libxml/parser.h:1106:17: note: declared here
+ 1106 |                 xmlSubstituteEntitiesDefault(int val);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../ctksourceview/ctksourcelanguage-parser-2.c: At top level:
+../ctksourceview/ctksourcelanguage-parser-2.c:55:9: warning: macro 'ATTR_NO_STYLE' is not used [-Wunused-macros]
+   55 | #define ATTR_NO_STYLE ""
+      |         ^~~~~~~~~~~~~
+[131/249] Compiling C object testsuite/test-buffer-output-stream.p/test-buffer-output-stream.c.o[132/249] Compiling C object tests/test-widget.p/test-widget.c.o
+../tests/test-widget.c:28:9: warning: macro 'TEST_WIDGET_CLASS' is not used [-Wunused-macros]
+   28 | #define TEST_WIDGET_CLASS(klass)     (G_TYPE_CHECK_CLASS_CAST ((klass), TEST_TYPE_WIDGET, TestWidgetClass))
+      |         ^~~~~~~~~~~~~~~~~
+../tests/test-widget.c:29:9: warning: macro 'TEST_IS_WIDGET' is not used [-Wunused-macros]
+   29 | #define TEST_IS_WIDGET(obj)          (G_TYPE_CHECK_INSTANCE_TYPE ((obj), TEST_TYPE_WIDGET))
+      |         ^~~~~~~~~~~~~~
+../tests/test-widget.c:31:9: warning: macro 'TEST_WIDGET_GET_CLASS' is not used [-Wunused-macros]
+   31 | #define TEST_WIDGET_GET_CLASS(obj)   (G_TYPE_INSTANCE_GET_CLASS ((obj), TEST_TYPE_WIDGET, TestWidgetClass))
+      |         ^~~~~~~~~~~~~~~~~~~~~
+../tests/test-widget.c:30:9: warning: macro 'TEST_IS_WIDGET_CLASS' is not used [-Wunused-macros]
+   30 | #define TEST_IS_WIDGET_CLASS(klass)  (G_TYPE_CHECK_CLASS_TYPE ((klass), TEST_TYPE_WIDGET))
+      |         ^~~~~~~~~~~~~~~~~~~~
+[132/249] Compiling C object testsuite/test-completion-model.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o[133/249] Compiling C object testsuite/test-buffer-output-stream.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o
+ctksourceview/ctksourceview-gresources.c:298:9: warning: macro '__G_CONSTRUCTOR_H__' is not used [-Wunused-macros]
+  298 | #define __G_CONSTRUCTOR_H__
+      |         ^~~~~~~~~~~~~~~~~~~
+[133/249] Compiling C object testsuite/test-completion-model.p/test-completion-model.c.o[134/249] Compiling C object testsuite/test-buffer.p/test-buffer.c.o[134/249] Compiling C object testsuite/test-completion-words.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o[135/249] Compiling C object testsuite/test-buffer-input-stream.p/test-buffer-input-stream.c.o[135/249] Compiling C object testsuite/test-completion-words.p/test-completion-words.c.o[136/249] Compiling C object testsuite/test-completion-model.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o
+ctksourceview/ctksourceview-gresources.c:298:9: warning: macro '__G_CONSTRUCTOR_H__' is not used [-Wunused-macros]
+  298 | #define __G_CONSTRUCTOR_H__
+      |         ^~~~~~~~~~~~~~~~~~~
+[136/249] Compiling C object testsuite/test-encoding.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o[137/249] Compiling C object testsuite/test-completion-words.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o
+ctksourceview/ctksourceview-gresources.c:298:9: warning: macro '__G_CONSTRUCTOR_H__' is not used [-Wunused-macros]
+  298 | #define __G_CONSTRUCTOR_H__
+      |         ^~~~~~~~~~~~~~~~~~~
+[137/249] Compiling C object testsuite/test-encoding.p/test-encoding.c.o[138/249] Compiling C object testsuite/test-buffer-output-stream.p/test-buffer-output-stream.c.o[138/249] Compiling C object testsuite/test-file-loader.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o[139/249] Compiling C object testsuite/test-encoding.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o
+ctksourceview/ctksourceview-gresources.c:298:9: warning: macro '__G_CONSTRUCTOR_H__' is not used [-Wunused-macros]
+  298 | #define __G_CONSTRUCTOR_H__
+      |         ^~~~~~~~~~~~~~~~~~~
+[139/249] Compiling C object testsuite/test-file-loader.p/test-file-loader.c.o[140/249] Compiling C object testsuite/test-completion-words.p/test-completion-words.c.o[140/249] Compiling C object testsuite/test-file-saver.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o[141/249] Compiling C object testsuite/test-file-loader.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o
+ctksourceview/ctksourceview-gresources.c:298:9: warning: macro '__G_CONSTRUCTOR_H__' is not used [-Wunused-macros]
+  298 | #define __G_CONSTRUCTOR_H__
+      |         ^~~~~~~~~~~~~~~~~~~
+[141/249] Compiling C object testsuite/test-file-saver.p/test-file-saver.c.o[142/249] Compiling C object testsuite/test-encoding.p/test-encoding.c.o[142/249] Compiling C object testsuite/test-iter.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o[143/249] Compiling C object testsuite/test-completion-model.p/test-completion-model.c.o[143/249] Compiling C object testsuite/test-iter.p/test-iter.c.o[144/249] Compiling C object testsuite/test-file-saver.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o
+ctksourceview/ctksourceview-gresources.c:298:9: warning: macro '__G_CONSTRUCTOR_H__' is not used [-Wunused-macros]
+  298 | #define __G_CONSTRUCTOR_H__
+      |         ^~~~~~~~~~~~~~~~~~~
+[144/249] Compiling C object testsuite/test-language.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o[145/249] Compiling C object testsuite/test-iter.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o
+ctksourceview/ctksourceview-gresources.c:298:9: warning: macro '__G_CONSTRUCTOR_H__' is not used [-Wunused-macros]
+  298 | #define __G_CONSTRUCTOR_H__
+      |         ^~~~~~~~~~~~~~~~~~~
+[145/249] Compiling C object testsuite/test-language.p/test-language.c.o[146/249] Compiling C object testsuite/test-file-loader.p/test-file-loader.c.o[146/249] Compiling C object testsuite/test-languagemanager.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o[147/249] Compiling C object testsuite/test-language.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o
+ctksourceview/ctksourceview-gresources.c:298:9: warning: macro '__G_CONSTRUCTOR_H__' is not used [-Wunused-macros]
+  298 | #define __G_CONSTRUCTOR_H__
+      |         ^~~~~~~~~~~~~~~~~~~
+[147/249] Compiling C object testsuite/test-languagemanager.p/test-languagemanager.c.o[148/249] Compiling C object testsuite/test-languagemanager.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o
+ctksourceview/ctksourceview-gresources.c:298:9: warning: macro '__G_CONSTRUCTOR_H__' is not used [-Wunused-macros]
+  298 | #define __G_CONSTRUCTOR_H__
+      |         ^~~~~~~~~~~~~~~~~~~
+[148/249] Compiling C object testsuite/test-language-specs.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o[149/249] Compiling C object testsuite/test-iter.p/test-iter.c.o[149/249] Compiling C object testsuite/test-language-specs.p/test-language-specs.c.o[150/249] Compiling C object testsuite/test-file-saver.p/test-file-saver.c.o
+../testsuite/test-file-saver.c:198:17: warning: Using a fixed address is not portable because that address will probably not be valid in all environments or platforms [alpha.core.FixedAddr]
+  198 |         data->userdata = userdata;
+      |                        ^ ~~~~~~~~
+1 warning generated.
+[150/249] Compiling C object testsuite/test-mark.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o[151/249] Compiling C object testsuite/test-language-specs.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o
+ctksourceview/ctksourceview-gresources.c:298:9: warning: macro '__G_CONSTRUCTOR_H__' is not used [-Wunused-macros]
+  298 | #define __G_CONSTRUCTOR_H__
+      |         ^~~~~~~~~~~~~~~~~~~
+[151/249] Compiling C object testsuite/test-mark.p/test-mark.c.o[152/249] Compiling C object testsuite/test-language.p/test-language.c.o
+../testsuite/test-language.c:92:15: warning: Out of bound access to memory after the end of 'glob' [alpha.security.ArrayBoundV2]
+   92 |                 for (i = 0; expected_strv[i] != NULL; i++)
+      |                             ^~~~~~~~~~~~~~~~
+../testsuite/test-language.c:92:15: warning: Out of bound access to memory after the end of 'mime' [alpha.security.ArrayBoundV2]
+   92 |                 for (i = 0; expected_strv[i] != NULL; i++)
+      |                             ^~~~~~~~~~~~~~~~
+../testsuite/test-language.c:92:15: warning: Out of bound access to memory after the end of 'styles' [alpha.security.ArrayBoundV2]
+   92 |                 for (i = 0; expected_strv[i] != NULL; i++)
+      |                             ^~~~~~~~~~~~~~~~
+3 warnings generated.
+[152/249] Compiling C object testsuite/test-printcompositor.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o[153/249] Compiling C object testsuite/test-mark.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o
+ctksourceview/ctksourceview-gresources.c:298:9: warning: macro '__G_CONSTRUCTOR_H__' is not used [-Wunused-macros]
+  298 | #define __G_CONSTRUCTOR_H__
+      |         ^~~~~~~~~~~~~~~~~~~
+[153/249] Compiling C object testsuite/test-printcompositor.p/test-printcompositor.c.o[154/249] Compiling C object testsuite/test-languagemanager.p/test-languagemanager.c.o[154/249] Compiling C object testsuite/test-regex.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o[155/249] Compiling C object testsuite/test-language-specs.p/test-language-specs.c.o[155/249] Compiling C object testsuite/test-regex.p/test-regex.c.o[156/249] Compiling C object testsuite/test-printcompositor.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o
+ctksourceview/ctksourceview-gresources.c:298:9: warning: macro '__G_CONSTRUCTOR_H__' is not used [-Wunused-macros]
+  298 | #define __G_CONSTRUCTOR_H__
+      |         ^~~~~~~~~~~~~~~~~~~
+[156/249] Compiling C object testsuite/test-region.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o[157/249] Compiling C object testsuite/test-regex.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o
+ctksourceview/ctksourceview-gresources.c:298:9: warning: macro '__G_CONSTRUCTOR_H__' is not used [-Wunused-macros]
+  298 | #define __G_CONSTRUCTOR_H__
+      |         ^~~~~~~~~~~~~~~~~~~
+[157/249] Compiling C object testsuite/test-region.p/test-region.c.o[158/249] Compiling C object testsuite/test-mark.p/test-mark.c.o[158/249] Compiling C object testsuite/test-search-context.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o[159/249] Compiling C object testsuite/test-region.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o
+ctksourceview/ctksourceview-gresources.c:298:9: warning: macro '__G_CONSTRUCTOR_H__' is not used [-Wunused-macros]
+  298 | #define __G_CONSTRUCTOR_H__
+      |         ^~~~~~~~~~~~~~~~~~~
+[159/249] Compiling C object testsuite/test-search-context.p/test-search-context.c.o[160/249] Compiling C object testsuite/test-printcompositor.p/test-printcompositor.c.o[160/249] Compiling C object testsuite/test-space-drawer.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o[161/249] Compiling C object testsuite/test-regex.p/test-regex.c.o[161/249] Compiling C object testsuite/test-space-drawer.p/test-space-drawer.c.o[162/249] Compiling C object testsuite/test-search-context.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o
+ctksourceview/ctksourceview-gresources.c:298:9: warning: macro '__G_CONSTRUCTOR_H__' is not used [-Wunused-macros]
+  298 | #define __G_CONSTRUCTOR_H__
+      |         ^~~~~~~~~~~~~~~~~~~
+[162/249] Compiling C object testsuite/test-stylescheme.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o[163/249] Compiling C object testsuite/test-space-drawer.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o
+ctksourceview/ctksourceview-gresources.c:298:9: warning: macro '__G_CONSTRUCTOR_H__' is not used [-Wunused-macros]
+  298 | #define __G_CONSTRUCTOR_H__
+      |         ^~~~~~~~~~~~~~~~~~~
+[163/249] Compiling C object testsuite/test-stylescheme.p/test-stylescheme.c.o[164/249] Compiling C object testsuite/test-stylescheme.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o
+ctksourceview/ctksourceview-gresources.c:298:9: warning: macro '__G_CONSTRUCTOR_H__' is not used [-Wunused-macros]
+  298 | #define __G_CONSTRUCTOR_H__
+      |         ^~~~~~~~~~~~~~~~~~~
+[164/249] Compiling C object testsuite/test-styleschememanager.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o[165/249] Compiling C object testsuite/test-region.p/test-region.c.o[165/249] Compiling C object testsuite/test-styleschememanager.p/test-styleschememanager.c.o[166/249] Compiling C object testsuite/test-space-drawer.p/test-space-drawer.c.o[166/249] Compiling C object testsuite/test-undo-manager.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o[167/249] Compiling C object testsuite/test-styleschememanager.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o
+ctksourceview/ctksourceview-gresources.c:298:9: warning: macro '__G_CONSTRUCTOR_H__' is not used [-Wunused-macros]
+  298 | #define __G_CONSTRUCTOR_H__
+      |         ^~~~~~~~~~~~~~~~~~~
+[167/249] Compiling C object testsuite/test-undo-manager.p/test-undo-manager.c.o[168/249] Compiling C object testsuite/test-stylescheme.p/test-stylescheme.c.o
+../testsuite/test-stylescheme.c:92:34: warning: Out of bound access to memory after the end of 'authors' [alpha.security.ArrayBoundV2]
+   92 |                         g_assert_cmpstr (strv[i], ==, expected_strv[i]);
+      |                                                       ^~~~~~~~~~~~~~~~
+/usr/include/glib-2.0/glib/gtestutils.h:47:80: note: expanded from macro 'g_assert_cmpstr'
+   47 |                                              const char *__s1 = (s1), *__s2 = (s2); \
+      |                                                                                ^~
+1 warning generated.
+[168/249] Compiling C object testsuite/test-utils.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o[169/249] Compiling C object testsuite/test-undo-manager.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o
+ctksourceview/ctksourceview-gresources.c:298:9: warning: macro '__G_CONSTRUCTOR_H__' is not used [-Wunused-macros]
+  298 | #define __G_CONSTRUCTOR_H__
+      |         ^~~~~~~~~~~~~~~~~~~
+[169/249] Compiling C object testsuite/test-utils.p/test-utils.c.o[170/249] Compiling C object testsuite/test-styleschememanager.p/test-styleschememanager.c.o[170/249] Compiling C object testsuite/test-view.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o[171/249] Compiling C object testsuite/test-utils.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o
+ctksourceview/ctksourceview-gresources.c:298:9: warning: macro '__G_CONSTRUCTOR_H__' is not used [-Wunused-macros]
+  298 | #define __G_CONSTRUCTOR_H__
+      |         ^~~~~~~~~~~~~~~~~~~
+[171/249] Compiling C object testsuite/test-view.p/test-view.c.o[172/249] Compiling C object testsuite/test-view.p/meson-generated_.._.._ctksourceview_ctksourceview-gresources.c.o
+ctksourceview/ctksourceview-gresources.c:298:9: warning: macro '__G_CONSTRUCTOR_H__' is not used [-Wunused-macros]
+  298 | #define __G_CONSTRUCTOR_H__
+      |         ^~~~~~~~~~~~~~~~~~~
+[172/249] Building translation po/mk/LC_MESSAGES/ctksourceview-4-mk.mo[173/249] Building translation po/mk/LC_MESSAGES/ctksourceview-4-mk.mo[173/249] Building translation po/ml/LC_MESSAGES/ctksourceview-4-ml.mo[174/249] Building translation po/ml/LC_MESSAGES/ctksourceview-4-ml.mo[174/249] Building translation po/mn/LC_MESSAGES/ctksourceview-4-mn.mo[175/249] Building translation po/mn/LC_MESSAGES/ctksourceview-4-mn.mo[175/249] Building translation po/mr/LC_MESSAGES/ctksourceview-4-mr.mo[176/249] Building translation po/mr/LC_MESSAGES/ctksourceview-4-mr.mo[176/249] Building translation po/ms/LC_MESSAGES/ctksourceview-4-ms.mo[177/249] Building translation po/ms/LC_MESSAGES/ctksourceview-4-ms.mo[177/249] Building translation po/nb/LC_MESSAGES/ctksourceview-4-nb.mo[178/249] Building translation po/nb/LC_MESSAGES/ctksourceview-4-nb.mo[178/249] Building translation po/ne/LC_MESSAGES/ctksourceview-4-ne.mo[179/249] Building translation po/ne/LC_MESSAGES/ctksourceview-4-ne.mo[179/249] Building translation po/nl/LC_MESSAGES/ctksourceview-4-nl.mo[180/249] Building translation po/nl/LC_MESSAGES/ctksourceview-4-nl.mo[180/249] Building translation po/nn/LC_MESSAGES/ctksourceview-4-nn.mo[181/249] Building translation po/nn/LC_MESSAGES/ctksourceview-4-nn.mo[181/249] Building translation po/oc/LC_MESSAGES/ctksourceview-4-oc.mo[182/249] Building translation po/oc/LC_MESSAGES/ctksourceview-4-oc.mo[182/249] Building translation po/or/LC_MESSAGES/ctksourceview-4-or.mo[183/249] Building translation po/or/LC_MESSAGES/ctksourceview-4-or.mo[183/249] Building translation po/pa/LC_MESSAGES/ctksourceview-4-pa.mo[184/249] Building translation po/pa/LC_MESSAGES/ctksourceview-4-pa.mo[184/249] Building translation po/pl/LC_MESSAGES/ctksourceview-4-pl.mo[185/249] Building translation po/pl/LC_MESSAGES/ctksourceview-4-pl.mo[185/249] Building translation po/pt/LC_MESSAGES/ctksourceview-4-pt.mo[186/249] Building translation po/pt/LC_MESSAGES/ctksourceview-4-pt.mo[186/249] Building translation po/pt_BR/LC_MESSAGES/ctksourceview-4-pt_BR.mo[187/249] Building translation po/pt_BR/LC_MESSAGES/ctksourceview-4-pt_BR.mo[187/249] Building translation po/ro/LC_MESSAGES/ctksourceview-4-ro.mo[188/249] Building translation po/ro/LC_MESSAGES/ctksourceview-4-ro.mo[188/249] Building translation po/ru/LC_MESSAGES/ctksourceview-4-ru.mo[189/249] Building translation po/ru/LC_MESSAGES/ctksourceview-4-ru.mo[189/249] Building translation po/rw/LC_MESSAGES/ctksourceview-4-rw.mo[190/249] Building translation po/rw/LC_MESSAGES/ctksourceview-4-rw.mo[190/249] Building translation po/si/LC_MESSAGES/ctksourceview-4-si.mo[191/249] Building translation po/si/LC_MESSAGES/ctksourceview-4-si.mo[191/249] Building translation po/sk/LC_MESSAGES/ctksourceview-4-sk.mo[192/249] Building translation po/sk/LC_MESSAGES/ctksourceview-4-sk.mo[192/249] Building translation po/sl/LC_MESSAGES/ctksourceview-4-sl.mo[193/249] Building translation po/sl/LC_MESSAGES/ctksourceview-4-sl.mo[193/249] Building translation po/sq/LC_MESSAGES/ctksourceview-4-sq.mo[194/249] Building translation po/sq/LC_MESSAGES/ctksourceview-4-sq.mo[194/249] Building translation po/sr/LC_MESSAGES/ctksourceview-4-sr.mo[195/249] Building translation po/sr/LC_MESSAGES/ctksourceview-4-sr.mo[195/249] Building translation po/sr@latin/LC_MESSAGES/ctksourceview-4-sr@latin.mo[196/249] Building translation po/sr@latin/LC_MESSAGES/ctksourceview-4-sr@latin.mo[196/249] Building translation po/sv/LC_MESSAGES/ctksourceview-4-sv.mo[197/249] Building translation po/sv/LC_MESSAGES/ctksourceview-4-sv.mo[197/249] Building translation po/ta/LC_MESSAGES/ctksourceview-4-ta.mo[198/249] Building translation po/ta/LC_MESSAGES/ctksourceview-4-ta.mo[198/249] Building translation po/te/LC_MESSAGES/ctksourceview-4-te.mo[199/249] Building translation po/te/LC_MESSAGES/ctksourceview-4-te.mo[199/249] Building translation po/tg/LC_MESSAGES/ctksourceview-4-tg.mo[200/249] Building translation po/tg/LC_MESSAGES/ctksourceview-4-tg.mo[200/249] Building translation po/th/LC_MESSAGES/ctksourceview-4-th.mo[201/249] Building translation po/th/LC_MESSAGES/ctksourceview-4-th.mo[201/249] Building translation po/tr/LC_MESSAGES/ctksourceview-4-tr.mo[202/249] Building translation po/tr/LC_MESSAGES/ctksourceview-4-tr.mo[202/249] Building translation po/ug/LC_MESSAGES/ctksourceview-4-ug.mo[203/249] Building translation po/ug/LC_MESSAGES/ctksourceview-4-ug.mo[203/249] Building translation po/uk/LC_MESSAGES/ctksourceview-4-uk.mo[204/249] Building translation po/uk/LC_MESSAGES/ctksourceview-4-uk.mo[204/249] Building translation po/vi/LC_MESSAGES/ctksourceview-4-vi.mo[205/249] Building translation po/vi/LC_MESSAGES/ctksourceview-4-vi.mo[205/249] Building translation po/xh/LC_MESSAGES/ctksourceview-4-xh.mo[206/249] Building translation po/xh/LC_MESSAGES/ctksourceview-4-xh.mo[206/249] Building translation po/zh_CN/LC_MESSAGES/ctksourceview-4-zh_CN.mo[207/249] Building translation po/zh_CN/LC_MESSAGES/ctksourceview-4-zh_CN.mo[207/249] Building translation po/zh_HK/LC_MESSAGES/ctksourceview-4-zh_HK.mo[208/249] Building translation po/zh_HK/LC_MESSAGES/ctksourceview-4-zh_HK.mo[208/249] Building translation po/zh_TW/LC_MESSAGES/ctksourceview-4-zh_TW.mo[209/249] Building translation po/zh_TW/LC_MESSAGES/ctksourceview-4-zh_TW.mo[210/249] Compiling C object testsuite/test-utils.p/test-utils.c.o[211/249] Compiling C object testsuite/test-undo-manager.p/test-undo-manager.c.o[212/249] Compiling C object testsuite/test-search-context.p/test-search-context.c.o[213/249] Compiling C object testsuite/test-view.p/test-view.c.o[214/249] Compiling C object ctksourceview/libctksourceview-4core.a.p/ctksourcecontextengine.c.o[214/249] Linking static target ctksourceview/libctksourceview-4core.a[215/249] Linking static target ctksourceview/libctksourceview-4core.a[215/249] Linking target ctksourceview/libctksourceview-4.so.0.0.0[215/249] Linking target testsuite/test-buffer[215/249] Linking target testsuite/test-buffer-input-stream[215/249] Linking target testsuite/test-buffer-output-stream[215/249] Linking target testsuite/test-completion-model[215/249] Linking target testsuite/test-completion-words[216/249] Linking target ctksourceview/libctksourceview-4.so.0.0.0[216/249] Generating symbol file ctksourceview/libctksourceview-4.so.0.0.0.p/libctksourceview-4.so.0.0.0.symbols[217/249] Linking target testsuite/test-buffer-output-stream[217/249] Generating ctksourceview/CtkSource-4.gir with a custom command (wrapped by meson to set env)[218/249] Linking target testsuite/test-buffer[218/249] Linking target testsuite/test-encoding[219/249] Generating symbol file ctksourceview/libctksourceview-4.so.0.0.0.p/libctksourceview-4.so.0.0.0.symbols[219/249] Linking target tests/test-completion[220/249] Linking target testsuite/test-buffer-input-stream[220/249] Linking target tests/test-int2str[221/249] Linking target testsuite/test-completion-words[221/249] Linking target tests/test-search[222/249] Linking target testsuite/test-completion-model[222/249] Linking target tests/test-search-performances[223/249] Linking target tests/test-completion[223/249] Linking target tests/test-space-drawing[224/249] Linking target tests/test-search[224/249] Linking target tests/test-undo-manager-performances[225/249] Linking target tests/test-search-performances[225/249] Linking target tests/test-widget[226/249] Linking target tests/test-int2str[226/249] Linking target testsuite/test-file-loader[227/249] Linking target testsuite/test-encoding[227/249] Linking target testsuite/test-file-saver[228/249] Linking target tests/test-widget[228/249] Linking target testsuite/test-iter[229/249] Linking target testsuite/test-file-saver[229/249] Linking target testsuite/test-language[230/249] Linking target tests/test-space-drawing[230/249] Linking target testsuite/test-languagemanager[231/249] Linking target tests/test-undo-manager-performances[231/249] Linking target testsuite/test-language-specs[232/249] Linking target testsuite/test-file-loader[232/249] Linking target testsuite/test-mark[233/249] Linking target testsuite/test-iter[233/249] Linking target testsuite/test-printcompositor[234/249] Linking target testsuite/test-language[234/249] Linking target testsuite/test-regex[235/249] Linking target testsuite/test-languagemanager[235/249] Linking target testsuite/test-region[236/249] Linking target testsuite/test-language-specs[236/249] Linking target testsuite/test-search-context[237/249] Linking target testsuite/test-mark[237/249] Linking target testsuite/test-space-drawer[238/249] Linking target testsuite/test-regex[238/249] Linking target testsuite/test-stylescheme[239/249] Linking target testsuite/test-region[239/249] Linking target testsuite/test-styleschememanager[240/249] Linking target testsuite/test-printcompositor[240/249] Linking target testsuite/test-undo-manager[241/249] Linking target testsuite/test-space-drawer[241/249] Linking target testsuite/test-utils[242/249] Linking target testsuite/test-search-context[242/249] Linking target testsuite/test-view[243/249] Linking target testsuite/test-stylescheme[244/249] Linking target testsuite/test-undo-manager[245/249] Linking target testsuite/test-styleschememanager[246/249] Linking target testsuite/test-utils[247/249] Linking target testsuite/test-view[248/249] Generating ctksourceview/CtkSource-4.gir with a custom command (wrapped by meson to set env)
+/rootdir/_build/tmp-introspectqj41r5bs/CtkSource-4.c:89:13: warning: File position of the stream might be 'indeterminate' after a failed operation. Can cause undefined behavior [unix.Stream]
+   89 |       ret = fread (&byte, 1, 1, input);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/rootdir/_build/tmp-introspectqj41r5bs/CtkSource-4.c:89:13: warning: Read function called when stream is in EOF state. Function has no effect [unix.Stream]
+   89 |       ret = fread (&byte, 1, 1, input);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/rootdir/_build/tmp-introspectqj41r5bs/CtkSource-4.c:239:11: warning: This statement is never executed [alpha.deadcode.UnreachableCode]
+  239 |           break;
+      |           ^~~~~
+/rootdir/_build/tmp-introspectqj41r5bs/CtkSource-4.c:246:11: warning: This statement is never executed [alpha.deadcode.UnreachableCode]
+  246 |           break;
+      |           ^~~~~
+4 warnings generated.
+../ctksourceview/ctksourcefile.c:411: Warning: CtkSource: invalid "closure" annotation: only valid on callback parameters
+../ctksourceview/ctksourcefileloader.c:1078: Warning: CtkSource: invalid "closure" annotation: only valid on callback parameters
+../ctksourceview/ctksourcefilesaver.c:1370: Warning: CtkSource: invalid "closure" annotation: only valid on callback parameters
+[248/249] Generating ctksourceview/CtkSource-4.typelib with a custom command[249/249] Generating ctksourceview/CtkSource-4.typelib with a custom command
+scan-build: Analysis run complete.
+scan-build: 14 bugs found.
+scan-build: Run 'scan-view /rootdir/html-report/2025-10-29-202843-10554-1' to examine bug reports.
+Listing... 0%Listing... 0%Listing... 0%              adduser/testing,now 3.153 all [installed,automatic]
+advaita-icon-theme/unknown,now 3.25.0-1 all [installed,automatic]
+apt/testing,now 3.1.11 amd64 [installed,automatic]
+aptitude-common/testing,now 0.8.13-8 all [installed,automatic]
+aptitude/testing,now 0.8.13-8 amd64 [installed]
+at-spi2-common/testing,now 2.58.1-1 all [installed,automatic]
+at-spi2-core/testing,now 2.58.1-1 amd64 [installed,automatic]
+autoconf/testing,now 2.72-3.1 all [installed,automatic]
+automake/testing,now 1:1.18.1-2 all [installed,automatic]
+autotools-dev/testing,now 20240727.1 all [installed,automatic]
+base-files/testing,now 14 amd64 [installed,automatic]
+base-passwd/testing,now 3.6.7 amd64 [installed,automatic]
+bash-completion/testing,now 1:2.16.0-7 all [installed,automatic]
+bash/testing,now 5.3-1 amd64 [installed,automatic]
+binfmt-support/testing,now 2.2.2-7 amd64 [installed,automatic]
+binutils-common/testing,now 2.45-8 amd64 [installed,automatic]
+binutils-x86-64-linux-gnu/testing,now 2.45-8 amd64 [installed,automatic]
+binutils/testing,now 2.45-8 amd64 [installed,automatic]
+bsdutils/testing,now 1:2.41.2-1 amd64 [installed,automatic]
+build-essential/testing,now 12.12 amd64 [installed,automatic]
+bzip2-doc/testing,now 1.0.8-6 all [installed,automatic]
+bzip2/testing,now 1.0.8-6 amd64 [installed,automatic]
+ca-certificates/testing,now 20250419 all [installed,automatic]
+clang-19/testing,now 1:19.1.7-7 amd64 [installed,automatic]
+clang-tools-19/testing,now 1:19.1.7-7 amd64 [installed,automatic]
+clang-tools/testing,now 1:19.0-63 amd64 [installed]
+coreutils/testing,now 9.7-3 amd64 [installed,automatic]
+cpp-15-x86-64-linux-gnu/testing,now 15.2.0-4 amd64 [installed,automatic]
+cpp-15/testing,now 15.2.0-4 amd64 [installed,automatic]
+cpp-x86-64-linux-gnu/testing,now 4:15.2.0-4 amd64 [installed,automatic]
+cpp/testing,now 4:15.2.0-4 amd64 [installed,automatic]
+cppcheck/testing,now 2.18.0-2 amd64 [installed]
+ctk-update-icon-cache/unknown,now 3.25.6-1 amd64 [installed,automatic]
+curl/testing,now 8.17.0~rc2-1 amd64 [installed,automatic]
+dash/testing,now 0.5.12-12 amd64 [installed,automatic]
+dbus-bin/testing,now 1.16.2-2 amd64 [installed,automatic]
+dbus-daemon/testing,now 1.16.2-2 amd64 [installed,automatic]
+dbus-session-bus-common/testing,now 1.16.2-2 all [installed,automatic]
+dbus-system-bus-common/testing,now 1.16.2-2 all [installed,automatic]
+dbus-user-session/testing,now 1.16.2-2 amd64 [installed,automatic]
+dbus/testing,now 1.16.2-2 amd64 [installed,automatic]
+dconf-gsettings-backend/testing,now 0.49.0-1 amd64 [installed,automatic]
+dconf-service/testing,now 0.49.0-1 amd64 [installed,automatic]
+debconf/testing,now 1.5.91 all [installed,automatic]
+debian-archive-keyring/testing,now 2025.1 all [installed,automatic]
+debianutils/testing,now 5.23.2 amd64 [installed,automatic]
+diffutils/testing,now 1:3.12-1 amd64 [installed,automatic]
+dmsetup/testing,now 2:1.02.205-2 amd64 [installed,automatic]
+docbook-to-man/testing,now 1:2.0.0-49 amd64 [installed,automatic]
+docbook-xml/testing,now 4.5-13 all [installed,automatic]
+docbook-xsl/testing,now 1.79.2+dfsg-7 all [installed,automatic]
+docbook/testing,now 4.5-11 all [installed,automatic]
+dpkg-dev/testing,now 1.22.21 all [installed,automatic]
+dpkg/testing,now 1.22.21 amd64 [installed,automatic]
+expect/testing,now 5.45.4-4 amd64 [installed]
+fakeroot/testing,now 1.37.1.2-1 amd64 [installed,automatic]
+file/testing,now 1:5.46-5 amd64 [installed,automatic]
+findutils/testing,now 4.10.0-3 amd64 [installed,automatic]
+fontconfig-config/testing,now 2.15.0-2.4 amd64 [installed,automatic]
+fontconfig/testing,now 2.15.0-2.4 amd64 [installed,automatic]
+fonts-dejavu-core/testing,now 2.37-8 all [installed,automatic]
+fonts-dejavu-mono/testing,now 2.37-8 all [installed,automatic]
+g++-15-x86-64-linux-gnu/testing,now 15.2.0-4 amd64 [installed,automatic]
+g++-15/testing,now 15.2.0-4 amd64 [installed,automatic]
+g++-x86-64-linux-gnu/testing,now 4:15.2.0-4 amd64 [installed,automatic]
+g++/testing,now 4:15.2.0-4 amd64 [installed,automatic]
+gcc-15-base/testing,now 15.2.0-4 amd64 [installed,automatic]
+gcc-15-x86-64-linux-gnu/testing,now 15.2.0-4 amd64 [installed,automatic]
+gcc-15/testing,now 15.2.0-4 amd64 [installed,automatic]
+gcc-x86-64-linux-gnu/testing,now 4:15.2.0-4 amd64 [installed,automatic]
+gcc/testing,now 4:15.2.0-4 amd64 [installed,automatic]
+gettext-base/testing,now 0.23.1-2+b1 amd64 [installed,automatic]
+gettext/testing,now 0.23.1-2+b1 amd64 [installed,automatic]
+gir1.2-atk-1.0/testing,now 2.58.1-1 amd64 [installed,automatic]
+gir1.2-atspi-2.0/testing,now 2.58.1-1 amd64 [installed,automatic]
+gir1.2-ctk-3.0/unknown,now 3.25.6-1 amd64 [installed]
+gir1.2-freedesktop-dev/testing,now 1.86.0-6 amd64 [installed,automatic]
+gir1.2-freedesktop/testing,now 1.86.0-6 amd64 [installed,automatic]
+gir1.2-gdkpixbuf-2.0/testing,now 2.44.4+dfsg-1 amd64 [installed,automatic]
+gir1.2-girepository-2.0-dev/testing,now 1.86.0-6 amd64 [installed,automatic]
+gir1.2-girepository-2.0/testing,now 1.86.0-6 amd64 [installed,automatic]
+gir1.2-glib-2.0-dev/testing,now 2.86.1-1 amd64 [installed,automatic]
+gir1.2-glib-2.0/testing,now 2.86.1-1 amd64 [installed,automatic]
+gir1.2-harfbuzz-0.0/testing,now 12.1.0-1 amd64 [installed,automatic]
+gir1.2-pango-1.0/testing,now 1.56.3-2 amd64 [installed,automatic]
+girepository-tools/testing,now 2.86.1-1 amd64 [installed,automatic]
+git-man/testing,now 1:2.51.0-1 all [installed,automatic]
+git/testing,now 1:2.51.0-1 amd64 [installed]
+gobject-introspection-bin/testing,now 1.86.0-6 amd64 [installed,automatic]
+gobject-introspection/testing,now 1.86.0-6 amd64 [installed]
+grep/testing,now 3.12-1 amd64 [installed,automatic]
+gsettings-desktop-schemas/testing,now 49.1-1 all [installed,automatic]
+gtk-doc-tools/testing,now 1.35.1-1 all [installed]
+gzip/testing,now 1.13-1 amd64 [installed,automatic]
+hicolor-icon-theme/testing,now 0.18-2 all [installed,automatic]
+hostname/testing,now 3.25 amd64 [installed,automatic]
+icu-devtools/testing,now 76.1-4 amd64 [installed,automatic]
+init-system-helpers/testing,now 1.69 all [installed,automatic]
+intltool/testing,now 0.51.0-7 all [installed]
+krb5-locales/testing,now 1.21.3-5 all [installed,automatic]
+less/testing,now 668-1 amd64 [installed,automatic]
+lib32gcc-s1/testing,now 15.2.0-4 amd64 [installed,automatic]
+lib32stdc++6/testing,now 15.2.0-4 amd64 [installed,automatic]
+libacl1/testing,now 2.3.2-2+b1 amd64 [installed,automatic]
+libalgorithm-diff-perl/testing,now 1.201-1 all [installed,automatic]
+libalgorithm-diff-xs-perl/testing,now 0.04-9 amd64 [installed,automatic]
+libalgorithm-merge-perl/testing,now 0.08-5 all [installed,automatic]
+libapparmor1/testing,now 4.1.0-1 amd64 [installed,automatic]
+libapt-pkg7.0/testing,now 3.1.11 amd64 [installed,automatic]
+libasan8/testing,now 15.2.0-4 amd64 [installed,automatic]
+libatk-bridge2.0-0t64/testing,now 2.58.1-1 amd64 [installed,automatic]
+libatk-bridge2.0-dev/testing,now 2.58.1-1 amd64 [installed,automatic]
+libatk1.0-0t64/testing,now 2.58.1-1 amd64 [installed,automatic]
+libatk1.0-dev/testing,now 2.58.1-1 amd64 [installed]
+libatk1.0-doc/testing,now 2.58.1-1 all [installed,automatic]
+libatomic1/testing,now 15.2.0-4 amd64 [installed,automatic]
+libatspi2.0-0t64/testing,now 2.58.1-1 amd64 [installed,automatic]
+libatspi2.0-dev/testing,now 2.58.1-1 amd64 [installed,automatic]
+libattr1/testing,now 1:2.5.2-3 amd64 [installed,automatic]
+libaudit-common/testing,now 1:4.1.2-1 all [installed,automatic]
+libaudit1/testing,now 1:4.1.2-1 amd64 [installed,automatic]
+libauthen-sasl-perl/testing,now 2.1900-1 all [installed,automatic]
+libavahi-client3/testing,now 0.8-17 amd64 [installed,automatic]
+libavahi-common-data/testing,now 0.8-17 amd64 [installed,automatic]
+libavahi-common3/testing,now 0.8-17 amd64 [installed,automatic]
+libbinutils/testing,now 2.45-8 amd64 [installed,automatic]
+libblkid-dev/testing,now 2.41.2-1 amd64 [installed,automatic]
+libblkid1/testing,now 2.41.2-1 amd64 [installed,automatic]
+libboost-iostreams1.83.0/testing,now 1.83.0-5 amd64 [installed,automatic]
+libbrotli-dev/testing,now 1.1.0-2+b7 amd64 [installed,automatic]
+libbrotli1/testing,now 1.1.0-2+b7 amd64 [installed,automatic]
+libbsd0/testing,now 0.12.2-2 amd64 [installed,automatic]
+libbz2-1.0/testing,now 1.0.8-6 amd64 [installed,automatic]
+libbz2-dev/testing,now 1.0.8-6 amd64 [installed,automatic]
+libc-bin/testing,now 2.41-12 amd64 [installed,automatic]
+libc-dev-bin/testing,now 2.41-12 amd64 [installed,automatic]
+libc6-dev/testing,now 2.41-12 amd64 [installed,automatic]
+libc6-i386/testing,now 2.41-12 amd64 [installed,automatic]
+libc6/testing,now 2.41-12 amd64 [installed,automatic]
+libcairo-gobject2/testing,now 1.18.4-1+b1 amd64 [installed,automatic]
+libcairo-script-interpreter2/testing,now 1.18.4-1+b1 amd64 [installed,automatic]
+libcairo2-dev/testing,now 1.18.4-1+b1 amd64 [installed,automatic]
+libcairo2/testing,now 1.18.4-1+b1 amd64 [installed,automatic]
+libcap-dev/testing,now 1:2.75-10+b1 amd64 [installed,automatic]
+libcap-ng0/testing,now 0.8.5-4+b1 amd64 [installed,automatic]
+libcap2/testing,now 1:2.75-10+b1 amd64 [installed,automatic]
+libcbor0.10/testing,now 0.10.2-2 amd64 [installed,automatic]
+libcc1-0/testing,now 15.2.0-4 amd64 [installed,automatic]
+libclang-common-19-dev/testing,now 1:19.1.7-7 amd64 [installed,automatic]
+libclang-cpp19/testing,now 1:19.1.7-7 amd64 [installed,automatic]
+libclang-rt-19-dev/testing,now 1:19.1.7-7 amd64 [installed,automatic]
+libclang1-19/testing,now 1:19.1.7-7 amd64 [installed,automatic]
+libclone-perl/testing,now 0.47-1+b1 amd64 [installed,automatic]
+libcolord2/testing,now 1.4.8-1 amd64 [installed,automatic]
+libcom-err2/testing,now 1.47.2-3+b3 amd64 [installed,automatic]
+libcrypt-dev/testing,now 1:4.4.38-1 amd64 [installed,automatic]
+libcrypt-urandom-perl/testing,now 0.54-1 amd64 [installed,automatic]
+libcrypt1/testing,now 1:4.4.38-1 amd64 [installed,automatic]
+libcryptsetup12/testing,now 2:2.8.1-1 amd64 [installed,automatic]
+libctf-nobfd0/testing,now 2.45-8 amd64 [installed,automatic]
+libctf0/testing,now 2.45-8 amd64 [installed,automatic]
+libctk-3-0/unknown,now 3.25.6-1 amd64 [installed]
+libctk-3-bin/unknown,now 3.25.6-1 amd64 [installed,automatic]
+libctk-3-common/unknown,now 3.25.6-1 all [installed]
+libctk-3-dev/unknown,now 3.25.6-1 amd64 [installed]
+libctk-3-doc/unknown,now 3.25.6-1 all [installed]
+libcups2t64/testing,now 2.4.14-1 amd64 [installed,automatic]
+libcurl3t64-gnutls/testing,now 8.17.0~rc2-1 amd64 [installed,automatic]
+libcurl4t64/testing,now 8.17.0~rc2-1 amd64 [installed,automatic]
+libcwidget4/testing,now 0.5.18-6+b2 amd64 [installed,automatic]
+libdata-dump-perl/testing,now 1.25-1 all [installed,automatic]
+libdatrie-dev/testing,now 0.2.13-4 amd64 [installed,automatic]
+libdatrie1/testing,now 0.2.13-4 amd64 [installed,automatic]
+libdav1d7/testing,now 1.5.1-1 amd64 [installed,automatic]
+libdb5.3t64/testing,now 5.3.28+dfsg2-10 amd64 [installed,automatic]
+libdbus-1-3/testing,now 1.16.2-2 amd64 [installed,automatic]
+libdbus-1-dev/testing,now 1.16.2-2 amd64 [installed,automatic]
+libdconf1/testing,now 0.49.0-1 amd64 [installed,automatic]
+libdebconfclient0/testing,now 0.280 amd64 [installed,automatic]
+libdeflate-dev/testing,now 1.23-2 amd64 [installed,automatic]
+libdeflate0/testing,now 1.23-2 amd64 [installed,automatic]
+libdevmapper1.02.1/testing,now 2:1.02.205-2 amd64 [installed,automatic]
+libdpkg-perl/testing,now 1.22.21 all [installed,automatic]
+libdrm-amdgpu1/testing,now 2.4.127-1 amd64 [installed,automatic]
+libdrm-common/testing,now 2.4.127-1 all [installed,automatic]
+libdrm-intel1/testing,now 2.4.127-1 amd64 [installed,automatic]
+libdrm2/testing,now 2.4.127-1 amd64 [installed,automatic]
+libedit2/testing,now 3.1-20250104-1 amd64 [installed,automatic]
+libegl-dev/testing,now 1.7.0-1+b2 amd64 [installed,automatic]
+libegl-mesa0/testing,now 25.2.5-1 amd64 [installed,automatic]
+libegl1-mesa-dev/testing,now 25.2.5-1 amd64 [installed,automatic]
+libegl1/testing,now 1.7.0-1+b2 amd64 [installed,automatic]
+libelf1t64/testing,now 0.193-3 amd64 [installed,automatic]
+libencode-locale-perl/testing,now 1.05-3 all [installed,automatic]
+libepoxy-dev/testing,now 1.5.10-2 amd64 [installed,automatic]
+libepoxy0/testing,now 1.5.10-2 amd64 [installed,automatic]
+liberror-perl/testing,now 0.17030-1 all [installed,automatic]
+libexpat1-dev/testing,now 2.7.3-1 amd64 [installed,automatic]
+libexpat1/testing,now 2.7.3-1 amd64 [installed,automatic]
+libfakeroot/testing,now 1.37.1.2-1 amd64 [installed,automatic]
+libffi-dev/testing,now 3.5.2-2 amd64 [installed,automatic]
+libffi8/testing,now 3.5.2-2 amd64 [installed,automatic]
+libfido2-1/testing,now 1.16.0-2 amd64 [installed,automatic]
+libfile-fcntllock-perl/testing,now 0.22-4+b4 amd64 [installed,automatic]
+libfile-listing-perl/testing,now 6.16-1 all [installed,automatic]
+libfont-afm-perl/testing,now 1.20-4 all [installed,automatic]
+libfontconfig-dev/testing,now 2.15.0-2.4 amd64 [installed,automatic]
+libfontconfig1/testing,now 2.15.0-2.4 amd64 [installed,automatic]
+libfontenc1/testing,now 1:1.1.8-1+b2 amd64 [installed,automatic]
+libfreetype-dev/testing,now 2.13.3+dfsg-1 amd64 [installed,automatic]
+libfreetype6/testing,now 2.13.3+dfsg-1 amd64 [installed,automatic]
+libfribidi-dev/testing,now 1.0.16-3 amd64 [installed]
+libfribidi0/testing,now 1.0.16-3 amd64 [installed,automatic]
+libgbm1/testing,now 25.2.5-1 amd64 [installed,automatic]
+libgc1/testing,now 1:8.2.10-1 amd64 [installed,automatic]
+libgcc-15-dev/testing,now 15.2.0-4 amd64 [installed,automatic]
+libgcc-s1/testing,now 15.2.0-4 amd64 [installed,automatic]
+libgcrypt20/testing,now 1.11.2-2 amd64 [installed,automatic]
+libgdbm-compat4t64/testing,now 1.26-1 amd64 [installed,automatic]
+libgdbm6t64/testing,now 1.26-1 amd64 [installed,automatic]
+libgdk-pixbuf-2.0-0/testing,now 2.44.4+dfsg-1 amd64 [installed,automatic]
+libgdk-pixbuf-2.0-dev/testing,now 2.44.4+dfsg-1 amd64 [installed,automatic]
+libgdk-pixbuf2.0-bin/testing,now 2.44.4+dfsg-1 amd64 [installed,automatic]
+libgdk-pixbuf2.0-common/testing,now 2.44.4+dfsg-1 all [installed,automatic]
+libgdk-pixbuf2.0-doc/testing,now 2.44.4+dfsg-1 all [installed]
+libgio-2.0-dev-bin/testing,now 2.86.1-1 amd64 [installed,automatic]
+libgio-2.0-dev/testing,now 2.86.1-1 amd64 [installed,automatic]
+libgirepository-1.0-1/testing,now 1.86.0-6 amd64 [installed,automatic]
+libgirepository-1.0-dev/testing,now 1.86.0-6 amd64 [installed,automatic]
+libgirepository-2.0-0/testing,now 2.86.1-1 amd64 [installed,automatic]
+libgirepository1.0-dev/testing,now 1.86.0-6 amd64 [installed]
+libgl-dev/testing,now 1.7.0-1+b2 amd64 [installed,automatic]
+libgl1-mesa-dri/testing,now 25.2.5-1 amd64 [installed,automatic]
+libgl1/testing,now 1.7.0-1+b2 amd64 [installed,automatic]
+libgles-dev/testing,now 1.7.0-1+b2 amd64 [installed,automatic]
+libgles1/testing,now 1.7.0-1+b2 amd64 [installed,automatic]
+libgles2/testing,now 1.7.0-1+b2 amd64 [installed,automatic]
+libglib2.0-0t64/testing,now 2.86.1-1 amd64 [installed,automatic]
+libglib2.0-bin/testing,now 2.86.1-1 amd64 [installed,automatic]
+libglib2.0-data/testing,now 2.86.1-1 all [installed,automatic]
+libglib2.0-dev-bin/testing,now 2.86.1-1 amd64 [installed,automatic]
+libglib2.0-dev/testing,now 2.86.1-1 amd64 [installed]
+libglib2.0-doc/testing,now 2.86.1-1 all [installed]
+libglvnd-core-dev/testing,now 1.7.0-1+b2 amd64 [installed,automatic]
+libglvnd-dev/testing,now 1.7.0-1+b2 amd64 [installed,automatic]
+libglvnd0/testing,now 1.7.0-1+b2 amd64 [installed,automatic]
+libglx-dev/testing,now 1.7.0-1+b2 amd64 [installed,automatic]
+libglx-mesa0/testing,now 25.2.5-1 amd64 [installed,automatic]
+libglx0/testing,now 1.7.0-1+b2 amd64 [installed,automatic]
+libgmp10/testing,now 2:6.3.0+dfsg-5 amd64 [installed,automatic]
+libgnutls30t64/testing,now 3.8.10-3 amd64 [installed,automatic]
+libgomp1/testing,now 15.2.0-4 amd64 [installed,automatic]
+libgpg-error-l10n/testing,now 1.56-2 all [installed,automatic]
+libgpg-error0/testing,now 1.56-2 amd64 [installed,automatic]
+libgpm2/testing,now 1.20.7-12 amd64 [installed,automatic]
+libgprofng0/testing,now 2.45-8 amd64 [installed,automatic]
+libgraphite2-3/testing,now 1.3.14-11 amd64 [installed,automatic]
+libgraphite2-dev/testing,now 1.3.14-11 amd64 [installed,automatic]
+libgssapi-krb5-2/testing,now 1.21.3-5 amd64 [installed,automatic]
+libharfbuzz-cairo0/testing,now 12.1.0-1 amd64 [installed,automatic]
+libharfbuzz-dev/testing,now 12.1.0-1 amd64 [installed,automatic]
+libharfbuzz-gobject0/testing,now 12.1.0-1 amd64 [installed,automatic]
+libharfbuzz-icu0/testing,now 12.1.0-1 amd64 [installed,automatic]
+libharfbuzz-subset0/testing,now 12.1.0-1 amd64 [installed,automatic]
+libharfbuzz0b/testing,now 12.1.0-1 amd64 [installed,automatic]
+libhogweed6t64/testing,now 3.10.2-1 amd64 [installed,automatic]
+libhtml-form-perl/testing,now 6.13-1 all [installed,automatic]
+libhtml-format-perl/testing,now 2.16-2 all [installed,automatic]
+libhtml-parser-perl/testing,now 3.83-1+b2 amd64 [installed,automatic]
+libhtml-tagset-perl/testing,now 3.24-1 all [installed,automatic]
+libhtml-tree-perl/testing,now 5.07-3 all [installed,automatic]
+libhttp-cookies-perl/testing,now 6.11-1 all [installed,automatic]
+libhttp-daemon-perl/testing,now 6.16-1 all [installed,automatic]
+libhttp-date-perl/testing,now 6.06-1 all [installed,automatic]
+libhttp-message-perl/testing,now 7.01-1 all [installed,automatic]
+libhttp-negotiate-perl/testing,now 6.01-2 all [installed,automatic]
+libhwasan0/testing,now 15.2.0-4 amd64 [installed,automatic]
+libice-dev/testing,now 2:1.1.1-1 amd64 [installed,automatic]
+libice6/testing,now 2:1.1.1-1 amd64 [installed,automatic]
+libicu-dev/testing,now 76.1-4 amd64 [installed,automatic]
+libicu76/testing,now 76.1-4 amd64 [installed,automatic]
+libidn2-0/testing,now 2.3.8-4 amd64 [installed,automatic]
+libio-compress-brotli-perl/testing,now 0.004001-2+b3 amd64 [installed,automatic]
+libio-html-perl/testing,now 1.004-3 all [installed,automatic]
+libio-socket-ssl-perl/testing,now 2.095-1 all [installed,automatic]
+libisl23/testing,now 0.27-1 amd64 [installed,automatic]
+libitm1/testing,now 15.2.0-4 amd64 [installed,automatic]
+libjansson4/testing,now 2.14-2+b3 amd64 [installed,automatic]
+libjbig-dev/testing,now 2.1-6.1+b2 amd64 [installed,automatic]
+libjbig0/testing,now 2.1-6.1+b2 amd64 [installed,automatic]
+libjpeg-dev/testing,now 1:2.1.5-4 amd64 [installed,automatic]
+libjpeg62-turbo-dev/testing,now 1:2.1.5-4 amd64 [installed,automatic]
+libjpeg62-turbo/testing,now 1:2.1.5-4 amd64 [installed,automatic]
+libjson-c5/testing,now 0.18+ds-1.1 amd64 [installed,automatic]
+libk5crypto3/testing,now 1.21.3-5 amd64 [installed,automatic]
+libkeyutils1/testing,now 1.6.3-6 amd64 [installed,automatic]
+libkmod2/testing,now 34.2-2 amd64 [installed,automatic]
+libkrb5-3/testing,now 1.21.3-5 amd64 [installed,automatic]
+libkrb5support0/testing,now 1.21.3-5 amd64 [installed,automatic]
+liblastlog2-2/testing,now 2.41.2-1 amd64 [installed,automatic]
+liblcms2-2/testing,now 2.16-2 amd64 [installed,automatic]
+libldap-common/testing,now 2.6.10+dfsg-1 all [installed,automatic]
+libldap2/testing,now 2.6.10+dfsg-1 amd64 [installed,automatic]
+liblerc-dev/testing,now 4.0.0+ds-5 amd64 [installed,automatic]
+liblerc4/testing,now 4.0.0+ds-5 amd64 [installed,automatic]
+libllvm19/testing,now 1:19.1.7-7 amd64 [installed,automatic]
+liblocale-gettext-perl/testing,now 1.07-7+b1 amd64 [installed,automatic]
+liblsan0/testing,now 15.2.0-4 amd64 [installed,automatic]
+liblwp-mediatypes-perl/testing,now 6.04-2 all [installed,automatic]
+liblwp-protocol-https-perl/testing,now 6.14-1 all [installed,automatic]
+liblz4-1/testing,now 1.10.0-4 amd64 [installed,automatic]
+liblzma-dev/testing,now 5.8.1-2 amd64 [installed,automatic]
+liblzma5/testing,now 5.8.1-2 amd64 [installed,automatic]
+liblzo2-2/testing,now 2.10-3+b1 amd64 [installed,automatic]
+libmagic-mgc/testing,now 1:5.46-5 amd64 [installed,automatic]
+libmagic1t64/testing,now 1:5.46-5 amd64 [installed,automatic]
+libmailtools-perl/testing,now 2.22-1 all [installed,automatic]
+libmd0/testing,now 1.1.0-2+b1 amd64 [installed,automatic]
+libmount-dev/testing,now 2.41.2-1 amd64 [installed,automatic]
+libmount1/testing,now 2.41.2-1 amd64 [installed,automatic]
+libmpc3/testing,now 1.3.1-2 amd64 [installed,automatic]
+libmpfr6/testing,now 4.2.2-2 amd64 [installed,automatic]
+libncurses-dev/testing,now 6.5+20250216-2 amd64 [installed,automatic]
+libncurses6/testing,now 6.5+20250216-2 amd64 [installed,automatic]
+libncursesw6/testing,now 6.5+20250216-2 amd64 [installed,automatic]
+libnet-http-perl/testing,now 6.24-1 all [installed,automatic]
+libnet-smtp-ssl-perl/testing,now 1.04-2 all [installed,automatic]
+libnet-ssleay-perl/testing,now 1.94-3 amd64 [installed,automatic]
+libnettle8t64/testing,now 3.10.2-1 amd64 [installed,automatic]
+libnghttp2-14/testing,now 1.64.0-1.1+b1 amd64 [installed,automatic]
+libnghttp3-9/testing,now 1.12.0-1 amd64 [installed,automatic]
+libngtcp2-16/testing,now 1.16.0-1 amd64 [installed,automatic]
+libngtcp2-crypto-gnutls8/testing,now 1.16.0-1 amd64 [installed,automatic]
+libngtcp2-crypto-ossl0/testing,now 1.16.0-1 amd64 [installed,automatic]
+libnss-systemd/testing,now 258.1-2 amd64 [installed,automatic]
+libobjc-15-dev/testing,now 15.2.0-4 amd64 [installed,automatic]
+libobjc4/testing,now 15.2.0-4 amd64 [installed,automatic]
+libopengl-dev/testing,now 1.7.0-1+b2 amd64 [installed,automatic]
+libopengl0/testing,now 1.7.0-1+b2 amd64 [installed,automatic]
+libosp5/testing,now 1.5.2-15.2 amd64 [installed,automatic]
+libp11-kit0/testing,now 0.25.9-2 amd64 [installed,automatic]
+libpam-modules-bin/testing,now 1.7.0-5 amd64 [installed,automatic]
+libpam-modules/testing,now 1.7.0-5 amd64 [installed,automatic]
+libpam-runtime/testing,now 1.7.0-5 all [installed,automatic]
+libpam-systemd/testing,now 258.1-2 amd64 [installed,automatic]
+libpam0g/testing,now 1.7.0-5 amd64 [installed,automatic]
+libpango-1.0-0/testing,now 1.56.3-2 amd64 [installed,automatic]
+libpango1.0-dev/testing,now 1.56.3-2 amd64 [installed,automatic]
+libpango1.0-doc/testing,now 1.56.3-2 all [installed]
+libpangocairo-1.0-0/testing,now 1.56.3-2 amd64 [installed,automatic]
+libpangoft2-1.0-0/testing,now 1.56.3-2 amd64 [installed,automatic]
+libpangoxft-1.0-0/testing,now 1.56.3-2 amd64 [installed,automatic]
+libpciaccess0/testing,now 0.17-3+b3 amd64 [installed,automatic]
+libpcre2-16-0/testing,now 10.46-1 amd64 [installed,automatic]
+libpcre2-32-0/testing,now 10.46-1 amd64 [installed,automatic]
+libpcre2-8-0/testing,now 10.46-1 amd64 [installed,automatic]
+libpcre2-dev/testing,now 10.46-1 amd64 [installed,automatic]
+libpcre2-posix3/testing,now 10.46-1 amd64 [installed,automatic]
+libperl5.40/testing,now 5.40.1-6 amd64 [installed,automatic]
+libpfm4/testing,now 4.13.0+git106-g3e4031b-1 amd64 [installed,automatic]
+libpipeline1/testing,now 1.5.8-1 amd64 [installed,automatic]
+libpixman-1-0/testing,now 0.46.4-1 amd64 [installed,automatic]
+libpixman-1-dev/testing,now 0.46.4-1 amd64 [installed,automatic]
+libpkgconf3/testing,now 1.8.1-4 amd64 [installed,automatic]
+libpng-dev/testing,now 1.6.50-1 amd64 [installed,automatic]
+libpng-tools/testing,now 1.6.50-1 amd64 [installed,automatic]
+libpng16-16t64/testing,now 1.6.50-1 amd64 [installed,automatic]
+libproc2-0/testing,now 2:4.0.4-9 amd64 [installed,automatic]
+libpsl5t64/testing,now 0.21.2-1.1+b1 amd64 [installed,automatic]
+libpython3-stdlib/testing,now 3.13.7-1 amd64 [installed,automatic]
+libpython3.13-minimal/testing,now 3.13.9-1 amd64 [installed,automatic]
+libpython3.13-stdlib/testing,now 3.13.9-1 amd64 [installed,automatic]
+libquadmath0/testing,now 15.2.0-4 amd64 [installed,automatic]
+libreadline8t64/testing,now 8.3-3 amd64 [installed,automatic]
+librsvg2-2/testing,now 2.60.0+dfsg-1+b1 amd64 [installed,automatic]
+librsvg2-common/testing,now 2.60.0+dfsg-1+b1 amd64 [installed,automatic]
+librtmp1/testing,now 2.4+20151223.gitfa8646d.1-3 amd64 [installed,automatic]
+libsasl2-2/testing,now 2.1.28+dfsg1-10 amd64 [installed,automatic]
+libsasl2-modules-db/testing,now 2.1.28+dfsg1-10 amd64 [installed,automatic]
+libsasl2-modules/testing,now 2.1.28+dfsg1-10 amd64 [installed,automatic]
+libseccomp2/testing,now 2.6.0-2 amd64 [installed,automatic]
+libselinux1-dev/testing,now 3.9-2 amd64 [installed,automatic]
+libselinux1/testing,now 3.9-2 amd64 [installed,automatic]
+libsemanage-common/testing,now 3.9-1 all [installed,automatic]
+libsemanage2/testing,now 3.9-1 amd64 [installed,automatic]
+libsensors-config/testing,now 1:3.6.2-2 all [installed,automatic]
+libsensors5/testing,now 1:3.6.2-2 amd64 [installed,automatic]
+libsepol-dev/testing,now 3.9-2 amd64 [installed,automatic]
+libsepol2/testing,now 3.9-2 amd64 [installed,automatic]
+libsframe2/testing,now 2.45-8 amd64 [installed,automatic]
+libsharpyuv-dev/testing,now 1.5.0-0.1 amd64 [installed,automatic]
+libsharpyuv0/testing,now 1.5.0-0.1 amd64 [installed,automatic]
+libsigc++-2.0-0v5/testing,now 2.12.1-4 amd64 [installed,automatic]
+libsm-dev/testing,now 2:1.2.6-1 amd64 [installed,automatic]
+libsm6/testing,now 2:1.2.6-1 amd64 [installed,automatic]
+libsmartcols1/testing,now 2.41.2-1 amd64 [installed,automatic]
+libsqlite3-0/testing,now 3.46.1-8 amd64 [installed,automatic]
+libssh2-1t64/testing,now 1.11.1-1 amd64 [installed,automatic]
+libssl3t64/testing,now 3.5.4-1 amd64 [installed,automatic]
+libstdc++-15-dev/testing,now 15.2.0-4 amd64 [installed,automatic]
+libstdc++6/testing,now 15.2.0-4 amd64 [installed,automatic]
+libsysprof-capture-4-dev/testing,now 49.0-1 amd64 [installed,automatic]
+libsystemd-dev/testing,now 258.1-2 amd64 [installed,automatic]
+libsystemd-shared/testing,now 258.1-2 amd64 [installed,automatic]
+libsystemd0/testing,now 258.1-2 amd64 [installed,automatic]
+libtasn1-6/testing,now 4.20.0-2 amd64 [installed,automatic]
+libtcl8.6/testing,now 8.6.17+dfsg-1 amd64 [installed,automatic]
+libthai-data/testing,now 0.1.29-2 all [installed,automatic]
+libthai-dev/testing,now 0.1.29-2+b1 amd64 [installed,automatic]
+libthai0/testing,now 0.1.29-2+b1 amd64 [installed,automatic]
+libtiff-dev/testing,now 4.7.1-1 amd64 [installed,automatic]
+libtiff6/testing,now 4.7.1-1 amd64 [installed,automatic]
+libtiffxx6/testing,now 4.7.1-1 amd64 [installed,automatic]
+libtimedate-perl/testing,now 2.3300-2 all [installed,automatic]
+libtinfo6/testing,now 6.5+20250216-2 amd64 [installed,automatic]
+libtinyxml2-11/testing,now 11.0.0+dfsg-1+b1 amd64 [installed,automatic]
+libtry-tiny-perl/testing,now 0.32-1 all [installed,automatic]
+libtsan2/testing,now 15.2.0-4 amd64 [installed,automatic]
+libubsan1/testing,now 15.2.0-4 amd64 [installed,automatic]
+libudev1/testing,now 258.1-2 amd64 [installed,automatic]
+libunistring5/testing,now 1.3-2 amd64 [installed,automatic]
+libunwind8/testing,now 1.8.1-0.1 amd64 [installed,automatic]
+liburi-perl/testing,now 5.30-1 all [installed,automatic]
+libuuid1/testing,now 2.41.2-1 amd64 [installed,automatic]
+libvulkan1/testing,now 1.4.321.0-1 amd64 [installed,automatic]
+libwayland-bin/testing,now 1.24.0-2+b1 amd64 [installed,automatic]
+libwayland-client0/testing,now 1.24.0-2+b1 amd64 [installed,automatic]
+libwayland-cursor0/testing,now 1.24.0-2+b1 amd64 [installed,automatic]
+libwayland-dev/testing,now 1.24.0-2+b1 amd64 [installed,automatic]
+libwayland-egl1/testing,now 1.24.0-2+b1 amd64 [installed,automatic]
+libwayland-server0/testing,now 1.24.0-2+b1 amd64 [installed,automatic]
+libwebp-dev/testing,now 1.5.0-0.1 amd64 [installed,automatic]
+libwebp7/testing,now 1.5.0-0.1 amd64 [installed,automatic]
+libwebpdecoder3/testing,now 1.5.0-0.1 amd64 [installed,automatic]
+libwebpdemux2/testing,now 1.5.0-0.1 amd64 [installed,automatic]
+libwebpmux3/testing,now 1.5.0-0.1 amd64 [installed,automatic]
+libwww-perl/testing,now 6.81-1 all [installed,automatic]
+libwww-robotrules-perl/testing,now 6.02-1 all [installed,automatic]
+libx11-6/testing,now 2:1.8.12-1 amd64 [installed,automatic]
+libx11-data/testing,now 2:1.8.12-1 all [installed,automatic]
+libx11-dev/testing,now 2:1.8.12-1 amd64 [installed,automatic]
+libx11-xcb1/testing,now 2:1.8.12-1 amd64 [installed,automatic]
+libxapian30/testing,now 1.4.29-3 amd64 [installed,automatic]
+libxau-dev/testing,now 1:1.0.11-1 amd64 [installed,automatic]
+libxau6/testing,now 1:1.0.11-1 amd64 [installed,automatic]
+libxaw7/testing,now 2:1.0.16-1 amd64 [installed,automatic]
+libxcb-dri3-0/testing,now 1.17.0-2+b1 amd64 [installed,automatic]
+libxcb-glx0/testing,now 1.17.0-2+b1 amd64 [installed,automatic]
+libxcb-present0/testing,now 1.17.0-2+b1 amd64 [installed,automatic]
+libxcb-randr0/testing,now 1.17.0-2+b1 amd64 [installed,automatic]
+libxcb-render0-dev/testing,now 1.17.0-2+b1 amd64 [installed,automatic]
+libxcb-render0/testing,now 1.17.0-2+b1 amd64 [installed,automatic]
+libxcb-shm0-dev/testing,now 1.17.0-2+b1 amd64 [installed,automatic]
+libxcb-shm0/testing,now 1.17.0-2+b1 amd64 [installed,automatic]
+libxcb-sync1/testing,now 1.17.0-2+b1 amd64 [installed,automatic]
+libxcb-xfixes0/testing,now 1.17.0-2+b1 amd64 [installed,automatic]
+libxcb1-dev/testing,now 1.17.0-2+b1 amd64 [installed,automatic]
+libxcb1/testing,now 1.17.0-2+b1 amd64 [installed,automatic]
+libxcomposite-dev/testing,now 1:0.4.6-1 amd64 [installed,automatic]
+libxcomposite1/testing,now 1:0.4.6-1 amd64 [installed,automatic]
+libxcursor-dev/testing,now 1:1.2.3-1 amd64 [installed,automatic]
+libxcursor1/testing,now 1:1.2.3-1 amd64 [installed,automatic]
+libxdamage-dev/testing,now 1:1.1.6-1+b2 amd64 [installed,automatic]
+libxdamage1/testing,now 1:1.1.6-1+b2 amd64 [installed,automatic]
+libxdmcp-dev/testing,now 1:1.1.5-1 amd64 [installed,automatic]
+libxdmcp6/testing,now 1:1.1.5-1 amd64 [installed,automatic]
+libxext-dev/testing,now 2:1.3.4-1+b3 amd64 [installed,automatic]
+libxext6/testing,now 2:1.3.4-1+b3 amd64 [installed,automatic]
+libxfixes-dev/testing,now 1:6.0.0-2+b4 amd64 [installed,automatic]
+libxfixes3/testing,now 1:6.0.0-2+b4 amd64 [installed,automatic]
+libxfont2/testing,now 1:2.0.6-1+b3 amd64 [installed,automatic]
+libxft-dev/testing,now 2.3.6-1+b4 amd64 [installed,automatic]
+libxft2/testing,now 2.3.6-1+b4 amd64 [installed,automatic]
+libxi-dev/testing,now 2:1.8.2-1 amd64 [installed,automatic]
+libxi6/testing,now 2:1.8.2-1 amd64 [installed,automatic]
+libxinerama-dev/testing,now 2:1.1.4-3+b4 amd64 [installed,automatic]
+libxinerama1/testing,now 2:1.1.4-3+b4 amd64 [installed,automatic]
+libxkbcommon-dev/testing,now 1.7.0-2.1 amd64 [installed,automatic]
+libxkbcommon0/testing,now 1.7.0-2.1 amd64 [installed,automatic]
+libxkbfile1/testing,now 1:1.1.0-1+b4 amd64 [installed,automatic]
+libxml-parser-perl/testing,now 2.47-1+b3 amd64 [installed,automatic]
+libxml2-16/testing,now 2.14.6+dfsg-0.1 amd64 [installed,automatic]
+libxml2-dev/testing,now 2.14.6+dfsg-0.1 amd64 [installed]
+libxml2-utils/testing,now 2.14.6+dfsg-0.1 amd64 [installed]
+libxmu6/testing,now 2:1.1.3-3+b4 amd64 [installed,automatic]
+libxmuu1/testing,now 2:1.1.3-3+b4 amd64 [installed,automatic]
+libxpm4/testing,now 1:3.5.17-1+b3 amd64 [installed,automatic]
+libxrandr-dev/testing,now 2:1.5.4-1+b3 amd64 [installed,automatic]
+libxrandr2/testing,now 2:1.5.4-1+b3 amd64 [installed,automatic]
+libxrender-dev/testing,now 1:0.9.12-1 amd64 [installed,automatic]
+libxrender1/testing,now 1:0.9.12-1 amd64 [installed,automatic]
+libxshmfence1/testing,now 1.3.3-1 amd64 [installed,automatic]
+libxslt1.1/testing,now 1.1.43-0.2 amd64 [installed,automatic]
+libxt6t64/testing,now 1:1.2.1-1.3 amd64 [installed,automatic]
+libxtst-dev/testing,now 2:1.2.5-1 amd64 [installed,automatic]
+libxtst6/testing,now 2:1.2.5-1 amd64 [installed,automatic]
+libxxf86vm1/testing,now 1:1.1.4-1+b4 amd64 [installed,automatic]
+libxxhash0/testing,now 0.8.3-2 amd64 [installed,automatic]
+libyaml-0-2/testing,now 0.2.5-2 amd64 [installed,automatic]
+libz3-4/testing,now 4.13.3-1 amd64 [installed,automatic]
+libz3-dev/testing,now 4.13.3-1 amd64 [installed,automatic]
+libzstd-dev/testing,now 1.5.7+dfsg-2 amd64 [installed,automatic]
+libzstd1/testing,now 1.5.7+dfsg-2 amd64 [installed,automatic]
+linux-libc-dev/testing,now 6.16.12-2 all [installed,automatic]
+linux-sysctl-defaults/testing,now 4.14 all [installed,automatic]
+llvm-19-dev/testing,now 1:19.1.7-7 amd64 [installed,automatic]
+llvm-19-linker-tools/testing,now 1:19.1.7-7 amd64 [installed,automatic]
+llvm-19-runtime/testing,now 1:19.1.7-7 amd64 [installed,automatic]
+llvm-19-tools/testing,now 1:19.1.7-7 amd64 [installed,automatic]
+llvm-19/testing,now 1:19.1.7-7 amd64 [installed,automatic]
+login.defs/testing,now 1:4.18.0-2 all [installed,automatic]
+login/testing,now 1:4.16.0-2+really2.41.2-1 amd64 [installed,automatic]
+m4/testing,now 1.4.20-2 amd64 [installed,automatic]
+make/testing,now 4.4.1-2 amd64 [installed,automatic]
+manpages-dev/testing,now 6.15-1 all [installed,automatic]
+manpages/testing,now 6.15-1 all [installed,automatic]
+mawk/testing,now 1.3.4.20250131-1 amd64 [installed,automatic]
+media-types/testing,now 14.0.0 all [installed,automatic]
+mesa-libgallium/testing,now 25.2.5-1 amd64 [installed,automatic]
+mesa-vulkan-drivers/testing,now 25.2.5-1 amd64 [installed,automatic]
+meson/testing,now 1.9.1-1 all [installed]
+mount/testing,now 2.41.2-1 amd64 [installed,automatic]
+native-architecture/testing,now 0.2.6 all [installed,automatic]
+ncurses-base/testing,now 6.5+20250216-2 all [installed,automatic]
+ncurses-bin/testing,now 6.5+20250216-2 amd64 [installed,automatic]
+netbase/testing,now 6.5 all [installed,automatic]
+ninja-build/testing,now 1.12.1-1 amd64 [installed,automatic]
+opensp/testing,now 1.5.2-15.2 amd64 [installed,automatic]
+openssh-client/testing,now 1:10.2p1-2 amd64 [installed,automatic]
+openssl-provider-legacy/testing,now 3.5.4-1 amd64 [installed,automatic]
+openssl/testing,now 3.5.4-1 amd64 [installed,automatic]
+pango1.0-tools/testing,now 1.56.3-2 amd64 [installed,automatic]
+passwd/testing,now 1:4.18.0-2 amd64 [installed,automatic]
+patch/testing,now 2.8-2 amd64 [installed,automatic]
+perl-base/testing,now 5.40.1-6 amd64 [installed,automatic]
+perl-modules-5.40/testing,now 5.40.1-6 all [installed,automatic]
+perl-openssl-defaults/testing,now 7+b2 amd64 [installed,automatic]
+perl/testing,now 5.40.1-6 amd64 [installed,automatic]
+pkgconf-bin/testing,now 1.8.1-4 amd64 [installed,automatic]
+pkgconf/testing,now 1.8.1-4 amd64 [installed,automatic]
+procps/testing,now 2:4.0.4-9 amd64 [installed,automatic]
+psmisc/testing,now 23.7-2 amd64 [installed,automatic]
+publicsuffix/testing,now 20251016.1743-0.1 all [installed,automatic]
+python3-autocommand/testing,now 2.2.2-3 all [installed,automatic]
+python3-bs4/testing,now 4.14.2-1 all [installed,automatic]
+python3-chardet/testing,now 5.2.0+dfsg-2 all [installed,automatic]
+python3-cssselect/testing,now 1.3.0-1 all [installed,automatic]
+python3-html5lib/testing,now 1.2-2 all [installed,automatic]
+python3-inflect/testing,now 7.5.0-1 all [installed,automatic]
+python3-jaraco.context/testing,now 6.0.1-1 all [installed,automatic]
+python3-jaraco.functools/testing,now 4.1.0-1 all [installed,automatic]
+python3-jaraco.text/testing,now 4.0.0-1 all [installed,automatic]
+python3-lxml/testing,now 6.0.2-1 amd64 [installed,automatic]
+python3-mako/testing,now 1.3.10-3 all [installed,automatic]
+python3-markdown/testing,now 3.9-1 all [installed,automatic]
+python3-markupsafe/testing,now 3.0.3-1 amd64 [installed,automatic]
+python3-minimal/testing,now 3.13.7-1 amd64 [installed,automatic]
+python3-more-itertools/testing,now 10.8.0-1 all [installed,automatic]
+python3-packaging/testing,now 25.0-1 all [installed,automatic]
+python3-pkg-resources/testing,now 78.1.1-0.1 all [installed,automatic]
+python3-pygments/testing,now 2.18.0+dfsg-2 all [installed,automatic]
+python3-setuptools/testing,now 78.1.1-0.1 all [installed,automatic]
+python3-soupsieve/testing,now 2.7-2 all [installed,automatic]
+python3-typeguard/testing,now 4.4.4-1 all [installed,automatic]
+python3-typing-extensions/testing,now 4.15.0-1 all [installed,automatic]
+python3-webencodings/testing,now 0.5.1-5 all [installed,automatic]
+python3-yaml/testing,now 6.0.2-2 amd64 [installed,automatic]
+python3-zipp/testing,now 3.23.0-1 all [installed,automatic]
+python3.13-minimal/testing,now 3.13.9-1 amd64 [installed,automatic]
+python3.13/testing,now 3.13.9-1 amd64 [installed,automatic]
+python3/testing,now 3.13.7-1 amd64 [installed,automatic]
+readline-common/testing,now 8.3-3 all [installed,automatic]
+rpcsvc-proto/testing,now 1.4.3-1 amd64 [installed,automatic]
+sed/testing,now 4.9-2 amd64 [installed,automatic]
+sensible-utils/testing,now 0.0.26 all [installed,automatic]
+sgml-base/testing,now 1.31+nmu1 all [installed,automatic]
+sgml-data/testing,now 2.0.11+nmu1 all [installed,automatic]
+shared-mime-info/testing,now 2.4-5+b3 amd64 [installed,automatic]
+sq/testing,now 1.3.1-4 amd64 [installed,automatic]
+sqv/testing,now 1.3.0-3 amd64 [installed,automatic]
+systemd-cryptsetup/testing,now 258.1-2 amd64 [installed,automatic]
+systemd-sysv/testing,now 258.1-2 amd64 [installed,automatic]
+systemd-timesyncd/testing,now 258.1-2 amd64 [installed,automatic]
+systemd/testing,now 258.1-2 amd64 [installed,automatic]
+sysvinit-utils/testing,now 3.15-5 amd64 [installed,automatic]
+tar/testing,now 1.35+dfsg-3.1 amd64 [installed,automatic]
+tcl-expect/testing,now 5.45.4-4 amd64 [installed,automatic]
+tcl8.6/testing,now 8.6.17+dfsg-1 amd64 [installed,automatic]
+tzdata/testing,now 2025b-5 all [installed,automatic]
+util-linux/testing,now 2.41.2-1 amd64 [installed,automatic]
+uuid-dev/testing,now 2.41.2-1 amd64 [installed,automatic]
+wayland-protocols/testing,now 1.45-2 all [installed,automatic]
+x11-common/testing,now 1:7.7+26 all [installed,automatic]
+x11-xkb-utils/testing,now 7.7+9 amd64 [installed,automatic]
+x11proto-dev/testing,now 2024.1-1 all [installed,automatic]
+xauth/testing,now 1:1.1.2-1.1 amd64 [installed]
+xdg-user-dirs/testing,now 0.19-1 amd64 [installed,automatic]
+xfonts-base/testing,now 1:1.0.5+nmu1 all [installed,automatic]
+xfonts-encodings/testing,now 1:1.0.4-2.2 all [installed,automatic]
+xfonts-utils/testing,now 1:7.7+7 amd64 [installed,automatic]
+xkb-data/testing,now 2.42-1 all [installed,automatic]
+xml-core/testing,now 0.19 all [installed,automatic]
+xorg-sgml-doctools/testing,now 1:1.11-1.1 all [installed,automatic]
+xserver-common/testing,now 2:21.1.18-2 all [installed,automatic]
+xsltproc/testing,now 1.1.43-0.2 amd64 [installed,automatic]
+xtrans-dev/testing,now 1.6.0-1 all [installed,automatic]
+xvfb/testing,now 2:21.1.18-2 amd64 [installed]
+xz-utils/testing,now 5.8.1-2 amd64 [installed,automatic]
+zlib1g-dev/testing,now 1:1.3.dfsg+really1.3.1-1+b1 amd64 [installed,automatic]
+zlib1g/testing,now 1:1.3.dfsg+really1.3.1-1+b1 amd64 [installed,automatic]
+Errors detected in the build 0
+Warnings detected in the logs 97
+cppcheck defects detected in the logs 115
+TOTAL warnings detected in the logs 212
