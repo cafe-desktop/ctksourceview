@@ -3,7 +3,7 @@ option('glade_catalog',
        description: 'Whether to install Glade catalog')
 
 option('install_tests',
-       type: 'boolean', value: false,
+       type: 'boolean', value: true,
        description: 'Install test programs')
 
 option('gir',
