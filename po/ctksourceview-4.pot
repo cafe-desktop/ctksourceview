@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ctksourceview-4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-20 16:41+0200\n"
+"POT-Creation-Date: 2025-10-30 11:36+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -616,11 +616,11 @@ msgstr ""
 msgid "Not a regular file."
 msgstr ""
 
-#: ctksourceview/ctksourcefilesaver.c:975
+#: ctksourceview/ctksourcefilesaver.c:978
 msgid "The file is externally modified."
 msgstr ""
 
-#: ctksourceview/ctksourcefilesaver.c:1427
+#: ctksourceview/ctksourcefilesaver.c:1430
 msgid "The buffer contains invalid characters."
 msgstr ""
 
