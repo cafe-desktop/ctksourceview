@@ -4,9 +4,9 @@
 # Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>, 2011, 2013, 2017.
 msgid ""
 msgstr ""
-"Project-Id-Version: ctksourceview 4.10.0\n"
+"Project-Id-Version: ctksourceview 4.11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-20 16:41+0200\n"
+"POT-Creation-Date: 2025-10-30 11:44+0100\n"
 "PO-Revision-Date: 2017-06-10 01:40+0200\n"
 "Last-Translator: Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>\n"
 "Language-Team: Esperanto <gnome-eo-list@gnome.org>\n"
@@ -617,11 +617,11 @@ msgstr "Dosiero estas tro granda."
 msgid "Not a regular file."
 msgstr ""
 
-#: ctksourceview/ctksourcefilesaver.c:975
+#: ctksourceview/ctksourcefilesaver.c:978
 msgid "The file is externally modified."
 msgstr ""
 
-#: ctksourceview/ctksourcefilesaver.c:1427
+#: ctksourceview/ctksourcefilesaver.c:1430
 msgid "The buffer contains invalid characters."
 msgstr ""
 

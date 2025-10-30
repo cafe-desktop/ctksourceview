@@ -7,9 +7,9 @@
 # Мирослав Николић <miroslavnikolic@rocketmail.com>, 2011—2017.
 msgid ""
 msgstr ""
-"Project-Id-Version: ctksourceview 4.10.0\n"
+"Project-Id-Version: ctksourceview 4.11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-20 16:41+0200\n"
+"POT-Creation-Date: 2025-10-30 11:44+0100\n"
 "PO-Revision-Date: 2018-09-29 12:10+0200\n"
 "Last-Translator: Марко М. Костић <marko.m.kostic@gmail.com>\n"
 "Language-Team: српски <gnome-sr@googlegroups.org>\n"
@@ -632,11 +632,11 @@ msgstr "Датотека је превелика."
 msgid "Not a regular file."
 msgstr "Није обична датотека."
 
-#: ctksourceview/ctksourcefilesaver.c:975
+#: ctksourceview/ctksourcefilesaver.c:978
 msgid "The file is externally modified."
 msgstr "Датотека је измењена споља."
 
-#: ctksourceview/ctksourcefilesaver.c:1427
+#: ctksourceview/ctksourcefilesaver.c:1430
 msgid "The buffer contains invalid characters."
 msgstr "Међумеморија садржи неисправне знаке."
 

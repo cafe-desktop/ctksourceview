@@ -13,9 +13,9 @@
 # Fran Dieguez <frandieguez@gnome.org>, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2021.
 msgid ""
 msgstr ""
-"Project-Id-Version: ctksourceview 4.10.0\n"
+"Project-Id-Version: ctksourceview 4.11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-20 16:41+0200\n"
+"POT-Creation-Date: 2025-10-30 11:44+0100\n"
 "PO-Revision-Date: 2021-02-23 20:39+0100\n"
 "Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
 "Language-Team: Proxecto Trasno <proxecto@trasno.gal>\n"
@@ -635,11 +635,11 @@ msgstr "Ficheiro demasiado grande."
 msgid "Not a regular file."
 msgstr "Non é un ficheiro normal."
 
-#: ctksourceview/ctksourcefilesaver.c:975
+#: ctksourceview/ctksourcefilesaver.c:978
 msgid "The file is externally modified."
 msgstr "O ficheiro foi modificado externamente."
 
-#: ctksourceview/ctksourcefilesaver.c:1427
+#: ctksourceview/ctksourcefilesaver.c:1430
 msgid "The buffer contains invalid characters."
 msgstr "O búfer contén caracteres non válidos."
 

@@ -7,9 +7,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: ctksourceview 4.10.0\n"
+"Project-Id-Version: ctksourceview 4.11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-20 16:41+0200\n"
+"POT-Creation-Date: 2025-10-30 11:44+0100\n"
 "PO-Revision-Date: 2016-09-15 07:33+0700\n"
 "Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
 "Language-Team: Vietnamese <gnome-vi-list@gnome.org>\n"
@@ -625,11 +625,11 @@ msgstr "Tập tin quá lớn."
 msgid "Not a regular file."
 msgstr "Không phải là một tập tin thường."
 
-#: ctksourceview/ctksourcefilesaver.c:975
+#: ctksourceview/ctksourcefilesaver.c:978
 msgid "The file is externally modified."
 msgstr "Tập tin đã bị sửa đổi từ bên ngoài."
 
-#: ctksourceview/ctksourcefilesaver.c:1427
+#: ctksourceview/ctksourcefilesaver.c:1430
 msgid "The buffer contains invalid characters."
 msgstr "Bộ nhớ đệm có chứa ký tự không hợp lệ."
 

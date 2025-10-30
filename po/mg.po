@@ -4,9 +4,9 @@
 # Thierry Randrianiriana <randrianiriana@gmail.com>, 2006.
 msgid ""
 msgstr ""
-"Project-Id-Version: ctksourceview 4.10.0\n"
+"Project-Id-Version: ctksourceview 4.11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-20 16:41+0200\n"
+"POT-Creation-Date: 2025-10-30 11:44+0100\n"
 "PO-Revision-Date: 2006-08-04 22:04+0300\n"
 "Last-Translator: Fano Rajaonarisoa <rajfanhar@yahoo.fr>\n"
 "Language-Team: MALAGASY <i18n-malagasy-gnomeL@gna.org>\n"
@@ -614,11 +614,11 @@ msgstr ""
 msgid "Not a regular file."
 msgstr ""
 
-#: ctksourceview/ctksourcefilesaver.c:975
+#: ctksourceview/ctksourcefilesaver.c:978
 msgid "The file is externally modified."
 msgstr ""
 
-#: ctksourceview/ctksourcefilesaver.c:1427
+#: ctksourceview/ctksourcefilesaver.c:1430
 msgid "The buffer contains invalid characters."
 msgstr ""
 

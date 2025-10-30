@@ -14,9 +14,9 @@
 # Efstathios Iosifidis <iosifidis@opensuse.org>, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: ctksourceview 4.10.0\n"
+"Project-Id-Version: ctksourceview 4.11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-20 16:41+0200\n"
+"POT-Creation-Date: 2025-10-30 11:44+0100\n"
 "PO-Revision-Date: 2018-12-25 12:49+0200\n"
 "Last-Translator: Efstathios Iosifidis <iosifidis@opensuse.org>\n"
 "Language-Team: team@lists.gnome.gr\n"
@@ -636,11 +636,11 @@ msgstr "Το αρχείο είναι πολύ μεγάλο."
 msgid "Not a regular file."
 msgstr "Δεν είναι κανονικό αρχείο."
 
-#: ctksourceview/ctksourcefilesaver.c:975
+#: ctksourceview/ctksourcefilesaver.c:978
 msgid "The file is externally modified."
 msgstr "Το αρχείο τροποποιήθηκε εξωτερικά."
 
-#: ctksourceview/ctksourcefilesaver.c:1427
+#: ctksourceview/ctksourcefilesaver.c:1430
 msgid "The buffer contains invalid characters."
 msgstr "Η ενδιάμεση μνήμη περιέχει άκυρους χαρακτήρες."
 
