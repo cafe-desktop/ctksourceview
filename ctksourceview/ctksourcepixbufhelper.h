@@ -32,10 +32,10 @@ void ctk_source_pixbuf_helper_free (CtkSourcePixbufHelper *helper);
 
 G_GNUC_INTERNAL
 void ctk_source_pixbuf_helper_set_pixbuf (CtkSourcePixbufHelper *helper,
-                                          const GdkPixbuf       *pixbuf);
+                                          const CdkPixbuf       *pixbuf);
 
 G_GNUC_INTERNAL
-GdkPixbuf *ctk_source_pixbuf_helper_get_pixbuf (CtkSourcePixbufHelper *helper);
+CdkPixbuf *ctk_source_pixbuf_helper_get_pixbuf (CtkSourcePixbufHelper *helper);
 
 G_GNUC_INTERNAL
 void ctk_source_pixbuf_helper_set_icon_name (CtkSourcePixbufHelper *helper,
@@ -52,7 +52,7 @@ G_GNUC_INTERNAL
 GIcon *ctk_source_pixbuf_helper_get_gicon (CtkSourcePixbufHelper *helper);
 
 G_GNUC_INTERNAL
-GdkPixbuf *ctk_source_pixbuf_helper_render (CtkSourcePixbufHelper *helper,
+CdkPixbuf *ctk_source_pixbuf_helper_render (CtkSourcePixbufHelper *helper,
                                             CtkWidget             *widget,
                                             gint                   size);
 
