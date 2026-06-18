@@ -37,9 +37,9 @@ struct _TestProvider
 	gint priority;
 	gchar *name;
 
-	GdkPixbuf *provider_icon;
+	CdkPixbuf *provider_icon;
 
-	GdkPixbuf *item_icon;
+	CdkPixbuf *item_icon;
 	GIcon *item_gicon;
 
 	/* If it's a random provider, a subset of 'proposals' are choosen on
@@ -112,7 +112,7 @@ test_provider_populate (CtkSourceCompletionProvider *completion_provider,
 						     TRUE);
 }
 
-static GdkPixbuf *
+static CdkPixbuf *
 test_provider_get_icon (CtkSourceCompletionProvider *provider)
 {
 	TestProvider *tp = (TestProvider *)provider;

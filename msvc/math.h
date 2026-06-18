@@ -1,4 +1,4 @@
-/* GdkPixbuf library - Compatibility Math Header for
+/* CdkPixbuf library - Compatibility Math Header for
  *                     pre-Visual Studio 2013 Headers
  *                     to Build CDK-Pixbuf
  *

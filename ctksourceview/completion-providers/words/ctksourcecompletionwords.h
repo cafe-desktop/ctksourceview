@@ -57,7 +57,7 @@ GType		ctk_source_completion_words_get_type	(void) G_GNUC_CONST;
 CTK_SOURCE_AVAILABLE_IN_ALL
 CtkSourceCompletionWords *
 		ctk_source_completion_words_new 	(const gchar              *name,
-		                                         GdkPixbuf                *icon);
+		                                         CdkPixbuf                *icon);
 
 CTK_SOURCE_AVAILABLE_IN_ALL
 void 		ctk_source_completion_words_register 	(CtkSourceCompletionWords *words,
