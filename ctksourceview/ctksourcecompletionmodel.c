@@ -752,7 +752,7 @@ ctk_source_completion_model_init (CtkSourceCompletionModel *self)
 	self->priv = ctk_source_completion_model_get_instance_private (self);
 
 	self->priv->column_types[CTK_SOURCE_COMPLETION_MODEL_COLUMN_MARKUP] = G_TYPE_STRING;
-	self->priv->column_types[CTK_SOURCE_COMPLETION_MODEL_COLUMN_ICON] = GDK_TYPE_PIXBUF;
+	self->priv->column_types[CTK_SOURCE_COMPLETION_MODEL_COLUMN_ICON] = CDK_TYPE_PIXBUF;
 	self->priv->column_types[CTK_SOURCE_COMPLETION_MODEL_COLUMN_ICON_NAME] = G_TYPE_STRING;
 	self->priv->column_types[CTK_SOURCE_COMPLETION_MODEL_COLUMN_GICON] = G_TYPE_ICON;
 	self->priv->column_types[CTK_SOURCE_COMPLETION_MODEL_COLUMN_PROPOSAL] = G_TYPE_OBJECT;
