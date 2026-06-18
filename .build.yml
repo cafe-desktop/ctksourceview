@@ -15,7 +15,6 @@ requires:
     - libfribidi-dev
     - libxml2-dev
     - libxml2-utils
-    - libgdk-pixbuf2.0-doc
     - libglib2.0-dev
     - libglib2.0-doc
     - libgirepository1.0-dev
