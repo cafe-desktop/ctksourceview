@@ -1,29 +1,35 @@
-News in 4.11.0
---------------
-* don't hide deprecations
-* meson: remove project arguments to enable deprecated warnings
-* ci: some improvements
-* avoid deprecated GTimeVal
-* meson_options: enable install tests
-* update translations
+### ctksourceview 4.12.0
+
+  * ci: some improvements
+  * port from GdkPixbuf to CdkPixbuf
 
 
-News in 4.10.0
---------------
-* ci: add debian sid build
-* ctksourceview,meson: set recursive in extract_all_objects
-* test-buffer-output-stream: Fix memory leak
-* ctksourcelanguage-parser-2: reduce the scope of some variables
-* update translations
+### ctksourceview 4.11.0
+
+  * don't hide deprecations
+  * meson: remove project arguments to enable deprecated warnings
+  * ci: some improvements
+  * avoid deprecated GTimeVal
+  * meson_options: enable install tests
+  * update translations
 
 
-News in 4.9.0
--------------
-* gtksourceview 4.8.4 fork
-* ci: enable Github Actions
-* port from GTK to CTK
-* meson_options: disable vapi
-* update AUTHORS
-* meson: avoid deprecated 'meson.build_root' and 'meson.source_root'
-* meson: require 0.58.0
-* update translations
+### ctksourceview 4.10.0
+
+  * ci: add debian sid build
+  * ctksourceview,meson: set recursive in extract_all_objects
+  * test-buffer-output-stream: Fix memory leak
+  * ctksourcelanguage-parser-2: reduce the scope of some variables
+  * update translations
+
+
+### ctksourceview 4.9.0
+
+  * gtksourceview 4.8.4 fork
+  * ci: enable Github Actions
+  * port from GTK to CTK
+  * meson_options: disable vapi
+  * update AUTHORS
+  * meson: avoid deprecated 'meson.build_root' and 'meson.source_root'
+  * meson: require 0.58.0
+  * update translations
